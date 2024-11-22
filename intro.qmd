@@ -1,5 +1,14 @@
 ---
 title: "Introduction"
+format: 
+  html:
+    output-file: intro.html
+    number-sections: true
+    number-depth: 2
+    toc: true
+    code-overflow: wrap
+    code-tools: true
+    embed-resources: false
 ---
 
 ## Structure and workflow of the tutorial
