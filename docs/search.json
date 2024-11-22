@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "",
+    "section": "",
+    "text": "Welcome to the tutorial on \"Formosan languages, corpus and R/RStudio\"\n\n\n\n\n   🧠   Objectives of the tutorial\n\nIn this tutorial, you will learn:\n\nhow to download data from the Internet automatically and quickly,\nhow to process the downloaded data without spending a lot of time with manual tasks,\nhow to create summary tables and images to analyze your data.\n\n\n Who is this tutorial for?\n\n\n\n1- Do I need any background?\nYou do not need any particular background.\nThis tutorial will start with the very basics. If you are already familiar with coding and/or the RStudio interface, it will of course be easier for you.\n\n\n2- Which public?\n\nAnyone interested in Formosan languages[1] is welcome to take this tutorial, regardless if you are an undergraduate or graduate student, research assistant or just curious about quantitative methods and Formosan languages.\n\n  📰    News\n\nNote:\nThe webpage of this tutorial has just been created. That’s why it looks quite empty and some pages not at their right place.\nStay tuned for further developments!\n\n\n[1] I use the term ‘Formosan languages’ as the Austronesian languages from Taiwan, including Yami (even though from a typological perspective, Yami is not a Formosan language)."
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "The workflow of a typical corpus-based study is generally as in the image below.\n\nThe sections and their links can be found in the Table of Contents on the left in addition to the table below.\n\n\n\nChapter and content\nLink\n\n\n\n\nChapter 1: Getting started\nlink\n\n\nDownload and install R/RStudio\nlink\n\n\nPresentation of R/RStudio\nlink\n\n\nWorking with markdown files\nlink\n\n\nChapter 2: Let’s get our data\nlink\n\n\nUnderstanding where the data are on the Internet\nlink\n\n\nScrapting the data from the web with R\nlink\n\n\nChapter 3: Cleaning and analyzing the data\nlink\n\n\nPreprocess the data: Cleaning and transformations\nlink\n\n\nAnalyzing the data\nlink\n\n\n\nThe picture and table above show what this tutorial will cover. In other words, this tutorial will not discuss the fundamental concepts of corpus linguistics, how to ask a research question and how to motivate it. If you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free here. This tutorial will also not discuss advanced statistical methods in corpus linguistics, such as classification analyses or vector space representations."
+  },
+  {
+    "objectID": "intro.html#how-to-get-through-the-exercises",
+    "href": "intro.html#how-to-get-through-the-exercises",
+    "title": "Introduction",
+    "section": "2 How to get through the exercises",
+    "text": "2 How to get through the exercises\nThe best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts (to know more about markdown scripts, you can refer to Section 1.3.\n\nI will provide at the beginning of each section a markdown file prefilled with the structure of the section. You can download this file and open it with R, and just paste the codes at the relevant sections of the script.\nAlternatively, you may wish to write the script yourself, and to work based on the codes in each section. This is also a great way to learn how to structure a markdown file alone!"
+  },
+  {
+    "objectID": "InstallationRRStudio.html",
+    "href": "InstallationRRStudio.html",
+    "title": "Section 1.1 Installation of R/RStudio",
+    "section": "",
+    "text": "So far, we have been talking about something called “R/RStudio”. People familiar with this program know what this is about. However, it can be quite confusing when we have never heard of it.\nWe are actually referring to two programs:\n\n\n\n\n\n\n\nR\nRStudio\n\n\n\n\n\n\n\n\n\nThe main program is called R. This is where all the magic happens. RStudio is a user-friendly interface such that it is easier to work with.\nMaybe a metaphor can help to understand the difference between R and RStudio. As you are engaging yourself in this tutorial, I assume that you have a computer (and that you are using one). You can create folders, open Word or Excel documents, write in it and save them in the folders you created.\n\n\n\n\n\n\nThink about it\n\n\n\nNow it is time to reflect on what you are doing. You have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen. What you may not know is that when doing so, you have run many lines of codes. Actually, it is your computer that ran them in programs able to perform computations. Your role has been to trigger these programs by using the user-friendly interface installed in your computer.\n\n\nThis is the exact same thing with R and RStudio. R will perform the computations that you ask for. And you will ask R to do stuff by clicking on icons and writing commands using the user-friendly interface of RStudio. And this is why you need to download two programs!\n\n\n\n\n\n\nAnecdote\n\n\n\nLet me share a personal anecdote when I just entered graduate school and I had my very first class of language programming for linguistic research. Just before leaving, the instructor said very quickly that we had to, I quote, “download the R program for next time”. I had never heard of R, and to me, calling a program with only one letter seemed kind of awkward. Therefore, I assumed that I misheard the instructions, or that I missed some information. You can just imagine how surprised I was when I googled “R” and actually found that this existed!"
+  },
+  {
+    "objectID": "InstallationRRStudio.html#download-and-install-r-and-rstudio",
+    "href": "InstallationRRStudio.html#download-and-install-r-and-rstudio",
+    "title": "Section 1.1 Installation of R/RStudio",
+    "section": "2 Download and install R and RStudio",
+    "text": "2 Download and install R and RStudio\n\n2.1 Download and install R\nYou can download R for free from the official website here.\nYou have to look for the link in the middle of the first paragraph on the front page.\n\n\n\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\n\n\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft).\n\n\n\nOn the next page, you’ll need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory.\n\n\nWe finally got to the last page! Just click on the first link to download the files, as in the image below.\n\n\n\nJust wait until the file is download, open it and follow the instructions to install R on your computer.\n\n\n\n2.2 Download and install RStudio\n\nNow that R is installed on your computer, it is time to do the same with RStudio. First, let’s go to the RStudio website by clicking here , and you’ll see something like that (if not, it’s just that the RStudio website has changed):\n\n\n\nOnce you’re on the front page, just scroll down to look for the links to download the installing files. Again, you’ll need to choose the right file to download according to the system of your computer: Window, macOS (for the most common), or another one.\n\n\n\nJust click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer."
+  },
+  {
+    "objectID": "InstallationRRStudio.html#launch-and-try",
+    "href": "InstallationRRStudio.html#launch-and-try",
+    "title": "Section 1.1 Installation of R/RStudio",
+    "section": "3 3 Launch and try!",
+    "text": "3 3 Launch and try!\n\nLook for the program called “RStudio” on your computer. Maybe you even have a shortcut on your desktop after installing it. Once you found it, just open RStudio, and you can go to the next section!\n\n\n 🧠 Think about it  Recall that R is the program where the computations are done, and RStudio the user-friendly interface. You may ask why I only said to open the RStudio program when it’s only an interface. The good news is, even if we need to download both R and RStudio, you actually only need to open RStudio when you want to use R!"
+  }
+]

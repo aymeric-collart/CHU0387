@@ -1,7 +1,9 @@
 project:
   type: website
   output-dir: docs
-
+  render:
+    - "*.qmd"
+    - "!Internal/"
 #book:
 #  title: "formosan-corpus-r"
 #  author: "Aymeric Collart"
@@ -46,6 +48,8 @@ website:
       contents: 
         - references.qmd
     - part: "Chapter 3. Cleaning and analyzing the data" 
+
+
 
 bibliography: references.bib
 
