@@ -51,12 +51,10 @@ website:
   page-footer: 
     left: "Copyright 2024, Aymeric Collart" 
     right: 
-      - text: "{{< iconify fa6-brands mastodon >}}"
-        href: "https://fosstodon.org/@MickaelCanouil"
+      - text: "{{< iconify fa6-brands bluesky >}}"
+        href: https://bsky.app/profile/aymericcollart.bsky.social
       - icon: github
-        href: https://github.com/
-      - icon: twitter 
-        href: https://twitter.com/ 
+        href: https://github.com/aymeric-collart
 
 
 
