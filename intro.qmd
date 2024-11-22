@@ -18,18 +18,18 @@ The workflow of a typical corpus-based study is generally as in the image below.
 
 The sections and their links can be found in the Table of Contents on the left in addition to the table below.
 
-| Chapter and content                                   |     | Link                                                                                                              |
-|--------------------------|-----------------------|-----------------------|
-| <b>Chapter 1: Getting started</b>                     |     |                                                                                                                   |
-| ?????? Download and install R/RStudio                    |     | <a href="https://aymeric-courses.github.io/formosan-corpus-r/docs/InstallationR/" target="_blank">link</a>        |
-| ?????? Presentation of R/RStudio                         |     | <a href="https://aymeric-courses.github.io/formosan-corpus-r/docs/RStudioInterface/" target="_blank">link</a>     |
-| ?????? Working with markdown files                       |     | <a href="https://aymeric-courses.github.io/formosan-corpus-r/docs/WorkingWithRMarkdown/" target="_blank">link</a> |
-| <b>Chapter 2: Let's get our data</b>                  |     |                                                                                                                   |
-| ?????? Understanding where the data are on the Internet  |     | <a href="#" target="_blank">link</a>                                                                              |
-| ?????? Scraping the data from the web with R             |     | <a href="#" target="_blank">link</a>                                                                              |
-| <b>Chapter 3: Cleaning and analyzing the data</b>     |     |                                                                                                                   |
-| ?????? Preprocess the data: Cleaning and transformations |     | <a href="#" target="_blank">link</a>                                                                              |
-| ?????? Analyzing the data                                |     | <a href="#" target="_blank">link</a>                                                                              |
+| Chapter and content                                  | Link |
+|------------------------------------------------------|------|
+| **Chapter 1: Getting started**                       | link |
+|  Download and install R/RStudio                      | link |
+|  Presentation of R/RStudio                           | link |
+|  Working with markdown files                         | link |
+| **Chapter 2: Let's get our data**                    | link |
+|  Understanding where the data are on the Internet    | link |
+|  Scrapting the data from the web with R              | link |
+| **Chapter 3: Cleaning and analyzing the data**       | link |
+|  Preprocess the data: Cleaning and transformations   | link |
+|  Analyzing the data                                  | link |
 
 The picture and table above show what this tutorial will cover. In other words, this tutorial will not discuss the fundamental concepts of corpus linguistics, how to ask a research question and how to motivate it. If you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free <a href="https://langsci-press.org/catalog/book/148" target="_blank" class="btn btn--primary">here</a>. This tutorial will also not discuss advanced statistical methods in corpus linguistics, such as classification analyses or vector space representations.
 
