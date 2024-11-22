@@ -34,7 +34,7 @@ website:
       - text: "Get into the workshop"
         href: intro.qmd
   sidebar:
-    style: "docked"
+    #style: "docked"
     search: true
     contents: 
     - text: "Introduction"
