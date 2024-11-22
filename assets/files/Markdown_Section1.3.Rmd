@@ -3,7 +3,7 @@ title: "My first R Markdown script"
 author: "Your name"
 date: "This document was last modified on `r Sys.Date()`"
 output: pdf_document
-toc: true
+toc: yes
 toc-depth: 4
 ---
 
