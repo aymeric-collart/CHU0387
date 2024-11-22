@@ -4,7 +4,7 @@ project:
 
 book:
   title: "formosan-corpus-r"
-  author: "Jane Doe"
+  author: "Aymeric Collart"
   date: "22/11/2024"
   chapters:
     - index.qmd
