@@ -16,20 +16,20 @@ The workflow of a typical corpus-based study is generally as in the image below.
 
 The sections and their links can be found in the Table of Contents on the left in addition to the table below.
 
-| Chapter and content                                  | Link |
-|------------------------------------------------------|------|
-| **Chapter 1: Getting started**                       | link |
-|  Download and install R/RStudio                      | link |
-|  Presentation of R/RStudio                           | link |
-|  Working with markdown files                         | link |
-| **Chapter 2: Let's get our data**                    | link |
-|  Understanding where the data are on the Internet    | link |
-|  Scrapting the data from the web with R              | link |
-| **Chapter 3: Cleaning and analyzing the data**       | link |
-|  Preprocess the data: Cleaning and transformations   | link |
-|  Analyzing the data                                  | link |
+| Chapter and content                               | Link |
+|---------------------------------------------------|------|
+| **Chapter 1: Getting started**                           |
+| Download and install R/RStudio                    | link |
+| Presentation of R/RStudio                         | link |
+| Working with markdown files                       | link |
+| **Chapter 2: Let's get our data**                        |
+| Understanding where the data are on the Internet  | link |
+| Scrapting the data from the web with R            | link |
+| **Chapter 3: Cleaning and analyzing the data**           |
+| Preprocess the data: Cleaning and transformations | link |
+| Analyzing the data                                | link |
 
-The picture and table above show what this tutorial will cover. In other words, this tutorial will not discuss the fundamental concepts of corpus linguistics, how to ask a research question and how to motivate it. If you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free <a href="https://langsci-press.org/catalog/book/148" target="_blank" class="btn btn--primary">here</a>. This tutorial will also not discuss advanced statistical methods in corpus linguistics, such as classification analyses or vector space representations.
+The picture and table above show what this tutorial will cover. In other words, this tutorial will not discuss the fundamental concepts of corpus linguistics, how to ask a research question and how to motivate it. If you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free <a href="https://langsci-press.org/catalog/book/148" target="_blank">here</a>. This tutorial will also not discuss advanced statistical methods in corpus linguistics, such as classification analyses or vector space representations.
 
 ## How to get through the exercises
 
