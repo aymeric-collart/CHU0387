@@ -9,8 +9,14 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
-    - references.qmd
+    - part: "Chapter 1. Getting Started"
+      chapters: 
+        - summary.qmd
+    - part: "Chapter 2. Let's get our data"
+      chapters: 
+        - references.qmd
+    - part: "Chapter 3. Cleaning and analyzing the data"
+
 
 bibliography: references.bib
 
