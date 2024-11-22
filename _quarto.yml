@@ -34,14 +34,14 @@ website:
       - text: "Get into the workshop"
         href: intro.qmd
   sidebar:
-    #style: "docked"
+    style: "docked"
     search: true
     contents: 
     - text: "Introduction"
       href: intro.qmd
     - section: "Chapter 1. Getting Started"
       contents: 
-        - summary.qmd
+        - InstallationRRStudio.qmd
     - section: "Chapter 2. Let's get our data"
       contents: 
         - references.qmd

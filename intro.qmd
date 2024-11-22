@@ -6,8 +6,6 @@ format:
     number-sections: true
     number-depth: 2
     toc: true
-    code-overflow: wrap
-    embed-resources: false
 ---
 
 ## Structure and workflow of the tutorial
