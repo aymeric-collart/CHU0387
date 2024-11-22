@@ -1,76 +1,96 @@
-# Preface {.unnumbered}
+#  {.unnumbered}
 
+```{=html}
 <style>
 hr.rounded {
   border-top: 1px solid #E5E4E2;
   border-radius: 5px;
 }
+p.block {
+  background-color: #eeeeee;
+  color: #404040;
+  border-left: solid #bcbcbc 4px;
+  border-radius: 4px;
+  padding: 0.7em;
+  font-size: 24px;
+}
 </style>
-
+```
 <hr class="rounded">
+
 <br>
+
+```{=html}
 <p style="font-size:32px;
           text-align: center">
-Welcome to the tutorial on "Formosan languages, corpus and R/RStudio"</p>
+Welcome to the tutorial on "Formosan languages, corpus and R/RStudio"
+</p>
+```
 <hr class="rounded">
+
 <br>
 
+```{=html}
 <p style="background-color:#eeeeee;
           color: #404040;
           border-left: solid #bcbcbc 4px;
           border-radius: 4px;
           padding:0.7em;
           font-size:24px">
-
-<b>&nbsp; &#129504; &nbsp;Objectives of the tutorial</b>
-
+<b> &nbsp; &#129504; &nbsp; Objectives of the tutorial</b>
 </p>
-<p>
+```
 In this tutorial, you will learn:
-<ul>
-<li>how to download data from the Internet automatically and quickly,</li>
-<li>how to process the downloaded data without spending a lot of time with manual tasks,</li>
-<li>how to create summary tables and images to analyze your data.</li>
-</ul>
-</p>
-<br>
+
+-   how to download data from the Internet automatically and quickly,
+
+-   how to process the downloaded data without spending a lot of time with manual tasks,
+
+-   how to create summary tables and images to analyze your data.
+
+```{=html}
 <p style="background-color:#eeeeee;
 color: #404040;
 border-left: solid #bcbcbc 4px;
 border-radius: 4px;
 padding:0.7em;
 font-size:24px">
-
-<b>&nbsp; :student: &nbsp; Who is this tutorial for?</b>
+<b> Who is this tutorial for?</b>
 
 </p>
+```
+### 1- Do I need any background?
 
-<h3> 1- Do I need any background? </h3>
+You do not need any particular background.
 
-<p>You do not need any particular background.</p>
-<p>This tutorial will start with the very basics.
-If you are already familiar with coding and/or the RStudio interface, it will of course be easier for you.</p>
+This tutorial will start with the very basics. If you are already familiar with coding and/or the RStudio interface, it will of course be easier for you.
 
-<h3> 2- Which public? </h3>
+### 2- Which public?
 
-<p>Anyone interested in Formosan languages<sup><a href="#footnote1" style="font-size:11px">[1]</a></sup> is welcome to take this tutorial, regardless if you are an undergraduate or graduate student, research assistant or just curious about quantitative methods and Formosan languages.</p>
+<p>
 
-<br>
+Anyone interested in Formosan languages<sup><a href="#footnote1" style="font-size:11px">\[1\]</a></sup> is welcome to take this tutorial, regardless if you are an undergraduate or graduate student, research assistant or just curious about quantitative methods and Formosan languages.
 
+```{=html}
 <p style="background-color:#eeeeee;
 color: #404040;
 border-left: solid #bcbcbc 4px;
 border-radius: 4px;
 padding:0.7em;
 font-size:24px">
-
-<b>&nbsp; &#128240; &nbsp; News</b>
-
-<p class="notice--info"><strong>Note:</strong><br>The webpage of this tutorial has just been created. That's why it looks quite empty and some pages not at their right place.<br>Stay tuned for further developments!<br></p>
-
+<b>&nbsp; &#128240; &nbsp;  News</b>
 </p>
-<br>
+```
+**Note:**
+
+The webpage of this tutorial has just been created. That's why it looks quite empty and some pages not at their right place.
+
+Stay tuned for further developments!
 
 <hr class="rounded">
 
-<p id="footnote1" style="font-size: 11px"> [1] I use the term 'Formosan languages' as the Austronesian languages from Taiwan, including Yami (even though from a typological perspective, Yami is not a Formosan language). </p>
+<p id="footnote1" style="font-size: 12px">
+
+\[1\] I use the term 'Formosan languages' as the Austronesian languages from Taiwan, including Yami (even though from a typological perspective, Yami is not a Formosan language).
+
+</p>
