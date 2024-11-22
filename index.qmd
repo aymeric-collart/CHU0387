@@ -1,9 +1,76 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+<style>
+hr.rounded {
+  border-top: 1px solid #E5E4E2;
+  border-radius: 5px;
+}
+</style>
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+<hr class="rounded">
+<br>
+<p style="font-size:32px;
+          text-align: center">
+Welcome to the tutorial on "Formosan languages, corpus and R/RStudio"</p>
+<hr class="rounded">
+<br>
 
-```{r}
-1 + 1
-```
+<p style="background-color:#eeeeee;
+          color: #404040;
+          border-left: solid #bcbcbc 4px;
+          border-radius: 4px;
+          padding:0.7em;
+          font-size:24px">
+
+<b>&nbsp; &#129504; &nbsp;Objectives of the tutorial</b>
+
+</p>
+<p>
+In this tutorial, you will learn:
+<ul>
+<li>how to download data from the Internet automatically and quickly,</li>
+<li>how to process the downloaded data without spending a lot of time with manual tasks,</li>
+<li>how to create summary tables and images to analyze your data.</li>
+</ul>
+</p>
+<br>
+<p style="background-color:#eeeeee;
+color: #404040;
+border-left: solid #bcbcbc 4px;
+border-radius: 4px;
+padding:0.7em;
+font-size:24px">
+
+<b>&nbsp; :student: &nbsp; Who is this tutorial for?</b>
+
+</p>
+
+<h3> 1- Do I need any background? </h3>
+
+<p>You do not need any particular background.</p>
+<p>This tutorial will start with the very basics.
+If you are already familiar with coding and/or the RStudio interface, it will of course be easier for you.</p>
+
+<h3> 2- Which public? </h3>
+
+<p>Anyone interested in Formosan languages<sup><a href="#footnote1" style="font-size:11px">[1]</a></sup> is welcome to take this tutorial, regardless if you are an undergraduate or graduate student, research assistant or just curious about quantitative methods and Formosan languages.</p>
+
+<br>
+
+<p style="background-color:#eeeeee;
+color: #404040;
+border-left: solid #bcbcbc 4px;
+border-radius: 4px;
+padding:0.7em;
+font-size:24px">
+
+<b>&nbsp; &#128240; &nbsp; News</b>
+
+<p class="notice--info"><strong>Note:</strong><br>The webpage of this tutorial has just been created. That's why it looks quite empty and some pages not at their right place.<br>Stay tuned for further developments!<br></p>
+
+</p>
+<br>
+
+<hr class="rounded">
+
+<p id="footnote1" style="font-size: 11px"> [1] I use the term 'Formosan languages' as the Austronesian languages from Taiwan, including Yami (even though from a typological perspective, Yami is not a Formosan language). </p>
