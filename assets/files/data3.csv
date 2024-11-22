@@ -1,0 +1,41 @@
+"What.is.your.age.","How.many.cups.of.coffee.do.you.typically.drink.per.day.","Count"
+"<18 years old","1",6
+"<18 years old","2",7
+"<18 years old","3",1
+"<18 years old","Less than 1",5
+">65 years old","1",21
+">65 years old","2",37
+">65 years old","3",17
+">65 years old","4",7
+">65 years old","Less than 1",5
+">65 years old","More than 4",7
+"18-24 years old","1",166
+"18-24 years old","2",160
+"18-24 years old","3",33
+"18-24 years old","4",10
+"18-24 years old","Less than 1",70
+"18-24 years old","More than 4",8
+"25-34 years old","1",689
+"25-34 years old","2",828
+"25-34 years old","3",206
+"25-34 years old","4",39
+"25-34 years old","Less than 1",176
+"25-34 years old","More than 4",18
+"35-44 years old","1",274
+"35-44 years old","2",428
+"35-44 years old","3",131
+"35-44 years old","4",36
+"35-44 years old","Less than 1",65
+"35-44 years old","More than 4",14
+"45-54 years old","1",85
+"45-54 years old","2",121
+"45-54 years old","3",47
+"45-54 years old","4",14
+"45-54 years old","Less than 1",16
+"45-54 years old","More than 4",13
+"55-64 years old","1",36
+"55-64 years old","2",78
+"55-64 years old","3",38
+"55-64 years old","4",15
+"55-64 years old","Less than 1",9
+"55-64 years old","More than 4",6
