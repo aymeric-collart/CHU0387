@@ -47,7 +47,16 @@ website:
     - section: "Chapter 2. Let's get our data"
       contents: 
         - references.qmd
-    - part: "Chapter 3. Cleaning and analyzing the data" 
+    - part: "Chapter 3. Cleaning and analyzing the data"
+  page-footer: 
+    left: "Copyright 2024, Aymeric Collart" 
+    right: 
+      - text: "{{< iconify fa6-brands mastodon >}}"
+        href: "https://fosstodon.org/@MickaelCanouil"
+      - icon: github
+        href: https://github.com/
+      - icon: twitter 
+        href: https://twitter.com/ 
 
 
 
