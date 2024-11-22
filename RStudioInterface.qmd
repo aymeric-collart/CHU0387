@@ -2,7 +2,7 @@
 title: "Section 1.2 Introduction to the interface of RStudio and R language"
 format: 
   html:
-    output-file: InstallationRRStudio.html
+    output-file: RStudioInterface.html
     number-sections: true
     number-depth: 2
     toc: true
