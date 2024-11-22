@@ -2,27 +2,27 @@ project:
   type: website
   output-dir: docs
 
-book:
-  title: "formosan-corpus-r"
-  author: "Aymeric Collart"
-  date: "22/11/2024"
-  chapters:
-    - index.qmd
-    - intro.qmd
-    - part: "Chapter 1. Getting Started"
-      chapters: 
-        - summary.qmd
-    - part: "Chapter 2. Let's get our data"
-      chapters: 
-        - references.qmd
-    - part: "Chapter 3. Cleaning and analyzing the data"
-  page-footer: 
-    left: "Copyright 2024, Aymeric Collart" 
-    right: 
-      - icon: github
-        href: https://github.com/
-      - icon: twitter 
-        href: https://twitter.com/ 
+#book:
+#  title: "formosan-corpus-r"
+#  author: "Aymeric Collart"
+#  date: "22/11/2024"
+#  chapters:
+#    - index.qmd
+#    - intro.qmd
+#    - part: "Chapter 1. Getting Started"
+#      chapters: 
+#        - summary.qmd
+#    - part: "Chapter 2. Let's get our data"
+#      chapters: 
+#        - references.qmd
+#    - part: "Chapter 3. Cleaning and analyzing the data"
+#  page-footer: 
+#    left: "Copyright 2024, Aymeric Collart" 
+#    right: 
+#      - icon: github
+#        href: https://github.com/
+#      - icon: twitter 
+#        href: https://twitter.com/ 
 
 website:
   navbar:
@@ -31,6 +31,8 @@ website:
     left:
       - text: "Home"
         href: index.qmd
+      - text: "Get into the workshop"
+        href: intro.qmd
 
 bibliography: references.bib
 
