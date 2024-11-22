@@ -1,11 +1,5 @@
 ---
 title: "Introduction"
-permalink: /docs/introduction/
-layout: single
-toc: true
-toc_sticky: true
-sidebar:
-  nav: docs
 ---
 
 ## Structure and workflow of the tutorial
