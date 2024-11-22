@@ -33,6 +33,19 @@ website:
         href: index.qmd
       - text: "Get into the workshop"
         href: intro.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents: 
+    - text: "Introduction"
+      href: intro.qmd
+    - section: "Chapter 1. Getting Started"
+      contents: 
+        - summary.qmd
+    - section: "Chapter 2. Let's get our data"
+      contents: 
+        - references.qmd
+    - part: "Chapter 3. Cleaning and analyzing the data" 
 
 bibliography: references.bib
 
