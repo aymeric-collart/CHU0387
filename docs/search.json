@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "",
+    "title": "Welcome page",
     "section": "",
     "text": "Welcome to the tutorial on \"Formosan languages, corpus and R/RStudio\"\n\n\n\n\n   🧠   Objectives of the tutorial\n\nIn this tutorial, you will learn:\n\nhow to download data from the Internet automatically and quickly,\nhow to process the downloaded data without spending a lot of time with manual tasks,\nhow to create summary tables and images to analyze your data.\n\n\n Who is this tutorial for?\n\n\n\n1- Do I need any background?\nYou do not need any particular background.\nThis tutorial will start with the very basics. If you are already familiar with coding and/or the RStudio interface, it will of course be easier for you.\n\n\n2- Which public?\n\nAnyone interested in Formosan languages[1] is welcome to take this tutorial, regardless if you are an undergraduate or graduate student, research assistant or just curious about quantitative methods and Formosan languages.\n\n  📰    News\n\nNote:\nThe webpage of this tutorial has just been created. That’s why it looks quite empty and some pages not at their right place.\nStay tuned for further developments!\n\n\n[1] I use the term ‘Formosan languages’ as the Austronesian languages from Taiwan, including Yami (even though from a typological perspective, Yami is not a Formosan language)."
   },
