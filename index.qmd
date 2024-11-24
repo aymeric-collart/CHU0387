@@ -62,8 +62,6 @@ This tutorial will start with the very basics. If you are already familiar with 
 
 ### 2- Which public?
 
-<p>
-
 Anyone interested in Formosan languages<sup><a href="#footnote1" style="font-size:11px">\[1\]</a></sup> is welcome to take this tutorial, regardless if you are an undergraduate or graduate student, research assistant or just curious about quantitative methods and Formosan languages.
 
 ```{=html}
@@ -76,11 +74,14 @@ font-size:24px">
 <b>&nbsp; &#128240; &nbsp;  News</b>
 </p>
 ```
-**Note:**
+
+::: callout-note
+## Note
 
 The webpage of this tutorial has just been created. That's why it looks quite empty and some pages not at their right place.
 
 Stay tuned for further developments!
+:::
 
 <hr class="rounded">
 
