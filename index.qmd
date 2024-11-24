@@ -85,7 +85,7 @@ Stay tuned for further developments!
 
 <hr class="rounded">
 
-<p id="footnote1" style="font-size: 11px">
+<p id="footnote1" style="font-size: 10px">
 
 \[1\] I use the term 'Formosan languages' as the Austronesian languages from Taiwan, including Yami (even though from a typological perspective, Yami is not a Formosan language).
 
