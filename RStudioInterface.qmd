@@ -210,7 +210,7 @@ You'll also remark that even if we are using R, it is actually possible to write
 
 Script files have many very useful options, so many that I decided to dedicate a whole section to it. Jump <a href="#" target="_blank">here (link provided later)</a> if you want to know more!
 
-## 2. Libraries
+## Libraries
 
 ### What is the concept of the "libraries"?
 
@@ -307,7 +307,7 @@ Let's keep the metaphor of the articles and books published by other people. You
 Does having the book at home mean that you just need to go to your kitchen and start cooking? Of course not! You need to have this book opened with you in the kitchen to follow the recipies! This is exactly what we are doing when we load the packages in the ***'library()'*** step!
 :::
 
-## 3. Some basic elements of R language
+## Some basic elements of R language
 
 This subsection will introduce some basic elements of R codes that cannot be avoided. I will introduce codes referred to as 'R-based', meaning that there is no need to install any additional packages.
 

@@ -1,0 +1,13 @@
+---
+title: "Instructor"
+format: 
+  html:
+    output-file: instructor.html
+    number-sections: true
+    number-depth: 2
+    toc: true
+---
+
+Name: Aymeric Collart
+
+Personal website: <a href="https://aymeric-collart.github.io/" target="_blank">https://aymeric-collart.github.io/</a>
