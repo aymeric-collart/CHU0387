@@ -23,7 +23,7 @@ hr.rounded {
 In this section, we will focus more on one type of R scripts: R Markdown files. The reason is that we are going to use R Markdowns instead of raw R scripts from now on, so we need to know more about how R Markdown files work in addition to their potential
 :::
 
-## What are R Markdown files, and how to open one in R?
+# What are R Markdown files? How to open one in R?
 
 R Markdown files are another type of script you can use in the Script block. They are a little bit more complex than raw R scripts because they need to be configured, but it is not complicated. In addition, the RStudio interface is very user-friendly, so there is almost no additional coding to do.
 
@@ -65,7 +65,7 @@ We will mainly use three options:
 There are many more options, and there is no point in describing all of them here as we will mainly use only these three ones above. However, I encourage you to try everything and see what is happening. Try to write something, change the size, change the font. Click on the buttons. There will be error messages, but that's ok. Try to understand these errors if possible. Check any changes that occurred. Again, make these Markdown files your own!
 :::
 
-## The structure of R Markdown files
+# The structure of R Markdown files
 
 Now we can turn to the structure of the R Markdown document itself. It has two main components:
 
@@ -74,9 +74,9 @@ Now we can turn to the structure of the R Markdown document itself. It has two m
 
 We will take the codes from <a href="https://aymeric-collart.github.io/formosan-corpus-r/RStudioInterface.html#your-first-script-some-syntax-and-vocabulary-of-r" target="_blank">Section 1.2</a> as an example to create our very first R Markdown document.
 
-### Configuring the file: The YAML block
+## Configuring the file: The YAML block
 
-#### Basic features of the YAML block
+### Basic features of the YAML block
 
 Let's start with configuring the file: This corresponds to the first lines, or the header, of the script that you have just created. This is called the YAML part. It looks like this so far:
 
@@ -92,7 +92,7 @@ You will remark that there are pre-filled information, such as the title of the 
 2.  **Author:** Change to you name
 3.  **Date:** Change to the date you wish, or even delete this line if you do not wish to add a date
 
-#### More advanced features of the YAML block
+### More advanced features of the YAML block
 
 You can also add other pieces of information, for instance:
 
@@ -132,7 +132,7 @@ In the end, the YAML block should look like this:
     ---
 ```
 
-### Navigating the file: Titles and subparts
+## Navigating the file: Titles and subparts
 
 The titles and subparts are here to give the overall structure of the document. Please note that they are optional: It is possible to write a whole R Markdown document without any title! But as the codes are more and more lengthy, it becomes messy very easily to the point that it is very difficult to understand what we are doing. In other words, the titles and subparts are here to clarify everything!
 
@@ -146,15 +146,15 @@ I personally prefer when the structure is numbered, this is why I add the number
 
 The titles and subparts are also very important to **set the table of contents**!
 
-### Writing the content
+## Writing the content
 
-#### Writing the narrative
+### Writing the narrative
 
 Nothing more simple: You can write directly inside the document. Just do not forget to check that the style is set as "Normal" and not "Header 1", "Header 2", etc. when doing so!
 
 This is a big difference with R Script. Everything you write in an R Script is considered as a code, unless you use the hashtag signs to tell R that this is a comment. In other words, everything that you write in the document is considered as a comment, so do not hesitate to write as much as you want as long as it makes things clearer for you!
 
-#### Writing the code
+### Writing the code
 
 If what we write inside the document is not considered as a code, then how to add one?
 
@@ -185,7 +185,7 @@ Finally, you can run the code chunk without running ALL the document. Can you se
 
 You can save your Markdown document as usual, but this will not give you the output that you want (unless you ticked the "Knit on Save" option). To do so, you need to click on the "Knit" button at the top of it. Since we have already specified in the YAML block that we want a PDF document, there is no need to choose between other options. But you can have a look at it and try other options, such as "Knit to HTML"!
 
-## Markdown and PDF documents of Sections 1.2 and 1.3
+# Markdown and PDF documents of Sections 1.2 and 1.3
 
 Maybe you were playing with your own R Markdown document at the same time as you were following this section, and add the codes of the Section 1.2 in it. In that case, congratulations! You have your very first R Markdown document ready! If not, you can just download the template <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/Markdown_Section1.3.Rmd" target="_blank">here</a>.</p>
 

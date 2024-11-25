@@ -6,9 +6,11 @@ format:
     number-sections: true
     number-depth: 2
     toc: true
+  revealjs:
+    output-file: intro_slides.html
 ---
 
-## Structure and workflow of the tutorial
+# Structure and workflow of the tutorial
 
 The workflow of a typical corpus-based study is generally as in the image below.
 
@@ -31,7 +33,7 @@ The sections and their links can be found in the Table of Contents on the left i
 
 The picture and table above show what this tutorial will cover. In other words, this tutorial will not discuss the fundamental concepts of corpus linguistics, how to ask a research question and how to motivate it. If you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free <a href="https://langsci-press.org/catalog/book/148" target="_blank">here</a>. This tutorial will also not discuss advanced statistical methods in corpus linguistics, such as classification analyses or vector space representations.
 
-## How to get through the exercises
+# How to get through the exercises
 
 The best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts (to know more about markdown scripts, you can refer to <a href="https://aymeric-courses.github.io/formosan-corpus-r/docs/WorkingWithRMarkdown/" target="_blank">Section 1.3</a>.
 

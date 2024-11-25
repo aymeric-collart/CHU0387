@@ -6,6 +6,8 @@ format:
     number-sections: true
     number-depth: 2
     toc: true
+  revealjs: 
+    output-file: InstallationRRstudio_slides.html
 ---
 
 ```{=html}
@@ -16,7 +18,7 @@ hr.rounded {
 }
 </style>
 ```
-## What is R? What is RStudio?
+# What is R? What is RStudio?
 
 So far, we have been talking about something called "R/RStudio". People familiar with this program know what this is about. However, it can be quite confusing when we have never heard of it.
 
@@ -44,9 +46,9 @@ This is the exact same thing with R and RStudio. R will perform the computations
 Let me share a personal anecdote when I just entered graduate school and I had my very first class of language programming for linguistic research. Just before leaving, the instructor said very quickly that we had to, I quote, "download R for next time". I had never heard of R, and to me, calling a program with only one letter seemed kind of awkward. Therefore, I assumed that I misheard the instructions, or that I missed some information. You can just imagine how surprised I was when I googled "R" and actually found that this existed!
 :::
 
-## Download and install R and RStudio
+# Download and install R and RStudio
 
-### 2.1 Download and install R
+## Download and install R
 
 You can download R for free from the official website [here](https://www.r-project.org/){target="_blank"}.
 
@@ -92,7 +94,7 @@ We finally got to the last page! Just click on the first link to download the fi
 
 Just wait until the file is downloaded, open it and follow the instructions to install R on your computer.
 
-### 2.2 Download and install RStudio
+## Download and install RStudio
 
 Now that R is installed on your computer, it is time to do the same with RStudio. First, let's go to the RStudio website by clicking <a href="https://posit.co/download/rstudio-desktop/" target="_blank">here</a> , and you will see something like that (if not, it is just that the RStudio website has changed):
 
@@ -112,7 +114,7 @@ Once you are on the front page, just scroll down to look for the links to downlo
 
 Just click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer.
 
-## Launch and try!
+# Launch and try!
 
 <p>Look for the program called "RStudio" on your computer. Maybe you even have a shortcut on your desktop after installing it. Once you found it, just open RStudio, and you can go to the next section!</p>
 

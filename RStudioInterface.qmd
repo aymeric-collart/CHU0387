@@ -24,9 +24,9 @@ Now I assume that R and RStudio are correctly installed on your computer. You ca
 In this section, you will learn more about the RStudio interface and get familiarized with it.<br><br> But this section is not only about presenting the interface! In addition to that, you will also get familiar with the very basics of R language.
 :::
 
-## The interface of RStudio
+# The interface of RStudio
 
-### General overview of the interface: Blocks, blocks, blocks and blocks
+## General overview of the interface: Blocks, blocks, blocks and blocks
 
 You may see the following picture on your screen after opening RStudio:
 
@@ -52,7 +52,7 @@ There are four main blocks, as in the following image. I give them unofficial na
 
 You may not be able to see the 'script block' on your computer for the moment, and again, this is completely normal! Just follow the steps below.
 
-### The computer block
+## The computer block
 
 The 'computer block' is the one on the bottom right side. I call it the 'computer block' but it's actually much more than that, but let's keep it simple for the moment. First, click on the Files button. You will see that there is a list of files and folders from your computer. This is actually the interface you can use to communicate and navigate directly with your computer!
 
@@ -64,7 +64,7 @@ The 'computer block' is the one on the bottom right side. I call it the 'compute
 2.  Try to go to other folders on your computer using the computer block. You'll see there is no mystery, this is just like navigating on your own computer as you usually do!
 :::
 
-### The variable block
+## The variable block
 
 The 'variable block' is the one on the top right side, as in the image below.
 
@@ -117,13 +117,13 @@ You stocked the calculation '4+2' as a variable, and you can call it anytime you
 
 This example is just here to show what the 'variables' are. With just simple calculations like the ones above, it seems to be quite useless. But you'll realize very quickly through this tutorial that variables are not only useful, but also necessary to handle more data.
 
-### The console block
+## The console block
 
 Now let's talk very briefly about the 'console block'. You just had a glimpse of it when reading the section on the variable block. Actually, there's not a lot more to say about it. **The console block is the place where the code is written and being run.**
 
 In addition to the 'Console' tab, there are also the 'Terminal' tab and the 'Background Jobs' tab. Despite their importance, we won't have have to use them in this tutorial. So let's just skip them!
 
-### The script block
+## The script block
 
 The 'script' block is where you'll work most of the time. You can see it as the Word or the Note Pad of RStudio. You will better understand the importance of the scripts, one more time, with an example. If you've followed Section 1.3, you can see that you have the same code as below in your console.
 
@@ -166,7 +166,7 @@ After that, select everything, and click on 'Run'. You can also have a look at t
 
 This is how you run a script! Alternatively, you can select everything (or just the line you interested in), and press 'enter' on your keyboard. Now you can save your script ("File \> Save") and close R. Find the file you just saved on your computer and open it. Your code is still here!
 
-### Exercise: Play with your blocks!
+## Exercise: Play with your blocks!
 
 Your four blocks are like construction toys you can play with. You can make them disappear and then reappear, you can change their size as you wish, and you can even change the background color. In other words, make RStudio your own!
 
@@ -194,7 +194,7 @@ This is how you change the background color of RStudio:
 I personally change the sizes of the blocks dynamically, depending on the task I'm doing. For example, if I'm writing more complex lines of codes which could be confusing, I enlarge the script block to be sure I'm not missing any parenthesis or comma. When I'm drawing plots, I make the computer block bigger to visualize more clearly what I'm doing, and it helps me to know if I want to add or change anything on the plot.<br> Everyone's experience is different, it just depends on what your preferences are. So, really, make it your own!
 :::
 
-### Bonus: More about the script block
+## Bonus: More about the script block
 
 As you opened a new script, you may have realized that you had the choice between many options, as below.
 
@@ -210,9 +210,9 @@ You'll also remark that even if we are using R, it is actually possible to write
 
 Script files have many very useful options, so many that I decided to dedicate a whole section to it. Jump <a href="#" target="_blank">here (link provided later)</a> if you want to know more!
 
-## Libraries
+# Libraries
 
-### What is the concept of the "libraries"?
+## What is the concept of the "libraries"?
 
 You can do many things with R. Among others:
 
@@ -258,7 +258,7 @@ We need to introduce some concepts now:
 
 We will very often refer to some of them, such as "readxl" to import data from Excel, "ggplot2" to draw figures, "tidyr" and "dplyr" to manipulate data, etc.
 
-### How to install and use libraries?
+## How to install and use libraries?
 
 Installing libraries is quite easy. You have two ways to do so:
 
@@ -307,7 +307,7 @@ Let's keep the metaphor of the articles and books published by other people. You
 Does having the book at home mean that you just need to go to your kitchen and start cooking? Of course not! You need to have this book opened with you in the kitchen to follow the recipies! This is exactly what we are doing when we load the packages in the ***'library()'*** step!
 :::
 
-## Some basic elements of R language
+# Some basic elements of R language
 
 This subsection will introduce some basic elements of R codes that cannot be avoided. I will introduce codes referred to as 'R-based', meaning that there is no need to install any additional packages.
 
@@ -317,7 +317,7 @@ This subsection will introduce some basic elements of R codes that cannot be avo
 While you're going through the examples below, don't hesitate to open an R script, copy and paste the codes, run them to see what happens. In addition, you can also modify the codes and try new things. You may run into errors, but that's ok. From my experience, it is the best way to get used to the R interface.
 :::
 
-### First things first: The 'working directory'
+## First things first: The 'working directory'
 
 This is one of the most important step, and also something that I always (and everybody should) check before anything else. The 'working directory' refers to the folder in your computer R is looking into. While you can navigate in the folders of your computer using the Computer block, this does not mean that R remembers where you are. To do so, you have to tell R:
 
@@ -337,9 +337,9 @@ This is what the 'working directory', it is **THE** folder. Now, how to set your
 
 And you are done! You will see that a line of code appeared in the Console block, actually setting the working directory.
 
-### Your first script: Some syntax and vocabulary of R
+## Your first script: Some syntax and vocabulary of R
 
-#### Add comments
+### Add comments
 
 A useful tip when writing R code is the possibility to add comments. I use it all the time such that I can annotate why I used this function, the size I want to print my figure, etc. Comments are marked with the hashtag sign "\#". See the example below.<br> Note that you can add as many hashtag signs as you want. I personally have the habit to use three hashtag signs, but you could also just use one.
 
@@ -350,7 +350,7 @@ A useful tip when writing R code is the possibility to add comments. I use it al
 
 Now that you know how to add comments in the script you have opened, just comment every line, even the ones that you created yourself!
 
-#### Basic calculations
+### Basic calculations
 
 We have already referred to basic calculations in the previous subsections. These so-called basic calculations can even be complex, as below.
 
@@ -358,7 +358,7 @@ We have already referred to basic calculations in the previous subsections. Thes
 2 + 343 * 34 / (5 - 342 + 45 * 36)
 ```
 
-#### Assigning variables
+### Assigning variables
 
 We have also already mentioned how to assign variables in previous subsections. Let's recall it below.
 
@@ -396,7 +396,7 @@ b <- a
 
 What happened here? You had a variable called 'a', which had the value "6". You also had the variable called 'b', which had the value "This is my first script". In the above line of code, you are asking R to assign the value of the variable a to b... in other words, the value of 'b' becomes the same as 'a'!
 
-#### Load data from your computer to R
+### Load data from your computer to R
 
 You may have already collected data, and you want to import your dataset into R. For this section, let's use the data from the survey of "Great American Coffee Taste Test". You can download the file <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv" target="_blank">here</a>. (source of the data: <a href="https://mavenanalytics.io/data-playground" target="_blank">https://mavenanalytics.io/data-playground</a>
 
@@ -454,7 +454,7 @@ Now you have a new window where you are asked to set the options to import the f
 
 And you are done, now you have a whole dataset ready for manipulation in R!
 
-#### Data description and summary
+### Data description and summary
 
 I assume here that the dataset we just imported is still present in your environment. Now we will learn quick ways to describe and summarize the data we have.
 
@@ -529,7 +529,7 @@ This is what you obtain in the Console block:
 
 How to read this? It is telling us that there are 1986 respondents in the "25-34 years old" group, 960 in the "35-44 years old" group, etc. Also that there are 1277 people drinking 1 cup of coffee per day, 1663 people 2 cups of coffee per day, etc.
 
-#### Transforming the data: add, delete, change
+### Transforming the data: add, delete, change
 
 Transforming the data is the task we spend the most of out time when doing the research. This can be tedious, but it is crucial to plot the right data and to conduct the right analyses. It is also very important to be aware of what we are doing when transforming the data. The aim is to make them more easily readable for R.
 
@@ -622,7 +622,7 @@ You should obtain something like this in the picture below:
 
 There are of course many more ways to transform the data, summarize them, etc. This subsection was only a snapshot of what is possible to do with a very minimum number of lines of codes!
 
-#### Plotting the data
+### Plotting the data
 
 Now that we have summarized data, we can plot to see what they look like. We will use a very straightforward function, called... "plot()"! Let's see what it does with the codes below.
 
@@ -673,7 +673,7 @@ The first plot shows that most of the participants are between 25 and 34 years o
 
 You might be curious whether there is an interaction, with older people drinking more coffee than younger people. In other words, you would need three variables in the codes... which is very difficult to do without other packages, espectially the "ggplot2" one! You can try by yourself!
 
-#### Save data from R to your computer
+### Save data from R to your computer
 
 For some reasons, we may want to save our data in the computer. But we are actually referring to two things at the same time:
 
@@ -708,18 +708,18 @@ Let's unpack it:
 
 It is also possible to export to .xlsx files, more directly readable by Excel, but this requires another library. We will encounter this in the rest of the tutorial.
 
-#### R script of this section
+### R script of this section
 
 You can find the R scripts including the codes presented in this section <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/Script_Section1.2.R" target="_blank">here</a>. Don't hesitate to use it and add comments for each line of code to make your own!
 
-### Common mistakes, or how to save a lot of time
+## Common mistakes, or how to save a lot of time
 
 You will run into many error messages, these intimidating red lines in the console block telling you that something wrong happened. We can spend hours trying to figure out what to do to make the codes work. Again, no worries! This is part of the learning process, and to be honest, even experts can't avoid error messages. The most important thing is to learn from them, so that we are able to understand what the problem is, and how to solve it.
 
 From my experience, there are mistakes we often make especially as first users of R. I remember that many students in the classes I attended and taught gave up on learning programming languages just because they had to spend too much time on debugging very basic mistakes, and they couldn't focus on the opportunities R can offer. Below is a non-exhaustive list of such mistakes that I may update in the future.
 
-#### I can't load the data from my computer
+### I can't load the data from my computer
 
-#### I don't have any error message, but my code won't run
+### I don't have any error message, but my code won't run
 
-#### "Variable not found", what happened?
+### "Variable not found", what happened?
