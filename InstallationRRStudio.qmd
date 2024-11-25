@@ -9,6 +9,7 @@ format:
   revealjs: 
     output-file: InstallationRRstudio_slides.html
     scrollable: true
+    theme: serif
 ---
 
 ```{=html}

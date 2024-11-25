@@ -6,6 +6,10 @@ format:
     number-sections: true
     toc: true
     toc-depth: 4
+  revealjs: 
+    output-file: RStudioInterface_slides.html
+    scrollable: true
+    toc-depth: 4
 ---
 
 ```{=html}
