@@ -1,3 +1,9 @@
+---
+format: 
+  html:
+    output-file: references.html
+---
+
 # References {.unnumbered}
 
 ::: {#refs}

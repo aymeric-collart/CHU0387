@@ -16,6 +16,7 @@ hr.rounded {
 }
 </style>
 ```
+
 ::: {.callout-warning icon="false"}
 ## Objectives
 
@@ -71,7 +72,7 @@ Now we can turn to the structure of the R Markdown document itself. It has two m
 -   The configuration lines,
 -   The content of the document itself.
 
-We will take the codes from <a href="https://aymeric-collart.github.io/formosan-corpus-r/docs/RStudioInterface/#32-your-first-script-some-syntax-and-vocabulary-of-r" target="_blank">Section 1.2</a> as an example to create our very first R Markdown document.
+We will take the codes from <a href="https://aymeric-collart.github.io/formosan-corpus-r/RStudioInterface.html#your-first-script-some-syntax-and-vocabulary-of-r" target="_blank">Section 1.2</a> as an example to create our very first R Markdown document.
 
 ### Configuring the file: The YAML block
 

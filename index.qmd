@@ -1,6 +1,9 @@
 ---
 title: "Welcome page"
 sidebar: false
+format: 
+  html:
+    output-file: index.html
 ---
 
 #  {.unnumbered}
