@@ -4,7 +4,6 @@ format:
   html:
     output-file: RStudioInterface.html
     number-sections: true
-    number-depth: 2
     toc: true
 ---
 
@@ -243,7 +242,7 @@ We need to introduce some concepts now:
 -   Packages/Libraries
 
 | Name            | Concept                                                                                                                                                                                                                                                                                                                                              |
-|--------------------|----------------------------------------------------|
+|------------------------|------------------------------------------------|
 | Line of codes   | Just the code you write in the script/console to perform something specific. They are usually the most simple.                                                                                                                                                                                                                                       |
 | Function        | Sometimes, you need more than one line of code to perform a task. You may even want to perform the exact same task several times, but with different data. Of course, you can just copy and paste the same code everytime, but you can also choose to simplify it into one line of code. This is what a function is: **a cluster of lines of codes** |
 | Library/Package | And very often, you'll need to perform many tasks which require more than one function. You can choose to write all the functions by hand anytime you need them. Or you can just have them already loaded somewhere in R, such that you can refer to them later when you need them. This is what a library or package is: **a cluster of functions** |
@@ -309,110 +308,162 @@ Does having the book at home mean that you just need to go to your kitchen and s
 
 ## 3. Some basic elements of R language
 
-<p>This subsection will introduce some basic elements of R codes that cannot be avoided. I will introduce codes referred to as 'R-based', meaning that there is no need to intall any additional package.</p>
+This subsection will introduce some basic elements of R codes that cannot be avoided. I will introduce codes referred to as 'R-based', meaning that there is no need to install any additional packages.
 
-<p class="notice--success">
+::: callout-tip
+## Play around!
 
-<strong> :computer: Play around!</strong><br> While you're going through the examples below, don't hesitate to open an R script, copy and paste the codes, run them to see what happens. In addition, you can also modify the codes and try new things. You may run into errors, but that's ok. From my experience, it is the best way to get used to the R interface. <br>
-
-</p>
+While you're going through the examples below, don't hesitate to open an R script, copy and paste the codes, run them to see what happens. In addition, you can also modify the codes and try new things. You may run into errors, but that's ok. From my experience, it is the best way to get used to the R interface.
+:::
 
 ### 3.1 First things first: The 'working directory'
 
-<p>This is one of the most important step, and also something that I always (and everybody should) check before anything else. The 'working directory' refers to the folder in your computer R is looking into. While you can navigate in the folders of your computer using the Computer block, this does not mean that R remembers where you are. To do so, you have to tell R:</p>
+This is one of the most important step, and also something that I always (and everybody should) check before anything else. The 'working directory' refers to the folder in your computer R is looking into. While you can navigate in the folders of your computer using the Computer block, this does not mean that R remembers where you are. To do so, you have to tell R:
 
-> This is <strong>THE</strong> folder where the files I will load are, <strong>THE</strong> folder where my script will be saved, <strong>THE</strong> folder where all my files will be saved
+> This is **THE** folder where the files I will load are, **THE** folder where my script will be saved, **THE** folder where all my files will be saved
 
-<p>This is what the 'working directory', it is <strong>THE</strong> folder. Now, how to set your working directory, <strong>THE</strong> folder?</p>
+This is what the 'working directory', it is **THE** folder. Now, how to set your working directory, **THE** folder?
 
-1- Use the Computer block to navigate in your computer until you are in the folder you wish to work in 2- Click on the small image of the wheel, and then click on "Save as Working Directory"
+1.  Use the Computer block to navigate in your computer until you are in the folder you wish to work in,
 
-<a href="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/SetWorkingDirectory.gif?raw=true" class="image-popup" target="_blank"><img src="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/SetWorkingDirectory.gif?raw=true"/></a>
+2.  Click on the small image of the wheel, and then click on "Save as Working Directory"
 
-<p>And you're done! You will see that a line of code appeared in the Console block, actually setting the working directory.</p>
+<hr class="rounded">
+
+![](/assets/images/SetWorkingDirectory.gif)
+
+<hr class="rounded">
+
+And you are done! You will see that a line of code appeared in the Console block, actually setting the working directory.
 
 ### 3.2 Your first script: Some syntax and vocabulary of R
 
-### Add comments
+#### Add comments
 
-<p>A useful tip when writing R code is the possibility to add comments. I use it all the time such that I can annotate why I used this function, the size I want to print my figure, etc. Comments are marked with the hashtag sign "\#". See the example below.<br> Note that you can add as many hashtag signs as you want. I personally have the habit to use three hashtag signs, but you could also just use one.</p>
+A useful tip when writing R code is the possibility to add comments. I use it all the time such that I can annotate why I used this function, the size I want to print my figure, etc. Comments are marked with the hashtag sign "\#". See the example below.<br> Note that you can add as many hashtag signs as you want. I personally have the habit to use three hashtag signs, but you could also just use one.
 
+```{r}
     ### This is a line of comment. I won't be run in the console, even if it is copied there.
-    2+4 ### We can also add comments after a code. In that case, it will only run the code at the beginning of the line, and ignore everything after the # sign.
+    2+4 ### We can also add comments after a code. In that case, it will only run the code at the beginning of the line, and ignore everything after the # sign
+```
 
-<p>Now that you know how to add comments in the script you have opened, just comment every line, even the ones that you created yourself!</p>
+Now that you know how to add comments in the script you have opened, just comment every line, even the ones that you created yourself!
 
 #### Basic calculations
 
-<p>We have already referred to basic calculations in the previous subsections. These so-called basic calculations can even be complex, as below.</p>
+We have already referred to basic calculations in the previous subsections. These so-called basic calculations can even be complex, as below.
 
-    2 + 343 * 34 / (5 - 342 + 45 * 36)
+```{r}
+2 + 343 * 34 / (5 - 342 + 45 * 36)
+```
 
 #### Assigning variables
 
-<p>We have also already mentioned how to assign variables in previous subsections. Let's recall it below.</p>
+We have also already mentioned how to assign variables in previous subsections. Let's recall it below.
 
-    a <- 4+2
+```{r}
+a <- 4+2
+```
 
-<p>Another way to assign variables is by using the equal sign "=". You just obtain the same results. I prefer using "\<-" because I find it visually more salient, but it depends on one's preference.</p>
+Another way to assign variables is by using the equal sign "=". You just obtain the same results. I prefer using "\<-" because I find it visually more salient, but it depends on one's preference.
 
-    a = 4+2
+```{r}
+a = 4+2
+```
 
-<p>You can also assign strings of letters. For example, you can try to add "This is my first script" to the variable "b".</p>
+You can also assign strings of letters. For example, you can try to add "This is my first script" to the variable "b".
 
-    b <- This is my first script
+```{r, eval=FALSE}
+b <- This is my first script
+```
 
-<p>You will remark that... it didn't work! You surely had the following message:</p>
+You will remark that... it didn't work! You surely had the following message:
 
     Error: unexpected symbol in "b <- This is"
 
-<p>This is "This is my first script" has never been defined in R. In other words, R does not know what you are talking about! If you want to add strings of words, you need to use the quotation marks, as below.</p>
+This is "This is my first script" has never been defined in R. In other words, R does not know what you are talking about! If you want to add strings of words, you need to use the quotation marks, as below.
 
-    b <- "This is my first script"
+```{r}
+b <- "This is my first script"
+```
 
-<p>You can also assign tables, datasets, plots, etc. You can even assign variables to variables. Try this below:</p>
+You can also assign tables, datasets, plots, etc. You can even assign variables to variables. Try this below:
 
-    b <- a
+```{r}
+b <- a
+```
 
-<p>What happened here? You had a variable called 'a', which had the value "1". You also had the variable called 'b', which had the value "This is my first script". In the above line of code, you are asking R to assign the value of the variable a to b... in other words, the value of 'b' becomes the same as 'a'!</p>
+What happened here? You had a variable called 'a', which had the value "6". You also had the variable called 'b', which had the value "This is my first script". In the above line of code, you are asking R to assign the value of the variable a to b... in other words, the value of 'b' becomes the same as 'a'!
 
 #### Load data from your computer to R
 
-<p>You may have already collected data, and you want to import your dataset into R. For this section, let's use the data from the survey of "Great American Coffee Taste Test". You can download the file <a href="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv" target="_blank" class="btn btn--primary">here</a>. (source of the data: <a href="https://mavenanalytics.io/data-playground" target="_blank">https://mavenanalytics.io/data-playground</a>).</p>
+You may have already collected data, and you want to import your dataset into R. For this section, let's use the data from the survey of "Great American Coffee Taste Test". You can download the file <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv" target="_blank">here</a>. (source of the data: <a href="https://mavenanalytics.io/data-playground" target="_blank">https://mavenanalytics.io/data-playground</a>
 
-<p class="notice--danger">
+::: callout-caution
+Don't forget to place this file in the folder you are working in, and to set this folder as your working directory!
+:::
 
-Don't forget to place this file in the folder you are working in, and to set this folder as your working directory! <br>
+Now you have two ways to import the data into R:
 
-</p>
+1.  with a line of code, or
 
-<p>Now you have two ways to import the data into R: (1) with a line of code, (2) with the R interface. Let's first do it with the code below.</p>
+2.  with the R interface.
 
-    data <- read.csv("~/fake/GACTT_RESULTS_ANONYMIZED_v2.csv", header=TRUE)
+Let's first do it with the code below.
 
-<p>Now let's decompose this:<br> <strong>-</strong> read.csv(). This is the function which is used to import the file, which is a CSV file.<br> <strong>-</strong> There are two elements inside the function, which are seperated with a comma:<br> <strong>1-</strong> "\~/Fake/GACTT_RESULTS_ANONYMIZED_v2.csv". This is the path to access to the file, as well as the full name of the file.<br> <strong>2-</strong> header=TRUE. This means the first line of the table corresponds to the titles of the columns (you can try and change to "header = FALSE" to see what happens!).<br> <strong>-</strong> Finally, the dataset is assigned to the variable called "data".</p>
+```{r}
+data <- read.csv("~/fake/GACTT_RESULTS_ANONYMIZED_v2.csv", header=TRUE)
+```
 
-<p class="notice">
+Now let's decompose this:
 
-<strong> ???? Think about it </strong><br> Why do we need to assign the data to a variable? As I always say, computers are very powerful and very stupid at the same time: they are here to do in a very short amount of time exactly what you tell them to do. In other words, if you only use the "read.csv()" function, it will only read the data, and forget it, that's it!<br> But what we want to do actually is to read the data and save them into R, such that we can do further manipulations. This is why we need to "save" them using variables!
+-   **read.csv()**. This is the function which is used to import the file, which is a CSV file.
 
-</p>
+-   There are two elements inside the function, which are seperated with a comma:
 
-<p>The second way is to use the R interface. To do so, check you Variable block. You have a tab called "Import Dataset". Just click on it, and then "From Text (base)...". A new window will open, and you just have to choose the file you want to import.<br> Now you have a new window where you are asked to set the options to import the file:<br> <strong>-</strong> You can change the name of the variable it will be assigned to. By default, it is the name of the file. Try to change to "data".<br> <strong>-</strong> You can also set the option that the first line corresponds to the names or labels of the columns. Where you see "Heading", click on "Yes".<br> And finally, you can click on "Import".</p>
+    -   **"\~/Fake/GACTT_RESULTS_ANONYMIZED_v2.csv"**. This is the path to access to the file, as well as the full name of the file
 
-<a href="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/ImportDataBaseR.gif?raw=true" class="image-popup" target="_blank"><img src="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/ImportDataBaseR.gif?raw=true"/></a>
+    -   **header=TRUE**. This means the first line of the table corresponds to the titles of the columns (you can try and change to "header = FALSE" to see what happens!).
 
-<p>And you are done, now you have a whole dataset ready for manipulation in R!</p>
+-   Finally, the dataset is assigned to the variable called "**data**".
+
+::: callout-tip
+### Think about it
+
+Why do we need to assign the data to a variable? As I always say, computers are very powerful and very stupid at the same time: they are here to do in a very short amount of time exactly what you tell them to do. In other words, if you only use the "read.csv()" function, it will only read the data, and forget it, that's it!
+
+But what we want to do actually is to read the data and save them into R, such that we can do further manipulations. This is why we need to "save" them using variables!
+:::
+
+The second way is to use the R interface. To do so, check you Variable block. You have a tab called "Import Dataset". Just click on it, and then "From Text (base)...". A new window will open, and you just have to choose the file you want to import.
+
+Now you have a new window where you are asked to set the options to import the file:
+
+-   You can change the name of the variable it will be assigned to. By default, it is the name of the file. Try to change to "data".
+
+-   You can also set the option that the first line corresponds to the names or labels of the columns. Where you see "Heading", click on "Yes".
+
+-   And finally, you can click on "Import".
+
+<hr class="rounded">
+
+![](/assets/images/ImportDataBaseR.gif)
+
+<hr class="rounded">
+
+And you are done, now you have a whole dataset ready for manipulation in R!
 
 #### Data description and summary
 
-<p>I assume here that the dataset we just imported is still present in your environment. Now we will learn quick ways to describe and summarize the data we have.</p>
+I assume here that the dataset we just imported is still present in your environment. Now we will learn quick ways to describe and summarize the data we have.
 
-<p>The first step is to understand the structure of the dataset. This can be easily done with the 'str()' function.</p>
+The first step is to understand the structure of the dataset. This can be easily done with the 'str()' function.
 
-    str(data)
+```{r, eval=FALSE}
+str(data)
+```
 
-<p>You will obtain the following results. For clarity, I only give the first four lines here.</p>
+You will obtain the following results. For clarity, I only give the first four lines here.
 
     'data.frame':   4042 obs. of  111 variables:
      $ Submission.ID  : chr  "gMR29l" "BkPN0e" "W5G8jj" "4xWgGr" ...
@@ -420,112 +471,137 @@ Don't forget to place this file in the folder you are working in, and to set thi
      $ How.many.cups.of.coffee.do.you.typically.drink.per.day.   : chr  "" "" "" "" ...
      $ Where.do.you.typically.drink.coffee.  : chr  "" "" "" "" ...
 
-<p>This is how to read the data:</p>
+This is how to read the data:
 
 -   The first line indicates the nature of the dataset. This is a "data frame", with 4042 rows and 111 columns. Afterwards, the str() function describes these 111 columns.
 -   The first column is called "Submission.ID". The rows consist of strings of characters, and the str() function shows the data of the first four lines.
 -   The second column is labelled "What.is.your.age.", and again it consists of rows of strings of characters.
 -   The same logic applies for all the lines.
 
-<p>You will remark that we are facing a problem. In this survey, the participants were asked their age, and then their results were annotated as "18-24 years old", "25-34 years old", etc. In other words, there are <strong>groups of age</strong>, but when the data were imported, R considered them as strings of characters. Now we need to tell R that there are groups. This is done with the "as.factor()" function.</p>
+You will remark that we are facing a problem. In this survey, the participants were asked their age, and then their results were annotated as "18-24 years old", "25-34 years old", etc. In other words, there are **groups of age**, but when the data were imported, R considered them as strings of characters. Now we need to tell R that there are groups. This is done with the "as.factor()" function.
 
-    data$What.is.your.age. <- as.factor(data$What.is.your.age.)
+```{r}
+data$What.is.your.age. <- as.factor(data$What.is.your.age.)
+```
 
-<p>Now let's decompose this line:</p>
+Now let's decompose this line:
 
 -   In the as.factor() function, we told R the date from which column needed to be transformed into groups. We now that this is the column called "What.is.your.age." in the dataset called "data". In R language, we write as follows: <i>data<strong>\$</strong>What.is.your.age.</i>. The dollar sign is here to translate "inside of"
 -   If we just write this part, R will only transform this column as a group, but it will not save it. So we need to save this operation in a variable, and as we want to replace the column considered as strings of characters, we do not have to create a new variable: we just use this column!
 
-<p>Actually, the same problem occurs for the two following columns: (1) How.many.cups.of.coffee.do.you.typically.drink.per.day., and (2) Where.do.you.typically.drink.coffee. . So we need to do the same changes.</p>
+Actually, the same problem occurs for the two following columns:
 
-    data$How.many.cups.of.coffee.do.you.typically.drink.per.day. <- as.factor(data$How.many.cups.of.coffee.do.you.typically.drink.per.day.)
+1.  How.many.cups.of.coffee.do.you.typically.drink.per.day., and
 
-    data$Where.do.you.typically.drink.coffee. <- as.factor(data$Where.do.you.typically.drink.coffee.)
+2.  Where.do.you.typically.drink.coffee.
 
-<p>And now let's run the str() function again. Here are the results of the first four lines:</p>
+So we need to do the same changes.
+
+```{r}
+data$How.many.cups.of.coffee.do.you.typically.drink.per.day. <- as.factor(data$How.many.cups.of.coffee.do.you.typically.drink.per.day.)
+
+data$Where.do.you.typically.drink.coffee. <- as.factor(data$Where.do.you.typically.drink.coffee.)
+
+```
+
+And now let's run the str() function again. Here are the results of the first four lines:
 
     'data.frame':   4042 obs. of  111 variables:
      $ Submission.ID  : chr  "gMR29l" "BkPN0e" "W5G8jj" "4xWgGr" ...
      $ What.is.your.age. : Factor w/ 8 levels "","<18 years old",..: 4 5 5 6 5 8 4 1 5 1 ...
      $ How.many.cups.of.coffee.do.you.typically.drink.per.day. : Factor w/ 7 levels "","1","2","3",..: 1 1 1 1 1 1 1 1 6 1 ...
-      $ Where.do.you.typically.drink.coffee. : Factor w/ 66 levels "","At a cafe",..: 1 1 1 1 1 1 10 1 2 1 ...
+     $ Where.do.you.typically.drink.coffee. : Factor w/ 66 levels "","At a cafe",..: 1 1 1 1 1 1 10 1 2 1 ...
 
-<p>This is much more informative! For instance, this is telling us that there are 8 groups of age (in R, these are called "levels"). But maybe we would like to know the number of people per group among the 4042 participants. This can be done with the summary() function.</p>
+This is much more informative! For instance, this is telling us that there are 8 groups of age (in R, these are called "levels"). But maybe we would like to know the number of people per group among the 4042 participants. This can be done with the summary() function.
 
-    summary(data)
+```{r, eval=FALSE}
+summary(data)
+```
 
-<p>This is what you obtain in the Console block:</p>
+This is what you obtain in the Console block:
 
-<a href="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/ExampleSummaryFunction.png?raw=true" class="image-popup" target="_blank"><img src="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/ExampleSummaryFunction.png?raw=true"/></a>
+<hr class="rounded">
 
-<p>How to read this? It is telling us that there are 1986 respondents in the "25-34 years old" group, 960 in the "35-44 years old" group, etc. Also that there are 1277 people drinking 1 cup of coffee per day, 1663 people 2 cups of coffee per day, etc.</p>
+![](/assets/images/ExampleSummaryFunction.png)
+
+<hr class="rounded">
+
+How to read this? It is telling us that there are 1986 respondents in the "25-34 years old" group, 960 in the "35-44 years old" group, etc. Also that there are 1277 people drinking 1 cup of coffee per day, 1663 people 2 cups of coffee per day, etc.
 
 #### Transforming the data: add, delete, change
 
-<p>Transforming the data is the task we spend the most of out time when doing the research. This can be tedious, but it is crucial to plot the right data and to conduct the right analyses. It is also very important to be aware of what we are doing when transforming the data. The aim is to make them more easily readable for R.</p>
+Transforming the data is the task we spend the most of out time when doing the research. This can be tedious, but it is crucial to plot the right data and to conduct the right analyses. It is also very important to be aware of what we are doing when transforming the data. The aim is to make them more easily readable for R.
 
-<p class="notice--danger">
+::: callout-caution
+Data transformation or data manipulation does not mean new data creation or data selection!<br> We make changes to highlight some results, we select for ease of clarity, but such changes and selections are actually transformations and selection of **the form**, not the content!
+:::
 
-Data transformation or data manipulation does not mean new data creation or data selection!<br> We make changes to highlight some results, we select for ease of clarity, but such changes and selections are actually transformations and selection of <strong>the form</strong>, not the content!
+You are actually already familiar with data transformation. In the previous section we have changed the class of the data of three columns: strings of characters to factors. I will exemplify here other changes we can make, but the list is not exhaustive at all.
 
-</p>
+You have surely remarked that there are many columns in the dataset we loaded. Generally, we collect more than we need, in case that in the end, we may need these data. But sometimes, having very large datasets can make us quite confused when trying to read and interpret the data. Therefore, sometimes, we would like a dataset with only the comumns we need.<br> For instance, we have talked of three columns so far in the previous section. We want to select them, in addition to the column indicating the ID of the respondents. We can do so with the code below.
 
-<p>You are actually already familiar with data transformation. In the previous section we have changed the class of the data of three columns: strings of characters to factors. I will exemplify here other changes we can make, but the list is not exhaustive at all.</p>
+```{r}
+data2 <- data[,c("Submission.ID",
+                 "What.is.your.age.",
+                 "How.many.cups.of.coffee.do.you.typically.drink.per.day.",
+                 "Where.do.you.typically.drink.coffee.")]
+```
 
-<p>You have surely remarked that there are many columns in the dataset we loaded. Generally, we collect more than we need, in case that in the end, we may need these data. But sometimes, having very large datasets can make us quite confused when trying to read and interpret the data. Therefore, sometimes, we would like a dataset with only the comumns we need.<br> For instance, we have talked of three columns so far in the previous section. We want to select them, in addition to the column indicating the ID of the respondents. We can do so with the code below.</p>
-
-    data2 <- data[,c("Submission.ID",
-                     "What.is.your.age.",
-                     "How.many.cups.of.coffee.do.you.typically.drink.per.day.",
-                     "Where.do.you.typically.drink.coffee.")] 
-
-<p>Again, let's decompose this:</p>
+Again, let's decompose this:
 
 -   The dataset from which we want to select data is called 'data'. We select data from it by adding brackets, therefore "data\[ \]".
 -   The columns are selected by adding a comma first (there are reasons for this, but it is not important for our purpose now), and then adding the name of the column. For example, we may have written "data\[,"Submission.ID"\]", and this selects the columns called 'Submission.ID'.
 -   But we want to select more than one column. Unfortunately, we cannot write the names of all the columns directly. We need to inform R first that there is a list of columns. We use "c()" to do so.
 -   Finally, we save this into a variable. We may have saved this to "data" (i.e. "data \<- data\[....\]"), but when doing so, we would have overwritten our original data. And if in the end, we realize that we need other columns, we have to redo everything! This is why it is good to have the habit to save into other variables when performing transformations of this kind.
 
-<p>Now we will learn another trick: How to check which groups we have. In other words, how many groups of age are there in the data we have? This can be done as below:</p>
+Now we will learn another trick: How to check which groups we have. In other words, how many groups of age are there in the data we have? This can be done as below:
 
-    levels(data2$What.is.your.age.)
+```{r}
+levels(data2$What.is.your.age.)
+```
 
-<p>We use the level() function, and we inform R which columns we want to look at inside the parentheses. We obtain the results below:</p>
+We use the level() function, and we inform R which columns we want to look at inside the parentheses. We obtain the results as above.
 
-    [1] ""                "<18 years old"   ">65 years old"   "18-24 years old" "25-34 years old"
-    [6] "35-44 years old" "45-54 years old" "55-64 years old"
+There are 8 groups, but the first one corresponds to people who did not reply. We would like to remove this in order to have a full dataset. If we do not want to do it with other libraries, we can do it as follows:
 
-<p>There are 8 groups, but the first one corresponds to people who did not reply. We would like to remove this in order to have a full dataset. If we do not want to do it with other libraries, we can do it as follows:</p>
+```{r}
+data2 <- subset(data2, What.is.your.age. != "")
 
-    data2 <- subset(data2, What.is.your.age. != "")
-
-    data2$What.is.your.age. <- droplevels(data2$What.is.your.age.)
+data2$What.is.your.age. <- droplevels(data2$What.is.your.age.)
+```
 
 -   In the first line, we are telling R to remove the rows where the group is "".
     -   To do so, we use the subset() function. In the parentheses, we set the parameters to tell R which rows to remove: dataset name ("data2"), column ("What.is.your.age."), level ("").
     -   Note that we used the sign "!=". This signs means "remove". If we change this sign to "==", it means "select"!
 -   We only removed the rows corresponding to "", but not the label. This is the purpose of the second line.
 
-<p>Now you can run the "levels(data2\$What.is.your.age.)" again. You will see that the level "" has indeed been removed!</p>
+Now you can run the "levels(data2\$What.is.your.age.)" again. You will see that the level "" has indeed been removed!
 
-    [1] "<18 years old"   ">65 years old"   "18-24 years old" "25-34 years old" "35-44 years old"
-    [6] "45-54 years old" "55-64 years old"
+```{r}
+levels(data2$What.is.your.age.)
+```
 
-<p>If we look at the column called "How.many.cups.of.coffee.do.you.typically.drink.per.day.", there is the same problem. We just have to run the same codes to solve this!</p>
+If we look at the column called "How.many.cups.of.coffee.do.you.typically.drink.per.day.", there is the same problem. We just have to run the same codes to solve this!
 
-    data2 <- subset(data2, How.many.cups.of.coffee.do.you.typically.drink.per.day. != "")
+```{r}
+data2 <- subset(data2, How.many.cups.of.coffee.do.you.typically.drink.per.day. != "")
 
-    data2$How.many.cups.of.coffee.do.you.typically.drink.per.day. <- droplevels(data2$How.many.cups.of.coffee.do.you.typically.drink.per.day.)
+data2$How.many.cups.of.coffee.do.you.typically.drink.per.day. <- droplevels(data2$How.many.cups.of.coffee.do.you.typically.drink.per.day.)
+```
 
-<p>Now we would like to summarize the number of observations per group. And I will have to make an exception to what I said earlier: We are using the package called "dplyr". So you will need to download it beforehand.<br> Here is the code you need to write:</p>
+Now we would like to summarize the number of observations per group. And I will have to make an exception to what I said earlier: We are using the package called "dplyr". So you will need to download it beforehand.
 
-    library(dplyr)
+Here is the code you need to write:
 
-    data3 <- data2 %>% 
-      group_by(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) %>% 
-      summarize(Count = n())
+```{r, warning=FALSE}
+library(dplyr)
 
-<p>Let's decompose this:</p>
+data3 <- data2 %>% 
+  group_by(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) %>% 
+  summarize(Count = n())
+```
+
+Let's decompose this:
 
 -   In the first line, we just loaded the library we need.
 -   The sign "%\>%" is here to say we are going to run the codes below it based on the dataset called "data2"
@@ -535,88 +611,105 @@ Data transformation or data manipulation does not mean new data creation or data
     -   And the observations will be found in the "Count" column. Note that you can replace "Count" by any name you want!
 -   And finally, we store this summary table into a new variable, which we call "data3".
 
-<p>You should obtain something like this in the picture below:</p>
+You should obtain something like this in the picture below:
 
-<a href="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/ResultsSummarize.png?raw=true" class="image-popup" target="_blank"><img src="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/ResultsSummarize.png?raw=true"/></a>
+<hr class="rounded">
 
-<p>There are of course many more ways to transform the data, summarize them, etc. This subsection was only a snapshot of what is possible to do with a very minimum number of lines of codes!</p>
+![](/assets/images/ResultsSummarize.png)
+
+<hr class="rounded">
+
+There are of course many more ways to transform the data, summarize them, etc. This subsection was only a snapshot of what is possible to do with a very minimum number of lines of codes!
 
 #### Plotting the data
 
-<p>Now that we have summarized data, we can plot to see what they look like. We will use a very straightforward function, called... "plot()"! Let's see what it does with the codes below.</p>
+Now that we have summarized data, we can plot to see what they look like. We will use a very straightforward function, called... "plot()"! Let's see what it does with the codes below.
 
-    plot(x = data3$How.many.cups.of.coffee.do.you.typically.drink.per.day., y = data3$Count)
+```{r}
+plot(x = data3$How.many.cups.of.coffee.do.you.typically.drink.per.day., y = data3$Count)
 
-    plot(x = data3$What.is.your.age., y = data3$Count)
+plot(x = data3$What.is.your.age., y = data3$Count)
+```
 
-<p>We ran into a very superficial problem: R sorted the groups in alphabetical order, which is not quite straightforward! So we will need to reorder the levels before. Let's do it with the code below:</p>
+We ran into a very superficial problem: R sorted the groups in alphabetical order, which is not quite straightforward! So we will need to reorder the levels before. Let's do it with the code below:
 
-    data3$What.is.your.age. <- factor(data3$What.is.your.age., levels = c("<18 years old",
-                                                                          "18-24 years old",
-                                                                          "25-34 years old",
-                                                                          "35-44 years old",
-                                                                          "45-54 years old",
-                                                                          "55-64 years old",
-                                                                          ">65 years old"))
+```{r}
+data3$What.is.your.age. <- factor(data3$What.is.your.age., levels = c("<18 years old",
+    "18-24 years old",
+    "25-34 years old",
+    "35-44 years old",
+    "45-54 years old",
+    "55-64 years old",
+    ">65 years old"))
 
-    data3$How.many.cups.of.coffee.do.you.typically.drink.per.day. <- factor(data3$How.many.cups.of.coffee.do.you.typically.drink.per.day., levels = c("Less than 1",
-                                                                          "1",
-                                                                          "2",
-                                                                          "3",
-                                                                          "4",
-                                                                          "More than 4"))
+data3$How.many.cups.of.coffee.do.you.typically.drink.per.day. <- factor(data3$How.many.cups.of.coffee.do.you.typically.drink.per.day., levels = c("Less than 1",
+         "1",
+         "2",
+         "3",
+         "4",
+         "More than 4"))
+```
 
-<p>You can check whether this worked by using the "levels()" function we introduced above.</p>
+You can check whether this worked by using the "levels()" function we introduced above.
 
-    levels(data3$What.is.your.age.)
+```{r}
+levels(data3$What.is.your.age.)
+```
 
-    [1] "<18 years old"   "18-24 years old" "25-34 years old" "35-44 years old" "45-54 years old"
-    [6] "55-64 years old" ">65 years old"  
+```{r}
+levels(data3$How.many.cups.of.coffee.do.you.typically.drink.per.day.)
+```
 
-    levels(data3$How.many.cups.of.coffee.do.you.typically.drink.per.day.)
+Everything is in the order we want, now we can plot one more time, You will obtain the plots as below!
 
-    [1] "Less than 1" "1"           "2"           "3"           "4"           "More than 4"
+```{r}
+plot(x = data3$What.is.your.age., y = data3$Count)
 
-<p>Everything is in the order we want, now we can plot one more time!</p>
+plot(x = data3$How.many.cups.of.coffee.do.you.typically.drink.per.day., y = data3$Count)
+```
 
-    plot(x = data3$How.many.cups.of.coffee.do.you.typically.drink.per.day., y = data3$Count)
+The first plot shows that most of the participants are between 25 and 34 years old. The second plot indicates that most of the respondents drink between 1 and 2 cups of coffee everyday.
 
-    plot(x = data3$What.is.your.age., y = data3$Count)
-
-<p>You will obtain the plots as below.</p>
-
-<a href="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/ResultsAge.png?raw=true" class="image-popup" target="_blank"><img src="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/ResultsAge.png?raw=true"/></a>
-
-<a href="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/ResultsNumberCoffee.png?raw=true" class="image-popup" target="_blank"><img src="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/images/ResultsNumberCoffee.png?raw=true"/></a>
-
-<p>The first plot shows that most of the participants are between 25 and 34 years old. The second plot indicates that most of the respondents drink between 1 and 2 cups of coffee everyday.<br> You might be curious whether there is an interaction, with older people drinking more coffee than younger people. In other words, you would need three variables in the codes... which is very difficult to do without other packages, espectially the "ggplot2" one! You can try by yourself!</p>
+You might be curious whether there is an interaction, with older people drinking more coffee than younger people. In other words, you would need three variables in the codes... which is very difficult to do without other packages, espectially the "ggplot2" one! You can try by yourself!
 
 #### Save data from R to your computer
 
-<p>For some reasons, we may want to save our data in the computer. But we are actually referring to two things at the same time: (a) Saving the R dataset, and (b) Exporting the R dataset such that we can open it with other programs. Both are doable, and let's start with the first option with the code below.</p>
+For some reasons, we may want to save our data in the computer. But we are actually referring to two things at the same time:
 
-    save(data3, file = "data3.Rdata")
+1.  Saving the R dataset, and
 
-<p>We just need the "save()" function, inside which we first tell R the dataset we want to save, and then the name of the file on the computer. We can choose the name of the file by ourself, as long as we do not forget the ".Rdata" extension. Once it is save, we can load the file later using the "load()" function.</p>
+2.  Exporting the R dataset such that we can open it with other programs.
 
-    load(file = "data3.Rdata")
+Both are doable, and let's start with the first option with the code below.
 
-<p>We may also want to save the data as a .csv file, readable by programs such as Excel. This is done with the code below:</p>
+```{r, eval=FALSE}
+save(data3, file = "data3.Rdata")
+```
 
-    write.csv(data3, "data3.csv", row.names = FALSE)
+We just need the "save()" function, inside which we first tell R the dataset we want to save, and then the name of the file on the computer. We can choose the name of the file by ourself, as long as we do not forget the ".Rdata" extension. Once it is save, we can load the file later using the "load()" function.
 
-<p>Let's unpack it:</p>
+```{r, eval=FALSE}
+load(file = "data3.Rdata")
+```
 
--   We use the "write.csv" function, and we provide details inside the parentheses for:
-    -   The name of the dataset we want to export,
-    -   The name we want it to have in our computer, and
-    -   the "row.names = FALSE" is here to say that we do not want the index of the rows. You can try and change to "TRUE" to see what happens.
+We may also want to save the data as a .csv file, readable by programs such as Excel. This is done with the code below:
 
-<p>It is also possible to export to .xlsx files, more directly readable by Excel, but this requires another library. We will encounter this in the rest of the tutorial.</p>
+```{r, eval=FALSE}
+write.csv(data3, "data3.csv", row.names = FALSE)
+```
+
+Let's unpack it:
+
+-   We use the "**write.csv**" function, and we provide details inside the parentheses for:
+    -   The name of the dataset we want to export (here, **data3**),
+    -   The name we want it to have in our computer (here, **data3.csv**), and
+    -   the "**row.names = FALSE**" is here to say that we do not want the index of the rows. You can try and change to "TRUE" to see what happens.
+
+It is also possible to export to .xlsx files, more directly readable by Excel, but this requires another library. We will encounter this in the rest of the tutorial.
 
 #### R script of this section
 
-<p>You can find the R scripts including the codes presented in this section <a href="https://github.com/aymeric-courses/formosan-corpus-r/blob/master/assets/files/Script_Section1.2.R" target="_blank" class="btn btn--primary">here</a>. Don't hesitate to use it and add comments for each line of code to make your own!</p>
+You can find the R scripts including the codes presented in this section <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/Script_Section1.2.R" target="_blank">here</a>. Don't hesitate to use it and add comments for each line of code to make your own!
 
 ### 3.3 Common mistakes, or how to save a lot of time
 
