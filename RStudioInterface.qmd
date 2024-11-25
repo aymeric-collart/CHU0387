@@ -5,6 +5,7 @@ format:
     output-file: RStudioInterface.html
     number-sections: true
     toc: true
+    toc-depth: 4
 ---
 
 ```{=html}
@@ -593,7 +594,7 @@ Now we would like to summarize the number of observations per group. And I will 
 
 Here is the code you need to write:
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 library(dplyr)
 
 data3 <- data2 %>% 
@@ -713,9 +714,9 @@ You can find the R scripts including the codes presented in this section <a href
 
 ### Common mistakes, or how to save a lot of time
 
-<p>You will run into many error messages, these intimidating red lines in the console block telling you that something wrong happened. We can spend hours trying to figure out what to do to make the codes work. Again, no worries! This is part of the learning process, and to be honest, even experts can't avoid error messages. The most important thing is to learn from them, so that we are able to understand what the problem is, and how to solve it.</p>
+You will run into many error messages, these intimidating red lines in the console block telling you that something wrong happened. We can spend hours trying to figure out what to do to make the codes work. Again, no worries! This is part of the learning process, and to be honest, even experts can't avoid error messages. The most important thing is to learn from them, so that we are able to understand what the problem is, and how to solve it.
 
-<p>From my experience, there are mistakes we often make especially as first users of R. I remember that many students in the classes I attended and taught gave up on learning programming languages just because they had to spend too much time on debugging very basic mistakes, and they couldn't focus on the opportunities R can offer. Below is a non-exhaustive list of such mistakes that I may update in the future.</p>
+From my experience, there are mistakes we often make especially as first users of R. I remember that many students in the classes I attended and taught gave up on learning programming languages just because they had to spend too much time on debugging very basic mistakes, and they couldn't focus on the opportunities R can offer. Below is a non-exhaustive list of such mistakes that I may update in the future.
 
 #### I can't load the data from my computer
 
