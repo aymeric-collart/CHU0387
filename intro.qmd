@@ -6,8 +6,6 @@ format:
     number-sections: true
     number-depth: 2
     toc: true
-  revealjs:
-    output-file: intro_slides.html
 ---
 
 # Structure and workflow of the tutorial
