@@ -18,8 +18,8 @@ website:
       - text: "Instructor"
         href: instructor.qmd
   sidebar:
-    style: "docked"
-    search: true
+    style: "floating"
+    collapse-level: 1
     contents: 
     - text: "Introduction"
       href: intro.qmd
@@ -47,7 +47,6 @@ bibliography: references.bib
 format:
   html:
     theme: Lumen
-    page-layout: full
   pdf:
     documentclass: scrreprt
 
