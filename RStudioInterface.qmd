@@ -149,7 +149,7 @@ Let's do a simple exercise with the script. First, open a new script by clicking
 
 Write the lines below in the script block:
 
-```{r}
+```{r, eval=FALSE}
 4+2
 a <- 4+2
 a
@@ -191,8 +191,7 @@ This is how you change the background color of RStudio:
 ::: {.callout-note collapse="true"}
 ## Anecdote
 
-I personally change the sizes of the blocks dynamically, depending on the task I'm doing. For example, if I'm writing more complex lines of codes which could be confusing, I enlarge the script block to be sure I'm not missing any parenthesis or comma. When I'm drawing plots, I make the computer block bigger to visualize more clearly what I'm doing, and it helps me to know if I want to add or change anything on the plot.<br>
-Everyone's experience is different, it just depends on what your preferences are. So, really, make it your own!
+I personally change the sizes of the blocks dynamically, depending on the task I'm doing. For example, if I'm writing more complex lines of codes which could be confusing, I enlarge the script block to be sure I'm not missing any parenthesis or comma. When I'm drawing plots, I make the computer block bigger to visualize more clearly what I'm doing, and it helps me to know if I want to add or change anything on the plot.<br> Everyone's experience is different, it just depends on what your preferences are. So, really, make it your own!
 :::
 
 ### Bonus: More about the script block
@@ -231,23 +230,25 @@ And many many other possibilities. You may have a sense of it, the more complex 
 
 It can be overwhelming, and we can even have the feeling that quantitative research is not for us after all. **Good news!** We actually don't need to write all the codes from scratch!
 
-::: {.callout-note}
+::: callout-note
 ## More on the nature of the R project
 
-R is free and open source, it is a collaborative concept. And this is very important to be aware of this: **Nobody, ***nobody***, writes all the raw codes for each task in one script.** Just like we read articles and books instead of doing all the research on the field when we want to know more about something, we can rely on other people's work when writing codes. <br>People wrote, and more importantly, **published**, articles and books so that we can have access to more knowledge. <br>People wrote, and more importantly, **shared online**, lines and lines of codes and functions such that we can have access to them, use them, instead of rewriting everything.
-
+R is free and open source, it is a collaborative concept. And this is very important to be aware of this: **Nobody,** *nobody***, writes all the raw codes for each task in one script.** Just like we read articles and books instead of doing all the research on the field when we want to know more about something, we can rely on other people's work when writing codes. <br>People wrote, and more importantly, **published**, articles and books so that we can have access to more knowledge. <br>People wrote, and more importantly, **shared online**, lines and lines of codes and functions such that we can have access to them, use them, instead of rewriting everything.
 :::
 
 We need to introduce some concepts now:
+
 -   Lines of codes
+
 -   Functions
+
 -   Packages/Libraries
 
-| Name            | Concept                                                                                                                                                                                                                                                                                                                                                 |
-|--------------------------------------|----------------------------------|
-| Line of codes   | Just the code you write in the script/console to perform something specific. They are usually the most simple.                                                                                                                                                                                                                                          |
-| Function        | Sometimes, you need more than one line of code to perform a task. You may even want to perform the exact same task several times, but with different data. Of course, you can just copy and paste the same code everytime, but you can also choose to simplify it into one line of code. This is what a function is: <b>a cluster of lines of codes</b> |
-| Library/Package | And very often, you'll need to perform many tasks which require more than one function. You can choose to write all the functions by hand anytime you need them. Or you can just have them already loaded somewhere in R, such that you can refer to them later when you need them. This is what a library or package is: <b>a cluster of functions</b> |
+| Name            | Concept                                                                                                                                                                                                                                                                                                                                              |
+|----------------|------------------------------------------------------|
+| Line of codes   | Just the code you write in the script/console to perform something specific. They are usually the most simple.                                                                                                                                                                                                                                       |
+| Function        | Sometimes, you need more than one line of code to perform a task. You may even want to perform the exact same task several times, but with different data. Of course, you can just copy and paste the same code everytime, but you can also choose to simplify it into one line of code. This is what a function is: **a cluster of lines of codes** |
+| Library/Package | And very often, you'll need to perform many tasks which require more than one function. You can choose to write all the functions by hand anytime you need them. Or you can just have them already loaded somewhere in R, such that you can refer to them later when you need them. This is what a library or package is: **a cluster of functions** |
 
 <p>There are many many packages available for free with R. You can find them <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" target="_blank" class="btn btn--primary">here</a>. And they are even more that are not directly available from the R website, but developped and distributed by other people (generally on Github). They always come with a logo, as below.</p>
 
