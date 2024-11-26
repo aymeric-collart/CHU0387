@@ -10,7 +10,7 @@ format:
 
 ## Slides of this section {.unnumbered}
 
-The slides corresponding to this section can be found here: <a href="docs/intro_slides.html" target="_blank">`r fontawesome::fa("chalkboard", a11y = "sem")`</a>
+The slides corresponding to this section can be found here: <a href="intro_slides.html" target="_blank">`r fontawesome::fa("chalkboard", a11y = "sem")`</a>
 
 # Structure and workflow of the tutorial
 

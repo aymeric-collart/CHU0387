@@ -1,6 +1,10 @@
 ---
-title: "Introduction to the tutorial"
+title: "Introduction"
+subtitle: "Overview of the tutorial"
 author: "Aymeric Collart"
+institute: "Institute of Linguistics, Academia Sinica"
+date: "2024-11-26"
+date-format: "YYYY-MM-DD"
 format: 
   revealjs:
     output-file: intro_slides.html
@@ -44,26 +48,23 @@ Click on the image to zoom in and out
 ::: {.panel-tabset}
 ### Chapter 1
 
-| Chapter and content                               | Link |
-|---------------------------------------------------|------|
 | **Chapter 1: Getting started**                    |      |
+|---------------------------------------------------|------|
 | Download and install R/RStudio                    | link |
 | Presentation of R/RStudio                         | link |
 | Working with markdown files                       | link |
 
 ### Chapter 2
 
-| Chapter and content                               | Link |
-|---------------------------------------------------|------|
 | **Chapter 2: Let's get our data**                 |      |
+|---------------------------------------------------|------|
 | Understanding where the data are on the Internet  | link |
-| Scraping the data from the web with R            | link |
+| Scraping the data from the web with R             | link |
 
 ### Chapter 3
 
-| Chapter and content                               | Link |
-|---------------------------------------------------|------|
 | **Chapter 3: Cleaning and analyzing the data**    |      |
+|---------------------------------------------------|------|
 | Preprocess the data: Cleaning and transformations | link |
 | Analyzing the data                                | link |
 

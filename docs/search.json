@@ -177,28 +177,28 @@
   {
     "objectID": "intro_slides.html#chapters-and-section-of-the-tutorial",
     "href": "intro_slides.html#chapters-and-section-of-the-tutorial",
-    "title": "Introduction to the tutorial",
+    "title": "Introduction",
     "section": "Chapters and section of the tutorial",
-    "text": "Chapters and section of the tutorial\n\nChapter 1Chapter 2Chapter 3\n\n\n\n\n\nChapter and content\nLink\n\n\n\n\nChapter 1: Getting started\n\n\n\nDownload and install R/RStudio\nlink\n\n\nPresentation of R/RStudio\nlink\n\n\nWorking with markdown files\nlink\n\n\n\n\n\n\n\n\nChapter and content\nLink\n\n\n\n\nChapter 2: Let’s get our data\n\n\n\nUnderstanding where the data are on the Internet\nlink\n\n\nScraping the data from the web with R\nlink\n\n\n\n\n\n\n\n\nChapter and content\nLink\n\n\n\n\nChapter 3: Cleaning and analyzing the data\n\n\n\nPreprocess the data: Cleaning and transformations\nlink\n\n\nAnalyzing the data\nlink"
+    "text": "Chapters and section of the tutorial\n\nChapter 1Chapter 2Chapter 3\n\n\n\n\n\nChapter 1: Getting started\n\n\n\n\n\nDownload and install R/RStudio\nlink\n\n\nPresentation of R/RStudio\nlink\n\n\nWorking with markdown files\nlink\n\n\n\n\n\n\n\n\nChapter 2: Let’s get our data\n\n\n\n\n\nUnderstanding where the data are on the Internet\nlink\n\n\nScraping the data from the web with R\nlink\n\n\n\n\n\n\n\n\nChapter 3: Cleaning and analyzing the data\n\n\n\n\n\nPreprocess the data: Cleaning and transformations\nlink\n\n\nAnalyzing the data\nlink"
   },
   {
     "objectID": "intro_slides.html#what-this-tutorial-does-not-cover",
     "href": "intro_slides.html#what-this-tutorial-does-not-cover",
-    "title": "Introduction to the tutorial",
+    "title": "Introduction",
     "section": "What this tutorial does NOT cover",
     "text": "What this tutorial does NOT cover\n\n\nFundamental concepts of corpus linguistics\nHow to ask a research question and how to motivate it\nAdvanced statistical methods in corpus linguistics (classification analyses, vector space representations)\n\n\n\nIf you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free here."
   },
   {
     "objectID": "intro_slides.html#structure-and-workflow-of-the-tutorial",
     "href": "intro_slides.html#structure-and-workflow-of-the-tutorial",
-    "title": "Introduction to the tutorial",
+    "title": "Introduction",
     "section": "Structure and workflow of the tutorial",
     "text": "Structure and workflow of the tutorial\n\n\nClick on the image to zoom in and out"
   },
   {
     "objectID": "intro_slides.html#how-to-get-through-the-exercises",
     "href": "intro_slides.html#how-to-get-through-the-exercises",
-    "title": "Introduction to the tutorial",
+    "title": "Introduction",
     "section": "How to get through the exercises",
     "text": "How to get through the exercises"
   }
