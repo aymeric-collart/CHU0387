@@ -8,6 +8,10 @@ format:
     toc: true
 ---
 
+## Slides of this section {.unnumbered}
+
+The slides corresponding to this section can be found here: <a href="docs/intro_slides.html" target="_blank">`r fontawesome::fa("chalkboard", a11y = "sem")`</a>
+
 # Structure and workflow of the tutorial
 
 The workflow of a typical corpus-based study is generally as in the image below.
@@ -24,7 +28,7 @@ The sections and their links can be found in the Table of Contents on the left i
 | Working with markdown files                       | link |
 | **Chapter 2: Let's get our data**                        |
 | Understanding where the data are on the Internet  | link |
-| Scrapting the data from the web with R            | link |
+| Scraping the data from the web with R            | link |
 | **Chapter 3: Cleaning and analyzing the data**           |
 | Preprocess the data: Cleaning and transformations | link |
 | Analyzing the data                                | link |

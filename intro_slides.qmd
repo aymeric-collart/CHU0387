@@ -1,0 +1,107 @@
+---
+title: "Introduction to the tutorial"
+author: "Aymeric Collart"
+format: 
+  revealjs:
+    output-file: intro_slides.html
+    slide-number: true
+    include-in-header:
+      - text: |
+          <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js""></script>
+          <script type="text/javascript">
+            $(document).ready(function() {
+              $('body').prepend('<div class=\"zoomDiv\"><img src=\"\" class=\"zoomImg\"></div>');
+              // onClick function for all plots (img's)
+              $('img:not(.zoomImg)').click(function() {
+                $('.zoomImg').attr('src', $(this).attr('src')).css({width: '100%'});
+                $('.zoomDiv').css({opacity: '1', width: 'auto', border: '1px solid white', borderRadius: '5px', position: 'fixed', top: '50%', left: '50%', marginRight: '-50%', transform: 'translate(-50%, -50%)', boxShadow: '0px 0px 50px #888888', zIndex: '50', overflow: 'auto', maxHeight: '100%'});
+              });
+              // onClick function for zoomImg
+              $('img.zoomImg').click(function() {
+                $('.zoomDiv').css({opacity: '0', width: '0%'}); 
+              });
+            });
+          </script>
+---
+
+## Structure and workflow of the tutorial {.smaller}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+Click on the image to zoom in and out
+
+:::
+
+::: {.column width="60%"}
+
+![](assets/images/WorkflowTutorial.jpg){fig-align="center"}
+:::
+::::
+## Chapters and section of the tutorial
+
+::: {.panel-tabset}
+### Chapter 1
+
+| Chapter and content                               | Link |
+|---------------------------------------------------|------|
+| **Chapter 1: Getting started**                    |      |
+| Download and install R/RStudio                    | link |
+| Presentation of R/RStudio                         | link |
+| Working with markdown files                       | link |
+
+### Chapter 2
+
+| Chapter and content                               | Link |
+|---------------------------------------------------|------|
+| **Chapter 2: Let's get our data**                 |      |
+| Understanding where the data are on the Internet  | link |
+| Scraping the data from the web with R            | link |
+
+### Chapter 3
+
+| Chapter and content                               | Link |
+|---------------------------------------------------|------|
+| **Chapter 3: Cleaning and analyzing the data**    |      |
+| Preprocess the data: Cleaning and transformations | link |
+| Analyzing the data                                | link |
+
+:::
+
+## What this tutorial does NOT cover
+
+::: {.incremental}
+
+- Fundamental concepts of corpus linguistics
+- How to ask a research question and how to motivate it
+- Advanced statistical methods in corpus linguistics (classification analyses, vector space representations)
+
+:::
+
+. . .
+
+If you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free <a href="https://langsci-press.org/catalog/book/148" target="_blank">here</a>.
+
+
+## How to get through the exercises
+
+---
+
+The best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts.
+
+::: {.incremental}
+
+:::: {.columns}
+
+::: {.column width="55%"}
+-   I will provide at the beginning of each section a markdown file prefilled with the structure of the section. You can download this file and open it with R, and just paste the codes at the relevant sections of the script.
+:::
+
+::: {.column width="45%"}
+-   Alternatively, you may wish to write the script yourself, and to work based on the codes in each section. This is a great way to learn how to structure a markdown file alone!
+:::
+
+::::
+
+:::

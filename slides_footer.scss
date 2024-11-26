@@ -1,0 +1,31 @@
+/*-- scss:defaults --*/
+
+$custom-background: #e1ecf7 !default; // ZAS colour
+
+/*-- scss:rules --*/
+
+//.reveal .progress {
+  // background: rgba(0, 0, 0, 0.2);
+//  color: $custom-background;
+//  height: 2.5%;
+//}
+
+.footer {
+    color: #ffffff; // footer font colour, #ffffff; for grey 
+    background-color: $custom-background;
+    display: block;
+    position: fixed;
+    padding-bottom: 2%;
+    padding-top: 0px;
+    bottom: 0px !important; // Makes footer div flush with bottom of slide
+    width: 100%;
+    z-index: 2 !important; // Sets the footer div further down the z-index
+  }
+  
+// Slide numbers to the top-right
+.slide-number {
+  top: 14px !important;
+  right: 50px !important;
+  bottom: unset !important;
+  color: #777777 !important;
+}

@@ -49,6 +49,9 @@ format:
     theme: Lumen
   pdf:
     documentclass: scrreprt
+  revealjs:
+    progress: true
+    theme: [simple, slides_footer.scss]
 
 editor: visual
 
