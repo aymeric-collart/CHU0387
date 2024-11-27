@@ -16,12 +16,17 @@ hr.rounded {
 }
 </style>
 ```
+
+## Slides of this section {.unnumbered}
+
+The slides corresponding to this section can be found here: <a href="InstallationRRStudio_slides.html" target="_blank">`r fontawesome::fa("chalkboard", a11y = "sem")`</a>
+
 # What is R? What is RStudio?
 
 So far, we have been talking about something called "R/RStudio". People familiar with this program know what this is about. However, it can be quite confusing when we have never heard of it. We are actually referring to two programs:
 
 |                      R                      |               RStudio                |
-|:-------------------------------------------:|:------------------------------------:|
+|:-------------------------------------:|:-------------------------------:|
 | ![](/assets/images/R_logo.png){width="139"} | ![](/assets/images/RStudio_Logo.png) |
 
 ------------------------------------------------------------------------
@@ -74,7 +79,7 @@ Now you need to choose the files to download according to the system of your com
 
 <hr class="rounded">
 
-On the next page, you'll need to choose the subdirectory that you need. For our purposes, we'll only need the "base" subdirectory.
+On the next page, you will need to choose the subdirectory that you need. For our purposes, we'll only need the "base" subdirectory.
 
 <hr class="rounded">
 

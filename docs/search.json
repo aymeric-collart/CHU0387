@@ -4,14 +4,14 @@
     "href": "InstallationRRStudio.html",
     "title": "Section 1.1 Installation of R/RStudio",
     "section": "",
-    "text": "So far, we have been talking about something called “R/RStudio”. People familiar with this program know what this is about. However, it can be quite confusing when we have never heard of it. We are actually referring to two programs:\n\n\n\n\n\n\n\nR\nRStudio\n\n\n\n\n\n\n\n\n\n\nThe main program is called R. This is where all the magic happens. RStudio is a user-friendly interface such that it is easier to work with.\nMaybe a metaphor can help to understand the difference between R and RStudio. As you are engaging yourself in this tutorial, I assume that you have a computer (and that you are using one). You can create folders, open Word or Excel documents, write in it and save them in the folders you created.\n\n\n\n\n\n\nThink about it\n\n\n\nNow it is time to reflect on what you are doing. You have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen. What you may not know is that when doing so, you have run many lines of codes. Actually, it is your computer that ran them in programs able to perform computations. Your role has been to trigger these programs by using the user-friendly interface installed in your computer.\n\n\nThis is the exact same thing with R and RStudio. R will perform the computations that you ask for. And you will ask R to do stuff by clicking on icons and writing commands using the user-friendly interface of RStudio. And this is why you need to download two programs!\n\n\n\n\n\n\nAnecdote\n\n\n\nLet me share a personal anecdote when I just entered graduate school and I had my very first class of language programming for linguistic research. Just before leaving, the instructor said very quickly that we had to, I quote, “download R for next time”. I had never heard of R, and to me, calling a program with only one letter seemed kind of awkward. Therefore, I assumed that I misheard the instructions, or that I missed some information. You can just imagine how surprised I was when I googled “R” and actually found that this existed!"
+    "text": "The slides corresponding to this section can be found here: Chalkboard"
   },
   {
     "objectID": "InstallationRRStudio.html#download-and-install-r",
     "href": "InstallationRRStudio.html#download-and-install-r",
     "title": "Section 1.1 Installation of R/RStudio",
     "section": "2.1 Download and install R",
-    "text": "2.1 Download and install R\nYou can download R for free from the official website here.\nYou have to look for the link in the middle of the first paragraph on the front page.\n\n\n\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\n\n\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft).\n\n\n\nOn the next page, you’ll need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory.\n\n\n\nWe finally got to the last page! Just click on the first link to download the files, as in the image below.\n\n\n\nJust wait until the file is downloaded, open it and follow the instructions to install R on your computer."
+    "text": "2.1 Download and install R\nYou can download R for free from the official website here.\nYou have to look for the link in the middle of the first paragraph on the front page.\n\n\n\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\n\n\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft).\n\n\n\nOn the next page, you will need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory.\n\n\n\nWe finally got to the last page! Just click on the first link to download the files, as in the image below.\n\n\n\nJust wait until the file is downloaded, open it and follow the instructions to install R on your computer."
   },
   {
     "objectID": "InstallationRRStudio.html#download-and-install-rstudio",
@@ -201,5 +201,117 @@
     "title": "Introduction",
     "section": "How to get through the exercises",
     "text": "How to get through the exercises"
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r",
+    "title": "Section 1.1",
+    "section": "Download and install R",
+    "text": "Download and install R\nYou can download R for free from the official website here.\nYou have to look for the link in the middle of the first paragraph on the front page.\n\n\n\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\n\n\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft).\n\n\n\nOn the next page, you’ll need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory.\n\n\n\nWe finally got to the last page! Just click on the first link to download the files, as in the image below.\n\n\n\nJust wait until the file is downloaded, open it and follow the instructions to install R on your computer."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio",
+    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio",
+    "title": "Section 1.1",
+    "section": "Download and install RStudio",
+    "text": "Download and install RStudio\nNow that R is installed on your computer, it is time to do the same with RStudio. First, let’s go to the RStudio website by clicking here , and you will see something like that (if not, it is just that the RStudio website has changed):\n\n\n\nOnce you are on the front page, just scroll down to look for the links to download the installing files. Again, you will need to choose the right file to download according to the system of your computer: Window, macOS (for the most common), or another one.\n\n\n\nJust click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#what-is-r-what-is-rstudio",
+    "href": "InstallationRRStudio_slides.html#what-is-r-what-is-rstudio",
+    "title": "Section 1.1",
+    "section": "What is R? What is RStudio?",
+    "text": "What is R? What is RStudio?\nWe are actually referring to two programs:\n\n\n\nMain program: R\n\nThis is where all the magic happens.\n\nInterface: RStudio\n\nUser-friendly interface such that it is easier to work with."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#what-is-the-difference-between-the-two",
+    "href": "InstallationRRStudio_slides.html#what-is-the-difference-between-the-two",
+    "title": "Section 1.1",
+    "section": "What is the difference between the two?",
+    "text": "What is the difference between the two?\n\nLet’s compareHow R is used\n\n\n\n\n\n\n\n\nMetaphor: How you are using your computer\n\n\nComputer Circle Right File Word File Excel File Powerpoint Circle Right Floppy Disk\n\n\n\n\n\n\n\n\n\n\n\nAnd now, think about it\n\n\nYou have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen.\nWhat you may not know is that when doing so, you have run many lines of codes. Your computer ran them in programs able to perform computations.\nYour role has been to trigger these programs by using the user-friendly interface installed in your computer.\n\n\n\nThis is the exact same thing with R and RStudio. R will perform the computations that you ask for. And you will ask R to do stuff by clicking on icons and writing commands using the user-friendly interface of RStudio. And this is why you need to download two programs!"
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#what-is-the-difference-between-the-two-a-comparison",
+    "href": "InstallationRRStudio_slides.html#what-is-the-difference-between-the-two-a-comparison",
+    "title": "Section 1.1",
+    "section": "What is the difference between the two? A comparison",
+    "text": "What is the difference between the two? A comparison\n\nHow you are using your computerHow R is used\n\n\nComputer Circle Right Folder Open Circle Right File Word File Excel File Powerpoint Circle Right Floppy Disk\n\n\n\n\n\n\n\n\nAnd now, think about it\n\n\nYou have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen.\nWhat you may not know is that when doing so, you have run many lines of codes. Your computer ran them in programs able to perform computations.\nYour role has been to trigger these programs by using the user-friendly interface installed in your computer.\n\n\n\nThis is the exact same thing with R and RStudio.\nR will perform the computations that you ask for. And you will ask R to do stuff by clicking on icons and writing commands using the user-friendly interface of RStudio.\nAnd this is why you need to download two programs!"
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-15",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-15",
+    "title": "Section 1.1",
+    "section": "Download and install R (1/5)",
+    "text": "Download and install R (1/5)\nYou can download R for free from the official website here.\n\nYou have to look for the link in the middle of the first paragraph on the front page."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-25",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-25",
+    "title": "Section 1.1",
+    "section": "Download and install R (2/5)",
+    "text": "Download and install R (2/5)\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-35",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-35",
+    "title": "Section 1.1",
+    "section": "Download and install R (3/5)",
+    "text": "Download and install R (3/5)\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft)."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-45",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-45",
+    "title": "Section 1.1",
+    "section": "Download and install R (4/5)",
+    "text": "Download and install R (4/5)\nOn the next page, you will need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-55",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-55",
+    "title": "Section 1.1",
+    "section": "Download and install R (5/5)",
+    "text": "Download and install R (5/5)\nWe finally got to the last page!\n\nJust click on the first link to download the files, as in the image. Wait until the file is downloaded, open it and follow the instructions to install R on your computer."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-15-1",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-15-1",
+    "title": "Section 1.1",
+    "section": "Download and install R (1/5)",
+    "text": "Download and install R (1/5)\nYou can download R for free from the official website here.\n\nYou have to look for the link in the middle of the first paragraph on the front page."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-1x",
+    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-1x",
+    "title": "Section 1.1",
+    "section": "Download and install RStudio (1/X)",
+    "text": "Download and install RStudio (1/X)\nNow that R is installed on your computer, it is time to do the same with RStudio. First, let’s go to the RStudio website by clicking here , and you will see something like that (if not, it is just that the RStudio website has changed):"
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-2x",
+    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-2x",
+    "title": "Section 1.1",
+    "section": "Download and install RStudio (2/X)",
+    "text": "Download and install RStudio (2/X)\nOnce you are on the front page, just scroll down to look for the links to download the installing files. Again, you will need to choose the right file to download according to the system of your computer: Window, macOS (for the most common), or another one.\n\nJust click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-13",
+    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-13",
+    "title": "Section 1.1",
+    "section": "Download and install RStudio (1/3)",
+    "text": "Download and install RStudio (1/3)\nNow that R is installed on your computer, it is time to do the same with RStudio. First, let’s go to the RStudio website by clicking here , and you will see something like that (if not, it is just that the RStudio website has changed):"
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-23",
+    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-23",
+    "title": "Section 1.1",
+    "section": "Download and install RStudio (2/3)",
+    "text": "Download and install RStudio (2/3)\nOnce you are on the front page, just scroll down to look for the links to download the installing files. Again, you will need to choose the right file to download according to the system of your computer: Window, macOS (for the most common), or another one."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-33",
+    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-33",
+    "title": "Section 1.1",
+    "section": "Download and install RStudio (3/3)",
+    "text": "Download and install RStudio (3/3)\n\nJust click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer."
   }
 ]
