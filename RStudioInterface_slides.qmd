@@ -1,22 +1,17 @@
 ---
-title: "Section 1.2 Introduction to the interface of RStudio and R language"
+title: "Section 1.2"
+subtitle: "Introduction to the interface of RStudio and R language"
+author: "Aymeric Collart"
+institute: "Institute of Linguistics, Academia Sinica"
+date: "2024-11-26"
+date-format: "YYYY-MM-DD"
 format: 
-  html:
-    output-file: RStudioInterface.html
-    number-sections: true
-    toc: true
-    toc-depth: 4
+  revealjs:
+    output-file: RStudioInterface_slides.html
+    slide-number: true    
 ---
 
-```{=html}
-<style>
-hr.rounded {
-  border-top: 1px solid #E5E4E2;
-  border-radius: 5px;
-}
-</style>
-```
-Now I assume that R and RStudio are correctly installed on your computer. You can start by opening RStudio. You will see a lot of things on your screen, many blocks, many menus, and it can be quite overwhelming. No worries! This is exactly what this section is about!
+<br><br><br>
 
 ::: {.callout-warning icon="false"}
 ## Objectives
@@ -24,17 +19,15 @@ Now I assume that R and RStudio are correctly installed on your computer. You ca
 In this section, you will learn more about the RStudio interface and get familiarized with it.<br><br> But this section is not only about presenting the interface! In addition to that, you will also get familiar with the very basics of R language.
 :::
 
-# The interface of RStudio
+# 1 The interface of RStudio
 
 ## General overview of the interface: Blocks, blocks, blocks and blocks
 
-You may see the following picture on your screen after opening RStudio:
-
-<hr class="rounded">
+You may see this after opening RStudio:
 
 ![](/assets/images/RStudio_FirstPage.png)
 
-<hr class="rounded">
+## The logic of blocks (1/3)
 
 The best way to apprehend RStudio is to understand the interface as **blocks**, which are here for different purposes.
 
@@ -42,21 +35,53 @@ The best way to apprehend RStudio is to understand the interface as **blocks**, 
 When you open RStudio for the very first time, you should get something similar as in the image above, with three blocks in the same order. But it's also possible that you have something else. If that's the case, this is completely normal and this won't affect anything for the following steps!
 :::
 
-There are four main blocks, as in the following image. I give them unofficial names so that it will be easier to refer to them. There is one block that I call the 'computer block', a second one the 'data block', a third one the 'script block', and finally the last one, the 'console block'.
+## The logic of blocks (2/3)
 
-<hr class="rounded">
+There are four main blocks:[^1]
+
+[^1]: Completely **unofficial** labels!
+
+::: incremental
+-   'computer block'
+
+-   'data block'
+
+-   'script block'[^2]
+
+-   'console block'
+:::
+
+[^2]: You may not be able to see the 'script block' on your computer for the moment, and again, this is completely normal! Just follow the steps below
+
+## The logic of blocks (3/3)
 
 ![](/assets/images/RStudio_4Blocks.png)
 
-<hr class="rounded">
+## 1.1 The computer block
 
-You may not be able to see the 'script block' on your computer for the moment, and again, this is completely normal! Just follow the steps below.
+The 'computer block' is the one on the bottom right side.[^3]
 
-## The computer block
+[^3]: I call it the 'computer block' but it's actually much more than that, but let's keep it simple for the moment
 
-The 'computer block' is the one on the bottom right side. I call it the 'computer block' but it's actually much more than that, but let's keep it simple for the moment. First, click on the Files button. You will see that there is a list of files and folders from your computer. This is actually the interface you can use to communicate and navigate directly with your computer!
+. . .
+
+<br>
+
+**First, click on the Files button.**
+
+. . .
+
+<br>
+
+You will see that there is a list of files and folders from your computer. This is actually the interface you can use to communicate and navigate directly with your computer!
+
+## Computer block: Try it yourself
+
+<br>
 
 ::: callout-note
+## Short exercise
+
 **Again, look at all the options and play with them to understand what everything's about:**
 
 1.  Click on the files. How do these open? In RStudio? Directly on your computer?
@@ -64,70 +89,145 @@ The 'computer block' is the one on the bottom right side. I call it the 'compute
 2.  Try to go to other folders on your computer using the computer block. You'll see there is no mystery, this is just like navigating on your own computer as you usually do!
 :::
 
-## The variable block
+## 1.2 The variable block
 
-The 'variable block' is the one on the top right side, as in the image below.
+::: columns
+::: {.column width="30%"}
+<br><br>
 
-<hr class="rounded">
+The 'variable block' is the one on the top right side:
+:::
 
+::: {.column width="70%"}
 ![](/assets/images/VariableBlock_Raw.png)
+:::
+:::
 
-<hr class="rounded">
+. . .
 
-Basically, the most important tab is the 'environment' one. This is where the variables we create when coding will be stocked. The term 'variable' can be quite abstract at the moment, so let's just exemplify it with our first code. R can be used as a simple calculator. In the 'console block', just write the following code, end press 'enter':
+Basically, the most important tab is the 'environment' one. This is where the variables we create when coding will be stocked.
 
-```{r, eval=FALSE}
+## Variable block: Try it yourself! (1/3)
+
+The term 'variable' can be quite abstract at the moment, so let's just exemplify it with our first code.
+
+::: columns
+::: {.column width="80%"}
+R can be used as a simple calculator. In the 'console block', just write this and press 'enter':
+:::
+
+::: {.column width="20%"}
+<br>
+
+``` {.r echo="true" output="false"}
 4+2
 ```
+:::
+:::
 
+. . .
+
+<br>
+
+::: columns
+::: {.column width="60%"}
 Normally, you'll see this:
+:::
 
-```{r}
+::: {.column width="40%"}
+```{r, echo=TRUE, eval=TRUE}
 4+2
 ```
+:::
+:::
 
-And indeed, '4 + 2' equals 6. Now, let's play a game. You want to obtain the number 8, but you have to use '4 + 2'. One option is to add 2 one more time, and you will write the following code:
+. . .
 
-```{r}
+Now, let's play a game. You want to obtain '8', but you have to use '4 + 2'. You can add '2' one more time:
+
+. . .
+
+```{r, echo=TRUE, eval=FALSE}
 4+2+2
 ```
 
-The game may continue, and you will need to write even more. This is when the variables can be useful. Try the following code:
+## Variable block: Try it yourself! (2/3)
 
-```{r}
+::: columns
+::: {.column width="70%"}
+The game may continue, and you will need to write even more. Try this:
+:::
+
+::: {.column width="30%"}
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
 a <- 4+2
 ```
+:::
+:::
 
-Unlike what you have seen before, nothing appears in the console anymore. But there is something new in the variable block:
+. . .
 
-<hr class="rounded">
+Unlike what you have seen before, nothing appears in the console anymore.
 
+. . .
+
+::: columns
+::: {.column width="40%"}
+**So what happened?**
+
+You stocked the calculation '4+2' as a variable, and you can call it anytime you want!
+:::
+
+::: {.column width="60%"}
 ![](/assets/images/VariableBlock_WithVariable.png)
+:::
+:::
 
-<hr class="rounded">
+## Variable block: Try it yourself! (3/3)
 
-You stocked the calculation '4+2' as a variable, and you can call it anytime you want! For example, you can call it by simply writing `a` in the console, and you can also add 2 to it by writing `a + 2`, and you'll see something as follows:
+For example, you can call it by simply writing `a` in the console.[^4]
 
-```{r, eval=FALSE}
-> a
-[1] 6
-> a+2
-[1] 8
+[^4]: With just simple calculations like the ones above, it seems to be quite useless. But you'll realize very quickly through this tutorial that variables are not only useful, but also necessary to handle more data.
+
+```{r, eval=TRUE, echo=TRUE}
+a
 ```
 
-This example is just here to show what the 'variables' are. With just simple calculations like the ones above, it seems to be quite useless. But you'll realize very quickly through this tutorial that variables are not only useful, but also necessary to handle more data.
+. . .
 
-## The console block
+You can also add 2 to it:
 
-Now let's talk very briefly about the 'console block'. You just had a glimpse of it when reading the section on the variable block. Actually, there's not a lot more to say about it. **The console block is the place where the code is written and being run.**
+```{r, eval=TRUE, echo=TRUE}
+a+2
+```
 
-In addition to the 'Console' tab, there are also the 'Terminal' tab and the 'Background Jobs' tab. Despite their importance, we won't have have to use them in this tutorial. So let's just skip them!
+## 1.3 The console block
 
-## The script block
+. . .
 
-The 'script' block is where you'll work most of the time. You can see it as the Word or the Note Pad of RStudio. You will better understand the importance of the scripts, one more time, with an example. If you've followed Section 1.3, you can see that you have the same code as below in your console.
+You just had a glimpse of it when reading the section on the variable block. Actually, there's not a lot more to say about it.[^5]
 
-```{r, eval=FALSE}
+[^5]: In addition to the 'Console' tab, there are also the 'Terminal' tab and the 'Background Jobs' tab. Despite their importance, we won't have have to use them in this tutorial. So let's just skip them!
+
+. . .
+
+<br>
+
+> **The console block is the place where the code is written and being run.**
+
+## 1.4 The script block
+
+The 'script' block is where you'll work most of the time. You can see it as the Word or the Note Pad of RStudio.
+
+. . .
+
+<br>
+
+You will better understand the importance of the scripts, one more time, with an example. If you followed the previous section, you can see that you have the same code as below in your console.
+
+```{r, eval=FALSE, echo=TRUE}
 > 4+2
 [1] 6
 > a <- 4+2
@@ -137,85 +237,80 @@ The 'script' block is where you'll work most of the time. You can see it as the 
 [1] 8
 ```
 
-Now, just close R and reopen it. All the codes disappeared! We usually use R for much more than a simple calculator, and we always end up with hundreds of lines of codes. Imagine if you need to rewrite everything each time you close and reopen R... and this is where the scripts are useful!
+## On the importance of scripts
+
+<br>
+
+Just close R and reopen it. All the codes disappeared!
+
+<br>
+
+> Now imagine if you had hundreds of lines of codes. Imagine if you need to rewrite everything each time you close and reopen R... and this is where the scripts are useful!
+
+## Script block: Try it yourself (1/2)
 
 Let's do a simple exercise with the script. First, open a new script by clicking on "New File", and then the first option, called "R Script".
 
-<hr class="rounded">
-
 ![](/assets/images/OpenNewScript.gif)
 
-<hr class="rounded">
+## Script block: Try it yourself (2/2)
 
 Write the lines below in the script block:
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=TRUE}
 4+2
 a <- 4+2
 a
 a+2
 ```
 
-After that, select everything, and click on 'Run'. You can also have a look at the short video below.
+After that, select everything, and click on 'Run'.
 
-<hr class="rounded">
+. . .
+
+This is how you run a script! Alternatively, you can select everything (or just the line you interested in), and press 'enter' on your keyboard.
+
+. . .
+
+Now you can save your script ("File \> Save") and close R. Find the file you just saved on your computer and open it. Your code is still here!
+
+## Live example
 
 ![](/assets/images/Script_Demo.gif)
 
-<hr class="rounded">
-
-This is how you run a script! Alternatively, you can select everything (or just the line you interested in), and press 'enter' on your keyboard. Now you can save your script ("File \> Save") and close R. Find the file you just saved on your computer and open it. Your code is still here!
-
-## Exercise: Play with your blocks!
-
-Your four blocks are like construction toys you can play with. You can make them disappear and then reappear, you can change their size as you wish, and you can even change the background color. In other words, make RStudio your own!
-
-This is how you can change the size of the blocks with your mouse:
-
-<hr class="rounded">
+## Tip 1: Change the size of your blocks!
 
 ![](/assets/images/ChangeBlockSize.gif)
 
-<hr class="rounded">
+## Tip 2: Change the color of RStudio
 
-This is how you change the background color of RStudio:
-
-    Path: Tools > Global Options... > Appearance > Choose the theme you like in 'Editor theme'
-
-<hr class="rounded">
+    Path: Tools > Global Options > Appearance > Choose the theme you like
 
 ![](/assets/images/ChangeColor.gif)
 
-<hr class="rounded">
+## Tip 3: More about the script block
 
-::: {.callout-note collapse="true"}
-## Anecdote
+::: columns
+::: {.column width="75%"}
+As you open a new script, you have the choice between many options.
 
-I personally change the sizes of the blocks dynamically, depending on the task I'm doing. For example, if I'm writing more complex lines of codes which could be confusing, I enlarge the script block to be sure I'm not missing any parenthesis or comma. When I'm drawing plots, I make the computer block bigger to visualize more clearly what I'm doing, and it helps me to know if I want to add or change anything on the plot.<br> Everyone's experience is different, it just depends on what your preferences are. So, really, make it your own!
+We only used the "R Script" type, but you can actually do much more depending on what you want to do in your project.
+
+**Example:** "Quarto Document" or "R Markdown" which are like "R Script". But Quarto Documents or R Markdowns allows more options, and especially to render out in a PDF or markdown file.
 :::
 
-## Bonus: More about the script block
-
-As you opened a new script, you may have realized that you had the choice between many options, as below.
-
-<hr class="rounded">
-
+::: {.column width="25%"}
 ![](/assets/images/ScriptTypes.png)
+:::
+:::
 
-<hr class="rounded">
+# 2 Libraries
 
-We only used the "R Script" type, but you can actually do much more depending on what you want to do in your project. For example, you have "Quarto Document" or "R Markdown" which are like "R Script". The difference is that R Scripts only save your codes, while Quarto Documents or R Markdowns allows more options, and especially to render out in a PDF or markdown file. By doing so, we can share our code along with the output of the code in a beautiful way, which is very important for Open Science!
-
-You'll also remark that even if we are using R, it is actually possible to write with other programming languages, such as HTML or Python. While this is not the case for R Scripts, it is possible with other types of scripts. You can even design a whole website using R, and ask R to transfer your data online... This is indeed how I am designing the website of the tutorial!
-
-Script files have many very useful options, so many that I decided to dedicate a whole section to it. Jump <a href="#" target="_blank">here (link provided later)</a> if you want to know more!
-
-# Libraries
-
-## What is the concept of the "libraries"?
+## 2.1 What are "libraries"? (1/3) {.scrollable}
 
 You can do many things with R. Among others:
 
+::: incremental
 -   Basic calculations
 -   Data manipulation
 -   Draw figures or plots of your data
@@ -225,8 +320,9 @@ You can do many things with R. Among others:
 -   Preprocess neuroimaging data (EEG, fMRI, etc.)
 -   Download data from the web to be further manipulated
 -   Create applications
+:::
 
-And many many other possibilities. You may have a sense of it, the more complex the task is, the more codes it requires. For example, it is not the same to calculate '2+4' and putting statistical data on the map of Europe!
+## 2.1 What are "libraries"? (2/3)
 
 It can be overwhelming, and we can even have the feeling that quantitative research is not for us after all. **Good news!** We actually don't need to write all the codes from scratch!
 
@@ -236,88 +332,83 @@ It can be overwhelming, and we can even have the feeling that quantitative resea
 R is free and open source, it is a collaborative concept. And this is very important to be aware of this: **Nobody,** *nobody***, writes all the raw codes for each task in one script.** Just like we read articles and books instead of doing all the research on the field when we want to know more about something, we can rely on other people's work when writing codes. <br>People wrote, and more importantly, **published**, articles and books so that we can have access to more knowledge. <br>People wrote, and more importantly, **shared online**, lines and lines of codes and functions such that we can have access to them, use them, instead of rewriting everything.
 :::
 
+## 2.1 What are "libraries"? (3/3)
+
 We need to introduce some concepts now:
 
--   Lines of codes
--   Functions
--   Packages/Libraries
+::: panel-tabset
+### Line of codes
 
-| Name            | Concept                                                                                                                                                                                                                                                                                                                                              |
-|------------------------|-----------------------------------------------|
-| Line of codes   | Just the code you write in the script/console to perform something specific. They are usually the most simple.                                                                                                                                                                                                                                       |
-| Function        | Sometimes, you need more than one line of code to perform a task. You may even want to perform the exact same task several times, but with different data. Of course, you can just copy and paste the same code everytime, but you can also choose to simplify it into one line of code. This is what a function is: **a cluster of lines of codes** |
-| Library/Package | And very often, you'll need to perform many tasks which require more than one function. You can choose to write all the functions by hand anytime you need them. Or you can just have them already loaded somewhere in R, such that you can refer to them later when you need them. This is what a library or package is: **a cluster of functions** |
+Just the code you write in the script/console to perform something specific. They are usually the most simple.
 
-<p>There are many many packages available for free with R. You can find them <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" target="_blank" class="btn btn--primary">here</a>. And they are even more that are not directly available from the R website, but developped and distributed by other people (generally on Github). They always come with a logo, as below.</p>
+### Function
 
-<hr class="rounded">
+Sometimes, you may even want to perform the exact same task several times, but with different data. Of course, you can just copy and paste the same code everytime, but you can also choose to simplify it into one line of code. This is what a function is:
 
-![](/assets/images/RPackages.jpg)
+> Function: a cluster of lines of codes
 
-<hr class="rounded">
+### Library/Package
 
-We will very often refer to some of them, such as "readxl" to import data from Excel, "ggplot2" to draw figures, "tidyr" and "dplyr" to manipulate data, etc.
+Very often, you need to perform many tasks which require more than one function. You can choose to write all the functions by hand anytime you need them. Or you can just have them already loaded somewhere in R.
 
-## How to install and use libraries?
+> Library or package: cluster of functions
+:::
 
-Installing libraries is quite easy. You have two ways to do so:
+## 2.2 Installing libraries with the Computer block
 
--   **Using the Computer block**
-
-    So far, we've only mentioned the Computer block as the block where you can browse the folders and open the files on your computer. This block actually has more functions. If you look at the tabs, you will remark that we've only talked about the "Files".
-
-    Now we will turn to the "Packages" tab, as in the image below. What you need to do is to click on "Install", you write and select the name of the library you want to install, and finally click on "Install". That's it!
-
-<hr class="rounded">
-
-![](/assets/images/ComputerBlockPackages.png)
-
-<hr class="rounded">
+::: columns
+::: {.column width="65%"}
+Look at the "Packages" tab. What you need to do is to click on "Install", you write and select the name of the library you want to install, and finally click on "Install". That's it!
 
 Give R a couple of minutes while it's downloading the data and installing on your computer.
+:::
 
--   Using the Console block
+::: {.column width="35%"}
+![](/assets/images/ComputerBlockPackages.png)
+:::
+:::
 
-    Alternatively, you can download/install packages directly from the Console block. You just need to write one line of code:
+## 2.3 Installing libraries with the Console block
 
-```{r, eval=FALSE}
+Alternatively, you can download/install packages directly from the Console block. You just need to write one line of code:
+
+```{r, eval=FALSE, echo=TRUE}
 install.packages("[Name of the package you wish to install]")
 ```
 
+. . .
+
+<br>
+
 For instance, if you want to install the package 'ggplot2', which is used to draw figures, here is what you need to write:
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=TRUE}
 install.packages("ggplot2")
 ```
 
-You will remark that for installing the packages, you need to write the name of the package between quotation marks
+You will remark that for installing the packages, you need to write the name of the package ***between quotation marks***.
 
-Now that you have downloaded the packages you need, this does not mean that you can use the functions in the libraries right away. The packages are installed, but you need to "call" them, or to load them, such that they are ready to use. Note that no quotation marks are used with this function.
+## 2.4 How to use a library?
 
-```{r, eval=FALSE}
+Now that you have downloaded the packages you need, this does not mean that you can use the functions in the libraries right away. The packages are installed, but you need to "call" them, or to load them, such that they are ready to use. Note that ***no quotation marks*** are used with this function.
+
+```{r, eval=FALSE, echo=TRUE}
 library([Name of the package])
 library(ggplot2)
 ```
 
-::: callout-tip
-## Think about it
 
-Let's keep the metaphor of the articles and books published by other people. You want to prepare a memorable dinner, and to do so you need to buy a book with recipies that you can't find online. To do so, you go to the bookstore and buy this wonderful book. Back home, you just put it on your bookshelf. **The step of buying the book and bringing it back home corresponds to the *'install.packages()'*** step.
-
-Does having the book at home mean that you just need to go to your kitchen and start cooking? Of course not! You need to have this book opened with you in the kitchen to follow the recipies! This is exactly what we are doing when we load the packages in the ***'library()'*** step!
-:::
-
-# Some basic elements of R language
+# 3 Some basic elements of R language {.scrollable}
 
 This subsection will introduce some basic elements of R codes that cannot be avoided. I will introduce codes referred to as 'R-based', meaning that there is no need to install any additional packages.
 
 ::: callout-tip
 ## Play around!
 
-While you're going through the examples below, don't hesitate to open an R script, copy and paste the codes, run them to see what happens. In addition, you can also modify the codes and try new things. You may run into errors, but that's ok. From my experience, it is the best way to get used to the R interface.
+While you're going through the examples below, don't hesitate to open an R script, copy and paste the codes, run them to see what happens. In addition, you can also modify the codes and try new things.
 :::
 
-## First things first: The 'working directory'
+## 3.1 First things first: The 'working directory'
 
 This is one of the most important step, and also something that I always (and everybody should) check before anything else. The 'working directory' refers to the folder in your computer R is looking into. While you can navigate in the folders of your computer using the Computer block, this does not mean that R remembers where you are. To do so, you have to tell R:
 
@@ -337,9 +428,9 @@ This is what the 'working directory', it is **THE** folder. Now, how to set your
 
 And you are done! You will see that a line of code appeared in the Console block, actually setting the working directory.
 
-## Your first script: Some syntax and vocabulary of R
+## 3.2 Your first script: Some syntax and vocabulary of R
 
-### Add comments
+## Add comments
 
 A useful tip when writing R code is the possibility to add comments. I use it all the time such that I can annotate why I used this function, the size I want to print my figure, etc. Comments are marked with the hashtag sign "\#". See the example below.<br> Note that you can add as many hashtag signs as you want. I personally have the habit to use three hashtag signs, but you could also just use one.
 
@@ -350,7 +441,7 @@ A useful tip when writing R code is the possibility to add comments. I use it al
 
 Now that you know how to add comments in the script you have opened, just comment every line, even the ones that you created yourself!
 
-### Basic calculations
+## Basic calculations
 
 We have already referred to basic calculations in the previous subsections. These so-called basic calculations can even be complex, as below.
 
@@ -358,7 +449,7 @@ We have already referred to basic calculations in the previous subsections. Thes
 2 + 343 * 34 / (5 - 342 + 45 * 36)
 ```
 
-### Assigning variables
+## Assigning variables
 
 We have also already mentioned how to assign variables in previous subsections. Let's recall it below.
 
@@ -396,7 +487,7 @@ b <- a
 
 What happened here? You had a variable called 'a', which had the value "6". You also had the variable called 'b', which had the value "This is my first script". In the above line of code, you are asking R to assign the value of the variable a to b... in other words, the value of 'b' becomes the same as 'a'!
 
-### Load data from your computer to R
+## Load data from your computer to R
 
 You may have already collected data, and you want to import your dataset into R. For this section, let's use the data from the survey of "Great American Coffee Taste Test". You can download the file <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv" target="_blank">here</a>. (source of the data: <a href="https://mavenanalytics.io/data-playground" target="_blank">https://mavenanalytics.io/data-playground</a>
 
@@ -454,7 +545,7 @@ Now you have a new window where you are asked to set the options to import the f
 
 And you are done, now you have a whole dataset ready for manipulation in R!
 
-### Data description and summary
+## Data description and summary
 
 I assume here that the dataset we just imported is still present in your environment. Now we will learn quick ways to describe and summarize the data we have.
 
@@ -529,7 +620,7 @@ This is what you obtain in the Console block:
 
 How to read this? It is telling us that there are 1986 respondents in the "25-34 years old" group, 960 in the "35-44 years old" group, etc. Also that there are 1277 people drinking 1 cup of coffee per day, 1663 people 2 cups of coffee per day, etc.
 
-### Transforming the data: add, delete, change
+## Transforming the data: add, delete, change
 
 Transforming the data is the task we spend the most of out time when doing the research. This can be tedious, but it is crucial to plot the right data and to conduct the right analyses. It is also very important to be aware of what we are doing when transforming the data. The aim is to make them more easily readable for R.
 
@@ -622,7 +713,7 @@ You should obtain something like this in the picture below:
 
 There are of course many more ways to transform the data, summarize them, etc. This subsection was only a snapshot of what is possible to do with a very minimum number of lines of codes!
 
-### Plotting the data
+## Plotting the data
 
 Now that we have summarized data, we can plot to see what they look like. We will use a very straightforward function, called... "plot()"! Let's see what it does with the codes below.
 
@@ -673,7 +764,7 @@ The first plot shows that most of the participants are between 25 and 34 years o
 
 You might be curious whether there is an interaction, with older people drinking more coffee than younger people. In other words, you would need three variables in the codes... which is very difficult to do without other packages, espectially the "ggplot2" one! You can try by yourself!
 
-### Save data from R to your computer
+## Save data from R to your computer
 
 For some reasons, we may want to save our data in the computer. But we are actually referring to two things at the same time:
 
@@ -707,19 +798,3 @@ Let's unpack it:
     -   the "**row.names = FALSE**" is here to say that we do not want the index of the rows. You can try and change to "TRUE" to see what happens.
 
 It is also possible to export to .xlsx files, more directly readable by Excel, but this requires another library. We will encounter this in the rest of the tutorial.
-
-### R script of this section
-
-You can find the R scripts including the codes presented in this section <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/Script_Section1.2.R" target="_blank">here</a>. Don't hesitate to use it and add comments for each line of code to make your own!
-
-## Common mistakes, or how to save a lot of time
-
-You will run into many error messages, these intimidating red lines in the console block telling you that something wrong happened. We can spend hours trying to figure out what to do to make the codes work. Again, no worries! This is part of the learning process, and to be honest, even experts can't avoid error messages. The most important thing is to learn from them, so that we are able to understand what the problem is, and how to solve it.
-
-From my experience, there are mistakes we often make especially as first users of R. I remember that many students in the classes I attended and taught gave up on learning programming languages just because they had to spend too much time on debugging very basic mistakes, and they couldn't focus on the opportunities R can offer. Below is a non-exhaustive list of such mistakes that I may update in the future.
-
-### I can't load the data from my computer
-
-### I don't have any error message, but my code won't run
-
-### "Variable not found", what happened?

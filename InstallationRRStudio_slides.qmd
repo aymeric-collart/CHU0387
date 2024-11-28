@@ -19,7 +19,7 @@ We are actually referring to two programs:
 
 . . .
 
-:::: columns
+::: columns
 ::: {.column width="50%"}
 **Main program: R**
 
@@ -35,23 +35,14 @@ This is where all the magic happens.
 
 User-friendly interface such that it is easier to work with.
 :::
-::::
+:::
 
 ## What is the difference between the two? A comparison {.scrollable}
 
-::: {.panel-tabset}
+::: panel-tabset
 ### How you are using your computer
- 
-`r fontawesome::fa("computer", a11y = "sem", height = "2.1em", width = "2.3em")` 
-`r fontawesome::fa("circle-right", a11y = "sem", height = "2.1em", width = "2em", margin_left = "0.9em", margin_right = "0.9em")`
-`r fontawesome::fa("folder-open", a11y = "sem", fill = "#2b579a", height = "2.1em", width = "2em")`
-`r fontawesome::fa("circle-right", a11y = "sem", height = "2.1em", width = "2em", margin_left = "0.9em", margin_right = "0.9em")`
-`r fontawesome::fa("file-word", a11y = "sem", fill = "#2b579a", height = "2.1em", width = "1.9em", margin_right = "0.7em")`
-`r fontawesome::fa("file-excel", a11y = "sem", fill = "#217346", height = "2.1em", width = "1.9em", margin_right = "0.7em")`
-`r fontawesome::fa("file-powerpoint", a11y = "sem", fill = "#d24726", height = "2.1em", width = "1.9em")`
-`r fontawesome::fa("circle-right", a11y = "sem", height = "2.1em", width = "2em", margin_left = "0.9em", margin_right = "0.9em")`
-`r fontawesome::fa("floppy-disk", a11y = "sem", height = "2.1em", width = "1.9em")`
 
+`r fontawesome::fa("computer", a11y = "sem", height = "2.1em", width = "2.3em")` `r fontawesome::fa("circle-right", a11y = "sem", height = "2.1em", width = "2em", margin_left = "0.9em", margin_right = "0.9em")` `r fontawesome::fa("folder-open", a11y = "sem", fill = "#2b579a", height = "2.1em", width = "2em")` `r fontawesome::fa("circle-right", a11y = "sem", height = "2.1em", width = "2em", margin_left = "0.9em", margin_right = "0.9em")` `r fontawesome::fa("file-word", a11y = "sem", fill = "#2b579a", height = "2.1em", width = "1.9em", margin_right = "0.7em")` `r fontawesome::fa("file-excel", a11y = "sem", fill = "#217346", height = "2.1em", width = "1.9em", margin_right = "0.7em")` `r fontawesome::fa("file-powerpoint", a11y = "sem", fill = "#d24726", height = "2.1em", width = "1.9em")` `r fontawesome::fa("circle-right", a11y = "sem", height = "2.1em", width = "2em", margin_left = "0.9em", margin_right = "0.9em")` `r fontawesome::fa("floppy-disk", a11y = "sem", height = "2.1em", width = "1.9em")`
 
 ### How R is used
 
@@ -60,7 +51,7 @@ User-friendly interface such that it is easier to work with.
 
 You have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen.
 
-What you may not know is that when doing so, **you have run many lines of codes**. Your computer ran them in programs able to perform computations. 
+What you may not know is that when doing so, **you have run many lines of codes**. Your computer ran them in programs able to perform computations.
 
 Your role has been to trigger these programs by using the user-friendly interface installed in your computer.
 :::
@@ -102,12 +93,11 @@ On the next page, you will need to choose the subdirectory that you need. For ou
 
 ## Download and install R (5/5)
 
-We finally got to the last page! 
+We finally got to the last page!
 
 ![](/assets/images/RWebsite_DownloadFinal.png)
 
 Just click on the first link to download the files, as in the image. Wait until the file is downloaded, open it and follow the instructions to install R on your computer.
-
 
 # Download and install RStudio
 
