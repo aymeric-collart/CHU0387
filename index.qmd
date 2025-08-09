@@ -16,6 +16,7 @@ hr.rounded {
 }
 </style>
 ```
+
 <hr class="rounded">
 
 ```{=html}
@@ -24,6 +25,7 @@ hr.rounded {
 Welcome to the tutorial on "Formosan languages, corpus and R/RStudio"
 </p>
 ```
+
 <hr class="rounded">
 
 <br>
@@ -38,6 +40,7 @@ Welcome to the tutorial on "Formosan languages, corpus and R/RStudio"
 <b> &nbsp; &#129504; &nbsp; Objectives of the tutorial</b>
 </p>
 ```
+
 In this tutorial, you will learn:
 
 -   how to download data from the Internet automatically and quickly,
@@ -57,6 +60,7 @@ font-size:24px">
 
 </p>
 ```
+
 ### 1- Do I need any background?
 
 You do not need any particular background.

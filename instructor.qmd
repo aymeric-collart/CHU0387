@@ -8,6 +8,8 @@ format:
     toc: true
 ---
 
-Name: Aymeric Collart
+Aymeric Collart, Ph.D
+Department of Chinese
+National Taiwan Normal University
 
 Personal website: <a href="https://aymeric-collart.github.io/" target="_blank">https://aymeric-collart.github.io/</a>

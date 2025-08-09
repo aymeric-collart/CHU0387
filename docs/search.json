@@ -151,21 +151,30 @@
     "href": "instructor.html",
     "title": "Instructor",
     "section": "",
-    "text": "Name: Aymeric Collart\nPersonal website: https://aymeric-collart.github.io/"
+    "text": "Aymeric Collart, Ph.D Department of Chinese National Taiwan Normal University\nPersonal website: https://aymeric-collart.github.io/"
   },
   {
     "objectID": "intro.html",
     "href": "intro.html",
     "title": "Introduction",
     "section": "",
-    "text": "The slides corresponding to this section can be found here: Chalkboard"
+    "text": "The slides corresponding to this section can be found here: r fontawesome::fa(\"chalkboard\", a11y = \"sem\")",
+    "crumbs": [
+      "Welcome page",
+      "Introduction"
+    ]
   },
   {
     "objectID": "references.html",
     "href": "references.html",
-    "title": "",
+    "title": "References",
     "section": "",
-    "text": "References"
+    "text": "References",
+    "crumbs": [
+      "Welcome page",
+      "Chapter 2. Let's get our data",
+      "References"
+    ]
   },
   {
     "objectID": "intro_slides.html#workflow-of-a-typical-corpus-based-study",
@@ -186,21 +195,21 @@
     "href": "intro_slides.html#what-this-tutorial-does-not-cover",
     "title": "Introduction",
     "section": "What this tutorial does NOT cover",
-    "text": "What this tutorial does NOT cover\n\n\nFundamental concepts of corpus linguistics\nHow to ask a research question and how to motivate it\nAdvanced statistical methods in corpus linguistics (classification analyses, vector space representations)\n\n\n\nIf you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free here."
+    "text": "What this tutorial does NOT cover\n\n\nFundamental concepts of corpus linguistics\nHow to ask a research question and how to motivate it\nAdvanced statistical methods in corpus linguistics (classification analyses, vector space representations)\n\n\n. . .\nIf you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free here."
   },
   {
     "objectID": "intro_slides.html#structure-and-workflow-of-the-tutorial",
     "href": "intro_slides.html#structure-and-workflow-of-the-tutorial",
     "title": "Introduction",
-    "section": "Structure and workflow of the tutorial",
-    "text": "Structure and workflow of the tutorial\n\n\nClick on the image to zoom in and out"
+    "section": "",
+    "text": "Click on the image to zoom in and out"
   },
   {
     "objectID": "intro_slides.html#how-to-get-through-the-exercises",
     "href": "intro_slides.html#how-to-get-through-the-exercises",
     "title": "Introduction",
     "section": "How to get through the exercises",
-    "text": "How to get through the exercises"
+    "text": "How to get through the exercises\n\nThe best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts.\n\n\n\n\nI will provide at the beginning of each section a markdown file prefilled with the structure of the section. You can download this file and open it with R, and just paste the codes at the relevant sections of the script.\n\n\n\nAlternatively, you may wish to write the script yourself, and to work based on the codes in each section. This is a great way to learn how to structure a markdown file alone!"
   },
   {
     "objectID": "InstallationRRStudio_slides.html#download-and-install-r",
@@ -677,5 +686,23 @@
     "title": "Section 1.2",
     "section": "Save data from R to your computer",
     "text": "Save data from R to your computer\nFor some reasons, we may want to save our data in the computer. But we are actually referring to two things at the same time:\n\nSaving the R dataset, and\nExporting the R dataset such that we can open it with other programs.\n\nBoth are doable, and let’s start with the first option with the code below.\n\n\n\nWe just need the “save()” function, inside which we first tell R the dataset we want to save, and then the name of the file on the computer. We can choose the name of the file by ourself, as long as we do not forget the “.Rdata” extension. Once it is save, we can load the file later using the “load()” function.\n\n\n\nWe may also want to save the data as a .csv file, readable by programs such as Excel. This is done with the code below:\n\n\n\nLet’s unpack it:\n\nWe use the “write.csv” function, and we provide details inside the parentheses for:\n\nThe name of the dataset we want to export (here, data3),\nThe name we want it to have in our computer (here, data3.csv), and\nthe “row.names = FALSE” is here to say that we do not want the index of the rows. You can try and change to “TRUE” to see what happens.\n\n\nIt is also possible to export to .xlsx files, more directly readable by Excel, but this requires another library. We will encounter this in the rest of the tutorial."
+  },
+  {
+    "objectID": "intro.html#slides-of-this-section",
+    "href": "intro.html#slides-of-this-section",
+    "title": "Introduction",
+    "section": "",
+    "text": "The slides corresponding to this section can be found here: r fontawesome::fa(\"chalkboard\", a11y = \"sem\")",
+    "crumbs": [
+      "Welcome page",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "intro_slides.html",
+    "href": "intro_slides.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Click on the image to zoom in and out"
   }
 ]
