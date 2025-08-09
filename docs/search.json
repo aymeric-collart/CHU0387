@@ -4,21 +4,36 @@
     "href": "InstallationRRStudio.html",
     "title": "Section 1.1 Installation of R/RStudio",
     "section": "",
-    "text": "The slides corresponding to this section can be found here: Chalkboard"
+    "text": "The slides corresponding to this section can be found here: r fontawesome::fa(\"chalkboard\", a11y = \"sem\")",
+    "crumbs": [
+      "Welcome page",
+      "Chapter 1. Getting Started",
+      "Section 1.1 Installation of R/RStudio"
+    ]
   },
   {
     "objectID": "InstallationRRStudio.html#download-and-install-r",
     "href": "InstallationRRStudio.html#download-and-install-r",
     "title": "Section 1.1 Installation of R/RStudio",
     "section": "2.1 Download and install R",
-    "text": "2.1 Download and install R\nYou can download R for free from the official website here.\nYou have to look for the link in the middle of the first paragraph on the front page.\n\n\n\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\n\n\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft).\n\n\n\nOn the next page, you will need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory.\n\n\n\nWe finally got to the last page! Just click on the first link to download the files, as in the image below.\n\n\n\nJust wait until the file is downloaded, open it and follow the instructions to install R on your computer."
+    "text": "2.1 Download and install R\nYou can download R for free from the official website here.\nYou have to look for the link in the middle of the first paragraph on the front page.\n\n\n\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\n\n\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft).\n\n\n\nOn the next page, you will need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory.\n\n\n\nWe finally got to the last page! Just click on the first link to download the files, as in the image below.\n\n\n\nJust wait until the file is downloaded, open it and follow the instructions to install R on your computer.",
+    "crumbs": [
+      "Welcome page",
+      "Chapter 1. Getting Started",
+      "Section 1.1 Installation of R/RStudio"
+    ]
   },
   {
     "objectID": "InstallationRRStudio.html#download-and-install-rstudio",
     "href": "InstallationRRStudio.html#download-and-install-rstudio",
     "title": "Section 1.1 Installation of R/RStudio",
     "section": "2.2 Download and install RStudio",
-    "text": "2.2 Download and install RStudio\nNow that R is installed on your computer, it is time to do the same with RStudio. First, let’s go to the RStudio website by clicking here , and you will see something like that (if not, it is just that the RStudio website has changed):\n\n\n\nOnce you are on the front page, just scroll down to look for the links to download the installing files. Again, you will need to choose the right file to download according to the system of your computer: Window, macOS (for the most common), or another one.\n\n\n\nJust click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer."
+    "text": "2.2 Download and install RStudio\nNow that R is installed on your computer, it is time to do the same with RStudio. First, let’s go to the RStudio website by clicking here , and you will see something like that (if not, it is just that the RStudio website has changed):\n\n\n\nOnce you are on the front page, just scroll down to look for the links to download the installing files. Again, you will need to choose the right file to download according to the system of your computer: Window, macOS (for the most common), or another one.\n\n\n\nJust click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer.",
+    "crumbs": [
+      "Welcome page",
+      "Chapter 1. Getting Started",
+      "Section 1.1 Installation of R/RStudio"
+    ]
   },
   {
     "objectID": "RStudioInterface.html",
@@ -116,28 +131,48 @@
     "href": "WorkingWithRMarkdown.html",
     "title": "Section 1.3 Working with R Markdown",
     "section": "",
-    "text": "Objectives\n\n\n\nIn this section, we will focus more on one type of R scripts: R Markdown files. The reason is that we are going to use R Markdowns instead of raw R scripts from now on, so we need to know more about how R Markdown files work in addition to their potential"
+    "text": "Objectives\n\n\n\nIn this section, we will focus more on one type of R scripts: R Markdown files. The reason is that we are going to use R Markdowns instead of raw R scripts from now on, so we need to know more about how R Markdown files work in addition to their potential",
+    "crumbs": [
+      "Welcome page",
+      "Chapter 1. Getting Started",
+      "Section 1.3 Working with R Markdown"
+    ]
   },
   {
     "objectID": "WorkingWithRMarkdown.html#configuring-the-file-the-yaml-block",
     "href": "WorkingWithRMarkdown.html#configuring-the-file-the-yaml-block",
     "title": "Section 1.3 Working with R Markdown",
     "section": "2.1 Configuring the file: The YAML block",
-    "text": "2.1 Configuring the file: The YAML block\n\n2.1.1 Basic features of the YAML block\nLet’s start with configuring the file: This corresponds to the first lines, or the header, of the script that you have just created. This is called the YAML part. It looks like this so far:\n\n\n\nYou will remark that there are pre-filled information, such as the title of the document, the name(s) of the author(s), the date and the output format. These are what we were prompted to fill when creating the document! Now you can try to change some things, for instance:\n\nTitle: Change to “My first R Markdown script”\nAuthor: Change to you name\nDate: Change to the date you wish, or even delete this line if you do not wish to add a date\n\n\n\n2.1.2 More advanced features of the YAML block\nYou can also add other pieces of information, for instance:\n\nDate:\nYou have more options, such as defining the format of the date, and maybe more interestingly, create a variable such that you do not have to change the date anytime you are saving the document. In other words, you may want to have a line specifying something like “This document was last modified on ‘Year-Month-Day’”. Just write as follows:\n\n\ndate: \"This document was last modified on `r Sys.Date()`\"\n\nThe code 2024-11-25 will look at the date of the system of your computer.\n\nTable of contents:\nThe addition of titles in the document is here to help when navigating it. You can also add a table of contents such that it is even easier to navigate. You can also specify how many layers you want to display in the table of contents.\n\n\ntoc: true\ntoc-depth: 4 ## Change this value depending on how many layers you wish to display\n\n\nFormat:\nFor now, the output format is “html”. Just replace with other values according to the output format you want (for example: “pdf_document”).\n\nIn the end, the YAML block should look like this:\n\n    ---\n    title: \"My first R Markdown script\"\n    author: \"Your name\"\n    date: \"This document was last modified on `r Sys.Date()`\"\n    output: pdf_document\n    toc: yes\n    toc-depth: 4\n    ---"
+    "text": "2.1 Configuring the file: The YAML block\n\n2.1.1 Basic features of the YAML block\nLet’s start with configuring the file: This corresponds to the first lines, or the header, of the script that you have just created. This is called the YAML part. It looks like this so far:\n\n\n\nYou will remark that there are pre-filled information, such as the title of the document, the name(s) of the author(s), the date and the output format. These are what we were prompted to fill when creating the document! Now you can try to change some things, for instance:\n\nTitle: Change to “My first R Markdown script”\nAuthor: Change to you name\nDate: Change to the date you wish, or even delete this line if you do not wish to add a date\n\n\n\n2.1.2 More advanced features of the YAML block\nYou can also add other pieces of information, for instance:\n\nDate:\nYou have more options, such as defining the format of the date, and maybe more interestingly, create a variable such that you do not have to change the date anytime you are saving the document. In other words, you may want to have a line specifying something like “This document was last modified on ‘Year-Month-Day’”. Just write as follows:\n\n\ndate: \"This document was last modified on `r Sys.Date()`\"\n\nThe code 2025-08-09 will look at the date of the system of your computer.\n\nTable of contents:\nThe addition of titles in the document is here to help when navigating it. You can also add a table of contents such that it is even easier to navigate. You can also specify how many layers you want to display in the table of contents.\n\n\ntoc: true\ntoc-depth: 4 ## Change this value depending on how many layers you wish to display\n\n\nFormat:\nFor now, the output format is “html”. Just replace with other values according to the output format you want (for example: “pdf_document”).\n\nIn the end, the YAML block should look like this:\n\n    ---\n    title: \"My first R Markdown script\"\n    author: \"Your name\"\n    date: \"This document was last modified on `r Sys.Date()`\"\n    output: pdf_document\n    toc: yes\n    toc-depth: 4\n    ---",
+    "crumbs": [
+      "Welcome page",
+      "Chapter 1. Getting Started",
+      "Section 1.3 Working with R Markdown"
+    ]
   },
   {
     "objectID": "WorkingWithRMarkdown.html#navigating-the-file-titles-and-subparts",
     "href": "WorkingWithRMarkdown.html#navigating-the-file-titles-and-subparts",
     "title": "Section 1.3 Working with R Markdown",
     "section": "2.2 Navigating the file: Titles and subparts",
-    "text": "2.2 Navigating the file: Titles and subparts\nThe titles and subparts are here to give the overall structure of the document. Please note that they are optional: It is possible to write a whole R Markdown document without any title! But as the codes are more and more lengthy, it becomes messy very easily to the point that it is very difficult to understand what we are doing. In other words, the titles and subparts are here to clarify everything!\nAdding titles and subparts is very simple. You just need to click on the button where the header options can be found. For example, if you want to write the title of a main part (let’s say, “1. Introduction”), you click on “Header 1”, and you write the name of the title. It is the same process for subtitles. Let’s say you want a subpart called “1.1 Introduction within the introduction”, you just click on “Header 2” and you write what you want for the subtitle.\n\n\n\n\n\n\nTip\n\n\n\nI personally prefer when the structure is numbered, this is why I add the number of the sections like “1. Introduction”, or “1.1 Introduction of the introduction”. But this is not obligatory and depends on your style!\n\n\nThe titles and subparts are also very important to set the table of contents!"
+    "text": "2.2 Navigating the file: Titles and subparts\nThe titles and subparts are here to give the overall structure of the document. Please note that they are optional: It is possible to write a whole R Markdown document without any title! But as the codes are more and more lengthy, it becomes messy very easily to the point that it is very difficult to understand what we are doing. In other words, the titles and subparts are here to clarify everything!\nAdding titles and subparts is very simple. You just need to click on the button where the header options can be found. For example, if you want to write the title of a main part (let’s say, “1. Introduction”), you click on “Header 1”, and you write the name of the title. It is the same process for subtitles. Let’s say you want a subpart called “1.1 Introduction within the introduction”, you just click on “Header 2” and you write what you want for the subtitle.\n\n\n\n\n\n\nTip\n\n\n\nI personally prefer when the structure is numbered, this is why I add the number of the sections like “1. Introduction”, or “1.1 Introduction of the introduction”. But this is not obligatory and depends on your style!\n\n\nThe titles and subparts are also very important to set the table of contents!",
+    "crumbs": [
+      "Welcome page",
+      "Chapter 1. Getting Started",
+      "Section 1.3 Working with R Markdown"
+    ]
   },
   {
     "objectID": "WorkingWithRMarkdown.html#writing-the-content",
     "href": "WorkingWithRMarkdown.html#writing-the-content",
     "title": "Section 1.3 Working with R Markdown",
     "section": "2.3 Writing the content",
-    "text": "2.3 Writing the content\n\n2.3.1 Writing the narrative\nNothing more simple: You can write directly inside the document. Just do not forget to check that the style is set as “Normal” and not “Header 1”, “Header 2”, etc. when doing so!\nThis is a big difference with R Script. Everything you write in an R Script is considered as a code, unless you use the hashtag signs to tell R that this is a comment. In other words, everything that you write in the document is considered as a comment, so do not hesitate to write as much as you want as long as it makes things clearer for you!\n\n\n2.3.2 Writing the code\nIf what we write inside the document is not considered as a code, then how to add one?\nYou Just need to click on “Insert”, then “Code Chunk”, and finally “R”. Normally, a grey code block with appear with {r} at the top line to indicate that this is an R code block. Everything written in this grey block will be considered as R code. You can also add comments inside the block using hashtags as you can do in a typical R Script. Sometimes, R will display simple messages and/or warnings at the same time as you run the code. It is possible to “hide” them, you just need to add the following lines below {r}, as below.\n\n\n\nYour code chunk will look like this:\n\n\n\nFinally, you can run the code chunk without running ALL the document. Can you see the green ‘play’ logo on the top right of the code chunk? You just need to click on it!"
+    "text": "2.3 Writing the content\n\n2.3.1 Writing the narrative\nNothing more simple: You can write directly inside the document. Just do not forget to check that the style is set as “Normal” and not “Header 1”, “Header 2”, etc. when doing so!\nThis is a big difference with R Script. Everything you write in an R Script is considered as a code, unless you use the hashtag signs to tell R that this is a comment. In other words, everything that you write in the document is considered as a comment, so do not hesitate to write as much as you want as long as it makes things clearer for you!\n\n\n2.3.2 Writing the code\nIf what we write inside the document is not considered as a code, then how to add one?\nYou Just need to click on “Insert”, then “Code Chunk”, and finally “R”. Normally, a grey code block with appear with {r} at the top line to indicate that this is an R code block. Everything written in this grey block will be considered as R code. You can also add comments inside the block using hashtags as you can do in a typical R Script. Sometimes, R will display simple messages and/or warnings at the same time as you run the code. It is possible to “hide” them, you just need to add the following lines below {r}, as below.\nYour code chunk will look like this:\n\n\n\nFinally, you can run the code chunk without running ALL the document. Can you see the green ‘play’ logo on the top right of the code chunk? You just need to click on it!",
+    "crumbs": [
+      "Welcome page",
+      "Chapter 1. Getting Started",
+      "Section 1.3 Working with R Markdown"
+    ]
   },
   {
     "objectID": "index.html",
@@ -195,21 +230,21 @@
     "href": "intro_slides.html#what-this-tutorial-does-not-cover",
     "title": "Introduction",
     "section": "What this tutorial does NOT cover",
-    "text": "What this tutorial does NOT cover\n\n\nFundamental concepts of corpus linguistics\nHow to ask a research question and how to motivate it\nAdvanced statistical methods in corpus linguistics (classification analyses, vector space representations)\n\n\n. . .\nIf you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free here."
+    "text": "What this tutorial does NOT cover\n\n\nFundamental concepts of corpus linguistics\nHow to ask a research question and how to motivate it\nAdvanced statistical methods in corpus linguistics (classification analyses, vector space representations)\n\n\n\nIf you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free here."
   },
   {
     "objectID": "intro_slides.html#structure-and-workflow-of-the-tutorial",
     "href": "intro_slides.html#structure-and-workflow-of-the-tutorial",
     "title": "Introduction",
-    "section": "",
-    "text": "Click on the image to zoom in and out"
+    "section": "Structure and workflow of the tutorial",
+    "text": "Structure and workflow of the tutorial\n\n\nClick on the image to zoom in and out"
   },
   {
     "objectID": "intro_slides.html#how-to-get-through-the-exercises",
     "href": "intro_slides.html#how-to-get-through-the-exercises",
     "title": "Introduction",
     "section": "How to get through the exercises",
-    "text": "How to get through the exercises\n\nThe best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts.\n\n\n\n\nI will provide at the beginning of each section a markdown file prefilled with the structure of the section. You can download this file and open it with R, and just paste the codes at the relevant sections of the script.\n\n\n\nAlternatively, you may wish to write the script yourself, and to work based on the codes in each section. This is a great way to learn how to structure a markdown file alone!"
+    "text": "How to get through the exercises"
   },
   {
     "objectID": "InstallationRRStudio_slides.html#download-and-install-r",
@@ -244,7 +279,7 @@
     "href": "InstallationRRStudio_slides.html#what-is-the-difference-between-the-two-a-comparison",
     "title": "Section 1.1",
     "section": "What is the difference between the two? A comparison",
-    "text": "What is the difference between the two? A comparison\n\nHow you are using your computerHow R is used\n\n\nComputer Circle Right Folder Open Circle Right File Word File Excel File Powerpoint Circle Right Floppy Disk\n\n\n\n\n\n\n\n\nAnd now, think about it\n\n\nYou have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen.\nWhat you may not know is that when doing so, you have run many lines of codes. Your computer ran them in programs able to perform computations.\nYour role has been to trigger these programs by using the user-friendly interface installed in your computer.\n\n\n\nThis is the exact same thing with R and RStudio.\nR will perform the computations that you ask for. And you will ask R to do stuff by clicking on icons and writing commands using the user-friendly interface of RStudio.\nAnd this is why you need to download two programs!"
+    "text": "What is the difference between the two? A comparison\n\nHow you are using your computerHow R is used\n\n\nr fontawesome::fa(\"computer\", a11y = \"sem\", height = \"2.1em\", width = \"2.3em\") r fontawesome::fa(\"circle-right\", a11y = \"sem\", height = \"2.1em\", width = \"2em\", margin_left = \"0.9em\", margin_right = \"0.9em\") r fontawesome::fa(\"folder-open\", a11y = \"sem\", fill = \"#2b579a\", height = \"2.1em\", width = \"2em\") r fontawesome::fa(\"circle-right\", a11y = \"sem\", height = \"2.1em\", width = \"2em\", margin_left = \"0.9em\", margin_right = \"0.9em\") r fontawesome::fa(\"file-word\", a11y = \"sem\", fill = \"#2b579a\", height = \"2.1em\", width = \"1.9em\", margin_right = \"0.7em\") r fontawesome::fa(\"file-excel\", a11y = \"sem\", fill = \"#217346\", height = \"2.1em\", width = \"1.9em\", margin_right = \"0.7em\") r fontawesome::fa(\"file-powerpoint\", a11y = \"sem\", fill = \"#d24726\", height = \"2.1em\", width = \"1.9em\") r fontawesome::fa(\"circle-right\", a11y = \"sem\", height = \"2.1em\", width = \"2em\", margin_left = \"0.9em\", margin_right = \"0.9em\") r fontawesome::fa(\"floppy-disk\", a11y = \"sem\", height = \"2.1em\", width = \"1.9em\")\n\n\n\n\n\n\n\n\nAnd now, think about it\n\n\nYou have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen.\nWhat you may not know is that when doing so, you have run many lines of codes. Your computer ran them in programs able to perform computations.\nYour role has been to trigger these programs by using the user-friendly interface installed in your computer.\n\n\n\nThis is the exact same thing with R and RStudio.\nR will perform the computations that you ask for. And you will ask R to do stuff by clicking on icons and writing commands using the user-friendly interface of RStudio.\nAnd this is why you need to download two programs!"
   },
   {
     "objectID": "InstallationRRStudio_slides.html#download-and-install-r-15",
@@ -704,5 +739,17 @@
     "title": "Introduction",
     "section": "",
     "text": "Click on the image to zoom in and out"
+  },
+  {
+    "objectID": "InstallationRRStudio.html#slides-of-this-section",
+    "href": "InstallationRRStudio.html#slides-of-this-section",
+    "title": "Section 1.1 Installation of R/RStudio",
+    "section": "",
+    "text": "The slides corresponding to this section can be found here: r fontawesome::fa(\"chalkboard\", a11y = \"sem\")",
+    "crumbs": [
+      "Welcome page",
+      "Chapter 1. Getting Started",
+      "Section 1.1 Installation of R/RStudio"
+    ]
   }
 ]
