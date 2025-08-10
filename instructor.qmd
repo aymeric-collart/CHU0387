@@ -5,11 +5,11 @@ format:
     output-file: instructor.html
     number-sections: true
     number-depth: 2
-    toc: true
+    toc: false
 ---
 
-Aymeric Collart, Ph.D
-Department of Chinese
-National Taiwan Normal University
-
+Aymeric Collart, Ph.D <br>
+Department of Chinese <br>
+National Taiwan Normal University <br>
+<br>
 Personal website: <a href="https://aymeric-collart.github.io/" target="_blank">https://aymeric-collart.github.io/</a>

@@ -22,9 +22,19 @@ hr.rounded {
 ```{=html}
 <p style="font-size:32px;
           text-align: center">
-Welcome to the tutorial on "Formosan languages, corpus and R/RStudio"
+Welcome to the website of the course "Language, Society and Literature with Corpus and Modern Technology" (code: CHU03887)
 </p>
 ```
+
+## <i>Website under construction</i>
+
+::: callout-note
+## Note
+
+The website of the course has just been created. That's why it looks quite empty and some pages not at their right place.
+
+Stay tuned for further developments!
+:::
 
 <hr class="rounded">
 
@@ -37,17 +47,22 @@ Welcome to the tutorial on "Formosan languages, corpus and R/RStudio"
           border-radius: 4px;
           padding:0.7em;
           font-size:24px">
-<b> &nbsp; &#129504; &nbsp; Objectives of the tutorial</b>
+<b> &nbsp; &#129504; &nbsp; Description and objectives of the course</b>
 </p>
 ```
 
-In this tutorial, you will learn:
+This course introduces the principles of corpus studies assisted by modern technology with an emphasis on hands-on practice, and how corpus data can be useful in understanding how language is used in the media or in the literature. The course is divided into three parts: (a) fundamental concepts and practices when working with a corpus, (b) the process of building a corpus from texts on the Internet with modern technology, and (c) the handling, analyses and visualization of the corpus data. By the end of the course, the students are expected to acquire the basic knowledge of working with a corpus and will obtain a first approach to programming languages.
 
--   how to download data from the Internet automatically and quickly,
-
--   how to process the downloaded data without spending a lot of time with manual tasks,
-
--   how to create summary tables and images to analyze your data.
+```{=html}
+<p style="background-color:#eeeeee;
+          color: #404040;
+          border-left: solid #bcbcbc 4px;
+          border-radius: 4px;
+          padding:0.7em;
+          font-size:24px">
+<b> &nbsp; &#129504; &nbsp; General information for the 2025 Fall class</b>
+</p>
+```
 
 ```{=html}
 <p style="background-color:#eeeeee;
@@ -56,7 +71,7 @@ border-left: solid #bcbcbc 4px;
 border-radius: 4px;
 padding:0.7em;
 font-size:24px">
-<b> Who is this tutorial for?</b>
+<b>FAQ</b>
 
 </p>
 ```
@@ -65,11 +80,11 @@ font-size:24px">
 
 You do not need any particular background.
 
-This tutorial will start with the very basics. If you are already familiar with coding and/or the RStudio interface, it will of course be easier for you.
+This course will start with the very basics. If you are already familiar with coding and/or the RStudio interface, it will of course be easier for you.
 
 ### 2- Which public?
 
-Anyone interested in Formosan languages<sup><a href="#footnote1" style="font-size:11px">\[1\]</a></sup> is welcome to take this tutorial, regardless if you are an undergraduate or graduate student, research assistant or just curious about quantitative methods and Formosan languages.
+In addition to the students enrolled in the course, anyone interested in having a first hands-on experience can follow the content of the website.
 
 ```{=html}
 <p style="background-color:#eeeeee;
@@ -81,19 +96,3 @@ font-size:24px">
 <b>&nbsp; &#128240; &nbsp;  News</b>
 </p>
 ```
-
-::: callout-note
-## Note
-
-The webpage of this tutorial has just been created. That's why it looks quite empty and some pages not at their right place.
-
-Stay tuned for further developments!
-:::
-
-<hr class="rounded">
-
-<p id="footnote1" style="font-size: 10px">
-
-\[1\] I use the term 'Formosan languages' as the Austronesian languages from Taiwan, including Yami (even though from a typological perspective, Yami is not a Formosan language).
-
-</p>
