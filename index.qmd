@@ -83,14 +83,3 @@ This course will start with the very basics. If you are already familiar with co
 ### 2- Which public?
 
 In addition to the students enrolled in the course, anyone interested in having a first hands-on experience can follow the content of the website.
-
-```{=html}
-<p style="background-color:#eeeeee;
-color: #404040;
-border-left: solid #bcbcbc 4px;
-border-radius: 4px;
-padding:0.7em;
-font-size:24px">
-<b>&nbsp; &#128240; &nbsp;  News</b>
-</p>
-```

@@ -12,7 +12,7 @@ website:
     left:
       - text: "Welcome page"
         href: index.qmd
-      - text: "Get into the tutorial"
+      - text: "Get into the course"
         href: intro.qmd
     right:
       - text: "Instructor"
@@ -21,19 +21,20 @@ website:
     style: "floating"
     collapse-level: 1
     contents: 
-    - text: "Introduction"
+    - text: "Week 1: Introduction"
       href: intro.qmd
-    - section: "Chapter 1. Getting Started"
+    - section: "Part 1: Principles of corpus studies"
+    - section: "Part 2: Building a corpus from the internet with modern tools"
       contents: 
         - InstallationRRStudio.qmd
         - RStudioInterface.qmd
         - WorkingWithRMarkdown.qmd
-    - section: "Chapter 2. Let's get our data"
+    - section: "Part 3: Simple preprocessing and analyzes of corpus data"
       contents: 
         - references.qmd
     - part: "Chapter 3. Cleaning and analyzing the data"
   page-footer: 
-    left: "Copyright 2024, Aymeric Collart" 
+    left: "Copyright 2025, Aymeric Collart" 
     right: 
       - text: "{{< iconify fa6-brands bluesky >}}"
         href: https://bsky.app/profile/aymericcollart.bsky.social
