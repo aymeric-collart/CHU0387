@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Section 1.2 Introduction to the interface of RStudio and R language</title>
+<title>Week 5: Introduction to R (2/2): Basic functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,11 +17,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -32,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -98,10 +69,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-532fce776c63c931076d5ce395638b42.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -109,7 +80,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -118,8 +95,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -130,88 +109,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
- <span class="menu-text">Welcome page</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Welcome page</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./intro.html" aria-current="page">
- <span class="menu-text">Get into the tutorial</span></a>
+    <a class="nav-link active" href="./intro.html" aria-current="page"> 
+<span class="menu-text">Get into the course</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./instructor.html">
- <span class="menu-text">Instructor</span></a>
+    <a class="nav-link" href="./instructor.html"> 
+<span class="menu-text">Instructor</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Section 1.2 Introduction to the interface of RStudio and R language</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./InstallationRRStudio.html">Part 2: Building a corpus from the internet with modern tools</a></li><li class="breadcrumb-item"><a href="./RStudioInterface.html">Week 5: Introduction to R (2/2): Basic functions</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1: Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Part 1: Principles of corpus studies</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Chapter 1. Getting Started</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 2: Building a corpus from the internet with modern tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./InstallationRRStudio.html" class="sidebar-item-text sidebar-link">Section 1.1 Installation of R/RStudio</a>
+  <a href="./InstallationRRStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4: Introduction to the modern tool R (1/2): Installation and first steps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./RStudioInterface.html" class="sidebar-item-text sidebar-link active">Section 1.2 Introduction to the interface of RStudio and R language</a>
+  <a href="./RStudioInterface.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 5: Introduction to R (2/2): Basic functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WorkingWithRMarkdown.html" class="sidebar-item-text sidebar-link">Section 1.3 Working with R Markdown</a>
+  <a href="./WorkingWithRMarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Section 1.3 Working with R Markdown</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Chapter 2. Let’s get our data</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Part 3: Simple preprocessing and analyzes of corpus data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -219,47 +213,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-interface-of-rstudio" id="toc-the-interface-of-rstudio" class="nav-link active" data-scroll-target="#the-interface-of-rstudio"><span class="toc-section-number">1</span>  The interface of RStudio</a>
+  <li><a href="#the-interface-of-rstudio" id="toc-the-interface-of-rstudio" class="nav-link active" data-scroll-target="#the-interface-of-rstudio"><span class="header-section-number">1</span> The interface of RStudio</a>
   <ul>
-  <li><a href="#general-overview-of-the-interface-blocks-blocks-blocks-and-blocks" id="toc-general-overview-of-the-interface-blocks-blocks-blocks-and-blocks" class="nav-link" data-scroll-target="#general-overview-of-the-interface-blocks-blocks-blocks-and-blocks"><span class="toc-section-number">1.1</span>  General overview of the interface: Blocks, blocks, blocks and blocks</a></li>
-  <li><a href="#the-computer-block" id="toc-the-computer-block" class="nav-link" data-scroll-target="#the-computer-block"><span class="toc-section-number">1.2</span>  The computer block</a></li>
-  <li><a href="#the-variable-block" id="toc-the-variable-block" class="nav-link" data-scroll-target="#the-variable-block"><span class="toc-section-number">1.3</span>  The variable block</a></li>
-  <li><a href="#the-console-block" id="toc-the-console-block" class="nav-link" data-scroll-target="#the-console-block"><span class="toc-section-number">1.4</span>  The console block</a></li>
-  <li><a href="#the-script-block" id="toc-the-script-block" class="nav-link" data-scroll-target="#the-script-block"><span class="toc-section-number">1.5</span>  The script block</a></li>
-  <li><a href="#exercise-play-with-your-blocks" id="toc-exercise-play-with-your-blocks" class="nav-link" data-scroll-target="#exercise-play-with-your-blocks"><span class="toc-section-number">1.6</span>  Exercise: Play with your blocks!</a></li>
-  <li><a href="#bonus-more-about-the-script-block" id="toc-bonus-more-about-the-script-block" class="nav-link" data-scroll-target="#bonus-more-about-the-script-block"><span class="toc-section-number">1.7</span>  Bonus: More about the script block</a></li>
+  <li><a href="#general-overview-of-the-interface-blocks-blocks-blocks-and-blocks" id="toc-general-overview-of-the-interface-blocks-blocks-blocks-and-blocks" class="nav-link" data-scroll-target="#general-overview-of-the-interface-blocks-blocks-blocks-and-blocks"><span class="header-section-number">1.1</span> General overview of the interface: Blocks, blocks, blocks and blocks</a></li>
+  <li><a href="#the-computer-block" id="toc-the-computer-block" class="nav-link" data-scroll-target="#the-computer-block"><span class="header-section-number">1.2</span> The computer block</a></li>
+  <li><a href="#the-variable-block" id="toc-the-variable-block" class="nav-link" data-scroll-target="#the-variable-block"><span class="header-section-number">1.3</span> The variable block</a></li>
+  <li><a href="#the-console-block" id="toc-the-console-block" class="nav-link" data-scroll-target="#the-console-block"><span class="header-section-number">1.4</span> The console block</a></li>
+  <li><a href="#the-script-block" id="toc-the-script-block" class="nav-link" data-scroll-target="#the-script-block"><span class="header-section-number">1.5</span> The script block</a></li>
+  <li><a href="#exercise-play-with-your-blocks" id="toc-exercise-play-with-your-blocks" class="nav-link" data-scroll-target="#exercise-play-with-your-blocks"><span class="header-section-number">1.6</span> Exercise: Play with your blocks!</a></li>
+  <li><a href="#bonus-more-about-the-script-block" id="toc-bonus-more-about-the-script-block" class="nav-link" data-scroll-target="#bonus-more-about-the-script-block"><span class="header-section-number">1.7</span> Bonus: More about the script block</a></li>
   </ul></li>
-  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><span class="toc-section-number">2</span>  Libraries</a>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><span class="header-section-number">2</span> Libraries</a>
   <ul>
-  <li><a href="#what-is-the-concept-of-the-libraries" id="toc-what-is-the-concept-of-the-libraries" class="nav-link" data-scroll-target="#what-is-the-concept-of-the-libraries"><span class="toc-section-number">2.1</span>  What is the concept of the “libraries”?</a></li>
-  <li><a href="#how-to-install-and-use-libraries" id="toc-how-to-install-and-use-libraries" class="nav-link" data-scroll-target="#how-to-install-and-use-libraries"><span class="toc-section-number">2.2</span>  How to install and use libraries?</a></li>
+  <li><a href="#what-is-the-concept-of-the-libraries" id="toc-what-is-the-concept-of-the-libraries" class="nav-link" data-scroll-target="#what-is-the-concept-of-the-libraries"><span class="header-section-number">2.1</span> What is the concept of the “libraries”?</a></li>
+  <li><a href="#how-to-install-and-use-libraries" id="toc-how-to-install-and-use-libraries" class="nav-link" data-scroll-target="#how-to-install-and-use-libraries"><span class="header-section-number">2.2</span> How to install and use libraries?</a></li>
   </ul></li>
-  <li><a href="#some-basic-elements-of-r-language" id="toc-some-basic-elements-of-r-language" class="nav-link" data-scroll-target="#some-basic-elements-of-r-language"><span class="toc-section-number">3</span>  Some basic elements of R language</a>
+  <li><a href="#some-basic-elements-of-r-language" id="toc-some-basic-elements-of-r-language" class="nav-link" data-scroll-target="#some-basic-elements-of-r-language"><span class="header-section-number">3</span> Some basic elements of R language</a>
   <ul>
-  <li><a href="#first-things-first-the-working-directory" id="toc-first-things-first-the-working-directory" class="nav-link" data-scroll-target="#first-things-first-the-working-directory"><span class="toc-section-number">3.1</span>  First things first: The ‘working directory’</a></li>
-  <li><a href="#your-first-script-some-syntax-and-vocabulary-of-r" id="toc-your-first-script-some-syntax-and-vocabulary-of-r" class="nav-link" data-scroll-target="#your-first-script-some-syntax-and-vocabulary-of-r"><span class="toc-section-number">3.2</span>  Your first script: Some syntax and vocabulary of R</a>
+  <li><a href="#first-things-first-the-working-directory" id="toc-first-things-first-the-working-directory" class="nav-link" data-scroll-target="#first-things-first-the-working-directory"><span class="header-section-number">3.1</span> First things first: The ‘working directory’</a></li>
+  <li><a href="#your-first-script-some-syntax-and-vocabulary-of-r" id="toc-your-first-script-some-syntax-and-vocabulary-of-r" class="nav-link" data-scroll-target="#your-first-script-some-syntax-and-vocabulary-of-r"><span class="header-section-number">3.2</span> Your first script: Some syntax and vocabulary of R</a>
   <ul class="collapse">
-  <li><a href="#add-comments" id="toc-add-comments" class="nav-link" data-scroll-target="#add-comments"><span class="toc-section-number">3.2.1</span>  Add comments</a></li>
-  <li><a href="#basic-calculations" id="toc-basic-calculations" class="nav-link" data-scroll-target="#basic-calculations"><span class="toc-section-number">3.2.2</span>  Basic calculations</a></li>
-  <li><a href="#assigning-variables" id="toc-assigning-variables" class="nav-link" data-scroll-target="#assigning-variables"><span class="toc-section-number">3.2.3</span>  Assigning variables</a></li>
-  <li><a href="#load-data-from-your-computer-to-r" id="toc-load-data-from-your-computer-to-r" class="nav-link" data-scroll-target="#load-data-from-your-computer-to-r"><span class="toc-section-number">3.2.4</span>  Load data from your computer to R</a></li>
-  <li><a href="#data-description-and-summary" id="toc-data-description-and-summary" class="nav-link" data-scroll-target="#data-description-and-summary"><span class="toc-section-number">3.2.5</span>  Data description and summary</a></li>
-  <li><a href="#transforming-the-data-add-delete-change" id="toc-transforming-the-data-add-delete-change" class="nav-link" data-scroll-target="#transforming-the-data-add-delete-change"><span class="toc-section-number">3.2.6</span>  Transforming the data: add, delete, change</a></li>
-  <li><a href="#plotting-the-data" id="toc-plotting-the-data" class="nav-link" data-scroll-target="#plotting-the-data"><span class="toc-section-number">3.2.7</span>  Plotting the data</a></li>
-  <li><a href="#save-data-from-r-to-your-computer" id="toc-save-data-from-r-to-your-computer" class="nav-link" data-scroll-target="#save-data-from-r-to-your-computer"><span class="toc-section-number">3.2.8</span>  Save data from R to your computer</a></li>
-  <li><a href="#r-script-of-this-section" id="toc-r-script-of-this-section" class="nav-link" data-scroll-target="#r-script-of-this-section"><span class="toc-section-number">3.2.9</span>  R script of this section</a></li>
+  <li><a href="#add-comments" id="toc-add-comments" class="nav-link" data-scroll-target="#add-comments"><span class="header-section-number">3.2.1</span> Add comments</a></li>
+  <li><a href="#basic-calculations" id="toc-basic-calculations" class="nav-link" data-scroll-target="#basic-calculations"><span class="header-section-number">3.2.2</span> Basic calculations</a></li>
+  <li><a href="#assigning-variables" id="toc-assigning-variables" class="nav-link" data-scroll-target="#assigning-variables"><span class="header-section-number">3.2.3</span> Assigning variables</a></li>
+  <li><a href="#load-data-from-your-computer-to-r" id="toc-load-data-from-your-computer-to-r" class="nav-link" data-scroll-target="#load-data-from-your-computer-to-r"><span class="header-section-number">3.2.4</span> Load data from your computer to R</a></li>
+  <li><a href="#data-description-and-summary" id="toc-data-description-and-summary" class="nav-link" data-scroll-target="#data-description-and-summary"><span class="header-section-number">3.2.5</span> Data description and summary</a></li>
+  <li><a href="#transforming-the-data-add-delete-change" id="toc-transforming-the-data-add-delete-change" class="nav-link" data-scroll-target="#transforming-the-data-add-delete-change"><span class="header-section-number">3.2.6</span> Transforming the data: add, delete, change</a></li>
+  <li><a href="#plotting-the-data" id="toc-plotting-the-data" class="nav-link" data-scroll-target="#plotting-the-data"><span class="header-section-number">3.2.7</span> Plotting the data</a></li>
+  <li><a href="#save-data-from-r-to-your-computer" id="toc-save-data-from-r-to-your-computer" class="nav-link" data-scroll-target="#save-data-from-r-to-your-computer"><span class="header-section-number">3.2.8</span> Save data from R to your computer</a></li>
+  <li><a href="#r-script-of-this-section" id="toc-r-script-of-this-section" class="nav-link" data-scroll-target="#r-script-of-this-section"><span class="header-section-number">3.2.9</span> R script of this section</a></li>
   </ul></li>
-  <li><a href="#common-mistakes-or-how-to-save-a-lot-of-time" id="toc-common-mistakes-or-how-to-save-a-lot-of-time" class="nav-link" data-scroll-target="#common-mistakes-or-how-to-save-a-lot-of-time"><span class="toc-section-number">3.3</span>  Common mistakes, or how to save a lot of time</a>
+  <li><a href="#common-mistakes-or-how-to-save-a-lot-of-time" id="toc-common-mistakes-or-how-to-save-a-lot-of-time" class="nav-link" data-scroll-target="#common-mistakes-or-how-to-save-a-lot-of-time"><span class="header-section-number">3.3</span> Common mistakes, or how to save a lot of time</a>
   <ul class="collapse">
-  <li><a href="#i-cant-load-the-data-from-my-computer" id="toc-i-cant-load-the-data-from-my-computer" class="nav-link" data-scroll-target="#i-cant-load-the-data-from-my-computer"><span class="toc-section-number">3.3.1</span>  I can’t load the data from my computer</a></li>
-  <li><a href="#i-dont-have-any-error-message-but-my-code-wont-run" id="toc-i-dont-have-any-error-message-but-my-code-wont-run" class="nav-link" data-scroll-target="#i-dont-have-any-error-message-but-my-code-wont-run"><span class="toc-section-number">3.3.2</span>  I don’t have any error message, but my code won’t run</a></li>
-  <li><a href="#variable-not-found-what-happened" id="toc-variable-not-found-what-happened" class="nav-link" data-scroll-target="#variable-not-found-what-happened"><span class="toc-section-number">3.3.3</span>  “Variable not found”, what happened?</a></li>
+  <li><a href="#i-cant-load-the-data-from-my-computer" id="toc-i-cant-load-the-data-from-my-computer" class="nav-link" data-scroll-target="#i-cant-load-the-data-from-my-computer"><span class="header-section-number">3.3.1</span> I can’t load the data from my computer</a></li>
+  <li><a href="#i-dont-have-any-error-message-but-my-code-wont-run" id="toc-i-dont-have-any-error-message-but-my-code-wont-run" class="nav-link" data-scroll-target="#i-dont-have-any-error-message-but-my-code-wont-run"><span class="header-section-number">3.3.2</span> I don’t have any error message, but my code won’t run</a></li>
+  <li><a href="#variable-not-found-what-happened" id="toc-variable-not-found-what-happened" class="nav-link" data-scroll-target="#variable-not-found-what-happened"><span class="header-section-number">3.3.3</span> “Variable not found”, what happened?</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -268,9 +263,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./InstallationRRStudio.html">Part 2: Building a corpus from the internet with modern tools</a></li><li class="breadcrumb-item"><a href="./RStudioInterface.html">Week 5: Introduction to R (2/2): Basic functions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Section 1.2 Introduction to the interface of RStudio and R language</h1>
+<h1 class="title">Week 5: Introduction to R (2/2): Basic functions</h1>
 </div>
 
 
@@ -283,7 +278,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
+
 </header>
+
 
 <style>
 hr.rounded {
@@ -292,12 +289,12 @@ hr.rounded {
 }
 </style>
 <p>Now I assume that R and RStudio are correctly installed on your computer. You can start by opening RStudio. You will see a lot of things on your screen, many blocks, many menus, and it can be quite overwhelming. No worries! This is exactly what this section is about!</p>
-<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Objectives
 </div>
 </div>
@@ -311,15 +308,15 @@ Objectives
 <h2 data-number="1.1" class="anchored" data-anchor-id="general-overview-of-the-interface-blocks-blocks-blocks-and-blocks"><span class="header-section-number">1.1</span> General overview of the interface: Blocks, blocks, blocks and blocks</h2>
 <p>You may see the following picture on your screen after opening RStudio:</p>
 <hr class="rounded">
-<p><img src=".\assets/images/RStudio_FirstPage.png" class="img-fluid"></p>
+<p><img src="./assets/images/RStudio_FirstPage.png" class="img-fluid"></p>
 <hr class="rounded">
 <p>The best way to apprehend RStudio is to understand the interface as <strong>blocks</strong>, which are here for different purposes.</p>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Important
 </div>
 </div>
@@ -329,19 +326,19 @@ Important
 </div>
 <p>There are four main blocks, as in the following image. I give them unofficial names so that it will be easier to refer to them. There is one block that I call the ‘computer block’, a second one the ‘data block’, a third one the ‘script block’, and finally the last one, the ‘console block’.</p>
 <hr class="rounded">
-<p><img src=".\assets/images/RStudio_4Blocks.png" class="img-fluid"></p>
+<p><img src="./assets/images/RStudio_4Blocks.png" class="img-fluid"></p>
 <hr class="rounded">
 <p>You may not be able to see the ‘script block’ on your computer for the moment, and again, this is completely normal! Just follow the steps below.</p>
 </section>
 <section id="the-computer-block" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="the-computer-block"><span class="header-section-number">1.2</span> The computer block</h2>
 <p>The ‘computer block’ is the one on the bottom right side. I call it the ‘computer block’ but it’s actually much more than that, but let’s keep it simple for the moment. First, click on the Files button. You will see that there is a list of files and folders from your computer. This is actually the interface you can use to communicate and navigate directly with your computer!</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -358,7 +355,7 @@ Note
 <h2 data-number="1.3" class="anchored" data-anchor-id="the-variable-block"><span class="header-section-number">1.3</span> The variable block</h2>
 <p>The ‘variable block’ is the one on the top right side, as in the image below.</p>
 <hr class="rounded">
-<p><img src=".\assets/images/VariableBlock_Raw.png" class="img-fluid"></p>
+<p><img src="./assets/images/VariableBlock_Raw.png" class="img-fluid"></p>
 <hr class="rounded">
 <p>Basically, the most important tab is the ‘environment’ one. This is where the variables we create when coding will be stocked. The term ‘variable’ can be quite abstract at the moment, so let’s just exemplify it with our first code. R can be used as a simple calculator. In the ‘console block’, just write the following code, end press ‘enter’:</p>
 <div class="cell">
@@ -384,7 +381,7 @@ Note
 </div>
 <p>Unlike what you have seen before, nothing appears in the console anymore. But there is something new in the variable block:</p>
 <hr class="rounded">
-<p><img src=".\assets/images/VariableBlock_WithVariable.png" class="img-fluid"></p>
+<p><img src="./assets/images/VariableBlock_WithVariable.png" class="img-fluid"></p>
 <hr class="rounded">
 <p>You stocked the calculation ‘4+2’ as a variable, and you can call it anytime you want! For example, you can call it by simply writing <code>a</code> in the console, and you can also add 2 to it by writing <code>a + 2</code>, and you’ll see something as follows:</p>
 <div class="cell">
@@ -415,7 +412,7 @@ Note
 <p>Now, just close R and reopen it. All the codes disappeared! We usually use R for much more than a simple calculator, and we always end up with hundreds of lines of codes. Imagine if you need to rewrite everything each time you close and reopen R… and this is where the scripts are useful!</p>
 <p>Let’s do a simple exercise with the script. First, open a new script by clicking on “New File”, and then the first option, called “R Script”.</p>
 <hr class="rounded">
-<p><img src=".\assets/images/OpenNewScript.gif" class="img-fluid"></p>
+<p><img src="./assets/images/OpenNewScript.gif" class="img-fluid"></p>
 <hr class="rounded">
 <p>Write the lines below in the script block:</p>
 <div class="cell">
@@ -426,7 +423,7 @@ Note
 </div>
 <p>After that, select everything, and click on ‘Run’. You can also have a look at the short video below.</p>
 <hr class="rounded">
-<p><img src=".\assets/images/Script_Demo.gif" class="img-fluid"></p>
+<p><img src="./assets/images/Script_Demo.gif" class="img-fluid"></p>
 <hr class="rounded">
 <p>This is how you run a script! Alternatively, you can select everything (or just the line you interested in), and press ‘enter’ on your keyboard. Now you can save your script (“File &gt; Save”) and close R. Find the file you just saved on your computer and open it. Your code is still here!</p>
 </section>
@@ -435,19 +432,19 @@ Note
 <p>Your four blocks are like construction toys you can play with. You can make them disappear and then reappear, you can change their size as you wish, and you can even change the background color. In other words, make RStudio your own!</p>
 <p>This is how you can change the size of the blocks with your mouse:</p>
 <hr class="rounded">
-<p><img src=".\assets/images/ChangeBlockSize.gif" class="img-fluid"></p>
+<p><img src="./assets/images/ChangeBlockSize.gif" class="img-fluid"></p>
 <hr class="rounded">
 <p>This is how you change the background color of RStudio:</p>
 <pre><code>Path: Tools &gt; Global Options... &gt; Appearance &gt; Choose the theme you like in 'Editor theme'</code></pre>
 <hr class="rounded">
-<p><img src=".\assets/images/ChangeColor.gif" class="img-fluid"></p>
+<p><img src="./assets/images/ChangeColor.gif" class="img-fluid"></p>
 <hr class="rounded">
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Anecdote
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -463,7 +460,7 @@ Anecdote
 <h2 data-number="1.7" class="anchored" data-anchor-id="bonus-more-about-the-script-block"><span class="header-section-number">1.7</span> Bonus: More about the script block</h2>
 <p>As you opened a new script, you may have realized that you had the choice between many options, as below.</p>
 <hr class="rounded">
-<p><img src=".\assets/images/ScriptTypes.png" class="img-fluid"></p>
+<p><img src="./assets/images/ScriptTypes.png" class="img-fluid"></p>
 <hr class="rounded">
 <p>We only used the “R Script” type, but you can actually do much more depending on what you want to do in your project. For example, you have “Quarto Document” or “R Markdown” which are like “R Script”. The difference is that R Scripts only save your codes, while Quarto Documents or R Markdowns allows more options, and especially to render out in a PDF or markdown file. By doing so, we can share our code along with the output of the code in a beautiful way, which is very important for Open Science!</p>
 <p>You’ll also remark that even if we are using R, it is actually possible to write with other programming languages, such as HTML or Python. While this is not the case for R Scripts, it is possible with other types of scripts. You can even design a whole website using R, and ask R to transfer your data online… This is indeed how I am designing the website of the tutorial!</p>
@@ -488,12 +485,12 @@ Anecdote
 </ul>
 <p>And many many other possibilities. You may have a sense of it, the more complex the task is, the more codes it requires. For example, it is not the same to calculate ‘2+4’ and putting statistical data on the map of Europe!</p>
 <p>It can be overwhelming, and we can even have the feeling that quantitative research is not for us after all. <strong>Good news!</strong> We actually don’t need to write all the codes from scratch!</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 More on the nature of the R project
 </div>
 </div>
@@ -507,10 +504,10 @@ More on the nature of the R project
 <li>Functions</li>
 <li>Packages/Libraries</li>
 </ul>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
+<col style="width: 34%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -537,7 +534,7 @@ More on the nature of the R project
 There are many many packages available for free with R. You can find them <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" target="_blank" class="btn btn--primary">here</a>. And they are even more that are not directly available from the R website, but developped and distributed by other people (generally on Github). They always come with a logo, as below.
 </p>
 <hr class="rounded">
-<p><img src=".\assets/images/RPackages.jpg" class="img-fluid"></p>
+<p><img src="./assets/images/RPackages.jpg" class="img-fluid"></p>
 <hr class="rounded">
 <p>We will very often refer to some of them, such as “readxl” to import data from Excel, “ggplot2” to draw figures, “tidyr” and “dplyr” to manipulate data, etc.</p>
 </section>
@@ -550,7 +547,7 @@ There are many many packages available for free with R. You can find them <a hre
 <p>Now we will turn to the “Packages” tab, as in the image below. What you need to do is to click on “Install”, you write and select the name of the library you want to install, and finally click on “Install”. That’s it!</p></li>
 </ul>
 <hr class="rounded">
-<p><img src=".\assets/images/ComputerBlockPackages.png" class="img-fluid"></p>
+<p><img src="./assets/images/ComputerBlockPackages.png" class="img-fluid"></p>
 <hr class="rounded">
 <p>Give R a couple of minutes while it’s downloading the data and installing on your computer.</p>
 <ul>
@@ -570,12 +567,12 @@ There are many many packages available for free with R. You can find them <a hre
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>([Name of the package])</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Think about it
 </div>
 </div>
@@ -589,12 +586,12 @@ Think about it
 <section id="some-basic-elements-of-r-language" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Some basic elements of R language</h1>
 <p>This subsection will introduce some basic elements of R codes that cannot be avoided. I will introduce codes referred to as ‘R-based’, meaning that there is no need to install any additional packages.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Play around!
 </div>
 </div>
@@ -614,7 +611,7 @@ Play around!
 <li><p>Click on the small image of the wheel, and then click on “Save as Working Directory”</p></li>
 </ol>
 <hr class="rounded">
-<p><img src=".\assets/images/SetWorkingDirectory.gif" class="img-fluid"></p>
+<p><img src="./assets/images/SetWorkingDirectory.gif" class="img-fluid"></p>
 <hr class="rounded">
 <p>And you are done! You will see that a line of code appeared in the Console block, actually setting the working directory.</p>
 </section>
@@ -670,14 +667,14 @@ Play around!
 </section>
 <section id="load-data-from-your-computer-to-r" class="level3" data-number="3.2.4">
 <h3 data-number="3.2.4" class="anchored" data-anchor-id="load-data-from-your-computer-to-r"><span class="header-section-number">3.2.4</span> Load data from your computer to R</h3>
-<p>You may have already collected data, and you want to import your dataset into R. For this section, let’s use the data from the survey of “Great American Coffee Taste Test”. You can download the file <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv" target="_blank">here</a>. (source of the data: <a href="https://mavenanalytics.io/data-playground" target="_blank">https://mavenanalytics.io/data-playground</a></p>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<p>You may have already collected data, and you want to import your dataset into R. For this section, let’s use the data from the survey of “Great American Coffee Taste Test”. You can download the file <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv" target="_blank">here</a>. (source of the data: <a href="https://mavenanalytics.io/data-playground" target="_blank">https://mavenanalytics.io/data-playground</a></p>
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Danger
+<div class="callout-title-container flex-fill">
+Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -691,24 +688,24 @@ Danger
 </ol>
 <p>Let’s first do it with the code below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/fake/GACTT_RESULTS_ANONYMIZED_v2.csv"</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/Users/aymeric/Documents/GithubWebsites/CHU03887/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv"</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s decompose this:</p>
 <ul>
 <li><p><strong>read.csv()</strong>. This is the function which is used to import the file, which is a CSV file.</p></li>
 <li><p>There are two elements inside the function, which are seperated with a comma:</p>
 <ul>
-<li><p><strong>“~/Fake/GACTT_RESULTS_ANONYMIZED_v2.csv”</strong>. This is the path to access to the file, as well as the full name of the file</p></li>
+<li><p><strong>“~/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv”</strong>. This is the path to access to the file, as well as the full name of the file</p></li>
 <li><p><strong>header=TRUE</strong>. This means the first line of the table corresponds to the titles of the columns (you can try and change to “header = FALSE” to see what happens!).</p></li>
 </ul></li>
 <li><p>Finally, the dataset is assigned to the variable called “<strong>data</strong>”.</p></li>
 </ul>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Think about it
 </div>
 </div>
@@ -725,7 +722,7 @@ Think about it
 <li><p>And finally, you can click on “Import”.</p></li>
 </ul>
 <hr class="rounded">
-<p><img src=".\assets/images/ImportDataBaseR.gif" class="img-fluid"></p>
+<p><img src="./assets/images/ImportDataBaseR.gif" class="img-fluid"></p>
 <hr class="rounded">
 <p>And you are done, now you have a whole dataset ready for manipulation in R!</p>
 </section>
@@ -781,20 +778,20 @@ Think about it
 </div>
 <p>This is what you obtain in the Console block:</p>
 <hr class="rounded">
-<p><img src=".\assets/images/ExampleSummaryFunction.png" class="img-fluid"></p>
+<p><img src="./assets/images/ExampleSummaryFunction.png" class="img-fluid"></p>
 <hr class="rounded">
 <p>How to read this? It is telling us that there are 1986 respondents in the “25-34 years old” group, 960 in the “35-44 years old” group, etc. Also that there are 1277 people drinking 1 cup of coffee per day, 1663 people 2 cups of coffee per day, etc.</p>
 </section>
 <section id="transforming-the-data-add-delete-change" class="level3" data-number="3.2.6">
 <h3 data-number="3.2.6" class="anchored" data-anchor-id="transforming-the-data-add-delete-change"><span class="header-section-number">3.2.6</span> Transforming the data: add, delete, change</h3>
 <p>Transforming the data is the task we spend the most of out time when doing the research. This can be tedious, but it is crucial to plot the right data and to conduct the right analyses. It is also very important to be aware of what we are doing when transforming the data. The aim is to make them more easily readable for R.</p>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Danger
+<div class="callout-title-container flex-fill">
+Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -876,7 +873,7 @@ Danger
 </ul>
 <p>You should obtain something like this in the picture below:</p>
 <hr class="rounded">
-<p><img src=".\assets/images/ResultsSummarize.png" class="img-fluid"></p>
+<p><img src="./assets/images/ResultsSummarize.png" class="img-fluid"></p>
 <hr class="rounded">
 <p>There are of course many more ways to transform the data, summarize them, etc. This subsection was only a snapshot of what is possible to do with a very minimum number of lines of codes!</p>
 </section>
@@ -886,11 +883,19 @@ Danger
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> data3<span class="sc">$</span>How.many.cups.of.coffee.do.you.typically.drink.per.day., <span class="at">y =</span> data3<span class="sc">$</span>Count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="RStudioInterface_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="RStudioInterface_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> data3<span class="sc">$</span>What.is.your.age., <span class="at">y =</span> data3<span class="sc">$</span>Count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="RStudioInterface_files/figure-html/unnamed-chunk-29-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="RStudioInterface_files/figure-html/unnamed-chunk-29-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We ran into a very superficial problem: R sorted the groups in alphabetical order, which is not quite straightforward! So we will need to reorder the levels before. Let’s do it with the code below:</p>
@@ -929,11 +934,19 @@ Danger
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> data3<span class="sc">$</span>What.is.your.age., <span class="at">y =</span> data3<span class="sc">$</span>Count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="RStudioInterface_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="RStudioInterface_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> data3<span class="sc">$</span>How.many.cups.of.coffee.do.you.typically.drink.per.day., <span class="at">y =</span> data3<span class="sc">$</span>Count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="RStudioInterface_files/figure-html/unnamed-chunk-33-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="RStudioInterface_files/figure-html/unnamed-chunk-33-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The first plot shows that most of the participants are between 25 and 34 years old. The second plot indicates that most of the respondents drink between 1 and 2 cups of coffee everyday.</p>
@@ -1020,12 +1033,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
     }
-  });
-  clipboard.on('success', function(e) {
+    return false;
+  }
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1057,11 +1073,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1071,8 +1124,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1084,9 +1146,244 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1129,11 +1426,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Copyright 2024, Aymeric Collart</div>   
+    <div class="nav-footer-left">
+<p>Copyright 2025, Aymeric Collart</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://bsky.app/profile/aymericcollart.bsky.social"><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon></a>
+    <a class="nav-link" href="https://bsky.app/profile/aymericcollart.bsky.social">
+<p><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon></p>
+</a>
   </li>  
     <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/aymeric-collart">
@@ -1145,6 +1449,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

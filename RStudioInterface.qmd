@@ -1,5 +1,5 @@
 ---
-title: "Section 1.2 Introduction to the interface of RStudio and R language"
+title: "Week 5: Introduction to R (2/2): Basic functions"
 format: 
   html:
     output-file: RStudioInterface.html
@@ -16,6 +16,7 @@ hr.rounded {
 }
 </style>
 ```
+
 Now I assume that R and RStudio are correctly installed on your computer. You can start by opening RStudio. You will see a lot of things on your screen, many blocks, many menus, and it can be quite overwhelming. No worries! This is exactly what this section is about!
 
 ::: {.callout-warning icon="false"}
@@ -180,7 +181,9 @@ This is how you can change the size of the blocks with your mouse:
 
 This is how you change the background color of RStudio:
 
-    Path: Tools > Global Options... > Appearance > Choose the theme you like in 'Editor theme'
+```         
+Path: Tools > Global Options... > Appearance > Choose the theme you like in 'Editor theme'
+```
 
 <hr class="rounded">
 
@@ -242,10 +245,10 @@ We need to introduce some concepts now:
 -   Functions
 -   Packages/Libraries
 
-| Name            | Concept                                                                                                                                                                                                                                                                                                                                              |
-|------------------------|-----------------------------------------------|
-| Line of codes   | Just the code you write in the script/console to perform something specific. They are usually the most simple.                                                                                                                                                                                                                                       |
-| Function        | Sometimes, you need more than one line of code to perform a task. You may even want to perform the exact same task several times, but with different data. Of course, you can just copy and paste the same code everytime, but you can also choose to simplify it into one line of code. This is what a function is: **a cluster of lines of codes** |
+| Name | Concept |
+|-------------------------|-----------------------------------------------|
+| Line of codes | Just the code you write in the script/console to perform something specific. They are usually the most simple. |
+| Function | Sometimes, you need more than one line of code to perform a task. You may even want to perform the exact same task several times, but with different data. Of course, you can just copy and paste the same code everytime, but you can also choose to simplify it into one line of code. This is what a function is: **a cluster of lines of codes** |
 | Library/Package | And very often, you'll need to perform many tasks which require more than one function. You can choose to write all the functions by hand anytime you need them. Or you can just have them already loaded somewhere in R, such that you can refer to them later when you need them. This is what a library or package is: **a cluster of functions** |
 
 <p>There are many many packages available for free with R. You can find them <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" target="_blank" class="btn btn--primary">here</a>. And they are even more that are not directly available from the R website, but developped and distributed by other people (generally on Github). They always come with a logo, as below.</p>
@@ -380,7 +383,9 @@ b <- This is my first script
 
 You will remark that... it didn't work! You surely had the following message:
 
-    Error: unexpected symbol in "b <- This is"
+```         
+Error: unexpected symbol in "b <- This is"
+```
 
 This is "This is my first script" has never been defined in R. In other words, R does not know what you are talking about! If you want to add strings of words, you need to use the quotation marks, as below.
 
@@ -398,7 +403,7 @@ What happened here? You had a variable called 'a', which had the value "6". You 
 
 ### Load data from your computer to R
 
-You may have already collected data, and you want to import your dataset into R. For this section, let's use the data from the survey of "Great American Coffee Taste Test". You can download the file <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv" target="_blank">here</a>. (source of the data: <a href="https://mavenanalytics.io/data-playground" target="_blank">https://mavenanalytics.io/data-playground</a>
+You may have already collected data, and you want to import your dataset into R. For this section, let's use the data from the survey of "Great American Coffee Taste Test". You can download the file <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv" target="_blank">here</a>. (source of the data: <a href="https://mavenanalytics.io/data-playground" target="_blank">https://mavenanalytics.io/data-playground</a>
 
 ::: callout-caution
 Don't forget to place this file in the folder you are working in, and to set this folder as your working directory!
@@ -413,7 +418,7 @@ Now you have two ways to import the data into R:
 Let's first do it with the code below.
 
 ```{r}
-data <- read.csv("~/fake/GACTT_RESULTS_ANONYMIZED_v2.csv", header=TRUE)
+data <- read.csv("/Users/aymeric/Documents/GithubWebsites/CHU03887/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv", header=TRUE)
 ```
 
 Now let's decompose this:
@@ -422,7 +427,7 @@ Now let's decompose this:
 
 -   There are two elements inside the function, which are seperated with a comma:
 
-    -   **"\~/Fake/GACTT_RESULTS_ANONYMIZED_v2.csv"**. This is the path to access to the file, as well as the full name of the file
+    -   **"\~/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv"**. This is the path to access to the file, as well as the full name of the file
 
     -   **header=TRUE**. This means the first line of the table corresponds to the titles of the columns (you can try and change to "header = FALSE" to see what happens!).
 
@@ -466,11 +471,13 @@ str(data)
 
 You will obtain the following results. For clarity, I only give the first four lines here.
 
-    'data.frame':   4042 obs. of  111 variables:
-     $ Submission.ID  : chr  "gMR29l" "BkPN0e" "W5G8jj" "4xWgGr" ...
-     $ What.is.your.age.  : chr  "18-24 years old" "25-34 years old" "25-34 years old" "35-44 years old" ...
-     $ How.many.cups.of.coffee.do.you.typically.drink.per.day.   : chr  "" "" "" "" ...
-     $ Where.do.you.typically.drink.coffee.  : chr  "" "" "" "" ...
+```         
+'data.frame':   4042 obs. of  111 variables:
+ $ Submission.ID  : chr  "gMR29l" "BkPN0e" "W5G8jj" "4xWgGr" ...
+ $ What.is.your.age.  : chr  "18-24 years old" "25-34 years old" "25-34 years old" "35-44 years old" ...
+ $ How.many.cups.of.coffee.do.you.typically.drink.per.day.   : chr  "" "" "" "" ...
+ $ Where.do.you.typically.drink.coffee.  : chr  "" "" "" "" ...
+```
 
 This is how to read the data:
 
@@ -507,11 +514,13 @@ data$Where.do.you.typically.drink.coffee. <- as.factor(data$Where.do.you.typical
 
 And now let's run the str() function again. Here are the results of the first four lines:
 
-    'data.frame':   4042 obs. of  111 variables:
-     $ Submission.ID  : chr  "gMR29l" "BkPN0e" "W5G8jj" "4xWgGr" ...
-     $ What.is.your.age. : Factor w/ 8 levels "","<18 years old",..: 4 5 5 6 5 8 4 1 5 1 ...
-     $ How.many.cups.of.coffee.do.you.typically.drink.per.day. : Factor w/ 7 levels "","1","2","3",..: 1 1 1 1 1 1 1 1 6 1 ...
-     $ Where.do.you.typically.drink.coffee. : Factor w/ 66 levels "","At a cafe",..: 1 1 1 1 1 1 10 1 2 1 ...
+```         
+'data.frame':   4042 obs. of  111 variables:
+ $ Submission.ID  : chr  "gMR29l" "BkPN0e" "W5G8jj" "4xWgGr" ...
+ $ What.is.your.age. : Factor w/ 8 levels "","<18 years old",..: 4 5 5 6 5 8 4 1 5 1 ...
+ $ How.many.cups.of.coffee.do.you.typically.drink.per.day. : Factor w/ 7 levels "","1","2","3",..: 1 1 1 1 1 1 1 1 6 1 ...
+ $ Where.do.you.typically.drink.coffee. : Factor w/ 66 levels "","At a cafe",..: 1 1 1 1 1 1 10 1 2 1 ...
+```
 
 This is much more informative! For instance, this is telling us that there are 8 groups of age (in R, these are called "levels"). But maybe we would like to know the number of people per group among the 4042 participants. This can be done with the summary() function.
 
