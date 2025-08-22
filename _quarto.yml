@@ -52,7 +52,9 @@ bibliography: references.bib
 
 format:
   html:
-    theme: Lumen
+    theme: 
+      light: Lumen
+      dark: darkly
   pdf:
     documentclass: scrreprt
   revealjs:
