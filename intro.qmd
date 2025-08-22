@@ -7,18 +7,27 @@ format:
     number-depth: 2
     toc: true
 ---
-
+```{r, echo=FALSE}
 ## Slides of this section {.unnumbered}
 
-The slides corresponding to this section can be found here: <a href="intro_slides.html" target="_blank">`r fontawesome::fa("chalkboard", a11y = "sem")`</a>
+#The slides corresponding to this section can be found here: <a href="intro_slides.html" target="_blank">`r fontawesome::fa("chalkboard", a11y = "sem")`</a>
+```
 
-# Structure and workflow of the tutorial
+
+
+# Structure of the course
+
+## What are the steps of a corpus study?
 
 The workflow of a typical corpus-based study is generally as in the image below.
 
 ![](assets/images/WorkflowTutorial.png)
 
-The sections and their links can be found in the Table of Contents on the left in addition to the table below.
+This course follows this workflow. I will show you how to conduct a corpus investigation step-by-step, and you will be able to do so by yourself!
+
+## Syllabus of the course
+
+The weekly organization of this course can be found in the Table of Contents on the left in addition to the table below.
 
 | Chapter and content                               | Link |
 |---------------------------------------------------|------|
@@ -33,11 +42,33 @@ The sections and their links can be found in the Table of Contents on the left i
 | Preprocess the data: Cleaning and transformations | link |
 | Analyzing the data                                | link |
 
-The picture and table above show what this tutorial will cover. In other words, this tutorial will not discuss the fundamental concepts of corpus linguistics, how to ask a research question and how to motivate it. If you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free <a href="https://langsci-press.org/catalog/book/148" target="_blank">here</a>. This tutorial will also not discuss advanced statistical methods in corpus linguistics, such as classification analyses or vector space representations.
+## Required textbooks and additional references
+
+### For this course
+
+We will only use some parts of these two books:
+
+1- Paquot, M.m & Gries, S. T. (2020) <i>A practical handbook of corpus linguistics</i>. Cham: Springer.
+Normally, you should be able to download this book freely with this link: <a href="https://link.springer.com/book/10.1007/978-3-030-46216-1" target="_blank">Link to the book</a>
+
+2- O'Keeffe, A., & McCarthy, M. J. (2022). <i>The Routledge handbook of corpus linguistics</i> (2nd edition). London/New York: Routledge. <a href="https://www.routledge.com/The-Routledge-Handbook-of-Corpus-Linguistics/OKeeffe-McCarthy/p/book/9781032145921?srsltid=AfmBOoqOe7H-j_mhNycpy-PdTrMEQWs4bd4X2LuxUm8Vi1zbTSdMlJ3N" target="_blank">Link to the book</a>
+
+Online resources:
+
+1- R website: <a href="https://www.r-project.org/" target="_blank">Link to the R website</a> (freely downloadable)
+
+2- RStudio interface: <a href="https://posit.co/download/rstudio-desktop/" target="_blank">Link to the RStudio website</a> (freely downloadable)
+
+3- <i>R for data science</i> handbook: <a href="https://r4ds.hadley.nz/" target="_blank">Link to the handbook</a> (freely downloadable)
+
+### Additional reference
+
+This course is task-oriented, so there are many aspects of corpus linguistics that will not be covered.
+If you are interested in knowing more, you can read the book published by Anatol Stefanowitsch in 2020, available for free <a href="https://langsci-press.org/catalog/book/148" target="_blank">here</a>.
 
 # How to get through the exercises
 
-The best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts (to know more about markdown scripts, you can refer to <a href="https://aymeric-courses.github.io/formosan-corpus-r/docs/WorkingWithRMarkdown/" target="_blank">Section 1.3</a>.
+The best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts (to know more about markdown scripts, you can refer to <a href="https://aymeric-collart.github.io/CHU0387/WorkingWithRMarkdown.html" target="_blank">Week 5, Part 2</a>.
 
 -   I will provide at the beginning of each section a markdown file prefilled with the structure of the section. You can download this file and open it with R, and just paste the codes at the relevant sections of the script.
 -   Alternatively, you may wish to write the script yourself, and to work based on the codes in each section. This is also a great way to learn how to structure a markdown file alone!

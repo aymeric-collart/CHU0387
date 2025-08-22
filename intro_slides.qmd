@@ -2,8 +2,8 @@
 title: "Introduction"
 subtitle: "Overview of the tutorial"
 author: "Aymeric Collart"
-institute: "Institute of Linguistics, Academia Sinica"
-date: "2024-11-26"
+institute: "Department of Chinese, National Taiwan Normal University"
+date: "2025-09-03"
 date-format: "YYYY-MM-DD"
 format: 
   revealjs:
@@ -30,7 +30,7 @@ format:
 
 ## Structure and workflow of the tutorial {.smaller}
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
 Click on the image to zoom in and out
 :::
@@ -38,7 +38,7 @@ Click on the image to zoom in and out
 ::: {.column width="60%"}
 ![](assets/images/WorkflowTutorial.jpg){fig-align="center"}
 :::
-:::
+:::::
 
 ## Chapters and section of the tutorial
 
@@ -84,8 +84,8 @@ If you are interested in it, you can read the book published by Anatol Stefanowi
 
 The best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts.
 
-::: incremental
-::: columns
+:::::: incremental
+::::: columns
 ::: {.column width="55%"}
 -   I will provide at the beginning of each section a markdown file prefilled with the structure of the section. You can download this file and open it with R, and just paste the codes at the relevant sections of the script.
 :::
@@ -93,5 +93,5 @@ The best (if not only) way to learn how to use programming language is just with
 ::: {.column width="45%"}
 -   Alternatively, you may wish to write the script yourself, and to work based on the codes in each section. This is a great way to learn how to structure a markdown file alone!
 :::
-:::
-:::
+:::::
+::::::

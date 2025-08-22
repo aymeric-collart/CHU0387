@@ -258,7 +258,7 @@
     "href": "intro.html",
     "title": "Introduction",
     "section": "",
-    "text": "The slides corresponding to this section can be found here: r fontawesome::fa(\"chalkboard\", a11y = \"sem\")",
+    "text": "The workflow of a typical corpus-based study is generally as in the image below.\n\nThis course follows this workflow. I will show you how to conduct a corpus investigation step-by-step, and you will be able to do so by yourself!\n\n\n\nThe weekly organization of this course can be found in the Table of Contents on the left in addition to the table below.\n\n\n\nChapter and content\nLink\n\n\n\n\nChapter 1: Getting started\n\n\n\nDownload and install R/RStudio\nlink\n\n\nPresentation of R/RStudio\nlink\n\n\nWorking with markdown files\nlink\n\n\nChapter 2: Let’s get our data\n\n\n\nUnderstanding where the data are on the Internet\nlink\n\n\nScraping the data from the web with R\nlink\n\n\nChapter 3: Cleaning and analyzing the data\n\n\n\nPreprocess the data: Cleaning and transformations\nlink\n\n\nAnalyzing the data\nlink\n\n\n\n\n\n\n\n\nWe will only use some parts of these two books:\n1- Paquot, M.m & Gries, S. T. (2020) A practical handbook of corpus linguistics. Cham: Springer. Normally, you should be able to download this book freely with this link: Link to the book\n2- O’Keeffe, A., & McCarthy, M. J. (2022). The Routledge handbook of corpus linguistics (2nd edition). London/New York: Routledge. Link to the book\nOnline resources:\n1- R website: Link to the R website (freely downloadable)\n2- RStudio interface: Link to the RStudio website (freely downloadable)\n3- R for data science handbook: Link to the handbook (freely downloadable)\n\n\n\nThis course is task-oriented, so there are many aspects of corpus linguistics that will not be covered. If you are interested in knowing more, you can read the book published by Anatol Stefanowitsch in 2020, available for free here.",
     "crumbs": [
       "Welcome page",
       "Week 1: Introduction"
@@ -815,6 +815,39 @@
       "Welcome page",
       "Part 2: Building a corpus from the internet with modern tools",
       "Week 4: Introduction to the modern tool R (1/2): Installation and first steps"
+    ]
+  },
+  {
+    "objectID": "intro.html#what-are-the-steps-of-a-corpus-study",
+    "href": "intro.html#what-are-the-steps-of-a-corpus-study",
+    "title": "Introduction",
+    "section": "",
+    "text": "The workflow of a typical corpus-based study is generally as in the image below.\n\nThis course follows this workflow. I will show you how to conduct a corpus investigation step-by-step, and you will be able to do so by yourself!",
+    "crumbs": [
+      "Welcome page",
+      "Week 1: Introduction"
+    ]
+  },
+  {
+    "objectID": "intro.html#syllabus-of-the-course",
+    "href": "intro.html#syllabus-of-the-course",
+    "title": "Introduction",
+    "section": "",
+    "text": "The weekly organization of this course can be found in the Table of Contents on the left in addition to the table below.\n\n\n\nChapter and content\nLink\n\n\n\n\nChapter 1: Getting started\n\n\n\nDownload and install R/RStudio\nlink\n\n\nPresentation of R/RStudio\nlink\n\n\nWorking with markdown files\nlink\n\n\nChapter 2: Let’s get our data\n\n\n\nUnderstanding where the data are on the Internet\nlink\n\n\nScraping the data from the web with R\nlink\n\n\nChapter 3: Cleaning and analyzing the data\n\n\n\nPreprocess the data: Cleaning and transformations\nlink\n\n\nAnalyzing the data\nlink",
+    "crumbs": [
+      "Welcome page",
+      "Week 1: Introduction"
+    ]
+  },
+  {
+    "objectID": "intro.html#required-textbooks-and-additional-references",
+    "href": "intro.html#required-textbooks-and-additional-references",
+    "title": "Introduction",
+    "section": "",
+    "text": "We will only use some parts of these two books:\n1- Paquot, M.m & Gries, S. T. (2020) A practical handbook of corpus linguistics. Cham: Springer. Normally, you should be able to download this book freely with this link: Link to the book\n2- O’Keeffe, A., & McCarthy, M. J. (2022). The Routledge handbook of corpus linguistics (2nd edition). London/New York: Routledge. Link to the book\nOnline resources:\n1- R website: Link to the R website (freely downloadable)\n2- RStudio interface: Link to the RStudio website (freely downloadable)\n3- R for data science handbook: Link to the handbook (freely downloadable)\n\n\n\nThis course is task-oriented, so there are many aspects of corpus linguistics that will not be covered. If you are interested in knowing more, you can read the book published by Anatol Stefanowitsch in 2020, available for free here.",
+    "crumbs": [
+      "Welcome page",
+      "Week 1: Introduction"
     ]
   }
 ]
