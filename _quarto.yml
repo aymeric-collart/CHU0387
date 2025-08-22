@@ -26,11 +26,12 @@ website:
     - section: "Part 1: Principles of corpus studies"
       contents: 
         - Week2.qmd
+        - Week3.qmd
     - section: "Part 2: Building a corpus from the internet with modern tools"
       contents: 
-        - InstallationRRStudio.qmd
-        - RStudioInterface.qmd
-        - WorkingWithRMarkdown.qmd
+        - Week4.qmd
+        - Week5_1.qmd
+        - Week5_2.qmd
     - section: "Part 3: Simple preprocessing and analyzes of corpus data"
       contents: 
         - references.qmd

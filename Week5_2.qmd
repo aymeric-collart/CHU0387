@@ -2,7 +2,7 @@
 title: "Week 5: Introduction to R (2/2): How to create reproducible data"
 format: 
   html:
-    output-file: WorkingWithRMarkdown.html
+    output-file: Week5_2.html
     number-sections: true
     toc: true
     toc-depth: 4

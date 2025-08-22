@@ -2,7 +2,7 @@
 title: "Week 4: Introduction to the modern tool R (1/2): Installation and first steps"
 format: 
   html:
-    output-file: InstallationRRStudio.html
+    output-file: Week4.html
     number-sections: true
     number-depth: 2
     toc: true

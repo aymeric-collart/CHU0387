@@ -1,0 +1,31 @@
+---
+title: "Week 3: Types of corpora: Selecting or building a corpus?"
+format: 
+  html:
+    output-file: Week3.html
+    number-sections: true
+    number-depth: 2
+    toc: true
+---
+
+```{=html}
+<style>
+hr.rounded {
+  border-top: 1px solid #E5E4E2;
+  border-radius: 5px;
+}
+</style>
+```
+
+<br>
+
+::: {.callout-warning icon="false"}
+## Objectives
+
+This week, we will discuss what a corpus is. Especially, you will learn:<br>
+- What are the basics of a corpus<br>
+- What corpora are available on the Internet<br>
+- When you should decide to build your own corpus
+:::
+
+[Page to be completed later]

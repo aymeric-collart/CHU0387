@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 2: What is a corpus, and their role to understand language and literature</title>
+<title>Week 5: Introduction to R (2/2): How to create reproducible data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -108,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week2.html">Part 1: Principles of corpus studies</a></li><li class="breadcrumb-item"><a href="./Week2.html">Week 2: What is a corpus, and their role to understand language and literature</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 5: Introduction to R (2/2): How to create reproducible data</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -128,16 +162,16 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Part 1: Principles of corpus studies</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week2.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Week2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 2: What is a corpus, and their role to understand language and literature</span></a>
   </div>
 </li>
@@ -153,23 +187,14 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./InstallationRRStudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 4: Introduction to the modern tool R (1/2): Installation and first steps</span></a>
-  </div>
-</li>
+ <span class="menu-text">InstallationRRStudio.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./RStudioInterface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 5: Introduction to R (2/2): Basic functions</span></a>
-  </div>
-</li>
+ <span class="menu-text">RStudioInterface.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./WorkingWithRMarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 5: Introduction to R (2/2): How to create reproducible data</span></a>
-  </div>
-</li>
+ <span class="menu-text">WorkingWithRMarkdown.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -194,15 +219,37 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-are-r-markdown-files-how-to-open-one-in-r" id="toc-what-are-r-markdown-files-how-to-open-one-in-r" class="nav-link active" data-scroll-target="#what-are-r-markdown-files-how-to-open-one-in-r"><span class="header-section-number">1</span> What are R Markdown files? How to open one in R?</a></li>
+  <li><a href="#the-structure-of-r-markdown-files" id="toc-the-structure-of-r-markdown-files" class="nav-link" data-scroll-target="#the-structure-of-r-markdown-files"><span class="header-section-number">2</span> The structure of R Markdown files</a>
+  <ul>
+  <li><a href="#configuring-the-file-the-yaml-block" id="toc-configuring-the-file-the-yaml-block" class="nav-link" data-scroll-target="#configuring-the-file-the-yaml-block"><span class="header-section-number">2.1</span> Configuring the file: The YAML block</a>
+  <ul class="collapse">
+  <li><a href="#basic-features-of-the-yaml-block" id="toc-basic-features-of-the-yaml-block" class="nav-link" data-scroll-target="#basic-features-of-the-yaml-block"><span class="header-section-number">2.1.1</span> Basic features of the YAML block</a></li>
+  <li><a href="#more-advanced-features-of-the-yaml-block" id="toc-more-advanced-features-of-the-yaml-block" class="nav-link" data-scroll-target="#more-advanced-features-of-the-yaml-block"><span class="header-section-number">2.1.2</span> More advanced features of the YAML block</a></li>
+  </ul></li>
+  <li><a href="#navigating-the-file-titles-and-subparts" id="toc-navigating-the-file-titles-and-subparts" class="nav-link" data-scroll-target="#navigating-the-file-titles-and-subparts"><span class="header-section-number">2.2</span> Navigating the file: Titles and subparts</a></li>
+  <li><a href="#writing-the-content" id="toc-writing-the-content" class="nav-link" data-scroll-target="#writing-the-content"><span class="header-section-number">2.3</span> Writing the content</a>
+  <ul class="collapse">
+  <li><a href="#writing-the-narrative" id="toc-writing-the-narrative" class="nav-link" data-scroll-target="#writing-the-narrative"><span class="header-section-number">2.3.1</span> Writing the narrative</a></li>
+  <li><a href="#writing-the-code" id="toc-writing-the-code" class="nav-link" data-scroll-target="#writing-the-code"><span class="header-section-number">2.3.2</span> Writing the code</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#save-render-and-share" id="toc-save-render-and-share" class="nav-link" data-scroll-target="#save-render-and-share"><span class="header-section-number">3</span> Save, render and share</a></li>
+  <li><a href="#markdown-and-pdf-documents-of-sections-1.2-and-1.3" id="toc-markdown-and-pdf-documents-of-sections-1.2-and-1.3" class="nav-link" data-scroll-target="#markdown-and-pdf-documents-of-sections-1.2-and-1.3"><span class="header-section-number">4</span> Markdown and PDF documents of Sections 1.2 and 1.3</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week2.html">Part 1: Principles of corpus studies</a></li><li class="breadcrumb-item"><a href="./Week2.html">Week 2: What is a corpus, and their role to understand language and literature</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 2: What is a corpus, and their role to understand language and literature</h1>
+<h1 class="title">Week 5: Introduction to R (2/2): How to create reproducible data</h1>
 </div>
 
 
@@ -225,7 +272,6 @@ hr.rounded {
   border-radius: 5px;
 }
 </style>
-<p><br></p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -236,12 +282,158 @@ Objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This week, we will discuss why corpus studies are useful for:<br> - Understanding the language we speak<br> - Understanding the novels and stories we read</p>
+<p>In this section, we will focus more on one type of R scripts: R Markdown files. The reason is that we are going to use R Markdowns instead of raw R scripts from now on, so we need to know more about how R Markdown files work in addition to their potential</p>
 </div>
 </div>
-<p>[Page to be completed later]</p>
+<section id="what-are-r-markdown-files-how-to-open-one-in-r" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> What are R Markdown files? How to open one in R?</h1>
+<p>R Markdown files are another type of script you can use in the Script block. They are a little bit more complex than raw R scripts because they need to be configured, but it is not complicated. In addition, the RStudio interface is very user-friendly, so there is almost no additional coding to do.</p>
+<p>But what are they good for? R Markdown files are especially interesting concerning data sharing, as in one same document (and you can choose the format of it, even PDF), you have the structure, the narration, the code and the output of it. Very trustable and very good-looking. I personally also find it useful not only for data sharing with other people, but with the future-myself who will go back to the analyses of a dataset after months of hiatus working on another project. With a raw R file, I often get lost and I might even need to rewrite it. But with an R Markdown document, I can catch up very quickly since everything is documented and ordered!</p>
+<p>Now that I wish that I have convinced you on how useful R Markdown documents are, let’s see how to open one. Just try to open a new script as usual, but instead of choosing “R Script”, choose “R Markdown…”.</p>
+<hr class="rounded">
+<p><img src="./assets/images/ScriptTypes.png" class="img-fluid"></p>
+<hr class="rounded">
+<p>Afterwards, you will be prompted to provide some information, such as the title of the document, the name of the author(s) as well as its date. We will see in the next section how we can easily modify these pieces of information. You also have to indicate whether you want the output as an HTML, PDF or Word document… Since choosing the HTML option gives us more flexibility, let’s choose this one, and you are set up!</p>
+<hr class="rounded">
+<p><img src="./assets/images/RMarkdown_Setup.png" class="img-fluid"></p>
+<hr class="rounded">
+<p>Before getting into the file itself, some words must be said concerning the header. At one place, you can see two buttons, “Source” and “Visual”. Click on “Visual”, and you will see many options unfolding on the right.</p>
+<hr class="rounded">
+<p><img src="./assets/images/RMarkdown_Headers.png" class="img-fluid"></p>
+<hr class="rounded">
+<p>We will mainly use three options:</p>
+<ol type="1">
+<li><strong>Source / Visual:</strong> You have two ways to visualize the script you will be writing. The “Source” option allows you to see and write the codes directly. The advantage is that it gives you full control on what you are doing. The drawback is that you have to know how to code everything, and the interface is not very appealing. The “Visual” option allows you to write the script as if you were in a text editor like Word. It is intuitive and you can see what is happening while you are writing. The drawback is that sometimes it is hard to navigate inside the document because the underlying codes are doing something that is not visually represented… In that case, my strategy is to switch to the “Source” mode, make the changes that I want, and then switch back to the “Visual” mode!</li>
+<li>There is an option with the word “Normal” on it. When you click on it, other options (Header 1, Header 2, etc.) will appear. These are important to define the level of navigation of your document: “Normal” is just for the text you are writing, “Header 1” for the main title, “Header 2” for the second main title, etc.</li>
+<li>Another button is called “Insert”. Indeed, we have only talked so far about how to add text and titles, but you will have to insert other elements, such as R codes. Of course, you can directly write the codes as normal text, but Markdown files can do much more! Click on “Insert”, and you will see what you can add. There is a suboption called “Code Chunk”: This is how you can insert R codes.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Time to play around!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are many more options, and there is no point in describing all of them here as we will mainly use only these three ones above. However, I encourage you to try everything and see what is happening. Try to write something, change the size, change the font. Click on the buttons. There will be error messages, but that’s ok. Try to understand these errors if possible. Check any changes that occurred. Again, make these Markdown files your own!</p>
+</div>
+</div>
+</section>
+<section id="the-structure-of-r-markdown-files" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> The structure of R Markdown files</h1>
+<p>Now we can turn to the structure of the R Markdown document itself. It has two main components:</p>
+<ul>
+<li>The configuration lines,</li>
+<li>The content of the document itself.</li>
+</ul>
+<p>We will take the codes from <a href="https://aymeric-collart.github.io/formosan-corpus-r/RStudioInterface.html#your-first-script-some-syntax-and-vocabulary-of-r" target="_blank">Section 1.2</a> as an example to create our very first R Markdown document.</p>
+<section id="configuring-the-file-the-yaml-block" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="configuring-the-file-the-yaml-block"><span class="header-section-number">2.1</span> Configuring the file: The YAML block</h2>
+<section id="basic-features-of-the-yaml-block" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="basic-features-of-the-yaml-block"><span class="header-section-number">2.1.1</span> Basic features of the YAML block</h3>
+<p>Let’s start with configuring the file: This corresponds to the first lines, or the header, of the script that you have just created. This is called the YAML part. It looks like this so far:</p>
+<hr class="rounded">
+<p><img src="./assets/images/Markdown_YAML.png" class="img-fluid"></p>
+<hr class="rounded">
+<p>You will remark that there are pre-filled information, such as the title of the document, the name(s) of the author(s), the date and the output format. These are what we were prompted to fill when creating the document! Now you can try to change some things, for instance:</p>
+<ol type="1">
+<li><strong>Title:</strong> Change to “My first R Markdown script”</li>
+<li><strong>Author:</strong> Change to you name</li>
+<li><strong>Date:</strong> Change to the date you wish, or even delete this line if you do not wish to add a date</li>
+</ol>
+</section>
+<section id="more-advanced-features-of-the-yaml-block" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="more-advanced-features-of-the-yaml-block"><span class="header-section-number">2.1.2</span> More advanced features of the YAML block</h3>
+<p>You can also add other pieces of information, for instance:</p>
+<ul>
+<li><p><strong>Date:</strong></p>
+<p>You have more options, such as defining the format of the date, and maybe more interestingly, create a variable such that you do not have to change the date anytime you are saving the document. In other words, you may want to have a line specifying something like “This document was last modified on ‘Year-Month-Day’”. Just write as follows:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"This document was last modified on `r Sys.Date()`"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The code 2025-08-22 will look at the date of the system of your computer.</p>
+<ul>
+<li><p><strong>Table of contents:</strong></p>
+<p>The addition of titles in the document is here to help when navigating it. You can also add a table of contents such that it is even easier to navigate. You can also specify how many layers you want to display in the table of contents.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>toc<span class="sc">:</span> true</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>toc<span class="sc">-</span>depth<span class="sc">:</span> <span class="dv">4</span> <span class="do">## Change this value depending on how many layers you wish to display</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p><strong>Format:</strong></p>
+<p>For now, the output format is “html”. Just replace with other values according to the output format you want (for example: “pdf_document”).</p></li>
+</ul>
+<p>In the end, the YAML block should look like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="sc">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    title<span class="sc">:</span> <span class="st">"My first R Markdown script"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    author<span class="sc">:</span> <span class="st">"Your name"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    date<span class="sc">:</span> <span class="st">"This document was last modified on `r Sys.Date()`"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">:</span> pdf_document</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> yes</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">-</span>depth<span class="sc">:</span> <span class="dv">4</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="navigating-the-file-titles-and-subparts" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="navigating-the-file-titles-and-subparts"><span class="header-section-number">2.2</span> Navigating the file: Titles and subparts</h2>
+<p>The titles and subparts are here to give the overall structure of the document. Please note that they are optional: It is possible to write a whole R Markdown document without any title! But as the codes are more and more lengthy, it becomes messy very easily to the point that it is very difficult to understand what we are doing. In other words, the titles and subparts are here to clarify everything!</p>
+<p>Adding titles and subparts is very simple. You just need to click on the button where the header options can be found. For example, if you want to write the title of a main part (let’s say, “1. Introduction”), you click on “Header 1”, and you write the name of the title. It is the same process for subtitles. Let’s say you want a subpart called “1.1 Introduction within the introduction”, you just click on “Header 2” and you write what you want for the subtitle.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I personally prefer when the structure is numbered, this is why I add the number of the sections like “<strong><i>1.</i></strong> Introduction”, or “<strong><i>1.1</i></strong> Introduction of the introduction”. But this is not obligatory and depends on your style!</p>
+</div>
+</div>
+<p>The titles and subparts are also very important to <strong>set the table of contents</strong>!</p>
+</section>
+<section id="writing-the-content" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="writing-the-content"><span class="header-section-number">2.3</span> Writing the content</h2>
+<section id="writing-the-narrative" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="writing-the-narrative"><span class="header-section-number">2.3.1</span> Writing the narrative</h3>
+<p>Nothing more simple: You can write directly inside the document. Just do not forget to check that the style is set as “Normal” and not “Header 1”, “Header 2”, etc. when doing so!</p>
+<p>This is a big difference with R Script. Everything you write in an R Script is considered as a code, unless you use the hashtag signs to tell R that this is a comment. In other words, everything that you write in the document is considered as a comment, so do not hesitate to write as much as you want as long as it makes things clearer for you!</p>
+</section>
+<section id="writing-the-code" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="writing-the-code"><span class="header-section-number">2.3.2</span> Writing the code</h3>
+<p>If what we write inside the document is not considered as a code, then how to add one?</p>
+<p>You Just need to click on “Insert”, then “Code Chunk”, and finally “R”. Normally, a grey code block with appear with {r} at the top line to indicate that this is an R code block. Everything written in this grey block will be considered as R code. You can also add comments inside the block using hashtags as you can do in a typical R Script.<br> Sometimes, R will display simple messages and/or warnings at the same time as you run the code. It is possible to “hide” them, you just need to add the following lines below {r}, as below.</p>
+<p>Your code chunk will look like this:</p>
+<hr class="rounded">
+<p><img src="./assets/images/RCodeBlock_WarningMessage.png" class="img-fluid"></p>
+<hr class="rounded">
+<p>Finally, you can run the code chunk without running ALL the document. Can you see the green ‘play’ logo on the top right of the code chunk? You just need to click on it!</p>
+<hr class="rounded">
+<p><img src="./assets/images/RCodeBlock_RunBlock.png" class="img-fluid"></p>
+<hr class="rounded">
+</section>
+</section>
+</section>
+<section id="save-render-and-share" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Save, render and share</h1>
+<p>You can save your Markdown document as usual, but this will not give you the output that you want (unless you ticked the “Knit on Save” option). To do so, you need to click on the “Knit” button at the top of it. Since we have already specified in the YAML block that we want a PDF document, there is no need to choose between other options. But you can have a look at it and try other options, such as “Knit to HTML”!</p>
+</section>
+<section id="markdown-and-pdf-documents-of-sections-1.2-and-1.3" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Markdown and PDF documents of Sections 1.2 and 1.3</h1>
+<p>Maybe you were playing with your own R Markdown document at the same time as you were following this section, and add the codes of the Section 1.2 in it. In that case, congratulations! You have your very first R Markdown document ready! If not, you can just download the template <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/Markdown_Section1.3.Rmd" target="_blank">here</a>.</p>
+<p></p>
+<p>And <a href="https://github.com/aymeric-collart/formosan-corpus-r/blob/master/assets/files/Markdown_Section1.3.pdf" target="_blank">here</a> is the PDF output of the same document.</p>
+<p></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
