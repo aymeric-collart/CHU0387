@@ -21,22 +21,25 @@ website:
     style: "floating"
     collapse-level: 1
     contents: 
-    - text: "Week 1: Introduction"
+    - section: "Week 1: Introduction"
       href: intro.qmd
+    - text: "--------"
     - section: "Part 1: Principles of corpus studies"
       contents: 
         - Week2.qmd
         - Week3.qmd
+    - text: "--------"
     - section: "Part 2: Building a corpus from the internet with modern tools"
       contents: 
         - Week4.qmd
         - Week5_1.qmd
         - Week5_2.qmd
         - Weeks6_7.qmd
+    - text: "--------"
     - section: "Part 3: Simple preprocessing and analyzes of corpus data"
       contents: 
         - references.qmd
-    - part: "Chapter 3. Cleaning and analyzing the data"
+    - section: "Chapter 3. Cleaning and analyzing the data"
   page-footer: 
     left: "Copyright 2025, Aymeric Collart" 
     right: 
