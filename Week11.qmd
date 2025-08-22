@@ -1,0 +1,28 @@
+---
+title: "Week 11: Data preprocessing - Tidying data"
+format: 
+  html:
+    output-file: Weeks11.html
+    number-sections: true
+    number-depth: 2
+    toc: true
+---
+
+```{=html}
+<style>
+hr.rounded {
+  border-top: 1px solid #E5E4E2;
+  border-radius: 5px;
+}
+</style>
+```
+
+<br>
+
+::: {.callout-warning icon="false"}
+## Objectives
+
+This week, you will learn how to clean the data that you got from the Internet, so that the data are ready for the analyses.
+:::
+
+[Page to be completed later]

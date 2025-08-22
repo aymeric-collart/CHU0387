@@ -36,8 +36,19 @@ website:
         - Week5_1.qmd
         - Week5_2.qmd
         - Weeks6_7.qmd
+        - Weeks8_9.qmd
+    - text: "--------"
+    - section: "Week 10: Midterm presentations"
     - text: "--------"
     - section: "Part 3: Simple preprocessing and analyzes of corpus data"
+      contents: 
+        - Week11.qmd
+        - Week12.qmd
+        - Week13.qmd
+        - Week14.qmd
+    - text: "--------"
+    - section: "Week 15: Group and individual meetings in the classroom"
+    - section: "Week 16: Final presentations"
   page-footer: 
     left: "Copyright 2025, Aymeric Collart" 
     right: 

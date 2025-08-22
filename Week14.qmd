@@ -1,0 +1,31 @@
+---
+title: "Week 14: Presenting a corpus-based study"
+format: 
+  html:
+    output-file: Weeks14.html
+    number-sections: true
+    number-depth: 2
+    toc: true
+---
+
+```{=html}
+<style>
+hr.rounded {
+  border-top: 1px solid #E5E4E2;
+  border-radius: 5px;
+}
+</style>
+```
+
+<br>
+
+::: {.callout-warning icon="false"}
+## Objectives
+
+This week, you will learn how to present a corpus-based study, and especially:<br>
+- What are the most relevant information to present? How to find them in the R scripts that you wrote?<br>
+- What information can you skip?<br>
+- What document should you provide?
+:::
+
+[Page to be completed later]

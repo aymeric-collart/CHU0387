@@ -1,0 +1,28 @@
+---
+title: "Week 12: Data analysis"
+format: 
+  html:
+    output-file: Week12.html
+    number-sections: true
+    number-depth: 2
+    toc: true
+---
+
+```{=html}
+<style>
+hr.rounded {
+  border-top: 1px solid #E5E4E2;
+  border-radius: 5px;
+}
+</style>
+```
+
+<br>
+
+::: {.callout-warning icon="false"}
+## Objectives
+
+This week, you will learn how to analyze your data quickly and automatically with R.
+:::
+
+[Page to be completed later]

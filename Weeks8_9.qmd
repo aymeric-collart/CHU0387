@@ -1,0 +1,28 @@
+---
+title: "Weeks 8 & 9: Building a corpus from literature sources"
+format: 
+  html:
+    output-file: Weeks8_9.html
+    number-sections: true
+    number-depth: 2
+    toc: true
+---
+
+```{=html}
+<style>
+hr.rounded {
+  border-top: 1px solid #E5E4E2;
+  border-radius: 5px;
+}
+</style>
+```
+
+<br>
+
+::: {.callout-warning icon="false"}
+## Objectives
+
+These two weeks, you will learn how to use R to build a corpus from online literature sources.
+:::
+
+[Page to be completed later]

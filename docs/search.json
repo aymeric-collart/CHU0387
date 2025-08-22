@@ -58,193 +58,15 @@
     "text": "Welcome to the website of the course \"Language, Society and Literature with Corpus and Modern Technology\" (code: CHU03887)\n\n\n\n\n\n\n\nNote\n\n\n\nThe website of the course has just been created. That’s why it looks quite empty and some pages not at their right place.\nStay tuned for further developments!\n\n\n\n\n\n   🧠   Description and objectives of the course\n\nThis course introduces the principles of corpus studies assisted by modern technology with an emphasis on hands-on practice, and how corpus data can be useful in understanding how language is used in the media or in the literature. The course is divided into three parts: (a) fundamental concepts and practices when working with a corpus, (b) the process of building a corpus from texts on the Internet with modern technology, and (c) the handling, analyses and visualization of the corpus data. By the end of the course, the students are expected to acquire the basic knowledge of working with a corpus and will obtain a first approach to programming languages.\n\n   🧠   General information for the 2025 Fall class\n\n\nFAQ\n\n\n\n1- Do I need any background?\nYou do not need any particular background.\nThis course will start with the very basics. If you are already familiar with coding and/or the RStudio interface, it will of course be easier for you.\n\n\n2- Which public?\nIn addition to the students enrolled in the course, anyone interested in having a first hands-on experience can follow the content of the website."
   },
   {
-    "objectID": "Week5_2.html",
-    "href": "Week5_2.html",
-    "title": "Week 5: Introduction to R (2/2): How to create reproducible data",
+    "objectID": "Weeks6_7.html",
+    "href": "Weeks6_7.html",
+    "title": "Weeks 6 & 7: Building a corpus from media platforms",
     "section": "",
-    "text": "Objectives\n\n\n\nIn this section, we will focus more on one type of R scripts: R Markdown files. The reason is that we are going to use R Markdowns instead of raw R scripts from now on, so we need to know more about how R Markdown files work in addition to their potential",
+    "text": "Objectives\n\n\n\nThese two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.\n\n\n[Page to be completed later]",
     "crumbs": [
       "Welcome page",
       "Part 2: Building a corpus from the internet with modern tools",
-      "Week 5: Introduction to R (2/2): How to create reproducible data"
-    ]
-  },
-  {
-    "objectID": "Week5_2.html#configuring-the-file-the-yaml-block",
-    "href": "Week5_2.html#configuring-the-file-the-yaml-block",
-    "title": "Week 5: Introduction to R (2/2): How to create reproducible data",
-    "section": "2.1 Configuring the file: The YAML block",
-    "text": "2.1 Configuring the file: The YAML block\n\n2.1.1 Basic features of the YAML block\nLet’s start with configuring the file: This corresponds to the first lines, or the header, of the script that you have just created. This is called the YAML part. It looks like this so far:\n\n\n\nYou will remark that there are pre-filled information, such as the title of the document, the name(s) of the author(s), the date and the output format. These are what we were prompted to fill when creating the document! Now you can try to change some things, for instance:\n\nTitle: Change to “My first R Markdown script”\nAuthor: Change to you name\nDate: Change to the date you wish, or even delete this line if you do not wish to add a date\n\n\n\n2.1.2 More advanced features of the YAML block\nYou can also add other pieces of information, for instance:\n\nDate:\nYou have more options, such as defining the format of the date, and maybe more interestingly, create a variable such that you do not have to change the date anytime you are saving the document. In other words, you may want to have a line specifying something like “This document was last modified on ‘Year-Month-Day’”. Just write as follows:\n\n\ndate: \"This document was last modified on `r Sys.Date()`\"\n\nThe code 2025-08-22 will look at the date of the system of your computer.\n\nTable of contents:\nThe addition of titles in the document is here to help when navigating it. You can also add a table of contents such that it is even easier to navigate. You can also specify how many layers you want to display in the table of contents.\n\n\ntoc: true\ntoc-depth: 4 ## Change this value depending on how many layers you wish to display\n\n\nFormat:\nFor now, the output format is “html”. Just replace with other values according to the output format you want (for example: “pdf_document”).\n\nIn the end, the YAML block should look like this:\n\n    ---\n    title: \"My first R Markdown script\"\n    author: \"Your name\"\n    date: \"This document was last modified on `r Sys.Date()`\"\n    output: pdf_document\n    toc: yes\n    toc-depth: 4\n    ---",
-    "crumbs": [
-      "Welcome page",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Week 5: Introduction to R (2/2): How to create reproducible data"
-    ]
-  },
-  {
-    "objectID": "Week5_2.html#navigating-the-file-titles-and-subparts",
-    "href": "Week5_2.html#navigating-the-file-titles-and-subparts",
-    "title": "Week 5: Introduction to R (2/2): How to create reproducible data",
-    "section": "2.2 Navigating the file: Titles and subparts",
-    "text": "2.2 Navigating the file: Titles and subparts\nThe titles and subparts are here to give the overall structure of the document. Please note that they are optional: It is possible to write a whole R Markdown document without any title! But as the codes are more and more lengthy, it becomes messy very easily to the point that it is very difficult to understand what we are doing. In other words, the titles and subparts are here to clarify everything!\nAdding titles and subparts is very simple. You just need to click on the button where the header options can be found. For example, if you want to write the title of a main part (let’s say, “1. Introduction”), you click on “Header 1”, and you write the name of the title. It is the same process for subtitles. Let’s say you want a subpart called “1.1 Introduction within the introduction”, you just click on “Header 2” and you write what you want for the subtitle.\n\n\n\n\n\n\nTip\n\n\n\nI personally prefer when the structure is numbered, this is why I add the number of the sections like “1. Introduction”, or “1.1 Introduction of the introduction”. But this is not obligatory and depends on your style!\n\n\nThe titles and subparts are also very important to set the table of contents!",
-    "crumbs": [
-      "Welcome page",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Week 5: Introduction to R (2/2): How to create reproducible data"
-    ]
-  },
-  {
-    "objectID": "Week5_2.html#writing-the-content",
-    "href": "Week5_2.html#writing-the-content",
-    "title": "Week 5: Introduction to R (2/2): How to create reproducible data",
-    "section": "2.3 Writing the content",
-    "text": "2.3 Writing the content\n\n2.3.1 Writing the narrative\nNothing more simple: You can write directly inside the document. Just do not forget to check that the style is set as “Normal” and not “Header 1”, “Header 2”, etc. when doing so!\nThis is a big difference with R Script. Everything you write in an R Script is considered as a code, unless you use the hashtag signs to tell R that this is a comment. In other words, everything that you write in the document is considered as a comment, so do not hesitate to write as much as you want as long as it makes things clearer for you!\n\n\n2.3.2 Writing the code\nIf what we write inside the document is not considered as a code, then how to add one?\nYou Just need to click on “Insert”, then “Code Chunk”, and finally “R”. Normally, a grey code block with appear with {r} at the top line to indicate that this is an R code block. Everything written in this grey block will be considered as R code. You can also add comments inside the block using hashtags as you can do in a typical R Script. Sometimes, R will display simple messages and/or warnings at the same time as you run the code. It is possible to “hide” them, you just need to add the following lines below {r}, as below.\nYour code chunk will look like this:\n\n\n\nFinally, you can run the code chunk without running ALL the document. Can you see the green ‘play’ logo on the top right of the code chunk? You just need to click on it!",
-    "crumbs": [
-      "Welcome page",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Week 5: Introduction to R (2/2): How to create reproducible data"
-    ]
-  },
-  {
-    "objectID": "InstallationRRStudio_slides.html#what-is-r-what-is-rstudio",
-    "href": "InstallationRRStudio_slides.html#what-is-r-what-is-rstudio",
-    "title": "Section 1.1",
-    "section": "What is R? What is RStudio?",
-    "text": "What is R? What is RStudio?\nWe are actually referring to two programs:\n\n\n\nMain program: R\n\nThis is where all the magic happens.\n\nInterface: RStudio\n\nUser-friendly interface such that it is easier to work with."
-  },
-  {
-    "objectID": "InstallationRRStudio_slides.html#what-is-the-difference-between-the-two-a-comparison",
-    "href": "InstallationRRStudio_slides.html#what-is-the-difference-between-the-two-a-comparison",
-    "title": "Section 1.1",
-    "section": "What is the difference between the two? A comparison",
-    "text": "What is the difference between the two? A comparison\n\nHow you are using your computerHow R is used\n\n\nr fontawesome::fa(\"computer\", a11y = \"sem\", height = \"2.1em\", width = \"2.3em\") r fontawesome::fa(\"circle-right\", a11y = \"sem\", height = \"2.1em\", width = \"2em\", margin_left = \"0.9em\", margin_right = \"0.9em\") r fontawesome::fa(\"folder-open\", a11y = \"sem\", fill = \"#2b579a\", height = \"2.1em\", width = \"2em\") r fontawesome::fa(\"circle-right\", a11y = \"sem\", height = \"2.1em\", width = \"2em\", margin_left = \"0.9em\", margin_right = \"0.9em\") r fontawesome::fa(\"file-word\", a11y = \"sem\", fill = \"#2b579a\", height = \"2.1em\", width = \"1.9em\", margin_right = \"0.7em\") r fontawesome::fa(\"file-excel\", a11y = \"sem\", fill = \"#217346\", height = \"2.1em\", width = \"1.9em\", margin_right = \"0.7em\") r fontawesome::fa(\"file-powerpoint\", a11y = \"sem\", fill = \"#d24726\", height = \"2.1em\", width = \"1.9em\") r fontawesome::fa(\"circle-right\", a11y = \"sem\", height = \"2.1em\", width = \"2em\", margin_left = \"0.9em\", margin_right = \"0.9em\") r fontawesome::fa(\"floppy-disk\", a11y = \"sem\", height = \"2.1em\", width = \"1.9em\")\n\n\n\n\n\n\n\n\nAnd now, think about it\n\n\nYou have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen.\nWhat you may not know is that when doing so, you have run many lines of codes. Your computer ran them in programs able to perform computations.\nYour role has been to trigger these programs by using the user-friendly interface installed in your computer.\n\n\n\nThis is the exact same thing with R and RStudio.\nR will perform the computations that you ask for. And you will ask R to do stuff by clicking on icons and writing commands using the user-friendly interface of RStudio.\nAnd this is why you need to download two programs!"
-  },
-  {
-    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-15",
-    "href": "InstallationRRStudio_slides.html#download-and-install-r-15",
-    "title": "Section 1.1",
-    "section": "Download and install R (1/5)",
-    "text": "Download and install R (1/5)\nYou can download R for free from the official website here.\n\nYou have to look for the link in the middle of the first paragraph on the front page."
-  },
-  {
-    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-25",
-    "href": "InstallationRRStudio_slides.html#download-and-install-r-25",
-    "title": "Section 1.1",
-    "section": "Download and install R (2/5)",
-    "text": "Download and install R (2/5)\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link."
-  },
-  {
-    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-35",
-    "href": "InstallationRRStudio_slides.html#download-and-install-r-35",
-    "title": "Section 1.1",
-    "section": "Download and install R (3/5)",
-    "text": "Download and install R (3/5)\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft)."
-  },
-  {
-    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-45",
-    "href": "InstallationRRStudio_slides.html#download-and-install-r-45",
-    "title": "Section 1.1",
-    "section": "Download and install R (4/5)",
-    "text": "Download and install R (4/5)\nOn the next page, you will need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory."
-  },
-  {
-    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-55",
-    "href": "InstallationRRStudio_slides.html#download-and-install-r-55",
-    "title": "Section 1.1",
-    "section": "Download and install R (5/5)",
-    "text": "Download and install R (5/5)\nWe finally got to the last page!\n\nJust click on the first link to download the files, as in the image. Wait until the file is downloaded, open it and follow the instructions to install R on your computer."
-  },
-  {
-    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-13",
-    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-13",
-    "title": "Section 1.1",
-    "section": "Download and install RStudio (1/3)",
-    "text": "Download and install RStudio (1/3)\nNow that R is installed on your computer, it is time to do the same with RStudio. First, let’s go to the RStudio website by clicking here , and you will see something like that (if not, it is just that the RStudio website has changed):"
-  },
-  {
-    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-23",
-    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-23",
-    "title": "Section 1.1",
-    "section": "Download and install RStudio (2/3)",
-    "text": "Download and install RStudio (2/3)\nOnce you are on the front page, just scroll down to look for the links to download the installing files. Again, you will need to choose the right file to download according to the system of your computer: Window, macOS (for the most common), or another one."
-  },
-  {
-    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-33",
-    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-33",
-    "title": "Section 1.1",
-    "section": "Download and install RStudio (3/3)",
-    "text": "Download and install RStudio (3/3)\n\nJust click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer."
-  },
-  {
-    "objectID": "Week3.html",
-    "href": "Week3.html",
-    "title": "Week 3: Types of corpora: Selecting or building a corpus?",
-    "section": "",
-    "text": "Objectives\n\n\n\nThis week, we will discuss what a corpus is. Especially, you will learn: - What are the basics of a corpus - What corpora are available on the Internet - When you should decide to build your own corpus\n\n\n[Page to be completed later]",
-    "crumbs": [
-      "Welcome page",
-      "Part 1: Principles of corpus studies",
-      "Week 3: Types of corpora: Selecting or building a corpus?"
-    ]
-  },
-  {
-    "objectID": "Week2.html",
-    "href": "Week2.html",
-    "title": "Week 2: What is a corpus, and their role to understand language and literature",
-    "section": "",
-    "text": "Objectives\n\n\n\nThis week, we will discuss why corpus studies are useful for: - Understanding the language we speak - Understanding the novels and stories we read\n\n\n[Page to be completed later]",
-    "crumbs": [
-      "Welcome page",
-      "Part 1: Principles of corpus studies",
-      "Week 2: What is a corpus, and their role to understand language and literature"
-    ]
-  },
-  {
-    "objectID": "Week4.html",
-    "href": "Week4.html",
-    "title": "Week 4: Introduction to the modern tool R (1/2): Installation and first steps",
-    "section": "",
-    "text": "The slides corresponding to this section can be found here: r fontawesome::fa(\"chalkboard\", a11y = \"sem\")",
-    "crumbs": [
-      "Welcome page",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Week 4: Introduction to the modern tool R (1/2): Installation and first steps"
-    ]
-  },
-  {
-    "objectID": "Week4.html#slides-of-this-section",
-    "href": "Week4.html#slides-of-this-section",
-    "title": "Week 4: Introduction to the modern tool R (1/2): Installation and first steps",
-    "section": "",
-    "text": "The slides corresponding to this section can be found here: r fontawesome::fa(\"chalkboard\", a11y = \"sem\")",
-    "crumbs": [
-      "Welcome page",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Week 4: Introduction to the modern tool R (1/2): Installation and first steps"
-    ]
-  },
-  {
-    "objectID": "Week4.html#download-and-install-r",
-    "href": "Week4.html#download-and-install-r",
-    "title": "Week 4: Introduction to the modern tool R (1/2): Installation and first steps",
-    "section": "2.1 Download and install R",
-    "text": "2.1 Download and install R\nYou can download R for free from the official website here.\nYou have to look for the link in the middle of the first paragraph on the front page.\n\n\n\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\n\n\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft).\n\n\n\nOn the next page, you will need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory.\n\n\n\nWe finally got to the last page! Just click on the first link to download the files, as in the image below.\n\n\n\nJust wait until the file is downloaded, open it and follow the instructions to install R on your computer.",
-    "crumbs": [
-      "Welcome page",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Week 4: Introduction to the modern tool R (1/2): Installation and first steps"
-    ]
-  },
-  {
-    "objectID": "Week4.html#download-and-install-rstudio",
-    "href": "Week4.html#download-and-install-rstudio",
-    "title": "Week 4: Introduction to the modern tool R (1/2): Installation and first steps",
-    "section": "2.2 Download and install RStudio",
-    "text": "2.2 Download and install RStudio\nNow that R is installed on your computer, it is time to do the same with RStudio. First, let’s go to the RStudio website by clicking here , and you will see something like that (if not, it is just that the RStudio website has changed):\n\n\n\nOnce you are on the front page, just scroll down to look for the links to download the installing files. Again, you will need to choose the right file to download according to the system of your computer: Window, macOS (for the most common), or another one.\n\n\n\nJust click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer.",
-    "crumbs": [
-      "Welcome page",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Week 4: Introduction to the modern tool R (1/2): Installation and first steps"
+      "Weeks 6 & 7: Building a corpus from media platforms"
     ]
   },
   {
@@ -404,15 +226,253 @@
     ]
   },
   {
-    "objectID": "Weeks6_7.html",
-    "href": "Weeks6_7.html",
-    "title": "Weeks 6 & 7: Building a corpus from media platforms",
+    "objectID": "Week4.html",
+    "href": "Week4.html",
+    "title": "Week 4: Introduction to the modern tool R (1/2): Installation and first steps",
     "section": "",
-    "text": "Objectives\n\n\n\nThese two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.\n\n\n[Page to be completed later]",
+    "text": "The slides corresponding to this section can be found here: r fontawesome::fa(\"chalkboard\", a11y = \"sem\")",
     "crumbs": [
       "Welcome page",
       "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 6 & 7: Building a corpus from media platforms"
+      "Week 4: Introduction to the modern tool R (1/2): Installation and first steps"
+    ]
+  },
+  {
+    "objectID": "Week4.html#slides-of-this-section",
+    "href": "Week4.html#slides-of-this-section",
+    "title": "Week 4: Introduction to the modern tool R (1/2): Installation and first steps",
+    "section": "",
+    "text": "The slides corresponding to this section can be found here: r fontawesome::fa(\"chalkboard\", a11y = \"sem\")",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 4: Introduction to the modern tool R (1/2): Installation and first steps"
+    ]
+  },
+  {
+    "objectID": "Week4.html#download-and-install-r",
+    "href": "Week4.html#download-and-install-r",
+    "title": "Week 4: Introduction to the modern tool R (1/2): Installation and first steps",
+    "section": "2.1 Download and install R",
+    "text": "2.1 Download and install R\nYou can download R for free from the official website here.\nYou have to look for the link in the middle of the first paragraph on the front page.\n\n\n\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\n\n\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft).\n\n\n\nOn the next page, you will need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory.\n\n\n\nWe finally got to the last page! Just click on the first link to download the files, as in the image below.\n\n\n\nJust wait until the file is downloaded, open it and follow the instructions to install R on your computer.",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 4: Introduction to the modern tool R (1/2): Installation and first steps"
+    ]
+  },
+  {
+    "objectID": "Week4.html#download-and-install-rstudio",
+    "href": "Week4.html#download-and-install-rstudio",
+    "title": "Week 4: Introduction to the modern tool R (1/2): Installation and first steps",
+    "section": "2.2 Download and install RStudio",
+    "text": "2.2 Download and install RStudio\nNow that R is installed on your computer, it is time to do the same with RStudio. First, let’s go to the RStudio website by clicking here , and you will see something like that (if not, it is just that the RStudio website has changed):\n\n\n\nOnce you are on the front page, just scroll down to look for the links to download the installing files. Again, you will need to choose the right file to download according to the system of your computer: Window, macOS (for the most common), or another one.\n\n\n\nJust click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer.",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 4: Introduction to the modern tool R (1/2): Installation and first steps"
+    ]
+  },
+  {
+    "objectID": "Week2.html",
+    "href": "Week2.html",
+    "title": "Week 2: What is a corpus, and their role to understand language and literature",
+    "section": "",
+    "text": "Objectives\n\n\n\nThis week, we will discuss why corpus studies are useful for: - Understanding the language we speak - Understanding the novels and stories we read\n\n\n[Page to be completed later]",
+    "crumbs": [
+      "Welcome page",
+      "Part 1: Principles of corpus studies",
+      "Week 2: What is a corpus, and their role to understand language and literature"
+    ]
+  },
+  {
+    "objectID": "Week13.html",
+    "href": "Week13.html",
+    "title": "Week 13: Data visualization",
+    "section": "",
+    "text": "Objectives\n\n\n\nThis week, you will learn how to create figures of the data that we analyzed.\n\n\n[Page to be completed later]",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyzes of corpus data",
+      "Week 13: Data visualization"
+    ]
+  },
+  {
+    "objectID": "Weeks11.html",
+    "href": "Weeks11.html",
+    "title": "Week 11: Data preprocessing - Tidying data",
+    "section": "",
+    "text": "Objectives\n\n\n\nThis week, you will learn how to clean the data that you got from the Internet, so that the data are ready for the analyses.\n\n\n[Page to be completed later]",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyzes of corpus data",
+      "Week 11: Data preprocessing - Tidying data"
+    ]
+  },
+  {
+    "objectID": "Week12.html",
+    "href": "Week12.html",
+    "title": "Week 12: Data analysis",
+    "section": "",
+    "text": "Objectives\n\n\n\nThis week, you will learn how to analyze your data quickly and automatically with R.\n\n\n[Page to be completed later]",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyzes of corpus data",
+      "Week 12: Data analysis"
+    ]
+  },
+  {
+    "objectID": "Weeks14.html",
+    "href": "Weeks14.html",
+    "title": "Week 14: Presenting a corpus-based study",
+    "section": "",
+    "text": "Objectives\n\n\n\nThis week, you will learn how to present a corpus-based study, and especially: - What are the most relevant information to present? How to find them in the R scripts that you wrote? - What information can you skip? - What document should you provide?\n\n\n[Page to be completed later]",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyzes of corpus data",
+      "Week 14: Presenting a corpus-based study"
+    ]
+  },
+  {
+    "objectID": "Week3.html",
+    "href": "Week3.html",
+    "title": "Week 3: Types of corpora: Selecting or building a corpus?",
+    "section": "",
+    "text": "Objectives\n\n\n\nThis week, we will discuss what a corpus is. Especially, you will learn: - What are the basics of a corpus - What corpora are available on the Internet - When you should decide to build your own corpus\n\n\n[Page to be completed later]",
+    "crumbs": [
+      "Welcome page",
+      "Part 1: Principles of corpus studies",
+      "Week 3: Types of corpora: Selecting or building a corpus?"
+    ]
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#what-is-r-what-is-rstudio",
+    "href": "InstallationRRStudio_slides.html#what-is-r-what-is-rstudio",
+    "title": "Section 1.1",
+    "section": "What is R? What is RStudio?",
+    "text": "What is R? What is RStudio?\nWe are actually referring to two programs:\n\n\n\nMain program: R\n\nThis is where all the magic happens.\n\nInterface: RStudio\n\nUser-friendly interface such that it is easier to work with."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#what-is-the-difference-between-the-two-a-comparison",
+    "href": "InstallationRRStudio_slides.html#what-is-the-difference-between-the-two-a-comparison",
+    "title": "Section 1.1",
+    "section": "What is the difference between the two? A comparison",
+    "text": "What is the difference between the two? A comparison\n\nHow you are using your computerHow R is used\n\n\nr fontawesome::fa(\"computer\", a11y = \"sem\", height = \"2.1em\", width = \"2.3em\") r fontawesome::fa(\"circle-right\", a11y = \"sem\", height = \"2.1em\", width = \"2em\", margin_left = \"0.9em\", margin_right = \"0.9em\") r fontawesome::fa(\"folder-open\", a11y = \"sem\", fill = \"#2b579a\", height = \"2.1em\", width = \"2em\") r fontawesome::fa(\"circle-right\", a11y = \"sem\", height = \"2.1em\", width = \"2em\", margin_left = \"0.9em\", margin_right = \"0.9em\") r fontawesome::fa(\"file-word\", a11y = \"sem\", fill = \"#2b579a\", height = \"2.1em\", width = \"1.9em\", margin_right = \"0.7em\") r fontawesome::fa(\"file-excel\", a11y = \"sem\", fill = \"#217346\", height = \"2.1em\", width = \"1.9em\", margin_right = \"0.7em\") r fontawesome::fa(\"file-powerpoint\", a11y = \"sem\", fill = \"#d24726\", height = \"2.1em\", width = \"1.9em\") r fontawesome::fa(\"circle-right\", a11y = \"sem\", height = \"2.1em\", width = \"2em\", margin_left = \"0.9em\", margin_right = \"0.9em\") r fontawesome::fa(\"floppy-disk\", a11y = \"sem\", height = \"2.1em\", width = \"1.9em\")\n\n\n\n\n\n\n\n\nAnd now, think about it\n\n\nYou have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen.\nWhat you may not know is that when doing so, you have run many lines of codes. Your computer ran them in programs able to perform computations.\nYour role has been to trigger these programs by using the user-friendly interface installed in your computer.\n\n\n\nThis is the exact same thing with R and RStudio.\nR will perform the computations that you ask for. And you will ask R to do stuff by clicking on icons and writing commands using the user-friendly interface of RStudio.\nAnd this is why you need to download two programs!"
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-15",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-15",
+    "title": "Section 1.1",
+    "section": "Download and install R (1/5)",
+    "text": "Download and install R (1/5)\nYou can download R for free from the official website here.\n\nYou have to look for the link in the middle of the first paragraph on the front page."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-25",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-25",
+    "title": "Section 1.1",
+    "section": "Download and install R (2/5)",
+    "text": "Download and install R (2/5)\nThen, you need to choose your CRAN. Let’s choose the one in Taiwan. You will need to scroll down the page to find the link."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-35",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-35",
+    "title": "Section 1.1",
+    "section": "Download and install R (3/5)",
+    "text": "Download and install R (3/5)\nNow you need to choose the files to download according to the system of your computer. The likeliest to use are for MacOS (if you have a MacBook computer) or for Windows (if your system is Microsoft)."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-45",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-45",
+    "title": "Section 1.1",
+    "section": "Download and install R (4/5)",
+    "text": "Download and install R (4/5)\nOn the next page, you will need to choose the subdirectory that you need. For our purposes, we’ll only need the “base” subdirectory."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-r-55",
+    "href": "InstallationRRStudio_slides.html#download-and-install-r-55",
+    "title": "Section 1.1",
+    "section": "Download and install R (5/5)",
+    "text": "Download and install R (5/5)\nWe finally got to the last page!\n\nJust click on the first link to download the files, as in the image. Wait until the file is downloaded, open it and follow the instructions to install R on your computer."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-13",
+    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-13",
+    "title": "Section 1.1",
+    "section": "Download and install RStudio (1/3)",
+    "text": "Download and install RStudio (1/3)\nNow that R is installed on your computer, it is time to do the same with RStudio. First, let’s go to the RStudio website by clicking here , and you will see something like that (if not, it is just that the RStudio website has changed):"
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-23",
+    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-23",
+    "title": "Section 1.1",
+    "section": "Download and install RStudio (2/3)",
+    "text": "Download and install RStudio (2/3)\nOnce you are on the front page, just scroll down to look for the links to download the installing files. Again, you will need to choose the right file to download according to the system of your computer: Window, macOS (for the most common), or another one."
+  },
+  {
+    "objectID": "InstallationRRStudio_slides.html#download-and-install-rstudio-33",
+    "href": "InstallationRRStudio_slides.html#download-and-install-rstudio-33",
+    "title": "Section 1.1",
+    "section": "Download and install RStudio (3/3)",
+    "text": "Download and install RStudio (3/3)\n\nJust click on the link and the file will start to be downloaded! Again, give it some minutes, then open the file and follow the instructions to install RStudio on your computer."
+  },
+  {
+    "objectID": "Week5_2.html",
+    "href": "Week5_2.html",
+    "title": "Week 5: Introduction to R (2/2): How to create reproducible data",
+    "section": "",
+    "text": "Objectives\n\n\n\nIn this section, we will focus more on one type of R scripts: R Markdown files. The reason is that we are going to use R Markdowns instead of raw R scripts from now on, so we need to know more about how R Markdown files work in addition to their potential",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 5: Introduction to R (2/2): How to create reproducible data"
+    ]
+  },
+  {
+    "objectID": "Week5_2.html#configuring-the-file-the-yaml-block",
+    "href": "Week5_2.html#configuring-the-file-the-yaml-block",
+    "title": "Week 5: Introduction to R (2/2): How to create reproducible data",
+    "section": "2.1 Configuring the file: The YAML block",
+    "text": "2.1 Configuring the file: The YAML block\n\n2.1.1 Basic features of the YAML block\nLet’s start with configuring the file: This corresponds to the first lines, or the header, of the script that you have just created. This is called the YAML part. It looks like this so far:\n\n\n\nYou will remark that there are pre-filled information, such as the title of the document, the name(s) of the author(s), the date and the output format. These are what we were prompted to fill when creating the document! Now you can try to change some things, for instance:\n\nTitle: Change to “My first R Markdown script”\nAuthor: Change to you name\nDate: Change to the date you wish, or even delete this line if you do not wish to add a date\n\n\n\n2.1.2 More advanced features of the YAML block\nYou can also add other pieces of information, for instance:\n\nDate:\nYou have more options, such as defining the format of the date, and maybe more interestingly, create a variable such that you do not have to change the date anytime you are saving the document. In other words, you may want to have a line specifying something like “This document was last modified on ‘Year-Month-Day’”. Just write as follows:\n\n\ndate: \"This document was last modified on `r Sys.Date()`\"\n\nThe code 2025-08-22 will look at the date of the system of your computer.\n\nTable of contents:\nThe addition of titles in the document is here to help when navigating it. You can also add a table of contents such that it is even easier to navigate. You can also specify how many layers you want to display in the table of contents.\n\n\ntoc: true\ntoc-depth: 4 ## Change this value depending on how many layers you wish to display\n\n\nFormat:\nFor now, the output format is “html”. Just replace with other values according to the output format you want (for example: “pdf_document”).\n\nIn the end, the YAML block should look like this:\n\n    ---\n    title: \"My first R Markdown script\"\n    author: \"Your name\"\n    date: \"This document was last modified on `r Sys.Date()`\"\n    output: pdf_document\n    toc: yes\n    toc-depth: 4\n    ---",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 5: Introduction to R (2/2): How to create reproducible data"
+    ]
+  },
+  {
+    "objectID": "Week5_2.html#navigating-the-file-titles-and-subparts",
+    "href": "Week5_2.html#navigating-the-file-titles-and-subparts",
+    "title": "Week 5: Introduction to R (2/2): How to create reproducible data",
+    "section": "2.2 Navigating the file: Titles and subparts",
+    "text": "2.2 Navigating the file: Titles and subparts\nThe titles and subparts are here to give the overall structure of the document. Please note that they are optional: It is possible to write a whole R Markdown document without any title! But as the codes are more and more lengthy, it becomes messy very easily to the point that it is very difficult to understand what we are doing. In other words, the titles and subparts are here to clarify everything!\nAdding titles and subparts is very simple. You just need to click on the button where the header options can be found. For example, if you want to write the title of a main part (let’s say, “1. Introduction”), you click on “Header 1”, and you write the name of the title. It is the same process for subtitles. Let’s say you want a subpart called “1.1 Introduction within the introduction”, you just click on “Header 2” and you write what you want for the subtitle.\n\n\n\n\n\n\nTip\n\n\n\nI personally prefer when the structure is numbered, this is why I add the number of the sections like “1. Introduction”, or “1.1 Introduction of the introduction”. But this is not obligatory and depends on your style!\n\n\nThe titles and subparts are also very important to set the table of contents!",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 5: Introduction to R (2/2): How to create reproducible data"
+    ]
+  },
+  {
+    "objectID": "Week5_2.html#writing-the-content",
+    "href": "Week5_2.html#writing-the-content",
+    "title": "Week 5: Introduction to R (2/2): How to create reproducible data",
+    "section": "2.3 Writing the content",
+    "text": "2.3 Writing the content\n\n2.3.1 Writing the narrative\nNothing more simple: You can write directly inside the document. Just do not forget to check that the style is set as “Normal” and not “Header 1”, “Header 2”, etc. when doing so!\nThis is a big difference with R Script. Everything you write in an R Script is considered as a code, unless you use the hashtag signs to tell R that this is a comment. In other words, everything that you write in the document is considered as a comment, so do not hesitate to write as much as you want as long as it makes things clearer for you!\n\n\n2.3.2 Writing the code\nIf what we write inside the document is not considered as a code, then how to add one?\nYou Just need to click on “Insert”, then “Code Chunk”, and finally “R”. Normally, a grey code block with appear with {r} at the top line to indicate that this is an R code block. Everything written in this grey block will be considered as R code. You can also add comments inside the block using hashtags as you can do in a typical R Script. Sometimes, R will display simple messages and/or warnings at the same time as you run the code. It is possible to “hide” them, you just need to add the following lines below {r}, as below.\nYour code chunk will look like this:\n\n\n\nFinally, you can run the code chunk without running ALL the document. Can you see the green ‘play’ logo on the top right of the code chunk? You just need to click on it!",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 5: Introduction to R (2/2): How to create reproducible data"
+    ]
+  },
+  {
+    "objectID": "Weeks8_9.html",
+    "href": "Weeks8_9.html",
+    "title": "Weeks 8 & 9: Building a corpus from literature sources",
+    "section": "",
+    "text": "Objectives\n\n\n\nThese two weeks, you will learn how to use R to build a corpus from online literature sources.\n\n\n[Page to be completed later]",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 8 & 9: Building a corpus from literature sources"
     ]
   },
   {
