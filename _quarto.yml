@@ -6,6 +6,7 @@ project:
     - "!Internal/"
 
 website:
+  reader-mode: true
   navbar:
     background: primary
     search: true
