@@ -32,6 +32,7 @@ website:
         - Week4.qmd
         - Week5_1.qmd
         - Week5_2.qmd
+        - Weeks6_7.qmd
     - section: "Part 3: Simple preprocessing and analyzes of corpus data"
       contents: 
         - references.qmd
