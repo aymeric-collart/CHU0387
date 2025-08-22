@@ -7,13 +7,12 @@ format:
     number-depth: 2
     toc: true
 ---
+
 ```{r, echo=FALSE}
 ## Slides of this section {.unnumbered}
 
 #The slides corresponding to this section can be found here: <a href="intro_slides.html" target="_blank">`r fontawesome::fa("chalkboard", a11y = "sem")`</a>
 ```
-
-
 
 # Structure of the course
 
@@ -29,19 +28,19 @@ This course follows this workflow. I will show you how to conduct a corpus inves
 
 The weekly organization of this course can be found in the Table of Contents on the left in addition to the table below.
 
-| Week    | Content                                           |
-|---------|---------------------------------------------------|
-| Week 1  | Introductory week                                 |
-| **Part 1** | **Principles of corpus studies**                    |
-| Week 2  | What is a corpus, and their role to understand language and literature |
-| Week 3  | Types of corpora: Selecting or building a corpus? |
-| **Part 2** | **Building a corpus from the Internet with modern tools**  |
-| Week 4  | Introduction to R (1/2): Installation and first steps |
-| Week 5  | Introduction to R (2/2): Basic functions and how to create reproducible data |
-| Week 6  | Example 1: Building a corpus from media platforms (1/2) |
-| Week 7  | Example 1: Building a corpus from media platforms (2/2) |
-| Week 8  | Example 2: Building a corpus from literature sources (1/2) |
-| Week 9  | Example 2: Building a corpus from literature sources (2/2) |
+| Week | Content |
+|---------------|---------------------------------------------------------|
+| Week 1 | Introductory week |
+| **Part 1** | **Principles of corpus studies** |
+| Week 2 | What is a corpus, and their role to understand language and literature |
+| Week 3 | Types of corpora: Selecting or building a corpus? |
+| **Part 2** | **Building a corpus from the Internet with modern tools** |
+| Week 4 | Introduction to R (1/2): Installation and first steps |
+| Week 5 | Introduction to R (2/2): Basic functions and how to create reproducible data |
+| Week 6 | Example 1: Building a corpus from media platforms (1/2) |
+| Week 7 | Example 1: Building a corpus from media platforms (2/2) |
+| Week 8 | Example 2: Building a corpus from literature sources (1/2) |
+| Week 9 | Example 2: Building a corpus from literature sources (2/2) |
 | Week 10 | Midterm presentations, group and individual meetings in the classroom |
 | **Part 3** | **Simple preprocessing and analyzes of corpus data** |
 | Week 11 | Data preprocessing: Tidying data |
@@ -57,8 +56,7 @@ The weekly organization of this course can be found in the Table of Contents on 
 
 We will only use some parts of these two books:
 
-1- Paquot, M.m & Gries, S. T. (2020) <i>A practical handbook of corpus linguistics</i>. Cham: Springer.
-Normally, you should be able to download this book freely with this link: <a href="https://link.springer.com/book/10.1007/978-3-030-46216-1" target="_blank">Link to the book</a>
+1- Paquot, M. & Gries, S. T. (2020) <i>A practical handbook of corpus linguistics</i>. Cham: Springer. Normally, you should be able to download this book freely with this link: <a href="https://link.springer.com/book/10.1007/978-3-030-46216-1" target="_blank">Link to the book</a>
 
 2- O'Keeffe, A., & McCarthy, M. J. (2022). <i>The Routledge handbook of corpus linguistics</i> (2nd edition). London/New York: Routledge. <a href="https://www.routledge.com/The-Routledge-Handbook-of-Corpus-Linguistics/OKeeffe-McCarthy/p/book/9781032145921?srsltid=AfmBOoqOe7H-j_mhNycpy-PdTrMEQWs4bd4X2LuxUm8Vi1zbTSdMlJ3N" target="_blank">Link to the book</a>
 
@@ -72,8 +70,7 @@ Online resources:
 
 ### Additional reference
 
-This course is task-oriented, so there are many aspects of corpus linguistics that will not be covered.
-If you are interested in knowing more, you can read the book published by Anatol Stefanowitsch in 2020, available for free <a href="https://langsci-press.org/catalog/book/148" target="_blank">here</a>.
+This course is task-oriented, so there are many aspects of corpus linguistics that will not be covered. If you are interested in knowing more, you can read the book published by Anatol Stefanowitsch in 2020, available for free <a href="https://langsci-press.org/catalog/book/148" target="_blank">here</a>.
 
 # How to get through the exercises
 
