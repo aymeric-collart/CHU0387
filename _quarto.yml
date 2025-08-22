@@ -22,7 +22,7 @@ website:
     style: "floating"
     collapse-level: 1
     contents: 
-    - section: "Week 1: Introduction"
+    - text: "Week 1: Introduction"
       href: intro.qmd
     - text: "--------"
     - section: "Part 1: Principles of corpus studies"
@@ -52,9 +52,7 @@ bibliography: references.bib
 
 format:
   html:
-    theme: 
-      light: Lumen
-      dark: darkly
+    theme: Lumen
   pdf:
     documentclass: scrreprt
   revealjs:
