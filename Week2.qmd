@@ -22,9 +22,7 @@ hr.rounded {
 ::: {.callout-warning icon="false"}
 ## Objectives
 
-This week, we will discuss why corpus studies are useful for:<br>
-- Understanding the language we speak<br>
-- Understanding the novels and stories we read
+This week, we will discuss why corpus studies are useful for:<br> - Understanding the language we speak<br> - Understanding the novels and stories we read
 :::
 
-[Page to be completed later]
+\[Page to be completed later\]

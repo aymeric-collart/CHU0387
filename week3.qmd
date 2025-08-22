@@ -22,10 +22,7 @@ hr.rounded {
 ::: {.callout-warning icon="false"}
 ## Objectives
 
-This week, we will discuss what a corpus is. Especially, you will learn:<br>
-- What are the basics of a corpus<br>
-- What corpora are available on the Internet<br>
-- When you should decide to build your own corpus
+This week, we will discuss what a corpus is. Especially, you will learn:<br> - What are the basics of a corpus<br> - What corpora are available on the Internet<br> - When you should decide to build your own corpus
 :::
 
-[Page to be completed later]
+\[Page to be completed later\]
