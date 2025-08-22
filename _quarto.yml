@@ -38,9 +38,6 @@ website:
         - Weeks6_7.qmd
     - text: "--------"
     - section: "Part 3: Simple preprocessing and analyzes of corpus data"
-      contents: 
-        - references.qmd
-    - section: "Chapter 3. Cleaning and analyzing the data"
   page-footer: 
     left: "Copyright 2025, Aymeric Collart" 
     right: 
