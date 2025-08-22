@@ -29,18 +29,27 @@ This course follows this workflow. I will show you how to conduct a corpus inves
 
 The weekly organization of this course can be found in the Table of Contents on the left in addition to the table below.
 
-| Chapter and content                               | Link |
-|---------------------------------------------------|------|
-| **Chapter 1: Getting started**                    |      |
-| Download and install R/RStudio                    | link |
-| Presentation of R/RStudio                         | link |
-| Working with markdown files                       | link |
-| **Chapter 2: Let's get our data**                 |      |
-| Understanding where the data are on the Internet  | link |
-| Scraping the data from the web with R             | link |
-| **Chapter 3: Cleaning and analyzing the data**    |      |
-| Preprocess the data: Cleaning and transformations | link |
-| Analyzing the data                                | link |
+| Week    | Content                                           |
+|---------|---------------------------------------------------|
+| Week 1  | Introductory week                                 |
+| **Part 1: Principles of corpus studies**                    |
+| Week 2  | What is a corpus, and their role to understand language and literature |
+| Week 3  | Types of corpora: Selecting or building a corpus? |
+| **Part 2: Building a corpus from the Internet with modern tools**  |
+| Week 4  | Introduction to R (1/2): Installation and first steps |
+| Week 5  | Introduction to R (2/2): Basic functions and how to create reproducible data |
+| Week 6  | Example 1: Building a corpus from media platforms (1/2) |
+| Week 7  | Example 1: Building a corpus from media platforms (2/2) |
+| Week 8  | Example 2: Building a corpus from literature sources (1/2) |
+| Week 9  | Example 2: Building a corpus from literature sources (2/2) |
+| Week 10 | Midterm presentations, group and individual meetings in the classroom |
+| **Part 3: Simple preprocessing and analyzes of corpus data** |
+| Week 11 | Data preprocessing: Tidying data |
+| Week 12 | Data analysis |
+| Week 13 | Data visualization |
+| Week 14 | Presenting a corpus-based study |
+| Week 15 | Group and individual meetings in the classroom (assistance for final projects) |
+| Week 16 | Student's presentations of individual/group projects |
 
 ## Required textbooks and additional references
 
