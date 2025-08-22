@@ -24,6 +24,8 @@ website:
     - text: "Week 1: Introduction"
       href: intro.qmd
     - section: "Part 1: Principles of corpus studies"
+      contents: 
+        - Week2.qmd
     - section: "Part 2: Building a corpus from the internet with modern tools"
       contents: 
         - InstallationRRStudio.qmd
