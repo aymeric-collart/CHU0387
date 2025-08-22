@@ -32,10 +32,10 @@ The weekly organization of this course can be found in the Table of Contents on 
 | Week    | Content                                           |
 |---------|---------------------------------------------------|
 | Week 1  | Introductory week                                 |
-| **Part 1: Principles of corpus studies**                    |
+| **Part 1** | **Principles of corpus studies**                    |
 | Week 2  | What is a corpus, and their role to understand language and literature |
 | Week 3  | Types of corpora: Selecting or building a corpus? |
-| **Part 2: Building a corpus from the Internet with modern tools**  |
+| **Part 2** | **Building a corpus from the Internet with modern tools**  |
 | Week 4  | Introduction to R (1/2): Installation and first steps |
 | Week 5  | Introduction to R (2/2): Basic functions and how to create reproducible data |
 | Week 6  | Example 1: Building a corpus from media platforms (1/2) |
@@ -43,7 +43,7 @@ The weekly organization of this course can be found in the Table of Contents on 
 | Week 8  | Example 2: Building a corpus from literature sources (1/2) |
 | Week 9  | Example 2: Building a corpus from literature sources (2/2) |
 | Week 10 | Midterm presentations, group and individual meetings in the classroom |
-| **Part 3: Simple preprocessing and analyzes of corpus data** |
+| **Part 3** | **Simple preprocessing and analyzes of corpus data** |
 | Week 11 | Data preprocessing: Tidying data |
 | Week 12 | Data analysis |
 | Week 13 | Data visualization |
