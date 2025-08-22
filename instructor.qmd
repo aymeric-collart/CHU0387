@@ -1,15 +1,23 @@
 ---
 title: "Instructor"
+sidebar: false
 format: 
   html:
     output-file: instructor.html
     number-sections: true
     number-depth: 2
     toc: false
+image: assets/images/bio-AymericCollart.jpg
+about: 
+  template: trestles
+  image-width: 10em
 ---
 
-Aymeric Collart, Ph.D <br>
+### Aymeric Collart, Ph.D
+
+Assistant Professor<br>
 Department of Chinese <br>
 National Taiwan Normal University <br>
 <br>
 Personal website: <a href="https://aymeric-collart.github.io/" target="_blank">https://aymeric-collart.github.io/</a>
+<br>Contact information: aymeric.collart at ntnu.edu.tw
