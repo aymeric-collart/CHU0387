@@ -20,7 +20,7 @@ format:
 
 The workflow of a typical corpus-based study is generally as in the image below.
 
-![](assets/images/WorkflowTutorial.png)
+![](assets/images/WorkflowTutorial.png){.lightbox}
 
 This course follows this workflow. I will show you how to conduct a corpus investigation step-by-step, and you will be able to do so by yourself!
 
@@ -29,7 +29,7 @@ This course follows this workflow. I will show you how to conduct a corpus inves
 The weekly organization of this course can be found in the Table of Contents on the left in addition to the table below.
 
 | Week | Content |
-|---------------|---------------------------------------------------------|
+|------------------------------------|------------------------------------|
 | Week 1 | Introductory week |
 | **Part 1** | **Principles of corpus studies** |
 | Week 2 | What is a corpus, and their role to understand language and literature |
@@ -54,13 +54,22 @@ The weekly organization of this course can be found in the Table of Contents on 
 
 ### For this course
 
-We will only use some parts of these two books:
+We will only use some parts of **these two books**:
 
 1- Paquot, M. & Gries, S. T. (2020) <i>A practical handbook of corpus linguistics</i>. Cham: Springer. Normally, you should be able to download this book freely with this link: <a href="https://link.springer.com/book/10.1007/978-3-030-46216-1" target="_blank">Link to the book</a>
 
 2- O'Keeffe, A., & McCarthy, M. J. (2022). <i>The Routledge handbook of corpus linguistics</i> (2nd edition). London/New York: Routledge. <a href="https://www.routledge.com/The-Routledge-Handbook-of-Corpus-Linguistics/OKeeffe-McCarthy/p/book/9781032145921?srsltid=AfmBOoqOe7H-j_mhNycpy-PdTrMEQWs4bd4X2LuxUm8Vi1zbTSdMlJ3N" target="_blank">Link to the book</a>
 
-Online resources:
+::: {#fig-references layout-ncol="2"}
+![Paquot & Gries (2020)](assets/images/PaquotGries2020.jpg){#fig-PaquotGries2020}
+
+![O'Keeffe & McCarthy (2022)](assets/images/OKeeffeeMcCarthy2022.jpg){#fig-OKeeffeeMcCarthy2022}
+
+Required textbooks
+
+:::
+
+**Online resources:**
 
 1- R website: <a href="https://www.r-project.org/" target="_blank">Link to the R website</a> (freely downloadable)
 
@@ -74,7 +83,7 @@ This course is task-oriented, so there are many aspects of corpus linguistics th
 
 # How to get through the exercises
 
-The best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts (to know more about markdown scripts, you can refer to <a href="https://aymeric-collart.github.io/CHU0387/WorkingWithRMarkdown.html" target="_blank">Week 5, Part 2</a>.
+The best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts (to know more about markdown scripts, you can refer to <a href="https://aymeric-collart.github.io/CHU0387/Week5_2.html" target="_blank">Week 5, Part 2</a>.
 
 -   I will provide at the beginning of each section a markdown file prefilled with the structure of the section. You can download this file and open it with R, and just paste the codes at the relevant sections of the script.
 -   Alternatively, you may wish to write the script yourself, and to work based on the codes in each section. This is also a great way to learn how to structure a markdown file alone!

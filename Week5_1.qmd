@@ -246,7 +246,7 @@ We need to introduce some concepts now:
 -   Packages/Libraries
 
 | Name | Concept |
-|-------------------------|----------------------------------------------|
+|----|----|
 | Line of codes | Just the code you write in the script/console to perform something specific. They are usually the most simple. |
 | Function | Sometimes, you need more than one line of code to perform a task. You may even want to perform the exact same task several times, but with different data. Of course, you can just copy and paste the same code everytime, but you can also choose to simplify it into one line of code. This is what a function is: **a cluster of lines of codes** |
 | Library/Package | And very often, you'll need to perform many tasks which require more than one function. You can choose to write all the functions by hand anytime you need them. Or you can just have them already loaded somewhere in R, such that you can refer to them later when you need them. This is what a library or package is: **a cluster of functions** |

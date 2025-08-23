@@ -17,9 +17,11 @@ hr.rounded {
 </style>
 ```
 
+```{r echo=FALSE}
 ## Slides of this section {.unnumbered}
 
-The slides corresponding to this section can be found here: <a href="InstallationRRStudio_slides.html" target="_blank">`r fontawesome::fa("chalkboard", a11y = "sem")`</a>
+#The slides corresponding to this section can be found here: <a href="InstallationRRStudio_slides.html" target="_blank">`r fontawesome::fa("chalkboard", a11y = "sem")`</a>
+```
 
 # What is R? What is RStudio?
 
