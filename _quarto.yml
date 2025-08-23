@@ -7,6 +7,7 @@ project:
 
 website:
   reader-mode: true
+  bread-crumbs: false
   navbar:
     background: primary
     search: true
