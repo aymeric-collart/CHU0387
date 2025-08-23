@@ -50,6 +50,8 @@ The weekly organization of this course can be found in the Table of Contents on 
 | Week 15 | Group and individual meetings in the classroom (assistance for final projects) |
 | Week 16 | Student's presentations of individual/group projects |
 
+: {tbl-colwidths="[15,85]"}
+
 ## Required textbooks and additional references
 
 ### For this course
