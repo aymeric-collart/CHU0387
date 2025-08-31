@@ -58,9 +58,15 @@ This course introduces the principles of corpus studies assisted by modern techn
           border-radius: 4px;
           padding:0.7em;
           font-size:24px">
-<b> &nbsp; &#129504; &nbsp; General information for the 2025 Fall class</b>
+<b> &nbsp; 📋 &nbsp; General information for the 2025 Fall class</b>
 </p>
 ```
+
+-   **Time:** Wednesday, 10:20 to 12:10
+
+-   **Place:** "Pu" building, classroom 302
+
+-   The first class begins starts September 3.
 
 ```{=html}
 <p style="background-color:#eeeeee;
