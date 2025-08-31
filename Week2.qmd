@@ -25,9 +25,34 @@ hr.rounded {
 This week, we will discuss why corpus studies are useful for:<br> - Understanding the language we speak<br> - Understanding the novels and stories we read
 :::
 
-::: {#fig-references layout-ncol="1" layout-nrow="1"}
+We will have in-class discussions based on the following chapters.
 
-![For students interested in language studies: Chapter 15, Chapter 40 <br> For students interested in literature studies: Chapter 17, Chapter 37](assets/images/OKeeffeeMcCarthy2022.jpg){#fig-OKeeffeeMcCarthy2022}
+```{=html}
+<table>
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Chapters to read</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><img src="assets/images/OKeeffeeMcCarthy2022.jpg">
+</td>
+      <td><br>For students interested in <b>language studies</b>: Chapter 15, Chapter 40 <br><br>
+      For students interested in <b>literature studies</b>: Chapter 17, Chapter 37</td>
+    </tr>
+  </tbody>
+</table>
+```
 
-Chapters to discuss
+::: {.callout-tip}
+## Homeworks for next week
+
+You have two tasks for next week:
+
+1/ Please read the chapters for Week 3
+
+2/ Start thinking about a topic that you find interesting. We can discuss your ideas next week!
+
 :::

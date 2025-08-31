@@ -25,4 +25,50 @@ hr.rounded {
 This week, we will discuss what a corpus is. Especially, you will learn:<br> - What are the basics of a corpus<br> - What corpora are available on the Internet<br> - When you should decide to build your own corpus
 :::
 
-\[Page to be completed later\]
+We will have in-class discussions based on the following chapters.
+
+```{=html}
+<table>
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Chapters to read</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+    <td><img src="assets/images/OKeeffeeMcCarthy2022.jpg">
+</td>
+
+      <td><br>Chapter 2, Chapter 8</td>
+    </tr>
+    
+    <tr>
+    <td><img src="assets/images/PaquotGries2020.jpg">
+</td>
+      <td><br>Chapter 15</td>
+    </tr>
+    
+  </tbody>
+</table>
+```
+
+::: {.callout-tip}
+## Homeworks for next week
+
+You have two tasks for next week:
+
+1/ You can try to install R and RStudio on your computer before the class, and read the documentation.
+
+2/ You can keep thinking about a topic that you find interesting.
+
+:::
+
+::: {.callout-important}
+## VERY IMPORTANT
+
+Starting from next week, you will need to bring your laptop to the class!
+
+:::
+
