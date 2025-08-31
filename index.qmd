@@ -45,7 +45,7 @@ Stay tuned for further developments!
           border-radius: 4px;
           padding:0.7em;
           font-size:24px">
-<b> &nbsp; &#129504; &nbsp; Description and objectives of the course</b>
+<b> &nbsp; 🏫 &nbsp; Description and objectives of the course</b>
 </p>
 ```
 
