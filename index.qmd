@@ -66,7 +66,7 @@ This course introduces the principles of corpus studies assisted by modern techn
 
 -   **Place:** "Pu" building, classroom 302
 
--   The first class begins starts September 3.
+-   The first class starts September 3.
 
 ```{=html}
 <p style="background-color:#eeeeee;
