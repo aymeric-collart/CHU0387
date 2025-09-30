@@ -246,7 +246,7 @@ We need to introduce some concepts now:
 -   Packages/Libraries
 
 | Name | Concept |
-|----|----|
+|------------------------------------|------------------------------------|
 | Line of codes | Just the code you write in the script/console to perform something specific. They are usually the most simple. |
 | Function | Sometimes, you need more than one line of code to perform a task. You may even want to perform the exact same task several times, but with different data. Of course, you can just copy and paste the same code everytime, but you can also choose to simplify it into one line of code. This is what a function is: **a cluster of lines of codes** |
 | Library/Package | And very often, you'll need to perform many tasks which require more than one function. You can choose to write all the functions by hand anytime you need them. Or you can just have them already loaded somewhere in R, such that you can refer to them later when you need them. This is what a library or package is: **a cluster of functions** |
@@ -403,7 +403,7 @@ What happened here? You had a variable called 'a', which had the value "6". You 
 
 ### Load data from your computer to R
 
-You may have already collected data, and you want to import your dataset into R. For this section, let's use the data from the survey of "Great American Coffee Taste Test". You can download the file <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv" target="_blank">here</a>. (source of the data: <a href="https://mavenanalytics.io/data-playground" target="_blank">https://mavenanalytics.io/data-playground</a>
+You may have already collected data, and you want to import your dataset into R. For this section, let's use the data from the survey of "Great American Coffee Taste Test". You can download the file <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv" target="_blank">here</a>. (source of the data: <a href="https://mavenanalytics.io/data-playground" target="_blank">https://mavenanalytics.io/data-playground</a>)
 
 ::: callout-caution
 Don't forget to place this file in the folder you are working in, and to set this folder as your working directory!
