@@ -94,6 +94,30 @@
     ]
   },
   {
+    "objectID": "Weeks6_7.html#what-are-all-these-lines-about",
+    "href": "Weeks6_7.html#what-are-all-these-lines-about",
+    "title": "Weeks 6 & 7: Building a corpus from media platforms",
+    "section": "3.2 What are all these lines about?",
+    "text": "3.2 What are all these lines about?\nThis version of the website is really where you can find all the information that you need. For example, please have a look at lines 514 to 541 (see the image below).\n\nThis must be more familiar to you: these are the web addresses that you obtain when you filter different types of articles!\nNow, please have a look at line 549… you will see that you have the web addresses of each individual article listed on the webpage!\n\n\n\n\n\n\n\nHow did I know what lines to search for?\n\n\n\nThere’s nothing magical, and I am surely not a psychic who can guess the line numbers. So how did I find them? I just used the “search” function (for Windows: “ctrl + f”, for Mac: “command + f”). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles.",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 6 & 7: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "Weeks6_7.html#terminology-of-the-structural-lines",
+    "href": "Weeks6_7.html#terminology-of-the-structural-lines",
+    "title": "Weeks 6 & 7: Building a corpus from media platforms",
+    "section": "3.3 Terminology of the “structural lines”",
+    "text": "3.3 Terminology of the “structural lines”\nLet’s call these lines the “structural lines”. These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in html language.\nLet’s just have a look at line 549 and decompose it.\n\n&lt;div class=“part_list_2”&gt;\n\n2024/10/28 20:45政治陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦\n&lt;/div&gt;\n\nThis line corresponds to this part of the website:",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 6 & 7: Building a corpus from media platforms"
+    ]
+  },
+  {
     "objectID": "Week5_1.html",
     "href": "Week5_1.html",
     "title": "Week 5: Introduction to R (2/2): Basic functions",

@@ -111,3 +111,41 @@ Then, it will open a new page which can be very scary... but this is actually th
 Here is the animated figure of these steps:
 
 ![](assets/images/ETtoday_ListArticles_Structure.gif)
+
+## What are all these lines about?
+
+This version of the website is really where you can find all the information that you need. For example, please have a look at lines 514 to 541 (see the image below).
+
+![](assets/images/ETtoday_ListArticleTypes.png)
+
+This must be more familiar to you: these are the web addresses that you obtain when you filter different types of articles!
+
+Now, please have a look at line 549... you will see that you have the web addresses of each individual article listed on the webpage!
+
+![](assets/images/ETtoday_ListAddressIndividualArticles.png)
+
+::: callout-tip
+## How did I know what lines to search for?
+
+There's nothing magical, and I am surely not a psychic who can guess the line numbers. So how did I find them? I just used the "search" function (for Windows: "ctrl + f", for Mac: "command + f"). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles.
+:::
+
+## Terminology of the "structural lines"
+
+Let's call these lines the "structural lines". These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in **html language**.
+
+Let's just have a look at line 549 and decompose it.
+
+<div>
+
+\<div class="part_list_2"\>
+
+<h3>2024/10/28 20:45<em class="tag c_news">政治</em><a target="_blank" href="https://www.ettoday.net/news/20241028/2843953.htm">陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦`</a></h3`{=html}
+
+\</div\>
+
+</div>
+
+This line corresponds to this part of the website:
+
+![](assets/images/ETtoday_LineExample.png)

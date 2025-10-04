@@ -275,6 +275,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#understanding-the-structure-of-the-website" id="toc-understanding-the-structure-of-the-website" class="nav-link" data-scroll-target="#understanding-the-structure-of-the-website"><span class="header-section-number">3</span> Understanding the structure of the website</a>
   <ul class="collapse">
   <li><a href="#how-to-access-the-structure-of-the-website" id="toc-how-to-access-the-structure-of-the-website" class="nav-link" data-scroll-target="#how-to-access-the-structure-of-the-website"><span class="header-section-number">3.1</span> How to access the structure of the website?</a></li>
+  <li><a href="#what-are-all-these-lines-about" id="toc-what-are-all-these-lines-about" class="nav-link" data-scroll-target="#what-are-all-these-lines-about"><span class="header-section-number">3.2</span> What are all these lines about?</a></li>
+  <li><a href="#terminology-of-the-structural-lines" id="toc-terminology-of-the-structural-lines" class="nav-link" data-scroll-target="#terminology-of-the-structural-lines"><span class="header-section-number">3.3</span> Terminology of the “structural lines”</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -362,8 +364,8 @@ More about ETtoday (source: Wikipedia)
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-16d17f0f4639aaa07961" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-16d17f0f4639aaa07961">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-a8ab0743a41cdd2968c4" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-a8ab0743a41cdd2968c4">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
@@ -404,12 +406,47 @@ Think about it
 <p>Then, it will open a new page which can be very scary… but this is actually the same, just the structure of the previous page!</p>
 <p>Here is the animated figure of these steps:</p>
 <p><img src="assets/images/ETtoday_ListArticles_Structure.gif" class="img-fluid"></p>
-
-
 </section>
+<section id="what-are-all-these-lines-about" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="what-are-all-these-lines-about"><span class="header-section-number">3.2</span> What are all these lines about?</h2>
+<p>This version of the website is really where you can find all the information that you need. For example, please have a look at lines 514 to 541 (see the image below).</p>
+<p><img src="assets/images/ETtoday_ListArticleTypes.png" class="img-fluid"></p>
+<p>This must be more familiar to you: these are the web addresses that you obtain when you filter different types of articles!</p>
+<p>Now, please have a look at line 549… you will see that you have the web addresses of each individual article listed on the webpage!</p>
+<p><img src="assets/images/ETtoday_ListAddressIndividualArticles.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How did I know what lines to search for?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There’s nothing magical, and I am surely not a psychic who can guess the line numbers. So how did I find them? I just used the “search” function (for Windows: “ctrl + f”, for Mac: “command + f”). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles.</p>
+</div>
+</div>
 </section>
+<section id="terminology-of-the-structural-lines" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="terminology-of-the-structural-lines"><span class="header-section-number">3.3</span> Terminology of the “structural lines”</h2>
+<p>Let’s call these lines the “structural lines”. These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in <strong>html language</strong>.</p>
+<p>Let’s just have a look at line 549 and decompose it.</p>
+<div>
+<p>&lt;div class=“part_list_2”&gt;</p>
+<h3 class="anchored">
+<p>2024/10/28 20:45<em class="tag c_news">政治</em><a target="_blank" href="https://www.ettoday.net/news/20241028/2843953.htm">陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦</a>
+</p><p>&lt;/div&gt;</p>
+</h3></div>
+<p>This line corresponds to this part of the website:</p>
+<p><img src="assets/images/ETtoday_LineExample.png" class="img-fluid"></p>
 
-</main> <!-- /main -->
+
+</section></section></main></div>
+
+
+
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -827,7 +864,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-</div> <!-- /content -->
+ <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
