@@ -364,8 +364,8 @@ More about ETtoday (source: Wikipedia)
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-a8ab0743a41cdd2968c4" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-a8ab0743a41cdd2968c4">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-dd7a43e4f6e6d9329745" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-dd7a43e4f6e6d9329745">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
@@ -432,21 +432,10 @@ How did I know what lines to search for?
 <h2 data-number="3.3" class="anchored" data-anchor-id="terminology-of-the-structural-lines"><span class="header-section-number">3.3</span> Terminology of the “structural lines”</h2>
 <p>Let’s call these lines the “structural lines”. These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in <strong>html language</strong>.</p>
 <p>Let’s just have a look at line 549 and decompose it.</p>
-<div>
-<p>&lt;div class=“part_list_2”&gt;</p>
-<h3 class="anchored">
-<p>2024/10/28 20:45<em class="tag c_news">政治</em><a target="_blank" href="https://www.ettoday.net/news/20241028/2843953.htm">陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦</a>
-</p><p>&lt;/div&gt;</p>
-</h3></div>
-<p>This line corresponds to this part of the website:</p>
-<p><img src="assets/images/ETtoday_LineExample.png" class="img-fluid"></p>
+</section>
+</section>
 
-
-</section></section></main></div>
-
-
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -864,12 +853,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
- <!-- /content -->
+</div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2025, Aymeric Collart</p>
-</div>   
+      <div class="footer-contents">Copyright 2025, Aymeric Collart</div>  
+    </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -877,8 +866,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
     <a class="nav-link" href="https://bsky.app/profile/aymericcollart.bsky.social">
-<p><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon></p>
-</a>
+ 
+    </a>
   </li>  
     <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/aymeric-collart">

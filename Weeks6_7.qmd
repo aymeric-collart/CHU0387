@@ -136,15 +136,9 @@ Let's call these lines the "structural lines". These are just lines of code used
 
 Let's just have a look at line 549 and decompose it.
 
-<div>
+{{< <div class="part_list_2"><h3>2024/10/28 20:45<em class="tag c_news">政治</em><a target="_blank" href="https://www.ettoday.net/news/20241028/2843953.htm">陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦</a></h3
 
-\<div class="part_list_2"\>
-
-<h3>2024/10/28 20:45<em class="tag c_news">政治</em><a target="_blank" href="https://www.ettoday.net/news/20241028/2843953.htm">陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦`</a></h3`{=html}
-
-\</div\>
-
-</div>
+</div> >}}
 
 This line corresponds to this part of the website:
 
