@@ -20,16 +20,16 @@ hr.rounded {
 ::: {.callout-warning icon="false"}
 ## Objectives
 
-In this section, we will focus more on one type of R scripts: R Markdown files. The reason is that we are going to use R Markdowns instead of raw R scripts from now on, so we need to know more about how R Markdown files work in addition to their potential
+In this section, we will focus more on one type of R scripts: R Markdown files. The reason is that we are going to use R Markdowns instead of raw R scripts from now on, so we need to know more about how R Markdown files work in addition to their potential.
 :::
 
 # What are R Markdown files? How to open one in R?
 
 R Markdown files are another type of script you can use in the Script block. They are a little bit more complex than raw R scripts because they need to be configured, but it is not complicated. In addition, the RStudio interface is very user-friendly, so there is almost no additional coding to do.
 
-But what are they good for? R Markdown files are especially interesting concerning data sharing, as in one same document (and you can choose the format of it, even PDF), you have the structure, the narration, the code and the output of it. Very trustable and very good-looking. I personally also find it useful not only for data sharing with other people, but with the future-myself who will go back to the analyses of a dataset after months of hiatus working on another project. With a raw R file, I often get lost and I might even need to rewrite it. But with an R Markdown document, I can catch up very quickly since everything is documented and ordered!
+But what are they good for? R Markdown files are especially interesting concerning data sharing, as in one same document (and you can choose the format of it, even PDF), you have the structure, the narration, the code and the output of it. This makes them very reliable and professional-looking. I personally also find it useful not only for data sharing with other people, but with my future self, who will return to the analysis of a dataset after a long break. With a raw R file, I often get lost and I might even need to rewrite it. But with an R Markdown document, I can catch up very quickly since everything is documented and ordered!
 
-Now that I wish that I have convinced you on how useful R Markdown documents are, let's see how to open one. Just try to open a new script as usual, but instead of choosing "R Script", choose "R Markdown...".
+Now that I have hopefully convinced you of the usefulness of R Markdown documents, let's see how to open one. Just try to open a new script as usual, but instead of choosing "R Script", choose "R Markdown...".
 
 <hr class="rounded">
 
@@ -62,7 +62,7 @@ We will mainly use three options:
 ::: callout-tip
 ## Time to play around!
 
-There are many more options, and there is no point in describing all of them here as we will mainly use only these three ones above. However, I encourage you to try everything and see what is happening. Try to write something, change the size, change the font. Click on the buttons. There will be error messages, but that's ok. Try to understand these errors if possible. Check any changes that occurred. Again, make these Markdown files your own!
+There are many more options, and there is no point in describing all of them here as we will mainly use only these three ones above. However, I encourage you to try everything and see what is happening. Try to write something, change the size, change the font. Click on the buttons. There will be error messages, but that's ok. Try to understand these errors if possible. Note any changes that occurred. Again, make these Markdown files your own!
 :::
 
 # The structure of R Markdown files
@@ -98,7 +98,7 @@ You can also add other pieces of information, for instance:
 
 -   **Date:**
 
-    You have more options, such as defining the format of the date, and maybe more interestingly, create a variable such that you do not have to change the date anytime you are saving the document. In other words, you may want to have a line specifying something like "This document was last modified on 'Year-Month-Day'". Just write as follows:
+    You have more options, such as defining the format of the date, and maybe more interestingly, create a variable such that you do not have to change the date anytime you save the document. In other words, you may want to have a line specifying something like "This document was last modified on 'Year-Month-Day'". Just write as follows:
 
 ```{r, eval=FALSE}
 date: "This document was last modified on `r Sys.Date()`"
@@ -134,7 +134,7 @@ In the end, the YAML block should look like this:
 
 ## Navigating the file: Titles and subparts
 
-The titles and subparts are here to give the overall structure of the document. Please note that they are optional: It is possible to write a whole R Markdown document without any title! But as the codes are more and more lengthy, it becomes messy very easily to the point that it is very difficult to understand what we are doing. In other words, the titles and subparts are here to clarify everything!
+The titles and subparts are here to give the overall structure of the document. Please note that they are optional: It is possible to write a whole R Markdown document without any title! But as the code gets longer, it can easily become messy to the point that it is very difficult to understand what we are doing. In other words, the titles and subparts are here to clarify everything!
 
 Adding titles and subparts is very simple. You just need to click on the button where the header options can be found. For example, if you want to write the title of a main part (let's say, "1. Introduction"), you click on "Header 1", and you write the name of the title. It is the same process for subtitles. Let's say you want a subpart called "1.1 Introduction within the introduction", you just click on "Header 2" and you write what you want for the subtitle.
 
@@ -150,7 +150,7 @@ The titles and subparts are also very important to **set the table of contents**
 
 ### Writing the narrative
 
-Nothing more simple: You can write directly inside the document. Just do not forget to check that the style is set as "Normal" and not "Header 1", "Header 2", etc. when doing so!
+It couldn't be simpler: You can write directly inside the document. Just do not forget to check that the style is set as "Normal" and not "Header 1", "Header 2", etc. when doing so!
 
 This is a big difference with R Script. Everything you write in an R Script is considered as a code, unless you use the hashtag signs to tell R that this is a comment. In other words, everything that you write in the document is considered as a comment, so do not hesitate to write as much as you want as long as it makes things clearer for you!
 
@@ -158,7 +158,7 @@ This is a big difference with R Script. Everything you write in an R Script is c
 
 If what we write inside the document is not considered as a code, then how to add one?
 
-You Just need to click on "Insert", then "Code Chunk", and finally "R". Normally, a grey code block with appear with {r} at the top line to indicate that this is an R code block. Everything written in this grey block will be considered as R code. You can also add comments inside the block using hashtags as you can do in a typical R Script.<br> Sometimes, R will display simple messages and/or warnings at the same time as you run the code. It is possible to "hide" them, you just need to add the following lines below {r}, as below.
+You Just need to click on "Insert", then "Code Chunk", and finally "R". Normally, a grey code block will appear with {r} at the top line to indicate that this is an R code block. Everything written in this grey block will be considered as R code. You can also add comments inside the block using hashtags as you can do in a typical R Script.<br> Sometimes, R will display simple messages and/or warnings at the same time as you run the code. It is possible to "hide" them, you just need to add the following lines below {r}, as below.
 
 ```{r, eval=FALSE}
 #| warning: false
@@ -187,7 +187,7 @@ You can save your Markdown document as usual, but this will not give you the out
 
 # Markdown and PDF documents of Sections 1.2 and 1.3
 
-Maybe you were playing with your own R Markdown document at the same time as you were following this section, and add the codes of the Section 1.2 in it. In that case, congratulations! You have your very first R Markdown document ready! If not, you can just download the template <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Section1.3.Rmd" target="_blank">here</a>.
+Maybe you were playing with your own R Markdown document at the same time as you were following this section, and added the codes of the Section 1.2 in it. In that case, congratulations! You have your very first R Markdown document ready! If not, you can just download the template <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Section1.3.Rmd" target="_blank">here</a>.
 
 </p>
 

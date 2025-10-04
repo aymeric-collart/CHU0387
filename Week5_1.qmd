@@ -22,7 +22,7 @@ Now I assume that R and RStudio are correctly installed on your computer. You ca
 ::: {.callout-warning icon="false"}
 ## Objectives
 
-In this section, you will learn more about the RStudio interface and get familiarized with it.<br><br> But this section is not only about presenting the interface! In addition to that, you will also get familiar with the very basics of R language.
+In this section, you will learn more about the RStudio interface and get familiar with it.<br><br> But this section is not only about presenting the interface! In addition to that, you will also get familiar with the very basics of R language.
 :::
 
 # The interface of RStudio
@@ -37,10 +37,10 @@ You may see the following picture on your screen after opening RStudio:
 
 <hr class="rounded">
 
-The best way to apprehend RStudio is to understand the interface as **blocks**, which are here for different purposes.
+The best way to apprehend RStudio is to is to see the interface as a collection of **blocks**, which are here for different purposes.
 
 ::: callout-important
-When you open RStudio for the very first time, you should get something similar as in the image above, with three blocks in the same order. But it's also possible that you have something else. If that's the case, this is completely normal and this won't affect anything for the following steps!
+When you open RStudio for the very first time, you should get something similar to what is in the image above, with three blocks in the same order. But it's also possible that you have something else. If that's the case, this is completely normal and this won't affect anything for the following steps!
 :::
 
 There are four main blocks, as in the following image. I give them unofficial names so that it will be easier to refer to them. There is one block that I call the 'computer block', a second one the 'data block', a third one the 'script block', and finally the last one, the 'console block'.
@@ -75,7 +75,7 @@ The 'variable block' is the one on the top right side, as in the image below.
 
 <hr class="rounded">
 
-Basically, the most important tab is the 'environment' one. This is where the variables we create when coding will be stocked. The term 'variable' can be quite abstract at the moment, so let's just exemplify it with our first code. R can be used as a simple calculator. In the 'console block', just write the following code, end press 'enter':
+Basically, the most important tab is the 'environment' one. This is where the variables we create when coding will be stored. The term 'variable' can be quite abstract at the moment, so let's demonstrate this with our first code. R can be used as a simple calculator. In the 'console block', just write the following code, end press 'enter':
 
 ```{r, eval=FALSE}
 4+2
@@ -126,7 +126,7 @@ In addition to the 'Console' tab, there are also the 'Terminal' tab and the 'Bac
 
 ## The script block
 
-The 'script' block is where you'll work most of the time. You can see it as the Word or the Note Pad of RStudio. You will better understand the importance of the scripts, one more time, with an example. If you've followed Section 1.3, you can see that you have the same code as below in your console.
+The 'script' block is where you'll work most of the time. You can see it as the Word or the Notepad of RStudio. You will better understand the importance of the scripts, one more time, with an example. If you've followed Section 1.3, you can see that you have the same code as the code below in your console.
 
 ```{r, eval=FALSE}
 > 4+2
@@ -157,7 +157,7 @@ a
 a+2
 ```
 
-After that, select everything, and click on 'Run'. You can also have a look at the short video below.
+After that, select everything, and click on 'Run'. You can also take a look at the short video below.
 
 <hr class="rounded">
 
@@ -207,7 +207,7 @@ As you opened a new script, you may have realized that you had the choice betwee
 
 <hr class="rounded">
 
-We only used the "R Script" type, but you can actually do much more depending on what you want to do in your project. For example, you have "Quarto Document" or "R Markdown" which are like "R Script". The difference is that R Scripts only save your codes, while Quarto Documents or R Markdowns allows more options, and especially to render out in a PDF or markdown file. By doing so, we can share our code along with the output of the code in a beautiful way, which is very important for Open Science!
+We only used the "R Script" type, but you can actually do much more depending on what you want to do in your project. For example, you have "Quarto Document" or "R Markdown" which are like "R Script". The difference is that R Scripts only save your codes, while Quarto Documents or R Markdowns allow more options, and especially to render out in a PDF or markdown file. By doing so, we can share our code along with the output of the code in a beautiful way, which is very important for Open Science!
 
 You'll also remark that even if we are using R, it is actually possible to write with other programming languages, such as HTML or Python. While this is not the case for R Scripts, it is possible with other types of scripts. You can even design a whole website using R, and ask R to transfer your data online... This is indeed how I am designing the website of the tutorial!
 
@@ -236,7 +236,7 @@ It can be overwhelming, and we can even have the feeling that quantitative resea
 ::: callout-note
 ## More on the nature of the R project
 
-R is free and open source, it is a collaborative concept. And this is very important to be aware of this: **Nobody,** *nobody***, writes all the raw codes for each task in one script.** Just like we read articles and books instead of doing all the research on the field when we want to know more about something, we can rely on other people's work when writing codes. <br>People wrote, and more importantly, **published**, articles and books so that we can have access to more knowledge. <br>People wrote, and more importantly, **shared online**, lines and lines of codes and functions such that we can have access to them, use them, instead of rewriting everything.
+R is free and open source, it is a collaborative concept. And it is very important to be aware of this: **Nobody,** *nobody***, writes all the raw codes for each task in one script.** Just like we read articles and books instead of doing all the research on the field when we want to know more about something, we can rely on other people's work when writing codes. <br>People wrote, and more importantly, **published**, articles and books so that we can have access to more knowledge. <br>People wrote, and more importantly, **shared online**, lines and lines of codes and functions such that we can have access to them, use them, instead of rewriting everything.
 :::
 
 We need to introduce some concepts now:
@@ -494,7 +494,7 @@ data$What.is.your.age. <- as.factor(data$What.is.your.age.)
 
 Now let's decompose this line:
 
--   In the as.factor() function, we told R the date from which column needed to be transformed into groups. We now that this is the column called "What.is.your.age." in the dataset called "data". In R language, we write as follows: <i>data<strong>\$</strong>What.is.your.age.</i>. The dollar sign is here to translate "inside of"
+-   In the as.factor() function, we told R the data from which column needed to be transformed into groups. We know that this is the column called "What.is.your.age." in the dataset called "data". In R language, we write as follows: <i>data<strong>\$</strong>What.is.your.age.</i>. The dollar sign is here to translate "inside of"
 -   If we just write this part, R will only transform this column as a group, but it will not save it. So we need to save this operation in a variable, and as we want to replace the column considered as strings of characters, we do not have to create a new variable: we just use this column!
 
 Actually, the same problem occurs for the two following columns:
@@ -582,7 +582,7 @@ data2$What.is.your.age. <- droplevels(data2$What.is.your.age.)
 
 -   In the first line, we are telling R to remove the rows where the group is "".
     -   To do so, we use the subset() function. In the parentheses, we set the parameters to tell R which rows to remove: dataset name ("data2"), column ("What.is.your.age."), level ("").
-    -   Note that we used the sign "!=". This signs means "remove". If we change this sign to "==", it means "select"!
+    -   Note that we used the sign "!=". This sign means "remove". If we change this sign to "==", it means "select"!
 -   We only removed the rows corresponding to "", but not the label. This is the purpose of the second line.
 
 Now you can run the "levels(data2\$What.is.your.age.)" again. You will see that the level "" has indeed been removed!
@@ -641,7 +641,7 @@ plot(x = data3$How.many.cups.of.coffee.do.you.typically.drink.per.day., y = data
 plot(x = data3$What.is.your.age., y = data3$Count)
 ```
 
-We ran into a very superficial problem: R sorted the groups in alphabetical order, which is not quite straightforward! So we will need to reorder the levels before. Let's do it with the code below:
+We ran into a minor problem: R sorted the groups in alphabetical order, which is not quite straightforward! So we will need to reorder the levels first. Let's do it with the code below:
 
 ```{r}
 data3$What.is.your.age. <- factor(data3$What.is.your.age., levels = c("<18 years old",
@@ -684,7 +684,7 @@ You might be curious whether there is an interaction, with older people drinking
 
 ### Save data from R to your computer
 
-For some reasons, we may want to save our data in the computer. But we are actually referring to two things at the same time:
+For some reason, we may want to save our data in the computer. But we are actually referring to two things at the same time:
 
 1.  Saving the R dataset, and
 
@@ -723,7 +723,7 @@ You can find the R scripts including the codes presented in this section <a href
 
 ## Common mistakes, or how to save a lot of time
 
-You will run into many error messages, these intimidating red lines in the console block telling you that something wrong happened. We can spend hours trying to figure out what to do to make the codes work. Again, no worries! This is part of the learning process, and to be honest, even experts can't avoid error messages. The most important thing is to learn from them, so that we are able to understand what the problem is, and how to solve it.
+You will run into many error messages, these intimidating red lines in the console block telling you that something has gone wrong. We can spend hours trying to figure out what to do to make the codes work. Again, no worries! This is part of the learning process, and to be honest, even experts can't avoid error messages. The most important thing is to learn from them, so that we are able to understand what the problem is, and how to solve it.
 
 From my experience, there are mistakes we often make especially as first users of R. I remember that many students in the classes I attended and taught gave up on learning programming languages just because they had to spend too much time on debugging very basic mistakes, and they couldn't focus on the opportunities R can offer. Below is a non-exhaustive list of such mistakes that I may update in the future.
 

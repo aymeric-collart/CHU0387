@@ -31,18 +31,18 @@ There are many tools that we can use now to build a corpus based on data coming 
 
 -   Being aware of the *steps* you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible,
 
--   Understanding the *structure* of a website, how to *access* the structure of the website, and how to *localize* where the information you want are,
+-   Understanding the *structure* of a website, how to *access* the structure of the website, and *where* the information you want are,
 
 -   Finally, *mapping* the R functions to the information you want.
 
-These are the steps we will be going through these two weeks. We will work with one Taiwanese newspaper called "ETtoday" (<https://www.ettoday.net/>). We will particularly work based on this link which references all the articles since 2011: <https://www.ettoday.net/news/news-list.htm>.
+These are the steps we will be going through these two weeks. We will work with one Taiwanese newspaper called "ETtoday" (<https://www.ettoday.net/>). We will be working with this link, which references all articles since 2011: <https://www.ettoday.net/news/news-list.htm>.
 
 ![](assets/images/ETtoday_logo.png)
 
 ::: {.callout-warning icon="false"}
 ## More about ETtoday (source: Wikipedia)
 
-ETtoday is one of the main newspapers in Taiwan. It has been officially founded in 2011, and it publishes numerous articles on many topics online everyday. Some may say that it is not politically neutral, so it is something to keep in mind as this may affect the results depending on your research question.
+ETtoday is one of the main newspapers in Taiwan. It has been officially founded in 2011, and it publishes numerous articles on many topics online every day. Some may say that it is not politically neutral, so it is something to keep in mind as this may affect the results depending on your research question.
 :::
 
 # Document your own manual steps
@@ -53,13 +53,13 @@ First, you need to be very clear about what you want to do, otherwise you can li
 
 So here is your first task:
 
-1.  Go on the ETtoday website, and search for one article.
+1.  Go to the ETtoday website, and search for one article.
 
-2.  Describe each step and action you are doing to get into one article, and document the changes that happen regarding **the address of the website**.
+2.  Describe each step you take to get to an article, and document the changes that happen regarding **the address of the website**.
 
 ## Documentation of the manual steps
 
-This task is seems quite easy, but it is crucial. First, you went to the website by clicking on the link. Then, you selected the date of the news you were interested in. Third, you selected the type of news (politics, society, etc.). A list of articles was already there on the website, and you were just filtering them. And to get into one article, you just clicked on one of the title below the search bar.
+This task seems quite easy, but it is crucial. First, you went to the website by clicking on the link. Then, you selected the date of the news you were interested in. Third, you selected the type of news (politics, society, etc.). A list of articles was already there on the website, and you were just filtering them. And to get into one article, you just clicked on one of the titles below the search bar.
 
 This procedure looks like this:
 
@@ -105,7 +105,7 @@ No need to despair! The fact that this article is found in the list means that *
 
 ## How to access the structure of the website?
 
-Accessing to the structure of a website is actually very easy. You just need to open the webpage, for example this one: <https://www.ettoday.net/news/news-list-2024-10-28-1.htm>. Then, you look for a blank space, you right-click, and you select "View Page Source" (it is possible that it will not be in English, or that the wording is different depending on the system of your computer).
+Accessing the structure of a website is actually very easy. You just need to open the webpage, for example this one: <https://www.ettoday.net/news/news-list-2024-10-28-1.htm>. Then, you look for a blank space, you right-click, and you select "View Page Source" (it is possible that it will not be in English, or that the wording is different depending on the system of your computer).
 
 Then, it will open a new page which can be very scary... but this is actually the same, just the structure of the previous page!
 
@@ -128,7 +128,7 @@ Now, please have a look at line 549... you will see that you have the web addres
 ::: callout-tip
 ## How did I know what lines to search for?
 
-There's nothing magical, and I am surely not a psychic who can guess the line numbers. So how did I find them? I just used the "search" function (for Windows: "ctrl + f", for Mac: "command + f"). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles.
+There's nothing magical, and I am surely not a psychic who can guess the line numbers. So how to find them? I just use the "search" function (for Windows: "ctrl + f", for Mac: "command + f"). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles.
 :::
 
 ## Terminology of the "structural lines"
@@ -153,9 +153,9 @@ This line corresponds to this part of the website:
 
 Now we can decompose it:
 
--   The part with "\<div\>\</div\>" means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names, such that we are not confusing them. Here, the block is called "part_list_2".
+-   The part with "\<div\>\</div\>" means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names to avoid confusing them. Here, the block is called "part_list_2".
 
--   The part with "\<h3\>\</h3\>" corresponds to one line in the block. What is between "\<h3\>" and "\</h3\>"is everything we want to put in that line. Here there are three elements:
+-   The part with "\<h3\>\</h3\>" corresponds to one line in the block. What is between "\<h3\>" and "\</h3\>" is everything we want to put in that line. Here there are three elements:
 
     -   The first element is a "\<span\>\</span\>" element, and its name is "date". What is between "\<span\>" and "\</span\>" is the text to display, here: "2024/10/28 20:45".
 

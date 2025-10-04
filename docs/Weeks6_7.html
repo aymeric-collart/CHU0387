@@ -371,10 +371,10 @@ Objectives
 <p>There are many tools that we can use now to build a corpus based on data coming from the Internet, and this includes R packages. But many concepts need to be clarified before getting into the coding part, such as:</p>
 <ul>
 <li><p>Being aware of the <em>steps</em> you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible,</p></li>
-<li><p>Understanding the <em>structure</em> of a website, how to <em>access</em> the structure of the website, and how to <em>localize</em> where the information you want are,</p></li>
+<li><p>Understanding the <em>structure</em> of a website, how to <em>access</em> the structure of the website, and <em>where</em> the information you want are,</p></li>
 <li><p>Finally, <em>mapping</em> the R functions to the information you want.</p></li>
 </ul>
-<p>These are the steps we will be going through these two weeks. We will work with one Taiwanese newspaper called “ETtoday” (<a href="https://www.ettoday.net/" class="uri">https://www.ettoday.net/</a>). We will particularly work based on this link which references all the articles since 2011: <a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>.</p>
+<p>These are the steps we will be going through these two weeks. We will work with one Taiwanese newspaper called “ETtoday” (<a href="https://www.ettoday.net/" class="uri">https://www.ettoday.net/</a>). We will be working with this link, which references all articles since 2011: <a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>.</p>
 <p><img src="assets/images/ETtoday_logo.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -386,7 +386,7 @@ More about ETtoday (source: Wikipedia)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>ETtoday is one of the main newspapers in Taiwan. It has been officially founded in 2011, and it publishes numerous articles on many topics online everyday. Some may say that it is not politically neutral, so it is something to keep in mind as this may affect the results depending on your research question.</p>
+<p>ETtoday is one of the main newspapers in Taiwan. It has been officially founded in 2011, and it publishes numerous articles on many topics online every day. Some may say that it is not politically neutral, so it is something to keep in mind as this may affect the results depending on your research question.</p>
 </div>
 </div>
 </section>
@@ -397,18 +397,18 @@ More about ETtoday (source: Wikipedia)
 <p>First, you need to be very clear about what you want to do, otherwise you can literally spend hours doing a lot of things but actually achieving nothing.</p>
 <p>So here is your first task:</p>
 <ol type="1">
-<li><p>Go on the ETtoday website, and search for one article.</p></li>
-<li><p>Describe each step and action you are doing to get into one article, and document the changes that happen regarding <strong>the address of the website</strong>.</p></li>
+<li><p>Go to the ETtoday website, and search for one article.</p></li>
+<li><p>Describe each step you take to get to an article, and document the changes that happen regarding <strong>the address of the website</strong>.</p></li>
 </ol>
 </section>
 <section id="documentation-of-the-manual-steps" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="documentation-of-the-manual-steps"><span class="header-section-number">2.2</span> Documentation of the manual steps</h2>
-<p>This task is seems quite easy, but it is crucial. First, you went to the website by clicking on the link. Then, you selected the date of the news you were interested in. Third, you selected the type of news (politics, society, etc.). A list of articles was already there on the website, and you were just filtering them. And to get into one article, you just clicked on one of the title below the search bar.</p>
+<p>This task seems quite easy, but it is crucial. First, you went to the website by clicking on the link. Then, you selected the date of the news you were interested in. Third, you selected the type of news (politics, society, etc.). A list of articles was already there on the website, and you were just filtering them. And to get into one article, you just clicked on one of the titles below the search bar.</p>
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-cf9ca40da58025d78664" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-cf9ca40da58025d78664">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-08e75d7760fc3ea7736c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-08e75d7760fc3ea7736c">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
@@ -445,7 +445,7 @@ Think about it
 <h1 data-number="3"><span class="header-section-number">3</span> Understanding the structure of the website</h1>
 <section id="how-to-access-the-structure-of-the-website" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="how-to-access-the-structure-of-the-website"><span class="header-section-number">3.1</span> How to access the structure of the website?</h2>
-<p>Accessing to the structure of a website is actually very easy. You just need to open the webpage, for example this one: <a href="https://www.ettoday.net/news/news-list-2024-10-28-1.htm" class="uri">https://www.ettoday.net/news/news-list-2024-10-28-1.htm</a>. Then, you look for a blank space, you right-click, and you select “View Page Source” (it is possible that it will not be in English, or that the wording is different depending on the system of your computer).</p>
+<p>Accessing the structure of a website is actually very easy. You just need to open the webpage, for example this one: <a href="https://www.ettoday.net/news/news-list-2024-10-28-1.htm" class="uri">https://www.ettoday.net/news/news-list-2024-10-28-1.htm</a>. Then, you look for a blank space, you right-click, and you select “View Page Source” (it is possible that it will not be in English, or that the wording is different depending on the system of your computer).</p>
 <p>Then, it will open a new page which can be very scary… but this is actually the same, just the structure of the previous page!</p>
 <p>Here is the animated figure of these steps:</p>
 <p><img src="assets/images/ETtoday_ListArticles_Structure.gif" class="img-fluid"></p>
@@ -467,7 +467,7 @@ How did I know what lines to search for?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There’s nothing magical, and I am surely not a psychic who can guess the line numbers. So how did I find them? I just used the “search” function (for Windows: “ctrl + f”, for Mac: “command + f”). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles.</p>
+<p>There’s nothing magical, and I am surely not a psychic who can guess the line numbers. So how to find them? I just use the “search” function (for Windows: “ctrl + f”, for Mac: “command + f”). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles.</p>
 </div>
 </div>
 </section>
@@ -488,8 +488,8 @@ How did I know what lines to search for?
 <p><img src="assets/images/ETtoday_LineExample.png" class="img-fluid"></p>
 <p>Now we can decompose it:</p>
 <ul>
-<li><p>The part with “&lt;div&gt;&lt;/div&gt;” means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names, such that we are not confusing them. Here, the block is called “part_list_2”.</p></li>
-<li><p>The part with “&lt;h3&gt;&lt;/h3&gt;” corresponds to one line in the block. What is between “&lt;h3&gt;” and “&lt;/h3&gt;”is everything we want to put in that line. Here there are three elements:</p>
+<li><p>The part with “&lt;div&gt;&lt;/div&gt;” means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names to avoid confusing them. Here, the block is called “part_list_2”.</p></li>
+<li><p>The part with “&lt;h3&gt;&lt;/h3&gt;” corresponds to one line in the block. What is between “&lt;h3&gt;” and “&lt;/h3&gt;” is everything we want to put in that line. Here there are three elements:</p>
 <ul>
 <li><p>The first element is a “&lt;span&gt;&lt;/span&gt;” element, and its name is “date”. What is between “&lt;span&gt;” and “&lt;/span&gt;” is the text to display, here: “2024/10/28 20:45”.</p></li>
 <li><p>The second element is an “&lt;em&gt;&lt;/em&gt;” element (why “em” and not “span”? “em” stands for “emphasis”, so they look different on the website). Its name is “tag c_news”.</p></li>
