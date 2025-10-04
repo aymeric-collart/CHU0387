@@ -35,7 +35,7 @@ There are many tools that we can use now to build a corpus based on data coming 
 
 -   Finally, *mapping* the R functions to the information you want.
 
-These are the steps we will be going through these two weeks. We will work with one Taiwanese newspaper called "ETtoday" (<https://www.ettoday.net/>).
+These are the steps we will be going through these two weeks. We will work with one Taiwanese newspaper called "ETtoday" (<https://www.ettoday.net/>). We will particularly work based on this link which references all the articles since 2011: <https://www.ettoday.net/news/news-list.htm>.
 
 ![](assets/images/ETtoday_logo.png)
 
@@ -57,7 +57,9 @@ So here is your first task:
 
 2.  Describe each step and action you are doing to get into one article, and document the changes that happen regarding **the address of the website**.
 
-## 
+## Documentation of the manual steps
+
+This task is seems quite easy, but it is crucial. First, you went to the website by clicking on the link. Then, you selected the date of the news you were interested in. Third, you selected the type of news (politics, society, etc.). A list of articles was already there on the website, and you were just filtering them. And to get into one article, you just clicked on one of the title below the search bar. 
 
 ```{r setup, include = FALSE}
 library(DiagrammeR)
@@ -66,11 +68,9 @@ library(DiagrammeR)
 ```{r mermaid-example, echo=FALSE}
     mermaid("
     graph TD
-        A[Start] --> B{Process};
-        B --> C{Decision};
-        C -- Yes --> D[Result 1];
-        C -- No --> E[Result 2];
-        D --> F[End];
-        E --> F;
+        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};
+        A -- Select type --> B{Filtered articles};
+        B --> C[Click on the title of one article];
+        C --> D[New webpage: Individual article]
     ")
 ```
