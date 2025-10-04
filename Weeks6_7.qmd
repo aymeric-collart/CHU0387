@@ -57,6 +57,8 @@ So here is your first task:
 
 2.  Describe each step and action you are doing to get into one article, and document the changes that happen regarding **the address of the website**.
 
+## 
+
 ```{r setup, include = FALSE}
 library(DiagrammeR)
 ```
