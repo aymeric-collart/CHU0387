@@ -59,13 +59,15 @@ So here is your first task:
 
 ## Documentation of the manual steps
 
-This task is seems quite easy, but it is crucial. First, you went to the website by clicking on the link. Then, you selected the date of the news you were interested in. Third, you selected the type of news (politics, society, etc.). A list of articles was already there on the website, and you were just filtering them. And to get into one article, you just clicked on one of the title below the search bar. 
+This task is seems quite easy, but it is crucial. First, you went to the website by clicking on the link. Then, you selected the date of the news you were interested in. Third, you selected the type of news (politics, society, etc.). A list of articles was already there on the website, and you were just filtering them. And to get into one article, you just clicked on one of the title below the search bar.
+
+This procedure looks like this:
 
 ```{r setup, include = FALSE}
 library(DiagrammeR)
 ```
 
-```{r mermaid-example, echo=FALSE}
+```{r mermaid-example, echo=FALSE, fig.align='center'}
     mermaid("
     graph TD
         A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};
@@ -73,4 +75,23 @@ library(DiagrammeR)
         B --> C[Click on the title of one article];
         C --> D[New webpage: Individual article]
     ")
+```
+
+Now we will do the same, but pay more attention to **the web address**, and track the changes that occur. For instance, the first step is just accessing the website. The web address is "<https://www.ettoday.net/news/news-list.htm>".
+What is the web address when you select a particular date, let's say October 28th, 2024? And when you select a particular type of article, "politics" for example? And finally, when you choose an individual article?
+
+Now we can update the chart:
+```{r mermaid-example-2, echo=FALSE, fig.align='center'}
+    mermaid("
+    graph TD
+        A[ETtoday website with list of articles] --> B{https://www.ettoday.net/news/news-list.htm}
+        A[ETtoday website with list of articles] -- Select date --> C[Filtered articles];
+        A -- Select type --> C[Filtered articles];
+        C --> D{https://www.ettoday.net/news/news-list-2024-10-28-1.htm} 
+        C --> E[Click on the title of one article];
+        E --> F[New webpage: Individual article]
+        F --> G{https://www.ettoday.net/news/20241028/2843953.htm}
+    ")
+
+
 ```

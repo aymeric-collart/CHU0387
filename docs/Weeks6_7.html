@@ -355,10 +355,19 @@ More about ETtoday (source: Wikipedia)
 <section id="documentation-of-the-manual-steps" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="documentation-of-the-manual-steps"><span class="header-section-number">2.2</span> Documentation of the manual steps</h2>
 <p>This task is seems quite easy, but it is crucial. First, you went to the website by clicking on the link. Then, you selected the date of the news you were interested in. Third, you selected the type of news (politics, society, etc.). A list of articles was already there on the website, and you were just filtering them. And to get into one article, you just clicked on one of the title below the search bar.</p>
-<div class="cell">
+<p>This procedure looks like this:</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-a2e607cf8060de2b046f" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-a2e607cf8060de2b046f">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-87ffea1d0da50a372a80" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-87ffea1d0da50a372a80">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
+<p>Now we can update the chart:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-9f9250fb3db5103b1d78" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-9f9250fb3db5103b1d78">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] --> B{https://www.ettoday.net/news/news-list.htm}\n        A[ETtoday website with list of articles] -- Select date --> C[Filtered articles];\n        A -- Select type --> C[Filtered articles];\n        C --> D{https://www.ettoday.net/news/news-list-2024-10-28-1.htm} \n        C --> E[Click on the title of one article];\n        E --> F[New webpage: Individual article]\n        F --> G{https://www.ettoday.net/news/20241028/2843953.htm}\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
