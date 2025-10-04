@@ -118,6 +118,78 @@
     ]
   },
   {
+    "objectID": "Weeks6_7.html#overview-of-the-steps",
+    "href": "Weeks6_7.html#overview-of-the-steps",
+    "title": "Weeks 6 & 7: Building a corpus from media platforms",
+    "section": "4.1 Overview of the steps",
+    "text": "4.1 Overview of the steps",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 6 & 7: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "Weeks6_7.html#preliminary-step-libraries-needed",
+    "href": "Weeks6_7.html#preliminary-step-libraries-needed",
+    "title": "Weeks 6 & 7: Building a corpus from media platforms",
+    "section": "4.2 Preliminary step: Libraries needed",
+    "text": "4.2 Preliminary step: Libraries needed",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 6 & 7: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "Weeks6_7.html#step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters",
+    "href": "Weeks6_7.html#step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters",
+    "title": "Weeks 6 & 7: Building a corpus from media platforms",
+    "section": "4.3 Step 1: Record the web addresses that list the pages of the individual articles based on the filters",
+    "text": "4.3 Step 1: Record the web addresses that list the pages of the individual articles based on the filters",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 6 & 7: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "Weeks6_7.html#step-2-retrieve-the-urls-of-the-individual-articles",
+    "href": "Weeks6_7.html#step-2-retrieve-the-urls-of-the-individual-articles",
+    "title": "Weeks 6 & 7: Building a corpus from media platforms",
+    "section": "4.4 Step 2: Retrieve the URLs of the individual articles",
+    "text": "4.4 Step 2: Retrieve the URLs of the individual articles",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 6 & 7: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "Weeks6_7.html#step-3-retrieve-the-titles-date-types-and-content-of-the-articles",
+    "href": "Weeks6_7.html#step-3-retrieve-the-titles-date-types-and-content-of-the-articles",
+    "title": "Weeks 6 & 7: Building a corpus from media platforms",
+    "section": "4.5 Step 3: Retrieve the titles, date, types and content of the articles",
+    "text": "4.5 Step 3: Retrieve the titles, date, types and content of the articles",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 6 & 7: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "Weeks6_7.html#step-4-save-the-data-into-excel-and-r-files",
+    "href": "Weeks6_7.html#step-4-save-the-data-into-excel-and-r-files",
+    "title": "Weeks 6 & 7: Building a corpus from media platforms",
+    "section": "4.6 Step 4: Save the data into Excel and R files",
+    "text": "4.6 Step 4: Save the data into Excel and R files",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 6 & 7: Building a corpus from media platforms"
+    ]
+  },
+  {
     "objectID": "Week5_1.html",
     "href": "Week5_1.html",
     "title": "Week 5: Introduction to R (2/2): Basic functions",

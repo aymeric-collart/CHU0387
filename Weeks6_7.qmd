@@ -73,7 +73,8 @@ library(DiagrammeR)
         A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};
         A -- Select type --> B{Filtered articles};
         B --> C[Click on the title of one article];
-        C --> D[New webpage: Individual article]
+        C --> D[New webpage: Individual article];
+        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]
     ")
 ```
 
@@ -173,3 +174,17 @@ So just remember this:
 
 That's all!
 :::
+
+# Let's get R do the job for us!
+
+## Overview of the steps
+
+## Preliminary step: Libraries needed
+
+## Step 1: Record the web addresses that list the pages of the individual articles based on the filters
+
+## Step 2: Retrieve the URLs of the individual articles
+
+## Step 3: Retrieve the titles, date, types and content of the articles
+
+## Step 4: Save the data into Excel and R files

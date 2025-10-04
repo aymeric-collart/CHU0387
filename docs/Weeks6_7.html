@@ -312,6 +312,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-are-all-these-lines-about" id="toc-what-are-all-these-lines-about" class="nav-link" data-scroll-target="#what-are-all-these-lines-about"><span class="header-section-number">3.2</span> What are all these lines about?</a></li>
   <li><a href="#terminology-of-the-structural-lines" id="toc-terminology-of-the-structural-lines" class="nav-link" data-scroll-target="#terminology-of-the-structural-lines"><span class="header-section-number">3.3</span> Terminology of the “structural lines”</a></li>
   </ul></li>
+  <li><a href="#lets-get-r-do-the-job-for-us" id="toc-lets-get-r-do-the-job-for-us" class="nav-link" data-scroll-target="#lets-get-r-do-the-job-for-us"><span class="header-section-number">4</span> Let’s get R do the job for us!</a>
+  <ul class="collapse">
+  <li><a href="#overview-of-the-steps" id="toc-overview-of-the-steps" class="nav-link" data-scroll-target="#overview-of-the-steps"><span class="header-section-number">4.1</span> Overview of the steps</a></li>
+  <li><a href="#preliminary-step-libraries-needed" id="toc-preliminary-step-libraries-needed" class="nav-link" data-scroll-target="#preliminary-step-libraries-needed"><span class="header-section-number">4.2</span> Preliminary step: Libraries needed</a></li>
+  <li><a href="#step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters" id="toc-step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters" class="nav-link" data-scroll-target="#step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters"><span class="header-section-number">4.3</span> Step 1: Record the web addresses that list the pages of the individual articles based on the filters</a></li>
+  <li><a href="#step-2-retrieve-the-urls-of-the-individual-articles" id="toc-step-2-retrieve-the-urls-of-the-individual-articles" class="nav-link" data-scroll-target="#step-2-retrieve-the-urls-of-the-individual-articles"><span class="header-section-number">4.4</span> Step 2: Retrieve the URLs of the individual articles</a></li>
+  <li><a href="#step-3-retrieve-the-titles-date-types-and-content-of-the-articles" id="toc-step-3-retrieve-the-titles-date-types-and-content-of-the-articles" class="nav-link" data-scroll-target="#step-3-retrieve-the-titles-date-types-and-content-of-the-articles"><span class="header-section-number">4.5</span> Step 3: Retrieve the titles, date, types and content of the articles</a></li>
+  <li><a href="#step-4-save-the-data-into-excel-and-r-files" id="toc-step-4-save-the-data-into-excel-and-r-files" class="nav-link" data-scroll-target="#step-4-save-the-data-into-excel-and-r-files"><span class="header-section-number">4.6</span> Step 4: Save the data into Excel and R files</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -398,8 +407,8 @@ More about ETtoday (source: Wikipedia)
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-b72f11ec6302c52bb1aa" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-b72f11ec6302c52bb1aa">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-cf9ca40da58025d78664" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-cf9ca40da58025d78664">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
@@ -506,6 +515,27 @@ Important
 <p>That’s all!</p>
 </div>
 </div>
+</section>
+</section>
+<section id="lets-get-r-do-the-job-for-us" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Let’s get R do the job for us!</h1>
+<section id="overview-of-the-steps" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="overview-of-the-steps"><span class="header-section-number">4.1</span> Overview of the steps</h2>
+</section>
+<section id="preliminary-step-libraries-needed" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="preliminary-step-libraries-needed"><span class="header-section-number">4.2</span> Preliminary step: Libraries needed</h2>
+</section>
+<section id="step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters"><span class="header-section-number">4.3</span> Step 1: Record the web addresses that list the pages of the individual articles based on the filters</h2>
+</section>
+<section id="step-2-retrieve-the-urls-of-the-individual-articles" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="step-2-retrieve-the-urls-of-the-individual-articles"><span class="header-section-number">4.4</span> Step 2: Retrieve the URLs of the individual articles</h2>
+</section>
+<section id="step-3-retrieve-the-titles-date-types-and-content-of-the-articles" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="step-3-retrieve-the-titles-date-types-and-content-of-the-articles"><span class="header-section-number">4.5</span> Step 3: Retrieve the titles, date, types and content of the articles</h2>
+</section>
+<section id="step-4-save-the-data-into-excel-and-r-files" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="step-4-save-the-data-into-excel-and-r-files"><span class="header-section-number">4.6</span> Step 4: Save the data into Excel and R files</h2>
 
 
 </section>
