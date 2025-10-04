@@ -50,7 +50,7 @@ The weekly organization of this course can be found in the Table of Contents on 
 | Week 15 | Group and individual meetings in the classroom (assistance for final projects) |
 | Week 16 | Student's presentations of individual/group projects |
 
-: {tbl-colwidths="[15,85]"}
+: {tbl-colwidths="\[15,85\]"}
 
 ## Required textbooks and additional references
 
@@ -68,7 +68,6 @@ We will only use some parts of **these two books**:
 ![O'Keeffe & McCarthy (2022)](assets/images/OKeeffeeMcCarthy2022.jpg){#fig-OKeeffeeMcCarthy2022}
 
 Required textbooks
-
 :::
 
 **Online resources:**
@@ -85,7 +84,7 @@ This course is task-oriented, so there are many aspects of corpus linguistics th
 
 # How to get through the exercises
 
-The best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts (to know more about markdown scripts, you can refer to <a href="https://aymeric-collart.github.io/CHU0387/Week5_2.html" target="_blank">Week 5, Part 2</a>.
+The best (if not the only) way to learn a programming language is with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts (to know more about markdown scripts, you can refer to <a href="https://aymeric-collart.github.io/CHU0387/Week5_2.html" target="_blank">Week 5, Part 2</a>.
 
--   I will provide at the beginning of each section a markdown file prefilled with the structure of the section. You can download this file and open it with R, and just paste the codes at the relevant sections of the script.
--   Alternatively, you may wish to write the script yourself, and to work based on the codes in each section. This is also a great way to learn how to structure a markdown file alone!
+-   At the end of each section, I will provide a markdown file pre-filled with the structure of that section. You can download this file and open it with R, and just paste the codes at the relevant sections of the script.
+-   Alternatively, you may wish to write the script yourself and work from  the code in each section. This is also a great way to learn how to structure a markdown file alone!

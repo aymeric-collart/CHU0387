@@ -41,7 +41,7 @@ website:
     - text: "--------"
     - section: "Week 10: Midterm presentations"
     - text: "--------"
-    - section: "Part 3: Simple preprocessing and analyzes of corpus data"
+    - section: "Part 3: Simple preprocessing and analyses of corpus data"
       contents: 
         - Week11.qmd
         - Week12.qmd
