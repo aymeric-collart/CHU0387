@@ -77,21 +77,25 @@ library(DiagrammeR)
     ")
 ```
 
-Now we will do the same, but pay more attention to **the web address**, and track the changes that occur. For instance, the first step is just accessing the website. The web address is "<https://www.ettoday.net/news/news-list.htm>".
-What is the web address when you select a particular date, let's say October 28th, 2024? And when you select a particular type of article, "politics" for example? And finally, when you choose an individual article?
+Now we will do the same, but pay more attention to **the web address**, and track the changes that occur. For instance, the first step is just accessing the website. The web address is "<https://www.ettoday.net/news/news-list.htm>". What is the web address when you select a particular date, let's say October 28th, 2024? And when you select a particular type of article, "politics" for example? And finally, when you choose an individual article?
 
-Now we can update the chart:
-```{r mermaid-example-2, echo=FALSE, fig.align='center'}
-    mermaid("
-    graph TD
-        A[ETtoday website with list of articles] --> B{news/news-list.htm}
-        A[ETtoday website with list of articles] -- Select date --> C[Filtered articles];
-        A -- Select type --> C[Filtered articles];
-        C --> D{news/news-list-2024-10-28-1.htm} 
-        C --> E[Click on the title of one article];
-        E --> F[New webpage: Individual article]
-        F --> G{news/20241028/2843953.htm}
-    ")
+Here is what we get:
 
+-   First step: <https://www.ettoday.net/news/news-list.htm>
 
-```
+-   Second step (filtered articles): <https://www.ettoday.net/news/news-list-2024-10-28-1.htm>
+
+-   Third step: (individual article): <https://www.ettoday.net/news/20241028/2843953.htm>
+
+::: callout-tip
+## Think about it
+
+-   First, we can see that filtering the data changes the address of the website in a very systematic way. Now, try to change the address to access the list of articles published on September 27th, 2024. You will get something like that: <https://www.ettoday.net/news/news-list-2024-09-27-1.htm>
+-   Second, try to change the last number. You will see that it changes the type of articles.
+
+**So this means that you can filter the list of articles as you wish just by changing the web address!**
+
+-   Third, if we look at the web address of the individual article, we can retrieve the date of publication of the article very easily... but it is not quite possible to guess the numbers after that.
+:::
+
+No need to despair! The fact that this article is found in the list means that ***the web address of the individual article*** must be somewhere on the website... but where? This is the moment when it is important to **understand the structure of the website**.

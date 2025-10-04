@@ -358,18 +358,38 @@ More about ETtoday (source: Wikipedia)
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-940301cdf99a2f96d23c" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-940301cdf99a2f96d23c">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-98d696d8dcb9f4e75fa2" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-98d696d8dcb9f4e75fa2">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
-<p>Now we can update the chart:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-b731201deaaff7ff8f13" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-b731201deaaff7ff8f13">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] --> B{news/news-list.htm}\n        A[ETtoday website with list of articles] -- Select date --> C[Filtered articles];\n        A -- Select type --> C[Filtered articles];\n        C --> D{news/news-list-2024-10-28-1.htm} \n        C --> E[Click on the title of one article];\n        E --> F[New webpage: Individual article]\n        F --> G{news/20241028/2843953.htm}\n    "},"evals":[],"jsHooks":[]}</script>
+<p>Here is what we get:</p>
+<ul>
+<li><p>First step: <a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a></p></li>
+<li><p>Second step (filtered articles): <a href="https://www.ettoday.net/news/news-list-2024-10-28-1.htm" class="uri">https://www.ettoday.net/news/news-list-2024-10-28-1.htm</a></p></li>
+<li><p>Third step: (individual article): <a href="https://www.ettoday.net/news/20241028/2843953.htm" class="uri">https://www.ettoday.net/news/20241028/2843953.htm</a></p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Think about it
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>First, we can see that filtering the data changes the address of the website in a very systematic way. Now, try to change the address to access the list of articles published on September 27th, 2024. You will get something like that: <a href="https://www.ettoday.net/news/news-list-2024-09-27-1.htm" class="uri">https://www.ettoday.net/news/news-list-2024-09-27-1.htm</a></li>
+<li>Second, try to change the last number. You will see that it changes the type of articles.</li>
+</ul>
+<p><strong>So this means that you can filter the list of articles as you wish just by changing the web address!</strong></p>
+<ul>
+<li>Third, if we look at the web address of the individual article, we can retrieve the date of publication of the article very easily… but it is not quite possible to guess the numbers after that.</li>
+</ul>
+</div>
+</div>
+<p>No need to despair! The fact that this article is found in the list means that <strong><em>the web address of the individual article</em></strong> must be somewhere on the website… but where? This is the moment when it is important to <strong>understand the structure of the website</strong>.</p>
 
 
 </section>
