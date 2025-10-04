@@ -110,7 +110,7 @@
     "href": "Weeks6_7.html#terminology-of-the-structural-lines",
     "title": "Weeks 6 & 7: Building a corpus from media platforms",
     "section": "3.3 Terminology of the “structural lines”",
-    "text": "3.3 Terminology of the “structural lines”\nLet’s call these lines the “structural lines”. These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in html language.\nLet’s just have a look at line 549 and decompose it.",
+    "text": "3.3 Terminology of the “structural lines”\nLet’s call these lines the “structural lines”. These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in html language.\nLet’s just have a look at line 549 and decompose it.\n\n&lt;div class=\"part_list_2\"&gt;&lt;h3&gt;2024/10/28 20:45&lt;em class=\"tag c_news\"&gt;政治&lt;/em&gt;&lt;a target=\"_blank\" href=\"https://www.ettoday.net/news/20241028/2843953.htm\"&gt;陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦&lt;/a&gt;&lt;/h3&gt;&lt;/div&gt;\n\nThis line corresponds to this part of the website:",
     "crumbs": [
       "Welcome page",
       "Part 2: Building a corpus from the internet with modern tools",
