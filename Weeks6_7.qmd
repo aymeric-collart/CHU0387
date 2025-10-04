@@ -99,3 +99,15 @@ Here is what we get:
 :::
 
 No need to despair! The fact that this article is found in the list means that ***the web address of the individual article*** must be somewhere on the website... but where? This is the moment when it is important to **understand the structure of the website**.
+
+# Understanding the structure of the website
+
+## How to access the structure of the website?
+
+Accessing to the structure of a website is actually very easy. You just need to open the webpage, for example this one: <https://www.ettoday.net/news/news-list-2024-10-28-1.htm>. Then, you look for a blank space, you right-click, and you select "View Page Source" (it is possible that it will not be in English, or that the wording is different depending on the system of your computer).
+
+Then, it will open a new page which can be very scary... but this is actually the same, just the structure of the previous page!
+
+Here is the animated figure of these steps:
+
+![](assets/images/ETtoday_ListArticles_Structure.gif)

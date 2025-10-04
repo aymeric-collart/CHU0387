@@ -82,6 +82,18 @@
     ]
   },
   {
+    "objectID": "Weeks6_7.html#how-to-access-the-structure-of-the-website",
+    "href": "Weeks6_7.html#how-to-access-the-structure-of-the-website",
+    "title": "Weeks 6 & 7: Building a corpus from media platforms",
+    "section": "3.1 How to access the structure of the website?",
+    "text": "3.1 How to access the structure of the website?\nAccessing to the structure of a website is actually very easy. You just need to open the webpage, for example this one: https://www.ettoday.net/news/news-list-2024-10-28-1.htm. Then, you look for a blank space, you right-click, and you select “View Page Source” (it is possible that it will not be in English, or that the wording is different depending on the system of your computer).\nThen, it will open a new page which can be very scary… but this is actually the same, just the structure of the previous page!\nHere is the animated figure of these steps:",
+    "crumbs": [
+      "Welcome page",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 6 & 7: Building a corpus from media platforms"
+    ]
+  },
+  {
     "objectID": "Week5_1.html",
     "href": "Week5_1.html",
     "title": "Week 5: Introduction to R (2/2): Basic functions",
