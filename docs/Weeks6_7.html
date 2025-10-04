@@ -398,8 +398,8 @@ More about ETtoday (source: Wikipedia)
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-ae7c23d4bc5f0ed878e0" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-ae7c23d4bc5f0ed878e0">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-a0f04fa70cd4a3caa06b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-a0f04fa70cd4a3caa06b">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
@@ -477,6 +477,46 @@ How did I know what lines to search for?
 </div>
 <p>This line corresponds to this part of the website:</p>
 <p><img src="assets/images/ETtoday_LineExample.png" class="img-fluid"></p>
+<p>Now we can decompose it:</p>
+<ul>
+<li><p>The part with “</p>
+<div>
+
+</div>
+<p>” means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names, such that we are not confusing them. Here, the block is called “part_list_2”.</p></li>
+<li><p>The part with “</p>
+<h3 class="anchored">
+</h3>
+<p>” corresponds to one line in the block. What is between “</p>
+<h3 class="anchored">
+<p>” and “</p>
+</h3>
+<p>” is everything we want to put in that line. Here there are three elements:</p>
+<ul>
+<li><p>The first element is a “<span></span>” element, and its name is “date”. What is between “<span>” and ”</span>” is the text to display, here: “2024/10/28 20:45”.</p></li>
+<li><p>The second element is an “<em></em>” element (why “em” and not “span”? “em” stands for “emphasis”, so they look different on the website). Its name is “tag c_news”.</p></li>
+<li><p>The third element is an “<a></a>” element. This is used to write a text with a link, and the link is specified with “href”. The term “target=”_blank”” means that it opens in a new page when you click on it.</p></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This seems to be a lot and quite complicated.</p>
+<p>So just remember this:</p>
+<ul>
+<li><p>There are <strong>big</strong> <strong>blocks</strong> with different names (<em>div</em>, <em>h3</em>, <em>span</em>, etc.). Let’s call them <strong><em>nodes</em></strong>.</p></li>
+<li><p>Inside nodes, you can specify the <strong>parameters</strong> and <strong>names</strong> specific to the <strong>nodes</strong>.</p></li>
+</ul>
+<p>That’s all!</p>
+</div>
+</div>
 
 
 </section>

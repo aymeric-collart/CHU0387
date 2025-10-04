@@ -149,3 +149,27 @@ Let's just have a look at line 549 and decompose it.
 This line corresponds to this part of the website:
 
 ![](assets/images/ETtoday_LineExample.png)
+
+Now we can decompose it:
+
+-   The part with "<div></div>" means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names, such that we are not confusing them. Here, the block is called "part_list_2".
+
+-   The part with "<h3></h3>" corresponds to one line in the block. What is between "<h3>" and "</h3>" is everything we want to put in that line. Here there are three elements:
+
+    -   The first element is a "<span></span>" element, and its name is "date". What is between "<span>" and "</span>" is the text to display, here: "2024/10/28 20:45".
+
+    -   The second element is an "<em></em>" element (why "em" and not "span"? "em" stands for "emphasis", so they look different on the website). Its name is "tag c_news".
+
+    -   The third element is an "<a></a>" element. This is used to write a text with a link, and the link is specified with "href". The term "target="\_blank"" means that it opens in a new page when you click on it.
+
+::: callout-important
+This seems to be a lot and quite complicated.
+
+So just remember this:
+
+-   There are **big** **blocks** with different names (*div*, *h3*, *span*, etc.). Let's call them ***nodes***.
+
+-   Inside nodes, you can specify the **parameters** and **names** specific to the **nodes**.
+
+That's all!
+:::
