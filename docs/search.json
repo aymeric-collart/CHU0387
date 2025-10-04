@@ -62,7 +62,7 @@
     "href": "Weeks6_7.html",
     "title": "Weeks 6 & 7: Building a corpus from media platforms",
     "section": "",
-    "text": "Objectives\n\n\n\nThese two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.\n\n\n[Page to be completed later]",
+    "text": "Objectives\n\n\n\nThese two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.\n\n\n\n1 Building your own corpus: Conceptual and technical considerations\nThere are many tools that we can use now to build a corpus based on data coming from the Internet, and this includes R packages. But many concepts need to be clarified before getting into the coding part, such as:\n\nBeing aware of the steps you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible,\nUnderstanding the structure of a website, how to access the structure of the website, and how to localize where the information you want are,\nFinally, mapping the R functions to the information you want.\n\nThese are the steps we will be going through these two weeks. We will work with one Taiwanese newspaper called “ETtoday” (https://www.ettoday.net/).\n\n\n\n\n\n\n\nMore about ETtoday (source: Wikipedia)\n\n\n\nETtoday is one of the main newspapers in Taiwan. It has been officially founded in 2011, and it publishes numerous articles on many topics online everyday. Some may say that it is not politically neutral, so it is something to keep in mind as this may affect the results depending on your research question.\n\n\n\n\n2 Document your own manual steps",
     "crumbs": [
       "Welcome page",
       "Part 2: Building a corpus from the internet with modern tools",

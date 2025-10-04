@@ -25,4 +25,24 @@ hr.rounded {
 These two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.
 :::
 
-[Page to be completed later]
+# Building your own corpus: Conceptual and technical considerations
+
+There are many tools that we can use now to build a corpus based on data coming from the Internet, and this includes R packages. But many concepts need to be clarified before getting into the coding part, such as:
+
+-   Being aware of the *steps* you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible,
+
+-   Understanding the *structure* of a website, how to *access* the structure of the website, and how to *localize* where the information you want are,
+
+-   Finally, *mapping* the R functions to the information you want.
+
+These are the steps we will be going through these two weeks. We will work with one Taiwanese newspaper called "ETtoday" (<https://www.ettoday.net/>).
+
+![](assets/images/ETtoday_logo.png)
+
+::: {.callout-warning icon="false"}
+## More about ETtoday (source: Wikipedia)
+
+ETtoday is one of the main newspapers in Taiwan. It has been officially founded in 2011, and it publishes numerous articles on many topics online everyday. Some may say that it is not politically neutral, so it is something to keep in mind as this may affect the results depending on your research question.
+:::
+
+# Document your own manual steps
