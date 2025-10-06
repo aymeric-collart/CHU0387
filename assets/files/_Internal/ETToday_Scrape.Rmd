@@ -1,0 +1,213 @@
+---
+title: "Markdown_Week6_Week7"
+author: "Aymeric Collart"
+date: "2025-10-02"
+header-includes:
+  - \usepackage{fontspec} # use fontspec package
+  - \usepackage{xeCJK}    # use xeCJK package
+output:
+  pdf_document:
+    latex_engine: xelatex
+  html_document: default
+---
+
+# 1. Prepare the environment
+
+```{r}
+library(rvest)
+library(dplyr)
+library(xml2)
+library(openxlsx)
+```
+
+# 2. Scraping
+
+## 2.1 List the URLs of the webpages by date and by category
+
+```{r}
+ETTodayPageUrl <- "https://www.ettoday.net/news/news-list" 
+
+Year <- 2024
+Month <- 1:12
+Day <- 1:31
+
+Dates_total <- data.frame(matrix(ncol = 1, nrow = 0))
+
+for (a in 1:length(Day)){
+  for (b in 1:length(Month)){
+    for (c in min(Year):max(Year)){
+      Dates <- paste0(c, "-", b, "-", a)
+      Dates <- as.data.frame(Dates)
+      Dates_total <- rbind(Dates_total, Dates)
+    }
+  }
+}
+
+Dates_total <- as.character(Dates_total$Dates)
+
+# "6.htm" = "Society"
+# "1.htm" = "Politics"
+# "2.htm" = "International"
+# "5.htm" = "Life"
+Category_total <- c("6", "1")
+
+URL_total <- data.frame(matrix(ncol = 1, nrow = 0))
+  
+for (a in 1:length(Category_total)){
+  URL_temp <- paste0(ETTodayPageUrl, "-", Dates_total, "-", Category_total[a], ".htm")
+  URL_temp <- as.data.frame(URL_temp)
+  URL_total <- rbind(URL_total, URL_temp)
+}
+
+URL_total <- as.character(URL_total$URL_temp)
+
+head(URL_total)
+```
+
+## 2.2. Retrieve the URLs of the individual articles
+
+### 2.2.1 One page to test
+
+```{r}
+IndPage <- read_html(URL_total[1])
+
+news_url <- IndPage %>% 
+  html_nodes("div.part_list_2") %>% 
+  html_nodes("h3") %>%
+  html_nodes("a") %>%
+  html_attr("href")
+
+head(news_url)
+```
+
+### 2.2.2 Find the URLs of the articles from all the pages
+
+```{r}
+## 3 to 4 minutes
+URL_IndArticles <- data.frame(matrix(ncol = 1, nrow = 0))
+
+for (i in 1:length(URL_total)){
+  IndPage <- read_html(URL_total[i])
+  news_url <- IndPage %>% 
+    html_nodes("div.part_list_2") %>% 
+    html_nodes("h3") %>%
+    html_nodes("a") %>%
+    html_attr("href")
+  
+  news_url <- as.data.frame(news_url)
+  URL_IndArticles <- rbind(URL_IndArticles, news_url)
+}
+```
+
+### 2.2.3 Check for repeated URLs
+
+```{r}
+n_occur <- data.frame(table(URL_IndArticles$news_url))
+Duplicates <- n_occur[n_occur$Freq > 1,]
+
+article_overview_unique <- URL_IndArticles %>% 
+  group_by(news_url) %>% 
+  slice_sample(n = 1)
+
+head(article_overview_unique)
+```
+
+## 2.3 Scrape the content of the articles
+
+### 2.3.1 Test with one page
+
+```{r}
+OneArticle <- read_html(article_overview_unique$news_url[1])
+
+# time of news
+news_time <- OneArticle %>% 
+  html_nodes("time") %>% 
+  #html_nodes(".date") %>%
+  html_text(trim = TRUE)
+
+# class of news
+news_class <- OneArticle %>% 
+  html_nodes(".part_menu_5") %>% 
+  html_nodes("strong") %>%
+  html_text(trim = TRUE)
+
+# title 
+news_title <- OneArticle %>% 
+  html_nodes("h1") %>% 
+  html_text(trim = TRUE)
+
+# content 
+news_body <- OneArticle %>% 
+  html_nodes('div[itemprop="articleBody"]') %>% 
+  html_text(trim = TRUE)
+
+article <- (data.frame(time = news_time,
+                       class = news_class,
+                       title = news_title,
+                       body = news_body,
+                       url = article_overview_unique$news_url[1]))
+
+head(article)
+```
+
+### 2.3.2 Scrape all the pages
+
+```{r}
+Article_total <- data.frame()
+
+for (j in 1:length(article_overview_unique$news_url)){
+  tryCatch({
+    temp <- read_html(article_overview_unique$news_url[j])
+    
+    # time of news
+    news_time <- temp %>% 
+      html_nodes("time") %>% 
+      html_text(trim = TRUE)
+    
+    # class of news
+    news_class <- temp %>% 
+      html_nodes(".part_menu_5") %>% 
+      html_nodes("strong") %>%
+      html_text(trim = TRUE)
+    
+    # title 
+    news_title <- temp %>% 
+      html_nodes("h1") %>% 
+      html_text(trim = TRUE)
+    
+    # content 
+    news_body <- temp %>% 
+      html_nodes('div[itemprop="articleBody"]') %>% 
+      html_text(trim = TRUE)
+    
+    # url
+    news_url <- temp %>% 
+      html_nodes("div.block div.block_content div.part_list_2 h3") %>% 
+      html_nodes("a") %>%
+      html_attr("href")
+    
+    Article <- (data.frame(time = news_time,
+                           class = news_class,
+                           title = news_title,
+                           body = news_body,
+                           url = article_overview_unique$news_url[1]))
+    Article_total <- rbind(Article_total, Article)
+  }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
+}
+
+head(Article_total)
+```
+
+# 3. Save the data
+
+## 3.1 Save as an Excel file
+
+```{r}
+write.xlsx(Article_total, "ArticleETToday_CorpusCourse.xlsx")
+```
+
+## 3.2 Save as an RData file
+
+```{r}
+save(Article_total, file = "ArticleETToday_CorpusCourse.Rdata")
+```

@@ -179,6 +179,22 @@ That's all!
 
 ## Overview of the steps
 
+In Section 2.2, we wrote down the several steps we have been going through to copy and paste the content of one article. In the end, we want to repeat this step many times to get the data from more than one article... and now you can imagine why it is a better idea to process through these steps automatically instead of doing it manually for weeks and months.
+
+::: callout-tip
+## Think about it
+
+If you followed this rationale, now you can guess what *coding* means. It is just about *translating* our behavior to a language that the computer can understand!
+
+In other words, we are going to *map* the steps described in Section 2.2 to R functions to perform the same task. And then we will require R to repeat the same task with different web addresses.
+:::
+
+An efficient way to be clear about the steps to proceed with when doing programming language is to translate the steps we went through manually into words that make sense for the computer. For instance, when we select the dates or article types for filtering, we actually store them somewhere as variables. This gives us the annotated figure below.
+
+![](assets/images/ProcessWebScraping_ArticlesNewspaper.png)
+
+Now let's see how to implement these steps with R.
+
 ## Preliminary step: Libraries needed
 
 ## Step 1: Record the web addresses that list the pages of the individual articles based on the filters
@@ -188,3 +204,7 @@ That's all!
 ## Step 3: Retrieve the titles, date, types and content of the articles
 
 ## Step 4: Save the data into Excel and R files
+
+# Markdown document, PDF output file,  RData and Excel files of the scraped data
+
+You
