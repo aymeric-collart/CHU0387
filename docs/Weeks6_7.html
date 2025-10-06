@@ -321,6 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-3-retrieve-the-titles-date-types-and-content-of-the-articles" id="toc-step-3-retrieve-the-titles-date-types-and-content-of-the-articles" class="nav-link" data-scroll-target="#step-3-retrieve-the-titles-date-types-and-content-of-the-articles"><span class="header-section-number">4.5</span> Step 3: Retrieve the titles, date, types and content of the articles</a></li>
   <li><a href="#step-4-save-the-data-into-excel-and-r-files" id="toc-step-4-save-the-data-into-excel-and-r-files" class="nav-link" data-scroll-target="#step-4-save-the-data-into-excel-and-r-files"><span class="header-section-number">4.6</span> Step 4: Save the data into Excel and R files</a></li>
   </ul></li>
+  <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">5</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
   </ul>
 </nav>
     </div>
@@ -407,8 +408,8 @@ More about ETtoday (source: Wikipedia)
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-08e75d7760fc3ea7736c" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-08e75d7760fc3ea7736c">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-120deca5e8ca9051568c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-120deca5e8ca9051568c">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
@@ -521,6 +522,24 @@ Important
 <h1 data-number="4"><span class="header-section-number">4</span> Let’s get R do the job for us!</h1>
 <section id="overview-of-the-steps" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="overview-of-the-steps"><span class="header-section-number">4.1</span> Overview of the steps</h2>
+<p>In Section 2.2, we wrote down the several steps we have been going through to copy and paste the content of one article. In the end, we want to repeat this step many times to get the data from more than one article… and now you can imagine why it is a better idea to process through these steps automatically instead of doing it manually for weeks and months.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Think about it
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you followed this rationale, now you can guess what <em>coding</em> means. It is just about <em>translating</em> our behavior to a language that the computer can understand!</p>
+<p>In other words, we are going to <em>map</em> the steps described in Section 2.2 to R functions to perform the same task. And then we will require R to repeat the same task with different web addresses.</p>
+</div>
+</div>
+<p>An efficient way to be clear about the steps to proceed with when doing programming language is to translate the steps we went through manually into words that make sense for the computer. For instance, when we select the dates or article types for filtering, we actually store them somewhere as variables. This gives us the annotated figure below.</p>
+<p><img src="assets/images/ProcessWebScraping_ArticlesNewspaper.png" class="img-fluid"></p>
+<p>Now let’s see how to implement these steps with R.</p>
 </section>
 <section id="preliminary-step-libraries-needed" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="preliminary-step-libraries-needed"><span class="header-section-number">4.2</span> Preliminary step: Libraries needed</h2>
@@ -536,9 +555,13 @@ Important
 </section>
 <section id="step-4-save-the-data-into-excel-and-r-files" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="step-4-save-the-data-into-excel-and-r-files"><span class="header-section-number">4.6</span> Step 4: Save the data into Excel and R files</h2>
-
-
 </section>
+</section>
+<section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>
+<p>You</p>
+
+
 </section>
 
 </main> <!-- /main -->
