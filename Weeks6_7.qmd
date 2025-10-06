@@ -205,6 +205,8 @@ Now let's see how to implement these steps with R.
 
 ## Step 4: Save the data into Excel and R files
 
-# Markdown document, PDF output file,  RData and Excel files of the scraped data
+# Markdown document, PDF output file, RData and Excel files of the scraped data
 
-You
+You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Scrape.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Scrape.pdf" target="_blank">Here</a> is the PDF output of the same document.
+
+Please note that **it takes several hours to run the Markdown document**. In the end it will download data from more than 20000 pages. In case, the RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse.xlsx" target="_blank">here</a>.
