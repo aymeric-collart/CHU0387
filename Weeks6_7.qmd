@@ -199,7 +199,7 @@ Now let's see how to implement these steps with R.
 
 For this task, we will only need four packages:
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(rvest)
 library(dplyr)
 library(xml2)
@@ -208,13 +208,151 @@ library(openxlsx)
 
 ## Step 1: Record the web addresses that list the pages of the individual articles based on the filters
 
+The first step in our task is to record the web addresses. Let's have a first recap:
+
+-   The main address is: <https://www.ettoday.net/news/news-list.htm>
+
+-   The web address with filters for dates and categories looks like this: <https://www.ettoday.net/news/news-list-2024-10-28-1.htm>
+
+Now it is like playing lego: How to obtain the address with filters based on the first address? The answer is as follows:
+
+```{r, eval=FALSE}
+"https://www.ettoday.net/news/news-list" + "-" + date + "-" + category + ".htm"
+```
+
+Where ***dates*** are like "2024-10-28" and ***categories***are just numbers. How to do so with R? Nothing easier!
+
+-   First, store the base address as a variable:
+
 ```{r}
 ETTodayPageUrl <- "https://www.ettoday.net/news/news-list" 
+```
 
+-   Then, store the year, month and day of your interest, and paste them together. To paste, we use the function "paste0()":
+
+```{r}
+Year <- 2024
+Month <- 10
+Day <- 28
+
+date <- paste0(Year,
+               "-",
+               Month,
+               "-",
+               Day)
+date
+```
+
+-   Now we select the category. Let's say we want articles talking about politics, coded as "1" on ETtoday:
+
+```{r}
+category <- 1
+```
+
+-   Finally, we paste these variables together to obtain the address:
+
+```{r}
+## Template: "https://www.ettoday.net/news/news-list" + "-" + date + "-" + category + ".htm"
+URL <- paste0(ETTodayPageUrl,
+              "-",
+              date,
+              "-",
+              category,
+              ".htm")
+URL
+```
+
+::: callout-tip
+## Think about it
+
+You may think that it is a complex way to do... why not writing the web address as a variable instead of pasting the elements? In other words, why not writing this instead:
+
+URL \<- "<https://www.ettoday.net/news/news-list-2024-10-28-1.htm>"
+
+Think about it. Doing so, if you want the data for the whole year 2024, and two categories, it means that you will have to do the same more than 700 times... so it seems to be a simpler solution, and it is true if we are working with only one page, but not necessarily with big data!
+:::
+
+We have the address corresponding to one page with the code above. If we want the web addresses for the whole year, we will need to repeat the code, and changing the date every time. In programming language, there is a command that tells a computer to repeat the same set of instructions for each item in a list. It is a way to automate a repetitive task. This command is called ***for loop***.
+
+::: {.callout-warning icon="false"}
+## What is the concept of for loop?
+
+You have a list (your friends at the table) and an action (giving one card). The ***for loop*** is the instruction you give yourself: "For each friend at the table, give them one card."
+
+You go to the first friend and give them a card. Then you automatically move to the second friend and do the same thing. You continue this process until every friend in the group has received a card. The loop then stops on its own.
+
+Every for loop has three basic components:
+
+1.  **The List (or Collection):** The group of items you want to work through. This could be a list of names, numbers, or any collection of data.
+
+2.  **The Action (or Task):** The specific job you want to do for every single item in the list.
+
+3.  **The Loop:** The process that automatically takes one item, performs the action, and then moves on to the next item until the list is finished.
+:::
+
+Let's have a look at how to apply this concept to our case.
+
+-   First, we start with the base address, as we have already done above:
+
+```{r}
+ETTodayPageUrl <- "https://www.ettoday.net/news/news-list" 
+```
+
+-   Then we create **the List**. Since we want to go through the articles published in 2024, we want Year 2024, Months from January (1) to December (12), and Days from 1 to 31 (some months do not have 31 days, but it is not crucial for our purpose). This is how we write it:
+
+```{r}
 Year <- 2024
 Month <- 1:12
 Day <- 1:31
 
+Year
+Month
+Day
+```
+
+-   We have the List. Now we need **the Action**. What we want is a list (or table) with all the dates. To do so:
+
+    -   We create an empty table,
+
+    -   We paste Year, Month and Day to obtain the date,
+
+    -   We change the class of the variable to match the class of the empty table,
+
+    -   We add the individual date into the table
+
+The code looks like that:
+
+```{r}
+Dates_total <- data.frame(matrix(ncol = 1, nrow = 0))
+
+# The Action is below
+Dates <- paste0(Year, "-", Month, "-", Day)
+Dates <- as.data.frame(Dates)
+Dates_total <- rbind(Dates_total, Dates)
+
+# A look at the results
+Dates_total
+```
+
+-   So far it gives us an incomplete list of dates. This is because we need to add the third element: **The Loop**. Here is my way to create the loop:
+
+    -   We have the Action for one subset of the data only, which means that we need to have a process ***for each day***, and ***each month***. The rationale goes like this:
+
+        -   [Loop 1:]{.underline} "For Day number 1, please assign Month number 1, and Year 2024"
+
+        -   [Loop 2:]{.underline} "For Day number 2, please assign Month number 1, and Year 2024"
+
+        -   ... ...
+
+        -   [Loop 31:]{.underline} "For Day number 31, please assign Month number 1, and Year 2024"
+
+        -   [Loop 32:]{.underline} "For Day number 1, please assign Month number 2, and Year 2024"
+
+    -   This means that we have a **first round of Loop for Day**, followed by a **second round of Loop for Month**, followed by a **third round of Loop for Year**.
+
+    -   This is why in the code below, there are 3 for loop commands, and different variables are assigned to them:
+
+```{r}
 Dates_total <- data.frame(matrix(ncol = 1, nrow = 0))
 
 for (a in 1:length(Day)){
@@ -229,6 +367,20 @@ for (a in 1:length(Day)){
 
 Dates_total <- as.character(Dates_total$Dates)
 
+knitr::kable(head(Dates_total)) # Use of the kable() function from the 'knitr' package to have a prettier output
+```
+
+-   Now we apply the same logic to add the Categories. Let's say we want articles about "Politics" and "Society".
+
+    -   In that case, **the** **List** is about categories coded as "1" and "6"
+
+    -   **The Action** is to paste the different parts of the web address
+
+    -   **The Loop** is to paste all the dates (372 dates) to the 2 categories.
+
+    -   This gives the following code:
+
+```{r}
 # "6.htm" = "Society"
 # "1.htm" = "Politics"
 # "2.htm" = "International"
@@ -244,8 +396,7 @@ for (a in 1:length(Category_total)){
 }
 
 URL_total <- as.character(URL_total$URL_temp)
-
-head(URL_total)
+knitr::kable(head(URL_total)) # Use of the kable() function from the 'knitr' package to have a prettier output
 ```
 
 ```{r, echo=FALSE}
@@ -263,7 +414,7 @@ news_url <- IndPage %>%
   html_nodes("a") %>%
   html_attr("href")
 
-head(news_url)
+knitr::kable(head(news_url)) # Use of the kable() function from the 'knitr' package to have a prettier output
 ```
 
 ```{r}
@@ -291,7 +442,7 @@ article_overview_unique <- URL_IndArticles %>%
   group_by(news_url) %>% 
   slice_sample(n = 1)
 
-head(article_overview_unique)
+knitr::kable(head(article_overview_unique)) # Use of the kable() function from the 'knitr' package to have a prettier output
 ```
 
 ## Step 3: Retrieve the titles, date, types and content of the articles
@@ -327,7 +478,7 @@ article <- (data.frame(time = news_time,
                        body = news_body,
                        url = article_overview_unique$news_url[1]))
 
-head(article)
+knitr::kable(head(article)) # Use of the kable() function from the 'knitr' package to have a prettier output
 ```
 
 ```{r, eval=FALSE}
@@ -373,7 +524,7 @@ for (j in 1:length(article_overview_unique$news_url)){
   }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
 }
 
-head(Article_total)
+knitr::kable(head(Article_total)) # Use of the kable() function from the 'knitr' package to have a prettier output
 ```
 
 ## Step 4: Save the data into Excel and R files
