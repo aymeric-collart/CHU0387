@@ -197,6 +197,15 @@ Now let's see how to implement these steps with R.
 
 ## Preliminary step: Libraries needed
 
+For this task, we will only need four packages:
+
+```{r, eval=FALSE}
+library(rvest)
+library(dplyr)
+library(xml2)
+library(openxlsx)
+```
+
 ## Step 1: Record the web addresses that list the pages of the individual articles based on the filters
 
 ## Step 2: Retrieve the URLs of the individual articles
