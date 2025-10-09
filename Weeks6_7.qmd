@@ -378,7 +378,7 @@ knitr::kable(head(Dates_total)) # Use of the kable() function from the 'knitr' p
 
     -   **The Loop** is to paste all the dates (372 dates) to the 2 categories.
 
-    -   This gives the following code:
+        This gives the following code:
 
 ```{r}
 # "6.htm" = "Society"
@@ -405,20 +405,85 @@ URL_total <- head(URL_total, 1)
 
 ## Step 2: Retrieve the URLs of the individual articles
 
+Now we have the **web addresses that list the webpages of individual articles, filtered by dates and categories**. The next step is to find the web addresses of these individual articles. There are several sub-steps:
+
+-   First, R needs to read the webpage with the list of addresses. Please be aware that when R reads the webpage, we are talking about **the structure of the webpage**!
+
+    -   The R function to do so is called "read_html()".
+
+    -   We write the address of the webpage to read between the parentheses. Here, we already have the list from the previous step, and we stored them under the variable "URL_total".
+
+    -   We just test with only one page for the moment. This is why in the code below, we write "URL_total\[1\]". It means "the first data in the list called *URL_total*".
+
 ```{r}
 IndPage <- read_html(URL_total[1])
+IndPage
+```
 
+-   The second step is to **retrieve the information that we need**. We have already done that in Section 3, and if you remember well, we found the line corresponding to the data we want:
+
+```{r, eval=FALSE}
+<div class="part_list_2">
+  <h3>
+    <span class="date">2024/10/28 20:45</span>
+    <em class="tag c_news">政治</em>
+    <a target="_blank" href="https://www.ettoday.net/news/20241028/2843953.htm">陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦</a>
+  </h3>
+</div>
+```
+
+If you need to describe, you have to say something like that:
+
+```         
+"The address of the individual article is listed after the 'href' attribute, which is in the <a> node, which is in the <h3> node, which is in the <div> node whose class is 'part_list_2' ".
+```
+
+How to translate into R? We will use two functions:
+
++--------------+-------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Function     | Use                                                         | Example in our case                                                                                                                                        |
++==============+=============================================================+============================================================================================================================================================+
+| html_nodes() | Used to identify the elements within a node                 | html_nodes("div") = retrieves all the nodes starting with "div"                                                                                            |
+|              |                                                             |                                                                                                                                                            |
+|              |                                                             | html_nodes("div.something") = retrieves only the nodes starting with "div", where 'class = "something" ' (in other words, it filters specific "div" nodes) |
++--------------+-------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| html_attr()  | Used to identify the content of the specification of a node | html_attr("class") = retrieves the element written after "class". For example, in the case below, it will return "NameOfTheClass".                         |
+|              |                                                             |                                                                                                                                                            |
+|              |                                                             | \<div class="NameOfTheClass"\>                                                                                                                             |
++--------------+-------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Now that we know how to use the code, we can translate the description we wrote as follows:
+
+```{r}
 news_url <- IndPage %>% 
   html_nodes("div.part_list_2") %>% 
   html_nodes("h3") %>%
   html_nodes("a") %>%
   html_attr("href")
 
-knitr::kable(head(news_url)) # Use of the kable() function from the 'knitr' package to have a prettier output
+knitr::kable(head(news_url)) # Use of the kable() function from the 'knitr' package to have a prettier output on the website
 ```
 
+::: callout-tip
+## Think about it
+
+Let's say that you wanted the *date* or the *category* of the articles, how would you change this code?
+:::
+
+-   Congratulations! You have the list of the addresses from one page! Now we need to repeat the same process to the other 743 lists... and anytime you need to repeat a task over and over, this means for loop command! Here are the elements we need:
+
+    -   First, we create an empty data frame in which we will store all the web addresses of the individual articles
+
+    -   **The** **List** is the addresses of the webpages where we can find the individual articles filtered by date and category, which we stores in the variable called "URL_total",
+
+    -   **The Action** is to find the web addresses of the individual articles, as we did just before,
+
+    -   **The Loop** is to perform **the Action** for all the filtered pages, and to paste the individual web addresses in the empty data frame we just created.
+
+        This gives the following code:
+
 ```{r}
-## 3 to 4 minutes
+## This step can last several minutes
 URL_IndArticles <- data.frame(matrix(ncol = 1, nrow = 0))
 
 for (i in 1:length(URL_total)){
@@ -434,15 +499,12 @@ for (i in 1:length(URL_total)){
 }
 ```
 
+-   We are not completely done. It is possible that for some reasons, some articles are repeated. So the next step is to remove all the repeated web addresses, by keeping only one instance. Here is how we do that: We use the 'unique()' function:
+
 ```{r}
-n_occur <- data.frame(table(URL_IndArticles$news_url))
-Duplicates <- n_occur[n_occur$Freq > 1,]
+article_overview_unique <- unique(URL_IndArticles)
 
-article_overview_unique <- URL_IndArticles %>% 
-  group_by(news_url) %>% 
-  slice_sample(n = 1)
-
-knitr::kable(head(article_overview_unique)) # Use of the kable() function from the 'knitr' package to have a prettier output
+knitr::kable(head(article_overview_unique)) # Use of the kable() function from the 'knitr' package to have a prettier output on the website
 ```
 
 ## Step 3: Retrieve the titles, date, types and content of the articles

@@ -408,8 +408,8 @@ More about ETtoday (source: Wikipedia)
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-f9838fd77eba2e5c2d05" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-f9838fd77eba2e5c2d05">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-d30f24faac8240f723a2" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d30f24faac8240f723a2">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
@@ -795,8 +795,8 @@ What is the concept of for loop?
 <ul>
 <li><p>In that case, <strong>the</strong> <strong>List</strong> is about categories coded as “1” and “6”</p></li>
 <li><p><strong>The Action</strong> is to paste the different parts of the web address</p></li>
-<li><p><strong>The Loop</strong> is to paste all the dates (372 dates) to the 2 categories.</p></li>
-<li><p>This gives the following code:</p></li>
+<li><p><strong>The Loop</strong> is to paste all the dates (372 dates) to the 2 categories.</p>
+<p>This gives the following code:</p></li>
 </ul></li>
 </ul>
 <div class="cell">
@@ -849,16 +849,77 @@ What is the concept of for loop?
 </section>
 <section id="step-2-retrieve-the-urls-of-the-individual-articles" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="step-2-retrieve-the-urls-of-the-individual-articles"><span class="header-section-number">4.4</span> Step 2: Retrieve the URLs of the individual articles</h2>
+<p>Now we have the <strong>web addresses that list the webpages of individual articles, filtered by dates and categories</strong>. The next step is to find the web addresses of these individual articles. There are several sub-steps:</p>
+<ul>
+<li><p>First, R needs to read the webpage with the list of addresses. Please be aware that when R reads the webpage, we are talking about <strong>the structure of the webpage</strong>!</p>
+<ul>
+<li><p>The R function to do so is called “read_html()”.</p></li>
+<li><p>We write the address of the webpage to read between the parentheses. Here, we already have the list from the previous step, and we stored them under the variable “URL_total”.</p></li>
+<li><p>We just test with only one page for the moment. This is why in the code below, we write “URL_total[1]”. It means “the first data in the list called <em>URL_total</em>”.</p></li>
+</ul></li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>IndPage <span class="ot">&lt;-</span> <span class="fu">read_html</span>(URL_total[<span class="dv">1</span>])</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>news_url <span class="ot">&lt;-</span> IndPage <span class="sc">%&gt;%</span> </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"div.part_list_2"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"h3"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(news_url)) <span class="co"># Use of the kable() function from the 'knitr' package to have a prettier output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>IndPage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{html_document}
+&lt;html lang="zh-Hant" prefix="og:http://ogp.me/ns#" xmlns:wb="http://open.weibo.com/wb" itemscope="" itemtype="http://schema.org/WebSite"&gt;
+[1] &lt;head&gt;\n&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ...
+[2] &lt;body&gt;\r\n\n&lt;!-- FB Quote 選取文字分享 開始--&gt;\n&lt;div class="fb-quote"&gt;&lt;/div&gt;\n&lt;!- ...</code></pre>
+</div>
+</div>
+<ul>
+<li>The second step is to <strong>retrieve the information that we need</strong>. We have already done that in Section 3, and if you remember well, we found the line corresponding to the data we want:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>div class<span class="ot">=</span><span class="st">"part_list_2"</span><span class="sc">&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>h3<span class="sc">&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>span class<span class="ot">=</span><span class="st">"date"</span><span class="sc">&gt;</span><span class="dv">2024</span><span class="sc">/</span><span class="dv">10</span><span class="sc">/</span><span class="dv">28</span> <span class="dv">20</span><span class="sc">:</span><span class="dv">45</span><span class="sc">&lt;</span><span class="er">/</span>span<span class="sc">&gt;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>em class<span class="ot">=</span><span class="st">"tag c_news"</span><span class="sc">&gt;</span>政治<span class="sc">&lt;</span><span class="er">/</span>em<span class="sc">&gt;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>a target<span class="ot">=</span><span class="st">"_blank"</span> href<span class="ot">=</span><span class="st">"https://www.ettoday.net/news/20241028/2843953.htm"</span><span class="sc">&gt;</span>陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;/</span>h3<span class="sc">&gt;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/</span>div<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you need to describe, you have to say something like that:</p>
+<pre><code>"The address of the individual article is listed after the 'href' attribute, which is in the &lt;a&gt; node, which is in the &lt;h3&gt; node, which is in the &lt;div&gt; node whose class is 'part_list_2' ".</code></pre>
+<p>How to translate into R? We will use two functions:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 26%">
+<col style="width: 66%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Use</th>
+<th>Example in our case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>html_nodes()</td>
+<td>Used to identify the elements within a node</td>
+<td><p>html_nodes(“div”) = retrieves all the nodes starting with “div”</p>
+<p>html_nodes(“div.something”) = retrieves only the nodes starting with “div”, where ‘class = “something”’ (in other words, it filters specific “div” nodes)</p></td>
+</tr>
+<tr class="even">
+<td>html_attr()</td>
+<td>Used to identify the content of the specification of a node</td>
+<td><p>html_attr(“class”) = retrieves the element written after “class”. For example, in the case below, it will return “NameOfTheClass”.</p>
+<p>&lt;div class=“NameOfTheClass”&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<p>Now that we know how to use the code, we can translate the description we wrote as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>news_url <span class="ot">&lt;-</span> IndPage <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"div.part_list_2"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"h3"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(news_url)) <span class="co"># Use of the kable() function from the 'knitr' package to have a prettier output on the website</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -889,31 +950,52 @@ What is the concept of for loop?
 </table>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 to 4 minutes</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>URL_IndArticles <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">0</span>))</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(URL_total)){</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  IndPage <span class="ot">&lt;-</span> <span class="fu">read_html</span>(URL_total[i])</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  news_url <span class="ot">&lt;-</span> IndPage <span class="sc">%&gt;%</span> </span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_nodes</span>(<span class="st">"div.part_list_2"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_nodes</span>(<span class="st">"h3"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_nodes</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  news_url <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(news_url)</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  URL_IndArticles <span class="ot">&lt;-</span> <span class="fu">rbind</span>(URL_IndArticles, news_url)</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Think about it
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s say that you wanted the <em>date</em> or the <em>category</em> of the articles, how would you change this code?</p>
+</div>
+</div>
+<ul>
+<li><p>Congratulations! You have the list of the addresses from one page! Now we need to repeat the same process to the other 743 lists… and anytime you need to repeat a task over and over, this means for loop command! Here are the elements we need:</p>
+<ul>
+<li><p>First, we create an empty data frame in which we will store all the web addresses of the individual articles</p></li>
+<li><p><strong>The</strong> <strong>List</strong> is the addresses of the webpages where we can find the individual articles filtered by date and category, which we stores in the variable called “URL_total”,</p></li>
+<li><p><strong>The Action</strong> is to find the web addresses of the individual articles, as we did just before,</p></li>
+<li><p><strong>The Loop</strong> is to perform <strong>the Action</strong> for all the filtered pages, and to paste the individual web addresses in the empty data frame we just created.</p>
+<p>This gives the following code:</p></li>
+</ul></li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>n_occur <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">table</span>(URL_IndArticles<span class="sc">$</span>news_url))</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>Duplicates <span class="ot">&lt;-</span> n_occur[n_occur<span class="sc">$</span>Freq <span class="sc">&gt;</span> <span class="dv">1</span>,]</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>article_overview_unique <span class="ot">&lt;-</span> URL_IndArticles <span class="sc">%&gt;%</span> </span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(news_url) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">1</span>)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(article_overview_unique)) <span class="co"># Use of the kable() function from the 'knitr' package to have a prettier output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## This step can last several minutes</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>URL_IndArticles <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">0</span>))</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(URL_total)){</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  IndPage <span class="ot">&lt;-</span> <span class="fu">read_html</span>(URL_total[i])</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  news_url <span class="ot">&lt;-</span> IndPage <span class="sc">%&gt;%</span> </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_nodes</span>(<span class="st">"div.part_list_2"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_nodes</span>(<span class="st">"h3"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_nodes</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  news_url <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(news_url)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  URL_IndArticles <span class="ot">&lt;-</span> <span class="fu">rbind</span>(URL_IndArticles, news_url)</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We are not completely done. It is possible that for some reasons, some articles are repeated. So the next step is to remove all the repeated web addresses, by keeping only one instance. Here is how we do that: We use the ‘unique()’ function:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>article_overview_unique <span class="ot">&lt;-</span> <span class="fu">unique</span>(URL_IndArticles)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(article_overview_unique)) <span class="co"># Use of the kable() function from the 'knitr' package to have a prettier output on the website</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -923,22 +1005,22 @@ What is the concept of for loop?
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2652951.htm</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655300.htm</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2653322.htm</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655313.htm</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2653406.htm</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655305.htm</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2653538.htm</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655303.htm</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2654400.htm</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655277.htm</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2654433.htm</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655264.htm</td>
 </tr>
 </tbody>
 </table>
@@ -948,44 +1030,44 @@ What is the concept of for loop?
 <section id="step-3-retrieve-the-titles-date-types-and-content-of-the-articles" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="step-3-retrieve-the-titles-date-types-and-content-of-the-articles"><span class="header-section-number">4.5</span> Step 3: Retrieve the titles, date, types and content of the articles</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>OneArticle <span class="ot">&lt;-</span> <span class="fu">read_html</span>(article_overview_unique<span class="sc">$</span>news_url[<span class="dv">1</span>])</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># time of news</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>news_time <span class="ot">&lt;-</span> OneArticle <span class="sc">%&gt;%</span> </span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"time"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#html_nodes(".date") %&gt;%</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># class of news</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>news_class <span class="ot">&lt;-</span> OneArticle <span class="sc">%&gt;%</span> </span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">".part_menu_5"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"strong"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co"># title </span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>news_title <span class="ot">&lt;-</span> OneArticle <span class="sc">%&gt;%</span> </span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"h1"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="co"># content </span></span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>news_body <span class="ot">&lt;-</span> OneArticle <span class="sc">%&gt;%</span> </span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">'div[itemprop="articleBody"]'</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>article <span class="ot">&lt;-</span> (<span class="fu">data.frame</span>(<span class="at">time =</span> news_time,</span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>                       <span class="at">class =</span> news_class,</span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>                       <span class="at">title =</span> news_title,</span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>                       <span class="at">body =</span> news_body,</span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>                       <span class="at">url =</span> article_overview_unique<span class="sc">$</span>news_url[<span class="dv">1</span>]))</span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(article)) <span class="co"># Use of the kable() function from the 'knitr' package to have a prettier output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>OneArticle <span class="ot">&lt;-</span> <span class="fu">read_html</span>(article_overview_unique<span class="sc">$</span>news_url[<span class="dv">1</span>])</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># time of news</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>news_time <span class="ot">&lt;-</span> OneArticle <span class="sc">%&gt;%</span> </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"time"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#html_nodes(".date") %&gt;%</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co"># class of news</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>news_class <span class="ot">&lt;-</span> OneArticle <span class="sc">%&gt;%</span> </span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">".part_menu_5"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"strong"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="co"># title </span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>news_title <span class="ot">&lt;-</span> OneArticle <span class="sc">%&gt;%</span> </span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"h1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a><span class="co"># content </span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>news_body <span class="ot">&lt;-</span> OneArticle <span class="sc">%&gt;%</span> </span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">'div[itemprop="articleBody"]'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>article <span class="ot">&lt;-</span> (<span class="fu">data.frame</span>(<span class="at">time =</span> news_time,</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>                       <span class="at">class =</span> news_class,</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>                       <span class="at">title =</span> news_title,</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>                       <span class="at">body =</span> news_body,</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>                       <span class="at">url =</span> article_overview_unique<span class="sc">$</span>news_url[<span class="dv">1</span>]))</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(article)) <span class="co"># Use of the kable() function from the 'knitr' package to have a prettier output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 1%">
 <col style="width: 0%">
-<col style="width: 5%">
-<col style="width: 87%">
+<col style="width: 4%">
+<col style="width: 88%">
 <col style="width: 4%">
 </colgroup>
 <thead>
@@ -999,70 +1081,71 @@ What is the concept of for loop?
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2023年12月31日 14:02</td>
+<td style="text-align: left;">2024年01月01日 22:47</td>
 <td style="text-align: left;">社會</td>
-<td style="text-align: left;">新北男腦溢血倒警所值班台　警衝百米求助消防分隊！急送醫救回</td>
-<td style="text-align: left;">▲鄭男疑腦溢血跑到派出所求助，警消協力將鄭男送醫急救 。（圖／記者陳以昇翻攝）</td>
+<td style="text-align: left;">日本石川大地震　屏東消防特搜整裝待命隨時馳援</td>
+<td style="text-align: left;">▲屏東縣政府消防局特搜整裝待命隨時馳援日本 。（圖／記者陳崑福翻攝）</td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
-<p>記者陳以昇／新北報導 新北市板橋區一名男子步行時發現身體不適、頭痛欲裂，跑到新海派出所求救，值班台員警才問「你怎麼了？」，男子疑腦血管破裂突然昏倒在地，員警機警直接快跑到旁邊消防隊尋求協助，在4名救護人員協助下，將他送醫急救，經搶救男子甦醒後住院逐漸康復，家屬也對警消協助表達感激。 19日晚間9時許，48歲鄭姓男子單手捂著頭步行走進海山警分局新海派出所值班台，另一手扶著值班櫃台表情痛苦，值班員警詢問「你怎麼了？人不舒服嗎？」，鄭男點點頭，隨即因腦血管破裂直接昏倒在地，員警立即跟同仁示意，快跑到旁邊海山消防分隊求助。 4名消防救護人員推著擔架到場，對鄭男進行檢傷，隨即將他扶上擔架送醫急救，經亞東醫院進行救治後無生命危險，住院後逐漸康復，家屬事後也十分感謝警消人員的積極協助，分局長王鴻儒表示，天氣低溫驟降，民眾應留意身體狀況，尤其是高血壓、心臟病及糖尿病患者；如遇突發緊急狀況，可撥打119或110專線，警消同仁會立即到場，提供適切的協助。 ▼警消協力將鄭男送醫急救 。（圖／記者陳以昇翻攝，下同） |https://www.ettoday.net/news/20231231/2652951.htm |</p>
+<p>記者陳崑福／屏東報導 日本石川縣在台灣時間1日15點10分發生芮氏規模7.5級強震，造成房屋倒塌、停電，屏東縣長周春米立即指示消防局搜救隊整裝待發，今天21時許出發前往南投竹山集結，準備前往日本支援救災。周春米親自授旗並慰勉，表達此次日本震災如需國際援助，一定盡最大努力予以協助及救援。</p>
+<p>周春米表示，1日日本石川縣強震，多棟房屋倒塌，3萬6千多戶停電，屏東聞訊馬上整裝待發，晚間接獲消防署的通知，立即前往竹山會合，外交部一通知馬上可以啟程出發日本，最專業最友好的救援，勉勵40人特搜團隊一路平安，貢獻專業，做最好的救援。 屏東縣政府消防局表示，屏東縣國際人道救援隊在最短時間內集結包括醫師、護理師合計40名，救援人員（包括醫師、護理師）、整備各式裝備器材共計3噸重，確保可以應對國際間的各種災難，與消防署聯繫後，於1日21時出發至南投竹山消防署訓練中心集結待命。 由於目前尚未收到外交部正式通知，屏東搜救隊已經做好了全面準備的救援請求，隨時準備應對日本方面的任何支援需求，以便快速抵達災區執行救援任務。 |https://www.ettoday.net/news/20240101/2655300.htm |</p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Article_total <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(article_overview_unique<span class="sc">$</span>news_url)){</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    temp <span class="ot">&lt;-</span> <span class="fu">read_html</span>(article_overview_unique<span class="sc">$</span>news_url[j])</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># time of news</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    news_time <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> </span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">"time"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># class of news</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    news_class <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> </span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">".part_menu_5"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">"strong"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># title </span></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    news_title <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> </span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">"h1"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># content </span></span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>    news_body <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> </span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">'div[itemprop="articleBody"]'</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># url</span></span>
-<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>    news_url <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> </span>
-<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">"div.block div.block_content div.part_list_2 h3"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span>
-<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>    Article <span class="ot">&lt;-</span> (<span class="fu">data.frame</span>(<span class="at">time =</span> news_time,</span>
-<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>                           <span class="at">class =</span> news_class,</span>
-<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>                           <span class="at">title =</span> news_title,</span>
-<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>                           <span class="at">body =</span> news_body,</span>
-<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>                           <span class="at">url =</span> article_overview_unique<span class="sc">$</span>news_url[<span class="dv">1</span>]))</span>
-<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>    Article_total <span class="ot">&lt;-</span> <span class="fu">rbind</span>(Article_total, Article)</span>
-<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error=</span><span class="cf">function</span>(e){<span class="fu">cat</span>(<span class="st">"ERROR :"</span>,<span class="fu">conditionMessage</span>(e), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)})</span>
-<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(Article_total)) <span class="co"># Use of the kable() function from the 'knitr' package to have a prettier output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Article_total <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(article_overview_unique<span class="sc">$</span>news_url)){</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    temp <span class="ot">&lt;-</span> <span class="fu">read_html</span>(article_overview_unique<span class="sc">$</span>news_url[j])</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># time of news</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    news_time <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> </span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">"time"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># class of news</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    news_class <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> </span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">".part_menu_5"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">"strong"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># title </span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    news_title <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> </span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">"h1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># content </span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>    news_body <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> </span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">'div[itemprop="articleBody"]'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># url</span></span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>    news_url <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> </span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">"div.block div.block_content div.part_list_2 h3"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>    Article <span class="ot">&lt;-</span> (<span class="fu">data.frame</span>(<span class="at">time =</span> news_time,</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>                           <span class="at">class =</span> news_class,</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>                           <span class="at">title =</span> news_title,</span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>                           <span class="at">body =</span> news_body,</span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>                           <span class="at">url =</span> article_overview_unique<span class="sc">$</span>news_url[<span class="dv">1</span>]))</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>    Article_total <span class="ot">&lt;-</span> <span class="fu">rbind</span>(Article_total, Article)</span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error=</span><span class="cf">function</span>(e){<span class="fu">cat</span>(<span class="st">"ERROR :"</span>,<span class="fu">conditionMessage</span>(e), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)})</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(Article_total)) <span class="co"># Use of the kable() function from the 'knitr' package to have a prettier output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="step-4-save-the-data-into-excel-and-r-files" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="step-4-save-the-data-into-excel-and-r-files"><span class="header-section-number">4.6</span> Step 4: Save the data into Excel and R files</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(Article_total, <span class="st">"ArticleETToday_CorpusCourse.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(Article_total, <span class="st">"ArticleETToday_CorpusCourse.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Article_total, <span class="at">file =</span> <span class="st">"ArticleETToday_CorpusCourse.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Article_total, <span class="at">file =</span> <span class="st">"ArticleETToday_CorpusCourse.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
