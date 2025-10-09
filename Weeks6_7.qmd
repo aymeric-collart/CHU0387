@@ -633,7 +633,7 @@ for (j in 1:length(article_overview_unique$news_url)){
                            class = news_class,
                            title = news_title,
                            body = news_body,
-                           url = article_overview_unique$news_url[1]))
+                           url = article_overview_unique$news_url[j]))
     Article_total <- rbind(Article_total, Article)
   }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
 }
