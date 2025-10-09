@@ -642,15 +642,8 @@ for (j in 1:length(article_overview_unique$news_url)){
 rmarkdown::paged_table(Article_total)
 ```
 
-::: {.callout-warning icon="false"}
-## Objectives
 
-These two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.
-:::
-
-## 
-
-::: {.callout-danger icon="false"}
+::: {.callout-important}
 ## Be careful!!
 
 This step can take a very long time! For me, scrapping the articles published in 2024 in these two categories can take 4 hours!

@@ -325,9 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#test-with-one-article" id="toc-test-with-one-article" class="nav-link" data-scroll-target="#test-with-one-article">Test with one article</a></li>
   <li><a href="#repeat-the-same-process-with-all-the-articles" id="toc-repeat-the-same-process-with-all-the-articles" class="nav-link" data-scroll-target="#repeat-the-same-process-with-all-the-articles">Repeat the same process with all the articles</a></li>
   </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">4.6</span> </a></li>
-  <li><a href="#be-careful" id="toc-be-careful" class="nav-link" data-scroll-target="#be-careful"><span class="header-section-number">4.7</span> Be careful!!</a></li>
-  <li><a href="#step-4-save-the-data-into-excel-and-r-files" id="toc-step-4-save-the-data-into-excel-and-r-files" class="nav-link" data-scroll-target="#step-4-save-the-data-into-excel-and-r-files"><span class="header-section-number">4.8</span> Step 4: Save the data into Excel and R files</a></li>
+  <li><a href="#step-4-save-the-data-into-excel-and-r-files" id="toc-step-4-save-the-data-into-excel-and-r-files" class="nav-link" data-scroll-target="#step-4-save-the-data-into-excel-and-r-files"><span class="header-section-number">4.6</span> Step 4: Save the data into Excel and R files</a></li>
   </ul></li>
   <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">5</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
   </ul>
@@ -416,8 +414,8 @@ More about ETtoday (source: Wikipedia)
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-efe11ec0e4d600ffc354" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-efe11ec0e4d600ffc354">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-aa02f437f161209a458b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-aa02f437f161209a458b">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
@@ -1167,30 +1165,23 @@ Think about it
 <span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Use of the paged_table() function from the 'rmarkdown' package to have a readable output</span></span>
 <span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(Article_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Objectives
+Be careful!!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="section" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="section"><span class="header-section-number">4.6</span> </h2>
-</section>
-<section id="be-careful" class="level2 callout-danger" data-icon="false" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="be-careful"><span class="header-section-number">4.7</span> Be careful!!</h2>
 <p>This step can take a very long time! For me, scrapping the articles published in 2024 in these two categories can take 4 hours! You cannot use R when it is working. But you can still use your computer for any other task. So plan accordingly!</p>
+</div>
+</div>
 </section>
-<section id="step-4-save-the-data-into-excel-and-r-files" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="step-4-save-the-data-into-excel-and-r-files"><span class="header-section-number">4.8</span> Step 4: Save the data into Excel and R files</h2>
+</section>
+<section id="step-4-save-the-data-into-excel-and-r-files" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="step-4-save-the-data-into-excel-and-r-files"><span class="header-section-number">4.6</span> Step 4: Save the data into Excel and R files</h2>
 <p>The last steps are straightforward: We export the dataset into an Excel document in addition to an RData file:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(Article_total, <span class="st">"ArticleETToday_CorpusCourse.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
