@@ -595,7 +595,7 @@ And if you were following the rationale of these two weeks' tutorial, you know t
 
         This gives the following code:
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 Article_total <- data.frame()
 
 for (j in 1:length(article_overview_unique$news_url)){
@@ -639,7 +639,7 @@ for (j in 1:length(article_overview_unique$news_url)){
 }
 
 # Use of the paged_table() function from the 'rmarkdown' package to have a readable output
-rmarkdown::paged_table(Article_total)
+rmarkdown::paged_table(head(Article_total))
 ```
 
 
