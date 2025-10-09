@@ -474,7 +474,7 @@ Let's say that you wanted the *date* or the *category* of the articles, how woul
 
     -   First, we create an empty data frame in which we will store all the web addresses of the individual articles
 
-    -   **The** **List** is the addresses of the webpages where we can find the individual articles filtered by date and category, which we stores in the variable called "URL_total",
+    -   **The** **List** is the addresses of the webpages where we can find the individual articles filtered by date and category, which we stored in the variable called "URL_total",
 
     -   **The Action** is to find the web addresses of the individual articles, as we did just before,
 
@@ -511,16 +511,37 @@ knitr::kable(head(article_overview_unique)) # Use of the kable() function from t
 
 We are already half-way to the end! Now that we have the list of the web addresses of the articles published in 2024, we can scrape their content in addition to other information we might need, including the date of publication and the title of the article.
 
+### Test with one article
+
+As in the previous step, it is safer to test first with one article. The reason is that as some steps require quite a long time to be completed, so it is better to identify potential problems before by testing with only one subset of the data. Again, we have to go through different sub-steps:
+
+-   First, we use the "read_html()" function to read the structure of the web page of one article:
+
 ```{r}
 OneArticle <- read_html(article_overview_unique$news_url[1])
+```
 
-# time of news
+-   After "playing hide and seek" with the structure of the page, we can identify the nodes under which the content we want can be found. Let's start with the date of publication, which is here:
+
+```{r, eval = FALSE}
+<time class="date" itemprop="datePublished" datetime="2024-01-01T22:47:00+08:00">                                    2024年01月01日 22:47                                       </time>
+```
+
+We can see that it is inside the \<time\> node (between \<time\> and \</time\>). Therefore, in addition to the "html_nodes()" function, we specify that we want the text within, hence the use of "html_text()" function. The option "trim = TRUE" is just to remove coding format in the text.
+
+Finally, we store this piece of information in the variable called "news_time".
+
+```{r}
+# Date of publication
 news_time <- OneArticle %>% 
   html_nodes("time") %>% 
-  #html_nodes(".date") %>%
   html_text(trim = TRUE)
+```
 
-# class of news
+-   And now we proceed the same way for the category of the article, and its title:
+
+```{r}
+# Category of news
 news_class <- OneArticle %>% 
   html_nodes(".part_menu_5") %>% 
   html_nodes("strong") %>%
@@ -535,7 +556,11 @@ news_title <- OneArticle %>%
 news_body <- OneArticle %>% 
   html_nodes('div[itemprop="articleBody"]') %>% 
   html_text(trim = TRUE)
+```
 
+-   Once it is done, we store these five variables in the same table:
+
+```{r}
 article <- (data.frame(time = news_time,
                        class = news_class,
                        title = news_title,
@@ -543,17 +568,32 @@ article <- (data.frame(time = news_time,
                        url = article_overview_unique$news_url[1]))
 ```
 
-```{r, echo=FALSE}
-#article$body <- gsub('[\r]', '', article$body)
-#article$body <- gsub('[\n]', '', article$body)
-```
-
-And now we can have a look at what we get with one article:
+-   And now we can have a look at what we get with one article:
 
 ```{r}
 # Use of the paged_table() function from the 'rmarkdown' package to have a readable output
 rmarkdown::paged_table(article)
 ```
+
+### Repeat the same process with all the articles
+
+And if you were following the rationale of these two weeks' tutorial, you know that when we repeat the same action again and again, it is a better idea to use the for loop command:
+
+-   First, we create an empty data frame in which we will store all the information we want. Let's call it "Article_total".
+
+-   **The** **List** is the addresses of the individual articles, which we stored in the variable called "article_overview_unique\$news_url",
+
+-   **The Action** is to find the date of publication, the category of article, the content of the article, its title, and its web address, as we did just before,
+
+-   **The Loop** is to perform **the Action** for individual articles, and to include them in the empty data frame we just created.
+
+-   You will remark something new: "tryCatch({", and at the end "}, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})". This is because the for loop command stops anytime an error occurs (which can happen with a broken link, missing information on one article, etc.).
+
+    -   Wrapping the Action with the "tryCatch({})" function is just to say that the for loop can ignore the errors and keep proceeding to the next article,
+
+    -   The "error=function(e){cat("ERROR :",conditionMessage(e), "\n")})" part is just to report the error message in the console.
+
+        This gives the following code:
 
 ```{r, eval=FALSE}
 Article_total <- data.frame()
@@ -562,12 +602,12 @@ for (j in 1:length(article_overview_unique$news_url)){
   tryCatch({
     temp <- read_html(article_overview_unique$news_url[j])
     
-    # time of news
+    # Date of publication
     news_time <- temp %>% 
       html_nodes("time") %>% 
       html_text(trim = TRUE)
     
-    # class of news
+    # Category of news
     news_class <- temp %>% 
       html_nodes(".part_menu_5") %>% 
       html_nodes("strong") %>%
@@ -598,10 +638,28 @@ for (j in 1:length(article_overview_unique$news_url)){
   }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
 }
 
-knitr::kable(head(Article_total)) # Use of the kable() function from the 'knitr' package to have a prettier output
+# Use of the paged_table() function from the 'rmarkdown' package to have a readable output
+rmarkdown::paged_table(Article_total)
 ```
 
+::: {.callout-warning icon="false"}
+## Objectives
+
+These two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.
+:::
+
+## 
+
+::: {.callout-danger icon="false"}
+## Be careful!!
+
+This step can take a very long time! For me, scrapping the articles published in 2024 in these two categories can take 4 hours!
+You cannot use R when it is working. But you can still use your computer for any other task. So plan accordingly!
+:::
+
 ## Step 4: Save the data into Excel and R files
+
+The last steps are straightforward: We export the dataset into an Excel document in addition to an RData file:
 
 ```{r, eval=FALSE}
 write.xlsx(Article_total, "ArticleETToday_CorpusCourse.xlsx")
