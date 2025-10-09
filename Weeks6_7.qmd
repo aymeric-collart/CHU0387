@@ -544,15 +544,15 @@ article <- (data.frame(time = news_time,
 ```
 
 ```{r, echo=FALSE}
-article$body <- gsub('[\r]', '', article$body)
-article$body <- gsub('[\n]', '', article$body)
+#article$body <- gsub('[\r]', '', article$body)
+#article$body <- gsub('[\n]', '', article$body)
 ```
 
 And now we can have a look at what we get with one article:
 
 ```{r}
-# Use of the kable() function from the 'knitr' package to have a prettier output
-head(article)
+# Use of the paged_table() function from the 'rmarkdown' package to have a readable output
+rmarkdown::paged_table(article)
 ```
 
 ```{r, eval=FALSE}
