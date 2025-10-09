@@ -552,10 +552,7 @@ And now we can have a look at what we get with one article:
 
 ```{r}
 # Use of the kable() function from the 'knitr' package to have a prettier output
-Example <- knitr::kable(head(article)) %>% 
-  kableExtra::kable_paper("striped" , full_width = F) %>%
-  kableExtra::column_spec(3, width = "5em")
-Example
+head(article)
 ```
 
 ```{r, eval=FALSE}
