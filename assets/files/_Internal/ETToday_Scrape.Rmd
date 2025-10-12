@@ -5,6 +5,8 @@ date: "2025-10-02"
 header-includes:
   - \usepackage{fontspec} # use fontspec package
   - \usepackage{xeCJK}    # use xeCJK package
+  - \usepackage{fvextra}  # use fvertra package
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}} #break lines when they are too long in the PDF output
 output:
   pdf_document:
     latex_engine: xelatex
@@ -102,12 +104,7 @@ for (i in 1:length(URL_total)){
 ### 2.2.3 Check for repeated URLs
 
 ```{r}
-n_occur <- data.frame(table(URL_IndArticles$news_url))
-Duplicates <- n_occur[n_occur$Freq > 1,]
-
-article_overview_unique <- URL_IndArticles %>% 
-  group_by(news_url) %>% 
-  slice_sample(n = 1)
+article_overview_unique <- unique(URL_IndArticles)
 
 head(article_overview_unique)
 ```
@@ -190,7 +187,7 @@ for (j in 1:length(article_overview_unique$news_url)){
                            class = news_class,
                            title = news_title,
                            body = news_body,
-                           url = article_overview_unique$news_url[1]))
+                           url = article_overview_unique$news_url[j]))
     Article_total <- rbind(Article_total, Article)
   }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
 }
