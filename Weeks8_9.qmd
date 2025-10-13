@@ -25,4 +25,54 @@ hr.rounded {
 These two weeks, you will learn how to use R to build a corpus from online literature sources.
 :::
 
-[Page to be completed later]
+# Building your own corpus again: What you need to know
+
+These two weeks are dedicated to building your corpus covering books from the classic Chinese literature. You may have one question in mind: Why not just using the codes written in Weeks 6 and 7 one more time? Or maybe you are asking yourself whether it is better to redo everuthing from the start. The actual answer is somewhere in between.
+
+::: callout-tip
+## Think about it
+
+Please try to recall what we learned in Weeks 6 and 7, and you will easily understand why the answer is somewhere in between:
+
+-   We wrote the code based on the structure of a specific webpage. But the structure of other websites is very likely to be different. Therefore, it is [**impossible**]{.underline} to use the exact same code!
+
+-   But we can use the same mindset and protocol. It is therefore [**possible**]{.underline} to use the same code, but to adapt the parameters to the new website. we want to use.
+:::
+
+For these two weeks, we are going to use the website called "millionbook" (or in Chinese, 龍勝世紀), where we can find quite a number of books that are HTML-encoded. The website can be accessed here: <https://millionbook.net/>.
+
+# Document your own manual steps
+
+## What is the task
+
+Again, you need to be very clear about what you want to do, and the best way is to start with manually annotating what you want to do.
+
+So here is your task:
+
+1.  Go to the website, and search for the section related to classic Chinese literature. Then act as if you wanted to copy and paste the content of one book, of a second bool, etc.
+
+2.  Describe each step you take to get to the chapters/sections of a book, and document the changes that happen regarding **the address of the website**.
+
+## Documentation of the manual steps
+
+First, you went to the website by clicking on the link, and you looked for the relevant section. Then, you selected one book, and you picked the first chapter. You copied and pasted in a Word or Excel document. Third, you repeated this action with the other chapters, and once you completed the first book, you continued with the second one, third one, etc.
+
+This procedure looks like this:
+
+```{r setup, include = FALSE}
+library(DiagrammeR)
+```
+
+```{r mermaid-example, echo=FALSE, fig.align='center'}
+    mermaid("
+    graph TD
+        A[<i>millionbook</i> website] -- Select classic Chinese books --> B{Filtered books};
+        B --> C[Click on the title of one book];
+        C --> D[Click on one chapter];
+        D --> E[Copy and paste the title of the chapter, and its content into Excel, Word, etc.]
+    ")
+```
+
+Now you can try one more time and pay more attention to **the web address**, and track the changes that occur, as you did in Weeks 6 and 7. You will remark that while the changes make sense (use of the first letter of the romanization of the name of the authors), but it is not an easy task to predict these by yourself.
+
+We have to use an alternative method. If you recall the steps we went through in the past two weeks, we know that ***the web address of the individual books and chapters*** must be somewhere on the website... but where? Again, this is the moment when it is important to **understand the structure of the website**.

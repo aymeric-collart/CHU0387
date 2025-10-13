@@ -642,12 +642,10 @@ for (j in 1:length(article_overview_unique$news_url)){
 rmarkdown::paged_table(head(Article_total))
 ```
 
-
-::: {.callout-important}
+::: callout-important
 ## Be careful!!
 
-This step can take a very long time! For me, scrapping the articles published in 2024 in these two categories can take 4 hours!
-You cannot use R when it is working. But you can still use your computer for any other task. So plan accordingly!
+This step can take a very long time! For me, scrapping the articles published in 2024 in these two categories can take 4 hours! You cannot use R when it is working. But you can still use your computer for any other task. So plan accordingly!
 :::
 
 ## Step 4: Save the data into Excel and R files

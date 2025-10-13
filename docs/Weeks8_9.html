@@ -67,6 +67,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/d3-3.3.8/d3.min.js"></script>
+<script src="site_libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="site_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+<script src="site_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="site_libs/chromatography-0.1/chromatography.js"></script>
+<script src="site_libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script>
 
 
 </head>
@@ -252,8 +261,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#building-your-own-corpus-again-what-you-need-to-know" id="toc-building-your-own-corpus-again-what-you-need-to-know" class="nav-link active" data-scroll-target="#building-your-own-corpus-again-what-you-need-to-know"><span class="header-section-number">1</span> Building your own corpus again: What you need to know</a></li>
+  <li><a href="#document-your-own-manual-steps" id="toc-document-your-own-manual-steps" class="nav-link" data-scroll-target="#document-your-own-manual-steps"><span class="header-section-number">2</span> Document your own manual steps</a>
+  <ul class="collapse">
+  <li><a href="#what-is-the-task" id="toc-what-is-the-task" class="nav-link" data-scroll-target="#what-is-the-task"><span class="header-section-number">2.1</span> What is the task</a></li>
+  <li><a href="#documentation-of-the-manual-steps" id="toc-documentation-of-the-manual-steps" class="nav-link" data-scroll-target="#documentation-of-the-manual-steps"><span class="header-section-number">2.2</span> Documentation of the manual steps</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -297,9 +317,55 @@ Objectives
 <p>These two weeks, you will learn how to use R to build a corpus from online literature sources.</p>
 </div>
 </div>
-<p>[Page to be completed later]</p>
+<section id="building-your-own-corpus-again-what-you-need-to-know" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Building your own corpus again: What you need to know</h1>
+<p>These two weeks are dedicated to building your corpus covering books from the classic Chinese literature. You may have one question in mind: Why not just using the codes written in Weeks 6 and 7 one more time? Or maybe you are asking yourself whether it is better to redo everuthing from the start. The actual answer is somewhere in between.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Think about it
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please try to recall what we learned in Weeks 6 and 7, and you will easily understand why the answer is somewhere in between:</p>
+<ul>
+<li><p>We wrote the code based on the structure of a specific webpage. But the structure of other websites is very likely to be different. Therefore, it is <u><strong>impossible</strong></u> to use the exact same code!</p></li>
+<li><p>But we can use the same mindset and protocol. It is therefore <u><strong>possible</strong></u> to use the same code, but to adapt the parameters to the new website. we want to use.</p></li>
+</ul>
+</div>
+</div>
+<p>For these two weeks, we are going to use the website called “millionbook” (or in Chinese, 龍勝世紀), where we can find quite a number of books that are HTML-encoded. The website can be accessed here: <a href="https://millionbook.net/" class="uri">https://millionbook.net/</a>.</p>
+</section>
+<section id="document-your-own-manual-steps" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Document your own manual steps</h1>
+<section id="what-is-the-task" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="what-is-the-task"><span class="header-section-number">2.1</span> What is the task</h2>
+<p>Again, you need to be very clear about what you want to do, and the best way is to start with manually annotating what you want to do.</p>
+<p>So here is your task:</p>
+<ol type="1">
+<li><p>Go to the website, and search for the section related to classic Chinese literature. Then act as if you wanted to copy and paste the content of one book, of a second bool, etc.</p></li>
+<li><p>Describe each step you take to get to the chapters/sections of a book, and document the changes that happen regarding <strong>the address of the website</strong>.</p></li>
+</ol>
+</section>
+<section id="documentation-of-the-manual-steps" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="documentation-of-the-manual-steps"><span class="header-section-number">2.2</span> Documentation of the manual steps</h2>
+<p>First, you went to the website by clicking on the link, and you looked for the relevant section. Then, you selected one book, and you picked the first chapter. You copied and pasted in a Word or Excel document. Third, you repeated this action with the other chapters, and once you completed the first book, you continued with the second one, third one, etc.</p>
+<p>This procedure looks like this:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-b73d87b9ced8c164f1a9" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-b73d87b9ced8c164f1a9">{"x":{"diagram":"\n    graph TD\n        A[<i>millionbook<\/i> website] -- Select classic Chinese books --> B{Filtered books};\n        B --> C[Click on the title of one book];\n        C --> D[Click on one chapter];\n        D --> E[Copy and paste the title of the chapter, and its content into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Now you can try one more time and pay more attention to <strong>the web address</strong>, and track the changes that occur, as you did in Weeks 6 and 7. You will remark that while the changes make sense (use of the first letter of the romanization of the name of the authors), but it is not an easy task to predict these by yourself.</p>
+<p>We have to use an alternative method. If you recall the steps we went through in the past two weeks, we know that <strong><em>the web address of the individual books and chapters</em></strong> must be somewhere on the website… but where? Again, this is the moment when it is important to <strong>understand the structure of the website</strong>.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
