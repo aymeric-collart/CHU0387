@@ -55,6 +55,8 @@ So here is your task:
 
 ## Documentation of the manual steps
 
+### Accessing the individual books
+
 First, you went to the website by clicking on the link, and you looked for the relevant section. Then, you selected one book, and you picked the first chapter. You copied and pasted in a Word or Excel document. Third, you repeated this action with the other chapters, and once you completed the first book, you continued with the second one, third one, etc.
 
 This procedure looks like this:
@@ -76,3 +78,153 @@ library(DiagrammeR)
 Now you can try one more time and pay more attention to **the web address**, and track the changes that occur, as you did in Weeks 6 and 7. You will remark that while the changes make sense (use of the first letter of the romanization of the name of the authors), but it is not an easy task to predict these by yourself.
 
 We have to use an alternative method. If you recall the steps we went through in the past two weeks, we know that ***the web address of the individual books and chapters*** must be somewhere on the website... but where? Again, this is the moment when it is important to **understand the structure of the website**.
+
+## More about the structure of the website
+
+We are clear about the task now: We want to get the data from classic Chinese books. We could start with the original link of the website, and try to find the link to the webpage by parsing the pages one by one. But sometimes, it is just easier to go manually, so we will directly start from the page listing all the classic Chinese books: <https://millionbook.net/gd/gdxs.html>.
+
+The real game begins: How to find the links to the webpages of the individual books? We know from our manual check in the previous section that we cannot really guess the links. So we have no choice but to look at the structure of the website.
+
+::: callout-tip
+## Do you remember how to access the structure of the website?
+
+This is the same step as in Weeks 6 and 7 described [here](https://aymeric-collart.github.io/CHU0387/Weeks6_7.html#how-to-access-the-structure-of-the-website).
+:::
+
+Once you accessed the structure of the webpage, it is time to play hide and seek and look for one book, let's sat the first one: 紅樓夢 (*Dream of the Red Chamber*). You will find these lines:
+
+```{r, eval=FALSE}
+<TR>
+  <TD WIDTH="33%" class="tt1">
+    <A HREF="c/caoxueqing/hlm/index.html" >紅樓夢</A>(曹雪芹)
+  </TD>
+
+  <TD WIDTH="33%" class="tt1">
+    <B>
+      <A HREF="l/luoguanzhong/index.html" >羅貫中文集</A>
+    </B>
+  </TD>
+
+  <TD WIDTH="33%" class="tt1">
+    <A HREF="s/shinaian/shz/index.html" >水滸傳</A>(施耐庵)
+  </TD>
+</TR>
+```
+
+::: callout-important
+## Pay attention
+
+Each website has its own organization, and here you have an example:
+
+-   Some HTML codes are written in capital letters, but this is not relevant to scrape the data
+
+-   The links to the individual books are shorten, which means that we will have to recreate them
+
+-   The structure is not always consistent, so we need to keep this in mind during the scraping process
+:::
+
+The most challenging part here is the fact the the links are shorten. If you click on them, you actually obtain something like that:
+
+```{r, eval = FALSE}
+https://millionbook.net/gd/c/caoxueqing/hlm/index.html
+```
+
+This will be an additional step to add in the code.
+
+### Accessing the individual chapters
+
+Let's access the first book with the link above. The website looks like that:
+
+![We have a table with the chapter number on the left grey part, and on the right the title of the chapter with the hyperlink. The structure looks like this:](images/clipboard-2371039284.png)
+
+```{r, eval = FALSE}
+<tr>
+  <td>第 一 回&nbsp;</td>
+  <td>
+    <a href="001.htm" >甄士隱夢幻識通靈&nbsp;</a>
+    <br>
+    <a href="001.htm" >賈雨村風塵怀閨秀&nbsp;</a>
+  </td>
+
+  <td>第 二 回&nbsp;</td>
+  <td>
+    <a href="002.htm" >賈夫人仙逝揚州城&nbsp;</a>
+    <br>
+    <a href="002.htm" >冷子興演說榮國府</a>
+  </td>
+</tr>
+```
+
+The \<tr\> and \<td\> elements are here to create the table. \<br\> means "go to the next line", and this is why the titles of the chapters are on two lines on the website.
+
+But you will remark two things when observing the links:
+
+1.  Again, they are shorten. If you click on them, you actually have something like that: <https://millionbook.net/gd/c/caoxueqing/hlm/001.htm>. So we know that this is another link we will have to reconstruct. The good news is that this is very predictable.
+
+2.  The same links appear two times. This will require extra work when writing the code, but we already encountered the same problem in the past two weeks. So nothing impossible to do!
+
+### Accessing the content of the chapter
+
+Let's click on the link to Chapter 1, and let's have a look at the webpage:
+
+![](images/clipboard-1447127949.png)
+
+We have here:
+
+1.  The title of the chapter in red
+
+2.  The text of the chapter in black
+
+3.  Three links leading to the previous chapter, the next chapter and the table of contents in blue
+
+Again, let's look at the structure of the website:
+
+```{r, eval = FALSE}
+<TD class="tt2" bgcolor="#F1F1F3" width="84%">
+  <center>
+    <FONT style="FONT-SIZE: 12pt" COLOR="#FF5555">
+      <B>第一回　甄士隱夢幻識通靈　賈雨村風塵怀閨秀
+      </B>
+  </center>
+    </FONT>
+
+<hr color="#EE9B73" size="1" width="94%">
+  
+<BR>
+　　此開卷第一回也．作者自云：因曾歷過一番夢幻之后，故將真事隱去，而借"通靈"之說，撰此《石頭記》一書也．故曰"甄士隱"云云．但書中所記何事何人？自又云：“今風塵碌碌，一事無成，忽念及當日所有之女子，一一細考較去，覺其行止見識，皆出于我之上．何我堂堂須眉，誠不若彼裙釵哉？實愧則有余，悔又無益之大無可如何之日也！當此，則自欲將已往所賴天恩祖德，錦衣紈褲之時，飫甘饜肥之日，背父兄教育之恩，負師友規談之德，以至今日一技無成，半生潦倒之罪，編述一集，以告天下人：我之罪固不免，然閨閣中本自歷歷有人，万不可因我之不肖，自護己短，一并使其泯滅也．雖今日之茅椽蓬牖，瓦灶繩床，其晨夕風露，階柳庭花，亦未有妨我之襟怀筆墨者．雖我未學，下筆無文，又何妨用假語村言，敷演出一段故事來，亦可使閨閣昭傳，复可悅世之目，破人愁悶，不亦宜乎？"故曰"賈雨村"云云．
+<BR>
+<BR>
+　　此回中凡用“夢”用“幻”等字，是提醒閱者眼目，亦是此書立意本旨．
+<BR>
+<BR>
+　　列位看官：你道此書從何而來？說起根由雖近荒唐，細按則深有趣味．待在下將此來歷注明，方使閱者了然不惑．
+</TD>
+```
+
+There are many things to unpack here:
+
+-   You will remark that the text as within a \<td\>\</td\> element, and its "class" is "tt2"
+
+-   Within this element, you have:
+
+    -   \<center\> and \<font\> elements (not very well organized), and these correspond to the title in red
+
+    -   an \<hr\> element, which correspond to the orange line between the title and the main text
+
+    -   the \<br\> element one more time
+
+    -   and finally the main text, without specific class
+
+::: callout-tip
+## Think about it
+
+The text is therefore directly within the \<td\> element called "tt2". So this is the only way to access the text... but the title is also within this element!
+
+This means that we have no choice but scraping the title of the chapter as well. This is important to note such details as we will have to handle them when preprocessing the data.
+:::
+
+# Scraping the data with R
+
+In the previous sections, we clarified how to access the texts we are interested in, and we documented the challenges we will encounter. Now we are ready to let R do the job for us!
+
+\[Page to complete later\]

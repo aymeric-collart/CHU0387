@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -270,8 +304,17 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#document-your-own-manual-steps" id="toc-document-your-own-manual-steps" class="nav-link" data-scroll-target="#document-your-own-manual-steps"><span class="header-section-number">2</span> Document your own manual steps</a>
   <ul class="collapse">
   <li><a href="#what-is-the-task" id="toc-what-is-the-task" class="nav-link" data-scroll-target="#what-is-the-task"><span class="header-section-number">2.1</span> What is the task</a></li>
-  <li><a href="#documentation-of-the-manual-steps" id="toc-documentation-of-the-manual-steps" class="nav-link" data-scroll-target="#documentation-of-the-manual-steps"><span class="header-section-number">2.2</span> Documentation of the manual steps</a></li>
+  <li><a href="#documentation-of-the-manual-steps" id="toc-documentation-of-the-manual-steps" class="nav-link" data-scroll-target="#documentation-of-the-manual-steps"><span class="header-section-number">2.2</span> Documentation of the manual steps</a>
+  <ul class="collapse">
+  <li><a href="#accessing-the-individual-books" id="toc-accessing-the-individual-books" class="nav-link" data-scroll-target="#accessing-the-individual-books">Accessing the individual books</a></li>
   </ul></li>
+  <li><a href="#more-about-the-structure-of-the-website" id="toc-more-about-the-structure-of-the-website" class="nav-link" data-scroll-target="#more-about-the-structure-of-the-website"><span class="header-section-number">2.3</span> More about the structure of the website</a>
+  <ul class="collapse">
+  <li><a href="#accessing-the-individual-chapters" id="toc-accessing-the-individual-chapters" class="nav-link" data-scroll-target="#accessing-the-individual-chapters">Accessing the individual chapters</a></li>
+  <li><a href="#accessing-the-content-of-the-chapter" id="toc-accessing-the-content-of-the-chapter" class="nav-link" data-scroll-target="#accessing-the-content-of-the-chapter">Accessing the content of the chapter</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#scraping-the-data-with-r" id="toc-scraping-the-data-with-r" class="nav-link" data-scroll-target="#scraping-the-data-with-r"><span class="header-section-number">3</span> Scraping the data with R</a></li>
   </ul>
 </nav>
     </div>
@@ -352,19 +395,177 @@ Think about it
 </section>
 <section id="documentation-of-the-manual-steps" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="documentation-of-the-manual-steps"><span class="header-section-number">2.2</span> Documentation of the manual steps</h2>
+<section id="accessing-the-individual-books" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-the-individual-books">Accessing the individual books</h3>
 <p>First, you went to the website by clicking on the link, and you looked for the relevant section. Then, you selected one book, and you picked the first chapter. You copied and pasted in a Word or Excel document. Third, you repeated this action with the other chapters, and once you completed the first book, you continued with the second one, third one, etc.</p>
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-b73d87b9ced8c164f1a9" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-b73d87b9ced8c164f1a9">{"x":{"diagram":"\n    graph TD\n        A[<i>millionbook<\/i> website] -- Select classic Chinese books --> B{Filtered books};\n        B --> C[Click on the title of one book];\n        C --> D[Click on one chapter];\n        D --> E[Copy and paste the title of the chapter, and its content into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-d82d2681ae18501ef82b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d82d2681ae18501ef82b">{"x":{"diagram":"\n    graph TD\n        A[<i>millionbook<\/i> website] -- Select classic Chinese books --> B{Filtered books};\n        B --> C[Click on the title of one book];\n        C --> D[Click on one chapter];\n        D --> E[Copy and paste the title of the chapter, and its content into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now you can try one more time and pay more attention to <strong>the web address</strong>, and track the changes that occur, as you did in Weeks 6 and 7. You will remark that while the changes make sense (use of the first letter of the romanization of the name of the authors), but it is not an easy task to predict these by yourself.</p>
 <p>We have to use an alternative method. If you recall the steps we went through in the past two weeks, we know that <strong><em>the web address of the individual books and chapters</em></strong> must be somewhere on the website… but where? Again, this is the moment when it is important to <strong>understand the structure of the website</strong>.</p>
-
-
 </section>
+</section>
+<section id="more-about-the-structure-of-the-website" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="more-about-the-structure-of-the-website"><span class="header-section-number">2.3</span> More about the structure of the website</h2>
+<p>We are clear about the task now: We want to get the data from classic Chinese books. We could start with the original link of the website, and try to find the link to the webpage by parsing the pages one by one. But sometimes, it is just easier to go manually, so we will directly start from the page listing all the classic Chinese books: <a href="https://millionbook.net/gd/gdxs.html" class="uri">https://millionbook.net/gd/gdxs.html</a>.</p>
+<p>The real game begins: How to find the links to the webpages of the individual books? We know from our manual check in the previous section that we cannot really guess the links. So we have no choice but to look at the structure of the website.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Do you remember how to access the structure of the website?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is the same step as in Weeks 6 and 7 described <a href="https://aymeric-collart.github.io/CHU0387/Weeks6_7.html#how-to-access-the-structure-of-the-website">here</a>.</p>
+</div>
+</div>
+<p>Once you accessed the structure of the webpage, it is time to play hide and seek and look for one book, let’s sat the first one: 紅樓夢 (<em>Dream of the Red Chamber</em>). You will find these lines:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>TR<span class="sc">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>TD WIDTH<span class="ot">=</span><span class="st">"33%"</span> class<span class="ot">=</span><span class="st">"tt1"</span><span class="sc">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>A HREF<span class="ot">=</span><span class="st">"c/caoxueqing/hlm/index.html"</span> <span class="sc">&gt;</span>紅樓夢<span class="sc">&lt;</span><span class="er">/</span>A<span class="sc">&gt;</span>(曹雪芹)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span><span class="er">/</span>TD<span class="sc">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>TD WIDTH<span class="ot">=</span><span class="st">"33%"</span> class<span class="ot">=</span><span class="st">"tt1"</span><span class="sc">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>B<span class="sc">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="er">&lt;</span>A HREF<span class="ot">=</span><span class="st">"l/luoguanzhong/index.html"</span> <span class="sc">&gt;</span>羅貫中文集<span class="sc">&lt;</span><span class="er">/</span>A<span class="sc">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;/</span>B<span class="sc">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;/</span>TD<span class="sc">&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>TD WIDTH<span class="ot">=</span><span class="st">"33%"</span> class<span class="ot">=</span><span class="st">"tt1"</span><span class="sc">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>A HREF<span class="ot">=</span><span class="st">"s/shinaian/shz/index.html"</span> <span class="sc">&gt;</span>水滸傳<span class="sc">&lt;</span><span class="er">/</span>A<span class="sc">&gt;</span>(施耐庵)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span><span class="er">/</span>TD<span class="sc">&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/</span>TR<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pay attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each website has its own organization, and here you have an example:</p>
+<ul>
+<li><p>Some HTML codes are written in capital letters, but this is not relevant to scrape the data</p></li>
+<li><p>The links to the individual books are shorten, which means that we will have to recreate them</p></li>
+<li><p>The structure is not always consistent, so we need to keep this in mind during the scraping process</p></li>
+</ul>
+</div>
+</div>
+<p>The most challenging part here is the fact the the links are shorten. If you click on them, you actually obtain something like that:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>millionbook.net<span class="sc">/</span>gd<span class="sc">/</span>c<span class="sc">/</span>caoxueqing<span class="sc">/</span>hlm<span class="sc">/</span>index.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will be an additional step to add in the code.</p>
+<section id="accessing-the-individual-chapters" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-the-individual-chapters">Accessing the individual chapters</h3>
+<p>Let’s access the first book with the link above. The website looks like that:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2371039284.png" class="img-fluid figure-img"></p>
+<figcaption>We have a table with the chapter number on the left grey part, and on the right the title of the chapter with the hyperlink. The structure looks like this:</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>tr<span class="sc">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>td<span class="sc">&gt;</span>第 一 回<span class="sc">&amp;</span>nbsp;<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>td<span class="sc">&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">"001.htm"</span> <span class="sc">&gt;</span>甄士隱夢幻識通靈<span class="sc">&amp;</span>nbsp;<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>br<span class="sc">&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">"001.htm"</span> <span class="sc">&gt;</span>賈雨村風塵怀閨秀<span class="sc">&amp;</span>nbsp;<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;/</span>td<span class="sc">&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>td<span class="sc">&gt;</span>第 二 回<span class="sc">&amp;</span>nbsp;<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>td<span class="sc">&gt;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">"002.htm"</span> <span class="sc">&gt;</span>賈夫人仙逝揚州城<span class="sc">&amp;</span>nbsp;<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>br<span class="sc">&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">"002.htm"</span> <span class="sc">&gt;</span>冷子興演說榮國府<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;/</span>td<span class="sc">&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The &lt;tr&gt; and &lt;td&gt; elements are here to create the table. &lt;br&gt; means “go to the next line”, and this is why the titles of the chapters are on two lines on the website.</p>
+<p>But you will remark two things when observing the links:</p>
+<ol type="1">
+<li><p>Again, they are shorten. If you click on them, you actually have something like that: <a href="https://millionbook.net/gd/c/caoxueqing/hlm/001.htm" class="uri">https://millionbook.net/gd/c/caoxueqing/hlm/001.htm</a>. So we know that this is another link we will have to reconstruct. The good news is that this is very predictable.</p></li>
+<li><p>The same links appear two times. This will require extra work when writing the code, but we already encountered the same problem in the past two weeks. So nothing impossible to do!</p></li>
+</ol>
+</section>
+<section id="accessing-the-content-of-the-chapter" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-the-content-of-the-chapter">Accessing the content of the chapter</h3>
+<p>Let’s click on the link to Chapter 1, and let’s have a look at the webpage:</p>
+<p><img src="images/clipboard-1447127949.png" class="img-fluid"></p>
+<p>We have here:</p>
+<ol type="1">
+<li><p>The title of the chapter in red</p></li>
+<li><p>The text of the chapter in black</p></li>
+<li><p>Three links leading to the previous chapter, the next chapter and the table of contents in blue</p></li>
+</ol>
+<p>Again, let’s look at the structure of the website:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>TD class<span class="ot">=</span><span class="st">"tt2"</span> bgcolor<span class="ot">=</span><span class="st">"#F1F1F3"</span> width<span class="ot">=</span><span class="st">"84%"</span><span class="sc">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>center<span class="sc">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>FONT style<span class="ot">=</span><span class="st">"FONT-SIZE: 12pt"</span> COLOR<span class="ot">=</span><span class="st">"#FF5555"</span><span class="sc">&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      <span class="er">&lt;</span>B<span class="sc">&gt;</span>第一回　甄士隱夢幻識通靈　賈雨村風塵怀閨秀</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="sc">&lt;</span><span class="er">/</span>B<span class="sc">&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;/</span>center<span class="sc">&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;/</span>FONT<span class="sc">&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>hr color<span class="ot">=</span><span class="st">"#EE9B73"</span> size<span class="ot">=</span><span class="st">"1"</span> width<span class="ot">=</span><span class="st">"94%"</span><span class="sc">&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>BR<span class="sc">&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>　　此開卷第一回也．作者自云：因曾歷過一番夢幻之后，故將真事隱去，而借<span class="st">"通靈"</span>之說，撰此《石頭記》一書也．故曰<span class="st">"甄士隱"</span>云云．但書中所記何事何人？自又云：“今風塵碌碌，一事無成，忽念及當日所有之女子，一一細考較去，覺其行止見識，皆出于我之上．何我堂堂須眉，誠不若彼裙釵哉？實愧則有余，悔又無益之大無可如何之日也！當此，則自欲將已往所賴天恩祖德，錦衣紈褲之時，飫甘饜肥之日，背父兄教育之恩，負師友規談之德，以至今日一技無成，半生潦倒之罪，編述一集，以告天下人：我之罪固不免，然閨閣中本自歷歷有人，万不可因我之不肖，自護己短，一并使其泯滅也．雖今日之茅椽蓬牖，瓦灶繩床，其晨夕風露，階柳庭花，亦未有妨我之襟怀筆墨者．雖我未學，下筆無文，又何妨用假語村言，敷演出一段故事來，亦可使閨閣昭傳，复可悅世之目，破人愁悶，不亦宜乎？<span class="st">"故曰"</span>賈雨村<span class="st">"云云．</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;BR&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;BR&gt;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="st">　　此回中凡用“夢”用“幻”等字，是提醒閱者眼目，亦是此書立意本旨．</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;BR&gt;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;BR&gt;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="st">　　列位看官：你道此書從何而來？說起根由雖近荒唐，細按則深有趣味．待在下將此來歷注明，方使閱者了然不惑．</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/TD&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There are many things to unpack here:</p>
+<ul>
+<li><p>You will remark that the text as within a &lt;td&gt;&lt;/td&gt; element, and its “class” is “tt2”</p></li>
+<li><p>Within this element, you have:</p>
+<ul>
+<li><p>&lt;center&gt; and &lt;font&gt; elements (not very well organized), and these correspond to the title in red</p></li>
+<li><p>an &lt;hr&gt; element, which correspond to the orange line between the title and the main text</p></li>
+<li><p>the &lt;br&gt; element one more time</p></li>
+<li><p>and finally the main text, without specific class</p></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Think about it
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The text is therefore directly within the &lt;td&gt; element called “tt2”. So this is the only way to access the text… but the title is also within this element!</p>
+<p>This means that we have no choice but scraping the title of the chapter as well. This is important to note such details as we will have to handle them when preprocessing the data.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="scraping-the-data-with-r" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Scraping the data with R</h1>
+<p>In the previous sections, we clarified how to access the texts we are interested in, and we documented the challenges we will encounter. Now we are ready to let R do the job for us!</p>
+<p>[Page to complete later]</p>
+
+
 </section>
 
 </main> <!-- /main -->
