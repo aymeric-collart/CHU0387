@@ -64,6 +64,10 @@ for (a in 1:length(Category_total)){
 URL_total <- as.character(URL_total$URL_temp)
 
 head(URL_total)
+
+## You can run the following line for a much faster process, but you won't have a lot of data.
+## I recommend running the following line for your homework.
+#URL_total <- head(URL_total, 1)
 ```
 
 ## 2.2. Retrieve the URLs of the individual articles
