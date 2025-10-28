@@ -413,8 +413,8 @@ Think about it
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7a31bf2ec42924d99325" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-7a31bf2ec42924d99325">{"x":{"diagram":"\n    graph TD\n        A[<i>millionbook<\/i> website] -- Select classic Chinese books --> B{Filtered books};\n        B --> C[Click on the title of one book];\n        C --> D[Click on one chapter];\n        D --> E[Copy and paste the title of the chapter, and its content into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-b5f607e7a4e0267152dd" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-b5f607e7a4e0267152dd">{"x":{"diagram":"\n    graph TD\n        A[<i>millionbook<\/i> website] -- Select classic Chinese books --> B{Filtered books};\n        B --> C[Click on the title of one book];\n        C --> D[Click on one chapter];\n        D --> E[Copy and paste the title of the chapter, and its content into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now you can try one more time and pay more attention to <strong>the web address</strong>, and track the changes that occur, as you did in Weeks 6 and 7. You will remark that while the changes make sense (use of the first letter of the romanization of the name of the authors), but it is not an easy task to predict these by yourself.</p>
@@ -595,6 +595,32 @@ Think about it
 <p>This section is the core of the script, performing the actual data extraction from the website.</p>
 <section id="list-the-urls-of-the-chinese-classic-books" class="level3">
 <h3 class="anchored" data-anchor-id="list-the-urls-of-the-chinese-classic-books">List the URLs of the Chinese classic books</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PageUrl <span class="ot">&lt;-</span> <span class="st">"https://millionbook.net/gd/gdxs.html"</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>PageClassChinLit <span class="ot">&lt;-</span> <span class="fu">read_html</span>(PageUrl)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ListBooks <span class="ot">&lt;-</span> PageClassChinLit <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">".tt1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ListBooks <span class="ot">&lt;-</span> ListBooks[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">90</span>)] <span class="co"># Remove blank one</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ListURL <span class="ot">&lt;-</span> PageClassChinLit <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">".tt1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>ListBooks <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(ListBooks)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>ListBooks<span class="sc">$</span>ListURL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://millionbook.net/gd/"</span>, ListURL)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Check if books finish with "index.html"</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>ListBooks<span class="sc">$</span>has_index <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(ListBooks<span class="sc">$</span>ListURL, <span class="st">"index.html"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove books without index (other scraping process)</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>ListBooks<span class="sc">$</span>has_index <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ListBooks<span class="sc">$</span>has_index)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>ListBooks <span class="ot">&lt;-</span> <span class="fu">droplevels</span>(<span class="fu">subset</span>(ListBooks, has_index <span class="sc">==</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(ListBooks) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>This part gets the list of all available books from the main classical literature index page.</p>
 <ol type="1">
 <li><p><code>PageUrl &lt;- "..."</code>: Sets the target URL to the main index page.</p></li>
@@ -613,6 +639,24 @@ Think about it
 <p>This section digs one level deeper. It goes into each <em>book’s</em> index page to find the URLs for all of its <em>chapters</em>.</p>
 <section id="one-page-to-test" class="level4">
 <h4 class="anchored" data-anchor-id="one-page-to-test">One page to test</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>IndBook <span class="ot">&lt;-</span> <span class="fu">read_html</span>(ListBooks<span class="sc">$</span>ListURL[<span class="dv">81</span>])</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ChapterURL <span class="ot">&lt;-</span> IndBook <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"td"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>ChapterURL <span class="ot">&lt;-</span> ChapterURL[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ChapterURL)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>ChapterURL <span class="ot">&lt;-</span> <span class="fu">unique</span>(ChapterURL)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ChapterURL)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Reconstruct the full URL</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>TempBookURL <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"index.html"</span>, <span class="st">""</span>, ListBooks<span class="sc">$</span>ListURL[<span class="dv">81</span>])</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>FullChapterURL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(TempBookURL, ChapterURL)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(FullChapterURL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>This chunk is a test run on a single book (<code>ListBooks$ListURL[81]</code>) to make sure the logic works before applying it to all books.</p>
 <ol type="1">
 <li><p><code>read_html(...)</code>: Downloads the HTML for one book’s index page.</p></li>
@@ -624,6 +668,36 @@ Think about it
 </section>
 <section id="find-the-urls-of-the-chapters-from-all-the-books" class="level4">
 <h4 class="anchored" data-anchor-id="find-the-urls-of-the-chapters-from-all-the-books">Find the URLs of the chapters from all the books</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>URL_BookChapters_total <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">0</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(ListBooks<span class="sc">$</span>ListURL)){</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  IndBook <span class="ot">&lt;-</span> <span class="fu">read_html</span>(ListBooks<span class="sc">$</span>ListURL[i])</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  ChapterURL <span class="ot">&lt;-</span> IndBook <span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_nodes</span>(<span class="st">"td"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_nodes</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  ChapterURL <span class="ot">&lt;-</span> ChapterURL[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  ChapterURL <span class="ot">&lt;-</span> <span class="fu">unique</span>(ChapterURL)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  TempBookURL <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"index.html"</span>, <span class="st">""</span>, ListBooks<span class="sc">$</span>ListURL[i])</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  FullChapterURL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(TempBookURL, ChapterURL)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  URL_BookChapters <span class="ot">&lt;-</span> (<span class="fu">data.frame</span>(<span class="at">ChapterURL =</span> FullChapterURL,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Book =</span> ListBooks<span class="sc">$</span>ListBooks[i]))</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  URL_BookChapters_total <span class="ot">&lt;-</span> <span class="fu">rbind</span>(URL_BookChapters_total, URL_BookChapters)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove links to images (.jpg)</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="do">## Check if books finish with "index.html"</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>URL_BookChapters_total<span class="sc">$</span>image <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(URL_BookChapters_total<span class="sc">$</span>ChapterURL, <span class="st">".jpg"</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>URL_BookChapters_total<span class="sc">$</span>image <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(URL_BookChapters_total<span class="sc">$</span>image)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>URL_BookChapters_total <span class="ot">&lt;-</span> <span class="fu">droplevels</span>(<span class="fu">subset</span>(URL_BookChapters_total, image <span class="sc">!=</span> <span class="cn">TRUE</span>))</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(URL_BookChapters_total) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>This part applies the logic from the test (2.2.1) to <em>every book</em> found in section 2.1.</p>
 <ol type="1">
 <li><p><code>URL_BookChapters_total &lt;- data.frame(...)</code>: Creates an empty data frame to store all the chapter URLs from all books.</p></li>
@@ -640,6 +714,26 @@ Think about it
 <p>This is the final scraping step, where the script visits every single chapter URL and downloads the actual text.</p>
 <section id="test-with-one-page" class="level4">
 <h4 class="anchored" data-anchor-id="test-with-one-page">Test with one page</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Chapter <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>j <span class="ot">=</span> <span class="dv">3672</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>OneChapter <span class="ot">&lt;-</span> <span class="fu">read_html</span>(URL_BookChapters_total<span class="sc">$</span>ChapterURL[j])</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>ChapterContent <span class="ot">&lt;-</span> OneChapter <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">".tt2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>ChapterTitle <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"</span><span class="sc">\r</span><span class="st">.*"</span>, <span class="st">""</span>, ChapterContent)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>Chapter <span class="ot">&lt;-</span> (<span class="fu">data.frame</span>(<span class="at">Book =</span> URL_BookChapters_total<span class="sc">$</span>Book[j],</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Title =</span> ChapterTitle,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Content =</span> ChapterContent,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                       <span class="at">URL =</span> URL_BookChapters_total<span class="sc">$</span>ChapterURL[j]))</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Chapter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Again, this is a test on a single chapter (<code>j = 3672</code>) to finalize the logic.</p>
 <ol type="1">
 <li><p><code>read_html(...)</code>: Downloads the HTML for one chapter page.</p></li>
@@ -650,6 +744,36 @@ Think about it
 </section>
 <section id="scrape-all-the-chapters-for-all-book" class="level4">
 <h4 class="anchored" data-anchor-id="scrape-all-the-chapters-for-all-book"><strong>Scrape all the chapters for all book</strong></h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Book_total <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(URL_BookChapters_total<span class="sc">$</span>ChapterURL)){</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    OneChapter <span class="ot">&lt;-</span> <span class="fu">read_html</span>(URL_BookChapters_total<span class="sc">$</span>ChapterURL[j])</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    ChapterContent <span class="ot">&lt;-</span> OneChapter <span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_nodes</span>(<span class="st">".tt2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_text</span>()</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    ChapterTitle <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"</span><span class="sc">\r</span><span class="st">.*"</span>, <span class="st">""</span>, ChapterContent)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    Chapter <span class="ot">&lt;-</span> (<span class="fu">data.frame</span>(<span class="at">Book =</span> URL_BookChapters_total<span class="sc">$</span>Book[j],</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                           <span class="at">Title =</span> ChapterTitle,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                           <span class="at">Content =</span> ChapterContent,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                           <span class="at">URL =</span> URL_BookChapters_total<span class="sc">$</span>ChapterURL[j]))</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    Book_total <span class="ot">&lt;-</span> <span class="fu">rbind</span>(Book_total, Chapter)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Update the progress </span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    percentage_completed <span class="ot">&lt;-</span> <span class="fu">round</span>(j<span class="sc">/</span><span class="fu">length</span>(URL_BookChapters_total<span class="sc">$</span>ChapterURL) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">c</span>(<span class="st">"Process"</span>, j, <span class="st">"out of"</span>, <span class="fu">length</span>(URL_BookChapters_total<span class="sc">$</span>ChapterURL), <span class="st">"percentage completed:"</span>, percentage_completed, <span class="st">"%"</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error=</span><span class="cf">function</span>(e){<span class="fu">cat</span>(<span class="st">"ERROR :"</span>,<span class="fu">conditionMessage</span>(e), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)})</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Book_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>This loop executes the final scraping.</p>
 <ol type="1">
 <li><p><code>Book_total &lt;- data.frame()</code>: Creates a new empty data frame to store the final content.</p></li>

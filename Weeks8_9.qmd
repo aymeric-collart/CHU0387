@@ -257,6 +257,33 @@ This section is the core of the script, performing the actual data extraction fr
 
 ### List the URLs of the Chinese classic books
 
+```{r, eval=FALSE}
+PageUrl <- "https://millionbook.net/gd/gdxs.html" 
+PageClassChinLit <- read_html(PageUrl)
+
+ListBooks <- PageClassChinLit %>% 
+  html_nodes(".tt1") %>% 
+  html_text()
+
+ListBooks <- ListBooks[-c(90)] # Remove blank one
+
+ListURL <- PageClassChinLit %>%
+  html_nodes(".tt1") %>% 
+  html_nodes("a") %>% 
+  html_attr("href")
+
+ListBooks <- as.data.frame(ListBooks)
+ListBooks$ListURL <- paste0("https://millionbook.net/gd/", ListURL)
+
+## Check if books finish with "index.html"
+ListBooks$has_index <- str_detect(ListBooks$ListURL, "index.html")
+
+## Remove books without index (other scraping process)
+ListBooks$has_index <- as.factor(ListBooks$has_index)
+ListBooks <- droplevels(subset(ListBooks, has_index == TRUE))
+rownames(ListBooks) <- NULL
+```
+
 This part gets the list of all available books from the main classical literature index page.
 
 1.  `PageUrl <- "..."`: Sets the target URL to the main index page.
@@ -283,6 +310,25 @@ This section digs one level deeper. It goes into each *book's* index page to fin
 
 #### One page to test
 
+```{r, eval=FALSE}
+IndBook <- read_html(ListBooks$ListURL[81])
+
+ChapterURL <- IndBook %>%
+  html_nodes("td") %>%
+  html_nodes("a") %>%
+  html_attr("href")
+
+ChapterURL <- ChapterURL[-c(1, 2, 3)]
+print(ChapterURL)
+ChapterURL <- unique(ChapterURL)
+print(ChapterURL)
+
+## Reconstruct the full URL
+TempBookURL <- gsub("index.html", "", ListBooks$ListURL[81])
+FullChapterURL <- paste0(TempBookURL, ChapterURL)
+print(FullChapterURL)
+```
+
 This chunk is a test run on a single book (`ListBooks$ListURL[81]`) to make sure the logic works before applying it to all books.
 
 1.  `read_html(...)`: Downloads the HTML for one book's index page.
@@ -296,6 +342,37 @@ This chunk is a test run on a single book (`ListBooks$ListURL[81]`) to make sure
 5.  `gsub(...)` & `paste0(...)`: This reconstructs the full chapter URLs. It takes the book's URL (e.g., `.../book_name/index.html`), removes the "index.html" part to get a base directory, and then appends the specific chapter file (e.g., `001.html`) to it.
 
 #### Find the URLs of the chapters from all the books
+
+```{r, eval=FALSE}
+URL_BookChapters_total <- data.frame(matrix(ncol = 1, nrow = 0))
+
+for (i in 1:length(ListBooks$ListURL)){
+  IndBook <- read_html(ListBooks$ListURL[i])
+  
+  ChapterURL <- IndBook %>%
+    html_nodes("td") %>%
+    html_nodes("a") %>%
+    html_attr("href")
+  
+  ChapterURL <- ChapterURL[-c(1, 2, 3)]
+  ChapterURL <- unique(ChapterURL)
+  
+  TempBookURL <- gsub("index.html", "", ListBooks$ListURL[i])
+  FullChapterURL <- paste0(TempBookURL, ChapterURL)
+  
+  URL_BookChapters <- (data.frame(ChapterURL = FullChapterURL,
+                       Book = ListBooks$ListBooks[i]))
+  
+  URL_BookChapters_total <- rbind(URL_BookChapters_total, URL_BookChapters)
+}
+
+## Remove links to images (.jpg)
+## Check if books finish with "index.html"
+URL_BookChapters_total$image <- str_detect(URL_BookChapters_total$ChapterURL, ".jpg")
+URL_BookChapters_total$image <- as.factor(URL_BookChapters_total$image)
+URL_BookChapters_total <- droplevels(subset(URL_BookChapters_total, image != TRUE))
+rownames(URL_BookChapters_total) <- NULL
+```
 
 This part applies the logic from the test (2.2.1) to *every book* found in section 2.1.
 
@@ -317,6 +394,27 @@ This is the final scraping step, where the script visits every single chapter UR
 
 #### Test with one page
 
+```{r, eval=FALSE}
+Chapter <- data.frame()
+
+j = 3672
+
+OneChapter <- read_html(URL_BookChapters_total$ChapterURL[j])
+
+ChapterContent <- OneChapter %>%
+  html_nodes(".tt2") %>%
+  html_text()
+
+ChapterTitle <- sub("\r.*", "", ChapterContent)
+
+Chapter <- (data.frame(Book = URL_BookChapters_total$Book[j],
+                       Title = ChapterTitle,
+                       Content = ChapterContent,
+                       URL = URL_BookChapters_total$ChapterURL[j]))
+
+head(Chapter)
+```
+
 Again, this is a test on a single chapter (`j = 3672`) to finalize the logic.
 
 1.  `read_html(...)`: Downloads the HTML for one chapter page.
@@ -328,6 +426,37 @@ Again, this is a test on a single chapter (`j = 3672`) to finalize the logic.
 4.  `data.frame(...)`: Organizes the scraped data (Book, Title, Content, URL) into a data frame.
 
 #### **Scrape all the chapters for all book**
+
+```{r, eval=FALSE}
+Book_total <- data.frame()
+
+
+for (j in 1:length(URL_BookChapters_total$ChapterURL)){
+  tryCatch({
+
+    OneChapter <- read_html(URL_BookChapters_total$ChapterURL[j])
+    
+    ChapterContent <- OneChapter %>%
+      html_nodes(".tt2") %>%
+      html_text()
+    
+    ChapterTitle <- sub("\r.*", "", ChapterContent)
+    
+    Chapter <- (data.frame(Book = URL_BookChapters_total$Book[j],
+                           Title = ChapterTitle,
+                           Content = ChapterContent,
+                           URL = URL_BookChapters_total$ChapterURL[j]))
+    Book_total <- rbind(Book_total, Chapter)
+    
+        # Update the progress 
+    percentage_completed <- round(j/length(URL_BookChapters_total$ChapterURL) * 100, 2)
+    cat(c("Process", j, "out of", length(URL_BookChapters_total$ChapterURL), "percentage completed:", percentage_completed, "%", "\n"))
+    
+  }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
+}
+
+head(Book_total)
+```
 
 This loop executes the final scraping.
 
