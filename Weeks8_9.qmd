@@ -23,6 +23,8 @@ hr.rounded {
 ## Objectives
 
 These two weeks, you will learn how to use R to build a corpus from online literature sources.
+
+The content is very similar to Weeks 6 and 7. It is just adapted to another website. You are invited to do the comparisons for yourself!
 :::
 
 # Building your own corpus again: What you need to know
@@ -227,4 +229,122 @@ This means that we have no choice but scraping the title of the chapter as well.
 
 In the previous sections, we clarified how to access the texts we are interested in, and we documented the challenges we will encounter. Now we are ready to let R do the job for us!
 
-\[Page to complete later\]
+\[Disclaimer: The explanation of the R codes is made by <i>Gemini</i> as an illustration of the use of such tools to decode a script.\]
+
+This R Markdown script is a web scraper designed to download the full text of Chinese classic literature from the website `millionbook.net`. It first finds all the book index pages, then finds all the chapter pages for each book, and finally scrapes the text from every chapter, saving the combined text into a single dataset.
+
+## Prepare the environment
+
+This initial chunk loads all the necessary R packages (libraries) required for the script to run.
+
+-   l**ibrary(rvest):** The main package for web scraping. It's used to read HTML web pages and extract information from them.
+
+-   **library(dplyr):** A powerful data manipulation package. It's used here for its %\>% (pipe) operator, which makes the code more readable by chaining commands together, and for functions like subset.
+
+-   **library(xml2):** A package that rvest depends on to parse and handle the underlying HTML and XML data.
+
+-   **library(openxlsx):** Used in the final step to save the scraped data as a .xlsx Excel file.
+
+-   **library(stringr):** A package for working with text (strings). It's used here for functions like str_detect (to check if a URL contains ".jpg" or "index.html") and gsub (to modify URLs).
+
+Here is an explanation of the R code from your file, broken down by each section.
+
+## **Scraping**
+
+This section is the core of the script, performing the actual data extraction from the website.
+
+### **List the URLs of the Chinese classic books**
+
+This part gets the list of all available books from the main classical literature index page.
+
+1.  `PageUrl <- "..."`: Sets the target URL to the main index page.
+
+2.  `read_html(PageUrl)`: Downloads the HTML content of that page.
+
+3.  `html_nodes(".tt1")`: Selects all HTML elements that have the CSS class "tt1". Based on the code, these elements contain the book titles.
+
+4.  `html_text()`: Extracts the plain text (the titles) from those elements.
+
+5.  `ListBooks[-c(90)]`: Removes the 90th item, which the author noted was a blank entry.
+
+6.  `html_nodes("a") %>% html_attr("href")`: This finds the `<a>` (link) tags *within* the ".tt1" elements and extracts their `href` attribute (the actual URL, e.g., "book_name/index.html").
+
+7.  `ListBooks <- as.data.frame(ListBooks)`: Converts the list of titles into a data frame.
+
+8.  `paste0(...)`: Creates full, absolute URLs by combining the base URL (`https://millionbook.net/gd/`) with the relative URLs (e.g., "book_name/index.html") extracted earlier.
+
+9.  `str_detect(...)` & `subset(...)`: This is a data cleaning step. The code checks which URLs end in "index.html" (which are assumed to be book-level index pages) and removes any that don't, ensuring the list only contains valid books to scrape.
+
+### **Retrieve the URLs of the chapters of a book**
+
+This section digs one level deeper. It goes into each *book's* index page to find the URLs for all of its *chapters*.
+
+#### **One page to test**
+
+This chunk is a test run on a single book (`ListBooks$ListURL[81]`) to make sure the logic works before applying it to all books.
+
+1.  `read_html(...)`: Downloads the HTML for one book's index page.
+
+2.  `html_nodes("td") %>% html_nodes("a") %>% html_attr("href")`: Finds all links (`<a>`) that are inside table cells (`<td>`) and gets their URLs. This is how the chapter list is structured on that page.
+
+3.  `ChapterURL <- ChapterURL[-c(1, 2, 3)]`: Removes the first three links, which are likely navigation links (e.g., "Home," "Back") and not chapters.
+
+4.  `unique(ChapterURL)`: Removes any duplicate chapter links.
+
+5.  `gsub(...)` & `paste0(...)`: This reconstructs the full chapter URLs. It takes the book's URL (e.g., `.../book_name/index.html`), removes the "index.html" part to get a base directory, and then appends the specific chapter file (e.g., `001.html`) to it.
+
+#### **Find the URLs of the chapters from all the books**
+
+This part applies the logic from the test (2.2.1) to *every book* found in section 2.1.
+
+1.  `URL_BookChapters_total <- data.frame(...)`: Creates an empty data frame to store all the chapter URLs from all books.
+
+2.  `for (i in 1:length(ListBooks$ListURL))`: A **loop** that iterates through each book URL.
+
+3.  Inside the loop, it repeats the exact same logic from 2.2.1 (read page, find links, clean, create full URLs).
+
+4.  `URL_BookChapters <- (data.frame(...))`: Creates a small data frame for the current book's chapters, helpfully including the book's title.
+
+5.  `rbind(...)`: Appends this small data frame to the main `URL_BookChapters_total` data frame.
+
+6.  **Post-loop Cleaning**: After the loop finishes, `str_detect` is used to find and remove any links that mistakenly point to `.jpg` image files instead of text chapters. The comments note that inconsistent site structure for a few books caused issues, which this cleaning step helps fix.
+
+### **Scrape the content of the chapters**
+
+This is the final scraping step, where the script visits every single chapter URL and downloads the actual text.
+
+#### **Test with one page**
+
+Again, this is a test on a single chapter (`j = 3672`) to finalize the logic.
+
+1.  `read_html(...)`: Downloads the HTML for one chapter page.
+
+2.  `html_nodes(".tt2") %>% html_text()`: Selects the HTML element with the class "tt2" (where the main content is stored) and extracts all the text from it.
+
+3.  `sub("\r.*", "", ChapterContent)`: A clever trick to get the title. It assumes the title is the very first line of the text. This command finds the first carriage return (`\r`, a line break) and removes *everything* after it, leaving just the first line.
+
+4.  `data.frame(...)`: Organizes the scraped data (Book, Title, Content, URL) into a data frame.
+
+#### **Scrape all the chapters for one book**
+
+This loop (despite its name, it scrapes *all* chapters for *all* books) executes the final scraping.
+
+1.  `Book_total <- data.frame()`: Creates a new empty data frame to store the final content.
+
+2.  `for (j in 1:length(URL_BookChapters_total$ChapterURL))`: A **loop** that iterates through *every single chapter URL* collected in section 2.2.2.
+
+3.  `tryCatch({...}, error=...)`: This is a very important safety feature. It "tries" to run the scraping code inside `{...}`. If any error occurs (e.g., a broken link, a network timeout), the `error=...` function will catch it, print an error message, and *continue to the next iteration of the loop*. Without this, the entire script would crash on a single bad link.
+
+4.  Inside the `tryCatch`, it repeats the logic from 2.3.1 (read page, get text, extract title).
+
+5.  `rbind(...)`: Appends the new chapter's data to the `Book_total` data frame.
+
+6.  `cat(...)`: Prints a progress message to the console so the user can see how far along the script is.
+
+## **Save the data**
+
+After the main loop has finished collecting all the text, this final section saves the complete dataset.
+
+-   **Save as an Excel file**: `write.xlsx(Book_total, ...)` saves the entire `Book_total` data frame into an Excel file named "ClassicChineseLiterature_CorpusCourse.xlsx".
+
+-   **Save as an RData file**: `save(Book_total, file = ...)` saves the data frame in R's native `.Rdata` format. This format is much faster to load back into R for future analysis.

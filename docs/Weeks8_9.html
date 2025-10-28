@@ -314,7 +314,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#accessing-the-content-of-the-chapter" id="toc-accessing-the-content-of-the-chapter" class="nav-link" data-scroll-target="#accessing-the-content-of-the-chapter">Accessing the content of the chapter</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#scraping-the-data-with-r" id="toc-scraping-the-data-with-r" class="nav-link" data-scroll-target="#scraping-the-data-with-r"><span class="header-section-number">3</span> Scraping the data with R</a></li>
+  <li><a href="#scraping-the-data-with-r" id="toc-scraping-the-data-with-r" class="nav-link" data-scroll-target="#scraping-the-data-with-r"><span class="header-section-number">3</span> Scraping the data with R</a>
+  <ul class="collapse">
+  <li><a href="#prepare-the-environment" id="toc-prepare-the-environment" class="nav-link" data-scroll-target="#prepare-the-environment"><span class="header-section-number">3.1</span> Prepare the environment</a></li>
+  <li><a href="#scraping" id="toc-scraping" class="nav-link" data-scroll-target="#scraping"><span class="header-section-number">3.2</span> <strong>Scraping</strong></a>
+  <ul class="collapse">
+  <li><a href="#list-the-urls-of-the-chinese-classic-books" id="toc-list-the-urls-of-the-chinese-classic-books" class="nav-link" data-scroll-target="#list-the-urls-of-the-chinese-classic-books"><strong>List the URLs of the Chinese classic books</strong></a></li>
+  <li><a href="#retrieve-the-urls-of-the-chapters-of-a-book" id="toc-retrieve-the-urls-of-the-chapters-of-a-book" class="nav-link" data-scroll-target="#retrieve-the-urls-of-the-chapters-of-a-book"><strong>Retrieve the URLs of the chapters of a book</strong></a></li>
+  <li><a href="#scrape-the-content-of-the-chapters" id="toc-scrape-the-content-of-the-chapters" class="nav-link" data-scroll-target="#scrape-the-content-of-the-chapters"><strong>Scrape the content of the chapters</strong></a></li>
+  </ul></li>
+  <li><a href="#save-the-data" id="toc-save-the-data" class="nav-link" data-scroll-target="#save-the-data"><span class="header-section-number">3.3</span> <strong>Save the data</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -358,6 +368,7 @@ Objectives
 </div>
 <div class="callout-body-container callout-body">
 <p>These two weeks, you will learn how to use R to build a corpus from online literature sources.</p>
+<p>The content is very similar to Weeks 6 and 7. It is just adapted to another website. You are invited to do the comparisons for yourself!</p>
 </div>
 </div>
 <section id="building-your-own-corpus-again-what-you-need-to-know" class="level1" data-number="1">
@@ -401,8 +412,8 @@ Think about it
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-d82d2681ae18501ef82b" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-d82d2681ae18501ef82b">{"x":{"diagram":"\n    graph TD\n        A[<i>millionbook<\/i> website] -- Select classic Chinese books --> B{Filtered books};\n        B --> C[Click on the title of one book];\n        C --> D[Click on one chapter];\n        D --> E[Copy and paste the title of the chapter, and its content into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-40f680ceae0f9f58a252" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-40f680ceae0f9f58a252">{"x":{"diagram":"\n    graph TD\n        A[<i>millionbook<\/i> website] -- Select classic Chinese books --> B{Filtered books};\n        B --> C[Click on the title of one book];\n        C --> D[Click on one chapter];\n        D --> E[Copy and paste the title of the chapter, and its content into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now you can try one more time and pay more attention to <strong>the web address</strong>, and track the changes that occur, as you did in Weeks 6 and 7. You will remark that while the changes make sense (use of the first letter of the romanization of the name of the authors), but it is not an easy task to predict these by yourself.</p>
@@ -563,9 +574,102 @@ Think about it
 <section id="scraping-the-data-with-r" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Scraping the data with R</h1>
 <p>In the previous sections, we clarified how to access the texts we are interested in, and we documented the challenges we will encounter. Now we are ready to let R do the job for us!</p>
-<p>[Page to complete later]</p>
+<p>[Disclaimer: The explanation of the R codes is made by <i>Gemini</i> as an illustration of the use of such tools to decode a script.]</p>
+<p>This R Markdown script is a web scraper designed to download the full text of Chinese classic literature from the website <code>millionbook.net</code>. It first finds all the book index pages, then finds all the chapter pages for each book, and finally scrapes the text from every chapter, saving the combined text into a single dataset.</p>
+<section id="prepare-the-environment" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="prepare-the-environment"><span class="header-section-number">3.1</span> Prepare the environment</h2>
+<p>This initial chunk loads all the necessary R packages (libraries) required for the script to run.</p>
+<ul>
+<li><p>l<strong>ibrary(rvest):</strong> The main package for web scraping. It’s used to read HTML web pages and extract information from them.</p></li>
+<li><p><strong>library(dplyr):</strong> A powerful data manipulation package. It’s used here for its %&gt;% (pipe) operator, which makes the code more readable by chaining commands together, and for functions like subset.</p></li>
+<li><p><strong>library(xml2):</strong> A package that rvest depends on to parse and handle the underlying HTML and XML data.</p></li>
+<li><p><strong>library(openxlsx):</strong> Used in the final step to save the scraped data as a .xlsx Excel file.</p></li>
+<li><p><strong>library(stringr):</strong> A package for working with text (strings). It’s used here for functions like str_detect (to check if a URL contains “.jpg” or “index.html”) and gsub (to modify URLs).</p></li>
+</ul>
+<p>Here is an explanation of the R code from your file, broken down by each section.</p>
+</section>
+<section id="scraping" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="scraping"><span class="header-section-number">3.2</span> <strong>Scraping</strong></h2>
+<p>This section is the core of the script, performing the actual data extraction from the website.</p>
+<section id="list-the-urls-of-the-chinese-classic-books" class="level3">
+<h3 class="anchored" data-anchor-id="list-the-urls-of-the-chinese-classic-books"><strong>List the URLs of the Chinese classic books</strong></h3>
+<p>This part gets the list of all available books from the main classical literature index page.</p>
+<ol type="1">
+<li><p><code>PageUrl &lt;- "..."</code>: Sets the target URL to the main index page.</p></li>
+<li><p><code>read_html(PageUrl)</code>: Downloads the HTML content of that page.</p></li>
+<li><p><code>html_nodes(".tt1")</code>: Selects all HTML elements that have the CSS class “tt1”. Based on the code, these elements contain the book titles.</p></li>
+<li><p><code>html_text()</code>: Extracts the plain text (the titles) from those elements.</p></li>
+<li><p><code>ListBooks[-c(90)]</code>: Removes the 90th item, which the author noted was a blank entry.</p></li>
+<li><p><code>html_nodes("a") %&gt;% html_attr("href")</code>: This finds the <code>&lt;a&gt;</code> (link) tags <em>within</em> the “.tt1” elements and extracts their <code>href</code> attribute (the actual URL, e.g., “book_name/index.html”).</p></li>
+<li><p><code>ListBooks &lt;- as.data.frame(ListBooks)</code>: Converts the list of titles into a data frame.</p></li>
+<li><p><code>paste0(...)</code>: Creates full, absolute URLs by combining the base URL (<code>https://millionbook.net/gd/</code>) with the relative URLs (e.g., “book_name/index.html”) extracted earlier.</p></li>
+<li><p><code>str_detect(...)</code> &amp; <code>subset(...)</code>: This is a data cleaning step. The code checks which URLs end in “index.html” (which are assumed to be book-level index pages) and removes any that don’t, ensuring the list only contains valid books to scrape.</p></li>
+</ol>
+</section>
+<section id="retrieve-the-urls-of-the-chapters-of-a-book" class="level3">
+<h3 class="anchored" data-anchor-id="retrieve-the-urls-of-the-chapters-of-a-book"><strong>Retrieve the URLs of the chapters of a book</strong></h3>
+<p>This section digs one level deeper. It goes into each <em>book’s</em> index page to find the URLs for all of its <em>chapters</em>.</p>
+<section id="one-page-to-test" class="level4">
+<h4 class="anchored" data-anchor-id="one-page-to-test"><strong>One page to test</strong></h4>
+<p>This chunk is a test run on a single book (<code>ListBooks$ListURL[81]</code>) to make sure the logic works before applying it to all books.</p>
+<ol type="1">
+<li><p><code>read_html(...)</code>: Downloads the HTML for one book’s index page.</p></li>
+<li><p><code>html_nodes("td") %&gt;% html_nodes("a") %&gt;% html_attr("href")</code>: Finds all links (<code>&lt;a&gt;</code>) that are inside table cells (<code>&lt;td&gt;</code>) and gets their URLs. This is how the chapter list is structured on that page.</p></li>
+<li><p><code>ChapterURL &lt;- ChapterURL[-c(1, 2, 3)]</code>: Removes the first three links, which are likely navigation links (e.g., “Home,” “Back”) and not chapters.</p></li>
+<li><p><code>unique(ChapterURL)</code>: Removes any duplicate chapter links.</p></li>
+<li><p><code>gsub(...)</code> &amp; <code>paste0(...)</code>: This reconstructs the full chapter URLs. It takes the book’s URL (e.g., <code>.../book_name/index.html</code>), removes the “index.html” part to get a base directory, and then appends the specific chapter file (e.g., <code>001.html</code>) to it.</p></li>
+</ol>
+</section>
+<section id="find-the-urls-of-the-chapters-from-all-the-books" class="level4">
+<h4 class="anchored" data-anchor-id="find-the-urls-of-the-chapters-from-all-the-books"><strong>Find the URLs of the chapters from all the books</strong></h4>
+<p>This part applies the logic from the test (2.2.1) to <em>every book</em> found in section 2.1.</p>
+<ol type="1">
+<li><p><code>URL_BookChapters_total &lt;- data.frame(...)</code>: Creates an empty data frame to store all the chapter URLs from all books.</p></li>
+<li><p><code>for (i in 1:length(ListBooks$ListURL))</code>: A <strong>loop</strong> that iterates through each book URL.</p></li>
+<li><p>Inside the loop, it repeats the exact same logic from 2.2.1 (read page, find links, clean, create full URLs).</p></li>
+<li><p><code>URL_BookChapters &lt;- (data.frame(...))</code>: Creates a small data frame for the current book’s chapters, helpfully including the book’s title.</p></li>
+<li><p><code>rbind(...)</code>: Appends this small data frame to the main <code>URL_BookChapters_total</code> data frame.</p></li>
+<li><p><strong>Post-loop Cleaning</strong>: After the loop finishes, <code>str_detect</code> is used to find and remove any links that mistakenly point to <code>.jpg</code> image files instead of text chapters. The comments note that inconsistent site structure for a few books caused issues, which this cleaning step helps fix.</p></li>
+</ol>
+</section>
+</section>
+<section id="scrape-the-content-of-the-chapters" class="level3">
+<h3 class="anchored" data-anchor-id="scrape-the-content-of-the-chapters"><strong>Scrape the content of the chapters</strong></h3>
+<p>This is the final scraping step, where the script visits every single chapter URL and downloads the actual text.</p>
+<section id="test-with-one-page" class="level4">
+<h4 class="anchored" data-anchor-id="test-with-one-page"><strong>Test with one page</strong></h4>
+<p>Again, this is a test on a single chapter (<code>j = 3672</code>) to finalize the logic.</p>
+<ol type="1">
+<li><p><code>read_html(...)</code>: Downloads the HTML for one chapter page.</p></li>
+<li><p><code>html_nodes(".tt2") %&gt;% html_text()</code>: Selects the HTML element with the class “tt2” (where the main content is stored) and extracts all the text from it.</p></li>
+<li><p><code>sub("\r.*", "", ChapterContent)</code>: A clever trick to get the title. It assumes the title is the very first line of the text. This command finds the first carriage return (<code>\r</code>, a line break) and removes <em>everything</em> after it, leaving just the first line.</p></li>
+<li><p><code>data.frame(...)</code>: Organizes the scraped data (Book, Title, Content, URL) into a data frame.</p></li>
+</ol>
+</section>
+<section id="scrape-all-the-chapters-for-one-book" class="level4">
+<h4 class="anchored" data-anchor-id="scrape-all-the-chapters-for-one-book"><strong>Scrape all the chapters for one book</strong></h4>
+<p>This loop (despite its name, it scrapes <em>all</em> chapters for <em>all</em> books) executes the final scraping.</p>
+<ol type="1">
+<li><p><code>Book_total &lt;- data.frame()</code>: Creates a new empty data frame to store the final content.</p></li>
+<li><p><code>for (j in 1:length(URL_BookChapters_total$ChapterURL))</code>: A <strong>loop</strong> that iterates through <em>every single chapter URL</em> collected in section 2.2.2.</p></li>
+<li><p><code>tryCatch({...}, error=...)</code>: This is a very important safety feature. It “tries” to run the scraping code inside <code>{...}</code>. If any error occurs (e.g., a broken link, a network timeout), the <code>error=...</code> function will catch it, print an error message, and <em>continue to the next iteration of the loop</em>. Without this, the entire script would crash on a single bad link.</p></li>
+<li><p>Inside the <code>tryCatch</code>, it repeats the logic from 2.3.1 (read page, get text, extract title).</p></li>
+<li><p><code>rbind(...)</code>: Appends the new chapter’s data to the <code>Book_total</code> data frame.</p></li>
+<li><p><code>cat(...)</code>: Prints a progress message to the console so the user can see how far along the script is.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="save-the-data" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="save-the-data"><span class="header-section-number">3.3</span> <strong>Save the data</strong></h2>
+<p>After the main loop has finished collecting all the text, this final section saves the complete dataset.</p>
+<ul>
+<li><p><strong>Save as an Excel file</strong>: <code>write.xlsx(Book_total, ...)</code> saves the entire <code>Book_total</code> data frame into an Excel file named “ClassicChineseLiterature_CorpusCourse.xlsx”.</p></li>
+<li><p><strong>Save as an RData file</strong>: <code>save(Book_total, file = ...)</code> saves the data frame in R’s native <code>.Rdata</code> format. This format is much faster to load back into R for future analysis.</p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
