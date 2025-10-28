@@ -229,6 +229,8 @@ This means that we have no choice but scraping the title of the chapter as well.
 
 In the previous sections, we clarified how to access the texts we are interested in, and we documented the challenges we will encounter. Now we are ready to let R do the job for us!
 
+First, you can download the script <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ChineseClassicLiterature_Scrape.Rmd" target="_blank">here</a>, and follow the steps below to understand how it works.
+
 \[Disclaimer: The explanation of the R codes is made by <i>Gemini</i> as an illustration of the use of such tools to decode a script.\]
 
 This R Markdown script is a web scraper designed to download the full text of Chinese classic literature from the website `millionbook.net`. It first finds all the book index pages, then finds all the chapter pages for each book, and finally scrapes the text from every chapter, saving the combined text into a single dataset.
@@ -237,7 +239,7 @@ This R Markdown script is a web scraper designed to download the full text of Ch
 
 This initial chunk loads all the necessary R packages (libraries) required for the script to run.
 
--   l**ibrary(rvest):** The main package for web scraping. It's used to read HTML web pages and extract information from them.
+-   **library(rvest):** The main package for web scraping. It's used to read HTML web pages and extract information from them.
 
 -   **library(dplyr):** A powerful data manipulation package. It's used here for its %\>% (pipe) operator, which makes the code more readable by chaining commands together, and for functions like subset.
 
@@ -249,11 +251,11 @@ This initial chunk loads all the necessary R packages (libraries) required for t
 
 Here is an explanation of the R code from your file, broken down by each section.
 
-## **Scraping**
+## Scraping
 
 This section is the core of the script, performing the actual data extraction from the website.
 
-### **List the URLs of the Chinese classic books**
+### List the URLs of the Chinese classic books
 
 This part gets the list of all available books from the main classical literature index page.
 
@@ -275,11 +277,11 @@ This part gets the list of all available books from the main classical literatur
 
 9.  `str_detect(...)` & `subset(...)`: This is a data cleaning step. The code checks which URLs end in "index.html" (which are assumed to be book-level index pages) and removes any that don't, ensuring the list only contains valid books to scrape.
 
-### **Retrieve the URLs of the chapters of a book**
+### Retrieve the URLs of the chapters of a book
 
 This section digs one level deeper. It goes into each *book's* index page to find the URLs for all of its *chapters*.
 
-#### **One page to test**
+#### One page to test
 
 This chunk is a test run on a single book (`ListBooks$ListURL[81]`) to make sure the logic works before applying it to all books.
 
@@ -293,7 +295,7 @@ This chunk is a test run on a single book (`ListBooks$ListURL[81]`) to make sure
 
 5.  `gsub(...)` & `paste0(...)`: This reconstructs the full chapter URLs. It takes the book's URL (e.g., `.../book_name/index.html`), removes the "index.html" part to get a base directory, and then appends the specific chapter file (e.g., `001.html`) to it.
 
-#### **Find the URLs of the chapters from all the books**
+#### Find the URLs of the chapters from all the books
 
 This part applies the logic from the test (2.2.1) to *every book* found in section 2.1.
 
@@ -309,11 +311,11 @@ This part applies the logic from the test (2.2.1) to *every book* found in secti
 
 6.  **Post-loop Cleaning**: After the loop finishes, `str_detect` is used to find and remove any links that mistakenly point to `.jpg` image files instead of text chapters. The comments note that inconsistent site structure for a few books caused issues, which this cleaning step helps fix.
 
-### **Scrape the content of the chapters**
+### Scrape the content of the chapters
 
 This is the final scraping step, where the script visits every single chapter URL and downloads the actual text.
 
-#### **Test with one page**
+#### Test with one page
 
 Again, this is a test on a single chapter (`j = 3672`) to finalize the logic.
 
@@ -325,9 +327,9 @@ Again, this is a test on a single chapter (`j = 3672`) to finalize the logic.
 
 4.  `data.frame(...)`: Organizes the scraped data (Book, Title, Content, URL) into a data frame.
 
-#### **Scrape all the chapters for one book**
+#### **Scrape all the chapters for all book**
 
-This loop (despite its name, it scrapes *all* chapters for *all* books) executes the final scraping.
+This loop executes the final scraping.
 
 1.  `Book_total <- data.frame()`: Creates a new empty data frame to store the final content.
 
@@ -341,7 +343,7 @@ This loop (despite its name, it scrapes *all* chapters for *all* books) executes
 
 6.  `cat(...)`: Prints a progress message to the console so the user can see how far along the script is.
 
-## **Save the data**
+## Save the data
 
 After the main loop has finished collecting all the text, this final section saves the complete dataset.
 

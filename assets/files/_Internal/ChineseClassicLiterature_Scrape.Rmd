@@ -1,0 +1,193 @@
+---
+title: "Markdown_Week8_Week9"
+author: "Aymeric Collart"
+date: "2025-10-02"
+header-includes:
+  - \usepackage{fontspec} # use fontspec package
+  - \usepackage{xeCJK}    # use xeCJK package
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    latex_engine: xelatex
+  html_document: default
+---
+
+# 1. Prepare the environment
+
+```{r}
+library(rvest)
+library(dplyr)
+library(xml2)
+library(openxlsx)
+library(stringr)
+```
+
+# 2. Scraping
+
+## 2.1 List the URLs of the Chinese classic books
+
+```{r}
+PageUrl <- "https://millionbook.net/gd/gdxs.html" 
+PageClassChinLit <- read_html(PageUrl)
+
+ListBooks <- PageClassChinLit %>% 
+  html_nodes(".tt1") %>% 
+  html_text()
+
+ListBooks <- ListBooks[-c(90)] # Remove blank one
+
+ListURL <- PageClassChinLit %>%
+  html_nodes(".tt1") %>% 
+  html_nodes("a") %>% 
+  html_attr("href")
+
+ListBooks <- as.data.frame(ListBooks)
+ListBooks$ListURL <- paste0("https://millionbook.net/gd/", ListURL)
+
+## Check if books finish with "index.html"
+ListBooks$has_index <- str_detect(ListBooks$ListURL, "index.html")
+
+## Remove books without index (other scraping process)
+ListBooks$has_index <- as.factor(ListBooks$has_index)
+ListBooks <- droplevels(subset(ListBooks, has_index == TRUE))
+rownames(ListBooks) <- NULL
+```
+
+## 2.2. Retrieve the URLs of the chapters of a book
+
+### 2.2.1 One page to test
+
+```{r}
+IndBook <- read_html(ListBooks$ListURL[81])
+
+ChapterURL <- IndBook %>%
+  html_nodes("td") %>%
+  html_nodes("a") %>%
+  html_attr("href")
+
+ChapterURL <- ChapterURL[-c(1, 2, 3)]
+print(ChapterURL)
+ChapterURL <- unique(ChapterURL)
+print(ChapterURL)
+
+## Reconstruct the full URL
+TempBookURL <- gsub("index.html", "", ListBooks$ListURL[81])
+FullChapterURL <- paste0(TempBookURL, ChapterURL)
+print(FullChapterURL)
+```
+
+### 2.2.2 Find the URLs of the chapters from all the books
+
+```{r}
+## 3 to 4 minutes
+URL_BookChapters_total <- data.frame(matrix(ncol = 1, nrow = 0))
+
+for (i in 1:length(ListBooks$ListURL)){
+  IndBook <- read_html(ListBooks$ListURL[i])
+  
+  ChapterURL <- IndBook %>%
+    html_nodes("td") %>%
+    html_nodes("a") %>%
+    html_attr("href")
+  
+  ChapterURL <- ChapterURL[-c(1, 2, 3)]
+  ChapterURL <- unique(ChapterURL)
+  
+  TempBookURL <- gsub("index.html", "", ListBooks$ListURL[i])
+  FullChapterURL <- paste0(TempBookURL, ChapterURL)
+  
+  URL_BookChapters <- (data.frame(ChapterURL = FullChapterURL,
+                       Book = ListBooks$ListBooks[i]))
+  
+  URL_BookChapters_total <- rbind(URL_BookChapters_total, URL_BookChapters)
+}
+
+## Remove links to images (.jpg)
+## Check if books finish with "index.html"
+URL_BookChapters_total$image <- str_detect(URL_BookChapters_total$ChapterURL, ".jpg")
+URL_BookChapters_total$image <- as.factor(URL_BookChapters_total$image)
+URL_BookChapters_total <- droplevels(subset(URL_BookChapters_total, image != TRUE))
+rownames(URL_BookChapters_total) <- NULL
+
+## Problems occured:
+  ##  1- .jpg documents
+  ##  2- Inconsistent structure of the webpage
+      ## - 聊齋志异(蒲松齡)
+      ## - 羅貫中文集
+      ## - 說岳全傳 (錢彩)
+
+```
+
+## 2.3 Scrape the content of the chapters
+
+### 2.3.1 Test with one page
+
+```{r}
+
+Chapter <- data.frame()
+
+j = 3672
+
+OneChapter <- read_html(URL_BookChapters_total$ChapterURL[j])
+
+ChapterContent <- OneChapter %>%
+  html_nodes(".tt2") %>%
+  html_text()
+
+ChapterTitle <- sub("\r.*", "", ChapterContent)
+
+Chapter <- (data.frame(Book = URL_BookChapters_total$Book[j],
+                       Title = ChapterTitle,
+                       Content = ChapterContent,
+                       URL = URL_BookChapters_total$ChapterURL[j]))
+
+head(Chapter)
+```
+
+### 2.3.2 Scrape all the chapters for one book
+
+```{r}
+Book_total <- data.frame()
+
+
+for (j in 1:length(URL_BookChapters_total$ChapterURL)){
+  tryCatch({
+
+    OneChapter <- read_html(URL_BookChapters_total$ChapterURL[j])
+    
+    ChapterContent <- OneChapter %>%
+      html_nodes(".tt2") %>%
+      html_text()
+    
+    ChapterTitle <- sub("\r.*", "", ChapterContent)
+    
+    Chapter <- (data.frame(Book = URL_BookChapters_total$Book[j],
+                           Title = ChapterTitle,
+                           Content = ChapterContent,
+                           URL = URL_BookChapters_total$ChapterURL[j]))
+    Book_total <- rbind(Book_total, Chapter)
+    
+        # Update the progress 
+    percentage_completed <- round(j/length(URL_BookChapters_total$ChapterURL) * 100, 2)
+    cat(c("Process", j, "out of", length(URL_BookChapters_total$ChapterURL), "percentage completed:", percentage_completed, "%", "\n"))
+    
+  }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
+}
+
+head(Book_total)
+```
+
+# 3. Save the data
+
+## 3.1 Save as an Excel file
+
+```{r}
+write.xlsx(Book_total, "ClassicChineseLiterature_CorpusCourse.xlsx")
+```
+
+## 3.2 Save as an RData file
+
+```{r}
+save(Book_total, file = "ClassicChineseLiterature_CorpusCourse.Rdata")
+```
