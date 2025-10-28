@@ -325,6 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#save-the-data" id="toc-save-the-data" class="nav-link" data-scroll-target="#save-the-data"><span class="header-section-number">3.3</span> Save the data</a></li>
   </ul></li>
+  <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">4</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
   </ul>
 </nav>
     </div>
@@ -412,8 +413,8 @@ Think about it
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7ccc429156d0f08c4e48" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-7ccc429156d0f08c4e48">{"x":{"diagram":"\n    graph TD\n        A[<i>millionbook<\/i> website] -- Select classic Chinese books --> B{Filtered books};\n        B --> C[Click on the title of one book];\n        C --> D[Click on one chapter];\n        D --> E[Copy and paste the title of the chapter, and its content into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7a31bf2ec42924d99325" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-7a31bf2ec42924d99325">{"x":{"diagram":"\n    graph TD\n        A[<i>millionbook<\/i> website] -- Select classic Chinese books --> B{Filtered books};\n        B --> C[Click on the title of one book];\n        C --> D[Click on one chapter];\n        D --> E[Copy and paste the title of the chapter, and its content into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now you can try one more time and pay more attention to <strong>the web address</strong>, and track the changes that occur, as you did in Weeks 6 and 7. You will remark that while the changes make sense (use of the first letter of the romanization of the name of the authors), but it is not an easy task to predict these by yourself.</p>
@@ -668,9 +669,14 @@ Think about it
 <li><p><strong>Save as an Excel file</strong>: <code>write.xlsx(Book_total, ...)</code> saves the entire <code>Book_total</code> data frame into an Excel file named “ClassicChineseLiterature_CorpusCourse.xlsx”.</p></li>
 <li><p><strong>Save as an RData file</strong>: <code>save(Book_total, file = ...)</code> saves the data frame in R’s native <code>.Rdata</code> format. This format is much faster to load back into R for future analysis.</p></li>
 </ul>
-
-
 </section>
+</section>
+<section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>
+<p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ChineseClassicLiterature_Scrape.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ChineseClassicLiterature_Scrape.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
+<p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ClassicChineseLiterature_CorpusCourse.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ClassicChineseLiterature_CorpusCourse.xlsx" target="_blank">here</a>.</p>
+
+
 </section>
 
 </main> <!-- /main -->

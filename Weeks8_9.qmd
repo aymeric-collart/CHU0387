@@ -350,3 +350,9 @@ After the main loop has finished collecting all the text, this final section sav
 -   **Save as an Excel file**: `write.xlsx(Book_total, ...)` saves the entire `Book_total` data frame into an Excel file named "ClassicChineseLiterature_CorpusCourse.xlsx".
 
 -   **Save as an RData file**: `save(Book_total, file = ...)` saves the data frame in R's native `.Rdata` format. This format is much faster to load back into R for future analysis.
+
+# Markdown document, PDF output file, RData and Excel files of the scraped data
+
+You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ChineseClassicLiterature_Scrape.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ChineseClassicLiterature_Scrape.pdf" target="_blank">Here</a> is the PDF output of the same document.
+
+The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ClassicChineseLiterature_CorpusCourse.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ClassicChineseLiterature_CorpusCourse.xlsx" target="_blank">here</a>.
