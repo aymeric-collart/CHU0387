@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -429,8 +463,8 @@ Objectives
 <p>Please do not hesitate to zoom in!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-3c3d47d6ee945a4a81a2" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-3c3d47d6ee945a4a81a2">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-32695164cd37ac77a603" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-32695164cd37ac77a603">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -486,6 +520,11 @@ How to know what to clean?
 <section id="prepare-the-environment" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="prepare-the-environment"><span class="header-section-number">3.1</span> Prepare the environment</h2>
 <p>This section sets up the workspace by loading necessary tools and the raw data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="load-the-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="load-the-libraries">Load the libraries:</h3>
 <p><code>library(dplyr)</code> and <code>library(tidyr)</code>: These are loaded for data manipulation. dplyr is used for filtering and mutating data, while tidyr is specifically used here to reshape the data structure (unnesting paragraphs).</p>
@@ -493,6 +532,9 @@ How to know what to clean?
 </section>
 <section id="load-the-originally-scraped-data" class="level3">
 <h3 class="anchored" data-anchor-id="load-the-originally-scraped-data">Load the originally scraped data:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"ArticleETToday_CorpusCourse.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>The command <code>load(file = "ArticleETToday_CorpusCourse.Rdata")</code> imports a previously saved R workspace file containing the raw scraped articles.</p>
 </section>
 </section>
@@ -502,6 +544,11 @@ How to know what to clean?
 <section id="further-annotations" class="level3">
 <h3 class="anchored" data-anchor-id="further-annotations">Further annotations</h3>
 <p>The code extracts temporal metadata from a single string column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Article_total<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">substr</span>(Article_total<span class="sc">$</span>time, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">stop =</span> <span class="dv">4</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Article_total<span class="sc">$</span>month <span class="ot">&lt;-</span> <span class="fu">substr</span>(Article_total<span class="sc">$</span>time, <span class="at">start =</span> <span class="dv">6</span>, <span class="at">stop =</span> <span class="dv">7</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Article_total<span class="sc">$</span>day <span class="ot">&lt;-</span> <span class="fu">substr</span>(Article_total<span class="sc">$</span>time, <span class="at">start =</span> <span class="dv">9</span>, <span class="at">stop =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>It creates three new columns (year, month, day) by cutting specific parts of the time column using the substr (substring) function. For example, it assumes the first 4 characters representing the year.</p>
 </section>
 <section id="data-transformation" class="level3">
@@ -510,6 +557,13 @@ How to know what to clean?
 <h4 class="anchored" data-anchor-id="split-the-articles-into-paragraphs">Split the articles into paragraphs</h4>
 <p>This is a structural transformation step.</p>
 <p>Logic: The original data has one row per article. This code changes the unit of analysis to one row per paragraph.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Article_total<span class="sc">$</span>original_article <span class="ot">&lt;-</span> Article_total<span class="sc">$</span>body</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body =</span> <span class="fu">strsplit</span>(<span class="fu">as.character</span>(body), <span class="st">"</span><span class="sc">\r\n</span><span class="st">"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(body)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Code: It splits the body text wherever it finds a carriage return code (). It then uses <code>unnest(body)</code> to expand these split pieces into individual rows.</p>
 <p>Result: If an article had 5 paragraphs, it will now occupy 5 rows in the dataframe Article_total2.</p>
 </section>
@@ -517,23 +571,189 @@ How to know what to clean?
 <h4 class="anchored" data-anchor-id="remove-unwanted-paragraphs">Remove unwanted paragraphs</h4>
 <p>This section acts as a filter to remove “noise”—text that is not part of the actual news report.</p>
 <p><strong>Example 1 (Image Legends):</strong> Removes rows containing specific symbols like “▲” or “▼”, and lines starting with “圖／” (Image) or “文／” (Text/Author), which usually indicate captions or credits.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"▲"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"▼"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Most of them start with the "圖／" (image) and "文／" (text) source: Check first if that's the case</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"圖／"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"文／"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Indeed the case: Can be removed</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"圖／"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"文／"</span>, Article_total2<span class="sc">$</span>body),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><strong>Example 2 (Boilerplate/System Messages):</strong> Removes standard ETtoday interface text and links.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Most of them start with the "●" symbol: Check first if that's the case</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"●"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Indeed the case: Can be removed</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"●"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Some start with the "►" and "▸" symbol (link to other articles): Check first if that's the case</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"►"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"▸"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="do">### Indeed the case: Can be removed</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"►"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"▸"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="do">### Most of them start with the "★" symbol: Check first if that's the case</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"★"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="do">### Indeed the case: Can be removed</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"★"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="do">### Some rows are just made of the message "【其他新聞】" (other news): Check first if that's the case</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"【其他新聞】"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="do">### Indeed the case: Can be removed</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"【其他新聞】"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="do">### Some rows are just made of the message "更多新聞" (more news): Check first if that's the case</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"更多新聞"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="do">### Indeed the case: Can be removed</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"更多新聞"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="do">### Some rows are just made of the message "延伸閱讀" (read more): Check first if that's the case</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"延伸閱讀"</span>, Article_total2<span class="sc">$</span>body),]</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="do">### Indeed the case: Can be removed</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"延伸閱讀"</span>, Article_total2<span class="sc">$</span>body),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>It filters out symbols like “●”, “►”, “▸”, and “★”.</p>
 <p>It removes navigational phrases like “【其他新聞】” (Other news), “更多新聞” (More news), and “延伸閱讀” (Extended reading).</p>
 <p><strong>Example 3 (Journalist Identity):</strong></p>
 <p>It creates a temporary column FirstTwoCharacters to check the start of the paragraph.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Most of them start with the two characters "記者" (journalist)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>test<span class="sc">$</span>FirstTwoCharacters <span class="ot">&lt;-</span> <span class="fu">substr</span>(Article_total2<span class="sc">$</span>body, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">stop =</span> <span class="dv">2</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Only 178 sentences out of 361154 will be wrongly removed, quite acceptable</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>FirstTwoCharacters <span class="ot">&lt;-</span> <span class="fu">substr</span>(Article_total2<span class="sc">$</span>body, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">stop =</span> <span class="dv">2</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"記者"</span>, Article_total2<span class="sc">$</span>FirstTwoCharacters),]</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>FirstTwoCharacters <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="do">### Some start with the four characters "實習記者" (journalist-internship)</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>test<span class="sc">$</span>FirstFourCharacters <span class="ot">&lt;-</span> <span class="fu">substr</span>(Article_total2<span class="sc">$</span>body, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">stop =</span> <span class="dv">4</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> test[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"實習記者"</span>, test<span class="sc">$</span>FirstFourCharacters),]</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Indeed all rows need to be removed</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>FirstFourCharacters <span class="ot">&lt;-</span> <span class="fu">substr</span>(Article_total2<span class="sc">$</span>body, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">stop =</span> <span class="dv">4</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"實習記者"</span>, Article_total2<span class="sc">$</span>FirstFourCharacters),]</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>FirstFourCharacters <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>It removes rows starting with “記者” (Reporter) or “實習記者” (Intern Reporter) to strip out bylines.</p>
 <p><strong>Example 4 (Date Filtering):</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>year<span class="sc">==</span><span class="st">"2023"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>It removes all rows where the year is “2023”. The comment notes this is “controversial,” possibly because it indiscriminately drops data based on date rather than content quality.</p>
 </section>
 <section id="remove-empty-rows-this-section-deals-with-invisible-noise." class="level4">
 <h4 class="anchored" data-anchor-id="remove-empty-rows-this-section-deals-with-invisible-noise.">Remove empty rows This section deals with “invisible” noise.</h4>
 <p>Iterative Cleaning: The user manually identified various forms of empty space (empty strings ““, single spaces” “, multiple spaces” “, and specific whitespace characters found at specific row indices like 29 or 13974).</p>
 <p>Process: The code repeatedly checks for these specific empty patterns and removes them to ensure the final dataset contains only text with content.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Test the code to make sure we are not removing too much</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">""</span>), ]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Indeed all the rows correspond to empty paragraphs</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">""</span>), ]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 29</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">29</span>] <span class="do">## corresponds to a space</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Test the code to make sure we are not removing too much</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">" "</span>), ]</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Indeed all the rows correspond to paragraphs with a space</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">" "</span>), ]</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Potentially more than one space: Test the code to make sure we are not removing too much</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"  "</span>), ] <span class="co">#test two spaces</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"   "</span>), ] <span class="co">#test three spaces</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"    "</span>), ] <span class="co">#test four spaces</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"     "</span>), ] <span class="co">#test five spaces</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"      "</span>), ] <span class="co">#test six spaces</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"       "</span>), ] <span class="co">#test seven spaces</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="do">## Indeed all the rows correspond to paragraphs with 2 to 5 spaces</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"  "</span>), ]</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"   "</span>), ]</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"    "</span>), ]</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"     "</span>), ]</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 29</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">29</span>] </span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="do">## I don't really know what this is, check using the row number instead of the symbol itself</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>Article_total2<span class="sc">$</span>body[<span class="dv">29</span>]), ]</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the symbol</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">29</span>] </span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="do">## Indeed all the rows correspond to paragraphs with a space --&gt; Removing using the symbol itself</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 13974</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">13974</span>] <span class="do">## corresponds to nothing, but wasn't caught earlier</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the symbol, test and remove</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">13974</span>] </span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 8368</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">8368</span>] <span class="do">## I don't know what kind of space it is</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the symbol, test and remove</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">8368</span>] </span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 67</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">67</span>] <span class="do">## I don't know what kind of space it is</span></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the symbol, test and remove</span></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">67</span>] </span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 15279</span></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">15279</span>] <span class="do">## I don't know what kind of space it is</span></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the symbol, test and remove</span></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">15279</span>] </span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="remove-weird-scraping-instances" class="level4">
 <h4 class="anchored" data-anchor-id="remove-weird-scraping-instances">Remove weird scraping instances</h4>
 <p>HTML Cleanup: The code uses <code>grepl("&lt;[^&gt;]+&gt;", ...)</code> to identify rows that still contain HTML tags (text starting with &lt; and ending with &gt;).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## This correspond to cases where the signs "&lt;" + other signs appear, these are rows with HTML language</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>test_HTML <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">"&lt;[^&gt;]+&gt;"</span>, Article_total2<span class="sc">$</span>body)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>test<span class="sc">$</span>HTML <span class="ot">&lt;-</span> test_HTML</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> test[(test<span class="sc">$</span>HTML<span class="sc">==</span><span class="st">"TRUE"</span>), ]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Indeed corresponds to rows to remove</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>HTML <span class="ot">&lt;-</span> test_HTML</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>HTML<span class="sc">==</span><span class="st">"TRUE"</span>), ]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>HTML <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Action: It filters out any rows where test_HTML is TRUE, removing residual web code that wasn’t caught by the initial scraper.</p>
 </section>
 </section>

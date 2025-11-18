@@ -147,6 +147,12 @@ First, you can download the script <a href="https://github.com/aymeric-collart/C
 
 This section sets up the workspace by loading necessary tools and the raw data.
 
+```{r, eval=FALSE}
+library(dplyr)
+library(tidyr)
+library(openxlsx)
+```
+
 ### Load the libraries:
 
 `library(dplyr)` and `library(tidyr)`: These are loaded for data manipulation. dplyr is used for filtering and mutating data, while tidyr is specifically used here to reshape the data structure (unnesting paragraphs).
@@ -154,6 +160,10 @@ This section sets up the workspace by loading necessary tools and the raw data.
 `library(openxlsx)`: Loaded to handle Excel file export at the end of the script.
 
 ### Load the originally scraped data:
+
+```{r, eval=FALSE}
+load(file = "ArticleETToday_CorpusCourse.Rdata")
+```
 
 The command `load(file = "ArticleETToday_CorpusCourse.Rdata")` imports a previously saved R workspace file containing the raw scraped articles.
 
@@ -165,6 +175,12 @@ This is the core of the script, where the raw text is processed into a clean for
 
 The code extracts temporal metadata from a single string column.
 
+```{r, eval = FALSE}
+Article_total$year <- substr(Article_total$time, start = 1, stop = 4)
+Article_total$month <- substr(Article_total$time, start = 6, stop = 7)
+Article_total$day <- substr(Article_total$time, start = 9, stop = 10)
+```
+
 It creates three new columns (year, month, day) by cutting specific parts of the time column using the substr (substring) function. For example, it assumes the first 4 characters representing the year.
 
 ### Data transformation
@@ -174,6 +190,15 @@ It creates three new columns (year, month, day) by cutting specific parts of the
 This is a structural transformation step.
 
 Logic: The original data has one row per article. This code changes the unit of analysis to one row per paragraph.
+
+```{r, eval = FALSE}
+Article_total$original_article <- Article_total$body
+
+Article_total2 <- Article_total %>% 
+  mutate(body = strsplit(as.character(body), "\r\n")) %>% 
+  unnest(body)
+```
+
 
 Code: It splits the body text wherever it finds a carriage return code (\r\n). It then uses `unnest(body)` to expand these split pieces into individual rows.
 
@@ -185,7 +210,61 @@ This section acts as a filter to remove "noise"—text that is not part of the a
 
 **Example 1 (Image Legends):** Removes rows containing specific symbols like "▲" or "▼", and lines starting with "圖／" (Image) or "文／" (Text/Author), which usually indicate captions or credits.
 
+```{r, eval = FALSE}
+Article_total2 <- Article_total2[-grep("▲", Article_total2$body),]
+Article_total2 <- Article_total2[-grep("▼", Article_total2$body),]
+
+### Most of them start with the "圖／" (image) and "文／" (text) source: Check first if that's the case
+test <- Article_total2[+grep("圖／", Article_total2$body),]
+test <- Article_total2[+grep("文／", Article_total2$body),]
+
+### Indeed the case: Can be removed
+Article_total2 <- Article_total2[-grep("圖／", Article_total2$body),]
+Article_total2 <- Article_total2[-grep("文／", Article_total2$body),]
+```
+
 **Example 2 (Boilerplate/System Messages):** Removes standard ETtoday interface text and links.
+
+```{r, eval = FALSE}
+### Most of them start with the "●" symbol: Check first if that's the case
+test <- Article_total2[+grep("●", Article_total2$body),]
+
+### Indeed the case: Can be removed
+Article_total2 <- Article_total2[-grep("●", Article_total2$body),]
+
+### Some start with the "►" and "▸" symbol (link to other articles): Check first if that's the case
+test <- Article_total2[+grep("►", Article_total2$body),]
+
+test <- Article_total2[+grep("▸", Article_total2$body),]
+
+### Indeed the case: Can be removed
+Article_total2 <- Article_total2[-grep("►", Article_total2$body),]
+Article_total2 <- Article_total2[-grep("▸", Article_total2$body),]
+
+### Most of them start with the "★" symbol: Check first if that's the case
+test <- Article_total2[+grep("★", Article_total2$body),]
+
+### Indeed the case: Can be removed
+Article_total2 <- Article_total2[-grep("★", Article_total2$body),]
+
+### Some rows are just made of the message "【其他新聞】" (other news): Check first if that's the case
+test <- Article_total2[+grep("【其他新聞】", Article_total2$body),]
+
+### Indeed the case: Can be removed
+Article_total2 <- Article_total2[-grep("【其他新聞】", Article_total2$body),]
+
+### Some rows are just made of the message "更多新聞" (more news): Check first if that's the case
+test <- Article_total2[+grep("更多新聞", Article_total2$body),]
+
+### Indeed the case: Can be removed
+Article_total2 <- Article_total2[-grep("更多新聞", Article_total2$body),]
+
+### Some rows are just made of the message "延伸閱讀" (read more): Check first if that's the case
+test <- Article_total2[+grep("延伸閱讀", Article_total2$body),]
+
+### Indeed the case: Can be removed
+Article_total2 <- Article_total2[-grep("延伸閱讀", Article_total2$body),]
+```
 
 It filters out symbols like "●", "►", "▸", and "★".
 
@@ -195,9 +274,39 @@ It removes navigational phrases like "【其他新聞】" (Other news), "更多�
 
 It creates a temporary column FirstTwoCharacters to check the start of the paragraph.
 
+```{r, eval = FALSE}
+### Most of them start with the two characters "記者" (journalist)
+test <- Article_total2
+test$FirstTwoCharacters <- substr(Article_total2$body, start = 1, stop = 2)
+## Only 178 sentences out of 361154 will be wrongly removed, quite acceptable
+
+Article_total2$FirstTwoCharacters <- substr(Article_total2$body, start = 1, stop = 2)
+Article_total2 <- Article_total2[-grep("記者", Article_total2$FirstTwoCharacters),]
+
+Article_total2$FirstTwoCharacters <- NULL
+
+
+### Some start with the four characters "實習記者" (journalist-internship)
+test <- Article_total2
+test$FirstFourCharacters <- substr(Article_total2$body, start = 1, stop = 4)
+test <- test[+grep("實習記者", test$FirstFourCharacters),]
+
+## Indeed all rows need to be removed
+Article_total2$FirstFourCharacters <- substr(Article_total2$body, start = 1, stop = 4)
+Article_total2 <- Article_total2[-grep("實習記者", Article_total2$FirstFourCharacters),]
+
+Article_total2$FirstFourCharacters <- NULL
+```
+
+
 It removes rows starting with "記者" (Reporter) or "實習記者" (Intern Reporter) to strip out bylines.
 
 **Example 4 (Date Filtering):**
+
+```{r, eval = FALSE}
+Article_total2 <- Article_total2[!(Article_total2$year=="2023"), ]
+```
+
 
 It removes all rows where the year is "2023". The comment notes this is "controversial," possibly because it indiscriminately drops data based on date rather than content quality.
 
@@ -207,9 +316,100 @@ Iterative Cleaning: The user manually identified various forms of empty space (e
 
 Process: The code repeatedly checks for these specific empty patterns and removes them to ensure the final dataset contains only text with content.
 
+```{r, eval = FALSE}
+## Test the code to make sure we are not removing too much
+test <- Article_total2[(Article_total2$body==""), ]
+
+## Indeed all the rows correspond to empty paragraphs
+
+Article_total2 <- Article_total2[!(Article_total2$body==""), ]
+
+## Visual inspection: Still empty rows, such as line number 29
+Article_total2$body[29] ## corresponds to a space
+
+## Test the code to make sure we are not removing too much
+test <- Article_total2[(Article_total2$body==" "), ]
+
+## Indeed all the rows correspond to paragraphs with a space
+Article_total2 <- Article_total2[!(Article_total2$body==" "), ]
+
+## Potentially more than one space: Test the code to make sure we are not removing too much
+test <- Article_total2[(Article_total2$body=="  "), ] #test two spaces
+test <- Article_total2[(Article_total2$body=="   "), ] #test three spaces
+test <- Article_total2[(Article_total2$body=="    "), ] #test four spaces
+test <- Article_total2[(Article_total2$body=="     "), ] #test five spaces
+test <- Article_total2[(Article_total2$body=="      "), ] #test six spaces
+test <- Article_total2[(Article_total2$body=="       "), ] #test seven spaces
+
+## Indeed all the rows correspond to paragraphs with 2 to 5 spaces
+Article_total2 <- Article_total2[!(Article_total2$body=="  "), ]
+Article_total2 <- Article_total2[!(Article_total2$body=="   "), ]
+Article_total2 <- Article_total2[!(Article_total2$body=="    "), ]
+Article_total2 <- Article_total2[!(Article_total2$body=="     "), ]
+
+## Visual inspection: Still empty rows, such as line number 29
+Article_total2$body[29] 
+
+## I don't really know what this is, check using the row number instead of the symbol itself
+test <- Article_total2[(Article_total2$body==Article_total2$body[29]), ]
+
+## Extract the symbol
+ToRemove <- Article_total2$body[29] 
+
+## Indeed all the rows correspond to paragraphs with a space --> Removing using the symbol itself
+Article_total2 <- Article_total2[!(Article_total2$body==ToRemove), ]
+
+## Visual inspection: Still empty rows, such as line number 13974
+Article_total2$body[13974] ## corresponds to nothing, but wasn't caught earlier
+
+## Extract the symbol, test and remove
+ToRemove <- Article_total2$body[13974] 
+test <- Article_total2[(Article_total2$body==ToRemove), ]
+Article_total2 <- Article_total2[!(Article_total2$body==ToRemove), ]
+
+## Visual inspection: Still empty rows, such as line number 8368
+Article_total2$body[8368] ## I don't know what kind of space it is
+
+## Extract the symbol, test and remove
+ToRemove <- Article_total2$body[8368] 
+test <- Article_total2[(Article_total2$body==ToRemove), ]
+Article_total2 <- Article_total2[!(Article_total2$body==ToRemove), ]
+
+## Visual inspection: Still empty rows, such as line number 67
+Article_total2$body[67] ## I don't know what kind of space it is
+
+## Extract the symbol, test and remove
+ToRemove <- Article_total2$body[67] 
+test <- Article_total2[(Article_total2$body==ToRemove), ]
+Article_total2 <- Article_total2[!(Article_total2$body==ToRemove), ]
+
+## Visual inspection: Still empty rows, such as line number 15279
+Article_total2$body[15279] ## I don't know what kind of space it is
+
+## Extract the symbol, test and remove
+ToRemove <- Article_total2$body[15279] 
+test <- Article_total2[(Article_total2$body==ToRemove), ]
+Article_total2 <- Article_total2[!(Article_total2$body==ToRemove), ]
+```
+
+
 #### Remove weird scraping instances
 
 HTML Cleanup: The code uses `grepl("<[^>]+>", ...)` to identify rows that still contain HTML tags (text starting with \< and ending with \>).
+
+```{r, eval = FALSE}
+## This correspond to cases where the signs "<" + other signs appear, these are rows with HTML language
+test <- Article_total2
+test_HTML <- grepl("<[^>]+>", Article_total2$body)
+test$HTML <- test_HTML
+test <- test[(test$HTML=="TRUE"), ]
+
+## Indeed corresponds to rows to remove
+Article_total2$HTML <- test_HTML
+Article_total2 <- Article_total2[!(Article_total2$HTML=="TRUE"), ]
+
+Article_total2$HTML <- NULL
+```
 
 Action: It filters out any rows where test_HTML is TRUE, removing residual web code that wasn't caught by the initial scraper.
 
