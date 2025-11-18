@@ -80,7 +80,19 @@ There are at least two reasons for that:
     graph TD
         A[Look at your data set] -- Is it the right format? --> B{Yes} ;
         A -- Is it the right format? --> C{No};
-        C -- Transform the format --> D[Are there necessary annotations to do?]
+        C -- Transform the format --> D[Are there necessary annotations to do?];
+        B --> D;
+        D -- Yes --> E[Proceed to the annotation process];
+        D -- No --> F[Are there unnecessary data to remove?];
+        E --> F;
+        F -- Yes --> G[Identify what to remove];
+        G --> H{Test the removal process};
+        H -- Acceptable removal --> I[Remove the data];
+        H -- Unacceptable removal --> G;
+        I --> J[Are there more unnecessary data to remove>];
+        J -- Yes --> G;
+        J -- No --> K[Data cleaning finished];
+        F -- No --> K
     ")
 ```
 
