@@ -53,6 +53,7 @@ Article_total2 <- Article_total %>%
 ```
 
 ### 2.2.2 Remove unwanted paragraphs
+
 #### Example 1: Corresponds to image legends
 
 ```{r}
@@ -146,7 +147,6 @@ Article_total2$FirstFourCharacters <- NULL
 ```{r}
 Article_total2 <- Article_total2[!(Article_total2$year=="2023"), ]
 ```
-
 
 ### 2.2.3 Remove empty rows
 

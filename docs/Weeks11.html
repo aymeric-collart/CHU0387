@@ -282,7 +282,25 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#playing-hide-and-seek-the-goal-of-the-cleaning-process" id="toc-playing-hide-and-seek-the-goal-of-the-cleaning-process" class="nav-link" data-scroll-target="#playing-hide-and-seek-the-goal-of-the-cleaning-process"><span class="header-section-number">2.1</span> Playing hide-and-seek: The goal of the cleaning process</a></li>
   <li><a href="#list-of-the-steps-to-clean-the-ettoday-corpus" id="toc-list-of-the-steps-to-clean-the-ettoday-corpus" class="nav-link" data-scroll-target="#list-of-the-steps-to-clean-the-ettoday-corpus"><span class="header-section-number">2.2</span> List of the steps to clean the ETtoday corpus</a></li>
   </ul></li>
-  <li><a href="#now-lets-turn-into-r-coding" id="toc-now-lets-turn-into-r-coding" class="nav-link" data-scroll-target="#now-lets-turn-into-r-coding"><span class="header-section-number">3</span> Now let’s turn into R coding</a></li>
+  <li><a href="#now-lets-turn-into-r-coding" id="toc-now-lets-turn-into-r-coding" class="nav-link" data-scroll-target="#now-lets-turn-into-r-coding"><span class="header-section-number">3</span> Now let’s turn into R coding</a>
+  <ul class="collapse">
+  <li><a href="#prepare-the-environment" id="toc-prepare-the-environment" class="nav-link" data-scroll-target="#prepare-the-environment"><span class="header-section-number">3.1</span> Prepare the environment</a>
+  <ul class="collapse">
+  <li><a href="#load-the-libraries" id="toc-load-the-libraries" class="nav-link" data-scroll-target="#load-the-libraries">Load the libraries:</a></li>
+  <li><a href="#load-the-originally-scraped-data" id="toc-load-the-originally-scraped-data" class="nav-link" data-scroll-target="#load-the-originally-scraped-data">Load the originally scraped data:</a></li>
+  </ul></li>
+  <li><a href="#examples-of-cleaningpreparing-processes" id="toc-examples-of-cleaningpreparing-processes" class="nav-link" data-scroll-target="#examples-of-cleaningpreparing-processes"><span class="header-section-number">3.2</span> Examples of cleaning/preparing processes</a>
+  <ul class="collapse">
+  <li><a href="#further-annotations" id="toc-further-annotations" class="nav-link" data-scroll-target="#further-annotations">Further annotations</a></li>
+  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation">Data transformation</a></li>
+  </ul></li>
+  <li><a href="#save-the-data" id="toc-save-the-data" class="nav-link" data-scroll-target="#save-the-data"><span class="header-section-number">3.3</span> Save the data</a>
+  <ul class="collapse">
+  <li><a href="#save-as-an-excel-file" id="toc-save-as-an-excel-file" class="nav-link" data-scroll-target="#save-as-an-excel-file">Save as an Excel file</a></li>
+  <li><a href="#save-as-an-rdata-file" id="toc-save-as-an-rdata-file" class="nav-link" data-scroll-target="#save-as-an-rdata-file">Save as an RData file</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">4</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
   </ul>
 </nav>
     </div>
@@ -411,8 +429,8 @@ Objectives
 <p>Please do not hesitate to zoom in!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-523c329c189eaecf31d9" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-523c329c189eaecf31d9">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-3c3d47d6ee945a4a81a2" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3c3d47d6ee945a4a81a2">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -462,7 +480,81 @@ How to know what to clean?
 </section>
 <section id="now-lets-turn-into-r-coding" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Now let’s turn into R coding</h1>
-<p>[Page to be completed later]</p>
+<p>Now we are clear regarding what we need to clean, so let R do the job for us!</p>
+<p>First, you can download the script <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>, and follow the steps below to understand how it works.</p>
+<p>[Disclaimer: The explanation of the R codes is made by <i>Gemini</i> as an illustration of the use of such tools to decode a script.]</p>
+<section id="prepare-the-environment" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="prepare-the-environment"><span class="header-section-number">3.1</span> Prepare the environment</h2>
+<p>This section sets up the workspace by loading necessary tools and the raw data.</p>
+<section id="load-the-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-libraries">Load the libraries:</h3>
+<p><code>library(dplyr)</code> and <code>library(tidyr)</code>: These are loaded for data manipulation. dplyr is used for filtering and mutating data, while tidyr is specifically used here to reshape the data structure (unnesting paragraphs).</p>
+<p><code>library(openxlsx)</code>: Loaded to handle Excel file export at the end of the script.</p>
+</section>
+<section id="load-the-originally-scraped-data" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-originally-scraped-data">Load the originally scraped data:</h3>
+<p>The command <code>load(file = "ArticleETToday_CorpusCourse.Rdata")</code> imports a previously saved R workspace file containing the raw scraped articles.</p>
+</section>
+</section>
+<section id="examples-of-cleaningpreparing-processes" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="examples-of-cleaningpreparing-processes"><span class="header-section-number">3.2</span> Examples of cleaning/preparing processes</h2>
+<p>This is the core of the script, where the raw text is processed into a clean format suitable for analysis.</p>
+<section id="further-annotations" class="level3">
+<h3 class="anchored" data-anchor-id="further-annotations">Further annotations</h3>
+<p>The code extracts temporal metadata from a single string column.</p>
+<p>It creates three new columns (year, month, day) by cutting specific parts of the time column using the substr (substring) function. For example, it assumes the first 4 characters representing the year.</p>
+</section>
+<section id="data-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="data-transformation">Data transformation</h3>
+<section id="split-the-articles-into-paragraphs" class="level4">
+<h4 class="anchored" data-anchor-id="split-the-articles-into-paragraphs">Split the articles into paragraphs</h4>
+<p>This is a structural transformation step.</p>
+<p>Logic: The original data has one row per article. This code changes the unit of analysis to one row per paragraph.</p>
+<p>Code: It splits the body text wherever it finds a carriage return code (). It then uses <code>unnest(body)</code> to expand these split pieces into individual rows.</p>
+<p>Result: If an article had 5 paragraphs, it will now occupy 5 rows in the dataframe Article_total2.</p>
+</section>
+<section id="remove-unwanted-paragraphs" class="level4">
+<h4 class="anchored" data-anchor-id="remove-unwanted-paragraphs">Remove unwanted paragraphs</h4>
+<p>This section acts as a filter to remove “noise”—text that is not part of the actual news report.</p>
+<p><strong>Example 1 (Image Legends):</strong> Removes rows containing specific symbols like “▲” or “▼”, and lines starting with “圖／” (Image) or “文／” (Text/Author), which usually indicate captions or credits.</p>
+<p><strong>Example 2 (Boilerplate/System Messages):</strong> Removes standard ETtoday interface text and links.</p>
+<p>It filters out symbols like “●”, “►”, “▸”, and “★”.</p>
+<p>It removes navigational phrases like “【其他新聞】” (Other news), “更多新聞” (More news), and “延伸閱讀” (Extended reading).</p>
+<p><strong>Example 3 (Journalist Identity):</strong></p>
+<p>It creates a temporary column FirstTwoCharacters to check the start of the paragraph.</p>
+<p>It removes rows starting with “記者” (Reporter) or “實習記者” (Intern Reporter) to strip out bylines.</p>
+<p><strong>Example 4 (Date Filtering):</strong></p>
+<p>It removes all rows where the year is “2023”. The comment notes this is “controversial,” possibly because it indiscriminately drops data based on date rather than content quality.</p>
+</section>
+<section id="remove-empty-rows-this-section-deals-with-invisible-noise." class="level4">
+<h4 class="anchored" data-anchor-id="remove-empty-rows-this-section-deals-with-invisible-noise.">Remove empty rows This section deals with “invisible” noise.</h4>
+<p>Iterative Cleaning: The user manually identified various forms of empty space (empty strings ““, single spaces” “, multiple spaces” “, and specific whitespace characters found at specific row indices like 29 or 13974).</p>
+<p>Process: The code repeatedly checks for these specific empty patterns and removes them to ensure the final dataset contains only text with content.</p>
+</section>
+<section id="remove-weird-scraping-instances" class="level4">
+<h4 class="anchored" data-anchor-id="remove-weird-scraping-instances">Remove weird scraping instances</h4>
+<p>HTML Cleanup: The code uses <code>grepl("&lt;[^&gt;]+&gt;", ...)</code> to identify rows that still contain HTML tags (text starting with &lt; and ending with &gt;).</p>
+<p>Action: It filters out any rows where test_HTML is TRUE, removing residual web code that wasn’t caught by the initial scraper.</p>
+</section>
+</section>
+</section>
+<section id="save-the-data" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="save-the-data"><span class="header-section-number">3.3</span> Save the data</h2>
+<p>The final section exports the cleaned dataset in two formats for future use.</p>
+<section id="save-as-an-excel-file" class="level3">
+<h3 class="anchored" data-anchor-id="save-as-an-excel-file">Save as an Excel file</h3>
+<p>Uses <code>write.xlsx</code> to save Article_total2 as a standard Excel spreadsheet.</p>
+</section>
+<section id="save-as-an-rdata-file" class="level3">
+<h3 class="anchored" data-anchor-id="save-as-an-rdata-file">Save as an RData file</h3>
+<p>Uses save to store the dataframe as an R object, which preserves the data types (like factors vs strings) better than Excel for future R sessions.</p>
+</section>
+</section>
+</section>
+<section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>
+<p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
+<p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.xlsx" target="_blank">here</a>.</p>
 
 
 </section>

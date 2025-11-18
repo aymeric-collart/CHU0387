@@ -137,4 +137,96 @@ Here is the list of the steps to go through to clean the ETtoday corpus based on
 
 # Now let's turn into R coding
 
-\[Page to be completed later\]
+Now we are clear regarding what we need to clean, so let R do the job for us!
+
+First, you can download the script <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>, and follow the steps below to understand how it works.
+
+\[Disclaimer: The explanation of the R codes is made by <i>Gemini</i> as an illustration of the use of such tools to decode a script.\]
+
+## Prepare the environment
+
+This section sets up the workspace by loading necessary tools and the raw data.
+
+### Load the libraries:
+
+`library(dplyr)` and `library(tidyr)`: These are loaded for data manipulation. dplyr is used for filtering and mutating data, while tidyr is specifically used here to reshape the data structure (unnesting paragraphs).
+
+`library(openxlsx)`: Loaded to handle Excel file export at the end of the script.
+
+### Load the originally scraped data:
+
+The command `load(file = "ArticleETToday_CorpusCourse.Rdata")` imports a previously saved R workspace file containing the raw scraped articles.
+
+## Examples of cleaning/preparing processes
+
+This is the core of the script, where the raw text is processed into a clean format suitable for analysis.
+
+### Further annotations
+
+The code extracts temporal metadata from a single string column.
+
+It creates three new columns (year, month, day) by cutting specific parts of the time column using the substr (substring) function. For example, it assumes the first 4 characters representing the year.
+
+### Data transformation
+
+#### Split the articles into paragraphs
+
+This is a structural transformation step.
+
+Logic: The original data has one row per article. This code changes the unit of analysis to one row per paragraph.
+
+Code: It splits the body text wherever it finds a carriage return code (\r\n). It then uses `unnest(body)` to expand these split pieces into individual rows.
+
+Result: If an article had 5 paragraphs, it will now occupy 5 rows in the dataframe Article_total2.
+
+#### Remove unwanted paragraphs
+
+This section acts as a filter to remove "noise"—text that is not part of the actual news report.
+
+**Example 1 (Image Legends):** Removes rows containing specific symbols like "▲" or "▼", and lines starting with "圖／" (Image) or "文／" (Text/Author), which usually indicate captions or credits.
+
+**Example 2 (Boilerplate/System Messages):** Removes standard ETtoday interface text and links.
+
+It filters out symbols like "●", "►", "▸", and "★".
+
+It removes navigational phrases like "【其他新聞】" (Other news), "更多新聞" (More news), and "延伸閱讀" (Extended reading).
+
+**Example 3 (Journalist Identity):**
+
+It creates a temporary column FirstTwoCharacters to check the start of the paragraph.
+
+It removes rows starting with "記者" (Reporter) or "實習記者" (Intern Reporter) to strip out bylines.
+
+**Example 4 (Date Filtering):**
+
+It removes all rows where the year is "2023". The comment notes this is "controversial," possibly because it indiscriminately drops data based on date rather than content quality.
+
+#### Remove empty rows This section deals with "invisible" noise.
+
+Iterative Cleaning: The user manually identified various forms of empty space (empty strings "", single spaces " ", multiple spaces " ", and specific whitespace characters found at specific row indices like 29 or 13974).
+
+Process: The code repeatedly checks for these specific empty patterns and removes them to ensure the final dataset contains only text with content.
+
+#### Remove weird scraping instances
+
+HTML Cleanup: The code uses `grepl("<[^>]+>", ...)` to identify rows that still contain HTML tags (text starting with \< and ending with \>).
+
+Action: It filters out any rows where test_HTML is TRUE, removing residual web code that wasn't caught by the initial scraper.
+
+## Save the data
+
+The final section exports the cleaned dataset in two formats for future use.
+
+### Save as an Excel file
+
+Uses `write.xlsx` to save Article_total2 as a standard Excel spreadsheet.
+
+### Save as an RData file
+
+Uses save to store the dataframe as an R object, which preserves the data types (like factors vs strings) better than Excel for future R sessions.
+
+# Markdown document, PDF output file, RData and Excel files of the scraped data
+
+You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.pdf" target="_blank">Here</a> is the PDF output of the same document.
+
+The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.xlsx" target="_blank">here</a>.
