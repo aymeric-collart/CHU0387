@@ -434,7 +434,31 @@
     "href": "Weeks11.html#some-cleaning-principles",
     "title": "Week 11: Data preprocessing - Tidying/Cleaning data",
     "section": "1.2 Some cleaning principles",
-    "text": "1.2 Some cleaning principles\n\nWe clean, we don’t fish\nThe cleaning process is here such that the data set will be ready for further analyses. But there are two important points we need to keep in mind:\n\nWe might over-clean, meaning that while we removed unnecessary data, we removed much more than what we thought. That’s why we need to check each time that we are not removing too much\nWe might be biased. We have a research question in mind, and maybe some ideas about what the results may look like. Sometimes, we are so engaged in our study that we assume the results before conducting the analyses… and in that case, we may be so biased that we consider counterexamples as errors to remove before the analyses. This is completely wrong, and the cleaning process should be blind!!\n\n\n\nWe must be aware of the final format of the data set\nEspecially in R, the most common format of the data set is “1 row = 1 data point”. A “data point” may be one whole text, one paragraph, one sentence, etc. Then, each column of that row is related to the same data point. In other words, it is not ideal to have the same data point on two different rows! Transforming the data towards that direction is also part of the cleaning process.\nExample of a data set with a suitable format (fake data):\n\n\n\nDate\nArticle\nSentence\n… (other data)\nLink\n\n\n\n\n2024-01-01\nArticle 1\nSentence 1\n…\nLink 1\n\n\n2024-01-01\nArticle 1\nSentence 2\n…\nLink 1\n\n\n2024-01-01\nArticle 1\nSentence 3\n…\nLink 1\n\n\n2024-01-03\nArticle 2\nSentence 1\n…\nLink 2\n\n\n\n\n\nWe must be close to our data\nThere are at least two reasons for that:\n\nThe closer you are to your data, the more you know what to do to clean them\nNot all the cleaning steps are necessary, it really depends on your data set!\n\n[Page to be completed later]",
+    "text": "1.2 Some cleaning principles\n\nWe clean, we don’t fish\nThe cleaning process is here such that the data set will be ready for further analyses. But there are two important points we need to keep in mind:\n\nWe might over-clean, meaning that while we removed unnecessary data, we removed much more than what we thought. That’s why we need to check each time that we are not removing too much\nWe might be biased. We have a research question in mind, and maybe some ideas about what the results may look like. Sometimes, we are so engaged in our study that we assume the results before conducting the analyses… and in that case, we may be so biased that we consider counterexamples as errors to remove before the analyses. This is completely wrong, and the cleaning process should be blind!!\n\n\n\nWe must be aware of the final format of the data set\nEspecially in R, the most common format of the data set is “1 row = 1 data point”. A “data point” may be one whole text, one paragraph, one sentence, etc. Then, each column of that row is related to the same data point. In other words, it is not ideal to have the same data point on two different rows! Transforming the data towards that direction is also part of the cleaning process.\nExample of a data set with a suitable format (fake data):\n\n\n\nDate\nArticle\nSentence\n… (other data)\nLink\n\n\n\n\n2024-01-01\nArticle 1\nSentence 1\n…\nLink 1\n\n\n2024-01-01\nArticle 1\nSentence 2\n…\nLink 1\n\n\n2024-01-01\nArticle 1\nSentence 3\n…\nLink 1\n\n\n2024-01-03\nArticle 2\nSentence 1\n…\nLink 2\n\n\n\n\n\nWe must be close to our data\nThere are at least two reasons for that:\n\nThe closer you are to your data, the more you know what to do to clean them\nNot all the cleaning steps are necessary, it really depends on your data set!",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyses of corpus data",
+      "Week 11: Data preprocessing - Tidying/Cleaning data"
+    ]
+  },
+  {
+    "objectID": "Weeks11.html#a-proposed-workflow",
+    "href": "Weeks11.html#a-proposed-workflow",
+    "title": "Week 11: Data preprocessing - Tidying/Cleaning data",
+    "section": "1.3 A proposed workflow",
+    "text": "1.3 A proposed workflow",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyses of corpus data",
+      "Week 11: Data preprocessing - Tidying/Cleaning data"
+    ]
+  },
+  {
+    "objectID": "Weeks11.html#playing-hide-and-seek-the-goal-of-the-cleaning-process",
+    "href": "Weeks11.html#playing-hide-and-seek-the-goal-of-the-cleaning-process",
+    "title": "Week 11: Data preprocessing - Tidying/Cleaning data",
+    "section": "2.1 Playing hide-and-seek: The goal of the cleaning process",
+    "text": "2.1 Playing hide-and-seek: The goal of the cleaning process\n[Page to be completed later]",
     "crumbs": [
       "Welcome page",
       "Part 3: Simple preprocessing and analyses of corpus data",

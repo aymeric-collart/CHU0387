@@ -72,4 +72,24 @@ There are at least two reasons for that:
 
 -   Not all the cleaning steps are necessary, it really depends on your data set!
 
+## A proposed workflow
+
+```{r}
+
+```
+
+```{r mermaid-example, echo=FALSE, fig.align='center'}
+    DiagrammeR::mermaid("
+    graph TD
+        A[Look at your data set] -- Is it the right format? -- Yes --> C[Move to the next step];
+        A -- Is it the right format? -- No --> B[Transform the format] --> C;
+    ")
+```
+
+# Preparation for the cleaning process: Example with the ETtoday corpus
+
+## Playing hide-and-seek: The goal of the cleaning process
+
+
+
 \[Page to be completed later\]
