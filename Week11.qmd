@@ -74,6 +74,7 @@ There are at least two reasons for that:
 
 ## A proposed workflow
 
+Please do not hesitate to zoom in!
 
 ```{r mermaid-example, echo=FALSE, fig.align='center'}
     DiagrammeR::mermaid("
@@ -100,6 +101,14 @@ There are at least two reasons for that:
 
 ## Playing hide-and-seek: The goal of the cleaning process
 
+As it is made evident from the workflow, the cleaning process is a little bit like playing hide-and-seek. We must find what we need to clean, and one way is to randomly scroll the data.
 
+::: callout-tip
+## How to know what to clean?
+
+The reality is that we will always miss something at some point. Most of the time, we realize that we need more cleaning during the analysis process. At that moment, we just add another step... and this is why having scripts already prepared is essential, since implementing a new step is easy and not time-consuming!
+:::
+
+## List of the steps to clean the ETtodat corpus
 
 \[Page to be completed later\]

@@ -280,6 +280,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#preparation-for-the-cleaning-process-example-with-the-ettoday-corpus" id="toc-preparation-for-the-cleaning-process-example-with-the-ettoday-corpus" class="nav-link" data-scroll-target="#preparation-for-the-cleaning-process-example-with-the-ettoday-corpus"><span class="header-section-number">2</span> Preparation for the cleaning process: Example with the ETtoday corpus</a>
   <ul class="collapse">
   <li><a href="#playing-hide-and-seek-the-goal-of-the-cleaning-process" id="toc-playing-hide-and-seek-the-goal-of-the-cleaning-process" class="nav-link" data-scroll-target="#playing-hide-and-seek-the-goal-of-the-cleaning-process"><span class="header-section-number">2.1</span> Playing hide-and-seek: The goal of the cleaning process</a></li>
+  <li><a href="#list-of-the-steps-to-clean-the-ettodat-corpus" id="toc-list-of-the-steps-to-clean-the-ettodat-corpus" class="nav-link" data-scroll-target="#list-of-the-steps-to-clean-the-ettodat-corpus"><span class="header-section-number">2.2</span> List of the steps to clean the ETtodat corpus</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -406,10 +407,11 @@ Objectives
 </section>
 <section id="a-proposed-workflow" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="a-proposed-workflow"><span class="header-section-number">1.3</span> A proposed workflow</h2>
+<p>Please do not hesitate to zoom in!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-324bb7029df834d9669e" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-324bb7029df834d9669e">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-36e6580b8cf6bd2d23a5" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-36e6580b8cf6bd2d23a5">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -418,6 +420,23 @@ Objectives
 <h1 data-number="2"><span class="header-section-number">2</span> Preparation for the cleaning process: Example with the ETtoday corpus</h1>
 <section id="playing-hide-and-seek-the-goal-of-the-cleaning-process" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="playing-hide-and-seek-the-goal-of-the-cleaning-process"><span class="header-section-number">2.1</span> Playing hide-and-seek: The goal of the cleaning process</h2>
+<p>As it is made evident from the workflow, the cleaning process is a little bit like playing hide-and-seek. We must find what we need to clean, and one way is to randomly scroll the data.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to know what to clean?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The reality is that we will always miss something at some point. Most of the time, we realize that we need more cleaning during the analysis process. At that moment, we just add another step… and this is why having scripts already prepared is essential, since implementing a new step is easy and not time-consuming!</p>
+</div>
+</div>
+</section>
+<section id="list-of-the-steps-to-clean-the-ettodat-corpus" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="list-of-the-steps-to-clean-the-ettodat-corpus"><span class="header-section-number">2.2</span> List of the steps to clean the ETtodat corpus</h2>
 <p>[Page to be completed later]</p>
 
 
