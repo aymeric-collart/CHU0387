@@ -1,5 +1,5 @@
 ---
-title: "Week 11: Data preprocessing - Tidying data"
+title: "Week 11: Data preprocessing - Tidying/Cleaning data"
 format: 
   html:
     output-file: Weeks11.html
@@ -25,4 +25,51 @@ hr.rounded {
 This week, you will learn how to clean the data that you got from the Internet, so that the data are ready for the analyses.
 :::
 
-[Page to be completed later]
+<big>This tutorial is exemplified with the data from ETToday!</big>
+
+# What does "cleaning" mean?
+
+## Why the need to clean the data?
+
+We just scraped data from the Internet. Even if we have been very careful when writing the scraping code, there are surely unnecessary data we need to remove, format problems, or further annotations to do. The reasons are quite simple: (a) while the majority of the webpages we scraped has a consistent structure, it is possible that some were slightly different, (b) unnecessary parts were coded under the same HTML nodes, such that it was not possible to scrape the data we wanted without scraping them as well, (c) it was easier to write the scraping code that way.
+
+That's why we need to go through the cleaning process before rushing into the analyses! The main problems we will encounter are:
+
+-   The format of the table is not suited for analyses, so we need to arrange it
+
+-   Unnecessary data need to be removed, otherwise it will affect the results
+
+-   Simple annotations can be made, and these will be helpful for both the cleaning and analyses processes
+
+## Some cleaning principles
+
+### We clean, we don't fish
+
+The cleaning process is here such that the data set will be ready for further analyses. But there are two important points we need to keep in mind:
+
+-   We might over-clean, meaning that while we removed unnecessary data, we removed much more than what we thought. That's why we need to check each time that we are not removing too much
+
+-   We might be biased. We have a research question in mind, and maybe some ideas about what the results may look like. Sometimes, we are so engaged in our study that we assume the results before conducting the analyses... and in that case, we may be so biased that we consider counterexamples as errors to remove before the analyses. **This is completely wrong, and the cleaning process should be blind!!**
+
+### We must be aware of the final format of the data set
+
+Especially in R, the most common format of the data set is "1 row = 1 data point". A "data point" may be one whole text, one paragraph, one sentence, etc. Then, each column of that row is related to the same data point. **In other words, it is not ideal to have the same data point on two different rows!** Transforming the data towards that direction is also part of the cleaning process.
+
+**Example of a data set with a suitable format (fake data):**
+
+| Date       | Article   | Sentence   | ... (other data) | Link   |
+|------------|-----------|------------|------------------|--------|
+| 2024-01-01 | Article 1 | Sentence 1 | ...              | Link 1 |
+| 2024-01-01 | Article 1 | Sentence 2 | ...              | Link 1 |
+| 2024-01-01 | Article 1 | Sentence 3 | ...              | Link 1 |
+| 2024-01-03 | Article 2 | Sentence 1 | ...              | Link 2 |
+
+### We must be close to our data
+
+There are at least two reasons for that:
+
+-   The closer you are to your data, the more you know what to do to clean them
+
+-   Not all the cleaning steps are necessary, it really depends on your data set!
+
+\[Page to be completed later\]

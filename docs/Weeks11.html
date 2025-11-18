@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 11: Data preprocessing - Tidying data</title>
+<title>Week 11: Data preprocessing - Tidying/Cleaning data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Week 11: Data preprocessing - Tidying data</h1>
+          <h1 class="quarto-secondary-nav-title">Week 11: Data preprocessing - Tidying/Cleaning data</h1>
         </a>     
     </div>
   </nav>
@@ -215,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Weeks11.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Week 11: Data preprocessing - Tidying data</span></a>
+ <span class="menu-text">Week 11: Data preprocessing - Tidying/Cleaning data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -252,15 +252,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-does-cleaning-mean" id="toc-what-does-cleaning-mean" class="nav-link active" data-scroll-target="#what-does-cleaning-mean"><span class="header-section-number">1</span> What does “cleaning” mean?</a>
+  <ul class="collapse">
+  <li><a href="#why-the-need-to-clean-the-data" id="toc-why-the-need-to-clean-the-data" class="nav-link" data-scroll-target="#why-the-need-to-clean-the-data"><span class="header-section-number">1.1</span> Why the need to clean the data?</a></li>
+  <li><a href="#some-cleaning-principles" id="toc-some-cleaning-principles" class="nav-link" data-scroll-target="#some-cleaning-principles"><span class="header-section-number">1.2</span> Some cleaning principles</a>
+  <ul class="collapse">
+  <li><a href="#we-clean-we-dont-fish" id="toc-we-clean-we-dont-fish" class="nav-link" data-scroll-target="#we-clean-we-dont-fish">We clean, we don’t fish</a></li>
+  <li><a href="#we-must-be-aware-of-the-final-format-of-the-data-set" id="toc-we-must-be-aware-of-the-final-format-of-the-data-set" class="nav-link" data-scroll-target="#we-must-be-aware-of-the-final-format-of-the-data-set">We must be aware of the final format of the data set</a></li>
+  <li><a href="#we-must-be-close-to-our-data" id="toc-we-must-be-close-to-our-data" class="nav-link" data-scroll-target="#we-must-be-close-to-our-data">We must be close to our data</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Week 11: Data preprocessing - Tidying data</h1>
+<h1 class="title d-none d-lg-block">Week 11: Data preprocessing - Tidying/Cleaning data</h1>
 </div>
 
 
@@ -297,9 +312,88 @@ Objectives
 <p>This week, you will learn how to clean the data that you got from the Internet, so that the data are ready for the analyses.</p>
 </div>
 </div>
+<p><big>This tutorial is exemplified with the data from ETToday!</big></p>
+<section id="what-does-cleaning-mean" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> What does “cleaning” mean?</h1>
+<section id="why-the-need-to-clean-the-data" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="why-the-need-to-clean-the-data"><span class="header-section-number">1.1</span> Why the need to clean the data?</h2>
+<p>We just scraped data from the Internet. Even if we have been very careful when writing the scraping code, there are surely unnecessary data we need to remove, format problems, or further annotations to do. The reasons are quite simple: (a) while the majority of the webpages we scraped has a consistent structure, it is possible that some were slightly different, (b) unnecessary parts were coded under the same HTML nodes, such that it was not possible to scrape the data we wanted without scraping them as well, (c) it was easier to write the scraping code that way.</p>
+<p>That’s why we need to go through the cleaning process before rushing into the analyses! The main problems we will encounter are:</p>
+<ul>
+<li><p>The format of the table is not suited for analyses, so we need to arrange it</p></li>
+<li><p>Unnecessary data need to be removed, otherwise it will affect the results</p></li>
+<li><p>Simple annotations can be made, and these will be helpful for both the cleaning and analyses processes</p></li>
+</ul>
+</section>
+<section id="some-cleaning-principles" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="some-cleaning-principles"><span class="header-section-number">1.2</span> Some cleaning principles</h2>
+<section id="we-clean-we-dont-fish" class="level3">
+<h3 class="anchored" data-anchor-id="we-clean-we-dont-fish">We clean, we don’t fish</h3>
+<p>The cleaning process is here such that the data set will be ready for further analyses. But there are two important points we need to keep in mind:</p>
+<ul>
+<li><p>We might over-clean, meaning that while we removed unnecessary data, we removed much more than what we thought. That’s why we need to check each time that we are not removing too much</p></li>
+<li><p>We might be biased. We have a research question in mind, and maybe some ideas about what the results may look like. Sometimes, we are so engaged in our study that we assume the results before conducting the analyses… and in that case, we may be so biased that we consider counterexamples as errors to remove before the analyses. <strong>This is completely wrong, and the cleaning process should be blind!!</strong></p></li>
+</ul>
+</section>
+<section id="we-must-be-aware-of-the-final-format-of-the-data-set" class="level3">
+<h3 class="anchored" data-anchor-id="we-must-be-aware-of-the-final-format-of-the-data-set">We must be aware of the final format of the data set</h3>
+<p>Especially in R, the most common format of the data set is “1 row = 1 data point”. A “data point” may be one whole text, one paragraph, one sentence, etc. Then, each column of that row is related to the same data point. <strong>In other words, it is not ideal to have the same data point on two different rows!</strong> Transforming the data towards that direction is also part of the cleaning process.</p>
+<p><strong>Example of a data set with a suitable format (fake data):</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Article</th>
+<th>Sentence</th>
+<th>… (other data)</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2024-01-01</td>
+<td>Article 1</td>
+<td>Sentence 1</td>
+<td>…</td>
+<td>Link 1</td>
+</tr>
+<tr class="even">
+<td>2024-01-01</td>
+<td>Article 1</td>
+<td>Sentence 2</td>
+<td>…</td>
+<td>Link 1</td>
+</tr>
+<tr class="odd">
+<td>2024-01-01</td>
+<td>Article 1</td>
+<td>Sentence 3</td>
+<td>…</td>
+<td>Link 1</td>
+</tr>
+<tr class="even">
+<td>2024-01-03</td>
+<td>Article 2</td>
+<td>Sentence 1</td>
+<td>…</td>
+<td>Link 2</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="we-must-be-close-to-our-data" class="level3">
+<h3 class="anchored" data-anchor-id="we-must-be-close-to-our-data">We must be close to our data</h3>
+<p>There are at least two reasons for that:</p>
+<ul>
+<li><p>The closer you are to your data, the more you know what to do to clean them</p></li>
+<li><p>Not all the cleaning steps are necessary, it really depends on your data set!</p></li>
+</ul>
 <p>[Page to be completed later]</p>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
