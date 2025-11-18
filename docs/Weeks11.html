@@ -280,8 +280,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#preparation-for-the-cleaning-process-example-with-the-ettoday-corpus" id="toc-preparation-for-the-cleaning-process-example-with-the-ettoday-corpus" class="nav-link" data-scroll-target="#preparation-for-the-cleaning-process-example-with-the-ettoday-corpus"><span class="header-section-number">2</span> Preparation for the cleaning process: Example with the ETtoday corpus</a>
   <ul class="collapse">
   <li><a href="#playing-hide-and-seek-the-goal-of-the-cleaning-process" id="toc-playing-hide-and-seek-the-goal-of-the-cleaning-process" class="nav-link" data-scroll-target="#playing-hide-and-seek-the-goal-of-the-cleaning-process"><span class="header-section-number">2.1</span> Playing hide-and-seek: The goal of the cleaning process</a></li>
-  <li><a href="#list-of-the-steps-to-clean-the-ettodat-corpus" id="toc-list-of-the-steps-to-clean-the-ettodat-corpus" class="nav-link" data-scroll-target="#list-of-the-steps-to-clean-the-ettodat-corpus"><span class="header-section-number">2.2</span> List of the steps to clean the ETtodat corpus</a></li>
+  <li><a href="#list-of-the-steps-to-clean-the-ettoday-corpus" id="toc-list-of-the-steps-to-clean-the-ettoday-corpus" class="nav-link" data-scroll-target="#list-of-the-steps-to-clean-the-ettoday-corpus"><span class="header-section-number">2.2</span> List of the steps to clean the ETtoday corpus</a></li>
   </ul></li>
+  <li><a href="#now-lets-turn-into-r-coding" id="toc-now-lets-turn-into-r-coding" class="nav-link" data-scroll-target="#now-lets-turn-into-r-coding"><span class="header-section-number">3</span> Now let’s turn into R coding</a></li>
   </ul>
 </nav>
     </div>
@@ -410,8 +411,8 @@ Objectives
 <p>Please do not hesitate to zoom in!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-36e6580b8cf6bd2d23a5" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-36e6580b8cf6bd2d23a5">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-523c329c189eaecf31d9" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-523c329c189eaecf31d9">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -435,12 +436,35 @@ How to know what to clean?
 </div>
 </div>
 </section>
-<section id="list-of-the-steps-to-clean-the-ettodat-corpus" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="list-of-the-steps-to-clean-the-ettodat-corpus"><span class="header-section-number">2.2</span> List of the steps to clean the ETtodat corpus</h2>
+<section id="list-of-the-steps-to-clean-the-ettoday-corpus" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="list-of-the-steps-to-clean-the-ettoday-corpus"><span class="header-section-number">2.2</span> List of the steps to clean the ETtoday corpus</h2>
+<p>Here is the list of the steps to go through to clean the ETtoday corpus based on my observations:</p>
+<ul>
+<li><p><strong>Transformations:</strong></p>
+<ul>
+<li>The whole article appear in one cell. We need to transform such that one cell = one paragraph</li>
+</ul></li>
+<li><p><strong>Annotations:</strong></p>
+<ul>
+<li>Annotate based on year, month and day</li>
+</ul></li>
+<li><p><strong>Data removal:</strong></p>
+<ul>
+<li><p>Remove the legends of the images</p></li>
+<li><p>Remove messages from ETtoday unrelated to the article (for instance: “be caution of your alcohol consumption”, etc.)</p></li>
+<li><p>Remove rows corresponding to the identity of the journalist</p></li>
+<li><p>Remove data from 2023</p></li>
+<li><p>Remove empty rows</p></li>
+<li><p>Remove weird scraped instances (e.g., HTML language, etc.)</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="now-lets-turn-into-r-coding" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Now let’s turn into R coding</h1>
 <p>[Page to be completed later]</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

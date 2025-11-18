@@ -109,6 +109,32 @@ As it is made evident from the workflow, the cleaning process is a little bit li
 The reality is that we will always miss something at some point. Most of the time, we realize that we need more cleaning during the analysis process. At that moment, we just add another step... and this is why having scripts already prepared is essential, since implementing a new step is easy and not time-consuming!
 :::
 
-## List of the steps to clean the ETtodat corpus
+## List of the steps to clean the ETtoday corpus
+
+Here is the list of the steps to go through to clean the ETtoday corpus based on my observations:
+
+-   **Transformations:**
+
+    -   The whole article appear in one cell. We need to transform such that one cell = one paragraph
+
+-   **Annotations:**
+
+    -   Annotate based on year, month and day
+
+-   **Data removal:**
+
+    -   Remove the legends of the images
+
+    -   Remove messages from ETtoday unrelated to the article (for instance: "be caution of your alcohol consumption", etc.)
+
+    -   Remove rows corresponding to the identity of the journalist
+
+    -   Remove data from 2023
+
+    -   Remove empty rows
+
+    -   Remove weird scraped instances (e.g., HTML language, etc.)
+
+# Now let's turn into R coding
 
 \[Page to be completed later\]
