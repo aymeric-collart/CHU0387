@@ -414,8 +414,8 @@ More about ETtoday (source: Wikipedia)
 <p>This procedure looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-dc50ef250f031a75954a" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-dc50ef250f031a75954a">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-c12fcebba0db1604d8ca" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-c12fcebba0db1604d8ca">{"x":{"diagram":"\n    graph TD\n        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};\n        A -- Select type --> B{Filtered articles};\n        B --> C[Click on the title of one article];\n        C --> D[New webpage: Individual article];\n        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we will do the same, but pay more attention to <strong>the web address</strong>, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “<a href="https://www.ettoday.net/news/news-list.htm" class="uri">https://www.ettoday.net/news/news-list.htm</a>”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?</p>
@@ -1160,10 +1160,14 @@ Think about it
 <span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>                           <span class="at">url =</span> article_overview_unique<span class="sc">$</span>news_url[j]))</span>
 <span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>    Article_total <span class="ot">&lt;-</span> <span class="fu">rbind</span>(Article_total, Article)</span>
 <span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error=</span><span class="cf">function</span>(e){<span class="fu">cat</span>(<span class="st">"ERROR :"</span>,<span class="fu">conditionMessage</span>(e), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)})</span>
-<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Use of the paged_table() function from the 'rmarkdown' package to have a readable output</span></span>
-<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(<span class="fu">head</span>(Article_total))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ERROR : cannot open the connection 
+ERROR : cannot open the connection 
+ERROR : cannot open the connection </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use of the paged_table() function from the 'rmarkdown' package to have a readable output</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(<span class="fu">head</span>(Article_total))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -1191,10 +1195,10 @@ Be careful!!
 <h2 data-number="4.6" class="anchored" data-anchor-id="step-4-save-the-data-into-excel-and-r-files"><span class="header-section-number">4.6</span> Step 4: Save the data into Excel and R files</h2>
 <p>The last steps are straightforward: We export the dataset into an Excel document in addition to an RData file:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(Article_total, <span class="st">"ArticleETToday_CorpusCourse.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(Article_total, <span class="st">"ArticleETToday_CorpusCourse.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Article_total, <span class="at">file =</span> <span class="st">"ArticleETToday_CorpusCourse.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Article_total, <span class="at">file =</span> <span class="st">"ArticleETToday_CorpusCourse.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

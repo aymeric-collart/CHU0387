@@ -74,15 +74,13 @@ There are at least two reasons for that:
 
 ## A proposed workflow
 
-```{r}
-
-```
 
 ```{r mermaid-example, echo=FALSE, fig.align='center'}
     DiagrammeR::mermaid("
     graph TD
-        A[Look at your data set] -- Is it the right format? -- Yes --> C[Move to the next step];
-        A -- Is it the right format? -- No --> B[Transform the format] --> C;
+        A[Look at your data set] -- Is it the right format? --> B{Yes} ;
+        A -- Is it the right format? --> C{No};
+        C -- Transform the format --> D[Are there necessary annotations to do?]
     ")
 ```
 
