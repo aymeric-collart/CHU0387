@@ -58,6 +58,7 @@ Article_total2 <- Article_total %>%
 
 ```{r}
 Article_total2 <- Article_total2[-grep("▲", Article_total2$body),]
+
 Article_total2 <- Article_total2[-grep("▼", Article_total2$body),]
 ```
 

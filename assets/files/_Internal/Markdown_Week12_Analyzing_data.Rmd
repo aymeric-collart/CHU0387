@@ -1,0 +1,283 @@
+---
+title: "Markdown_Week12_Analyzing_data"
+author: "Aymeric Collart"
+header-includes:
+  - \usepackage{fontspec} # use fontspec package
+  - \usepackage{xeCJK}    # use xeCJK package
+  - \usepackage{fvextra}  # use fvertra package
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}} #break lines when they are too long in the PDF output
+output:
+  pdf_document:
+    latex_engine: xelatex
+  html_document: default
+  always_allow_html: true
+---
+
+# 1. Prepare the environment
+
+## 1.1 Load the libraries
+
+```{r}
+library(quanteda)
+library(quanteda.textstats)
+library(jiebaR)
+library(tidytext)
+library(dplyr)
+library(jiebaR)
+library(openxlsx)
+
+#Sys.setlocale(category = "LC_ALL", locale = "cht")
+```
+
+## 1.2 Load the originally scraped data
+
+```{r}
+load(file = "ArticleETToday_CorpusCourse_CLEAN.Rdata")
+```
+
+# 2. Key Word In Context (KWIC)
+
+## 2.1 Set the segmenter (for Chinese)
+
+```{r}
+seg_word <- worker(bylines = T, 
+                   symbol=T)
+
+seg_POS <- worker(type = "tag",
+                  symbol = F)
+```
+
+## 2.2 Prepare the dataset for the analyses
+
+```{r}
+Article_total2$docname <- paste0("text",
+                                 1:nrow(Article_total2))
+
+Article_tokens <- Article_total2$body %>%
+  segment(jiebar = seg_word) %>%
+  as.tokens 
+```
+
+## 2.3 Perform the KWIC segmentation
+
+### 2.3.1 Corpus with POS information on the following word
+
+```{r}
+kwic_data <- kwic(Article_tokens,
+                  pattern = "有",
+                  window = 1)
+
+RightPost_Annot <- segment(kwic_data$post, seg_POS)
+
+## Convert to dataframe
+RightPost_Annot <- do.call(rbind, 
+                           lapply(RightPost_Annot, 
+                                  as.data.frame))
+
+RightPost_Annot <- cbind(POS = rownames(RightPost_Annot),
+                         RightPost_Annot)
+
+rownames(RightPost_Annot) <- 1:nrow(RightPost_Annot)
+
+names(RightPost_Annot)[2] <- "RightPost"
+
+RightPost_Annot$POS <- gsub("[0-9]+", "", RightPost_Annot$POS)
+
+RightPost_Annot <- RightPost_Annot[!duplicated(RightPost_Annot), ]
+
+names(RightPost_Annot)[2] <- "post"
+
+kwic_data <- right_join(kwic_data,
+                        RightPost_Annot,
+                        by = "post")
+```
+
+### 2.3.2 Corpus with longer sentences
+
+```{r}
+kwic_data2 <- kwic(Article_tokens,
+                  pattern = "有",
+                  window = 15)
+```
+
+### 2.3.3 Combine the two datasets together
+
+```{r}
+### Prepare the dataset with longer sentences
+kwic_data2 <- as.data.frame(kwic_data2)
+
+kwic_data2$Index <- paste0(kwic_data2$docname,
+                           kwic_data2$from)
+
+kwic_data2_selected <- kwic_data2 %>% 
+  select(docname, pre, post, Index)
+
+### Prepare the dataset with the POS infomation
+kwic_data <- as.data.frame(kwic_data)
+
+names(kwic_data)[6] <- "post_1word"
+
+kwic_data_selected <- kwic_data %>% 
+  select(docname, from, to, post_1word, keyword, POS)
+
+kwic_data_selected$Index <- paste0(kwic_data_selected$docname,
+                                   kwic_data_selected$from)
+
+### Join the two datasets
+kwic_data <- right_join(kwic_data_selected,
+                   kwic_data2_selected,
+                   by = "Index")
+
+### Change the location of the columns for convenience
+kwic_data <- kwic_data %>% 
+  relocate(keyword, .after = pre)
+kwic_data <- kwic_data %>% 
+  relocate(post_1word, .after = keyword)
+```
+
+### 2.3.4 (Optional) Select the sentences we are interested in
+
+For this example, we are interested in the sentences where the character 有 'you' (to have) is followed immediately by a verb (to simplify in this exemple, when POS = 'v') 
+
+```{r}
+kwic_you_verb <- kwic_data[kwic_data$POS == "v", ]
+
+table_YouVerb <- table(kwic_you_verb$post_1word)
+table_YouVerb <- as.data.frame(table_YouVerb)
+
+names(table_YouVerb)[1] <- "Verb"
+table_YouVerb <- table_YouVerb %>% 
+  arrange(desc(Freq))
+table_YouVerb_Top10 <- head(table_YouVerb, 10)
+table_YouVerb_Top10 
+## As you can see, even if the POS tagging is useful, it's not completely reliable.
+```
+
+## 2.4 Save the data
+
+### 2.4.1 Save as an Excel file
+
+```{r}
+write.xlsx(kwic_you_verb, "ArticleETToday_KWIC_You.xlsx")
+```
+
+### 2.4.2 Save as an RData file
+
+```{r}
+save(kwic_you_verb, file = "ArticleETToday_KWIC_You.Rdata")
+```
+
+# 3. Frequency tables 
+
+## 3.1 Create the overall frequency table
+
+### 3.1.1 Creation of the first table
+
+```{r}
+## We need to tranform the tokenized data into a 'dfm' dataset
+Article_tokens_frequency <- dfm(Article_tokens)
+Article_tokens_frequency <- textstat_frequency(Article_tokens_frequency)
+
+table_AllWordsFreq_Top100 <- head(Article_tokens_frequency, 100)
+table_AllWordsFreq_Top100 
+```
+
+### 3.1.2 Clean it up a little bit
+
+```{r}
+## Example with punctuation marks
+table_FreqWord <- Article_tokens_frequency[-grep("，", Article_tokens_frequency$feature),]
+table_FreqWord <- table_FreqWord[-grep("。", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("、", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("「", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("」", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("（", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("）", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("？", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("；", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("！", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("《", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("》", table_FreqWord$feature),]
+
+## Example with numbers
+table_FreqWord <- table_FreqWord[-grep("[[:digit:]]", table_FreqWord$feature),]
+```
+
+### 3.1.3 Final table, addition of the percentage
+
+```{r}
+table_FreqWord_Top100 <- head(table_FreqWord, 100)
+table_FreqWord_Top100
+
+table_FreqWord_Top100$percentage <- round(table_FreqWord_Top100$frequency/sum(table_FreqWord$frequency)*100, 4)
+table_FreqWord_Top100
+```
+
+## 3.2 Select only the 100 most frequent nouns
+
+There are several ways to do it. We could use the raw data one more time. But since this is quite a large dataset, it will take a lot of time to process. An alternative way is to compute the 500 most frequent words, and hopefully there will be 100 nouns. [After trying 300 words, it was not enough. Tests with more words done after]
+
+### 3.2.1 Set the segmenter
+```{r}
+seg_POS_ByLines <- worker(type = "tag",
+                          bylines = FALSE,
+                          symbol = F)
+```
+
+### 3.2.2 Proceed to the segmentation and annotate
+```{r}
+table_FreqWord_Top500 <- head(table_FreqWord, 500)
+
+Top500_WordFreqPOS <- segment(table_FreqWord_Top500$feature,
+                              seg_POS_ByLines)
+
+## Convert to dataframe
+Top500_WordFreqPOS_Annotated <- do.call(rbind, 
+                                        lapply(Top500_WordFreqPOS, 
+                                               as.data.frame))
+
+Top500_WordFreqPOS_Annotated <- cbind(POS = rownames(Top500_WordFreqPOS_Annotated),
+                                      Top500_WordFreqPOS_Annotated)
+
+rownames(Top500_WordFreqPOS_Annotated) <- 1:nrow(Top500_WordFreqPOS_Annotated)
+
+names(Top500_WordFreqPOS_Annotated)[2] <- "Word"
+
+Top500_WordFreqPOS_Annotated$POS <- gsub("[0-9]+", "", Top500_WordFreqPOS_Annotated$POS)
+```
+
+### 3.2.3 Extract the nouns (POS = n, to make it simple) and annotate
+
+```{r}
+TopFreqNoun <- Top500_WordFreqPOS_Annotated[Top500_WordFreqPOS_Annotated$POS == "n", ]
+TopFreqNoun$Index <- "TopNouns"
+
+names(table_FreqWord)[1] <- "Word"
+TopFreqNoun <- right_join(TopFreqNoun,
+                          table_FreqWord,
+                          by = "Word")
+
+TopFreqNoun$Percentage <- round(TopFreqNoun$frequency/sum(TopFreqNoun$frequency)*100, 4)
+
+TopFreqNoun <- TopFreqNoun[+grep("TopNouns", TopFreqNoun$Index),]
+
+table_FreqNoun_Top100 <- head(TopFreqNoun, 100)
+table_FreqNoun_Top100 <- table_FreqNoun_Top100 %>% 
+  arrange(desc(frequency))
+table_FreqNoun_Top100
+## Again, you can see that some entries are a little bit weird. There are several ways to handle them, but we will not cover them in class
+```
+
+## 3.3 Save the data
+
+### 3.3.1 Save as an Excel file
+
+```{r}
+write.xlsx(table_FreqNoun_Top100, "ArticleETToday_Top100nouns.xlsx")
+```
+
+### 3.3.2 Save as an RData file
+
+```{r}
+save(table_FreqNoun_Top100, file = "ArticleETToday_Top100nouns.Rdata")
+```
