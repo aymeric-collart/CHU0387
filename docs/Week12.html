@@ -67,6 +67,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/d3-3.3.8/d3.min.js"></script>
+<script src="site_libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="site_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+<script src="site_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="site_libs/chromatography-0.1/chromatography.js"></script>
+<script src="site_libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script>
 
 
 </head>
@@ -257,7 +266,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link active" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">1</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
+  <li><a href="#how-to-analyze-corpus-data" id="toc-how-to-analyze-corpus-data" class="nav-link active" data-scroll-target="#how-to-analyze-corpus-data"><span class="header-section-number">1</span> How to analyze corpus data?</a>
+  <ul class="collapse">
+  <li><a href="#kwic-key-word-in-context" id="toc-kwic-key-word-in-context" class="nav-link" data-scroll-target="#kwic-key-word-in-context"><span class="header-section-number">1.1</span> KWIC (Key Word In Context)</a></li>
+  <li><a href="#word-lists-based-on-frequency" id="toc-word-lists-based-on-frequency" class="nav-link" data-scroll-target="#word-lists-based-on-frequency"><span class="header-section-number">1.2</span> Word lists based on frequency</a></li>
+  </ul></li>
+  <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">2</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
   </ul>
 </nav>
     </div>
@@ -301,6 +315,7 @@ Objectives
 </div>
 <div class="callout-body-container callout-body">
 <p>This week, you will learn how to analyze your data quickly and automatically with R.</p>
+<p>!! This is an overview of how the analysis process, without reference to statistical modeling!</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -316,8 +331,45 @@ Note
 <p>The data analysis is exemplified with the ETtoday dataset that we cleaned last week. In case, you can download the R data using this link: <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a></p>
 </div>
 </div>
-<section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>
+<section id="how-to-analyze-corpus-data" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> How to analyze corpus data?</h1>
+<p>Let’s recap first what we learned and did in the past weeks:</p>
+<ul>
+<li><p>We learned what a corpus linguistics study is, the questions we can ask, and the types of corpora we can/should select to conduct the study;</p></li>
+<li><p>We learned how to automatically scrape data from the Internet, with examples from different sources;</p></li>
+<li><p>Last week, we learned how to “clean” the raw data, how to prepare the data for further analyses.</p></li>
+</ul>
+<p>And this is the main objective for this week: <strong>How to analyze the data that we prepared?</strong></p>
+<p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-d4435ff3862c22ca2e1e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d4435ff3862c22ca2e1e">{"x":{"diagram":"\n    graph TD\n        A[Ask a research question] --> B{Do I need corpus/large data} ;\n        B -- No --> C[Maybe a corpus study is not appropriate!];\n        C -- Yes --> D[Proceed to the corpus study!];\n        D --> E{Select the right corpus};\n        E --> F{Select the appropriate analysis method};\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question]\n    "},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are many many analyses methods. Their common point is that they involve automatic processing, which is very helpful when we are dealing with large datasets. Some analyses methods are quite straightforward and traditional (e.g., frequency tables), while some others are more on the computational side. Always remember to select the analysis method that is appropriate for your research question!</p>
+</div>
+</div>
+<p>For this class, two methods will be presented: Word lists and KWIC (Key Word In Context). These are classic yet very useful methods, and easy to understand and implement for any kind of research.</p>
+<section id="kwic-key-word-in-context" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="kwic-key-word-in-context"><span class="header-section-number">1.1</span> KWIC (Key Word In Context)</h2>
+</section>
+<section id="word-lists-based-on-frequency" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="word-lists-based-on-frequency"><span class="header-section-number">1.2</span> Word lists based on frequency</h2>
+</section>
+</section>
+<section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>
 <p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
 <p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">here for the KWIC analysis</a>, and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100nouns.Rdata" target="_blank">here for the frequency analysis</a>. The corresponding Excel files are <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.xlsx" target="_blank">here (KWIC analysis)</a> and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100nouns.xlsx" target="_blank">here (frequency analysis)</a>.</p>
 

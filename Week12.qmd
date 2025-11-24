@@ -23,18 +23,55 @@ hr.rounded {
 ## Objectives
 
 This week, you will learn how to analyze your data quickly and automatically with R.
-:::
 
+!! This is an overview of how the analysis process, without reference to statistical modeling!
+:::
 
 ::: {.callout-note icon="false"}
 The data analysis is exemplified with the ETtoday dataset that we cleaned last week. In case, you can download the R data using this link: <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a>
-
 :::
 
+# How to analyze corpus data?
+
+Let's recap first what we learned and did in the past weeks:
+
+-   We learned what a corpus linguistics study is, the questions we can ask, and the types of corpora we can/should select to conduct the study;
+
+-   We learned how to automatically scrape data from the Internet, with examples from different sources;
+
+-   Last week, we learned how to "clean" the raw data, how to prepare the data for further analyses.
+
+And this is the main objective for this week: **How to analyze the data that we prepared?**
+
+Before getting into the details, we need to keep in mind the overall workflow of a corpus study.
+
+```{r mermaid-example, echo=FALSE, fig.align='center'}
+    DiagrammeR::mermaid("
+    graph TD
+        A[Ask a research question] --> B{Do I need corpus/large data} ;
+        B -- No --> C[Maybe a corpus study is not appropriate!];
+        C -- Yes --> D[Proceed to the corpus study!];
+        D --> E{Select the right corpus};
+        E --> F{Select the appropriate analysis method};
+        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];
+        G --> H[Interpret the results according to the research question]
+    ")
+```
+
+::: {.callout-note icon="true"}
+There are many many analyses methods. Their common point is that they involve automatic processing, which is very helpful when we are dealing with large datasets.
+Some analyses methods are quite straightforward and traditional (e.g., frequency tables), while some others are more on the computational side.
+Always remember to select the analysis method that is appropriate for your research question!
+:::
+
+For this class, two methods will be presented: Word lists and KWIC (Key Word In Context). These are classic yet very useful methods, and easy to understand and implement for any kind of research.
+
+## KWIC (Key Word In Context)
+
+## Word lists based on frequency
 
 # Markdown document, PDF output file, RData and Excel files of the scraped data
 
 You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.pdf" target="_blank">Here</a> is the PDF output of the same document.
 
 The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">here for the KWIC analysis</a>, and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100nouns.Rdata" target="_blank">here for the frequency analysis</a>. The corresponding Excel files are <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.xlsx" target="_blank">here (KWIC analysis)</a> and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100nouns.xlsx" target="_blank">here (frequency analysis)</a>.
-
