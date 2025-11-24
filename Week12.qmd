@@ -59,20 +59,51 @@ Before getting into the details, we need to keep in mind the overall workflow of
 
 ```
 
-
 ::: {.callout-note icon="true"}
-There are many many analyses methods. Their common point is that they involve automatic processing, which is very helpful when we are dealing with large datasets.
-Some analyses methods are quite straightforward and traditional (e.g., frequency tables), while some others are more on the computational side.
-Always remember to select the analysis method that is appropriate for your research question!
+There are many many analyses methods. Their common point is that they involve automatic processing, which is very helpful when we are dealing with large datasets. Some analyses methods are quite straightforward and traditional (e.g., frequency tables), while some others are more on the computational side. Always remember to select the analysis method that is appropriate for your research question!
 :::
 
 For this class, two methods will be presented: Word lists and KWIC (Key Word In Context). These are classic yet very useful methods, and easy to understand and implement for any kind of research.
 
 ## KWIC (Key Word In Context)
 
+The first type of analysis to introduce is called **Key Word In Context**, more often found under the acronym ***kwic***. The idea is that we can better understand the meaning of a word based on how it is used in a sentence. KWIC analyses are therefore very suitable **when we target a specific word or syntactic construction**.
+
+KWIC analyses can be used for:
+
+-   *Semantic analyses*: Idea that the meaning of a specific word can be retrieved from its use in a sentences, based on the meaning of its *neighbors*.
+
+-   *Morphosyntactic analyses*: Idea that the morphosyntactic context where a word or a construction is used is helpful in understanding its specific morphological and syntactic features, as well as the meaning it conveys.
+
+Here is an example below, with the Mandarin word *keai* 'cute' (notice that these are fake data just for an illustration):
+
++----------------+-------------------+--------------+---------------+
+| Sentence index | Before keyword    | Keyword      | After keyword |
++================+===================+==============+===============+
+| Sentence 1     | hen               | keai         | de mao        |
+|                |                   |              |               |
+|                | (very)            | (cute)       | (DE cat)      |
++----------------+-------------------+--------------+---------------+
+| Sentence 2     | feichang          | keai         | de gou        |
+|                |                   |              |               |
+|                | (very, extremely) | (cute)       | (DE dog)      |
++----------------+-------------------+--------------+---------------+
+
+Based on these data, and assuming that these are the most frequent instances that we found in the corpus, we can infer that:
+
+-   *Semantically*, the word *keai* is most often used to describe *animals* or *pets*, based on the following segment;
+
+-   *Morphosyntactically*, the word *keai* behaves as an adjective (or stative verb, depending on the analysis), based on the preceding segment.
+
 ## Word lists based on frequency
 
 # Let's do the job with R
+
+## The *quanteda* package to conduct corpus analyses
+
+## Some notes when dealing with Mandarin data
+
+## Explanation of the Markdown script
 
 # Markdown document, PDF output file, RData and Excel files of the scraped data
 

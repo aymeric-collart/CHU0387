@@ -271,7 +271,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#kwic-key-word-in-context" id="toc-kwic-key-word-in-context" class="nav-link" data-scroll-target="#kwic-key-word-in-context"><span class="header-section-number">1.1</span> KWIC (Key Word In Context)</a></li>
   <li><a href="#word-lists-based-on-frequency" id="toc-word-lists-based-on-frequency" class="nav-link" data-scroll-target="#word-lists-based-on-frequency"><span class="header-section-number">1.2</span> Word lists based on frequency</a></li>
   </ul></li>
-  <li><a href="#lets-do-the-job-with-r" id="toc-lets-do-the-job-with-r" class="nav-link" data-scroll-target="#lets-do-the-job-with-r"><span class="header-section-number">2</span> Let’s do the job with R</a></li>
+  <li><a href="#lets-do-the-job-with-r" id="toc-lets-do-the-job-with-r" class="nav-link" data-scroll-target="#lets-do-the-job-with-r"><span class="header-section-number">2</span> Let’s do the job with R</a>
+  <ul class="collapse">
+  <li><a href="#the-quanteda-package-to-conduct-corpus-analyses" id="toc-the-quanteda-package-to-conduct-corpus-analyses" class="nav-link" data-scroll-target="#the-quanteda-package-to-conduct-corpus-analyses"><span class="header-section-number">2.1</span> The <em>quanteda</em> package to conduct corpus analyses</a></li>
+  <li><a href="#some-notes-when-dealing-with-mandarin-data" id="toc-some-notes-when-dealing-with-mandarin-data" class="nav-link" data-scroll-target="#some-notes-when-dealing-with-mandarin-data"><span class="header-section-number">2.2</span> Some notes when dealing with Mandarin data</a></li>
+  <li><a href="#explanation-of-the-markdown-script" id="toc-explanation-of-the-markdown-script" class="nav-link" data-scroll-target="#explanation-of-the-markdown-script"><span class="header-section-number">2.3</span> Explanation of the Markdown script</a></li>
+  </ul></li>
   <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">3</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
   </ul>
 </nav>
@@ -344,8 +349,8 @@ Note
 <p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-ffe78f720a2d833d7237" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-ffe78f720a2d833d7237">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-ff9be1374d8b2f6f5d60" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ff9be1374d8b2f6f5d60">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -364,6 +369,54 @@ Note
 <p>For this class, two methods will be presented: Word lists and KWIC (Key Word In Context). These are classic yet very useful methods, and easy to understand and implement for any kind of research.</p>
 <section id="kwic-key-word-in-context" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="kwic-key-word-in-context"><span class="header-section-number">1.1</span> KWIC (Key Word In Context)</h2>
+<p>The first type of analysis to introduce is called <strong>Key Word In Context</strong>, more often found under the acronym <strong><em>kwic</em></strong>. The idea is that we can better understand the meaning of a word based on how it is used in a sentence. KWIC analyses are therefore very suitable <strong>when we target a specific word or syntactic construction</strong>.</p>
+<p>KWIC analyses can be used for:</p>
+<ul>
+<li><p><em>Semantic analyses</em>: Idea that the meaning of a specific word can be retrieved from its use in a sentences, based on the meaning of its <em>neighbors</em>.</p></li>
+<li><p><em>Morphosyntactic analyses</em>: Idea that the morphosyntactic context where a word or a construction is used is helpful in understanding its specific morphological and syntactic features, as well as the meaning it conveys.</p></li>
+</ul>
+<p>Here is an example below, with the Mandarin word <em>keai</em> ‘cute’ (notice that these are fake data just for an illustration):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 27%">
+<col style="width: 20%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sentence index</th>
+<th>Before keyword</th>
+<th>Keyword</th>
+<th>After keyword</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sentence 1</td>
+<td><p>hen</p>
+<p>(very)</p></td>
+<td><p>keai</p>
+<p>(cute)</p></td>
+<td><p>de mao</p>
+<p>(DE cat)</p></td>
+</tr>
+<tr class="even">
+<td>Sentence 2</td>
+<td><p>feichang</p>
+<p>(very, extremely)</p></td>
+<td><p>keai</p>
+<p>(cute)</p></td>
+<td><p>de gou</p>
+<p>(DE dog)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Based on these data, and assuming that these are the most frequent instances that we found in the corpus, we can infer that:</p>
+<ul>
+<li><p><em>Semantically</em>, the word <em>keai</em> is most often used to describe <em>animals</em> or <em>pets</em>, based on the following segment;</p></li>
+<li><p><em>Morphosyntactically</em>, the word <em>keai</em> behaves as an adjective (or stative verb, depending on the analysis), based on the preceding segment.</p></li>
+</ul>
 </section>
 <section id="word-lists-based-on-frequency" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="word-lists-based-on-frequency"><span class="header-section-number">1.2</span> Word lists based on frequency</h2>
@@ -371,6 +424,15 @@ Note
 </section>
 <section id="lets-do-the-job-with-r" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Let’s do the job with R</h1>
+<section id="the-quanteda-package-to-conduct-corpus-analyses" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-quanteda-package-to-conduct-corpus-analyses"><span class="header-section-number">2.1</span> The <em>quanteda</em> package to conduct corpus analyses</h2>
+</section>
+<section id="some-notes-when-dealing-with-mandarin-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="some-notes-when-dealing-with-mandarin-data"><span class="header-section-number">2.2</span> Some notes when dealing with Mandarin data</h2>
+</section>
+<section id="explanation-of-the-markdown-script" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="explanation-of-the-markdown-script"><span class="header-section-number">2.3</span> Explanation of the Markdown script</h2>
+</section>
 </section>
 <section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>

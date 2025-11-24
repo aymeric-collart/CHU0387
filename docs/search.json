@@ -518,7 +518,7 @@
     "href": "Week12.html#kwic-key-word-in-context",
     "title": "Week 12: Data analysis",
     "section": "1.1 KWIC (Key Word In Context)",
-    "text": "1.1 KWIC (Key Word In Context)",
+    "text": "1.1 KWIC (Key Word In Context)\nThe first type of analysis to introduce is called Key Word In Context, more often found under the acronym kwic. The idea is that we can better understand the meaning of a word based on how it is used in a sentence. KWIC analyses are therefore very suitable when we target a specific word or syntactic construction.\nKWIC analyses can be used for:\n\nSemantic analyses: Idea that the meaning of a specific word can be retrieved from its use in a sentences, based on the meaning of its neighbors.\nMorphosyntactic analyses: Idea that the morphosyntactic context where a word or a construction is used is helpful in understanding its specific morphological and syntactic features, as well as the meaning it conveys.\n\nHere is an example below, with the Mandarin word keai ‘cute’ (notice that these are fake data just for an illustration):\n\n\n\n\n\n\n\n\n\nSentence index\nBefore keyword\nKeyword\nAfter keyword\n\n\n\n\nSentence 1\nhen\n(very)\nkeai\n(cute)\nde mao\n(DE cat)\n\n\nSentence 2\nfeichang\n(very, extremely)\nkeai\n(cute)\nde gou\n(DE dog)\n\n\n\nBased on these data, and assuming that these are the most frequent instances that we found in the corpus, we can infer that:\n\nSemantically, the word keai is most often used to describe animals or pets, based on the following segment;\nMorphosyntactically, the word keai behaves as an adjective (or stative verb, depending on the analysis), based on the preceding segment.",
     "crumbs": [
       "Welcome page",
       "Part 3: Simple preprocessing and analyses of corpus data",
@@ -531,6 +531,42 @@
     "title": "Week 12: Data analysis",
     "section": "1.2 Word lists based on frequency",
     "text": "1.2 Word lists based on frequency",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyses of corpus data",
+      "Week 12: Data analysis"
+    ]
+  },
+  {
+    "objectID": "Week12.html#the-quanteda-package-to-conduct-corpus-analyses",
+    "href": "Week12.html#the-quanteda-package-to-conduct-corpus-analyses",
+    "title": "Week 12: Data analysis",
+    "section": "2.1 The quanteda package to conduct corpus analyses",
+    "text": "2.1 The quanteda package to conduct corpus analyses",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyses of corpus data",
+      "Week 12: Data analysis"
+    ]
+  },
+  {
+    "objectID": "Week12.html#some-notes-when-dealing-with-mandarin-data",
+    "href": "Week12.html#some-notes-when-dealing-with-mandarin-data",
+    "title": "Week 12: Data analysis",
+    "section": "2.2 Some notes when dealing with Mandarin data",
+    "text": "2.2 Some notes when dealing with Mandarin data",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyses of corpus data",
+      "Week 12: Data analysis"
+    ]
+  },
+  {
+    "objectID": "Week12.html#explanation-of-the-markdown-script",
+    "href": "Week12.html#explanation-of-the-markdown-script",
+    "title": "Week 12: Data analysis",
+    "section": "2.3 Explanation of the Markdown script",
+    "text": "2.3 Explanation of the Markdown script",
     "crumbs": [
       "Welcome page",
       "Part 3: Simple preprocessing and analyses of corpus data",
