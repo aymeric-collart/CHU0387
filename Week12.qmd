@@ -99,13 +99,13 @@ Based on these data, and assuming that these are the most frequent instances tha
 
 Another extremely common way to analyse corpus data is to count the frequency of each word, in order to have an idea of the most frequently used ones. It is easy to understand: we just need to count how many times a word occurred in the dataset we have. Hopefully, we obtain a list like the one below (again, these are fake data):
 
-+----------------+----------------+
-| Word           | Frequency      |
-+================+================+
-| keai (cute)    | 368            |
-+----------------+----------------+
-| kuaile (happy) | 354            |
-+----------------+----------------+
++----------------+---------------+
+| Word           | Frequency     |
++================+===============+
+| keai (cute)    | 368           |
++----------------+---------------+
+| kuaile (happy) | 354           |
++----------------+---------------+
 
 The reality is that it is a little bit more complex that it seems to be, and we need to keep several remarks in mind:
 
@@ -158,6 +158,7 @@ install_github("qinwf/jiebaR")
 \[Disclaimer: The explanation of the R codes is made by <i>Gemini</i> as an illustration of the use of such tools to decode a script.\]
 
 ### Prepare the environment
+
 This section loads the necessary packages for text analysis. Notably, it introduces quanteda, a powerful package for managing textual data, and jiebaR, which is essential for segmenting (cutting) Chinese text.
 
 #### Load the libraries
@@ -180,13 +181,16 @@ load(file = "ArticleETToday_CorpusCourse_CLEAN.Rdata")
 ```
 
 ### Key Word In Context (KWIC)
+
 This section performs a KWIC analysis on the character "有" *you* (to have). The goal is to identify what words appear immediately after "有" (*you*) and filter for cases where that following word is a verb.
 
-#### Set the segmenter (for Chinese) Two different "workers" (segmentation engines) are initialized:
+#### Set the segmenter (for Chinese)
 
-seg_word: Cuts sentences into individual words.
+Two different "workers" (segmentation engines) are initialized:
 
-seg_POS: Cuts sentences and tags the Part-Of-Speech (POS) for each word.
+-   seg_word: Cuts sentences into individual words.
+
+-   seg_POS: Cuts sentences and tags the Part-Of-Speech (POS) for each word.
 
 ```{r, eval=FALSE}
 seg_word <- worker(bylines = T, symbol=T)
@@ -211,13 +215,13 @@ Article_tokens <- Article_total2$body %>%
 
 This is a clever workaround to get specific POS tags for context words:
 
-KWIC Run 1: It looks for "有" with a window = 1. This isolates the single word immediately before and after.
+-   KWIC Run 1: It looks for "有" with a window = 1. This isolates the single word immediately before and after.
 
-Tagging: It takes the post column (the word after "有") and runs the POS segmenter on it.
+-   Tagging: It takes the post column (the word after "有") and runs the POS segmenter on it.
 
-Cleaning: It converts the list of tags into a dataframe and cleans up the tag names (e.g., removing numbers).
+-   Cleaning: It converts the list of tags into a dataframe and cleans up the tag names (e.g., removing numbers).
 
-Merging: It joins this POS information back to the original KWIC data.
+-   Merging: It joins this POS information back to the original KWIC data.
 
 ```{r, eval=FALSE}
 kwic_data <- kwic(Article_tokens,
@@ -253,13 +257,13 @@ kwic_data2 <- kwic(Article_tokens,
                   window = 15)
 ```
 
-
 ##### Combine the two datasets together
-The script now merges the "POS info" with the "Sentence context".
 
-It creates a unique Index key (combining document name and position) to match the exact same instance of the word "有" across both datasets.
+The script now merges the "POS info" with the "Sentence context":
 
-It uses right_join to merge them, ensuring we have both the grammatical category of the following word and the full sentence.
+-   It creates a unique Index key (combining document name and position) to match the exact same instance of the word "有" across both datasets.
+
+-   It uses right_join to merge them, ensuring we have both the grammatical category of the following word and the full sentence.
 
 ```{r, eval=FALSE}
 ### Prepare the dataset with longer sentences
@@ -319,9 +323,11 @@ save(kwic_you_verb, file = "ArticleETToday_KWIC_You.Rdata")
 ```
 
 ### Frequency tables
+
 This section calculates which words appear most often in the entire corpus, with specific cleaning steps.
 
 #### Create the overall frequency table
+
 It converts the tokens into a Document-Feature Matrix (DFM) and then calculates statistics.
 
 ```{r, eval=FALSE}
@@ -330,7 +336,8 @@ Article_tokens_frequency <- textstat_frequency(Article_tokens_frequency)
 head(Article_tokens_frequency, 100)
 ```
 
-#### Clean it up a little bit 
+#### Clean it up a little bit
+
 The raw frequency list includes punctuation and numbers. This code manually removes them using grep to exclude specific characters (comma, period, quotes, etc.) and digits.
 
 ```{r, eval=FALSE}
@@ -353,6 +360,7 @@ table_FreqWord <- table_FreqWord[-grep("[[:digit:]]", table_FreqWord$feature),]
 ```
 
 #### Final table, addition of the percentage
+
 Calculates the relative frequency (percentage) of the top words.
 
 ```{r, eval=FALSE}
@@ -361,15 +369,17 @@ table_FreqWord_Top100$percentage <- round(table_FreqWord_Top100$frequency/sum(ta
 ```
 
 #### Select only the 100 most frequent nouns
+
 The goal is to find the top nouns. However, POS tagging the entire corpus is computationally expensive.
 
 Strategy: Take the top 500 most frequent words first.
 
-Tagging: POS tag only those 500 words.
+-   Tagging: POS tag only those 500 words.
 
-Filtering: Keep only those tagged as "n" (noun).
+-   Filtering: Keep only those tagged as "n" (noun).
 
-##### Set segmenter and Annotate 
+##### Set segmenter and Annotate
+
 This tags the list of frequent words.
 
 ```{r, eval=FALSE}
@@ -393,8 +403,8 @@ names(Top500_WordFreqPOS_Annotated)[2] <- "Word"
 Top500_WordFreqPOS_Annotated$POS <- gsub("[0-9]+", "", Top500_WordFreqPOS_Annotated$POS)
 ```
 
-
 ##### Extract the nouns
+
 Filters for POS == "n", joins this back to the frequency table to ensure we have the counts, calculates percentages, and keeps the top 100.
 
 ```{r, eval=FALSE}
@@ -411,6 +421,7 @@ table_FreqNoun_Top100 <- head(TopFreqNoun, 100) %>% arrange(desc(frequency))
 ```
 
 ### Save the data
+
 Saves the top 100 nouns list to Excel and RData.
 
 ```{r, eval=FALSE}

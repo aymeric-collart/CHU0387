@@ -390,8 +390,8 @@ Note
 <p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-e92299125646a3c8583e" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-e92299125646a3c8583e">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-011a8d96174f1a6ba6cb" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-011a8d96174f1a6ba6cb">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -465,7 +465,7 @@ Note
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
-<col style="width: 23%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -550,10 +550,13 @@ Note
 <section id="key-word-in-context-kwic" class="level3">
 <h3 class="anchored" data-anchor-id="key-word-in-context-kwic">Key Word In Context (KWIC)</h3>
 <p>This section performs a KWIC analysis on the character “有” <em>you</em> (to have). The goal is to identify what words appear immediately after “有” (<em>you</em>) and filter for cases where that following word is a verb.</p>
-<section id="set-the-segmenter-for-chinese-two-different-workers-segmentation-engines-are-initialized" class="level4">
-<h4 class="anchored" data-anchor-id="set-the-segmenter-for-chinese-two-different-workers-segmentation-engines-are-initialized">Set the segmenter (for Chinese) Two different “workers” (segmentation engines) are initialized:</h4>
-<p>seg_word: Cuts sentences into individual words.</p>
-<p>seg_POS: Cuts sentences and tags the Part-Of-Speech (POS) for each word.</p>
+<section id="set-the-segmenter-for-chinese" class="level4">
+<h4 class="anchored" data-anchor-id="set-the-segmenter-for-chinese">Set the segmenter (for Chinese)</h4>
+<p>Two different “workers” (segmentation engines) are initialized:</p>
+<ul>
+<li><p>seg_word: Cuts sentences into individual words.</p></li>
+<li><p>seg_POS: Cuts sentences and tags the Part-Of-Speech (POS) for each word.</p></li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>seg_word <span class="ot">&lt;-</span> <span class="fu">worker</span>(<span class="at">bylines =</span> T, <span class="at">symbol=</span>T)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>seg_POS <span class="ot">&lt;-</span> <span class="fu">worker</span>(<span class="at">type =</span> <span class="st">"tag"</span>, <span class="at">symbol =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -575,10 +578,12 @@ Note
 <section id="corpus-with-pos-information-on-the-following-word" class="level5">
 <h5 class="anchored" data-anchor-id="corpus-with-pos-information-on-the-following-word">Corpus with POS information on the following word</h5>
 <p>This is a clever workaround to get specific POS tags for context words:</p>
-<p>KWIC Run 1: It looks for “有” with a window = 1. This isolates the single word immediately before and after.</p>
-<p>Tagging: It takes the post column (the word after “有”) and runs the POS segmenter on it.</p>
-<p>Cleaning: It converts the list of tags into a dataframe and cleans up the tag names (e.g., removing numbers).</p>
-<p>Merging: It joins this POS information back to the original KWIC data.</p>
+<ul>
+<li><p>KWIC Run 1: It looks for “有” with a window = 1. This isolates the single word immediately before and after.</p></li>
+<li><p>Tagging: It takes the post column (the word after “有”) and runs the POS segmenter on it.</p></li>
+<li><p>Cleaning: It converts the list of tags into a dataframe and cleans up the tag names (e.g., removing numbers).</p></li>
+<li><p>Merging: It joins this POS information back to the original KWIC data.</p></li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">kwic</span>(Article_tokens,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">pattern =</span> <span class="st">"有"</span>,</span>
@@ -614,9 +619,11 @@ Note
 </section>
 <section id="combine-the-two-datasets-together" class="level5">
 <h5 class="anchored" data-anchor-id="combine-the-two-datasets-together">Combine the two datasets together</h5>
-<p>The script now merges the “POS info” with the “Sentence context”.</p>
-<p>It creates a unique Index key (combining document name and position) to match the exact same instance of the word “有” across both datasets.</p>
-<p>It uses right_join to merge them, ensuring we have both the grammatical category of the following word and the full sentence.</p>
+<p>The script now merges the “POS info” with the “Sentence context”:</p>
+<ul>
+<li><p>It creates a unique Index key (combining document name and position) to match the exact same instance of the word “有” across both datasets.</p></li>
+<li><p>It uses right_join to merge them, ensuring we have both the grammatical category of the following word and the full sentence.</p></li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Prepare the dataset with longer sentences</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>kwic_data2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(kwic_data2)</span>
@@ -720,8 +727,10 @@ Note
 <h4 class="anchored" data-anchor-id="select-only-the-100-most-frequent-nouns">Select only the 100 most frequent nouns</h4>
 <p>The goal is to find the top nouns. However, POS tagging the entire corpus is computationally expensive.</p>
 <p>Strategy: Take the top 500 most frequent words first.</p>
-<p>Tagging: POS tag only those 500 words.</p>
-<p>Filtering: Keep only those tagged as “n” (noun).</p>
+<ul>
+<li><p>Tagging: POS tag only those 500 words.</p></li>
+<li><p>Filtering: Keep only those tagged as “n” (noun).</p></li>
+</ul>
 <section id="set-segmenter-and-annotate" class="level5">
 <h5 class="anchored" data-anchor-id="set-segmenter-and-annotate">Set segmenter and Annotate</h5>
 <p>This tags the list of frequent words.</p>
