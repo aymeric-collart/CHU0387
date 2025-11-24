@@ -271,7 +271,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#kwic-key-word-in-context" id="toc-kwic-key-word-in-context" class="nav-link" data-scroll-target="#kwic-key-word-in-context"><span class="header-section-number">1.1</span> KWIC (Key Word In Context)</a></li>
   <li><a href="#word-lists-based-on-frequency" id="toc-word-lists-based-on-frequency" class="nav-link" data-scroll-target="#word-lists-based-on-frequency"><span class="header-section-number">1.2</span> Word lists based on frequency</a></li>
   </ul></li>
-  <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">2</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
+  <li><a href="#lets-do-the-job-with-r" id="toc-lets-do-the-job-with-r" class="nav-link" data-scroll-target="#lets-do-the-job-with-r"><span class="header-section-number">2</span> Let’s do the job with R</a></li>
+  <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">3</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
   </ul>
 </nav>
     </div>
@@ -340,11 +341,11 @@ Note
 <li><p>Last week, we learned how to “clean” the raw data, how to prepare the data for further analyses.</p></li>
 </ul>
 <p>And this is the main objective for this week: <strong>How to analyze the data that we prepared?</strong></p>
-<p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study.</p>
+<p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-d4435ff3862c22ca2e1e" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-d4435ff3862c22ca2e1e">{"x":{"diagram":"\n    graph TD\n        A[Ask a research question] --> B{Do I need corpus/large data} ;\n        B -- No --> C[Maybe a corpus study is not appropriate!];\n        C -- Yes --> D[Proceed to the corpus study!];\n        D --> E{Select the right corpus};\n        E --> F{Select the appropriate analysis method};\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question]\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-ffe78f720a2d833d7237" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ffe78f720a2d833d7237">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -368,8 +369,11 @@ Note
 <h2 data-number="1.2" class="anchored" data-anchor-id="word-lists-based-on-frequency"><span class="header-section-number">1.2</span> Word lists based on frequency</h2>
 </section>
 </section>
-<section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>
+<section id="lets-do-the-job-with-r" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Let’s do the job with R</h1>
+</section>
+<section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>
 <p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
 <p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">here for the KWIC analysis</a>, and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100nouns.Rdata" target="_blank">here for the frequency analysis</a>. The corresponding Excel files are <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.xlsx" target="_blank">here (KWIC analysis)</a> and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100nouns.xlsx" target="_blank">here (frequency analysis)</a>.</p>
 

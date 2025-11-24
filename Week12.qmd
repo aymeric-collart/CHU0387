@@ -43,20 +43,22 @@ Let's recap first what we learned and did in the past weeks:
 
 And this is the main objective for this week: **How to analyze the data that we prepared?**
 
-Before getting into the details, we need to keep in mind the overall workflow of a corpus study.
+Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)
 
 ```{r mermaid-example, echo=FALSE, fig.align='center'}
-    DiagrammeR::mermaid("
+    DiagrammeR::mermaid(diagram = "
     graph TD
-        A[Ask a research question] --> B{Do I need corpus/large data} ;
-        B -- No --> C[Maybe a corpus study is not appropriate!];
-        C -- Yes --> D[Proceed to the corpus study!];
-        D --> E{Select the right corpus};
-        E --> F{Select the appropriate analysis method};
+        A[Research question] --> B{Do I need corpus data};
+        B -- No --> C[Corpus study maybe not appropriate];
+        B -- Yes --> D[Proceed to the corpus study!];
+        D --> E[Select the right corpus];
+        E --> F[Select the analysis method];
         F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];
-        G --> H[Interpret the results according to the research question]
+        G --> H[Interpret the results according to the research question];
     ")
+
 ```
+
 
 ::: {.callout-note icon="true"}
 There are many many analyses methods. Their common point is that they involve automatic processing, which is very helpful when we are dealing with large datasets.
@@ -69,6 +71,8 @@ For this class, two methods will be presented: Word lists and KWIC (Key Word In 
 ## KWIC (Key Word In Context)
 
 ## Word lists based on frequency
+
+# Let's do the job with R
 
 # Markdown document, PDF output file, RData and Excel files of the scraped data
 
