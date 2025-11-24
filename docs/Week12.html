@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -270,12 +304,19 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#kwic-key-word-in-context" id="toc-kwic-key-word-in-context" class="nav-link" data-scroll-target="#kwic-key-word-in-context"><span class="header-section-number">1.1</span> KWIC (Key Word In Context)</a></li>
   <li><a href="#word-lists-based-on-frequency" id="toc-word-lists-based-on-frequency" class="nav-link" data-scroll-target="#word-lists-based-on-frequency"><span class="header-section-number">1.2</span> Word lists based on frequency</a></li>
+  <li><a href="#combining-kwic-and-frequency-based-word-lists" id="toc-combining-kwic-and-frequency-based-word-lists" class="nav-link" data-scroll-target="#combining-kwic-and-frequency-based-word-lists"><span class="header-section-number">1.3</span> Combining KWIC and frequency-based word lists</a></li>
   </ul></li>
   <li><a href="#lets-do-the-job-with-r" id="toc-lets-do-the-job-with-r" class="nav-link" data-scroll-target="#lets-do-the-job-with-r"><span class="header-section-number">2</span> Let’s do the job with R</a>
   <ul class="collapse">
   <li><a href="#the-quanteda-package-to-conduct-corpus-analyses" id="toc-the-quanteda-package-to-conduct-corpus-analyses" class="nav-link" data-scroll-target="#the-quanteda-package-to-conduct-corpus-analyses"><span class="header-section-number">2.1</span> The <em>quanteda</em> package to conduct corpus analyses</a></li>
   <li><a href="#some-notes-when-dealing-with-mandarin-data" id="toc-some-notes-when-dealing-with-mandarin-data" class="nav-link" data-scroll-target="#some-notes-when-dealing-with-mandarin-data"><span class="header-section-number">2.2</span> Some notes when dealing with Mandarin data</a></li>
-  <li><a href="#explanation-of-the-markdown-script" id="toc-explanation-of-the-markdown-script" class="nav-link" data-scroll-target="#explanation-of-the-markdown-script"><span class="header-section-number">2.3</span> Explanation of the Markdown script</a></li>
+  <li><a href="#explanation-of-the-markdown-script" id="toc-explanation-of-the-markdown-script" class="nav-link" data-scroll-target="#explanation-of-the-markdown-script"><span class="header-section-number">2.3</span> Explanation of the Markdown script</a>
+  <ul class="collapse">
+  <li><a href="#prepare-the-environment" id="toc-prepare-the-environment" class="nav-link" data-scroll-target="#prepare-the-environment">Prepare the environment</a></li>
+  <li><a href="#key-word-in-context-kwic" id="toc-key-word-in-context-kwic" class="nav-link" data-scroll-target="#key-word-in-context-kwic">Key Word In Context (KWIC)</a></li>
+  <li><a href="#frequency-tables" id="toc-frequency-tables" class="nav-link" data-scroll-target="#frequency-tables">Frequency tables</a></li>
+  <li><a href="#save-the-data-1" id="toc-save-the-data-1" class="nav-link" data-scroll-target="#save-the-data-1">Save the data</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">3</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
   </ul>
@@ -349,8 +390,8 @@ Note
 <p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-ff9be1374d8b2f6f5d60" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-ff9be1374d8b2f6f5d60">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-e92299125646a3c8583e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e92299125646a3c8583e">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -380,7 +421,7 @@ Note
 <colgroup>
 <col style="width: 23%">
 <col style="width: 27%">
-<col style="width: 20%">
+<col style="width: 22%">
 <col style="width: 22%">
 </colgroup>
 <thead>
@@ -420,18 +461,317 @@ Note
 </section>
 <section id="word-lists-based-on-frequency" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="word-lists-based-on-frequency"><span class="header-section-number">1.2</span> Word lists based on frequency</h2>
+<p>Another extremely common way to analyse corpus data is to count the frequency of each word, in order to have an idea of the most frequently used ones. It is easy to understand: we just need to count how many times a word occurred in the dataset we have. Hopefully, we obtain a list like the one below (again, these are fake data):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Word</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>keai (cute)</td>
+<td>368</td>
+</tr>
+<tr class="even">
+<td>kuaile (happy)</td>
+<td>354</td>
+</tr>
+</tbody>
+</table>
+<p>The reality is that it is a little bit more complex that it seems to be, and we need to keep several remarks in mind:</p>
+<ul>
+<li><p>Without any further data handling, it is more than likely that the most frequent words are (a) punctuation marks, and (b) grammatical markers (the so-called ‘closed-class’ words), since they are limited and appear obligatory in each sentence. The bad news is that you need further steps to obtain the table you wish for. The good news is that you can use this piece of information as a sanitary check. If you compute the frequency tables and it is not the case that grammatical words are most frequent, then something bad happened!</p></li>
+<li><p>Defining what a “word” is is not easy. In English, the simplest way is to say that words can be separated with a space (even if this too simple definition is misleading). In Mandarin, there are no spaces between words… People created packages with dictionaries where words are listed such that we can still cut the sentences into words, but be aware that less common or newly created ones will not be detected! If your research question is really about new words, then you may consider adding them in the computer’s dictionary beforehand.</p></li>
+<li><p>Frequency tables can be further annotated, as you can add the rank of the word, the frequency in terms of percentage in addition to raw count numbers, etc.</p></li>
+</ul>
+</section>
+<section id="combining-kwic-and-frequency-based-word-lists" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="combining-kwic-and-frequency-based-word-lists"><span class="header-section-number">1.3</span> Combining KWIC and frequency-based word lists</h2>
+<p>Every kind of analysis has pros and cons, and we cannot say that one is better than another. Again, there are just better suited ways to analyze your data according to your research question. This even means that you can combine two types of analyses to obtain more insights!</p>
+<p>For example, you can first proceed with a KWIC analysis, and you obtain the table as above. Then, in a second step, you can create the frequency table of the first word following or preceding the keyword. So it is a “KWIC + word list” analysis!</p>
 </section>
 </section>
 <section id="lets-do-the-job-with-r" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Let’s do the job with R</h1>
+<p>Now we have a better ideas of how to analyze the data <em>conceptually</em>. But how to do it <em>technically</em>? This is what this section is about.</p>
+<p>First, you can download the script <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.Rmd" target="_blank">here</a>, and follow the steps below to understand how it works. But before explaining this script, more remarks are needed.</p>
 <section id="the-quanteda-package-to-conduct-corpus-analyses" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="the-quanteda-package-to-conduct-corpus-analyses"><span class="header-section-number">2.1</span> The <em>quanteda</em> package to conduct corpus analyses</h2>
+<p>We are very lucky that many smart and generous people around the world created R packages especially to deal with corpus data, and such packages are still being updated at the moment I am writing this section.</p>
+<p>We are going to use the package called “quanteda”. You can find more information by clicking on this <a href="https://quanteda.io/">link</a>.</p>
+<p><img src="assets/images/Quanteda.png" class="img-fluid"></p>
+<p>We will also use another package developed by the same team, called “quanteda.textstats”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quanteda"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quanteda.textstats"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="some-notes-when-dealing-with-mandarin-data" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="some-notes-when-dealing-with-mandarin-data"><span class="header-section-number">2.2</span> Some notes when dealing with Mandarin data</h2>
+<p>As I mentioned earlier, dealing with Mandarin characters is quite tricky, especially when we need to cut the sentences into words. Again, people developed packages especially for that. The most popular one is the “jiebaR” packages (<a href="https://github.com/qinwf/jiebaR">link</a>). However, it is not possible to install this package directly from R. So you will need to install the “devtools” package first, such that you can install the “jiebaR” and “jiebaRD” directly from the source (Github website).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"qinwf/jiebaRD"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"qinwf/jiebaR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="explanation-of-the-markdown-script" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="explanation-of-the-markdown-script"><span class="header-section-number">2.3</span> Explanation of the Markdown script</h2>
+<p>[Disclaimer: The explanation of the R codes is made by <i>Gemini</i> as an illustration of the use of such tools to decode a script.]</p>
+<section id="prepare-the-environment" class="level3">
+<h3 class="anchored" data-anchor-id="prepare-the-environment">Prepare the environment</h3>
+<p>This section loads the necessary packages for text analysis. Notably, it introduces quanteda, a powerful package for managing textual data, and jiebaR, which is essential for segmenting (cutting) Chinese text.</p>
+<section id="load-the-libraries" class="level4">
+<h4 class="anchored" data-anchor-id="load-the-libraries">Load the libraries</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)           <span class="co"># Main package for quantitative text analysis</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats) <span class="co"># Statistics for quanteda (frequencies, etc.)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jiebaR)             <span class="co"># Chinese text segmentation</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)           <span class="co"># Tidy tools for text mining</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)              <span class="co"># Data manipulation</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)           <span class="co"># Saving Excel files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="load-the-originally-scraped-data" class="level4">
+<h4 class="anchored" data-anchor-id="load-the-originally-scraped-data">Load the originally scraped data</h4>
+<p>This loads the .Rdata file containing the cleaned Article_total2 dataframe from the previous week’s cleaning process.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"ArticleETToday_CorpusCourse_CLEAN.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="key-word-in-context-kwic" class="level3">
+<h3 class="anchored" data-anchor-id="key-word-in-context-kwic">Key Word In Context (KWIC)</h3>
+<p>This section performs a KWIC analysis on the character “有” <em>you</em> (to have). The goal is to identify what words appear immediately after “有” (<em>you</em>) and filter for cases where that following word is a verb.</p>
+<section id="set-the-segmenter-for-chinese-two-different-workers-segmentation-engines-are-initialized" class="level4">
+<h4 class="anchored" data-anchor-id="set-the-segmenter-for-chinese-two-different-workers-segmentation-engines-are-initialized">Set the segmenter (for Chinese) Two different “workers” (segmentation engines) are initialized:</h4>
+<p>seg_word: Cuts sentences into individual words.</p>
+<p>seg_POS: Cuts sentences and tags the Part-Of-Speech (POS) for each word.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>seg_word <span class="ot">&lt;-</span> <span class="fu">worker</span>(<span class="at">bylines =</span> T, <span class="at">symbol=</span>T)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>seg_POS <span class="ot">&lt;-</span> <span class="fu">worker</span>(<span class="at">type =</span> <span class="st">"tag"</span>, <span class="at">symbol =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="prepare-the-dataset-for-the-analyses" class="level4">
+<h4 class="anchored" data-anchor-id="prepare-the-dataset-for-the-analyses">Prepare the dataset for the analyses</h4>
+<p>Before analysis, the text must be tokenized. It creates a unique docname for every row. It uses segment() to cut the Chinese text in the body column. It converts the result into a tokens object (the format quanteda requires).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>docname <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"text"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(Article_total2))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Article_tokens <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">segment</span>(<span class="at">jiebar =</span> seg_word) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  as.tokens </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="perform-the-kwic-segmentation" class="level4">
+<h4 class="anchored" data-anchor-id="perform-the-kwic-segmentation">Perform the KWIC segmentation</h4>
+<section id="corpus-with-pos-information-on-the-following-word" class="level5">
+<h5 class="anchored" data-anchor-id="corpus-with-pos-information-on-the-following-word">Corpus with POS information on the following word</h5>
+<p>This is a clever workaround to get specific POS tags for context words:</p>
+<p>KWIC Run 1: It looks for “有” with a window = 1. This isolates the single word immediately before and after.</p>
+<p>Tagging: It takes the post column (the word after “有”) and runs the POS segmenter on it.</p>
+<p>Cleaning: It converts the list of tags into a dataframe and cleans up the tag names (e.g., removing numbers).</p>
+<p>Merging: It joins this POS information back to the original KWIC data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">kwic</span>(Article_tokens,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">pattern =</span> <span class="st">"有"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">window =</span> <span class="dv">1</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>RightPost_Annot <span class="ot">&lt;-</span> <span class="fu">segment</span>(kwic_data<span class="sc">$</span>post, seg_POS)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Convert list to dataframe</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>RightPost_Annot <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(RightPost_Annot, as.data.frame))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Add POS column and clean row names</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>RightPost_Annot <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">POS =</span> <span class="fu">rownames</span>(RightPost_Annot), RightPost_Annot)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(RightPost_Annot) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(RightPost_Annot)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(RightPost_Annot)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"RightPost"</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>RightPost_Annot<span class="sc">$</span>POS <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[0-9]+"</span>, <span class="st">""</span>, RightPost_Annot<span class="sc">$</span>POS)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove duplicates to ensure clean join</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>RightPost_Annot <span class="ot">&lt;-</span> RightPost_Annot[<span class="sc">!</span><span class="fu">duplicated</span>(RightPost_Annot), ]</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(RightPost_Annot)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"post"</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Join POS data back to KWIC data</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">right_join</span>(kwic_data, RightPost_Annot, <span class="at">by =</span> <span class="st">"post"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="corpus-with-longer-sentences" class="level5">
+<h5 class="anchored" data-anchor-id="corpus-with-longer-sentences">Corpus with longer sentences</h5>
+<p>Since a window of 1 is too short to understand the meaning, a second KWIC analysis is run with a window = 15 to capture the full sentence context.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>kwic_data2 <span class="ot">&lt;-</span> <span class="fu">kwic</span>(Article_tokens,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">pattern =</span> <span class="st">"有"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">window =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="combine-the-two-datasets-together" class="level5">
+<h5 class="anchored" data-anchor-id="combine-the-two-datasets-together">Combine the two datasets together</h5>
+<p>The script now merges the “POS info” with the “Sentence context”.</p>
+<p>It creates a unique Index key (combining document name and position) to match the exact same instance of the word “有” across both datasets.</p>
+<p>It uses right_join to merge them, ensuring we have both the grammatical category of the following word and the full sentence.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Prepare the dataset with longer sentences</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>kwic_data2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(kwic_data2)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>kwic_data2<span class="sc">$</span>Index <span class="ot">&lt;-</span> <span class="fu">paste0</span>(kwic_data2<span class="sc">$</span>docname,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                           kwic_data2<span class="sc">$</span>from)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>kwic_data2_selected <span class="ot">&lt;-</span> kwic_data2 <span class="sc">%&gt;%</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(docname, pre, post, Index)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Prepare the dataset with the POS infomation</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(kwic_data)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(kwic_data)[<span class="dv">6</span>] <span class="ot">&lt;-</span> <span class="st">"post_1word"</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>kwic_data_selected <span class="ot">&lt;-</span> kwic_data <span class="sc">%&gt;%</span> </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(docname, from, to, post_1word, keyword, POS)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>kwic_data_selected<span class="sc">$</span>Index <span class="ot">&lt;-</span> <span class="fu">paste0</span>(kwic_data_selected<span class="sc">$</span>docname,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                                   kwic_data_selected<span class="sc">$</span>from)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="do">### Join the two datasets</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">right_join</span>(kwic_data_selected,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                   kwic_data2_selected,</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>                   <span class="at">by =</span> <span class="st">"Index"</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="do">### Reorder columns for readability</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> kwic_data <span class="sc">%&gt;%</span> </span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(keyword, <span class="at">.after =</span> pre) <span class="sc">%&gt;%</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(post_1word, <span class="at">.after =</span> keyword)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="select-the-sentences-we-are-interested-in" class="level5">
+<h5 class="anchored" data-anchor-id="select-the-sentences-we-are-interested-in">Select the sentences we are interested in</h5>
+<p>This filters the data to keep only rows where the word following “有” is a Verb (POS == “v”). It then creates a frequency table of these specific verbs.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>kwic_you_verb <span class="ot">&lt;-</span> kwic_data[kwic_data<span class="sc">$</span>POS <span class="sc">==</span> <span class="st">"v"</span>, ]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>table_YouVerb <span class="ot">&lt;-</span> <span class="fu">table</span>(kwic_you_verb<span class="sc">$</span>post_1word)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>table_YouVerb <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(table_YouVerb)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(table_YouVerb)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Verb"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Sort by frequency</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>table_YouVerb <span class="ot">&lt;-</span> table_YouVerb <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Freq))</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(table_YouVerb, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="save-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="save-the-data">Save the data</h4>
+<p>Saves the specific “You + Verb” dataset to Excel and RData formats.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(kwic_you_verb, <span class="st">"ArticleETToday_KWIC_You.xlsx"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(kwic_you_verb, <span class="at">file =</span> <span class="st">"ArticleETToday_KWIC_You.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="frequency-tables" class="level3">
+<h3 class="anchored" data-anchor-id="frequency-tables">Frequency tables</h3>
+<p>This section calculates which words appear most often in the entire corpus, with specific cleaning steps.</p>
+<section id="create-the-overall-frequency-table" class="level4">
+<h4 class="anchored" data-anchor-id="create-the-overall-frequency-table">Create the overall frequency table</h4>
+<p>It converts the tokens into a Document-Feature Matrix (DFM) and then calculates statistics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Article_tokens_frequency <span class="ot">&lt;-</span> <span class="fu">dfm</span>(Article_tokens)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Article_tokens_frequency <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(Article_tokens_frequency)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Article_tokens_frequency, <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="clean-it-up-a-little-bit" class="level4">
+<h4 class="anchored" data-anchor-id="clean-it-up-a-little-bit">Clean it up a little bit</h4>
+<p>The raw frequency list includes punctuation and numbers. This code manually removes them using grep to exclude specific characters (comma, period, quotes, etc.) and digits.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove punctuation</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> Article_tokens_frequency[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"，"</span>, Article_tokens_frequency<span class="sc">$</span>feature),]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"。"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"、"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"「"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"」"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"（"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"）"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"？"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"；"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"！"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"《"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"》"</span>, table_FreqWord<span class="sc">$</span>feature),]</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove numbers</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> table_FreqWord[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"[[:digit:]]"</span>, table_FreqWord<span class="sc">$</span>feature),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="final-table-addition-of-the-percentage" class="level4">
+<h4 class="anchored" data-anchor-id="final-table-addition-of-the-percentage">Final table, addition of the percentage</h4>
+<p>Calculates the relative frequency (percentage) of the top words.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>table_FreqWord_Top100 <span class="ot">&lt;-</span> <span class="fu">head</span>(table_FreqWord, <span class="dv">100</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>table_FreqWord_Top100<span class="sc">$</span>percentage <span class="ot">&lt;-</span> <span class="fu">round</span>(table_FreqWord_Top100<span class="sc">$</span>frequency<span class="sc">/</span><span class="fu">sum</span>(table_FreqWord<span class="sc">$</span>frequency)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="select-only-the-100-most-frequent-nouns" class="level4">
+<h4 class="anchored" data-anchor-id="select-only-the-100-most-frequent-nouns">Select only the 100 most frequent nouns</h4>
+<p>The goal is to find the top nouns. However, POS tagging the entire corpus is computationally expensive.</p>
+<p>Strategy: Take the top 500 most frequent words first.</p>
+<p>Tagging: POS tag only those 500 words.</p>
+<p>Filtering: Keep only those tagged as “n” (noun).</p>
+<section id="set-segmenter-and-annotate" class="level5">
+<h5 class="anchored" data-anchor-id="set-segmenter-and-annotate">Set segmenter and Annotate</h5>
+<p>This tags the list of frequent words.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>seg_POS_ByLines <span class="ot">&lt;-</span> <span class="fu">worker</span>(<span class="at">type =</span> <span class="st">"tag"</span>, <span class="at">bylines =</span> <span class="cn">FALSE</span>, <span class="at">symbol =</span> F)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>table_FreqWord_Top500 <span class="ot">&lt;-</span> <span class="fu">head</span>(table_FreqWord, <span class="dv">500</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>Top500_WordFreqPOS <span class="ot">&lt;-</span> <span class="fu">segment</span>(table_FreqWord_Top500<span class="sc">$</span>feature, seg_POS_ByLines)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Convert to dataframe</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>Top500_WordFreqPOS_Annotated <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                                        <span class="fu">lapply</span>(Top500_WordFreqPOS, </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                                               as.data.frame))</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>Top500_WordFreqPOS_Annotated <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">POS =</span> <span class="fu">rownames</span>(Top500_WordFreqPOS_Annotated),</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                                      Top500_WordFreqPOS_Annotated)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Top500_WordFreqPOS_Annotated) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(Top500_WordFreqPOS_Annotated)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Top500_WordFreqPOS_Annotated)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"Word"</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>Top500_WordFreqPOS_Annotated<span class="sc">$</span>POS <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[0-9]+"</span>, <span class="st">""</span>, Top500_WordFreqPOS_Annotated<span class="sc">$</span>POS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="extract-the-nouns" class="level5">
+<h5 class="anchored" data-anchor-id="extract-the-nouns">Extract the nouns</h5>
+<p>Filters for POS == “n”, joins this back to the frequency table to ensure we have the counts, calculates percentages, and keeps the top 100.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>TopFreqNoun <span class="ot">&lt;-</span> Top500_WordFreqPOS_Annotated[Top500_WordFreqPOS_Annotated<span class="sc">$</span>POS <span class="sc">==</span> <span class="st">"n"</span>, ]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>TopFreqNoun<span class="sc">$</span>Index <span class="ot">&lt;-</span> <span class="st">"TopNouns"</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Join back to original frequency table to get counts</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(table_FreqWord)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Word"</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>TopFreqNoun <span class="ot">&lt;-</span> <span class="fu">right_join</span>(TopFreqNoun, table_FreqWord, <span class="at">by =</span> <span class="st">"Word"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Filter and Sort</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>TopFreqNoun <span class="ot">&lt;-</span> TopFreqNoun[<span class="sc">+</span><span class="fu">grep</span>(<span class="st">"TopNouns"</span>, TopFreqNoun<span class="sc">$</span>Index),]</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>table_FreqNoun_Top100 <span class="ot">&lt;-</span> <span class="fu">head</span>(TopFreqNoun, <span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(frequency))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="save-the-data-1" class="level3">
+<h3 class="anchored" data-anchor-id="save-the-data-1">Save the data</h3>
+<p>Saves the top 100 nouns list to Excel and RData.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(table_FreqNoun_Top100, <span class="st">"ArticleETToday_Top100nouns.xlsx"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(table_FreqNoun_Top100, <span class="at">file =</span> <span class="st">"ArticleETToday_Top100nouns.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 </section>
 </section>
 <section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="3">

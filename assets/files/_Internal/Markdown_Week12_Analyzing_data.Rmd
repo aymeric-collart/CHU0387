@@ -64,7 +64,7 @@ Article_tokens <- Article_total2$body %>%
 
 ```{r}
 kwic_data <- kwic(Article_tokens,
-                  pattern = "æœ‰",
+                  pattern = "¦³",
                   window = 1)
 
 RightPost_Annot <- segment(kwic_data$post, seg_POS)
@@ -96,7 +96,7 @@ kwic_data <- right_join(kwic_data,
 
 ```{r}
 kwic_data2 <- kwic(Article_tokens,
-                  pattern = "æœ‰",
+                  pattern = "¦³",
                   window = 15)
 ```
 
@@ -137,7 +137,7 @@ kwic_data <- kwic_data %>%
 
 ### 2.3.4 (Optional) Select the sentences we are interested in
 
-For this example, we are interested in the sentences where the character æœ‰ 'you' (to have) is followed immediately by a verb (to simplify in this exemple, when POS = 'v') 
+For this example, we are interested in the sentences where the character ¦³ 'you' (to have) is followed immediately by a verb (to simplify in this exemple, when POS = 'v') 
 
 ```{r}
 kwic_you_verb <- kwic_data[kwic_data$POS == "v", ]
@@ -186,18 +186,18 @@ table_AllWordsFreq_Top100
 
 ```{r}
 ## Example with punctuation marks
-table_FreqWord <- Article_tokens_frequency[-grep("ï¼Œ", Article_tokens_frequency$feature),]
-table_FreqWord <- table_FreqWord[-grep("ã€‚", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("ã€", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("ã€Œ", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("ã€", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("ï¼ˆ", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("ï¼‰", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("ï¼Ÿ", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("ï¼›", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("ï¼", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("ã€Š", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("ã€‹", table_FreqWord$feature),]
+table_FreqWord <- Article_tokens_frequency[-grep("¡A", Article_tokens_frequency$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡C", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡B", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡u", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡v", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡]", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡^", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡H", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡F", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡I", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡m", table_FreqWord$feature),]
+table_FreqWord <- table_FreqWord[-grep("¡n", table_FreqWord$feature),]
 
 ## Example with numbers
 table_FreqWord <- table_FreqWord[-grep("[[:digit:]]", table_FreqWord$feature),]
