@@ -1,0 +1,194 @@
+---
+title: "Markdown_Week12_Analyzing_data_QuantedaOnly"
+author: "Aymeric Collart"
+header-includes:
+- \usepackage{fontspec}
+- \usepackage{xeCJK}
+- \usepackage{fvextra}
+- \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    latex_engine: xelatex
+  html_document: default
+  always_allow_html: true
+  word_document: default
+---
+
+# 1. Prepare the environment
+
+## 1.1 Load the libraries
+
+```{r}
+library(quanteda)
+library(quanteda.textstats)
+library(tidytext)
+library(dplyr)
+library(stringr)
+library(openxlsx)
+
+#Sys.setlocale(category = "LC_ALL", locale = "cht")
+```
+
+## 1.2 Load the originally scraped data
+
+```{r}
+load(file = "ArticleETToday_CorpusCourse_CLEAN.Rdata")
+```
+
+# 2. Key Word In Context (KWIC)
+
+## 2.1 Prepare the dataset for the analyses
+
+```{r}
+Article_total2$docname <- paste0("text",
+                                 1:nrow(Article_total2))
+
+Article_tokens <- tokens(Article_total2$body)
+```
+
+## 2.2 Perform the KWIC segmentation
+
+### 2.2.1 KWIC segmentation
+
+```{r}
+kwic_data <- kwic(Article_tokens,
+                  pattern = "有",
+                  window = 30)
+```
+
+### 2.2.2 Annotate the KWIC dataset
+
+```{r}
+kwic_data <- as.data.frame(kwic_data)
+
+kwic_data <- right_join(kwic_data,
+                   Article_total2,
+                   by = "docname")
+
+kwic_data <- na.omit(kwic_data)
+```
+
+### 2.2.3 (Optional) Clean the context to keep only the phrase where the keyword is found
+
+```{r}
+## Keep original information just in case
+kwic_data$pre_original <- kwic_data$pre
+kwic_data$post_original <- kwic_data$post
+
+## Post context
+symbol1 <- "\\。" 
+kwic_data$post <- sub(paste0("(", symbol1, ").*"), "\\1", kwic_data$post)
+
+symbol2 <- "\\，" 
+kwic_data$post <- sub(paste0("(", symbol2, ").*"), "\\1", kwic_data$post)
+
+symbol3 <- "\\？" 
+kwic_data$post <- sub(paste0("(", symbol3, ").*"), "\\1", kwic_data$post)
+
+symbol4 <- "\\！" 
+kwic_data$post <- sub(paste0("(", symbol4, ").*"), "\\1", kwic_data$post)
+
+## Pre context
+kwic_data$pre <- sub(".*。([^*。]*)$", "。\\1", kwic_data$pre)
+kwic_data$pre <- sub(".*，([^*，]*)$", "，\\1", kwic_data$pre)
+kwic_data$pre <- sub(".*？([^*？]*)$", "？\\1", kwic_data$pre)
+kwic_data$pre <- sub(".*！([^*！]*)$", "！\\1", kwic_data$pre)
+
+## Have a look at the data (I delete some columns so that it is easier to display on the website)
+kwic_data_for_website <- kwic_data
+kwic_data_for_website$original_article <- NULL
+kwic_data_for_website$body <- NULL
+kwic_data_for_website$pre_original <- NULL
+kwic_data_for_website$post_original <- NULL
+knitr::kable(head(kwic_data_for_website))
+```
+
+### 2.2.4 Combined analysis: Frequency table of the first word following *you* 'to have'
+
+```{r}
+## Extract the first word
+kwic_data$post_first_word <- word(kwic_data$post, 1)
+
+## We need to tranform the tokenized data into a 'dfm' dataset
+kwic_data_freq <- dfm(
+  tokens(kwic_data$post_first_word,
+         remove_punct = TRUE)
+  )
+
+kwic_data_freq <- textstat_frequency(kwic_data_freq)
+
+## Clean a little bit
+kwic_data_freq <- kwic_data_freq[-grep("[[:digit:]]", kwic_data_freq$feature),]
+
+## Recreate the rank
+kwic_data_freq$rank <- 1:length(kwic_data_freq$rank)
+
+knitr::kable(head(kwic_data_freq, 100))
+```
+
+## 2.4 Save the data
+
+### 2.4.1 Save as an Excel file
+
+```{r}
+write.xlsx(kwic_data, "ArticleETToday_KWIC_You.xlsx")
+```
+
+### 2.4.2 Save as an RData file
+
+```{r}
+save(kwic_data, file = "ArticleETToday_KWIC_You.Rdata")
+```
+
+# 3. Frequency tables
+
+## 3.1 Create the overall frequency table
+
+### 3.1.1 Creation of the first table
+
+```{r}
+## We need to tranform the tokenized data into a 'dfm' dataset
+Article_tokens_frequency <- dfm(
+  tokens(Article_total2$body,
+         remove_punct = TRUE))
+Article_tokens_frequency <- textstat_frequency(Article_tokens_frequency)
+
+table_AllWordsFreq_Top100 <- head(Article_tokens_frequency, 100)
+table_AllWordsFreq_Top100
+
+## Two problems occured: Digits, and Unknown words wrongly segmented
+```
+
+### 3.1.2 Clean it up a little bit
+
+```{r}
+## Example with numbers
+table_FreqWord <- Article_tokens_frequency[-grep("[[:digit:]]", Article_tokens_frequency$feature),]
+
+## Redo the ranking
+table_FreqWord$rank <- 1:length(table_FreqWord$rank)
+```
+
+### 3.1.3 Final table, addition of the percentage
+
+```{r}
+table_FreqWord_Top100 <- head(table_FreqWord, 100)
+table_FreqWord_Top100
+
+table_FreqWord_Top100$percentage <- round(table_FreqWord_Top100$frequency/sum(table_FreqWord$frequency)*100, 5)
+table_FreqWord_Top100
+```
+
+## 3.2 Save the data
+
+### 3.2.1 Save as an Excel file
+
+```{r}
+write.xlsx(table_FreqWord_Top100, "ArticleETToday_Top100nouns.xlsx")
+```
+
+### 3.2.2 Save as an RData file
+
+```{r}
+save(table_FreqWord_Top100, file = "ArticleETToday_Top100nouns.Rdata")
+```

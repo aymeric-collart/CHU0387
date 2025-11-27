@@ -125,7 +125,9 @@ For example, you can first proceed with a KWIC analysis, and you obtain the tabl
 
 Now we have a better ideas of how to analyze the data *conceptually*. But how to do it *technically*? This is what this section is about.
 
-First, you can download the script <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.Rmd" target="_blank">here</a>, and follow the steps below to understand how it works. But before explaining this script, more remarks are needed.
+First, you can download the script <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.Rmd" target="_blank">here</a>, as well as the dataset we will work with <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a>.
+
+You can follow the steps below to understand how it works. But before explaining this script, more remarks are needed.
 
 ## The *quanteda* package to conduct corpus analyses
 
@@ -142,295 +144,284 @@ install.packages("quanteda")
 install.packages("quanteda.textstats")
 ```
 
-## Some notes when dealing with Mandarin data
+::: {.callout-note icon="false"}
+There exist several packages used to segment Mandarin sentences into words. Here, we will use the built-in functions of the "quanteda" package. If you browse the Internet, you will notice that some people prefer using the "jiebaR" package. The problem is that this package is not available on the CRAN anymore, and it can be quite tricky to install it on your computer. So for this week, we keep it simple!
+:::
 
-As I mentioned earlier, dealing with Mandarin characters is quite tricky, especially when we need to cut the sentences into words. Again, people developed packages especially for that. The most popular one is the "jiebaR" packages ([link](https://github.com/qinwf/jiebaR)). However, it is not possible to install this package directly from R. So you will need to install the "devtools" package first, such that you can install the "jiebaR" and "jiebaRD" directly from the source (Github website).
+## Workflow for the analysis of corpus data in R
 
-```{r, eval=FALSE}
-install.packages("devtools")
-library(devtools)
-install_github("qinwf/jiebaRD")
-install_github("qinwf/jiebaR")
+Here is an overview of the workflow. First, we start with the clean corpus, and then we create a new dataset where the sentences are cut into words. Based on this new dataset, we can perform a KWIC analysis, create a word list, or combine the two types of analyses. Finally, we clean a little bit (as in the example below; punctuation marks, digits, selecting only the sentence/phrase, etc.), we add back the information from the original corpus, and we are done!
+
+```{r mermaid-example2, echo=FALSE, fig.align='center'}
+    DiagrammeR::mermaid(diagram = "
+    graph TD
+        A[Corpus data] -- Identify the column with the text --> B[Segment into words];
+        B --> C[KWIC analysis];
+        B --> D[Word list];
+        C -- If combined analysis --> D;
+        D --> E[Clean a little bit];
+        C --> E;
+        E --> F[Add information from the original corpus];
+        F --> G[Done!];
+    ")
 ```
 
-## Explanation of the Markdown script
-
-\[Disclaimer: The explanation of the R codes is made by <i>Gemini</i> as an illustration of the use of such tools to decode a script.\]
+## Explanation of the R script
 
 ### Prepare the environment
 
-This section loads the necessary packages for text analysis. Notably, it introduces quanteda, a powerful package for managing textual data, and jiebaR, which is essential for segmenting (cutting) Chinese text.
-
 #### Load the libraries
 
-```{r, eval=FALSE}
-library(quanteda)           # Main package for quantitative text analysis
-library(quanteda.textstats) # Statistics for quanteda (frequencies, etc.)
-library(jiebaR)             # Chinese text segmentation
-library(tidytext)           # Tidy tools for text mining
-library(dplyr)              # Data manipulation
-library(openxlsx)           # Saving Excel files
+First, we need to load the necessary packages for our analysis.
+
+```{r}
+library(quanteda)
+library(quanteda.textstats)
+library(tidytext)
+library(dplyr)
+library(stringr)
+library(openxlsx)
+#Sys.setlocale(category = "LC_ALL", locale = "cht")
 ```
 
-#### Load the originally scraped data
+-   **library(quanteda):** Loads the core package we are using for text analysis, which allows us to create tokens and document-feature matrices.
 
-This loads the .Rdata file containing the cleaned Article_total2 dataframe from the previous week's cleaning process.
+-   **library(quanteda.textstats):** A companion package to *quanteda* that provides statistical functions, such as calculating word frequencies.
 
-```{r, eval=FALSE}
+-   **library(tidytext):** Useful for converting text data into "tidy" formats if we need to switch between quanteda and tidyverse workflows.
+
+-   **library(dplyr):** Essential for data manipulation (like joining tables or filtering data).
+
+-   **library(stringr):** Provides easy-to-use functions for string manipulation and Regular Expressions.
+
+-   **library(openxlsx):** Used at the end of the script to export our results into Excel files.
+
+-   **Sys.setlocale(...):** This line is commented out (#), but it is there in case you run into encoding issues on Windows. It sets the system locale to Traditional Chinese.
+
+#### Load the originally scraped data R
+
+```{r}
 load(file = "ArticleETToday_CorpusCourse_CLEAN.Rdata")
 ```
 
+**load(...):** We load the .Rdata file containing the cleaned ETToday corpus we prepared in previous weeks. This brings the Article_total2 object into our environment.
+
 ### Key Word In Context (KWIC)
 
-This section performs a KWIC analysis on the character "有" *you* (to have). The goal is to identify what words appear immediately after "有" (*you*) and filter for cases where that following word is a verb.
-
-#### Set the segmenter (for Chinese)
-
-Two different "workers" (segmentation engines) are initialized:
-
--   seg_word: Cuts sentences into individual words.
-
--   seg_POS: Cuts sentences and tags the Part-Of-Speech (POS) for each word.
-
-```{r, eval=FALSE}
-seg_word <- worker(bylines = T, symbol=T)
-seg_POS <- worker(type = "tag", symbol = F)
-```
-
 #### Prepare the dataset for the analyses
+Before we can analyze the text, we need to ensure our documents have IDs and are properly tokenized.
 
-Before analysis, the text must be tokenized. It creates a unique docname for every row. It uses segment() to cut the Chinese text in the body column. It converts the result into a tokens object (the format quanteda requires).
-
-```{r, eval=FALSE}
+```{r}
 Article_total2$docname <- paste0("text", 1:nrow(Article_total2))
 
-Article_tokens <- Article_total2$body %>%
-  segment(jiebar = seg_word) %>%
-  as.tokens 
+Article_tokens <- tokens(Article_total2$body)
 ```
+
+-   **Article_total2\$docname \<- ...**: We create a new column called docname. We use paste0 to generate a unique ID for each article (e.g., "text1", "text2", etc.) based on the row number (nrow).
+
+-   **Article_tokens \<- tokens(...)**: We use the quanteda function tokens() to break the text in the body column into individual words (tokens). This creates a specialized tokens object required for the next steps.
 
 #### Perform the KWIC segmentation
 
-##### Corpus with POS information on the following word
+##### KWIC segmentation
 
-This is a clever workaround to get specific POS tags for context words:
+Now we search for a specific keyword to see how it is used in context.
 
--   KWIC Run 1: It looks for "有" with a window = 1. This isolates the single word immediately before and after.
-
--   Tagging: It takes the post column (the word after "有") and runs the POS segmenter on it.
-
--   Cleaning: It converts the list of tags into a dataframe and cleans up the tag names (e.g., removing numbers).
-
--   Merging: It joins this POS information back to the original KWIC data.
-
-```{r, eval=FALSE}
-kwic_data <- kwic(Article_tokens,
-                  pattern = "有",
-                  window = 1)
-
-RightPost_Annot <- segment(kwic_data$post, seg_POS)
-
-## Convert list to dataframe
-RightPost_Annot <- do.call(rbind, lapply(RightPost_Annot, as.data.frame))
-
-## Add POS column and clean row names
-RightPost_Annot <- cbind(POS = rownames(RightPost_Annot), RightPost_Annot)
-rownames(RightPost_Annot) <- 1:nrow(RightPost_Annot)
-names(RightPost_Annot)[2] <- "RightPost"
-RightPost_Annot$POS <- gsub("[0-9]+", "", RightPost_Annot$POS)
-
-## Remove duplicates to ensure clean join
-RightPost_Annot <- RightPost_Annot[!duplicated(RightPost_Annot), ]
-names(RightPost_Annot)[2] <- "post"
-
-## Join POS data back to KWIC data
-kwic_data <- right_join(kwic_data, RightPost_Annot, by = "post")
+```{r}
+kwic_data <- kwic(Article_tokens, pattern = "有", window = 30)
 ```
 
-##### Corpus with longer sentences
+-   **kwic(...)**: This function ("Key Word In Context") searches our tokenized text.
 
-Since a window of 1 is too short to understand the meaning, a second KWIC analysis is run with a window = 15 to capture the full sentence context.
+    -   **pattern = "有"**: We are searching for the character "有" (to have/there is).
 
-```{r, eval=FALSE}
-kwic_data2 <- kwic(Article_tokens,
-                  pattern = "有",
-                  window = 15)
-```
+    -   **window = 30**: We tell R to capture 30 tokens to the left (pre) and 30 tokens to the right (post) of our keyword.
 
-##### Combine the two datasets together
+##### Annotate the KWIC dataset
 
-The script now merges the "POS info" with the "Sentence context":
+The kwic function gives us the context, but we lose the original metadata (like the article date or category). We need to put it back.
 
--   It creates a unique Index key (combining document name and position) to match the exact same instance of the word "有" across both datasets.
-
--   It uses right_join to merge them, ensuring we have both the grammatical category of the following word and the full sentence.
-
-```{r, eval=FALSE}
-### Prepare the dataset with longer sentences
-kwic_data2 <- as.data.frame(kwic_data2)
-
-kwic_data2$Index <- paste0(kwic_data2$docname,
-                           kwic_data2$from)
-
-kwic_data2_selected <- kwic_data2 %>% 
-  select(docname, pre, post, Index)
-
-### Prepare the dataset with the POS infomation
+```{r}
 kwic_data <- as.data.frame(kwic_data)
 
-names(kwic_data)[6] <- "post_1word"
+kwic_data <- right_join(kwic_data, Article_total2, by = "docname")
 
-kwic_data_selected <- kwic_data %>% 
-  select(docname, from, to, post_1word, keyword, POS)
-
-kwic_data_selected$Index <- paste0(kwic_data_selected$docname,
-                                   kwic_data_selected$from)
-
-### Join the two datasets
-kwic_data <- right_join(kwic_data_selected,
-                   kwic_data2_selected,
-                   by = "Index")
-
-### Reorder columns for readability
-kwic_data <- kwic_data %>% 
-  relocate(keyword, .after = pre) %>%
-  relocate(post_1word, .after = keyword)
+kwic_data <- na.omit(kwic_data)
 ```
 
-##### Select the sentences we are interested in
+-   **as.data.frame(kwic_data)**: The output of kwic is a special object; we convert it into a standard data frame so we can manipulate it easily.
 
-This filters the data to keep only rows where the word following "有" is a Verb (POS == "v"). It then creates a frequency table of these specific verbs.
+-   r**ight_join(...)**: We merge our KWIC results with the original Article_total2 dataframe. We match them using the docname column we created earlier.
 
-```{r, eval=FALSE}
-kwic_you_verb <- kwic_data[kwic_data$POS == "v", ]
+-   **na.omit(kwic_data)**: We remove any rows that have missing values (NAs) to ensure our dataset is clean for analysis.
 
-table_YouVerb <- table(kwic_you_verb$post_1word)
-table_YouVerb <- as.data.frame(table_YouVerb)
-names(table_YouVerb)[1] <- "Verb"
+2.2.3 (Optional) Clean the context to keep only the phrase where the keyword is found
 
-## Sort by frequency
-table_YouVerb <- table_YouVerb %>% arrange(desc(Freq))
-head(table_YouVerb, 10)
+he window of 30 words might include parts of previous or subsequent sentences. We want to "trim" the context to only the sentence containing the keyword.
+
+```{r}
+## Keep original information just in case
+kwic_data$pre_original <- kwic_data$pre
+kwic_data$post_original <- kwic_data$post
+
+## Post context
+symbol1 <- "\\。" 
+kwic_data$post <- sub(paste0("(", symbol1, ").*"), "\\1", kwic_data$post)
+
+symbol2 <- "\\，" 
+kwic_data$post <- sub(paste0("(", symbol2, ").*"), "\\1", kwic_data$post)
+
+symbol3 <- "\\？" 
+kwic_data$post <- sub(paste0("(", symbol3, ").*"), "\\1", kwic_data$post)
+
+symbol4 <- "\\！" 
+kwic_data$post <- sub(paste0("(", symbol4, ").*"), "\\1", kwic_data$post)
+
+## Pre context
+kwic_data$pre <- sub(".*。([^*。]*)$", "。\\1", kwic_data$pre)
+kwic_data$pre <- sub(".*，([^*，]*)$", "，\\1", kwic_data$pre)
+kwic_data$pre <- sub(".*？([^*？]*)$", "？\\1", kwic_data$pre)
+kwic_data$pre <- sub(".*！([^*！]*)$", "！\\1", kwic_data$pre)
 ```
+
+-   **kwic_data\$pre_original \<- ...:** We back up the original context columns before modifying them.
+
+-   **symbol1 \<- "\\。"**: We define the punctuation mark we want to stop at (the Chinese period). The double backslash escapes the character for Regex.
+
+-   **sub(paste0("(", symbol1, ").\*"), "\\1", ...**): This Regular Expression looks for the first period in the post context and deletes everything after it. It effectively cuts the text off at the end of the sentence.
+
+-   **sub(".*。(\[\^\*。\]*)\$", "。\\1", ...)**: This mirrors the operation for the pre context. It looks for the last period occurring before our keyword and deletes everything before it, so the context starts at the beginning of the current sentence.
+
+Note: The code repeats this process for commas (，), question marks (？), and exclamation marks (！) to handle different sentence boundaries.
+
+```{r}
+## Have a look at the data (I delete some columns so that it is easier to display on the website)
+kwic_data_for_website <- kwic_data
+kwic_data_for_website$original_article <- NULL
+kwic_data_for_website$body <- NULL
+kwic_data_for_website$pre_original <- NULL
+kwic_data_for_website$post_original <- NULL
+knitr::kable(head(kwic_data_for_website))
+```
+
+##### Combined analysis: Frequency table of the first word following you 'to have'
+
+We can now analyze what words typically follow "有".
+
+```{r}
+## Extract the first word
+kwic_data$post_first_word <- word(kwic_data$post, 1)
+
+## We need to tranform the tokenized data into a 'dfm' dataset
+kwic_data_freq <- dfm( tokens(kwic_data$post_first_word, remove_punct = TRUE) )
+
+kwic_data_freq <- textstat_frequency(kwic_data_freq)
+
+## Clean a little bit
+kwic_data_freq <- kwic_data_freq[-grep("[[:digit:]]", kwic_data_freq$feature),]
+
+## Recreate the rank
+kwic_data_freq$rank <- 1:length(kwic_data_freq$rank)
+
+knitr::kable(head(kwic_data_freq, 100))
+```
+
+-   **word(kwic_data\$post, 1)**: Uses *stringr* to extract specifically the first word from the post (context after) column.
+
+-   **tokens(...)**: We tokenize this list of "first words".
+
+-   **dfm(...)**: We convert those tokens into a Document-Feature Matrix.
+
+-   **textstat_frequency(...)**: We calculate how often each word appears.
+
+-   **grep("\[\[:digit:\]\]", ...)**: We use *grep* to find any words that contain numbers (digits) and remove them (using the minus sign -) to clean up our results.
+
+-   **1:length(...)**: Since we removed some rows, we reset the rank column so it goes from 1 to N sequentially.
 
 #### Save the data
 
-Saves the specific "You + Verb" dataset to Excel and RData formats.
+Finally, we save our hard work.
 
-```{r, eval=FALSE}
-write.xlsx(kwic_you_verb, "ArticleETToday_KWIC_You.xlsx")
-save(kwic_you_verb, file = "ArticleETToday_KWIC_You.Rdata")
+```{r, eval = FALSE}
+write.xlsx(kwic_data, "ArticleETToday_KWIC_You.xlsx")
+save(kwic_data, file = "ArticleETToday_KWIC_You.Rdata")
 ```
+
+-   **write.xlsx**: Exports the dataframe to an Excel file for manual inspection.
+
+-   **save**: Saves the R object to an .Rdata file so we can load it quickly in future R sessions.
 
 ### Frequency tables
 
-This section calculates which words appear most often in the entire corpus, with specific cleaning steps.
-
 #### Create the overall frequency table
 
-It converts the tokens into a Document-Feature Matrix (DFM) and then calculates statistics.
+##### Creation of the first table
 
-```{r, eval=FALSE}
-Article_tokens_frequency <- dfm(Article_tokens)
+Now, let's look at the frequency of words across the entire corpus, not just around a keyword.
+
+```{r}
+Article_tokens_frequency <- dfm(
+  tokens(Article_total2$body,
+         remove_punct = TRUE)
+  )
 Article_tokens_frequency <- textstat_frequency(Article_tokens_frequency)
-head(Article_tokens_frequency, 100)
+
+table_AllWordsFreq_Top100 <- head(Article_tokens_frequency, 100) 
+knitr::kable(table_AllWordsFreq_Top100)
 ```
 
-#### Clean it up a little bit
+-   **table_AllWordsFreq_Top100 tokens(Article_total2\$body, ...)**: We tokenize the full body text of all articles, removing punctuation.
 
-The raw frequency list includes punctuation and numbers. This code manually removes them using grep to exclude specific characters (comma, period, quotes, etc.) and digits.
+-   **dfm(...)**: We turn that huge list of tokens into a Document-Feature Matrix.
 
-```{r, eval=FALSE}
-## Remove punctuation
-table_FreqWord <- Article_tokens_frequency[-grep("，", Article_tokens_frequency$feature),]
-table_FreqWord <- table_FreqWord[-grep("。", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("、", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("「", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("」", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("（", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("）", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("？", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("；", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("！", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("《", table_FreqWord$feature),]
-table_FreqWord <- table_FreqWord[-grep("》", table_FreqWord$feature),]
+-   **textstat_frequency(...)**: We calculate the frequency of every unique word in the corpus.
 
-## Remove numbers
-table_FreqWord <- table_FreqWord[-grep("[[:digit:]]", table_FreqWord$feature),]
+-   **head(..., 100)**: We create a smaller table containing only the top 100 most frequent words.
+
+##### Clean it up a little bit
+
+We often find "noise" in the data, like numbers, which we want to filter out.
+
+```{r example cleaning}
+## Example with numbers
+table_FreqWord <- Article_tokens_frequency[-grep("[[:digit:]]", Article_tokens_frequency$feature),]
+
+## Redo the ranking
+table_FreqWord$rank <- 1:length(table_FreqWord$rank)
 ```
 
-#### Final table, addition of the percentage
+-   **grep("\[\[:digit:\]\]", ...)**: Similar to before, we search for any features (words) containing numbers and remove them from the list.
 
-Calculates the relative frequency (percentage) of the top words.
+-   **1:length(...)**: We re-calculate the rank column to fill in the gaps left by the removed words.
 
-```{r, eval=FALSE}
+##### Final table, addition of the percentage
+
+Frequencies are good, but percentages help us understand the relative importance of a word.
+
+```{r}
 table_FreqWord_Top100 <- head(table_FreqWord, 100)
-table_FreqWord_Top100$percentage <- round(table_FreqWord_Top100$frequency/sum(table_FreqWord$frequency)*100, 4)
+
+table_FreqWord_Top100$percentage <- round(table_FreqWord_Top100$frequency/sum(table_FreqWord$frequency)*100, 5)
+knitr::kable(table_FreqWord_Top100)
 ```
 
-#### Select only the 100 most frequent nouns
+-   **table_FreqWord_Top100 head(..., 100)**: We isolate the top 100 words again after our cleaning process.
+-   **table_FreqWord_Top100\$frequency/sum(table_FreqWord\$frequency)**: We divide the frequency of a specific word by the total frequency of all words in the corpus.
+-   **\*100**: Convert the decimal to a percentage.
+-   **round(..., 5)**: Round the result to 5 decimal places for readability.
 
-The goal is to find the top nouns. However, POS tagging the entire corpus is computationally expensive.
+#### Save the data R
 
-Strategy: Take the top 500 most frequent words first.
-
--   Tagging: POS tag only those 500 words.
-
--   Filtering: Keep only those tagged as "n" (noun).
-
-##### Set segmenter and Annotate
-
-This tags the list of frequent words.
-
-```{r, eval=FALSE}
-seg_POS_ByLines <- worker(type = "tag", bylines = FALSE, symbol = F)
-table_FreqWord_Top500 <- head(table_FreqWord, 500)
-
-Top500_WordFreqPOS <- segment(table_FreqWord_Top500$feature, seg_POS_ByLines)
-
-## Convert to dataframe
-Top500_WordFreqPOS_Annotated <- do.call(rbind, 
-                                        lapply(Top500_WordFreqPOS, 
-                                               as.data.frame))
-
-Top500_WordFreqPOS_Annotated <- cbind(POS = rownames(Top500_WordFreqPOS_Annotated),
-                                      Top500_WordFreqPOS_Annotated)
-
-rownames(Top500_WordFreqPOS_Annotated) <- 1:nrow(Top500_WordFreqPOS_Annotated)
-
-names(Top500_WordFreqPOS_Annotated)[2] <- "Word"
-
-Top500_WordFreqPOS_Annotated$POS <- gsub("[0-9]+", "", Top500_WordFreqPOS_Annotated$POS)
+```{r, eval = FALSE}
+write.xlsx(table_FreqWord_Top100, "ArticleETToday_Top100nouns.xlsx") save(table_FreqWord_Top100, file = "ArticleETToday_Top100nouns.Rdata") 
 ```
 
-##### Extract the nouns
+-   **write.xlsx**: Saves the top 100 words table to Excel.
 
-Filters for POS == "n", joins this back to the frequency table to ensure we have the counts, calculates percentages, and keeps the top 100.
-
-```{r, eval=FALSE}
-TopFreqNoun <- Top500_WordFreqPOS_Annotated[Top500_WordFreqPOS_Annotated$POS == "n", ]
-TopFreqNoun$Index <- "TopNouns"
-
-## Join back to original frequency table to get counts
-names(table_FreqWord)[1] <- "Word"
-TopFreqNoun <- right_join(TopFreqNoun, table_FreqWord, by = "Word")
-
-## Filter and Sort
-TopFreqNoun <- TopFreqNoun[+grep("TopNouns", TopFreqNoun$Index),]
-table_FreqNoun_Top100 <- head(TopFreqNoun, 100) %>% arrange(desc(frequency))
-```
-
-### Save the data
-
-Saves the top 100 nouns list to Excel and RData.
-
-```{r, eval=FALSE}
-write.xlsx(table_FreqNoun_Top100, "ArticleETToday_Top100nouns.xlsx")
-save(table_FreqNoun_Top100, file = "ArticleETToday_Top100nouns.Rdata")
-```
+-   **save**: Saves the R object for later use.
 
 # Markdown document, PDF output file, RData and Excel files of the scraped data
 
-You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.pdf" target="_blank">Here</a> is the PDF output of the same document.
+You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data_QuantedaOnly.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data_QuantedaOnly.pdf" target="_blank">Here</a> is the PDF output of the same document.
 
 The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">here for the KWIC analysis</a>, and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100nouns.Rdata" target="_blank">here for the frequency analysis</a>. The corresponding Excel files are <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.xlsx" target="_blank">here (KWIC analysis)</a> and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100nouns.xlsx" target="_blank">here (frequency analysis)</a>.

@@ -2,15 +2,16 @@
 title: "Markdown_Week12_Analyzing_data"
 author: "Aymeric Collart"
 header-includes:
-  - \usepackage{fontspec} # use fontspec package
-  - \usepackage{xeCJK}    # use xeCJK package
-  - \usepackage{fvextra}  # use fvertra package
-  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}} #break lines when they are too long in the PDF output
+- \usepackage{fontspec}
+- \usepackage{xeCJK}
+- \usepackage{fvextra}
+- \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
 output:
-  pdf_document:
-    latex_engine: xelatex
+  word_document: default
   html_document: default
   always_allow_html: true
+  pdf_document:
+    latex_engine: xelatex
 ---
 
 # 1. Prepare the environment
@@ -56,6 +57,8 @@ Article_total2$docname <- paste0("text",
 Article_tokens <- Article_total2$body %>%
   segment(jiebar = seg_word) %>%
   as.tokens 
+
+Article_tokens <- tokens(Article_total2$body)
 ```
 
 ## 2.3 Perform the KWIC segmentation
@@ -96,7 +99,7 @@ kwic_data <- right_join(kwic_data,
 
 ```{r}
 kwic_data2 <- kwic(Article_tokens,
-                  pattern = "¦³",
+                  pattern = "®£",
                   window = 15)
 ```
 
@@ -137,7 +140,7 @@ kwic_data <- kwic_data %>%
 
 ### 2.3.4 (Optional) Select the sentences we are interested in
 
-For this example, we are interested in the sentences where the character ¦³ 'you' (to have) is followed immediately by a verb (to simplify in this exemple, when POS = 'v') 
+For this example, we are interested in the sentences where the character ¦³ 'you' (to have) is followed immediately by a verb (to simplify in this exemple, when POS = 'v')
 
 ```{r}
 kwic_you_verb <- kwic_data[kwic_data$POS == "v", ]
@@ -167,7 +170,7 @@ write.xlsx(kwic_you_verb, "ArticleETToday_KWIC_You.xlsx")
 save(kwic_you_verb, file = "ArticleETToday_KWIC_You.Rdata")
 ```
 
-# 3. Frequency tables 
+# 3. Frequency tables
 
 ## 3.1 Create the overall frequency table
 
@@ -209,7 +212,7 @@ table_FreqWord <- table_FreqWord[-grep("[[:digit:]]", table_FreqWord$feature),]
 table_FreqWord_Top100 <- head(table_FreqWord, 100)
 table_FreqWord_Top100
 
-table_FreqWord_Top100$percentage <- round(table_FreqWord_Top100$frequency/sum(table_FreqWord$frequency)*100, 4)
+table_FreqWord_Top100$percentage <- round(table_FreqWord_Top100$frequency/sum(table_FreqWord$frequency)*100, 9)
 table_FreqWord_Top100
 ```
 
@@ -218,6 +221,7 @@ table_FreqWord_Top100
 There are several ways to do it. We could use the raw data one more time. But since this is quite a large dataset, it will take a lot of time to process. An alternative way is to compute the 500 most frequent words, and hopefully there will be 100 nouns. [After trying 300 words, it was not enough. Tests with more words done after]
 
 ### 3.2.1 Set the segmenter
+
 ```{r}
 seg_POS_ByLines <- worker(type = "tag",
                           bylines = FALSE,
@@ -225,6 +229,7 @@ seg_POS_ByLines <- worker(type = "tag",
 ```
 
 ### 3.2.2 Proceed to the segmentation and annotate
+
 ```{r}
 table_FreqWord_Top500 <- head(table_FreqWord, 500)
 
