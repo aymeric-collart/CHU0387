@@ -4,7 +4,7 @@ format:
   html:
     output-file: Week13.html
     number-sections: true
-    number-depth: 2
+    number-depth: 4
     toc: true
 ---
 
@@ -26,6 +26,34 @@ This week, you will learn how to create figures of the data that we analyzed.
 :::
 
 # Creating figures of the results, why?
+
+## Some reflexions on the visual presentation of the results
+
+A great question to ask is: Why adding figures after all? We scraped the data from the Internet, we cleaned them and we analyzed them based on our research question. We even have tables to present as well, and all we need to do now is to interpret the results to deliver a great story. So, what is the place for figures?
+
+::: callout-tip
+## Think about it
+
+When you are reading a website, or a journal article, or even when you are scrolling through social medias, do you usually read long yet very complete and informative texts first, or are you more attracted to headlines and pictures, before turning to the text?
+:::
+
+If you are aware of this natural human behavior, then you have surely already understood why adding figures to text and table results is helpful. It is because the human visual system is so important that stimulating it will be a plus when communicating the results.
+
+Knowing how to present the results in a figure is very important as well. Having a great figure able to summarize the results such that we can grasp the intended message of the study at one glance will determine the success of the whole presentation. Conversely, a messy figure, containing too much information or just presented in an inappropriate way will blur the message, affecting the success of the presentation. Adding a figure is not enough, it requires some strategic thinking as well! You can have a look at the figures plotted with R on this webpage. Some are quite straightforward, while some are clearly just messy.
+
+## Introduction to two types of figures: word clouds, and frequency dot plots
+
+For this class, we will present two types of figures which are commonly used to present results from corpus exploration. The first one is called "word cloud". It is named this way, because it looks like a cloud which is made out of words. The size of these words reflect their relative frequency in the corpus analyzed. In other words, the bigger the word, the higher its frequency in the corpus. It is a way to present frequency results in a very intuitive way!
+
+A quick search on Google shows that you can create them easily with dedicated websites. I personally used them before, and it can be quite fun to play with them. I invite you to do so, you will have a better grasp of what a word cloud is!
+
+![](assets/images/Wordcloud_Google.png)
+
+Frequency dot plots are another way to present the same kind of results. It looks less funny than word clouds, but it exhibits the advantage that you can add more information if you want. Put differently, where word clouds are great for their visual impact thanks to their relatively minimalist design, frequency dot plots are very useful when you want to display different types of information at the same time!
+
+I invite you to watch this YouTube video if you want to know more about frequency dot plots (please click on the image below).
+
+[![](https://img.youtube.com/vi/7AjSUj-OVuE/0.jpg)](https://www.youtube.com/watch?v=7AjSUj-OVuE)
 
 # Let's do the work with R
 

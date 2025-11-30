@@ -312,9 +312,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#workflow-for-the-analysis-of-corpus-data-in-r" id="toc-workflow-for-the-analysis-of-corpus-data-in-r" class="nav-link" data-scroll-target="#workflow-for-the-analysis-of-corpus-data-in-r"><span class="header-section-number">2.2</span> Workflow for the analysis of corpus data in R</a></li>
   <li><a href="#explanation-of-the-r-script" id="toc-explanation-of-the-r-script" class="nav-link" data-scroll-target="#explanation-of-the-r-script"><span class="header-section-number">2.3</span> Explanation of the R script</a>
   <ul class="collapse">
-  <li><a href="#prepare-the-environment" id="toc-prepare-the-environment" class="nav-link" data-scroll-target="#prepare-the-environment">Prepare the environment</a></li>
-  <li><a href="#key-word-in-context-kwic" id="toc-key-word-in-context-kwic" class="nav-link" data-scroll-target="#key-word-in-context-kwic">Key Word In Context (KWIC)</a></li>
-  <li><a href="#frequency-tables" id="toc-frequency-tables" class="nav-link" data-scroll-target="#frequency-tables">Frequency tables</a></li>
+  <li><a href="#prepare-the-environment" id="toc-prepare-the-environment" class="nav-link" data-scroll-target="#prepare-the-environment"><span class="header-section-number">2.3.1</span> Prepare the environment</a></li>
+  <li><a href="#key-word-in-context-kwic" id="toc-key-word-in-context-kwic" class="nav-link" data-scroll-target="#key-word-in-context-kwic"><span class="header-section-number">2.3.2</span> Key Word In Context (KWIC)</a></li>
+  <li><a href="#frequency-tables" id="toc-frequency-tables" class="nav-link" data-scroll-target="#frequency-tables"><span class="header-section-number">2.3.3</span> Frequency tables</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">3</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
@@ -389,8 +389,8 @@ Note
 <p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-3752da22526542af8a9d" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-3752da22526542af8a9d">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-3f1562526e661126df97" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3f1562526e661126df97">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -530,17 +530,17 @@ Note
 <p>Here is an overview of the workflow. First, we start with the clean corpus, and then we create a new dataset where the sentences are cut into words. Based on this new dataset, we can perform a KWIC analysis, create a word list, or combine the two types of analyses. Finally, we clean a little bit (as in the example below; punctuation marks, digits, selecting only the sentence/phrase, etc.), we add back the information from the original corpus, and we are done!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-730b624e27c936ee9ee2" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-730b624e27c936ee9ee2">{"x":{"diagram":"\n    graph TD\n        A[Corpus data] -- Identify the column with the text --> B[Segment into words];\n        B --> C[KWIC analysis];\n        B --> D[Word list];\n        C -- If combined analysis --> D;\n        D --> E[Clean a little bit];\n        C --> E;\n        E --> F[Add information from the original corpus];\n        F --> G[Done!];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-2af79bd7d8119763a8e9" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-2af79bd7d8119763a8e9">{"x":{"diagram":"\n    graph TD\n        A[Corpus data] -- Identify the column with the text --> B[Segment into words];\n        B --> C[KWIC analysis];\n        B --> D[Word list];\n        C -- If combined analysis --> D;\n        D --> E[Clean a little bit];\n        C --> E;\n        E --> F[Add information from the original corpus];\n        F --> G[Done!];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="explanation-of-the-r-script" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="explanation-of-the-r-script"><span class="header-section-number">2.3</span> Explanation of the R script</h2>
-<section id="prepare-the-environment" class="level3">
-<h3 class="anchored" data-anchor-id="prepare-the-environment">Prepare the environment</h3>
-<section id="load-the-libraries" class="level4">
-<h4 class="anchored" data-anchor-id="load-the-libraries">Load the libraries</h4>
+<section id="prepare-the-environment" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="prepare-the-environment"><span class="header-section-number">2.3.1</span> Prepare the environment</h3>
+<section id="load-the-libraries" class="level4" data-number="2.3.1.1">
+<h4 data-number="2.3.1.1" class="anchored" data-anchor-id="load-the-libraries"><span class="header-section-number">2.3.1.1</span> Load the libraries</h4>
 <p>First, we need to load the necessary packages for our analysis.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -586,18 +586,18 @@ Attaching package: 'dplyr'</code></pre>
 <li><p><strong>Sys.setlocale(…):</strong> This line is commented out (#), but it is there in case you run into encoding issues on Windows. It sets the system locale to Traditional Chinese.</p></li>
 </ul>
 </section>
-<section id="load-the-originally-scraped-data-r" class="level4">
-<h4 class="anchored" data-anchor-id="load-the-originally-scraped-data-r">Load the originally scraped data R</h4>
+<section id="load-the-originally-scraped-data-r" class="level4" data-number="2.3.1.2">
+<h4 data-number="2.3.1.2" class="anchored" data-anchor-id="load-the-originally-scraped-data-r"><span class="header-section-number">2.3.1.2</span> Load the originally scraped data R</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"ArticleETToday_CorpusCourse_CLEAN.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>load(…):</strong> We load the .Rdata file containing the cleaned ETToday corpus we prepared in previous weeks. This brings the Article_total2 object into our environment.</p>
 </section>
 </section>
-<section id="key-word-in-context-kwic" class="level3">
-<h3 class="anchored" data-anchor-id="key-word-in-context-kwic">Key Word In Context (KWIC)</h3>
-<section id="prepare-the-dataset-for-the-analyses" class="level4">
-<h4 class="anchored" data-anchor-id="prepare-the-dataset-for-the-analyses">Prepare the dataset for the analyses</h4>
+<section id="key-word-in-context-kwic" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="key-word-in-context-kwic"><span class="header-section-number">2.3.2</span> Key Word In Context (KWIC)</h3>
+<section id="prepare-the-dataset-for-the-analyses" class="level4" data-number="2.3.2.1">
+<h4 data-number="2.3.2.1" class="anchored" data-anchor-id="prepare-the-dataset-for-the-analyses"><span class="header-section-number">2.3.2.1</span> Prepare the dataset for the analyses</h4>
 <p>Before we can analyze the text, we need to ensure our documents have IDs and are properly tokenized.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>docname <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"text"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(Article_total2))</span>
@@ -609,8 +609,8 @@ Attaching package: 'dplyr'</code></pre>
 <li><p><strong>Article_tokens &lt;- tokens(…)</strong>: We use the quanteda function tokens() to break the text in the body column into individual words (tokens). This creates a specialized tokens object required for the next steps.</p></li>
 </ul>
 </section>
-<section id="perform-the-kwic-segmentation" class="level4">
-<h4 class="anchored" data-anchor-id="perform-the-kwic-segmentation">Perform the KWIC segmentation</h4>
+<section id="perform-the-kwic-segmentation" class="level4" data-number="2.3.2.2">
+<h4 data-number="2.3.2.2" class="anchored" data-anchor-id="perform-the-kwic-segmentation"><span class="header-section-number">2.3.2.2</span> Perform the KWIC segmentation</h4>
 <section id="kwic-segmentation" class="level5">
 <h5 class="anchored" data-anchor-id="kwic-segmentation">KWIC segmentation</h5>
 <p>Now we search for a specific keyword to see how it is used in context.</p>
@@ -1665,8 +1665,8 @@ Attaching package: 'dplyr'</code></pre>
 </ul>
 </section>
 </section>
-<section id="save-the-data" class="level4">
-<h4 class="anchored" data-anchor-id="save-the-data">Save the data</h4>
+<section id="save-the-data" class="level4" data-number="2.3.2.3">
+<h4 data-number="2.3.2.3" class="anchored" data-anchor-id="save-the-data"><span class="header-section-number">2.3.2.3</span> Save the data</h4>
 <p>Finally, we save our hard work.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(kwic_data, <span class="st">"ArticleETToday_KWIC_You.xlsx"</span>)</span>
@@ -1678,10 +1678,10 @@ Attaching package: 'dplyr'</code></pre>
 </ul>
 </section>
 </section>
-<section id="frequency-tables" class="level3">
-<h3 class="anchored" data-anchor-id="frequency-tables">Frequency tables</h3>
-<section id="create-the-overall-frequency-table" class="level4">
-<h4 class="anchored" data-anchor-id="create-the-overall-frequency-table">Create the overall frequency table</h4>
+<section id="frequency-tables" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="frequency-tables"><span class="header-section-number">2.3.3</span> Frequency tables</h3>
+<section id="create-the-overall-frequency-table" class="level4" data-number="2.3.3.1">
+<h4 data-number="2.3.3.1" class="anchored" data-anchor-id="create-the-overall-frequency-table"><span class="header-section-number">2.3.3.1</span> Create the overall frequency table</h4>
 <section id="creation-of-the-first-table" class="level5">
 <h5 class="anchored" data-anchor-id="creation-of-the-first-table">Creation of the first table</h5>
 <p>Now, let’s look at the frequency of words across the entire corpus, not just around a keyword.</p>
@@ -3366,8 +3366,8 @@ Attaching package: 'dplyr'</code></pre>
 </ul>
 </section>
 </section>
-<section id="save-the-data-r" class="level4">
-<h4 class="anchored" data-anchor-id="save-the-data-r">Save the data R</h4>
+<section id="save-the-data-r" class="level4" data-number="2.3.3.2">
+<h4 data-number="2.3.3.2" class="anchored" data-anchor-id="save-the-data-r"><span class="header-section-number">2.3.3.2</span> Save the data R</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(table_FreqWord_Top100, <span class="st">"ArticleETToday_Top100nouns.xlsx"</span>) <span class="fu">save</span>(table_FreqWord_Top100, <span class="at">file =</span> <span class="st">"ArticleETToday_Top100nouns.Rdata"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

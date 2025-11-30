@@ -257,13 +257,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#creating-figures-of-the-results-why" id="toc-creating-figures-of-the-results-why" class="nav-link active" data-scroll-target="#creating-figures-of-the-results-why"><span class="header-section-number">1</span> Creating figures of the results, why?</a></li>
+  <li><a href="#creating-figures-of-the-results-why" id="toc-creating-figures-of-the-results-why" class="nav-link active" data-scroll-target="#creating-figures-of-the-results-why"><span class="header-section-number">1</span> Creating figures of the results, why?</a>
+  <ul class="collapse">
+  <li><a href="#some-reflexions-on-the-visual-presentation-of-the-results" id="toc-some-reflexions-on-the-visual-presentation-of-the-results" class="nav-link" data-scroll-target="#some-reflexions-on-the-visual-presentation-of-the-results"><span class="header-section-number">1.1</span> Some reflexions on the visual presentation of the results</a></li>
+  <li><a href="#introduction-to-two-types-of-figures-word-clouds-and-frequency-dot-plots" id="toc-introduction-to-two-types-of-figures-word-clouds-and-frequency-dot-plots" class="nav-link" data-scroll-target="#introduction-to-two-types-of-figures-word-clouds-and-frequency-dot-plots"><span class="header-section-number">1.2</span> Introduction to two types of figures: word clouds, and frequency dot plots</a></li>
+  </ul></li>
   <li><a href="#lets-do-the-work-with-r" id="toc-lets-do-the-work-with-r" class="nav-link" data-scroll-target="#lets-do-the-work-with-r"><span class="header-section-number">2</span> Let’s do the work with R</a>
   <ul class="collapse">
   <li><a href="#two-packages-quanteda-and-ggplot2" id="toc-two-packages-quanteda-and-ggplot2" class="nav-link" data-scroll-target="#two-packages-quanteda-and-ggplot2"><span class="header-section-number">2.1</span> Two packages: ‘quanteda’ and ‘ggplot2’</a>
   <ul class="collapse">
-  <li><a href="#quanteda-or-more-precisely-quanteda.textplots" id="toc-quanteda-or-more-precisely-quanteda.textplots" class="nav-link" data-scroll-target="#quanteda-or-more-precisely-quanteda.textplots">‘quanteda’, or more precisely, ‘quanteda.textplots’</a></li>
-  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2">‘ggplot2’</a></li>
+  <li><a href="#quanteda-or-more-precisely-quanteda.textplots" id="toc-quanteda-or-more-precisely-quanteda.textplots" class="nav-link" data-scroll-target="#quanteda-or-more-precisely-quanteda.textplots"><span class="header-section-number">2.1.1</span> ‘quanteda’, or more precisely, ‘quanteda.textplots’</a></li>
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="header-section-number">2.1.2</span> ‘ggplot2’</a></li>
   </ul></li>
   <li><a href="#workflow-for-word-clouds-and-frequency-dot-plots" id="toc-workflow-for-word-clouds-and-frequency-dot-plots" class="nav-link" data-scroll-target="#workflow-for-word-clouds-and-frequency-dot-plots"><span class="header-section-number">2.2</span> Workflow for word clouds and frequency dot plots</a></li>
   <li><a href="#explanation-of-the-r-code" id="toc-explanation-of-the-r-code" class="nav-link" data-scroll-target="#explanation-of-the-r-code"><span class="header-section-number">2.3</span> Explanation of the R code</a></li>
@@ -316,16 +320,44 @@ Objectives
 </div>
 <section id="creating-figures-of-the-results-why" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Creating figures of the results, why?</h1>
+<section id="some-reflexions-on-the-visual-presentation-of-the-results" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="some-reflexions-on-the-visual-presentation-of-the-results"><span class="header-section-number">1.1</span> Some reflexions on the visual presentation of the results</h2>
+<p>A great question to ask is: Why adding figures after all? We scraped the data from the Internet, we cleaned them and we analyzed them based on our research question. We even have tables to present as well, and all we need to do now is to interpret the results to deliver a great story. So, what is the place for figures?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Think about it
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you are reading a website, or a journal article, or even when you are scrolling through social medias, do you usually read long yet very complete and informative texts first, or are you more attracted to headlines and pictures, before turning to the text?</p>
+</div>
+</div>
+<p>If you are aware of this natural human behavior, then you have surely already understood why adding figures to text and table results is helpful. It is because the human visual system is so important that stimulating it will be a plus when communicating the results.</p>
+<p>Knowing how to present the results in a figure is very important as well. Having a great figure able to summarize the results such that we can grasp the intended message of the study at one glance will determine the success of the whole presentation. Conversely, a messy figure, containing too much information or just presented in an inappropriate way will blur the message, affecting the success of the presentation. Adding a figure is not enough, it requires some strategic thinking as well! You can have a look at the figures plotted with R on this webpage. Some are quite straightforward, while some are clearly just messy.</p>
+</section>
+<section id="introduction-to-two-types-of-figures-word-clouds-and-frequency-dot-plots" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="introduction-to-two-types-of-figures-word-clouds-and-frequency-dot-plots"><span class="header-section-number">1.2</span> Introduction to two types of figures: word clouds, and frequency dot plots</h2>
+<p>For this class, we will present two types of figures which are commonly used to present results from corpus exploration. The first one is called “word cloud”. It is named this way, because it looks like a cloud which is made out of words. The size of these words reflect their relative frequency in the corpus analyzed. In other words, the bigger the word, the higher its frequency in the corpus. It is a way to present frequency results in a very intuitive way!</p>
+<p>A quick search on Google shows that you can create them easily with dedicated websites. I personally used them before, and it can be quite fun to play with them. I invite you to do so, you will have a better grasp of what a word cloud is!</p>
+<p><img src="assets/images/Wordcloud_Google.png" class="img-fluid"></p>
+<p>Frequency dot plots are another way to present the same kind of results. It looks less funny than word clouds, but it exhibits the advantage that you can add more information if you want. Put differently, where word clouds are great for their visual impact thanks to their relatively minimalist design, frequency dot plots are very useful when you want to display different types of information at the same time!</p>
+<p>I invite you to watch this YouTube video if you want to know more about frequency dot plots (please click on the image below).</p>
+<p><a href="https://www.youtube.com/watch?v=7AjSUj-OVuE"><img src="https://img.youtube.com/vi/7AjSUj-OVuE/0.jpg" class="img-fluid"></a></p>
+</section>
 </section>
 <section id="lets-do-the-work-with-r" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Let’s do the work with R</h1>
 <section id="two-packages-quanteda-and-ggplot2" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="two-packages-quanteda-and-ggplot2"><span class="header-section-number">2.1</span> Two packages: ‘quanteda’ and ‘ggplot2’</h2>
-<section id="quanteda-or-more-precisely-quanteda.textplots" class="level3">
-<h3 class="anchored" data-anchor-id="quanteda-or-more-precisely-quanteda.textplots">‘quanteda’, or more precisely, ‘quanteda.textplots’</h3>
+<section id="quanteda-or-more-precisely-quanteda.textplots" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="quanteda-or-more-precisely-quanteda.textplots"><span class="header-section-number">2.1.1</span> ‘quanteda’, or more precisely, ‘quanteda.textplots’</h3>
 </section>
-<section id="ggplot2" class="level3">
-<h3 class="anchored" data-anchor-id="ggplot2">‘ggplot2’</h3>
+<section id="ggplot2" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">2.1.2</span> ‘ggplot2’</h3>
 </section>
 </section>
 <section id="workflow-for-word-clouds-and-frequency-dot-plots" class="level2" data-number="2.2">
