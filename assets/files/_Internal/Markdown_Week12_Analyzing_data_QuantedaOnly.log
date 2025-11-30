@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.11.20)  27 NOV 2025 11:48
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.11.20)  30 NOV 2025 11:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1048,741 +1048,379 @@ LaTeX Font Info:    Font shape `TU/FandolFang-Regular(0)/m/n' will be
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10> not available
 (Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 244.
 
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 267.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 267.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 267.
 [2]
-Overfull \hbox (38.1315pt too wide) in paragraph at lines 293--294
+Overfull \hbox (29.1355pt too wide) in paragraph at lines 294--295
 []\TU/lmr/m/n/10 docname  
  []
 
 
-Overfull \hbox (20.01804pt too wide) in paragraph at lines 295--296
+Overfull \hbox (14.37827pt too wide) in paragraph at lines 296--297
  []\TU/lmr/m/n/10 from
  []
 
 
-Overfull \hbox (8.70348pt too wide) in paragraph at lines 297--298
+Overfull \hbox (5.34245pt too wide) in paragraph at lines 298--299
  []\TU/lmr/m/n/10 to
  []
 
 
-Overfull \hbox (12.24525pt too wide) in paragraph at lines 299--300
-[]\TU/lmr/m/n/10 pre  
- []
-
-
-Overfull \hbox (35.6615pt too wide) in paragraph at lines 301--302
+Overfull \hbox (26.6655pt too wide) in paragraph at lines 302--303
 []\TU/lmr/m/n/10 keyword  
  []
 
 
-Overfull \hbox (15.799pt too wide) in paragraph at lines 303--304
-[]\TU/lmr/m/n/10 post  
- []
-
-
-Overfull \hbox (31.7815pt too wide) in paragraph at lines 305--306
+Overfull \hbox (22.78549pt too wide) in paragraph at lines 306--307
 []\TU/lmr/m/n/10 pattern  
  []
 
 
-Overfull \hbox (18.19104pt too wide) in paragraph at lines 307--308
-[]\TU/lmr/m/n/10 time  
- []
-
-
-Overfull \hbox (19.72694pt too wide) in paragraph at lines 309--310
+Overfull \hbox (13.00969pt too wide) in paragraph at lines 310--311
 []\TU/lmr/m/n/10 class  
  []
 
 
-Overfull \hbox (13.87494pt too wide) in paragraph at lines 311--312
-[]\TU/lmr/m/n/10 title  
- []
-
-
-Overfull \hbox (3.89049pt too wide) in paragraph at lines 313--314
-[]\TU/lmr/m/n/10 body  
- []
-
-
-Overfull \hbox (9.25517pt too wide) in paragraph at lines 315--316
-[]\TU/lmr/m/n/10 url  
- []
-
-
-Overfull \hbox (18.06804pt too wide) in paragraph at lines 317--318
+Overfull \hbox (12.42827pt too wide) in paragraph at lines 316--317
 []\TU/lmr/m/n/10 year  
  []
 
 
-Overfull \hbox (27.68694pt too wide) in paragraph at lines 319--320
+Overfull \hbox (20.96968pt too wide) in paragraph at lines 318--319
 []\TU/lmr/m/n/10 month  
  []
 
 
-Overfull \hbox (15.32076pt too wide) in paragraph at lines 321--322
+Overfull \hbox (10.82036pt too wide) in paragraph at lines 320--321
 []\TU/lmr/m/n/10 day  
  []
 
 
-Overfull \hbox (46.18658pt too wide) in paragraph at lines 325--326
-[]\TU/lmr/m/n/10 pre_original  
- []
-
-
-Overfull \hbox (50.5919pt too wide) in paragraph at lines 327--328
-[]\TU/lmr/m/n/10 post_original  
- []
-
-
-Overfull \hbox (22.0215pt too wide) in paragraph at lines 333--333
+Overfull \hbox (13.0255pt too wide) in paragraph at lines 326--326
 []|\TU/lmr/m/n/10 text1|  
  []
 
 
-Overfull \hbox (9.70804pt too wide) in paragraph at lines 333--333
+Overfull \hbox (4.06827pt too wide) in paragraph at lines 326--326
  []|\TU/lmr/m/n/10 19|
  []
 
 
-Overfull \hbox (9.81348pt too wide) in paragraph at lines 333--333
+Overfull \hbox (6.45245pt too wide) in paragraph at lines 326--326
  []|\TU/lmr/m/n/10 19|
  []
 
 LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 333.
+(Font)              scaled to size 10.0pt on input line 326.
 
-Overfull \hbox (1.40526pt too wide) in paragraph at lines 333--333
-[]|\TU/FandolSong-Regular(0)/m/n/10 ，| 
- []
-
-
-Overfull \hbox (8.32526pt too wide) in paragraph at lines 333--333
-\TU/FandolSong-Regular(0)/m/n/10 竟 
- []
-
-
-Overfull \hbox (8.32526pt too wide) in paragraph at lines 333--333
-\TU/FandolSong-Regular(0)/m/n/10 然|  
- []
-
-
-Overfull \hbox (9.5215pt too wide) in paragraph at lines 333--333
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 326--326
 []|\TU/FandolSong-Regular(0)/m/n/10 有|  
  []
 
 Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
 
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-[]|\TU/FandolSong-Regular(0)/m/n/10 玩 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 家 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 突 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 發 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 奇 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 想 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 將 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 兩 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 款 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 遊 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 戲 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 尬 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 在 
- []
-
-
-Overfull \hbox (7.129pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 一 
- []
-
-
-Overfull \hbox (10.209pt too wide) in paragraph at lines 333--334
-\TU/FandolSong-Regular(0)/m/n/10 起，||  
- []
-
-
-Overfull \hbox (9.5215pt too wide) in paragraph at lines 334--334
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 327--327
 []|\TU/FandolSong-Regular(0)/m/n/10 有|  
  []
 
 
-Overfull \hbox (18.75104pt too wide) in paragraph at lines 334--334
-[]|\TU/lmr/m/n/10 2024 
- []
-
-
-Overfull \hbox (8.75104pt too wide) in paragraph at lines 334--334
-\TU/FandolSong-Regular(0)/m/n/10 年 
- []
-
-
-Overfull \hbox (8.75104pt too wide) in paragraph at lines 334--334
-\TU/lmr/m/n/10 01 
- []
-
-
-Overfull \hbox (8.75104pt too wide) in paragraph at lines 334--334
-\TU/FandolSong-Regular(0)/m/n/10 月 
- []
-
-
-Overfull \hbox (8.75104pt too wide) in paragraph at lines 334--334
-\TU/lmr/m/n/10 01 
- []
-
-
-Overfull \hbox (8.75104pt too wide) in paragraph at lines 334--334
-\TU/FandolSong-Regular(0)/m/n/10 日 
- []
-
-
-Overfull \hbox (21.53104pt too wide) in paragraph at lines 334--334
-\TU/lmr/m/n/10 10:57|  
- []
-
-
-Overfull \hbox (9.62694pt too wide) in paragraph at lines 334--334
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 327--327
 []|\TU/FandolSong-Regular(0)/m/n/10 政 
  []
 
 
-Overfull \hbox (9.62694pt too wide) in paragraph at lines 334--334
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 327--327
 \TU/FandolSong-Regular(0)/m/n/10 治|  
  []
 
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-[]|\TU/FandolSong-Regular(0)/m/n/10 神 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 人 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 把 
- []
-
-
-Overfull \hbox (10.64494pt too wide) in paragraph at lines 335--335
-|\TU/FandolSong-Regular(0)/m/n/10 《我 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 的 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 世 
- []
-
-
-Overfull \hbox (10.63493pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 界》| 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 改 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 成 
- []
-
-
-Overfull \hbox (10.64494pt too wide) in paragraph at lines 335--335
-|\TU/FandolSong-Regular(0)/m/n/10 《血 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 源 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 詛 
- []
-
-
-Overfull \hbox (10.63493pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 咒》| 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 　 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 還 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 原 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 度 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 超 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 高 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 玩 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 家 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 狂 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 敲 
- []
-
-
-Overfull \hbox (9.12494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 碗：| 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 快 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 點 
- []
-
-
-Overfull \hbox (6.09494pt too wide) in paragraph at lines 335--335
-\TU/FandolSong-Regular(0)/m/n/10 出|  
- []
-
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 產 (U+7522) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-
-Overfull \hbox (47.39047pt too wide) in paragraph at lines 336--338
-\TU/FandolSong-Regular(0)/m/n/10 界》 （\TU/lmr/m/n/10 Minecraft\TU/FandolSong-Regular(0)/m/n/10 ）| 
- []
-
-
-Overfull \hbox (30.78047pt too wide) in paragraph at lines 336--338
-\TU/FandolSong-Regular(0)/m/n/10 咒》 （\TU/lmr/m/n/10 Blood- 
- []
-
-
-Overfull \hbox (13.43048pt too wide) in paragraph at lines 336--338
-\TU/lmr/m/n/10 borne\TU/FandolSong-Regular(0)/m/n/10 ） ，| 
- []
-
-
-Overfull \hbox (4.15048pt too wide) in paragraph at lines 336--338
-\TU/lmr/m/n/10 tomy 
- []
-
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 339.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 339.
+(Font)              scaled to size 7.0pt on input line 329.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 339.
+(Font)              scaled to size 10.00092pt on input line 329.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 339.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 339.
+(Font)              scaled to size 7.00064pt on input line 329.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 339.
+(Font)              scaled to size 9.99893pt on input line 329.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 339.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 339.
+(Font)              scaled to size 6.99925pt on input line 329.
 
-Overfull \hbox (22.61517pt too wide) in paragraph at lines 339--339
-[]|[]$[][][][][] [] 
- []
-
-
-Overfull \hbox (6.99518pt too wide) in paragraph at lines 339--339
-[] [] 
- []
-
-
-Overfull \hbox (21.43518pt too wide) in paragraph at lines 339--339
-[][][] [] 
- []
-
-
-Overfull \hbox (32.83517pt too wide) in paragraph at lines 339--339
-[][][][][][][] [] 
- []
-
-
-Overfull \hbox (15.88518pt too wide) in paragraph at lines 339--339
-[][][] [] 
- []
-
-
-Overfull \hbox (23.15518pt too wide) in paragraph at lines 339--339
-[][][][] [] 
- []
-
-
-Overfull \hbox (41.99518pt too wide) in paragraph at lines 339--339
-[][][][][][][][] [] 
- []
-
-
-Overfull \hbox (34.77518pt too wide) in paragraph at lines 339--339
-[][][][][][][] [] 
- []
-
-
-Overfull \hbox (14.77518pt too wide) in paragraph at lines 339--339
-[][][]$[]|  
- []
-
-
-Overfull \hbox (19.70804pt too wide) in paragraph at lines 339--339
+Overfull \hbox (14.06827pt too wide) in paragraph at lines 329--329
 []|\TU/lmr/m/n/10 2024|  
  []
 
 
-Overfull \hbox (9.62694pt too wide) in paragraph at lines 339--339
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 329--329
 []|\TU/lmr/m/n/10 01|  
  []
 
 
-Overfull \hbox (9.76076pt too wide) in paragraph at lines 339--340
+Overfull \hbox (5.26036pt too wide) in paragraph at lines 330--331
 []|\TU/lmr/m/n/10 01|  
  []
 
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-[3]
-ignored error: Infinite glue shrinkage found in box being split [4]
-Overfull \vbox (605.34789pt too high) has occurred while \output is active []
 
-[5]
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 產 (U+7522) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 為 (U+70BA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 麼 (U+9EBC) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 夠 (U+5920) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 產 (U+7522) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 麼 (U+9EBC) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 夠 (U+5920) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 產 (U+7522) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 為 (U+70BA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 麼 (U+9EBC) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 夠 (U+5920) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 麼 (U+9EBC) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 夠 (U+5920) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
+Overfull \hbox (13.0255pt too wide) in paragraph at lines 331--331
+[]|\TU/lmr/m/n/10 text6|  
+ []
+
+
+Overfull \hbox (4.06827pt too wide) in paragraph at lines 331--331
+ []|\TU/lmr/m/n/10 55|
+ []
+
+
+Overfull \hbox (6.45245pt too wide) in paragraph at lines 331--331
+ []|\TU/lmr/m/n/10 55|
+ []
+
+
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 331--331
+[]|\TU/FandolSong-Regular(0)/m/n/10 有|  
+ []
+
+
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 331--331
+[]|\TU/FandolSong-Regular(0)/m/n/10 有|  
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 332--332
+[]|\TU/FandolSong-Regular(0)/m/n/10 政 
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 332--332
+\TU/FandolSong-Regular(0)/m/n/10 治|  
+ []
+
+
+Overfull \hbox (14.06827pt too wide) in paragraph at lines 334--334
+[]|\TU/lmr/m/n/10 2024|  
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 334--334
+[]|\TU/lmr/m/n/10 01|  
+ []
+
+
+Overfull \hbox (5.26036pt too wide) in paragraph at lines 335--336
+[]|\TU/lmr/m/n/10 01|  
+ []
+
+
+Overfull \hbox (18.0255pt too wide) in paragraph at lines 336--336
+[]|\TU/lmr/m/n/10 text12|  
+ []
+
+
+Overfull \hbox (4.06827pt too wide) in paragraph at lines 336--336
+ []|\TU/lmr/m/n/10 18|
+ []
+
+
+Overfull \hbox (6.45245pt too wide) in paragraph at lines 336--336
+ []|\TU/lmr/m/n/10 18|
+ []
+
+
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 336--336
+[]|\TU/FandolSong-Regular(0)/m/n/10 有|  
+ []
+
 Missing character: There is no 雞 (U+96DE) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 薑 (U+8591) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
+
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 337--337
+[]|\TU/FandolSong-Regular(0)/m/n/10 有|  
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 337--337
+[]|\TU/FandolSong-Regular(0)/m/n/10 社 
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 337--337
+\TU/FandolSong-Regular(0)/m/n/10 會|  
+ []
+
 Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 雞 (U+96DE) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 薑 (U+8591) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 內 (U+5167) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 毀 (U+6BC0) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 黃 (U+9EC3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 彥 (U+5F65) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 傑 (U+5091) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 黃 (U+9EC3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 彥 (U+5F65) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 傑 (U+5091) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 雞 (U+96DE) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 薑 (U+8591) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 內 (U+5167) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 內 (U+5167) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 洩 (U+6D29) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 內 (U+5167) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 黃 (U+9EC3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 彥 (U+5F65) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 傑 (U+5091) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 為 (U+70BA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 籲 (U+7C72) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 煙 (U+7159) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
+
+Overfull \hbox (14.06827pt too wide) in paragraph at lines 339--339
+[]|\TU/lmr/m/n/10 2024|  
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 339--339
+[]|\TU/lmr/m/n/10 01|  
+ []
+
+
+Overfull \hbox (5.26036pt too wide) in paragraph at lines 340--341
+[]|\TU/lmr/m/n/10 01|  
+ []
+
+
+Overfull \hbox (18.0255pt too wide) in paragraph at lines 341--341
+[]|\TU/lmr/m/n/10 text14|  
+ []
+
+
+Overfull \hbox (4.06827pt too wide) in paragraph at lines 341--341
+ []|\TU/lmr/m/n/10 57|
+ []
+
+
+Overfull \hbox (6.45245pt too wide) in paragraph at lines 341--341
+ []|\TU/lmr/m/n/10 57|
+ []
+
+
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 341--341
+[]|\TU/FandolSong-Regular(0)/m/n/10 有|  
+ []
+
 Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
+
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 342--342
+[]|\TU/FandolSong-Regular(0)/m/n/10 有|  
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 342--342
+[]|\TU/FandolSong-Regular(0)/m/n/10 社 
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 342--342
+\TU/FandolSong-Regular(0)/m/n/10 會|  
+ []
+
 Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 雞 (U+96DE) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 薑 (U+8591) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 為 (U+70BA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 籲 (U+7C72) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 煙 (U+7159) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 毀 (U+6BC0) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 黃 (U+9EC3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 彥 (U+5F65) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 傑 (U+5091) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 黃 (U+9EC3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 彥 (U+5F65) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 傑 (U+5091) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 雞 (U+96DE) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 薑 (U+8591) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 內 (U+5167) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 內 (U+5167) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 洩 (U+6D29) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 內 (U+5167) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-[6]
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 黃 (U+9EC3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 彥 (U+5F65) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 傑 (U+5091) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 為 (U+70BA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 籲 (U+7C72) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 煙 (U+7159) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 災 (U+707D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 燉 (U+71C9) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 廚 (U+5EDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 溫 (U+6EAB) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 閱 (U+95B1) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 線 (U+7DDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
+
+Overfull \hbox (14.06827pt too wide) in paragraph at lines 344--344
+[]|\TU/lmr/m/n/10 2024|  
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 344--344
+[]|\TU/lmr/m/n/10 01|  
+ []
+
+
+Overfull \hbox (5.26036pt too wide) in paragraph at lines 345--346
+[]|\TU/lmr/m/n/10 01|  
+ []
+
+
+Overfull \hbox (18.0255pt too wide) in paragraph at lines 346--346
+[]|\TU/lmr/m/n/10 text17|  
+ []
+
+
+Overfull \hbox (4.06827pt too wide) in paragraph at lines 346--346
+ []|\TU/lmr/m/n/10 30|
+ []
+
+
+Overfull \hbox (6.45245pt too wide) in paragraph at lines 346--346
+ []|\TU/lmr/m/n/10 30|
+ []
+
+
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 346--346
+[]|\TU/FandolSong-Regular(0)/m/n/10 有|  
+ []
+
+
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 346--346
+[]|\TU/FandolSong-Regular(0)/m/n/10 有|  
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 347--347
+[]|\TU/FandolSong-Regular(0)/m/n/10 社 
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 347--347
+\TU/FandolSong-Regular(0)/m/n/10 會|  
+ []
+
+
+Overfull \hbox (14.06827pt too wide) in paragraph at lines 349--349
+[]|\TU/lmr/m/n/10 2024|  
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 349--349
+[]|\TU/lmr/m/n/10 01|  
+ []
+
+
+Overfull \hbox (5.26036pt too wide) in paragraph at lines 350--351
+[]|\TU/lmr/m/n/10 01|  
+ []
+
+
+Overfull \hbox (18.0255pt too wide) in paragraph at lines 351--351
+[]|\TU/lmr/m/n/10 text19|  
+ []
+
+
+Overfull \hbox (4.06827pt too wide) in paragraph at lines 351--351
+ []|\TU/lmr/m/n/10 46|
+ []
+
+
+Overfull \hbox (6.45245pt too wide) in paragraph at lines 351--351
+ []|\TU/lmr/m/n/10 46|
+ []
+
+
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 351--351
+[]|\TU/FandolSong-Regular(0)/m/n/10 有|  
+ []
+
+
+Overfull \hbox (0.5255pt too wide) in paragraph at lines 352--352
+[]|\TU/FandolSong-Regular(0)/m/n/10 有|  
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 352--352
+[]|\TU/FandolSong-Regular(0)/m/n/10 社 
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 352--352
+\TU/FandolSong-Regular(0)/m/n/10 會|  
+ []
+
 Missing character: There is no 棄 (U+68C4) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 銬 (U+92AC) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 盜 (U+76DC) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 陞 (U+965E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 陞 (U+965E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 閱 (U+95B1) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 為 (U+70BA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 陞 (U+965E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 閱 (U+95B1) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 線 (U+7DDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 棄 (U+68C4) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 銬 (U+92AC) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 盜 (U+76DC) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 陞 (U+965E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 閱 (U+95B1) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 線 (U+7DDA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 棄 (U+68C4) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 棄 (U+68C4) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 爭 (U+722D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 錄 (U+9304) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 檳 (U+6AB3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 為 (U+70BA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 檳 (U+6AB3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 檳 (U+6AB3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 錄 (U+9304) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 颳 (U+98B3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 爭 (U+722D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 檳 (U+6AB3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 錄 (U+9304) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 錄 (U+9304) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 檳 (U+6AB3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 遊 (U+904A) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 錄 (U+9304) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 產 (U+7522) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 說 (U+8AAA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 強 (U+5F37) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 唸 (U+5538) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 減 (U+6E1B) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 況 (U+6CC1) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 戶 (U+6236) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 沒 (U+6C92) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 奧 (U+5967) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 錄 (U+9304) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 虛 (U+865B) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 說 (U+8AAA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 產 (U+7522) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 為 (U+70BA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 沒 (U+6C92) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 沒 (U+6C92) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 爭 (U+722D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 儼 (U+513C) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 為 (U+70BA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 爭 (U+722D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 儘 (U+5118) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 錄 (U+9304) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 卻 (U+537B) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 檳 (U+6AB3) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 錄 (U+9304) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 爭 (U+722D) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 強 (U+5F37) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 為 (U+70BA) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 產 (U+7522) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no   (U+2003) in font [lmroman10-regular]:mapping=tex-text;!
-[7]
-Missing character: There is no ► (U+25BA) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ► (U+25BA) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 強 (U+5F37) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no ► (U+25BA) in font [lmroman10-regular]:mapping=tex-text;!
+
+Overfull \hbox (14.06827pt too wide) in paragraph at lines 354--354
+[]|\TU/lmr/m/n/10 2024|  
+ []
+
+
+Overfull \hbox (2.90968pt too wide) in paragraph at lines 354--354
+[]|\TU/lmr/m/n/10 01|  
+ []
+
+
+Overfull \hbox (5.26036pt too wide) in paragraph at lines 355--356
+[]|\TU/lmr/m/n/10 01|  
+ []
+
+ignored error: Infinite glue shrinkage found in box being split [3]
 Missing character: There is no 眾 (U+773E) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 異 (U+7570) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 麼 (U+9EBC) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
@@ -1792,45 +1430,46 @@ Missing character: There is no 爭 (U+722D) in font [FandolSong-Regular.otf]/OT:
 Missing character: There is no 異 (U+7570) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 異 (U+7570) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 別 (U+5225) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
-[8]
-ignored error: Infinite glue shrinkage found in box being split [9] [10] [11]
+ignored error: Infinite glue shrinkage found in box being split [4]
+ignored error: Infinite glue shrinkage found in box being split [5] [6]
+Missing character: There is no 眾 (U+773E) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
+Missing character: There is no 並 (U+4E26) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
+Missing character: There is no 為 (U+70BA) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
+Missing character: There is no 說 (U+8AAA) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
+[7]
+Missing character: There is no 黃 (U+9EC3) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
+Missing character: There is no 沒 (U+6C92) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
+[8] [9]
 Missing character: There is no 眾 (U+773E) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 並 (U+4E26) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 為 (U+70BA) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 說 (U+8AAA) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 黃 (U+9EC3) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 沒 (U+6C92) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
-[12] [13]
-Missing character: There is no 眾 (U+773E) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 並 (U+4E26) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 為 (U+70BA) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 說 (U+8AAA) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
-Missing character: There is no 黃 (U+9EC3) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
-[14]
-Missing character: There is no 沒 (U+6C92) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
+[10]
 Missing character: There is no 吳 (U+5433) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
-[15]
+[11]
 Missing character: There is no 眾 (U+773E) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 並 (U+4E26) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 為 (U+70BA) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 說 (U+8AAA) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
 Missing character: There is no 黃 (U+9EC3) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
-[16]
 Missing character: There is no 沒 (U+6C92) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
+[12]
 Missing character: There is no 吳 (U+5433) in font [FandolFang-Regular.otf]/OT:script=hani;language=dflt;!
-[17] (./Markdown_Week12_Analyzing_data_QuantedaOnly.aux)
+[13] (./Markdown_Week12_Analyzing_data_QuantedaOnly.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 20489 strings out of 470195
- 411295 string characters out of 5477908
- 1010630 words of memory out of 5000000
- 48813 multiletter control sequences out of 15000+600000
+ 20333 strings out of 470195
+ 399841 string characters out of 5477908
+ 990561 words of memory out of 5000000
+ 48657 multiletter control sequences out of 15000+600000
  634810 words of font info for 105 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,10n,114p,530b,942s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,10n,114p,530b,946s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Markdown_Week12_Analyzing_data_QuantedaOnly.pdf (17 pages).
+Output written on Markdown_Week12_Analyzing_data_QuantedaOnly.pdf (13 pages).

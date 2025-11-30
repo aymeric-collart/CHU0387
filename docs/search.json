@@ -394,11 +394,35 @@
     ]
   },
   {
-    "objectID": "Week13.html",
-    "href": "Week13.html",
+    "objectID": "Week13.html#two-packages-quanteda-and-ggplot2",
+    "href": "Week13.html#two-packages-quanteda-and-ggplot2",
     "title": "Week 13: Data visualization",
-    "section": "",
-    "text": "Objectives\n\n\n\nThis week, you will learn how to create figures of the data that we analyzed.\n\n\n[Page to be completed later]",
+    "section": "2.1 Two packages: ‘quanteda’ and ‘ggplot2’",
+    "text": "2.1 Two packages: ‘quanteda’ and ‘ggplot2’\n\n‘quanteda’, or more precisely, ‘quanteda.textplots’\n\n\n‘ggplot2’",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyses of corpus data",
+      "Week 13: Data visualization"
+    ]
+  },
+  {
+    "objectID": "Week13.html#workflow-for-word-clouds-and-frequency-dot-plots",
+    "href": "Week13.html#workflow-for-word-clouds-and-frequency-dot-plots",
+    "title": "Week 13: Data visualization",
+    "section": "2.2 Workflow for word clouds and frequency dot plots",
+    "text": "2.2 Workflow for word clouds and frequency dot plots",
+    "crumbs": [
+      "Welcome page",
+      "Part 3: Simple preprocessing and analyses of corpus data",
+      "Week 13: Data visualization"
+    ]
+  },
+  {
+    "objectID": "Week13.html#explanation-of-the-r-code",
+    "href": "Week13.html#explanation-of-the-r-code",
+    "title": "Week 13: Data visualization",
+    "section": "2.3 Explanation of the R code",
+    "text": "2.3 Explanation of the R code",
     "crumbs": [
       "Welcome page",
       "Part 3: Simple preprocessing and analyses of corpus data",
@@ -717,7 +741,7 @@
     "href": "Week5_2.html#configuring-the-file-the-yaml-block",
     "title": "Week 5: Introduction to R (2/2): How to create reproducible data",
     "section": "2.1 Configuring the file: The YAML block",
-    "text": "2.1 Configuring the file: The YAML block\n\n2.1.1 Basic features of the YAML block\nLet’s start with configuring the file: This corresponds to the first lines, or the header, of the script that you have just created. This is called the YAML part. It looks like this so far:\n\n\n\nYou will remark that there are pre-filled information, such as the title of the document, the name(s) of the author(s), the date and the output format. These are what we were prompted to fill when creating the document! Now you can try to change some things, for instance:\n\nTitle: Change to “My first R Markdown script”\nAuthor: Change to you name\nDate: Change to the date you wish, or even delete this line if you do not wish to add a date\n\n\n\n2.1.2 More advanced features of the YAML block\nYou can also add other pieces of information, for instance:\n\nDate:\nYou have more options, such as defining the format of the date, and maybe more interestingly, create a variable such that you do not have to change the date anytime you save the document. In other words, you may want to have a line specifying something like “This document was last modified on ‘Year-Month-Day’”. Just write as follows:\n\n\ndate: \"This document was last modified on `r Sys.Date()`\"\n\nThe code 2025-11-27 will look at the date of the system of your computer.\n\nTable of contents:\nThe addition of titles in the document is here to help when navigating it. You can also add a table of contents such that it is even easier to navigate. You can also specify how many layers you want to display in the table of contents.\n\n\ntoc: true\ntoc-depth: 4 ## Change this value depending on how many layers you wish to display\n\n\nFormat:\nFor now, the output format is “html”. Just replace with other values according to the output format you want (for example: “pdf_document”).\n\nIn the end, the YAML block should look like this:\n\n    ---\n    title: \"My first R Markdown script\"\n    author: \"Your name\"\n    date: \"This document was last modified on `r Sys.Date()`\"\n    output: pdf_document\n    toc: yes\n    toc-depth: 4\n    ---",
+    "text": "2.1 Configuring the file: The YAML block\n\n2.1.1 Basic features of the YAML block\nLet’s start with configuring the file: This corresponds to the first lines, or the header, of the script that you have just created. This is called the YAML part. It looks like this so far:\n\n\n\nYou will remark that there are pre-filled information, such as the title of the document, the name(s) of the author(s), the date and the output format. These are what we were prompted to fill when creating the document! Now you can try to change some things, for instance:\n\nTitle: Change to “My first R Markdown script”\nAuthor: Change to you name\nDate: Change to the date you wish, or even delete this line if you do not wish to add a date\n\n\n\n2.1.2 More advanced features of the YAML block\nYou can also add other pieces of information, for instance:\n\nDate:\nYou have more options, such as defining the format of the date, and maybe more interestingly, create a variable such that you do not have to change the date anytime you save the document. In other words, you may want to have a line specifying something like “This document was last modified on ‘Year-Month-Day’”. Just write as follows:\n\n\ndate: \"This document was last modified on `r Sys.Date()`\"\n\nThe code 2025-11-30 will look at the date of the system of your computer.\n\nTable of contents:\nThe addition of titles in the document is here to help when navigating it. You can also add a table of contents such that it is even easier to navigate. You can also specify how many layers you want to display in the table of contents.\n\n\ntoc: true\ntoc-depth: 4 ## Change this value depending on how many layers you wish to display\n\n\nFormat:\nFor now, the output format is “html”. Just replace with other values according to the output format you want (for example: “pdf_document”).\n\nIn the end, the YAML block should look like this:\n\n    ---\n    title: \"My first R Markdown script\"\n    author: \"Your name\"\n    date: \"This document was last modified on `r Sys.Date()`\"\n    output: pdf_document\n    toc: yes\n    toc-depth: 4\n    ---",
     "crumbs": [
       "Welcome page",
       "Part 2: Building a corpus from the internet with modern tools",

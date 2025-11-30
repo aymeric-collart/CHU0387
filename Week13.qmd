@@ -25,4 +25,18 @@ hr.rounded {
 This week, you will learn how to create figures of the data that we analyzed.
 :::
 
-[Page to be completed later]
+# Creating figures of the results, why?
+
+# Let's do the work with R
+
+## Two packages: 'quanteda' and 'ggplot2'
+
+### 'quanteda', or more precisely, 'quanteda.textplots'
+
+### 'ggplot2'
+
+## Workflow for word clouds and frequency dot plots
+
+## Explanation of the R code
+
+# Markdown document, PDF output file, RData and Excel files of the scraped data

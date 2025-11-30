@@ -184,11 +184,11 @@ table_FreqWord_Top100
 ### 3.2.1 Save as an Excel file
 
 ```{r}
-write.xlsx(table_FreqWord_Top100, "ArticleETToday_Top100nouns.xlsx")
+write.xlsx(table_FreqWord_Top100, "ArticleETToday_Top100words.xlsx")
 ```
 
 ### 3.2.2 Save as an RData file
 
 ```{r}
-save(table_FreqWord_Top100, file = "ArticleETToday_Top100nouns.Rdata")
+save(table_FreqWord_Top100, file = "ArticleETToday_Top100words.Rdata")
 ```
