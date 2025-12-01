@@ -4,7 +4,7 @@ format:
   html:
     output-file: Week12.html
     number-sections: true
-    number-depth: 4
+    number-depth: 5
     toc: true
 ---
 

@@ -29,9 +29,9 @@ Welcome to the website of the course "Language, Society and Literature with Corp
 ::: callout-note
 ## Note
 
-The content for the the data analysis is online now!
+This website is now complete!
 
-Stay tuned for further developments!
+It may go through further refinements though.
 :::
 
 <hr class="rounded">

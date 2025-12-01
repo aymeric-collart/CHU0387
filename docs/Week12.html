@@ -389,8 +389,8 @@ Note
 <p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-687d66204144a22c8257" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-687d66204144a22c8257">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-e53a6243653bc3d65813" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e53a6243653bc3d65813">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -530,8 +530,8 @@ Note
 <p>Here is an overview of the workflow. First, we start with the clean corpus, and then we create a new dataset where the sentences are cut into words. Based on this new dataset, we can perform a KWIC analysis, create a word list, or combine the two types of analyses. Finally, we clean a little bit (as in the example below; punctuation marks, digits, selecting only the sentence/phrase, etc.), we add back the information from the original corpus, and we are done!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7a7a112d113005b48f3e" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-7a7a112d113005b48f3e">{"x":{"diagram":"\n    graph TD\n        A[Corpus data] -- Identify the column with the text --> B[Segment into words];\n        B --> C[KWIC analysis];\n        B --> D[Word list];\n        C -- If combined analysis --> D;\n        D --> E[Clean a little bit];\n        C --> E;\n        E --> F[Add information from the original corpus];\n        F --> G[Done!];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7f691da3a79212b77aa7" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-7f691da3a79212b77aa7">{"x":{"diagram":"\n    graph TD\n        A[Corpus data] -- Identify the column with the text --> B[Segment into words];\n        B --> C[KWIC analysis];\n        B --> D[Word list];\n        C -- If combined analysis --> D;\n        D --> E[Clean a little bit];\n        C --> E;\n        E --> F[Add information from the original corpus];\n        F --> G[Done!];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -611,8 +611,8 @@ Attaching package: 'dplyr'</code></pre>
 </section>
 <section id="perform-the-kwic-segmentation" class="level4" data-number="2.3.2.2">
 <h4 data-number="2.3.2.2" class="anchored" data-anchor-id="perform-the-kwic-segmentation"><span class="header-section-number">2.3.2.2</span> Perform the KWIC segmentation</h4>
-<section id="kwic-segmentation" class="level5">
-<h5 class="anchored" data-anchor-id="kwic-segmentation">KWIC segmentation</h5>
+<section id="kwic-segmentation" class="level5" data-number="2.3.2.2.1">
+<h5 data-number="2.3.2.2.1" class="anchored" data-anchor-id="kwic-segmentation"><span class="header-section-number">2.3.2.2.1</span> KWIC segmentation</h5>
 <p>Now we search for a specific keyword to see how it is used in context.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">kwic</span>(Article_tokens, <span class="at">pattern =</span> <span class="st">"有"</span>, <span class="at">window =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -625,8 +625,8 @@ Attaching package: 'dplyr'</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="annotate-the-kwic-dataset" class="level5">
-<h5 class="anchored" data-anchor-id="annotate-the-kwic-dataset">Annotate the KWIC dataset</h5>
+<section id="annotate-the-kwic-dataset" class="level5" data-number="2.3.2.2.2">
+<h5 data-number="2.3.2.2.2" class="anchored" data-anchor-id="annotate-the-kwic-dataset"><span class="header-section-number">2.3.2.2.2</span> Annotate the KWIC dataset</h5>
 <p>The kwic function gives us the context, but we lose the original metadata (like the article date or category). We need to put it back.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(kwic_data)</span>
@@ -819,8 +819,8 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 </section>
-<section id="combined-analysis-frequency-table-of-the-first-word-following-you-to-have" class="level5">
-<h5 class="anchored" data-anchor-id="combined-analysis-frequency-table-of-the-first-word-following-you-to-have">Combined analysis: Frequency table of the first word following you ‘to have’</h5>
+<section id="combined-analysis-frequency-table-of-the-first-word-following-you-to-have" class="level5" data-number="2.3.2.2.3">
+<h5 data-number="2.3.2.2.3" class="anchored" data-anchor-id="combined-analysis-frequency-table-of-the-first-word-following-you-to-have"><span class="header-section-number">2.3.2.2.3</span> Combined analysis: Frequency table of the first word following you ‘to have’</h5>
 <p>We can now analyze what words typically follow “有”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the first word</span></span>
@@ -1682,8 +1682,8 @@ Attaching package: 'dplyr'</code></pre>
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="frequency-tables"><span class="header-section-number">2.3.3</span> Frequency tables</h3>
 <section id="create-the-overall-frequency-table" class="level4" data-number="2.3.3.1">
 <h4 data-number="2.3.3.1" class="anchored" data-anchor-id="create-the-overall-frequency-table"><span class="header-section-number">2.3.3.1</span> Create the overall frequency table</h4>
-<section id="creation-of-the-first-table" class="level5">
-<h5 class="anchored" data-anchor-id="creation-of-the-first-table">Creation of the first table</h5>
+<section id="creation-of-the-first-table" class="level5" data-number="2.3.3.1.1">
+<h5 data-number="2.3.3.1.1" class="anchored" data-anchor-id="creation-of-the-first-table"><span class="header-section-number">2.3.3.1.1</span> Creation of the first table</h5>
 <p>Now, let’s look at the frequency of words across the entire corpus, not just around a keyword.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Article_tokens_frequency <span class="ot">&lt;-</span> <span class="fu">dfm</span>(</span>
@@ -2417,8 +2417,8 @@ Attaching package: 'dplyr'</code></pre>
 <li><p><strong>head(…, 100)</strong>: We create a smaller table containing only the top 100 most frequent words.</p></li>
 </ul>
 </section>
-<section id="clean-it-up-a-little-bit" class="level5">
-<h5 class="anchored" data-anchor-id="clean-it-up-a-little-bit">Clean it up a little bit</h5>
+<section id="clean-it-up-a-little-bit" class="level5" data-number="2.3.3.1.2">
+<h5 data-number="2.3.3.1.2" class="anchored" data-anchor-id="clean-it-up-a-little-bit"><span class="header-section-number">2.3.3.1.2</span> Clean it up a little bit</h5>
 <p>We often find “noise” in the data, like numbers, which we want to filter out.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example with numbers</span></span>
@@ -2432,8 +2432,8 @@ Attaching package: 'dplyr'</code></pre>
 <li><p><strong>1:length(…)</strong>: We re-calculate the rank column to fill in the gaps left by the removed words.</p></li>
 </ul>
 </section>
-<section id="final-table-addition-of-the-percentage" class="level5">
-<h5 class="anchored" data-anchor-id="final-table-addition-of-the-percentage">Final table, addition of the percentage</h5>
+<section id="final-table-addition-of-the-percentage" class="level5" data-number="2.3.3.1.3">
+<h5 data-number="2.3.3.1.3" class="anchored" data-anchor-id="final-table-addition-of-the-percentage"><span class="header-section-number">2.3.3.1.3</span> Final table, addition of the percentage</h5>
 <p>Frequencies are good, but percentages help us understand the relative importance of a word.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>table_FreqWord_Top100 <span class="ot">&lt;-</span> <span class="fu">head</span>(table_FreqWord, <span class="dv">100</span>)</span>
