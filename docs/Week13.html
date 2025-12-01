@@ -67,6 +67,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/d3-3.3.8/d3.min.js"></script>
+<script src="site_libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="site_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+<script src="site_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="site_libs/chromatography-0.1/chromatography.js"></script>
+<script src="site_libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script>
 
 
 </head>
@@ -260,7 +269,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#creating-figures-of-the-results-why" id="toc-creating-figures-of-the-results-why" class="nav-link active" data-scroll-target="#creating-figures-of-the-results-why"><span class="header-section-number">1</span> Creating figures of the results, why?</a>
   <ul class="collapse">
   <li><a href="#some-reflexions-on-the-visual-presentation-of-the-results" id="toc-some-reflexions-on-the-visual-presentation-of-the-results" class="nav-link" data-scroll-target="#some-reflexions-on-the-visual-presentation-of-the-results"><span class="header-section-number">1.1</span> Some reflexions on the visual presentation of the results</a></li>
-  <li><a href="#introduction-to-two-types-of-figures-word-clouds-and-frequency-dot-plots" id="toc-introduction-to-two-types-of-figures-word-clouds-and-frequency-dot-plots" class="nav-link" data-scroll-target="#introduction-to-two-types-of-figures-word-clouds-and-frequency-dot-plots"><span class="header-section-number">1.2</span> Introduction to two types of figures: word clouds, and frequency dot plots</a></li>
+  <li><a href="#examples-of-some-types-of-figures" id="toc-examples-of-some-types-of-figures" class="nav-link" data-scroll-target="#examples-of-some-types-of-figures"><span class="header-section-number">1.2</span> Examples of some types of figures</a>
+  <ul class="collapse">
+  <li><a href="#introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots" id="toc-introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots" class="nav-link" data-scroll-target="#introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots"><span class="header-section-number">1.2.1</span> Introduction to the figures we will learn in the tutorial: word clouds, and frequency dot plots</a></li>
+  <li><a href="#lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time" id="toc-lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time" class="nav-link" data-scroll-target="#lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time"><span class="header-section-number">1.2.2</span> Lexical dispersion plot: Compare the use of keywords across texts and/or time</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#lets-do-the-work-with-r" id="toc-lets-do-the-work-with-r" class="nav-link" data-scroll-target="#lets-do-the-work-with-r"><span class="header-section-number">2</span> Let’s do the work with R</a>
   <ul class="collapse">
@@ -339,8 +352,10 @@ Think about it
 <p>If you are aware of this natural human behavior, then you have surely already understood why adding figures to text and table results is helpful. It is because the human visual system is so important that stimulating it will be a plus when communicating the results.</p>
 <p>Knowing how to present the results in a figure is very important as well. Having a great figure able to summarize the results such that we can grasp the intended message of the study at one glance will determine the success of the whole presentation. Conversely, a messy figure, containing too much information or just presented in an inappropriate way will blur the message, affecting the success of the presentation. Adding a figure is not enough, it requires some strategic thinking as well! You can have a look at the figures plotted with R on this webpage. Some are quite straightforward, while some are clearly just messy.</p>
 </section>
-<section id="introduction-to-two-types-of-figures-word-clouds-and-frequency-dot-plots" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="introduction-to-two-types-of-figures-word-clouds-and-frequency-dot-plots"><span class="header-section-number">1.2</span> Introduction to two types of figures: word clouds, and frequency dot plots</h2>
+<section id="examples-of-some-types-of-figures" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="examples-of-some-types-of-figures"><span class="header-section-number">1.2</span> Examples of some types of figures</h2>
+<section id="introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots"><span class="header-section-number">1.2.1</span> Introduction to the figures we will learn in the tutorial: word clouds, and frequency dot plots</h3>
 <p>For this class, we will present two types of figures which are commonly used to present results from corpus exploration. The first one is called “word cloud”. It is named this way, because it looks like a cloud which is made out of words. The size of these words reflect their relative frequency in the corpus analyzed. In other words, the bigger the word, the higher its frequency in the corpus. It is a way to present frequency results in a very intuitive way!</p>
 <p>A quick search on Google shows that you can create them easily with dedicated websites. I personally used them before, and it can be quite fun to play with them. I invite you to do so, you will have a better grasp of what a word cloud is!</p>
 <p><img src="assets/images/Wordcloud_Google.png" class="img-fluid"></p>
@@ -348,20 +363,48 @@ Think about it
 <p>I invite you to watch this YouTube video if you want to know more about frequency dot plots (please click on the image below).</p>
 <p><a href="https://www.youtube.com/watch?v=7AjSUj-OVuE"><img src="https://img.youtube.com/vi/7AjSUj-OVuE/0.jpg" class="img-fluid"></a></p>
 </section>
+<section id="lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time"><span class="header-section-number">1.2.2</span> Lexical dispersion plot: Compare the use of keywords across texts and/or time</h3>
+<p>So far, we looked at the frequency of words within single documents and within the same time frame. Maybe you will be interested in other types of analyses:</p>
+<ul>
+<li><p>Comparing the frequency of use of two keywords within one document;</p></li>
+<li><p>Comparing the frequency of use of the same keyword or different keywords across time and/or between documents.</p></li>
+</ul>
+<p>One way to visualize the results of such an analysis is to use a “lexical dispersion plot”. There is a full tutorial on the <em>quanteda</em> website, including the R codes and the example below. Here is the link to the website: <a href="https://quanteda.io/articles/pkgdown/examples/plotting.html">Quanteda tutorial for figures</a>.</p>
+<p>Let’s look at an example. Let’s say that you are interested in two words, “American” and “people”, and how they are used in inaugural speeches of US presidents, especially (a) their frequency, and (b) the moments when they are used in the speech. You will obtain a figure like this:</p>
+<p><img src="assets/images/LexicalDispersionPlot_ExampleQuanteda.png" class="img-fluid"></p>
+<p>Again, this is only a figure. Once we have it, you may have this question in mind: and so what? And this is the perfect question to ask. Our role, once we have the results and plotted the data, is to make them meaningful. Generally, we interpret the results according to the research question, such that we can answer the “and so what?” question.</p>
+</section>
+</section>
 </section>
 <section id="lets-do-the-work-with-r" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Let’s do the work with R</h1>
 <section id="two-packages-quanteda-and-ggplot2" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="two-packages-quanteda-and-ggplot2"><span class="header-section-number">2.1</span> Two packages: ‘quanteda’ and ‘ggplot2’</h2>
+<p>In this tutorial, I will only explain how to plot two types of figures: Word clouds and frequency dot plots. There are two reasons for that. The way we analyzed the data from ETtoday last week may not be ideal for a lexical dispersion plot. Of course, we could use the data from ETtoday, and reanalyze then to include, for example, different types of texts (‘politics’ vs.&nbsp;‘society’ articles), or focusing on differences over time. The second reason is that the tutorial on the quanteda website is very clear, so you can really just look at it to understand how it works. In this tutorial for this week, we will mainly use two packages to plot the data.</p>
 <section id="quanteda-or-more-precisely-quanteda.textplots" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="quanteda-or-more-precisely-quanteda.textplots"><span class="header-section-number">2.1.1</span> ‘quanteda’, or more precisely, ‘quanteda.textplots’</h3>
+<p>Again, such as last week, we will use the ‘quanteda’ library, and its sub-library, ‘quanteda.textplots’. If not already done, you will need to install them (if you forgot how to do so, you can go back to Week 5). And then you will just need to load them.</p>
 </section>
 <section id="ggplot2" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">2.1.2</span> ‘ggplot2’</h3>
+<p>Another package we are going to use is called ‘ggplot2’.</p>
+<p><img src="assets/images/ggplot2_logo.png" class="img-fluid"></p>
+<p>The ggplot2 package is very powerful and useful to create figures. You can go to their website and scroll through examples of what is possible to do. Once you are very familiar with ggplot figures, you will be amazed when you are reading the news online by the fact that many figures look so familiar. This package is therefore one of the best ways to obtain very professional, good-looking figures that will help you not only for this tutorial, but also for any kind of study (Master thesis/PhD dissertation, case studies to conduct in your job, etc.).</p>
+<p>You can refer to the <a href="https://ggplot2.tidyverse.org/">ggplot2 website here</a>. There are cheatsheets as well, to have an idea of all the functions at a glance:</p>
+<p><img src="assets/images/data-visualization-ggplot_1.png" class="img-fluid"></p>
+<p><img src="assets/images/data-visualization-ggplot_2.png" class="img-fluid"></p>
 </section>
 </section>
 <section id="workflow-for-word-clouds-and-frequency-dot-plots" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="workflow-for-word-clouds-and-frequency-dot-plots"><span class="header-section-number">2.2</span> Workflow for word clouds and frequency dot plots</h2>
+<p>Like always, here is the workflow for the R tutorial this week:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-70418bf424b9f9e56b9a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-70418bf424b9f9e56b9a">{"x":{"diagram":"\n    graph TD\n        A[Analyzed dataset] --> B[Select appropriate figure];\n        B -- Word cloud --> C['quanteda' library];\n        B -- Frequency dot plots --> D['ggplot2' library];\n        C --> E[Tokenize the data, confert to 'dfm' object];\n        E --> F[Trim the data];\n        F --> G[Create the word cloud];\n        D -- For 'combined' analyses --> H[Tokenize the data, confert to 'dfm' object];\n        H -- Compute the frequency --> I[Create the dot plot];\n        D -- If only frequency analysis --> I\n    "},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 </section>
 <section id="explanation-of-the-r-code" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="explanation-of-the-r-code"><span class="header-section-number">2.3</span> Explanation of the R code</h2>
