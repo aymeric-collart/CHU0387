@@ -389,8 +389,8 @@ Note
 <p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-e53a6243653bc3d65813" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-e53a6243653bc3d65813">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-e0d336c97b073b0a4033" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e0d336c97b073b0a4033">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -530,8 +530,8 @@ Note
 <p>Here is an overview of the workflow. First, we start with the clean corpus, and then we create a new dataset where the sentences are cut into words. Based on this new dataset, we can perform a KWIC analysis, create a word list, or combine the two types of analyses. Finally, we clean a little bit (as in the example below; punctuation marks, digits, selecting only the sentence/phrase, etc.), we add back the information from the original corpus, and we are done!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7f691da3a79212b77aa7" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-7f691da3a79212b77aa7">{"x":{"diagram":"\n    graph TD\n        A[Corpus data] -- Identify the column with the text --> B[Segment into words];\n        B --> C[KWIC analysis];\n        B --> D[Word list];\n        C -- If combined analysis --> D;\n        D --> E[Clean a little bit];\n        C --> E;\n        E --> F[Add information from the original corpus];\n        F --> G[Done!];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-79ab2b1ec620964d2f02" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-79ab2b1ec620964d2f02">{"x":{"diagram":"\n    graph TD\n        A[Corpus data] -- Identify the column with the text --> B[Segment into words];\n        B --> C[KWIC analysis];\n        B --> D[Word list];\n        C -- If combined analysis --> D;\n        D --> E[Clean a little bit];\n        C --> E;\n        E --> F[Add information from the original corpus];\n        F --> G[Done!];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -3382,7 +3382,7 @@ Attaching package: 'dplyr'</code></pre>
 <section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>
 <p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data_QuantedaOnly.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data_QuantedaOnly.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
-<p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">here for the KWIC analysis</a>, and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100nouns.Rdata" target="_blank">here for the frequency analysis</a>. The corresponding Excel files are <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.xlsx" target="_blank">here (KWIC analysis)</a> and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100nouns.xlsx" target="_blank">here (frequency analysis)</a>.</p>
+<p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">here for the KWIC analysis</a>, and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100words.Rdata" target="_blank">here for the frequency analysis</a>. The corresponding Excel files are <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.xlsx" target="_blank">here (KWIC analysis)</a> and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100words.xlsx" target="_blank">here (frequency analysis)</a>.</p>
 
 
 </section>

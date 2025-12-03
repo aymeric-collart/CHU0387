@@ -370,6 +370,32 @@ Objectives
 <p>This week, you will learn how to create figures of the data that we analyzed.</p>
 </div>
 </div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Markdown script for this week</th>
+<th>Datasets to use in the script</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week13_DataVisualization.Rmd" target="_blank">Markdown script</a></td>
+<td><a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">Whole ETtoday corpus (after cleaning)</a></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">KWIC analysis of <em>you</em> ‘to have’</a></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100words.Rdata" target="_blank">Most frequently used words</a></td>
+</tr>
+</tbody>
+</table>
 <section id="creating-figures-of-the-results-why" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Creating figures of the results, why?</h1>
 <section id="some-reflexions-on-the-visual-presentation-of-the-results" class="level2" data-number="1.1">
@@ -440,8 +466,8 @@ Think about it
 <p>Like always, here is the workflow for the R tutorial this week:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-fdc66a651df69d722f75" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-fdc66a651df69d722f75">{"x":{"diagram":"\n    graph TD\n        A[Analyzed dataset] --> B[Select appropriate figure];\n        B -- Word cloud --> C['quanteda' library];\n        B -- Frequency dot plots --> D['ggplot2' library];\n        C --> E[Tokenize the data, confert to 'dfm' object];\n        E --> F[Trim the data];\n        F --> G[Create the word cloud];\n        D -- For 'combined' analyses --> H[Tokenize the data, confert to 'dfm' object];\n        H -- Compute the frequency --> I[Create the dot plot];\n        D -- If only frequency analysis --> I\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-4fbd4aac381f45fa4af0" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-4fbd4aac381f45fa4af0">{"x":{"diagram":"\n    graph TD\n        A[Analyzed dataset] --> B[Select appropriate figure];\n        B -- Word cloud --> C['quanteda' library];\n        B -- Frequency dot plots --> D['ggplot2' library];\n        C --> E[Tokenize the data, confert to 'dfm' object];\n        E --> F[Trim the data];\n        F --> G[Create the word cloud];\n        D -- For 'combined' analyses --> H[Tokenize the data, confert to 'dfm' object];\n        H -- Compute the frequency --> I[Create the dot plot];\n        D -- If only frequency analysis --> I\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

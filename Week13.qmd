@@ -25,6 +25,12 @@ hr.rounded {
 This week, you will learn how to create figures of the data that we analyzed.
 :::
 
+| Markdown script for this week | Datasets to use in the script |
+|----|----|
+| <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week13_DataVisualization.Rmd" target="_blank">Markdown script</a> | <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">Whole ETtoday corpus (after cleaning)</a> |
+|  | <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">KWIC analysis of *you* 'to have'</a> |
+|  | <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100words.Rdata" target="_blank">Most frequently used words</a> |
+
 # Creating figures of the results, why?
 
 ## Some reflexions on the visual presentation of the results
