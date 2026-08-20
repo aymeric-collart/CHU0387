@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Week 1: Introduction to the course"
 format: 
   html:
     output-file: intro.html

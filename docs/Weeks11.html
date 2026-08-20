@@ -305,12 +305,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Syllabus</span>
-    </span>
+    <a class="nav-link" href="./syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./intro.html"> 
+    <a class="nav-link active" href="./intro.html" aria-current="page"> 
 <span class="menu-text">Course</span></a>
   </li>  
   <li class="nav-item">
@@ -373,8 +372,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Introductory week</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introductory week</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1: Introduction to the course</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -655,8 +667,8 @@ Objectives
 <p>Please do not hesitate to zoom in!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-5abfc388a41894ac5886" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-5abfc388a41894ac5886">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-f0fbb59c0e831651c5c7" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-f0fbb59c0e831651c5c7">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

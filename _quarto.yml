@@ -26,6 +26,7 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "Syllabus"
+        href: syllabus.qmd
       - text: "Course"
         href: intro.qmd
       - text: "Assignments"
@@ -45,7 +46,7 @@ website:
     contents: 
       - section: "Introductory week"
         contents: 
-        href: intro.qmd
+          - intro.qmd
       - section: "Part 1: Principles of corpus studies"
         contents: 
           - Week2.qmd
