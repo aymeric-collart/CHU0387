@@ -131,8 +131,8 @@ kwic_postFirstWord_freq_trim <- dfm_trim(kwic_post_FirstWord_freq,
 
 textplot_wordcloud(kwic_postFirstWord_freq_trim,
                    max_words = 100,
-                   min_size = 1,
-                   max_size = 5,
+                   min_size = 3,
+                   max_size = 6,
                    rotation = FALSE,
                    random_order = FALSE,
                    color = c('red', 'green', 'blue', "orange", "cyan"))
@@ -228,5 +228,6 @@ ggplot(head(table_FreqWord_Top100, 30),
            y = reorder(feature, frequency))) +
   geom_point() + 
   labs(x = "Frequency", y = "Word") +
-  scale_x_continuous(labels = label_comma())
+  scale_x_continuous(labels = label_comma()) +
+  theme_minimal()
 ```

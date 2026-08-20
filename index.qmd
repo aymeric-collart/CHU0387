@@ -1,91 +1,78 @@
 ---
-title: "Welcome page"
+title: "Language, Society and Literature with Corpus and Modern Technology"
+subtitle: "CHU03887 | National Taiwan Normal University"
 sidebar: false
-format: 
-  html:
-    output-file: index.html
+listing:
+  id: news-listing
+  contents: posts
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  image-height: 150px
+  page-size: 3
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title, description, categories]
 ---
 
-#  {.unnumbered}
+## Welcome
 
-```{=html}
-<style>
-hr.rounded {
-  border-top: 1px solid #E5E4E2;
-  border-radius: 5px;
-}
-</style>
-```
+Welcome to the course website for **CHU03887: Language, Society and Literature with Corpus and Modern Technology**. 
 
-<hr class="rounded">
+**Time:** [provided later]
+**Place:** [provided later]
+**Instructor:** Aymeric Collart (理克)<br>
+**Department:** Department of Chinese, NTNU <br>
+**Credits:** 2 <br>
+**Prerequisites:** None
 
-```{=html}
-<p style="font-size:32px;
-          text-align: center">
-Welcome to the website of the course "Language, Society and Literature with Corpus and Modern Technology" (code: CHU03887)
-</p>
-```
+## 📋 Course Description
 
-::: callout-note
-## Note
+This course introduces the principles of corpus studies assisted by modern technology with an emphasis on hands-on practice, and how corpus data can be useful in understanding how language is used in the media or in the literature. The course is divided into three parts:  
 
-This website is now complete!
+1.  **Fundamental concepts** when working with a corpus.
+2.  **Building process of a corpus** from the web using automatic methods.
+3.  **Handling, analysis, and visualization** of the corpus (using R).
 
-It may go through further refinements though.
+By the end of the course, the students are expected to acquire the basic knowledge of working with a corpus and will obtain a first approach to programming languages.
+
+---
+
+## 📢 News & Updates
+
+::: {#news-listing}
 :::
 
-<hr class="rounded">
+---
 
-<br>
+## 🚀 Quick links
 
-```{=html}
-<p style="background-color:#eeeeee;
-          color: #404040;
-          border-left: solid #bcbcbc 4px;
-          border-radius: 4px;
-          padding:0.7em;
-          font-size:24px">
-<b> &nbsp; 🏫 &nbsp; Description and objectives of the course</b>
-</p>
-```
+::: {.grid}
 
-This course introduces the principles of corpus studies assisted by modern technology with an emphasis on hands-on practice, and how corpus data can be useful in understanding how language is used in the media or in the literature. The course is divided into three parts: (a) fundamental concepts and practices when working with a corpus, (b) the process of building a corpus from texts on the Internet with modern technology, and (c) the handling, analyses and visualization of the corpus data. By the end of the course, the students are expected to acquire the basic knowledge of working with a corpus and will obtain a first approach to programming languages.
+::: {.g-col-12 .g-col-md-4}
+::: {.callout-note appearance="minimal"}
+## 📖 Syllabus
+Full course schedule, reading list, and grading policies.
 
-```{=html}
-<p style="background-color:#eeeeee;
-          color: #404040;
-          border-left: solid #bcbcbc 4px;
-          border-radius: 4px;
-          padding:0.7em;
-          font-size:24px">
-<b> &nbsp; 📋 &nbsp; General information for the 2025 Fall class</b>
-</p>
-```
+[**Go to Syllabus**](syllabus.qmd){.btn .btn-primary}
+:::
+:::
 
--   **Time:** Wednesday, 10:20 to 12:10
+::: {.g-col-12 .g-col-md-4}
+::: {.callout-tip appearance="minimal"}
+## 📊 R & RStudio
+Download the software needed for Part 3 of the course.
 
--   **Place:** "Pu" building, classroom 302
+[**Get R**](https://www.r-project.org/){.btn .btn-success target="_blank"} [**Get RStudio**](https://posit.co/download/rstudio-desktop/){.btn .btn-secondary target="_blank"}
+:::
+:::
 
--   The first class starts September 3.
+:::
 
-```{=html}
-<p style="background-color:#eeeeee;
-color: #404040;
-border-left: solid #bcbcbc 4px;
-border-radius: 4px;
-padding:0.7em;
-font-size:24px">
-<b> &nbsp; 💬 &nbsp; Q&A</b>
+---
 
-</p>
-```
+## 👤 Instructor
 
-### 1- Do I need any background?
-
-You do not need any particular background.
-
-This course will start with the very basics. If you are already familiar with coding and/or the RStudio interface, it will of course be easier for you.
-
-### 2- Which public?
-
-In addition to the students enrolled in the course, anyone interested in having a first hands-on experience can follow the content of the website.
+**Aymeric Collart (理克)** Department of Chinese, NTNU  
+*Email provided in class*

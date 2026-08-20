@@ -1,0 +1,95 @@
+---
+title: "Syllabus"
+subtitle: "CHU0387: Language, Society and Literature with Corpus and Modern Technology"
+sidebar: false
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+## ???? Course Schedule
+
+::: {.panel-tabset}
+
+### Part 1: Principles of corpus studies
+
+| Week | Topic | Reading Material | Homework / Due |
+|:---:|:---|:---|:---|
+| **1** | **Introductory week** | | Read material for Week 2 |
+| **2** | **What is a corpus, and their role to understand language and literature** | RHCL For language: Chapter 15, Chapter 40<br>For literature: Chapter 17, Chapter 37 | Read material for Week 3 |
+| **3** | **Types of corpora: Selecting or building a corpus?** | RHCL, Chapter 2, Chapter 8<br>PHCL, Chapter 15 | Read material for Week 4 |
+
+### Part 2: Building a corpus from the Internet
+
+| Week | Topic | Reading Material | Homework / Due |
+|:---:|:---|:---|:---|
+| **4** | **Introduction to the modern tool R (1/2): Installation and first steps** | Slides<br>R for data science, Introduction, Chapter 2, Chapter 6, Chapter 28 | Exercises for next week |
+| **5** | **Introduction to R (2/2): Basic functions** | Slides<br>R for data science, Introduction, Chapter 2, Chapter 6, Chapter 28 | Exercises for next week |
+| **6** | **Preparation: How to set-up your computer and write beautiful scripts** | Slides | Exercises for next week |
+| **7** | **Building a corpus from media platforms (1/2)** | Slides<br>R for data science, Chapter 24 | Exercises for next week |
+| **8** | **Building a corpus from media platforms (2/2)** | Slides<br>R for data science, Chapter 24 | Exercises for next week |
+| **9** | **Group and individual meetings in the classroom** | | |
+| **10** | **Midterm presentations** | | |
+
+### Part 3: Analyzes
+
+| Week | Topic | Reading Material | Homework / Due |
+|:---:|:---|:---|:---|
+| **11** | **Data preprocessing: Tidying data** | R for data science, Chapter 3, Chapter 5 | Exercises for next week |
+| **12** | **Data analysis** | R for data science, Chapter 9, Chapter 10 | Exercises for next week |
+| **13** | **Data visualization** | R for data science, Chapter 10, Chapter 11 | Prepare a document of the analyses and visualization of your own data (a preliminary version is enough) |
+| **14** | **Presenting a corpus-based study** | PHCL, Chapter 26 | |
+| **15** | **Group and individual meetings in the classroom** | Assistance for handling the results of the individual/group projects | |
+| **16** | **Student's presentations of individual/group projects** | | |
+
+:::
+
+---
+
+## ?????? Grading & evaluation
+
+The final grade is distributed as follows:
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+```{mermaid}
+%%| fig-width: 6
+pie title Grade Distribution
+    "Assignments" : 40
+    "Midterm Exam" : 15
+    "Final Exam" : 15
+    "Class Discussion" : 15
+    "Attendance" : 15
+```
+:::
+::: {.g-col-12 .g-col-md-6}
+#### ???? Assessment details
+
+-   **Assignments (40%):** Regular homework
+    -   *Note: 4% will be deducted for each failure to submit homework on time*.
+-   **Final project (30%):**
+    -   Oral presentation: 15%
+    -   Written report: 15%
+-   **Class discussion (15%):** Active participation
+-   **Attendance (15%):** Regular presence is required
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## ???? Resources & software
+
+::: {.callout-tip}
+## Online Resources & Software
+* **Course Website:** [https://aymeric-collart.github.io/CHU0387/](https://aymeric-collart.github.io/CHU0387/)
+* **Software:** [R Project](https://www.r-project.org/) (freely downloadable) | [RStudio Interface](https://posit.co/download/rstudio-desktop/) (freely downloadable)
+:::
+
+::: {.callout-note}
+## Key References
+* **O'Keeffe, A., & McCarthy, M. J. (2022).** *The Routledge handbook of corpus linguistics (2nd edition).* London/New York: Routledge. [RHCL]
+* **Paquot, M., & Gries, S. T. (2020).** *A practical handbook of corpus linguistics.* Cham: Springer. [PHCL]
+* **R for data science handbook:** [https://r4ds.hadley.nz/](https://r4ds.hadley.nz/) (freely downloadable)
+:::

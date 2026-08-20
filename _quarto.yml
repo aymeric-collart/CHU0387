@@ -6,57 +6,65 @@ project:
     - "!Internal/"
 
 website:
-  reader-mode: true
-  bread-crumbs: false
-  navbar:
-    background: primary
-    search: true
-    left:
-      - text: "Welcome page"
-        href: index.qmd
-      - text: "Get into the course"
-        href: intro.qmd
-    right:
-      - text: "Instructor"
-        href: instructor.qmd
-  sidebar:
-    style: "floating"
-    collapse-level: 1
-    contents: 
-    - text: "Week 1: Introduction"
-      href: intro.qmd
-    - text: "--------"
-    - section: "Part 1: Principles of corpus studies"
-      contents: 
-        - Week2.qmd
-        - Week3.qmd
-    - text: "--------"
-    - section: "Part 2: Building a corpus from the internet with modern tools"
-      contents: 
-        - Week4.qmd
-        - Week5_1.qmd
-        - Week5_2.qmd
-        - Weeks6_7.qmd
-        - Weeks8_9.qmd
-    - text: "--------"
-    - section: "Week 10: Midterm presentations"
-    - text: "--------"
-    - section: "Part 3: Simple preprocessing and analyses of corpus data"
-      contents: 
-        - Week11.qmd
-        - Week12.qmd
-        - Week13.qmd
-        - Week14.qmd
-    - text: "--------"
-    - section: "Week 15: Group and individual meetings in the classroom"
-    - section: "Week 16: Final presentations"
+  title: "CHU0387"
+  repo-url: https://github.com/aymeric-collart/CHU0387
+  repo-actions: [issue]
   page-footer: 
-    left: "Copyright 2025, Aymeric Collart" 
+    left: "?? 2026 Aymeric Collart"
     right: 
       - text: "{{< iconify fa6-brands bluesky >}}"
         href: https://bsky.app/profile/aymericcollart.bsky.social
       - icon: github
         href: https://github.com/aymeric-collart
+      - text: "This website is built with Quarto"
+
+  # Top Navigation Bar
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Syllabus"
+      - text: "Course"
+        href: intro.qmd
+      - text: "Assignments"
+      - text: "More content"
+        menu: 
+          - More2.qmd
+          - Weeks8_9.qmd
+    right:
+      - icon: github
+        href: https://github.com/aymeric-collart/CHU0387
+
+  # Side Navigation Bar
+  sidebar:
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents: 
+      - section: "Introductory week"
+        contents: 
+        href: intro.qmd
+      - section: "Part 1: Principles of corpus studies"
+        contents: 
+          - Week2.qmd
+          - Week3.qmd
+      - section: "Part 2: Building a corpus from the internet with modern tools"
+        contents: 
+          - Week4.qmd
+          - Week5_1.qmd
+          - Week5_2.qmd
+          - Weeks6_7.qmd
+      - section: "Week 10: Midterm presentations"
+      - section: "Part 3: Simple preprocessing and analyses of corpus data"
+        contents: 
+          - Week11.qmd
+          - Week12.qmd
+          - Week13.qmd
+          - Week14.qmd
+      - section: "Week 15: Group and individual meetings in the classroom"
+      - section: "Week 16: Final presentations"
 
 
 
@@ -64,12 +72,8 @@ bibliography: references.bib
 
 format:
   html:
-    theme: Lumen
-  pdf:
-    documentclass: scrreprt
-  revealjs:
-    progress: true
-    theme: [simple, slides_footer.scss]
-
-editor: visual
-
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    css: styles.css

@@ -1,0 +1,123 @@
+/* -- Main Layout Tweaks -- */
+.main-container {
+    max-width: 1100px; /* Gives the content more breathing room */
+}
+
+/* -- Professional Table Styling -- */
+/* This makes the schedule and grading tables look clean and modern */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 2rem;
+    border: 1px solid #dee2e6;
+}
+
+th {
+    background-color: #f8f9fa; /* Light gray header */
+    color: #495057;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.05em;
+    padding: 12px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: top; /* Keeps text aligned to top for multi-line cells */
+}
+
+/* Zebra striping for table rows (easier to read long schedules) */
+tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* -- Link Styling -- */
+a {
+    text-decoration: none;
+    color: #375a7f; /* Matching the Cosmo theme blue */
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #1a252f;
+    text-decoration: underline;
+}
+
+/* -- Button Tweaks for Home Page -- */
+.btn {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* --- Fancy Navigation Bar (The Top Header) --- */
+
+/* 1. The Main Bar Background */
+.navbar {
+    background-color: #222 !important; /* Dark elegant background */
+    background-image: linear-gradient(to right, #1a2a3a, #2c3e50); /* Subtle gradient */
+    border-bottom: 3px solid #3498db; /* A nice accent line at the bottom */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* 2. The Course Title (Top Left) */
+.navbar-brand {
+    font-family: "Georgia", serif; /* Academic serif font */
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: #ffffff !important;
+    text-transform: uppercase;
+}
+
+/* 3. The Menu Links (Home, Syllabus, etc.) */
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    font-size: 1.05rem;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+/* 4. Hover Effect for Links */
+.navbar-nav .nav-link:hover {
+    color: #3498db !important; /* Turns blue on hover */
+    text-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* 5. Active Link Highlight */
+.navbar-nav .nav-link.active {
+    color: #ffffff !important;
+    border-bottom: 2px solid #3498db;
+}
+
+/* FORCE sidebar section headers (Part 1, Part 2, etc.) to be bold */
+/* We removed 'div' because these are actually 'li' elements */
+.sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
+  font-weight: 900 !important; /* 900 is extra bold */
+  color: #000000 !important;
+  font-size: 1.05em;           /* Slightly larger to stand out */
+}
+
+/* GitHub-style green and red backgrounds for diff code blocks */
+code.diff .va {
+  background-color: #e6ffed !important; /* Light green background */
+  color: #1a7f37 !important;            /* Dark green text */
+  display: block;
+}
+
+code.diff .st {
+  background-color: #ffeef0 !important; /* Light red background */
+  color: #d1242f !important;            /* Dark red text */
+  display: block;
+}
+
+/* Center all image captions */
+figcaption {
+  text-align: center !important;
+}

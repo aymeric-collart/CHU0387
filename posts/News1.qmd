@@ -1,0 +1,6 @@
+---
+title: "Redesign of the website"
+date: 2026-08-20
+categories: [Website announcment]
+description: "The website is currently under revision, but it will be ready before the first week!"
+---
