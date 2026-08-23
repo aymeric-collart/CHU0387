@@ -499,7 +499,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#part-2-working-in-rstudio" id="toc-part-2-working-in-rstudio" class="nav-link" data-scroll-target="#part-2-working-in-rstudio">???? Part 2: Working in RStudio</a></li>
+  <li><a href="#the-interface-of-rstudio" id="toc-the-interface-of-rstudio" class="nav-link" data-scroll-target="#the-interface-of-rstudio">💻 1. The Interface of RStudio</a>
+  <ul class="collapse">
+  <li><a href="#general-overview-blocks-blocks-blocks" id="toc-general-overview-blocks-blocks-blocks" class="nav-link" data-scroll-target="#general-overview-blocks-blocks-blocks">General Overview: Blocks, Blocks, Blocks!</a></li>
+  <li><a href="#exercise-make-it-your-own" id="toc-exercise-make-it-your-own" class="nav-link" data-scroll-target="#exercise-make-it-your-own">🎨 Exercise: Make it your own!</a></li>
+  </ul></li>
+  <li><a href="#libraries-packages" id="toc-libraries-packages" class="nav-link" data-scroll-target="#libraries-packages">2. Libraries (Packages)</a>
+  <ul class="collapse">
+  <li><a href="#how-to-install-and-use-libraries" id="toc-how-to-install-and-use-libraries" class="nav-link" data-scroll-target="#how-to-install-and-use-libraries">How to install and use Libraries</a></li>
+  </ul></li>
+  <li><a href="#essential-r-syntax-data" id="toc-essential-r-syntax-data" class="nav-link" data-scroll-target="#essential-r-syntax-data">3. Essential R Syntax &amp; Data</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHU0387/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -510,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week4.html">Part 2: Building a corpus from the internet with modern tools</a></li><li class="breadcrumb-item"><a href="./Week5.html">Week 5 - Presentation of R and its basic functions</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 5 - Presentation of R and its basic functions</h1>
-<p class="subtitle lead">CHC9012 | National Taiwan Normal University</p>
+<p class="subtitle lead">CHU0387 | National Taiwan Normal University</p>
 </div>
 
 
@@ -636,7 +645,7 @@ td {
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>This week, we will have a tutorial on how to prepare your computer for further analyses.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">???? Goals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">???? Necessary codes and dataset</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">???? Homework</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes and dataset</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p><strong>Prepare your computer:</strong></p>
@@ -671,12 +680,8 @@ td {
 </div>
 <p><br></p>
 </section>
-<section id="part-2-working-in-rstudio" class="level1">
-<h1>???? Part 2: Working in RStudio</h1>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">2.1. The Interface of RStudio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">2.2. Libraries (Packages)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">2.3. Essential R Syntax &amp; Data</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<section id="the-interface-of-rstudio" class="level1">
+<h1>💻 1. The Interface of RStudio</h1>
 <p>Now I assume that R and RStudio are correctly installed. When you start RStudio, you will see a lot of things on your screen???many blocks, many menus. It can be quite overwhelming. No worries! This is exactly what this section is about.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -684,7 +689,7 @@ td {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-???? Objectives for this section
+🎯 Objectives for this section
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -700,16 +705,25 @@ td {
 <p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_FirstPage.png" class="img-fluid"></p>
 <p>The best way to apprehend RStudio is to see the interface as a collection of <strong>blocks</strong>, each serving a specific purpose. There are four main blocks. I give them unofficial names to make them easier to remember:</p>
 <ol type="1">
-<li>???? <strong>The Computer Block</strong></li>
-<li>????�? <strong>The Variable Block</strong></li>
-<li>???? <strong>The Script Block</strong></li>
-<li>???�? <strong>The Console Block</strong></li>
+<li>💻 <strong>The Computer Block</strong></li>
+<li>🗂️ <strong>The Variable Block</strong></li>
+<li>📝 <strong>The Script Block</strong></li>
+<li>⚙️ <strong>The Console Block</strong></li>
 </ol>
 <p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_4Blocks.png" class="img-fluid"></p>
 <p><em>(You may not be able to see the ‘Script block’ on your computer just yet. Don’t worry, we will open it soon!)</em></p>
-</section>
-<section id="the-computer-block-bottom-right" class="level3">
-<h3 class="anchored" data-anchor-id="the-computer-block-bottom-right">???? The Computer Block (Bottom-Right)</h3>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💻 1.1 The Computer Block (Bottom-Right)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Click on the <strong>Files</strong> button in this block. You will see a list of files and folders from your computer. This interface allows you to communicate and navigate directly with your hard drive, right from inside RStudio!</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -721,12 +735,24 @@ td {
 </div>
 </div>
 </div>
-</section>
-<section id="the-variable-block-top-right" class="level3">
-<h3 class="anchored" data-anchor-id="the-variable-block-top-right">????�? The Variable Block (Top-Right)</h3>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🗂️ 1.2 The Variable Block (Top-Right)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>The most important tab here is the <strong>Environment</strong>. This is where variables you create while coding are temporarily stored. Let’s demonstrate this. In the ‘Console block’ (bottom-left), type this code and press Enter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And indeed, the output shows <code>6</code>. Now, let’s play a game. You want to obtain the number 8, but you have to use <code>4 + 2</code>. You could write:</p>
 <div class="cell">
@@ -739,14 +765,38 @@ td {
 <p>Nothing appears in the console anymore. But look at your Variable block!</p>
 <p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/VariableBlock_WithVariable.png" class="img-fluid"></p>
 <p>You have stored the calculation inside a variable called <code>a</code>. You can call it anytime simply by typing <code>a</code> in the console, or even add to it by typing <code>a + 2</code>!</p>
-</section>
-<section id="the-console-block-bottom-left" class="level3">
-<h3 class="anchored" data-anchor-id="the-console-block-bottom-left">???�? The Console Block (Bottom-Left)</h3>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+⚙️ 1.3 The Console Block (Bottom-Left)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>You just had a glimpse of it. <strong>The console block is the engine room where the code is actually run.</strong> When you type commands here and press Enter, R executes them immediately.</p>
 <p><em>(There are also Terminal and Background Jobs tabs here, but we can safely ignore them for this tutorial).</em></p>
-</section>
-<section id="the-script-block-top-left" class="level3">
-<h3 class="anchored" data-anchor-id="the-script-block-top-left">???? The Script Block (Top-Left)</h3>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📝 1.4 The Script Block (Top-Left)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>The Script block is your digital notepad. If you type code in the Console, it disappears when you close RStudio. If you want to save hundreds of lines of code, you need a Script!</p>
 <p>Let’s open one. Click <strong>“New File”</strong>, and then select <strong>“R Script”</strong>.</p>
 <p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/OpenNewScript.gif" class="img-fluid"></p>
@@ -760,9 +810,13 @@ td {
 <p>Select all the text with your mouse, and click <strong>‘Run’</strong>.</p>
 <p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Script_Demo.gif" class="img-fluid"></p>
 <p>Now you can go to <code>File &gt; Save</code> and save this script to your computer. The next time you open it, all your code will still be there!</p>
+</div>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="exercise-make-it-your-own" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-make-it-your-own">???? Exercise: Make it your own!</h3>
+<h3 class="anchored" data-anchor-id="exercise-make-it-your-own">🎨 Exercise: Make it your own!</h3>
 <p>Your four blocks are like construction toys. You can change their size by dragging the borders, or even change the background color to a dark theme!</p>
 <p><strong>Path:</strong> <code>Tools &gt; Global Options... &gt; Appearance &gt; Editor theme</code></p>
 <p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ChangeColor.gif" class="img-fluid"></p>
@@ -772,13 +826,15 @@ td {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>???? ???? Instructor Tip</strong><br> I change the sizes of my blocks dynamically all the time. If I’m writing complex code, I enlarge the Script block. When I’m drawing plots, I make the Computer block bigger to visualize the graphs clearly. Make the layout work for you!</p>
+<p><strong>🧑 🏫 Instructor Tip</strong><br> I change the sizes of my blocks dynamically all the time. If I’m writing complex code, I enlarge the Script block. When I’m drawing plots, I make the Computer block bigger to visualize the graphs clearly. Make the layout work for you!</p>
 </div>
 </div>
 </div>
+<hr>
 </section>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+</section>
+<section id="libraries-packages" class="level1">
+<h1>2. Libraries (Packages)</h1>
 <p>You can do amazing things with R: draw maps, run complex statistics, and manipulate massive datasets. But it can feel overwhelming to write all that code from scratch.</p>
 <p><strong>Good news!</strong> R is a collaborative, open-source community. Nobody writes all their code from scratch! We rely on “Packages” or “Libraries” built by other people.</p>
 <table class="caption-top table">
@@ -826,7 +882,7 @@ td {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-???? The Cookbook Metaphor
+The Cookbook Metaphor
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -837,34 +893,35 @@ td {
 </ol>
 </div>
 </div>
+<hr>
 </section>
-</div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<section id="the-working-directory" class="level3">
-<h3 class="anchored" data-anchor-id="the-working-directory">1. The Working Directory</h3>
+</section>
+<section id="essential-r-syntax-data" class="level1">
+<h1>3. Essential R Syntax &amp; Data</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">3.1. The Working Directory</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">3.2. Comments</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">3.3. Loading Data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">3.4. Transforming and Summarizing Data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">3.5. Plotting the Data</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Before doing <em>anything</em> with data, you must tell R exactly which folder on your computer to look in. This is your <strong>Working Directory</strong>.</p>
 <p>Use the Computer Block to navigate to your project folder. Click the <strong>Gear Icon</strong>, and select <strong>“Save as Working Directory”</strong>.</p>
 <p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/SetWorkingDirectory.gif" class="img-fluid"></p>
-</section>
-<section id="comments" class="level3">
-<h3 class="anchored" data-anchor-id="comments">2. Comments</h3>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>Use the <code>#</code> symbol to write notes to yourself. R will completely ignore anything written after a hashtag!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="do">### This is a comment. R will not run this.</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span> <span class="do">### This adds two numbers together!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="loading-data" class="level3">
-<h3 class="anchored" data-anchor-id="loading-data">3. Loading Data</h3>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>Let’s import a <code>.csv</code> dataset (like an Excel file). We use the <code>read.csv()</code> function and assign it to a variable called <code>data</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"GACTT_RESULTS_ANONYMIZED_v2.csv"</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Alternatively, you can use the RStudio interface! In your Variable block, click <strong>“Import Dataset” &gt; “From Text (base)”</strong>, select your file, and click Import.</p>
 <p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ImportDataBaseR.gif" class="img-fluid"></p>
-</section>
-<section id="transforming-and-summarizing-data" class="level3">
-<h3 class="anchored" data-anchor-id="transforming-and-summarizing-data">4. Transforming and Summarizing Data</h3>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
 <p>Once loaded, you can inspect your data using <code>str(data)</code> to see its structure, or <code>summary(data)</code> to get a quick mathematical overview.</p>
 <p>Often, survey data comes in as plain text when it should be categorized into groups (Factors). We fix this using <code>as.factor()</code>:</p>
 <div class="cell">
@@ -880,15 +937,13 @@ td {
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ResultsSummarize.png" class="img-fluid"></p>
-</section>
-<section id="plotting-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="plotting-the-data">5. Plotting the Data</h3>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
 <p>With our data summarized, we can use the built-in <code>plot()</code> function to visualize it:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> data3<span class="sc">$</span>What.is.your.age., <span class="at">y =</span> data3<span class="sc">$</span>Count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>(If your groups are out of alphabetical order, you can use the <code>factor(..., levels=c(...))</code> command to manually sort them before plotting!)</em></p>
-</section>
 </div>
 </div>
 </div>
@@ -899,7 +954,7 @@ td {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-???? Assignment for next week
+📝 Assignment for next week
 </div>
 </div>
 <div class="callout-body-container callout-body">

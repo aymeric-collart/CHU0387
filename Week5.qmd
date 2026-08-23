@@ -1,6 +1,6 @@
 ---
 title: "Week 5 - Presentation of R and its basic functions"
-subtitle: "CHC9012 | National Taiwan Normal University"
+subtitle: "CHU0387 | National Taiwan Normal University"
 format: 
   html:
     output-file: Week5.html
@@ -119,7 +119,7 @@ td {
 This week, we will have a tutorial on how to prepare your computer for further analyses.
 
 :::: panel-tabset
-## ???? Goals
+## 🎯 Goals
 
 **Prepare your computer:**
 
@@ -127,7 +127,7 @@ This week, we will have a tutorial on how to prepare your computer for further a
 -   **Advanced scripts:** How to use Markdown documents to share better scripts?
 -   **Data importation:** Where to find your PCIbex results file, and how to import it to RStudio?
 
-## ???? Necessary codes and dataset
+## 💻 Necessary codes and dataset
 
 **A brief summary of the essential elements:**
 
@@ -143,7 +143,7 @@ This week, we will have a tutorial on how to prepare your computer for further a
 <a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a>
 :::
 
-## ???? Homework
+## 📝 Homework
 
 **Please complete the following tasks before our next meeting:**
 
@@ -156,16 +156,12 @@ No assignment for next week! Please carefully review the content of these past t
 
 <br>
 
-# ???? Part 2: Working in RStudio
-
-::::: {.panel-tabset}
-
-## 2.1. The Interface of RStudio
+# 💻 1. The Interface of RStudio
 
 Now I assume that R and RStudio are correctly installed. When you start RStudio, you will see a lot of things on your screen???many blocks, many menus. It can be quite overwhelming. No worries! This is exactly what this section is about.
 
 ::: {.callout-warning appearance="default" icon="false"}
-### ???? Objectives for this section
+### 🎯 Objectives for this section
 1. Learn to navigate the RStudio interface and get comfortable with it.
 2. Write your very first lines of R code!
 :::
@@ -178,10 +174,10 @@ When you open RStudio for the very first time, you should see something similar 
   
 The best way to apprehend RStudio is to see the interface as a collection of **blocks**, each serving a specific purpose. There are four main blocks. I give them unofficial names to make them easier to remember:
   
-  1. ???? **The Computer Block**
-  2. ????�? **The Variable Block**
-  3. ???? **The Script Block**
-  4. ???�? **The Console Block**
+  1. 💻 **The Computer Block**
+  2. 🗂️ **The Variable Block**
+  3. 📝  **The Script Block**
+  4. ⚙️ **The Console Block**
   
   
 ![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_4Blocks.png)
@@ -189,7 +185,9 @@ The best way to apprehend RStudio is to see the interface as a collection of **b
   
 *(You may not be able to see the 'Script block' on your computer just yet. Don't worry, we will open it soon!)*
 
-### ???? The Computer Block (Bottom-Right)
+::: {.callout-tip collapse="true" appearance="simple"}  
+
+### 💻 1.1 The Computer Block (Bottom-Right)
 
 Click on the **Files** button in this block. You will see a list of files and folders from your computer. This interface allows you to communicate and navigate directly with your hard drive, right from inside RStudio!
 
@@ -198,12 +196,16 @@ Click on the **Files** button in this block. You will see a list of files and fo
 Click on the folders. Try to navigate to your Documents or Desktop. There is no mystery here???it works exactly like navigating folders on your computer normally does!
 :::
 
-### ????�? The Variable Block (Top-Right)
+:::
+
+::: {.callout-tip collapse="true" appearance="simple"}
+
+### 🗂️ 1.2 The Variable Block (Top-Right)
 
 The most important tab here is the **Environment**. This is where variables you create while coding are temporarily stored. Let's demonstrate this. In the 'Console block' (bottom-left), type this code and press Enter:
       
 ```{r, eval=FALSE}
-    4 + 2
+4 + 2
 ```
     
 And indeed, the output shows `6`. Now, let's play a game. You want to obtain the number 8, but you have to use `4 + 2`. You could write:
@@ -226,13 +228,21 @@ Nothing appears in the console anymore. But look at your Variable block!
 
 You have stored the calculation inside a variable called `a`. You can call it anytime simply by typing `a` in the console, or even add to it by typing `a + 2`!
 
-### ???�? The Console Block (Bottom-Left)
+:::
+
+::: {.callout-tip collapse="true" appearance="simple"}
+
+### ⚙️ 1.3 The Console Block (Bottom-Left)
 
 You just had a glimpse of it. **The console block is the engine room where the code is actually run.** When you type commands here and press Enter, R executes them immediately. 
 
 *(There are also Terminal and Background Jobs tabs here, but we can safely ignore them for this tutorial).*
 
-### ???? The Script Block (Top-Left)
+:::
+
+::: {.callout-tip collapse="true" appearance="simple"}
+
+### 📝  1.4 The Script Block (Top-Left)
 
 The Script block is your digital notepad. If you type code in the Console, it disappears when you close RStudio. If you want to save hundreds of lines of code, you need a Script! 
 
@@ -255,8 +265,12 @@ Select all the text with your mouse, and click **'Run'**.
     
       
 Now you can go to `File > Save` and save this script to your computer. The next time you open it, all your code will still be there!
-      
-### ???? Exercise: Make it your own!
+
+:::
+
+<br>   
+   
+### 🎨 Exercise: Make it your own!
       
 Your four blocks are like construction toys. You can change their size by dragging the borders, or even change the background color to a dark theme!
       
@@ -266,12 +280,13 @@ Your four blocks are like construction toys. You can change their size by draggi
     
       
 ::: {.callout-note icon="false" appearance="minimal" style="background-color: #f8f9fa; border-left: 4px solid #9b59b6;"}
-**???? ???? Instructor Tip**<br>
+**🧑 🏫 Instructor Tip**<br>
 I change the sizes of my blocks dynamically all the time. If I'm writing complex code, I enlarge the Script block. When I'm drawing plots, I make the Computer block bigger to visualize the graphs clearly. Make the layout work for you!
 :::
+
+<hr>
       
-      
-## 2.2. Libraries (Packages)
+# 2. Libraries (Packages)
       
 You can do amazing things with R: draw maps, run complex statistics, and manipulate massive datasets. But it can feel overwhelming to write all that code from scratch.
     
@@ -302,18 +317,21 @@ Once it finishes installing, you load it into your current session by typing:
 ```
     
 ::: {.callout-tip appearance="default"}
-### ???? The Cookbook Metaphor
+### The Cookbook Metaphor
 Imagine you want to cook a complex dinner. 
 
 1. `install.packages()` is like going to the bookstore to buy a recipe book. You bring it home and put it on your shelf. 
 
 2. `library()` is like taking the book off the shelf and opening it on your kitchen counter. You have to open it every time you want to use those specific recipes!
 :::
+
+<hr>
       
+# 3. Essential R Syntax & Data
       
-## 2.3. Essential R Syntax & Data
-      
-### 1. The Working Directory
+::::: {.panel-tabset}      
+
+## 3.1. The Working Directory
       
 Before doing *anything* with data, you must tell R exactly which folder on your computer to look in. This is your **Working Directory**. 
     
@@ -321,7 +339,7 @@ Use the Computer Block to navigate to your project folder. Click the **Gear Icon
     
 ![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/SetWorkingDirectory.gif)
     
-### 2. Comments
+## 3.2. Comments
       
 Use the `#` symbol to write notes to yourself. R will completely ignore anything written after a hashtag!
       
@@ -330,7 +348,7 @@ Use the `#` symbol to write notes to yourself. R will completely ignore anything
     2 + 4 ### This adds two numbers together!
 ```
     
-### 3. Loading Data
+## 3.3. Loading Data
     
 Let's import a `.csv` dataset (like an Excel file). We use the `read.csv()` function and assign it to a variable called `data`.
 
@@ -342,7 +360,7 @@ Alternatively, you can use the RStudio interface! In your Variable block, click 
 
 ![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ImportDataBaseR.gif)
 
-### 4. Transforming and Summarizing Data
+## 3.4. Transforming and Summarizing Data
 
 Once loaded, you can inspect your data using `str(data)` to see its structure, or `summary(data)` to get a quick mathematical overview. 
 
@@ -367,7 +385,7 @@ data3 <- data2 %>%
 ![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ResultsSummarize.png)
 
 
-### 5. Plotting the Data
+## 3.5. Plotting the Data
 
 With our data summarized, we can use the built-in `plot()` function to visualize it:
 
@@ -382,7 +400,7 @@ plot(x = data3$What.is.your.age., y = data3$Count)
 <hr>
 
 ::: {.callout-important icon="true"}
-## ???? Assignment for next week
+## 📝 Assignment for next week
 
 Please complete the following tasks before our next meeting:
 
