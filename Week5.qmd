@@ -1,0 +1,392 @@
+---
+title: "Week 5 - Presentation of R and its basic functions"
+subtitle: "CHC9012 | National Taiwan Normal University"
+format: 
+  html:
+    output-file: Week5.html
+---
+
+```{=html}
+<style>
+  
+  /* Tabset Styling */
+  .nav-tabs {
+    border-bottom: 2px solid #ecf0f1;
+    margin-top: 1em;
+    margin-bottom: 30px;
+  }
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #95a5a6;
+    border: none;
+  padding: 15px 25px;
+  transition: all 0.3s ease;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+    border: none;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+    background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Stunning Headers */
+  
+  h2 {
+    margin-top: 1.8em;
+    color: #2980b9;
+      font-weight: 600;
+  }
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Floating Images with Animations */
+  img {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    margin: 2rem auto;
+    display: block;
+  }
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+  hr.rounded {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+    margin: 4rem 0;
+  }
+
+/* Pro Code Styling */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+      background-color: #fdf2f0;
+      padding: 3px 6px;
+    border-radius: 5px;
+  }
+pre code {
+  color: #333;
+    background-color: transparent;
+}
+
+/* Clean Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin: 2rem 0;
+  }
+th {
+  background-color: #3498db;
+    color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+  b, strong {
+    color: #2c3e50;
+      font-weight: 700;
+  }
+</style>
+```
+
+## Overview
+
+This week, we will have a tutorial on how to prepare your computer for further analyses.
+
+:::: panel-tabset
+## ???? Goals
+
+**Prepare your computer:**
+
+-   **Projects:** How to set-up a project in RStudio?
+-   **Advanced scripts:** How to use Markdown documents to share better scripts?
+-   **Data importation:** Where to find your PCIbex results file, and how to import it to RStudio?
+
+## ???? Necessary codes and dataset
+
+**A brief summary of the essential elements:**
+
+-   `read.pcibex(...)`: Self-built function to import PCIbex results froms `.csv` file.
+-   `head(...)`: Used to have a look of the first N rows of the dataset.
+-   `str(...)`: Used to look at the structure of the dataset.
+-   `summary(...)`: Used to summarize the whole dataset.
+-   `view(...)`: Used to open the dataset.
+
+<br>
+
+::: {.text-center .mb-3}
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a>
+:::
+
+## ???? Homework
+
+**Please complete the following tasks before our next meeting:**
+
+No assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.
+::::
+
+::: {.text-center .mb-4}
+<a href="Week5_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial</a>
+:::
+
+<br>
+
+# ???? Part 2: Working in RStudio
+
+::::: {.panel-tabset}
+
+## 2.1. The Interface of RStudio
+
+Now I assume that R and RStudio are correctly installed. When you start RStudio, you will see a lot of things on your screen???many blocks, many menus. It can be quite overwhelming. No worries! This is exactly what this section is about.
+
+::: {.callout-warning appearance="default" icon="false"}
+### ???? Objectives for this section
+1. Learn to navigate the RStudio interface and get comfortable with it.
+2. Write your very first lines of R code!
+:::
+  
+### General Overview: Blocks, Blocks, Blocks!
+  
+When you open RStudio for the very first time, you should see something similar to the picture below. *(Note: If yours looks slightly different, that is completely normal!)*
+  
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_FirstPage.png)
+  
+The best way to apprehend RStudio is to see the interface as a collection of **blocks**, each serving a specific purpose. There are four main blocks. I give them unofficial names to make them easier to remember:
+  
+  1. ???? **The Computer Block**
+  2. ????ï¸? **The Variable Block**
+  3. ???? **The Script Block**
+  4. ???ï¸? **The Console Block**
+  
+  
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_4Blocks.png)
+
+  
+*(You may not be able to see the 'Script block' on your computer just yet. Don't worry, we will open it soon!)*
+
+### ???? The Computer Block (Bottom-Right)
+
+Click on the **Files** button in this block. You will see a list of files and folders from your computer. This interface allows you to communicate and navigate directly with your hard drive, right from inside RStudio!
+
+::: {.callout-note appearance="simple"}
+**Take a second to play with it:**
+Click on the folders. Try to navigate to your Documents or Desktop. There is no mystery here???it works exactly like navigating folders on your computer normally does!
+:::
+
+### ????ï¸? The Variable Block (Top-Right)
+
+The most important tab here is the **Environment**. This is where variables you create while coding are temporarily stored. Let's demonstrate this. In the 'Console block' (bottom-left), type this code and press Enter:
+      
+```{r, eval=FALSE}
+    4 + 2
+```
+    
+And indeed, the output shows `6`. Now, let's play a game. You want to obtain the number 8, but you have to use `4 + 2`. You could write:
+
+```{r, eval=FALSE}
+4 + 2 + 2
+```
+
+But what if the math gets incredibly complex? This is where **variables** come in. Try this code:
+
+```{r, eval=FALSE}
+a <- 4 + 2
+```
+
+Nothing appears in the console anymore. But look at your Variable block! 
+
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/VariableBlock_WithVariable.png)
+
+
+You have stored the calculation inside a variable called `a`. You can call it anytime simply by typing `a` in the console, or even add to it by typing `a + 2`!
+
+### ???ï¸? The Console Block (Bottom-Left)
+
+You just had a glimpse of it. **The console block is the engine room where the code is actually run.** When you type commands here and press Enter, R executes them immediately. 
+
+*(There are also Terminal and Background Jobs tabs here, but we can safely ignore them for this tutorial).*
+
+### ???? The Script Block (Top-Left)
+
+The Script block is your digital notepad. If you type code in the Console, it disappears when you close RStudio. If you want to save hundreds of lines of code, you need a Script! 
+
+Let's open one. Click **"New File"**, and then select **"R Script"**.
+    
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/OpenNewScript.gif)
+    
+Type the following lines into your new Script block:
+      
+```{r, eval=FALSE}
+    4 + 2
+    a <- 4 + 2
+    a
+    a + 2
+```
+    
+Select all the text with your mouse, and click **'Run'**. 
+    
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Script_Demo.gif)
+    
+      
+Now you can go to `File > Save` and save this script to your computer. The next time you open it, all your code will still be there!
+      
+### ???? Exercise: Make it your own!
+      
+Your four blocks are like construction toys. You can change their size by dragging the borders, or even change the background color to a dark theme!
+      
+**Path:** `Tools > Global Options... > Appearance > Editor theme`
+    
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ChangeColor.gif)
+    
+      
+::: {.callout-note icon="false" appearance="minimal" style="background-color: #f8f9fa; border-left: 4px solid #9b59b6;"}
+**???? ???? Instructor Tip**<br>
+I change the sizes of my blocks dynamically all the time. If I'm writing complex code, I enlarge the Script block. When I'm drawing plots, I make the Computer block bigger to visualize the graphs clearly. Make the layout work for you!
+:::
+      
+      
+## 2.2. Libraries (Packages)
+      
+You can do amazing things with R: draw maps, run complex statistics, and manipulate massive datasets. But it can feel overwhelming to write all that code from scratch.
+    
+**Good news!** R is a collaborative, open-source community. Nobody writes all their code from scratch! We rely on "Packages" or "Libraries" built by other people.
+    
+| Concept | Definition |
+|:---|:---|
+| **Line of code** | A single, simple instruction (e.g., `4 + 2`). |
+| **Function** | A pre-packaged cluster of code that performs a specific task. |
+| **Package / Library** | A downloadable folder containing hundreds of useful functions! |
+      
+There are thousands of packages available for free, often coming with their own fun hex-logos.
+    
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RPackages.jpg)
+    
+### How to install and use Libraries
+      
+You only need to install a package **once**, but you must load it **every time** you open RStudio. 
+    
+In your Console, type this to install `ggplot2` (a famous plotting package):
+```{r, eval=FALSE}
+    install.packages("ggplot2")
+```
+    
+Once it finishes installing, you load it into your current session by typing:
+```{r, eval=FALSE}
+    library(ggplot2)
+```
+    
+::: {.callout-tip appearance="default"}
+### ???? The Cookbook Metaphor
+Imagine you want to cook a complex dinner. 
+
+1. `install.packages()` is like going to the bookstore to buy a recipe book. You bring it home and put it on your shelf. 
+
+2. `library()` is like taking the book off the shelf and opening it on your kitchen counter. You have to open it every time you want to use those specific recipes!
+:::
+      
+      
+## 2.3. Essential R Syntax & Data
+      
+### 1. The Working Directory
+      
+Before doing *anything* with data, you must tell R exactly which folder on your computer to look in. This is your **Working Directory**. 
+    
+Use the Computer Block to navigate to your project folder. Click the **Gear Icon**, and select **"Save as Working Directory"**.
+    
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/SetWorkingDirectory.gif)
+    
+### 2. Comments
+      
+Use the `#` symbol to write notes to yourself. R will completely ignore anything written after a hashtag!
+      
+```{r, eval=FALSE}
+    ### This is a comment. R will not run this.
+    2 + 4 ### This adds two numbers together!
+```
+    
+### 3. Loading Data
+    
+Let's import a `.csv` dataset (like an Excel file). We use the `read.csv()` function and assign it to a variable called `data`.
+
+```{r, eval=FALSE}
+data <- read.csv("GACTT_RESULTS_ANONYMIZED_v2.csv", header=TRUE)
+```
+
+Alternatively, you can use the RStudio interface! In your Variable block, click **"Import Dataset" > "From Text (base)"**, select your file, and click Import. 
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ImportDataBaseR.gif)
+
+### 4. Transforming and Summarizing Data
+
+Once loaded, you can inspect your data using `str(data)` to see its structure, or `summary(data)` to get a quick mathematical overview. 
+
+Often, survey data comes in as plain text when it should be categorized into groups (Factors). We fix this using `as.factor()`:
+
+```{r, eval=FALSE}
+data$What.is.your.age. <- as.factor(data$What.is.your.age.)
+```
+*(The `$` symbol tells R to look **inside** the dataset for a specific column!)*
+
+If we want to count how many people fit into different groups, we can use the powerful `dplyr` package:
+
+```{r, eval=FALSE}
+library(dplyr)
+
+data3 <- data2 %>% 
+  group_by(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) %>% 
+  summarize(Count = n())
+```
+
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ResultsSummarize.png)
+
+
+### 5. Plotting the Data
+
+With our data summarized, we can use the built-in `plot()` function to visualize it:
+
+```{r, eval=FALSE}
+plot(x = data3$What.is.your.age., y = data3$Count)
+```
+
+*(If your groups are out of alphabetical order, you can use the `factor(..., levels=c(...))` command to manually sort them before plotting!)*
+
+:::::
+
+<hr>
+
+::: {.callout-important icon="true"}
+## ???? Assignment for next week
+
+Please complete the following tasks before our next meeting:
+
+- Download the script of this week
+- Annotate each line of code (use your own words, these annotations are for your own reference!)
+- Upload the annotated script on Moodle
+:::

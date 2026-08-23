@@ -33,7 +33,7 @@ website:
       - text: "More content"
         menu: 
           - More2.qmd
-          - Weeks8_9.qmd
+          - CorpusLiterature.qmd
     right:
       - icon: github
         href: https://github.com/aymeric-collart/CHU0387
@@ -54,10 +54,11 @@ website:
       - section: "Part 2: Building a corpus from the internet with modern tools"
         contents: 
           - Week4.qmd
-          - Week5_1.qmd
-          - Week5_2.qmd
-          - Weeks6_7.qmd
-      - section: "Week 10: Midterm presentations"
+          - Week5.qmd
+          - Week6.qmd
+          - Weeks7_8.qmd
+      - section: "Week 9: Group and individual meetings in the classroom"
+      - section: "Week 10: Midterm presentations"      
       - section: "Part 3: Simple preprocessing and analyses of corpus data"
         contents: 
           - Week11.qmd
