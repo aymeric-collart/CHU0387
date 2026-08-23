@@ -121,13 +121,13 @@ This week, we will have an introduction to the R language and the RStudio interf
 
 ::: {.panel-tabset}
 
-## ???? Goals
+## 🎯 Goals
 **Get to know R:**
 
 - **Basics:** What is R, and what is RStudio?
 - **Simple coding:** What are the most important functions in R?
 
-## ???? Necessary codes
+## 💻 Necessary codes
 **A brief summary of the essential elements:**
 
 [To complete later]
@@ -145,7 +145,7 @@ This week, we will have an introduction to the R language and the RStudio interf
   </a>
 </div>
 
-## ???? Homework
+## 📝 Homework
 **Please complete the following tasks before our next meeting:**
 
 - Download the script of this week
@@ -163,7 +163,7 @@ This week, we will have an introduction to the R language and the RStudio interf
 <br>
 
 
-# ???? Part 1: Setup & Installation
+# 🎒 Part 1: Setup & Installation
 
 
 ::::: {.panel-tabset}
@@ -196,8 +196,8 @@ So far, we have been talking about something called "R/RStudio". People familiar
   
 Maybe a metaphor can help to understand the difference between R and RStudio. As you are engaging yourself in this tutorial, I assume that you have a computer. You can create folders, open Word or Excel documents, write in them, and save them in the folders you created. 
 
-::: {.callout-tip appearance="simple"}
-### ???? Think about it
+::: {.callout-tip appearance="simple" icon="false"}
+### 🧠 Think about it
 Now it is time to reflect on what you are doing. You have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen. What you may not know is that when doing so, you have actually run many hidden lines of code! 
   
 It is your computer that ran them in programs able to perform computations. Your role has been to trigger these programs by using the user-friendly interface installed in your computer. 
@@ -206,7 +206,7 @@ It is your computer that ran them in programs able to perform computations. Your
 This is the exact same thing with R and RStudio. R will perform the computations that you ask for. And you will ask R to do stuff by clicking on icons and writing commands using the user-friendly interface of RStudio. And this is why you need to download two programs!
   
 ::: {.callout-note icon="false" appearance="minimal" style="background-color: #f8f9fa; border-left: 4px solid #f39c12;"}
-**???? Personal Anecdote**<br>
+**📖 Personal Anecdote**<br>
 Let me share a memory from when I first entered graduate school. I had my very first class of language programming for linguistic research. Just before leaving, the instructor said very quickly that we had to, I quote, *"download R for next time"*. 
 
 I had never heard of R, and to me, calling a program with only one letter seemed kind of awkward. I assumed I misheard the instructions. You can imagine how surprised I was when I googled "R" and found it actually existed!
@@ -256,7 +256,7 @@ Now that R is installed, it is time to do the same with RStudio. Go to the RStud
 Look for the program called **"RStudio"** on your computer. Once you find it, just open it up, and you can move on to the next section!
   
 ::: {.callout-tip appearance="simple"}
-### ???? Wait, why didn't we open R?
+### 💡 Wait, why didn't we open R?
 Recall that R is the program where computations are done, and RStudio is the user-friendly interface. Even though we *needed* to download both, you actually **only ever need to open RStudio** when you want to use R! RStudio will talk to R in the background for you.
 :::
 
@@ -264,14 +264,14 @@ Recall that R is the program where computations are done, and RStudio is the use
 
 <hr>
 
-# ???? Part 2: Prepare your computer: R projects
+# 📊 Part 2: Prepare your computer: R projects
 
 The most terrifying part when working with experimental data is that by the end of your study, you will have many files in your computer. It is very easy to be messy, to mix files from different steps, and even to have scripts and files for which we have no idea what they are. Therefore, we need to prepare our computer for each study beforehand.
 
 ::::: panel-tabset
 ## 2.1. Prepare the folder in your computer
 
--   Please find you `Documents` (or \`???件`) folder.
+-   Please find you `Documents` (or 文件) folder.
 -   Once you found it, please create a folder for this class (you can call it `CHC9012_Spring2025`, for example)
 -   Within this folder, please create subfolders, such as:
     -   `Slides`: Where you can store the slides from this class

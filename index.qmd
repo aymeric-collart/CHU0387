@@ -20,8 +20,8 @@ listing:
 
 Welcome to the course website for **CHU03887: Language, Society and Literature with Corpus and Modern Technology**. 
 
-**Time:** [provided later]
-**Place:** [provided later]
+**Time:** [provided later]<br>
+**Place:** [provided later]<br>
 **Instructor:** Aymeric Collart (理克)<br>
 **Department:** Department of Chinese, NTNU <br>
 **Credits:** 2 <br>
