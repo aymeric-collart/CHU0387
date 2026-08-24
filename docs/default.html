@@ -464,8 +464,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#part-1-prepare-your-computer-r-projects" id="toc-part-1-prepare-your-computer-r-projects" class="nav-link" data-scroll-target="#part-1-prepare-your-computer-r-projects">💻 Part 1: Prepare your computer: R projects</a></li>
-  <li><a href="#part-2-better-and-reproducible-scripts-with-r-markdown" id="toc-part-2-better-and-reproducible-scripts-with-r-markdown" class="nav-link" data-scroll-target="#part-2-better-and-reproducible-scripts-with-r-markdown">📊 Part 2: Better and reproducible scripts with R Markdown</a>
+  <li><a href="#better-and-reproducible-scripts-with-r-markdown" id="toc-better-and-reproducible-scripts-with-r-markdown" class="nav-link" data-scroll-target="#better-and-reproducible-scripts-with-r-markdown">📊 Better and reproducible scripts with R Markdown</a>
   <ul class="collapse">
   <li><a href="#writing-text-and-code" id="toc-writing-text-and-code" class="nav-link" data-scroll-target="#writing-text-and-code">Writing text and code</a></li>
   <li><a href="#the-knit-button" id="toc-the-knit-button" class="nav-link" data-scroll-target="#the-knit-button">The “Knit” button</a></li>
@@ -609,30 +608,37 @@ td {
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes and dataset</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><strong>Prepare your computer:</strong></p>
+<p><strong>Create beautiful scripts that you can share:</strong></p>
 <ul>
-<li><strong>Projects:</strong> How to set-up a project in RStudio?</li>
+<li><strong>Reflections:</strong> Why creating scripts that are more suitable to share?</li>
 <li><strong>Advanced scripts:</strong> How to use Markdown documents to share better scripts?</li>
-<li><strong>Data importation:</strong> Where to find your PCIbex results file, and how to import it to RStudio?</li>
 </ul>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p><strong>A brief summary of the essential elements:</strong></p>
-<ul>
-<li><code>read.pcibex(...)</code>: Self-built function to import PCIbex results froms <code>.csv</code> file.</li>
-<li><code>head(...)</code>: Used to have a look of the first N rows of the dataset.</li>
-<li><code>str(...)</code>: Used to look at the structure of the dataset.</li>
-<li><code>summary(...)</code>: Used to summarize the whole dataset.</li>
-<li><code>view(...)</code>: Used to open the dataset.</li>
-</ul>
+<p>No new codes this week. We will be using the same dataset as last week.</p>
 <p><br></p>
 <div class="text-center mb-3">
-<p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a></p>
+<p><a href="javascript:void(0)" onclick="fetch('https://raw.githubusercontent.com/aymeric-collart/CHU0387/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv')
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'GACTT_RESULTS_ANONYMIZED_v2.csv';
+       document.body.appendChild(a);
+       a.click();
+       window.URL.revokeObjectURL(url);
+     })" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script <br> (the same as last week, no need to download one more time if you already have it) </a></p>
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p><strong>Please complete the following tasks before our next meeting:</strong></p>
-<p>No assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.</p>
+<ul>
+<li>Transform your R script from last week into an R Markdown document, and knit it to a PDF file.</li>
+<li>Try to include Chinese characters, and debug such that they appear in the PDF document.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -641,94 +647,8 @@ td {
 </div>
 <p><br></p>
 </section>
-<section id="part-1-prepare-your-computer-r-projects" class="level1">
-<h1>💻 Part 1: Prepare your computer: R projects</h1>
-<p>The most terrifying part when working with experimental data is that by the end of your study, you will have many files in your computer. It is very easy to be messy, to mix files from different steps, and even to have scripts and files for which we have no idea what they are. Therefore, we need to prepare our computer for each study beforehand.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">1.1. Prepare the folder in your computer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">1.2. Create an R project</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<ul>
-<li>Please find you <code>Documents</code> (or 文件) folder.</li>
-<li>Once you found it, please create a folder for this class (you can call it <code>CHC9012_Spring2025</code>, for example)</li>
-<li>Within this folder, please create subfolders, such as:
-<ul>
-<li><code>Slides</code>: Where you can store the slides from this class</li>
-<li><code>PCIbex_design</code>: Where you can store your script from PCIbex, files containing the materials, etc.</li>
-<li><code>PreprocessingAnalysesR</code>: Where you will store the datasets and scripts we are going to use in Part 3.</li>
-</ul></li>
-</ul>
-<p>In the end, your folder will look like this:</p>
-<p><img src="images/clipboard-1590947435.png" class="img-fluid"></p>
-<div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pay attention to the names
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Generally, it is better not to use any space when naming folders and files!</p>
-</div>
-</div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<ul>
-<li>There a small blue icon on the top-left side of RStudio. Please click on it.</li>
-</ul>
-<p><img src="images/clipboard-2121617076.png" class="img-fluid"></p>
-<ul>
-<li>Then, click on “Existing Directory”.</li>
-</ul>
-<p><img src="images/clipboard-3751932394.png" class="img-fluid"></p>
-<ul>
-<li>In the next window, click on “Browse…”, and look for the folder called <code>PreprocessingAnalysesR</code> that we just created. Please check <code>Open in a new session</code>, and on “Create Project”.</li>
-</ul>
-<p><img src="images/clipboard-1025670899.png" class="img-fluid"></p>
-<div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Why creating a project?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>It will open a new and clean RStudio window. At the same time, it will set the <code>PreprocessingAnalysesR</code> as the working directory by default.</p>
-<p>Another advantage is that you can have one RStudio window per project, and switch between them without worrying about the working directory of trying to find the right files! You can have a list of your several projects on the top-right corner of RStudio. Here is mine for example:</p>
-<p><img src="images/clipboard-1750222853.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" style="background-color: #f0f7ff; border-left: 5px solid #0056b3; border-radius: 8px; padding: 1.5em;">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-📝 In-class exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Task list:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Find the R script from last week and move it to the <code>PreprocessingAnalysesR</code> folder.</label></li>
-<li><label><input type="checkbox">Open the script within your newly created project.</label></li>
-</ul>
-</div>
-</div>
-<hr>
-</section>
-<section id="part-2-better-and-reproducible-scripts-with-r-markdown" class="level1">
-<h1>📊 Part 2: Better and reproducible scripts with R Markdown</h1>
+<section id="better-and-reproducible-scripts-with-r-markdown" class="level1">
+<h1>📊 Better and reproducible scripts with R Markdown</h1>
 <p>Standard R Scripts only save your code. <strong>R Markdown</strong> files are an incredible upgrade. They allow you to combine your titles, your narrative text, your R code, and your generated plots into <strong>one single, shareable document</strong> (like a PDF, Word, or HTML file). This is the gold standard for Open Science!</p>
 <ul>
 <li>To start, click <strong>“New File” &gt; “R Markdown…”</strong></li>
@@ -759,13 +679,13 @@ Why creating a project?
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-???? In-class exercise
+📝 In-class exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Task list:</strong></p>
 <ul class="task-list">
-<li><label><input type="checkbox">Create a new Markdown document, and call it <code>ScriptWeek10_Markdown</code>.</label></li>
+<li><label><input type="checkbox">Create a new Markdown document, and call it <code>ScriptWeek6_Markdown</code>.</label></li>
 <li><label><input type="checkbox">Use the script from last week, but adapt it to the Markdown format. Be creative!</label></li>
 </ul>
 </div>
@@ -777,11 +697,14 @@ Why creating a project?
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-???? Assignment for next week
+📝 Assignment for next week
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>No assignment for next week! Please carefully review the content of these past two weeks.</p>
+<ul>
+<li>Transform your R script from last week into an R Markdown document, and knit it to a PDF file.</li>
+<li>Try to include Chinese characters, and debug such that they appear in the PDF document.</li>
+</ul>
 </div>
 </div>
 
@@ -1206,7 +1129,7 @@ Why creating a project?
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>?? 2026 Aymeric Collart</p>
+<p>© 2026 Aymeric Collart</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

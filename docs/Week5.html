@@ -648,30 +648,39 @@ td {
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes and dataset</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><strong>Prepare your computer:</strong></p>
+<p><strong>Get to know R and RStudio</strong></p>
 <ul>
-<li><strong>Projects:</strong> How to set-up a project in RStudio?</li>
-<li><strong>Advanced scripts:</strong> How to use Markdown documents to share better scripts?</li>
-<li><strong>Data importation:</strong> Where to find your PCIbex results file, and how to import it to RStudio?</li>
+<li><strong>Basics:</strong> What does RStudio look like?</li>
+<li><strong>Hands-on:</strong> What are the most important functions in R? Write your very first lines of R code!</li>
 </ul>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p><strong>A brief summary of the essential elements:</strong></p>
-<ul>
-<li><code>read.pcibex(...)</code>: Self-built function to import PCIbex results froms <code>.csv</code> file.</li>
-<li><code>head(...)</code>: Used to have a look of the first N rows of the dataset.</li>
-<li><code>str(...)</code>: Used to look at the structure of the dataset.</li>
-<li><code>summary(...)</code>: Used to summarize the whole dataset.</li>
-<li><code>view(...)</code>: Used to open the dataset.</li>
-</ul>
+<p>[To complete later]</p>
 <p><br></p>
 <div class="text-center mb-3">
-<p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a></p>
+<p><a href="javascript:void(0)" onclick="fetch('https://raw.githubusercontent.com/aymeric-collart/CHU0387/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv')
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'GACTT_RESULTS_ANONYMIZED_v2.csv';
+       document.body.appendChild(a);
+       a.click();
+       window.URL.revokeObjectURL(url);
+     })" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a></p>
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p><strong>Please complete the following tasks before our next meeting:</strong></p>
-<p>No assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.</p>
+<p>Please complete the following tasks before our next meeting:</p>
+<ul>
+<li>Download the script of this week</li>
+<li>Annotate each line of code (use your own words, these annotations are for your own reference!)</li>
+<li>Upload the annotated script on Moodle.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1387,7 +1396,7 @@ The Cookbook Metaphor
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>?? 2026 Aymeric Collart</p>
+<p>© 2026 Aymeric Collart</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

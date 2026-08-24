@@ -121,33 +121,48 @@ This week, we will have a tutorial on how to prepare your computer for further a
 :::: panel-tabset
 ## 🎯 Goals
 
-**Prepare your computer:**
+**Get to know R and RStudio**
 
--   **Projects:** How to set-up a project in RStudio?
--   **Advanced scripts:** How to use Markdown documents to share better scripts?
--   **Data importation:** Where to find your PCIbex results file, and how to import it to RStudio?
+-  **Basics:** What does RStudio look like?
+-  **Hands-on:** What are the most important functions in R? Write your very first lines of R code!
 
 ## 💻 Necessary codes and dataset
 
 **A brief summary of the essential elements:**
 
--   `read.pcibex(...)`: Self-built function to import PCIbex results froms `.csv` file.
--   `head(...)`: Used to have a look of the first N rows of the dataset.
--   `str(...)`: Used to look at the structure of the dataset.
--   `summary(...)`: Used to summarize the whole dataset.
--   `view(...)`: Used to open the dataset.
+[To complete later]
 
 <br>
 
 ::: {.text-center .mb-3}
-<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a>
+<a href="javascript:void(0)" 
+   onclick="fetch('https://raw.githubusercontent.com/aymeric-collart/CHU0387/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv')
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'GACTT_RESULTS_ANONYMIZED_v2.csv';
+       document.body.appendChild(a);
+       a.click();
+       window.URL.revokeObjectURL(url);
+     })" 
+   class="btn btn-outline-primary btn-sm">
+  <i class="bi bi-download"></i> Download the dataset for the script
+</a>
 :::
 
 ## 📝 Homework
 
 **Please complete the following tasks before our next meeting:**
 
-No assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.
+Please complete the following tasks before our next meeting:
+
+- Download the script of this week
+- Annotate each line of code (use your own words, these annotations are for your own reference!)
+- Upload the annotated script on Moodle.
+
 ::::
 
 ::: {.text-center .mb-4}

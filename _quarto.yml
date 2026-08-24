@@ -10,7 +10,7 @@ website:
   repo-url: https://github.com/aymeric-collart/CHU0387
   repo-actions: [issue]
   page-footer: 
-    left: "?? 2026 Aymeric Collart"
+    left: "© 2026 Aymeric Collart"
     right: 
       - text: "{{< iconify fa6-brands bluesky >}}"
         href: https://bsky.app/profile/aymericcollart.bsky.social

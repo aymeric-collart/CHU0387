@@ -1,0 +1,6 @@
+---
+title: "Content ready, slides and aesthetics in progress"
+date: 2026-08-24
+categories: [Website announcment]
+description: "The content of the class has been updated. I am currently working on the slides and updating the aesthetics of the website!"
+---

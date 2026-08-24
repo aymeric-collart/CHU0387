@@ -8,7 +8,7 @@ format:
     toc-depth: 2
 ---
 
-## ???? Course Schedule
+## 📅 Course Schedule
 
 ::: {.panel-tabset}
 
@@ -24,9 +24,9 @@ format:
 
 | Week | Topic | Reading Material | Homework / Due |
 |:---:|:---|:---|:---|
-| **4** | **Introduction to the modern tool R (1/2): Installation and first steps** | Slides<br>R for data science, Introduction, Chapter 2, Chapter 6, Chapter 28 | Exercises for next week |
-| **5** | **Introduction to R (2/2): Basic functions** | Slides<br>R for data science, Introduction, Chapter 2, Chapter 6, Chapter 28 | Exercises for next week |
-| **6** | **Preparation: How to set-up your computer and write beautiful scripts** | Slides | Exercises for next week |
+| **4** | **Installation of R and computer set-up** | Slides<br>R for data science, Introduction, Chapter 2, Chapter 6, Chapter 28 | Make sure the computer is prepared for the next weeks |
+| **5** | **Presentation of R and its basic functions** | Slides<br>R for data science, Introduction, Chapter 2, Chapter 6, Chapter 28 | Exercises for next week |
+| **6** | **How to create better scripts** | Slides | Exercises for next week |
 | **7** | **Building a corpus from media platforms (1/2)** | Slides<br>R for data science, Chapter 24 | Exercises for next week |
 | **8** | **Building a corpus from media platforms (2/2)** | Slides<br>R for data science, Chapter 24 | Exercises for next week |
 | **9** | **Group and individual meetings in the classroom** | | |
@@ -47,7 +47,7 @@ format:
 
 ---
 
-## ?????? Grading & evaluation
+## ⚖️ Grading & evaluation
 
 The final grade is distributed as follows:
 
@@ -79,7 +79,7 @@ pie title Grade Distribution
 
 ------------------------------------------------------------------------
 
-## ???? Resources & software
+## 📚 Resources & software
 
 ::: {.callout-tip}
 ## Online Resources & Software
