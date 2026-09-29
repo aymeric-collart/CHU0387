@@ -274,100 +274,72 @@
   {
     "objectID": "Week4_slides.html#goals-key-concepts",
     "href": "Week4_slides.html#goals-key-concepts",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "title": "Week 4 - Installation of R and computer set-up",
     "section": "🎯 Goals & key concepts",
-    "text": "🎯 Goals & key concepts\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\nScript sharing: How to write a beautiful script to share?"
+    "text": "🎯 Goals & key concepts\nGet to know R:\n\nBasics: What is R, and what is RStudio? How to download and install it?\nGetting ready: How to prepare your computer for future analyses?"
   },
   {
     "objectID": "Week4_slides.html#what-is-r-what-is-rstudio",
     "href": "Week4_slides.html#what-is-r-what-is-rstudio",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "title": "Week 4 - Installation of R and computer set-up",
     "section": "1.1. What is R? What is RStudio?",
     "text": "1.1. What is R? What is RStudio?\n\n\n\n\nThe Engine: R\n\n\n\nThe main program where all the mathematical magic and deep computations happen.\n\n\n\n\n\n\n\nThe Dashboard: RStudio\n\n\n\nA user-friendly interface that makes it incredibly easy to interact with R."
   },
   {
     "objectID": "Week4_slides.html#download-and-install",
     "href": "Week4_slides.html#download-and-install",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "title": "Week 4 - Installation of R and computer set-up",
     "section": "1.2. Download and Install",
     "text": "1.2. Download and Install\n\nStep 1: Download and install RStep 2: Download and install RStudio\n\n\nGo to the RStudio website by clicking here. You will see something like this:\n\nNext, choose your CRAN (The Comprehensive R Archive Network). Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\nChoose the files to download according to your computer’s operating system. The most common are macOS (for Apple computers) or Windows.\n\nOn the next page, choose the subdirectory. For our purposes, we only need the “base” subdirectory.\n\nWe finally got to the last page! Click on the first link to download the files, as shown below. Wait until the file is downloaded, open it, and follow the standard instructions to install R on your computer.\n\n\n\nNow that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking here. You will see something like this:\n\nScroll down to look for the download links. Again, choose the right file for your operating system. Just click the link, let it download, open the file, and follow the instructions!"
   },
   {
     "objectID": "Week4_slides.html#launch-and-try",
     "href": "Week4_slides.html#launch-and-try",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "title": "Week 4 - Installation of R and computer set-up",
     "section": "1.3. Launch and Try!",
     "text": "1.3. Launch and Try!\nLook for the program called “RStudio” on your computer. Once you find it, just open it up, and you can move on to the next section!\n\n\n\n\n\n\n💡 Wait, why didn’t we open R?\n\n\nRecall that R is the program where computations are done, and RStudio is the user-friendly interface. Even though we needed to download both, you actually only ever need to open RStudio when you want to use R! RStudio will talk to R in the background for you."
   },
   {
-    "objectID": "Week4_slides.html#terminology",
-    "href": "Week4_slides.html#terminology",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "Terminology",
-    "text": "Terminology\n\n\n\n\n\n\n\nConcept\nDefinition\n\n\n\n\nLine of code\nA single, simple instruction (e.g., 4 + 2).\n\n\nFunction\nA pre-packaged cluster of code that performs a specific task.\n\n\nPackage / Library\nA downloadable folder containing hundreds of useful functions!"
+    "objectID": "Week4_slides.html#section",
+    "href": "Week4_slides.html#section",
+    "title": "Week 4 - Installation of R and computer set-up",
+    "section": "",
+    "text": "Why?\n\n\nWe want to be organized and not messy!\n\n\n\n\n\n\nSection 1.1: Prepare the folder in your computer.\n\n\n\n\nSection 1.2: Create the related R project."
   },
   {
-    "objectID": "Week4_slides.html#a.-the-working-directory",
-    "href": "Week4_slides.html#a.-the-working-directory",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "A. The Working Directory",
-    "text": "A. The Working Directory\nBefore doing anything with data, you must tell R exactly which folder on your computer to look in. This is your Working Directory.\nUse the Computer Block to navigate to your project folder. Click the Gear Icon, and select “Save as Working Directory”."
+    "objectID": "Week4_slides.html#setting-up-your-folders",
+    "href": "Week4_slides.html#setting-up-your-folders",
+    "title": "Week 4 - Installation of R and computer set-up",
+    "section": "1.1 Setting up your folders",
+    "text": "1.1 Setting up your folders\n\n\nNavigate to your Documents (or 文件) folder.\n\n\n\n\nCreate your root folder: CHU0358_DocumentsScripts\n\n\n\n\nAdd the Project Subfolders:\n\n📁 Slides: Presentation files.\n📁 PreprocessingAnalysesR: Datasets & R code."
   },
   {
-    "objectID": "Week4_slides.html#b.-comments",
-    "href": "Week4_slides.html#b.-comments",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "B. Comments",
-    "text": "B. Comments\nUse the # symbol to write notes to yourself. R will completely ignore anything written after a hashtag!\n### This is a comment. R will not run this.\n2 + 4 ### This adds two numbers together!"
+    "objectID": "Week4_slides.html#you-should-obtain-something-like-this",
+    "href": "Week4_slides.html#you-should-obtain-something-like-this",
+    "title": "Week 4 - Installation of R and computer set-up",
+    "section": "You should obtain something like this",
+    "text": "You should obtain something like this\n\n\n\n\n\n\n\n\nPay attention to the names\n\n\nGenerally, it is better not to use any space when naming folders and files!"
   },
   {
-    "objectID": "Week4_slides.html#c.-loading-data",
-    "href": "Week4_slides.html#c.-loading-data",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "C. Loading Data",
-    "text": "C. Loading Data\n\n\n\n\n\n\nData to use\n\n\nYou need to download this file and place it in the folder for this class in the Documents folder of your computer.\n\n\n\n\nLet’s import a .csv dataset (like an Excel file). We use the read.csv() function and assign it to a variable called data.\ndata &lt;- read.csv(\"GACTT_RESULTS_ANONYMIZED_v2.csv\", header=TRUE)\n\n\nAlternatively, you can use the RStudio interface! In your Variable block, click “Import Dataset” &gt; “From Text (base)”, select your file, and click Import."
+    "objectID": "Week4_slides.html#initializing-your-r-project",
+    "href": "Week4_slides.html#initializing-your-r-project",
+    "title": "Week 4 - Installation of R and computer set-up",
+    "section": "1.2 Initializing Your R Project",
+    "text": "1.2 Initializing Your R Project\n\n\n\n1. Launch New Project Wizard  Click the blue cube icon in the top-left corner of RStudio.\n\n\n\n2. Select project type  Choose “Existing Directory” to link R to your folder structure.\n\n\n\n3. Finalize Connection  Browse to PreprocessingAnalysesR, check “Open in a new session”, and click Create Project.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBenefit: An .Rproj file sets your “Working Directory” automatically!"
   },
   {
-    "objectID": "Week4_slides.html#d.-transforming-and-summarizing-data",
-    "href": "Week4_slides.html#d.-transforming-and-summarizing-data",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "D. Transforming and Summarizing Data",
-    "text": "D. Transforming and Summarizing Data\n\nOnce loaded, you can inspect your data using str(data) to see its structure, or summary(data) to get a quick mathematical overview.\nstr(data)\n\nsummary(data)\n\n\nOften, survey data comes in as plain text when it should be categorized into groups (Factors). We fix this using as.factor():\ndata$What.is.your.age. &lt;- as.factor(data$What.is.your.age.)\n(The $ symbol tells R to look inside the dataset for a specific column!)\n\n\nIf we want to count how many people fit into different groups, we can use the powerful dplyr package:\nlibrary(dplyr)\n\ndata3 &lt;- data2 %&gt;% \n  group_by(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) %&gt;% \n  summarize(Count = n())"
+    "objectID": "Week4_slides.html#other-advantages-of-creating-projects",
+    "href": "Week4_slides.html#other-advantages-of-creating-projects",
+    "title": "Week 4 - Installation of R and computer set-up",
+    "section": "Other advantages of creating projects",
+    "text": "Other advantages of creating projects\n\n\n\nOne RStudio window = One project\nSwitch between them without worrying about the working directory of trying to find the right files!\nList of your projects on the top-right corner of RStudio. Here is mine for example:"
   },
   {
-    "objectID": "Week4_slides.html#e.-plotting-the-data",
-    "href": "Week4_slides.html#e.-plotting-the-data",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "E. Plotting the Data",
-    "text": "E. Plotting the Data\nWith our data summarized, we can use the built-in plot() function to visualize it:\nplot(x = data3$What.is.your.age., y = data3$Count)"
-  },
-  {
-    "objectID": "Week4_slides.html#how-to-create-a-beautiful-convenient-and-shareable-script",
-    "href": "Week4_slides.html#how-to-create-a-beautiful-convenient-and-shareable-script",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "How to create a beautiful, convenient and shareable script?",
-    "text": "How to create a beautiful, convenient and shareable script?\nTo start, click “New File” &gt; “R Markdown…”\n\nRStudio will prompt you for a Title and Author. Once created, you will see a document with a YAML Header at the top between dashed lines ---. This header controls the settings for your final document."
-  },
-  {
-    "objectID": "Week4_slides.html#writing-text-and-code",
-    "href": "Week4_slides.html#writing-text-and-code",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "Writing Text and Code",
-    "text": "Writing Text and Code\nIn an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a Code Chunk. Click the “Insert” button at the top of the script and select “R”. A grey box will appear.\n\nYou can run these individual chunks using the green Play Button in the corner of the grey box."
-  },
-  {
-    "objectID": "Week4_slides.html#the-magic-knit-button",
-    "href": "Week4_slides.html#the-magic-knit-button",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "The Magic “Knit” Button",
-    "text": "The Magic “Knit” Button\nWhen your document is complete, click the Knit button at the top of the interface. R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!"
-  },
-  {
-    "objectID": "Week4_slides.html#assignments",
-    "href": "Week4_slides.html#assignments",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "Assignments",
-    "text": "Assignments\n\n\n\n\n\n\n📝 Assignment for next week\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week (here)\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle"
+    "objectID": "Week4_slides.html#in-class-exercise",
+    "href": "Week4_slides.html#in-class-exercise",
+    "title": "Week 4 - Installation of R and computer set-up",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nFind the R script from last week and move it to the PreprocessingAnalysesR folder.\nOpen the script within your newly created project."
   },
   {
     "objectID": "Week3.html",

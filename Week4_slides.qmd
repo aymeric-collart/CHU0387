@@ -1,6 +1,6 @@
 ---
-title: "Week 10 - Presentation of the R interface and how to create reproducible data"
-subtitle: "CHC9012 | National Taiwan Normal University"
+title: "Week 4 - Installation of R and computer set-up"
+subtitle: "CHU0387 | National Taiwan Normal University"
 format: 
   revealjs:
     theme: serif
@@ -16,12 +16,9 @@ format:
 ## 🎯 Goals & key concepts
 **Get to know R:**
 
-- **Basics:** What is R, and what is RStudio?
-- **Simple coding:** What are the most important functions in R?
-- **Script sharing:** How to write a beautiful script to share?
+-   **Basics:** What is R, and what is RStudio? How to download and install it?
+-   **Getting ready:** How to prepare your computer for future analyses?
 
-
----
 
 
 # 🎒 Part 1: Setup & Installation
@@ -109,7 +106,7 @@ Now that R is installed, it is time to do the same with RStudio. Go to the RStud
 ![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudioWebsite_FrontPage.png)
 
   
-  Scroll down to look for the download links. Again, choose the right file for your operating system. Just click the link, let it download, open the file, and follow the instructions!
+Scroll down to look for the download links. Again, choose the right file for your operating system. Just click the link, let it download, open the file, and follow the instructions!
   
   
 ![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudioWebsite_Download.png)
@@ -127,329 +124,144 @@ Recall that R is the program where computations are done, and RStudio is the use
 :::
 
 
----
 
-# 💻 Part 2: Working in RStudio
+# 💻 Part 2: Prepare your computer: R projects
 
----
-
-# 2.1. The Interface of RStudio
-
----
+------------------------------------------------------------------------
 
 
-::: {.callout-warning appearance="default" icon="false"}
-### 🎯 Objectives for this section
-1. Learn to navigate the RStudio interface and get comfortable with it.
-2. Write your very first lines of R code!
+## {.center}
+
+::: {.callout-tip appearance="simple" style="width: 60%; margin: auto;"}
+### Why?
+
+We want to be *organized* and **not messy**!
+:::
+
+::: {.fragment .fade-up}
+-   **Section 1.1:** Prepare the folder in your computer.
+:::
+
+::: {.fragment .fade-up}
+-   **Section 1.2:** Create the related R project.
 :::
 
 ---
-  
-### General Overview: Blocks, Blocks, Blocks!
-  
-When you open RStudio for the very first time, you should see something similar to the picture below.
-  
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_FirstPage.png)
-  
-The best way to apprehend RStudio is to see the interface as a collection of **blocks**, each serving a specific purpose. There are four main blocks. I give them unofficial names to make them easier to remember:
-  
-  1. 💻 **The Computer Block**
-  2. 🗂️ **The Variable Block**
-  3. 📝 **The Script Block**
-  4. ⚙️ **The Console Block**
-  
-  
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_4Blocks.png)
+
+
+## 1.1 Setting up your folders {vertical-align="center"}
+
+
+::: {.fragment}
+1.  Navigate to your **`Documents`** (or **`文件`**) folder.
+:::
+
+::: {.fragment}
+2.  Create your **root folder**: `CHU0358_DocumentsScripts`
+:::
+
+::: {.fragment}
+3.  Add the **Project Subfolders**:
+    *   📁 `Slides`: Presentation files.
+    *   📁 `PreprocessingAnalysesR`: Datasets & R code.
+:::
+
 
 ---
 
-::::: {.panel-tabset}
+## You should obtain something like this {.center}
 
-### 💻 The Computer Block (Bottom-Right)
+![](images/clipboard-99706317.png)
 
-Click on the **Files** button in this block. You will see a list of files and folders from your computer. This interface allows you to communicate and navigate directly with your hard drive, right from inside RStudio!
 
-::: {.callout-note appearance="simple"}
-**Take a second to play with it:**
-Click on the folders. Try to navigate to your Documents or Desktop. There is no mystery here—it works exactly like navigating folders on your computer normally does!
+
+::: {.fragment}
+
+::: {.callout-tip appearance="simple"}
+### Pay attention to the names
+
+Generally, it is better not to use any space when naming folders and files!
 :::
 
-### 🗂️ The Variable Block (Top-Right)
+:::
 
-**Environment tab**: Where variables you create while coding are temporarily stored.
-<br><br>
-In the 'Console block' (bottom-left), type this code and press Enter:
-      
-```r
-4 + 2
-```
+---
+
+## 1.2 Initializing Your R Project {vertical-align="center"}
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+::: {.fragment data-fragment-index="1"}
+**1. Launch `New Project Wizard`** <i class="fa-solid fa-square-plus" style="color: #2c7a7b;"></i>
+<br><small>Click the **blue cube icon** in the top-left corner of RStudio.</small>
+:::
 
 <br>
-```r
-4 + 2 + 2
-```
 
-Introduction to **variables**:
-
-```r
-a <- 4 + 2
-```
-
-Nothing appears in the console anymore. But look at your Variable block! 
-
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/VariableBlock_WithVariable.png)
-
-You have stored the calculation inside a variable called `a`. You can call it anytime simply by typing `a` in the console, or even add to it by typing `a + 2`!
-
-### ⚙️ The Console Block (Bottom-Left)
-
-You just had a glimpse of it. **The console block is the engine room where the code is actually run.** When you type commands here and press Enter, R executes them immediately. 
-
-### 📝 The Script Block (Top-Left)
-    
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/OpenNewScript.gif)
-    
-Type the following lines into your new Script block:
-      
-```r
-    4 + 2
-    a <- 4 + 2
-    a
-    a + 2
-```
-    
-Select all the text with your mouse, and click **'Run'**. 
-    
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Script_Demo.gif)
-    
-      
-Now you can go to `File > Save` and save this script to your computer. The next time you open it, all your code will still be there!
-
-:::::
-
----
-      
-### 🎨 Exercise: Make it your own!
-      
-Your four blocks are like construction toys. You can change their size by dragging the borders, or even change the background color to a dark theme!
-      
-**Path:** `Tools > Global Options... > Appearance > Editor theme`
-    
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ChangeColor.gif)
-
-
-# 2.2. Libraries (Packages)
-
----
-      
-## Terminology
-    
-| Concept | Definition |
-|:---|:---|
-| **Line of code** | A single, simple instruction (e.g., `4 + 2`). |
-| **Function** | A pre-packaged cluster of code that performs a specific task. |
-| **Package / Library** | A downloadable folder containing hundreds of useful functions! |
-      
-
----
-
-### How to install and use Libraries
-      
-You only need to install a package **once**, but you must load it **every time** you open RStudio. 
-
-::: {.fragment .fade-up}
-    
-In your Console, type this to install `ggplot2` (a famous plotting package):
-
-```r
-install.packages("ggplot2")
-```
-
+::: {.fragment data-fragment-index="2"}
+**2. Select project type** <i style="color: #2c7a7b;"></i>
+<br><small>Choose **"Existing Directory"** to link R to your folder structure.</small>
 :::
 
-::: {.fragment .fade-up}
-    
-Once it finishes installing, you load it into your current session by typing:
+<br>
 
-```r
-library(ggplot2)
-```
-
+::: {.fragment data-fragment-index="3"}
+**3. Finalize Connection** <i class="fa-solid fa-circle-check" style="color: #2c7a7b;"></i>
+<br><small>Browse to `PreprocessingAnalysesR`, check **"Open in a new session"**, and click **Create Project**.</small>
+:::
 :::
 
-::: {.fragment .fade-up}
-    
-::: {.callout-tip appearance="default"}
-### 🍳 The Cookbook Metaphor
-Imagine you want to cook a complex dinner. 
+::: {.column width="40%"}
+::: {.r-stack}
+![](images/clipboard-2121617076.png){.fragment .fade-in-then-out data-fragment-index="1" width="100"}
 
-1. `install.packages()` is like going to the bookstore to buy a recipe book. You bring it home and put it on your shelf. 
+![](images/clipboard-3751932394.png){.fragment .fade-in-then-out data-fragment-index="2" width="500"}
 
-2. `library()` is like taking the book off the shelf and opening it on your kitchen counter. You have to open it every time you want to use those specific recipes!
+![](images/clipboard-1025670899.png){.fragment data-fragment-index="3" width="500"}
+:::
 :::
 
 :::
-      
-# 2.3. Essential R Syntax & Data
 
----
-      
-## A. The Working Directory
-      
-Before doing *anything* with data, you must tell R exactly which folder on your computer to look in. This is your **Working Directory**. 
-    
-Use the Computer Block to navigate to your project folder. Click the **Gear Icon**, and select **"Save as Working Directory"**.
-    
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/SetWorkingDirectory.gif)
-    
+::: {.fragment}
 
----
-    
-## B. Comments
-      
-Use the `#` symbol to write notes to yourself. R will completely ignore anything written after a hashtag!
-      
-```r
-### This is a comment. R will not run this.
-2 + 4 ### This adds two numbers together!
-```
-
----
- 
-## C. Loading Data
-    
-::: {.callout-tip appearance="simple"}
-### Data to use
-
-You need to download [this file](https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv) and place it in the folder for this class in the `Documents` folder of your computer.
+::: {.callout-note appearance="simple" .fragment data-fragment-index="3"}
+**Benefit:** An `.Rproj` file sets your "Working Directory" automatically!
 :::
-
-
-::: {.fragment .fade-up}
-
-Let's import a `.csv` dataset (like an Excel file). We use the `read.csv()` function and assign it to a variable called `data`.
-
-```r
-data <- read.csv("GACTT_RESULTS_ANONYMIZED_v2.csv", header=TRUE)
-```
-
-:::
-
-::: {.fragment .fade-up}
-
-Alternatively, you can use the RStudio interface! In your Variable block, click **"Import Dataset" > "From Text (base)"**, select your file, and click Import. 
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ImportDataBaseR.gif)
 
 :::
 
 ---
 
-## D. Transforming and Summarizing Data
+## Other advantages of creating projects {.center}
 
+::: {.columns}
 
-::: {.fragment .fade-up}
-Once loaded, you can inspect your data using `str(data)` to see its structure, or `summary(data)` to get a quick mathematical overview. 
+::: {.column width="60%"}
 
-```r
-str(data)
-
-summary(data)
-```
+1.  One RStudio window = One project
+2.  Switch between them without worrying about the working directory of trying to find the right files!
+3.  List of your projects on the top-right corner of RStudio. Here is mine for example:
 
 :::
 
-::: {.fragment .fade-up}
+::: {.column width="40%"}
 
-Often, survey data comes in as plain text when it should be categorized into groups (Factors). We fix this using `as.factor()`:
-
-```r
-data$What.is.your.age. <- as.factor(data$What.is.your.age.)
-```
-*(The `$` symbol tells R to look **inside** the dataset for a specific column!)*
+![](images/clipboard-1750222853.png){width="400"}
 
 :::
-
-::: {.fragment .fade-up}
-
-If we want to count how many people fit into different groups, we can use the powerful `dplyr` package:
-
-```r
-library(dplyr)
-
-data3 <- data2 %>% 
-  group_by(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) %>% 
-  summarize(Count = n())
-```
-
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ResultsSummarize.png)
 
 :::
 
 ---
 
-## E. Plotting the Data
+## 📝 In-class exercise!
+<br><br>
+<center>**Task list:**
 
-With our data summarized, we can use the built-in `plot()` function to visualize it:
-
-```r
-plot(x = data3$What.is.your.age., y = data3$Count)
-```
-
-
-# 📊 Part 3: Reproducible data with R Markdown
-
----
-
-## How to create a beautiful, convenient and shareable script?
-
-To start, click **"New File" > "R Markdown..."**
+-   [ ] Find the R script from last week and move it to the `PreprocessingAnalysesR` folder.
+-   [ ] Open the script within your newly created project.
 
 
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png)
-
-
-RStudio will prompt you for a Title and Author. Once created, you will see a document with a **YAML Header** at the top between dashed lines `---`. This header controls the settings for your final document.
-
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png)
-
----
-
-## Writing Text and Code
-
-
-In an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a **Code Chunk**. Click the "Insert" button at the top of the script and select "R". A grey box will appear. 
-
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png)
-
-
-You can run these individual chunks using the green **Play Button** in the corner of the grey box.
-
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png)
-
----
-
-## The Magic "Knit" Button
-
-When your document is complete, click the **Knit** button at the top of the interface. R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!
-
-
----
-
-## Assignments
-
-::: {.callout-important icon="true"}
-## 📝 Assignment for next week
-
-Please complete the following tasks before our next meeting:
-
-- Download the script of this week (<a href="https://github.com/aymeric-collart/CHC9012/blob/master/assets/files/Script_Week10.R" target="_blank">here</a>)
-- Annotate each line of code (use your own words, these annotations are for your own reference!)
-- Upload the annotated script on Moodle
-:::

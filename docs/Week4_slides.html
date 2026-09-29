@@ -9,7 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
-  <title>CHU0387 – Week 10 - Presentation of the R interface and how to create reproducible data</title>
+  <title>CHU0387 – Week 4 - Installation of R and computer set-up</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,72 +27,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-816793a8a4a837d14f6ea458e2f1c5cb.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -195,8 +129,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Week 10 - Presentation of the R interface and how to create reproducible data</h1>
-  <p class="subtitle">CHC9012 | National Taiwan Normal University</p>
+  <h1 class="title">Week 4 - Installation of R and computer set-up</h1>
+  <p class="subtitle">CHU0387 | National Taiwan Normal University</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -206,13 +140,9 @@
 <h2>🎯 Goals &amp; key concepts</h2>
 <p><strong>Get to know R:</strong></p>
 <ul>
-<li><strong>Basics:</strong> What is R, and what is RStudio?</li>
-<li><strong>Simple coding:</strong> What are the most important functions in R?</li>
-<li><strong>Script sharing:</strong> How to write a beautiful script to share?</li>
+<li><strong>Basics:</strong> What is R, and what is RStudio? How to download and install it?</li>
+<li><strong>Getting ready:</strong> How to prepare your computer for future analyses?</li>
 </ul>
-</section>
-<section class="slide level2">
-
 </section>
 <section>
 <section id="part-1-setup-installation" class="title-slide slide level1 center">
@@ -309,287 +239,143 @@ A user-friendly interface that makes it incredibly easy to interact with R.
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
-<section id="part-2-working-in-rstudio" class="title-slide slide level1 center">
-<h1>💻 Part 2: Working in RStudio</h1>
+<section id="part-2-prepare-your-computer-r-projects" class="title-slide slide level1 center">
+<h1>💻 Part 2: Prepare your computer: R projects</h1>
 
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="the-interface-of-rstudio" class="title-slide slide level1 center">
-<h1>2.1. The Interface of RStudio</h1>
-
-</section>
-<section class="slide level2 scrollable">
-
-<div class="callout callout-warning no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>🎯 Objectives for this section</strong></p>
-</div>
-<div class="callout-content">
-<ol type="1">
-<li>Learn to navigate the RStudio interface and get comfortable with it.</li>
-<li>Write your very first lines of R code!</li>
-</ol>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2 scrollable">
-
-<h3 id="general-overview-blocks-blocks-blocks">General Overview: Blocks, Blocks, Blocks!</h3>
-<p>When you open RStudio for the very first time, you should see something similar to the picture below.</p>
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_FirstPage.png"></p>
-<p>The best way to apprehend RStudio is to see the interface as a collection of <strong>blocks</strong>, each serving a specific purpose. There are four main blocks. I give them unofficial names to make them easier to remember:</p>
-<ol type="1">
-<li>💻 <strong>The Computer Block</strong></li>
-<li>🗂️ <strong>The Variable Block</strong></li>
-<li>📝 <strong>The Script Block</strong></li>
-<li>⚙️ <strong>The Console Block</strong></li>
-</ol>
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_4Blocks.png"></p>
-</section>
-<section class="slide level2">
-
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">💻 The Computer Block (Bottom-Right)</a></li><li><a href="#tabset-2-2">🗂️ The Variable Block (Top-Right)</a></li><li><a href="#tabset-2-3">⚙️ The Console Block (Bottom-Left)</a></li><li><a href="#tabset-2-4">📝 The Script Block (Top-Left)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<p>Click on the <strong>Files</strong> button in this block. You will see a list of files and folders from your computer. This interface allows you to communicate and navigate directly with your hard drive, right from inside RStudio!</p>
-<div class="callout callout-note callout-style-simple">
-<div class="callout-body">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-content">
-<p><strong>Take a second to play with it:</strong> Click on the folders. Try to navigate to your Documents or Desktop. There is no mystery here—it works exactly like navigating folders on your computer normally does!</p>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-2-2">
-<p><strong>Environment tab</strong>: Where variables you create while coding are temporarily stored. <br><br> In the ‘Console block’ (bottom-left), type this code and press Enter:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Introduction to <strong>variables</strong>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>a <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Nothing appears in the console anymore. But look at your Variable block!</p>
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/VariableBlock_WithVariable.png"></p>
-<p>You have stored the calculation inside a variable called <code>a</code>. You can call it anytime simply by typing <code>a</code> in the console, or even add to it by typing <code>a + 2</code>!</p>
-</div>
-<div id="tabset-2-3">
-<p>You just had a glimpse of it. <strong>The console block is the engine room where the code is actually run.</strong> When you type commands here and press Enter, R executes them immediately.</p>
-</div>
-<div id="tabset-2-4">
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/OpenNewScript.gif"></p>
-<p>Type the following lines into your new Script block:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>    <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb4-2"><a></a>    a <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb4-3"><a></a>    a</span>
-<span id="cb4-4"><a></a>    a <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Select all the text with your mouse, and click <strong>‘Run’</strong>.</p>
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Script_Demo.gif"></p>
-<p>Now you can go to <code>File &gt; Save</code> and save this script to your computer. The next time you open it, all your code will still be there!</p>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="exercise-make-it-your-own">🎨 Exercise: Make it your own!</h3>
-<p>Your four blocks are like construction toys. You can change their size by dragging the borders, or even change the background color to a dark theme!</p>
-<p><strong>Path:</strong> <code>Tools &gt; Global Options... &gt; Appearance &gt; Editor theme</code></p>
-
-<img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ChangeColor.gif" class="r-stretch"></section></section>
-<section>
-<section id="libraries-packages" class="title-slide slide level1 center">
-<h1>2.2. Libraries (Packages)</h1>
-
-</section>
-<section id="terminology" class="slide level2">
-<h2>Terminology</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Concept</th>
-<th style="text-align: left;">Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Line of code</strong></td>
-<td style="text-align: left;">A single, simple instruction (e.g., <code>4 + 2</code>).</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Function</strong></td>
-<td style="text-align: left;">A pre-packaged cluster of code that performs a specific task.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Package / Library</strong></td>
-<td style="text-align: left;">A downloadable folder containing hundreds of useful functions!</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section class="slide level2 scrollable">
-
-<h3 id="how-to-install-and-use-libraries">How to install and use Libraries</h3>
-<p>You only need to install a package <strong>once</strong>, but you must load it <strong>every time</strong> you open RStudio.</p>
-<div class="fragment fade-up">
-<p>In your Console, type this to install <code>ggplot2</code> (a famous plotting package):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment fade-up">
-<p>Once it finishes installing, you load it into your current session by typing:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment fade-up">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>🍳 The Cookbook Metaphor</strong></p>
-</div>
-<div class="callout-content">
-<p>Imagine you want to cook a complex dinner.</p>
-<ol type="1">
-<li><p><code>install.packages()</code> is like going to the bookstore to buy a recipe book. You bring it home and put it on your shelf.</p></li>
-<li><p><code>library()</code> is like taking the book off the shelf and opening it on your kitchen counter. You have to open it every time you want to use those specific recipes!</p></li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="essential-r-syntax-data" class="title-slide slide level1 center">
-<h1>2.3. Essential R Syntax &amp; Data</h1>
-
-</section>
-<section id="a.-the-working-directory" class="slide level2">
-<h2>A. The Working Directory</h2>
-<p>Before doing <em>anything</em> with data, you must tell R exactly which folder on your computer to look in. This is your <strong>Working Directory</strong>.</p>
-<p>Use the Computer Block to navigate to your project folder. Click the <strong>Gear Icon</strong>, and select <strong>“Save as Working Directory”</strong>.</p>
-
-<img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/SetWorkingDirectory.gif" class="r-stretch"></section>
-<section id="b.-comments" class="slide level2">
-<h2>B. Comments</h2>
-<p>Use the <code>#</code> symbol to write notes to yourself. R will completely ignore anything written after a hashtag!</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="do">### This is a comment. R will not run this.</span></span>
-<span id="cb7-2"><a></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span> <span class="do">### This adds two numbers together!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="c.-loading-data" class="slide level2">
-<h2>C. Loading Data</h2>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<div style="width: 60%; margin: auto;">
 <div class="callout callout-tip callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Data to use</strong></p>
+<p><strong>Why?</strong></p>
 </div>
 <div class="callout-content">
-<p>You need to download <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv">this file</a> and place it in the folder for this class in the <code>Documents</code> folder of your computer.</p>
+<p>We want to be <em>organized</em> and <strong>not messy</strong>!</p>
 </div>
 </div>
 </div>
-<div class="fragment fade-up">
-<p>Let’s import a <code>.csv</code> dataset (like an Excel file). We use the <code>read.csv()</code> function and assign it to a variable called <code>data</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"GACTT_RESULTS_ANONYMIZED_v2.csv"</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment fade-up">
-<p>Alternatively, you can use the RStudio interface! In your Variable block, click <strong>“Import Dataset” &gt; “From Text (base)”</strong>, select your file, and click Import.</p>
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ImportDataBaseR.gif"></p>
+<ul>
+<li><strong>Section 1.1:</strong> Prepare the folder in your computer.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Section 1.2:</strong> Create the related R project.</li>
+</ul>
 </div>
 </section>
-<section id="d.-transforming-and-summarizing-data" class="slide level2">
-<h2>D. Transforming and Summarizing Data</h2>
-<div class="fragment fade-up">
-<p>Once loaded, you can inspect your data using <code>str(data)</code> to see its structure, or <code>summary(data)</code> to get a quick mathematical overview.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">str</span>(data)</span>
-<span id="cb9-2"><a></a></span>
-<span id="cb9-3"><a></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="setting-up-your-folders" class="slide level2 scrollable" data-vertical-align="center">
+<h2>1.1 Setting up your folders</h2>
+<div class="fragment">
+<ol type="1">
+<li>Navigate to your <strong><code>Documents</code></strong> (or <strong><code>文件</code></strong>) folder.</li>
+</ol>
 </div>
-<div class="fragment fade-up">
-<p>Often, survey data comes in as plain text when it should be categorized into groups (Factors). We fix this using <code>as.factor()</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>data<span class="sc">$</span>What.is.your.age. <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>What.is.your.age.)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>(The <code>$</code> symbol tells R to look <strong>inside</strong> the dataset for a specific column!)</em></p>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Create your <strong>root folder</strong>: <code>CHU0358_DocumentsScripts</code></li>
+</ol>
 </div>
-<div class="fragment fade-up">
-<p>If we want to count how many people fit into different groups, we can use the powerful <code>dplyr</code> package:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb11-2"><a></a></span>
-<span id="cb11-3"><a></a>data3 <span class="ot">&lt;-</span> data2 <span class="sc">%&gt;%</span> </span>
-<span id="cb11-4"><a></a>  <span class="fu">group_by</span>(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-5"><a></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ResultsSummarize.png"></p>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Add the <strong>Project Subfolders</strong>:
+<ul>
+<li>📁 <code>Slides</code>: Presentation files.</li>
+<li>📁 <code>PreprocessingAnalysesR</code>: Datasets &amp; R code.</li>
+</ul></li>
+</ol>
 </div>
 </section>
-<section id="e.-plotting-the-data" class="slide level2">
-<h2>E. Plotting the Data</h2>
-<p>With our data summarized, we can use the built-in <code>plot()</code> function to visualize it:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">plot</span>(<span class="at">x =</span> data3<span class="sc">$</span>What.is.your.age., <span class="at">y =</span> data3<span class="sc">$</span>Count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section></section>
-<section>
-<section id="part-3-reproducible-data-with-r-markdown" class="title-slide slide level1 center">
-<h1>📊 Part 3: Reproducible data with R Markdown</h1>
+<section id="you-should-obtain-something-like-this" class="slide level2 center">
+<h2>You should obtain something like this</h2>
 
-</section>
-<section id="how-to-create-a-beautiful-convenient-and-shareable-script" class="slide level2">
-<h2>How to create a beautiful, convenient and shareable script?</h2>
-<p>To start, click <strong>“New File” &gt; “R Markdown…”</strong></p>
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png"></p>
-<p>RStudio will prompt you for a Title and Author. Once created, you will see a document with a <strong>YAML Header</strong> at the top between dashed lines <code>---</code>. This header controls the settings for your final document.</p>
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png"></p>
-</section>
-<section id="writing-text-and-code" class="slide level2">
-<h2>Writing Text and Code</h2>
-<p>In an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a <strong>Code Chunk</strong>. Click the “Insert” button at the top of the script and select “R”. A grey box will appear.</p>
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png"></p>
-<p>You can run these individual chunks using the green <strong>Play Button</strong> in the corner of the grey box.</p>
-<p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png"></p>
-</section>
-<section id="the-magic-knit-button" class="slide level2">
-<h2>The Magic “Knit” Button</h2>
-<p>When your document is complete, click the <strong>Knit</strong> button at the top of the interface. R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!</p>
-</section>
-<section id="assignments" class="slide level2">
-<h2>Assignments</h2>
-<div class="callout callout-important callout-titled callout-style-default">
+<img data-src="images/clipboard-99706317.png" class="r-stretch"><div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>📝 Assignment for next week</strong></p>
+<p><strong>Pay attention to the names</strong></p>
 </div>
 <div class="callout-content">
-<p>Please complete the following tasks before our next meeting:</p>
-<ul>
-<li>Download the script of this week (<a href="https://github.com/aymeric-collart/CHC9012/blob/master/assets/files/Script_Week10.R" target="_blank">here</a>)</li>
-<li>Annotate each line of code (use your own words, these annotations are for your own reference!)</li>
-<li>Upload the annotated script on Moodle</li>
+<p>Generally, it is better not to use any space when naming folders and files!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="initializing-your-r-project" class="slide level2" data-vertical-align="center">
+<h2>1.2 Initializing Your R Project</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="fragment" data-fragment-index="1">
+<p><strong>1. Launch <code>New Project Wizard</code></strong> <i class="fa-solid fa-square-plus" style="color: #2c7a7b;"></i> <br><small>Click the <strong>blue cube icon</strong> in the top-left corner of RStudio.</small></p>
+</div>
+<p><br></p>
+<div class="fragment" data-fragment-index="2">
+<p><strong>2. Select project type</strong> <i style="color: #2c7a7b;"></i> <br><small>Choose <strong>“Existing Directory”</strong> to link R to your folder structure.</small></p>
+</div>
+<p><br></p>
+<div class="fragment" data-fragment-index="3">
+<p><strong>3. Finalize Connection</strong> <i class="fa-solid fa-circle-check" style="color: #2c7a7b;"></i> <br><small>Browse to <code>PreprocessingAnalysesR</code>, check <strong>“Open in a new session”</strong>, and click <strong>Create Project</strong>.</small></p>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="r-stack">
+<p><img data-src="images/clipboard-2121617076.png" class="fragment fade-in-then-out" data-fragment-index="1" width="100"></p>
+<p><img data-src="images/clipboard-3751932394.png" class="fragment fade-in-then-out" data-fragment-index="2" width="500"></p>
+<p><img data-src="images/clipboard-1025670899.png" class="fragment" data-fragment-index="3" width="500"></p>
+</div>
+</div></div>
+<div class="fragment">
+<div class="fragment" data-fragment-index="3">
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p><strong>Benefit:</strong> An <code>.Rproj</code> file sets your “Working Directory” automatically!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="other-advantages-of-creating-projects" class="slide level2 center scrollable">
+<h2>Other advantages of creating projects</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ol type="1">
+<li>One RStudio window = One project</li>
+<li>Switch between them without worrying about the working directory of trying to find the right files!</li>
+<li>List of your projects on the top-right corner of RStudio. Here is mine for example:</li>
+</ol>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/clipboard-1750222853.png" width="400"></p>
+</div></div>
+</section>
+<section id="in-class-exercise" class="slide level2">
+<h2>📝 In-class exercise!</h2>
+<br><br>
+<center>
+<p><strong>Task list:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Find the R script from last week and move it to the <code>PreprocessingAnalysesR</code> folder.</label></li>
+<li><label><input type="checkbox">Open the script within your newly created project.</label></li>
 </ul>
-</div>
-</div>
-</div>
 
 
-</section></section>
+</center></section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
