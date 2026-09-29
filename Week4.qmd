@@ -138,7 +138,7 @@ No code this week, just pay extra attention!
 :::
 
 ::: {.text-center .mb-4}
-<a href="week4_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial </a>
+<a href="Week4_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial </a>
 :::
 
 <br>

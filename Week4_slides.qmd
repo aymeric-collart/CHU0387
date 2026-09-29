@@ -16,9 +16,17 @@ format:
 ## 🎯 Goals & key concepts
 **Get to know R:**
 
+::: {.fragment .fade-up}
+
 -   **Basics:** What is R, and what is RStudio? How to download and install it?
+
+:::
+
+::: {.fragment .fade-up}
+
 -   **Getting ready:** How to prepare your computer for future analyses?
 
+:::
 
 
 # 🎒 Part 1: Setup & Installation
@@ -27,25 +35,28 @@ format:
 
 ## 1.1. What is R? What is RStudio?
 
-
 :::: {.columns}
-::: {.column width="45%"}
+::: {.column .fragment width="45%"}
+
 <div style="text-align: center; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
   <h3 style="color: #3498db; margin-top: 0;">The Engine: R</h3>
   ![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/R_logo.png){width="360"}
-<p style="font-size: 0.9em; color: #7f8c8d; margin-top: 15px;">The main program where all the mathematical magic and deep computations happen.</p>
-  </div>
+  <p style="font-size: 0.9em; color: #7f8c8d; margin-top: 15px;">The main program where all the mathematical magic and deep computations happen.</p>
+</div>
+
 :::
-  
+
 ::: {.column width="10%"}
 :::
-  
-::: {.column width="45%"}
+
+::: {.column .fragment width="45%"}
+
 <div style="text-align: center; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
   <h3 style="color: #3498db; margin-top: 0;">The Dashboard: RStudio</h3>
   ![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_Logo.png){width="600"}
-<p style="font-size: 0.9em; color: #7f8c8d; margin-top: 15px;">A user-friendly interface that makes it incredibly easy to interact with R.</p>
-  </div>
+  <p style="font-size: 0.9em; color: #7f8c8d; margin-top: 15px;">A user-friendly interface that makes it incredibly easy to interact with R.</p>
+</div>
+
 :::
 ::::
 
@@ -215,11 +226,11 @@ Generally, it is better not to use any space when naming folders and files!
 
 ::: {.column width="40%"}
 ::: {.r-stack}
-![](images/clipboard-2121617076.png){.fragment .fade-in-then-out data-fragment-index="1" width="100"}
+![](images/clipboard-138747938.png){.fragment .fade-in-then-out data-fragment-index="1" width="100"}
 
-![](images/clipboard-3751932394.png){.fragment .fade-in-then-out data-fragment-index="2" width="500"}
+![](images/clipboard-3787337178.png){.fragment .fade-in-then-out data-fragment-index="2" width="500"}
 
-![](images/clipboard-1025670899.png){.fragment data-fragment-index="3" width="500"}
+![](images/clipboard-1153612672.png){.fragment data-fragment-index="3" width="500"}
 :::
 :::
 
@@ -249,7 +260,7 @@ Generally, it is better not to use any space when naming folders and files!
 
 ::: {.column width="40%"}
 
-![](images/clipboard-1750222853.png){width="400"}
+![](images/clipboard-933034794.png){width="400"}
 
 :::
 
@@ -261,7 +272,7 @@ Generally, it is better not to use any space when naming folders and files!
 <br><br>
 <center>**Task list:**
 
--   [ ] Find the R script from last week and move it to the `PreprocessingAnalysesR` folder.
+-   [ ] Try to find the folder we created using the RStudio interface.
 -   [ ] Open the script within your newly created project.
 
 

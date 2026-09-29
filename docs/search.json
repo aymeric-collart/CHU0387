@@ -276,7 +276,7 @@
     "href": "Week4_slides.html#goals-key-concepts",
     "title": "Week 4 - Installation of R and computer set-up",
     "section": "🎯 Goals & key concepts",
-    "text": "🎯 Goals & key concepts\nGet to know R:\n\nBasics: What is R, and what is RStudio? How to download and install it?\nGetting ready: How to prepare your computer for future analyses?"
+    "text": "🎯 Goals & key concepts\nGet to know R:\n\n\nBasics: What is R, and what is RStudio? How to download and install it?\n\n\n\n\nGetting ready: How to prepare your computer for future analyses?"
   },
   {
     "objectID": "Week4_slides.html#what-is-r-what-is-rstudio",
@@ -339,7 +339,7 @@
     "href": "Week4_slides.html#in-class-exercise",
     "title": "Week 4 - Installation of R and computer set-up",
     "section": "📝 In-class exercise!",
-    "text": "📝 In-class exercise!\n\n\nTask list:\n\nFind the R script from last week and move it to the PreprocessingAnalysesR folder.\nOpen the script within your newly created project."
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nTry to find the folder we created using the RStudio interface.\nOpen the script within your newly created project."
   },
   {
     "objectID": "Week3.html",
