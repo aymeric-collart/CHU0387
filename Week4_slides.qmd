@@ -273,6 +273,6 @@ Generally, it is better not to use any space when naming folders and files!
 <center>**Task list:**
 
 -   [ ] Try to find the folder we created using the RStudio interface.
--   [ ] Open the script within your newly created project.
+-   [ ] Play with the RStudio interface! (you can use the 'demo()' function, like 'demo(graphics)', or 'demo(image)')
 
 

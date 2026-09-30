@@ -339,7 +339,7 @@
     "href": "Week4_slides.html#in-class-exercise",
     "title": "Week 4 - Installation of R and computer set-up",
     "section": "📝 In-class exercise!",
-    "text": "📝 In-class exercise!\n\n\nTask list:\n\nTry to find the folder we created using the RStudio interface.\nOpen the script within your newly created project."
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nTry to find the folder we created using the RStudio interface.\nPlay with the RStudio interface! (you can use the ‘demo()’ function, like ‘demo(graphics)’, or ‘demo(image)’)"
   },
   {
     "objectID": "Week3.html",
