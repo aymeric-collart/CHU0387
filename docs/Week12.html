@@ -597,8 +597,8 @@ Note
 <p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7fe7c4ca6f03ea232f15" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-7fe7c4ca6f03ea232f15">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-3e1b921c045de619b525" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3e1b921c045de619b525">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -738,8 +738,8 @@ Note
 <p>Here is an overview of the workflow. First, we start with the clean corpus, and then we create a new dataset where the sentences are cut into words. Based on this new dataset, we can perform a KWIC analysis, create a word list, or combine the two types of analyses. Finally, we clean a little bit (as in the example below; punctuation marks, digits, selecting only the sentence/phrase, etc.), we add back the information from the original corpus, and we are done!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-d0c4a780cf2b60d6f4f7" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-d0c4a780cf2b60d6f4f7">{"x":{"diagram":"\n    graph TD\n        A[Corpus data] -- Identify the column with the text --> B[Segment into words];\n        B --> C[KWIC analysis];\n        B --> D[Word list];\n        C -- If combined analysis --> D;\n        D --> E[Clean a little bit];\n        C --> E;\n        E --> F[Add information from the original corpus];\n        F --> G[Done!];\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-501ad66590e0ba0d76f1" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-501ad66590e0ba0d76f1">{"x":{"diagram":"\n    graph TD\n        A[Corpus data] -- Identify the column with the text --> B[Segment into words];\n        B --> C[KWIC analysis];\n        B --> D[Word list];\n        C -- If combined analysis --> D;\n        D --> E[Clean a little bit];\n        C --> E;\n        E --> F[Add information from the original corpus];\n        F --> G[Done!];\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

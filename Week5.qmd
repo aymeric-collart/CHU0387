@@ -130,7 +130,16 @@ This week, we will have a tutorial on how to prepare your computer for further a
 
 **A brief summary of the essential elements:**
 
-[To complete later]
+* `install.packages()`: Downloads and installs a new package to your computer.
+* `library()`: Loads an installed package into your current R session so you can use its functions.
+* `read.csv()`: Imports a `.csv` dataset into R.
+* `str()`: Inspects the internal structure of a dataset.
+* `summary()`: Provides a quick mathematical and statistical overview of the dataset.
+* `as.factor()`: Converts a column or vector of data into categorical groups (factors).
+* `group_by()`: A `dplyr` function used to group data by one or more specific variables.
+* `summarize()`: A `dplyr` function used to compute summary statistics (such as counting observations using `n()`) for grouped data.
+* `plot()`: A built-in function to visualize your data and draw basic graphs.
+* `factor()`: Categorizes data, allowing you to manually set or reorder the levels of groups.
 
 <br>
 
@@ -323,12 +332,12 @@ You only need to install a package **once**, but you must load it **every time**
     
 In your Console, type this to install `ggplot2` (a famous plotting package):
 ```{r, eval=FALSE}
-    install.packages("ggplot2")
+install.packages("ggplot2")
 ```
     
 Once it finishes installing, you load it into your current session by typing:
 ```{r, eval=FALSE}
-    library(ggplot2)
+library(ggplot2)
 ```
     
 ::: {.callout-tip appearance="default"}
@@ -348,7 +357,11 @@ Imagine you want to cook a complex dinner.
 
 ## 3.1. The Working Directory
       
-Before doing *anything* with data, you must tell R exactly which folder on your computer to look in. This is your **Working Directory**. 
+Before doing *anything* with data, you must tell R exactly which folder on your computer to look in. This is your **Working Directory**.
+
+::: {.callout-warning appearance="default" icon="false"}
+### Reminder!! **Project set = Working directory set!**
+:::
     
 Use the Computer Block to navigate to your project folder. Click the **Gear Icon**, and select **"Save as Working Directory"**.
     
@@ -359,8 +372,8 @@ Use the Computer Block to navigate to your project folder. Click the **Gear Icon
 Use the `#` symbol to write notes to yourself. R will completely ignore anything written after a hashtag!
       
 ```{r, eval=FALSE}
-    ### This is a comment. R will not run this.
-    2 + 4 ### This adds two numbers together!
+### This is a comment. R will not run this.
+2 + 4 ### This adds two numbers together!
 ```
     
 ## 3.3. Loading Data

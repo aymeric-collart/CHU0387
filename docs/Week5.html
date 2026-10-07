@@ -656,7 +656,18 @@ td {
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p><strong>A brief summary of the essential elements:</strong></p>
-<p>[To complete later]</p>
+<ul>
+<li><code>install.packages()</code>: Downloads and installs a new package to your computer.</li>
+<li><code>library()</code>: Loads an installed package into your current R session so you can use its functions.</li>
+<li><code>read.csv()</code>: Imports a <code>.csv</code> dataset into R.</li>
+<li><code>str()</code>: Inspects the internal structure of a dataset.</li>
+<li><code>summary()</code>: Provides a quick mathematical and statistical overview of the dataset.</li>
+<li><code>as.factor()</code>: Converts a column or vector of data into categorical groups (factors).</li>
+<li><code>group_by()</code>: A <code>dplyr</code> function used to group data by one or more specific variables.</li>
+<li><code>summarize()</code>: A <code>dplyr</code> function used to compute summary statistics (such as counting observations using <code>n()</code>) for grouped data.</li>
+<li><code>plot()</code>: A built-in function to visualize your data and draw basic graphs.</li>
+<li><code>factor()</code>: Categorizes data, allowing you to manually set or reorder the levels of groups.</li>
+</ul>
 <p><br></p>
 <div class="text-center mb-3">
 <p><a href="javascript:void(0)" onclick="fetch('https://raw.githubusercontent.com/aymeric-collart/CHU0387/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv')
@@ -879,11 +890,11 @@ td {
 <p>You only need to install a package <strong>once</strong>, but you must load it <strong>every time</strong> you open RStudio.</p>
 <p>In your Console, type this to install <code>ggplot2</code> (a famous plotting package):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once it finishes installing, you load it into your current session by typing:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -912,14 +923,27 @@ The Cookbook Metaphor
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Before doing <em>anything</em> with data, you must tell R exactly which folder on your computer to look in. This is your <strong>Working Directory</strong>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reminder!! <strong>Project set = Working directory set!</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
 <p>Use the Computer Block to navigate to your project folder. Click the <strong>Gear Icon</strong>, and select <strong>“Save as Working Directory”</strong>.</p>
 <p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/SetWorkingDirectory.gif" class="img-fluid"></p>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>Use the <code>#</code> symbol to write notes to yourself. R will completely ignore anything written after a hashtag!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="do">### This is a comment. R will not run this.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span> <span class="do">### This adds two numbers together!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">### This is a comment. R will not run this.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span> <span class="do">### This adds two numbers together!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">

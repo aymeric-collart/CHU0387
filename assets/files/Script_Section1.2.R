@@ -1,4 +1,4 @@
-data <- read.csv("~/Fake/GACTT_RESULTS_ANONYMIZED_v2.csv", header=TRUE)
+data <- read.csv("GACTT_RESULTS_ANONYMIZED_v2.csv", header=TRUE)
 head(data, 5)
 str(data)
 summary(data)

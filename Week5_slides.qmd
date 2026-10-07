@@ -1,6 +1,6 @@
 ---
-title: "Week 11 - Preparation: Computer set-up and data imporation"
-subtitle: "CHC9012 | National Taiwan Normal University"
+title: "Week 5 - Presentation of the R interface and its basic functions"
+subtitle: "CHU0387 | National Taiwan Normal University"
 format: 
   revealjs:
     theme: serif
@@ -12,318 +12,482 @@ format:
     height: 720
 ---
 
-## ???? Goals
 
-**Prepare your computer:**
+## 🎯 Goals & key concepts
+**Get to know R:**
+
+- **Basics:** What is R, and what is RStudio?
+- **Hands-on:** What are the most important functions in R?
+
+
+# 💻  Part 1. The Interface of RStudio
+
+---
+
+
+::: {.callout-warning appearance="default" icon="false"}
+### 🎯 Objectives of this section
+1. Learn to navigate the RStudio interface and get comfortable with it.
+2. Write your very first lines of R code!
+:::
+
+---
+  
+### General Overview: Blocks, Blocks, Blocks!
+  
+When you open RStudio for the very first time, you should see something similar to the picture below.
+  
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_FirstPage.png)
+  
+---
+  
+  1. 💻  **The computer block**
+  2. 🗂️  **The variable block**
+  3. 📝  **The script block**
+  4. ⚙️  **The console block**
 
 ::: {.fragment .fade-up}
--   **Projects:** How to set-up a project in RStudio?
-:::
-
-::: {.fragment .fade-up}
--   **Advanced scripts:** How to use Markdown documents to share better scripts?
-:::
-
-::: {.fragment .fade-up}
--   **Data importation:** Where to find your PCIbex results file, and how to import it to RStudio?
-:::
-
-# ???? Part 1: Prepare your computer: R projects
-
-------------------------------------------------------------------------
-
-
-## {.center}
-
-::: {.callout-tip appearance="simple" style="width: 60%; margin: auto;"}
-### Why?
-
-We want to be *organized* and **not messy**!
-:::
-
-::: {.fragment .fade-up}
--   **Section 1.1:** Prepare the folder in your computer.
-:::
-
-::: {.fragment .fade-up}
--   **Section 1.2:** Create the related R project.
+  
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_4Blocks.png)
 :::
 
 ---
 
+### 💻 The computer block (Bottom-Right)
 
-## 1.1 Setting up your folders {vertical-align="center"}
+Click on the **Files** button in this block.
 
 
-::: {.fragment}
-1.  Navigate to your **`Documents`** (or **`???件`**) folder.
+You will see a list of files and folders from your computer. This interface allows you to communicate and navigate directly with your hard drive, right from inside RStudio!
+
+
+:::: {.fragment .fade-up}
+
+::: {.callout-note appearance="simple"}
+**Take a second to play with it:** <br>
+Click on the folders. Try to navigate to your Documents or Desktop.
+It works exactly like navigating folders on your computer normally does!
 :::
 
-::: {.fragment}
-2.  Create your **Root Folder**: `CHC9012_Spring2025`
-:::
-
-::: {.fragment}
-3.  Add the **Project Subfolders**:
-    *   ???? `Slides`: Presentation files.
-    *   ???? `PCIbex_design`: Scripts & materials.
-    *   ???? `PreprocessingAnalysesR`: Datasets & R code.
-:::
-
+::::
 
 ---
 
-## You should obtain something like this {.center}
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/clipboard-1590947435.png)
-
-
-::: {.fragment}
-
-::: {.callout-tip appearance="simple"}
-### Pay attention to the names
-
-Generally, it is better not to use any space when naming folders and files!
-:::
-
-:::
-
----
-
-## 1.2 Initializing Your R Project {vertical-align="center"}
-
-::: {.columns}
-
-::: {.column width="60%"}
-
-::: {.fragment data-fragment-index="1"}
-**1. Launch `New Project Wizard`** <i class="fa-solid fa-square-plus" style="color: #2c7a7b;"></i>
-<br><small>Click the **blue cube icon** in the top-left corner of RStudio.</small>
-:::
-
-<br>
-
-::: {.fragment data-fragment-index="2"}
-**2. Select project type** <i style="color: #2c7a7b;"></i>
-<br><small>Choose **"Existing Directory"** to link R to your folder structure.</small>
-:::
-
-<br>
-
-::: {.fragment data-fragment-index="3"}
-**3. Finalize Connection** <i class="fa-solid fa-circle-check" style="color: #2c7a7b;"></i>
-<br><small>Browse to `PreprocessingAnalysesR`, check **"Open in a new session"**, and click **Create Project**.</small>
-:::
-:::
-
-::: {.column width="40%"}
-::: {.r-stack}
-![](images/clipboard-2121617076.png){.fragment .fade-in-then-out data-fragment-index="1" width="100"}
-
-![](images/clipboard-3751932394.png){.fragment .fade-in-then-out data-fragment-index="2" width="500"}
-
-![](images/clipboard-1025670899.png){.fragment data-fragment-index="3" width="500"}
-:::
-:::
-
-:::
-
-::: {.fragment}
-
-::: {.callout-note appearance="simple" .fragment data-fragment-index="3"}
-**Benefit:** An `.Rproj` file sets your "Working Directory" automatically!
-:::
-
-:::
-
----
-
-## Other advantages of creating projects {.center}
-
-::: {.columns}
-
-::: {.column width="60%"}
-
-1.  One RStudio window = One project
-2.  Switch between them without worrying about the working directory of trying to find the right files!
-3.  List of your projects on the top-right corner of RStudio. Here is mine for example:
-
-:::
-
-::: {.column width="40%"}
-
-![](images/clipboard-1750222853.png){width="400"}
-
-:::
-
-:::
-
----
-
-## ???? In-class exercise!
-<br><br>
-<center>**Task list:**
-
--   [ ] Find the R script from last week and move it to the `PreprocessingAnalysesR` folder.
--   [ ] Open the script within your newly created project.
-
-
-# ???? Part 2: Better and reproducible scripts with R Markdown
-
-
-## From raw script to functional: R Markdown {.center}
-
-::: {.columns}
-
-::: {.column width="55%"}
-::: {.fragment data-fragment-index="1"}
-**1. Create the file** ????
-<br><small>Go to **New File > R Markdown**. This moves you from raw code to a "living" document.</small>
-:::
-
-::: {.fragment data-fragment-index="2"}
-**2. Configure (YAML)** ???�?
-<br><small>The header between `---` controls your title, author, and output format (HTML/PDF).</small>
-:::
-
-::: {.fragment data-fragment-index="3"}
-**3. Text + Code chunks** ????
-<br><small>Write text normally; insert **Code Chunks** (`{r}`) for analysis.</small>
-:::
-
-::: {.fragment data-fragment-index="4"}
-**4. Run your codes** ??��??
-<br><small>Use the green **Play Button** to test individual steps.</small>
-:::
-
-::: {.fragment data-fragment-index="5"}
-**5. The Final "Knit"** ??��
-<br><small>Click **Knit** to stitch everything into a polished report automatically!</small>
-:::
-:::
-
-::: {.column width = "45%"}
-::: {.r-stack}
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png){.fragment .fade-in-then-out data-fragment-index="1"}
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png){.fragment .fade-in-then-out data-fragment-index="2" style="width: 100%; height: auto; border-radius: 8px;"}
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png){.fragment .fade-in-then-out data-fragment-index="3" style="width: 100%; height: auto; border-radius: 8px;"}
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png){.fragment data-fragment-index="4" style="width: 100%; height: auto; border-radius: 8px;"}
-:::
-:::
-
-:::
-
----
-
-## ???? In-class exercise!
-<br><br>
-<center>**Task list:**
-
--   [ ] Create a new Markdown document, and call it `ScriptWeek10_Markdown`.
--   [ ] Use the script from last week, but adapt it to the Markdown format. Be creative!
-
-
-# ???? Part 3: Download your PCIbex results and import them into RStudio
-
-## Fake experiment for this class
-
-<a href="https://farm.pcibex.net/p/qCbaTy/" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Try the experiment </a>
-
-::: {.callout-note collapse="true" title="The code of the fake experiment is given on the website"}
-
-:::
-
-::: {.callout-tip appearance="simple"}
-### Fake results!
-
-An AI robot did the experiment several times. I also pretended that I was a "bad" participant several times. The results are just to show you how to analyze data from PCIbex, they do not have other value!
-:::
-
----
-
-::: panel-tabset
-## 3.1. Download the results file
-
--   On the PCIbex platform, click on the `Results` button.
-
--   Then, click on `Download`.
-
-![](images/clipboard-1787923676.png)
-
--   Finally, place the file in the folder you just created on your computer!
-
-## 3.2. Importing the data into RStudio
-
--   [ ] First, open a new Markdown document. Call it `DataImportFromPCIbex`.
-
--   [ ] Second, create an `r` block, paste the following code, and run it to activate the function.
-
-``` diff
-read.pcibex <- function(filepath, auto.colnames=TRUE, fun.col=function(col,cols){cols[cols==col]<-paste(col,"Ibex",sep=".");return(cols)}) {
-  n.cols <- max(count.fields(filepath,sep=",",quote=NULL),na.rm=TRUE)
-  if (auto.colnames){
-    cols <- c()
-    con <- file(filepath, "r")
-    while ( TRUE ) {
-      line <- readLines(con, n = 1, warn=FALSE)
-      if ( length(line) == 0) {
-        break
-      }
-      m <- regmatches(line,regexec("^# (\\d+)\\. (.+)\\.$",line))[[1]]
-      if (length(m) == 3) {
-        index <- as.numeric(m[2])
-        value <- m[3]
-        if (is.function(fun.col)){
-         cols <- fun.col(value,cols)
-        }
-        cols[index] <- value
-        if (index == n.cols){
-          break
-        }
-      }
-    }
-    close(con)
-    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=cols))
+### 🗂 The variable block (Top-Right)
+
+<style>
+  .top-stack > * {
+    margin: 0 !important;
   }
-  else{
-    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=seq(1:n.cols)))
+</style>
+
+<div class="r-stack top-stack">
+<div class="fragment fade-in-then-out">
+**Environment tab**: Where variables you create while coding are temporarily stored.
+
+</div>
+<div class="fragment fade-in-then-out">
+
+In the 'Console block' (bottom-left), type this code and press Enter:
+
+```r
+4 + 2
+```
+</div>
+<div class="fragment fade-in-then-out">
+Now type this code and press Enter:
+
+```r
+4 + 2 + 2
+```
+</div>
+  <div class="fragment fade-in-then-out">
+  Introduction to **variables**:
+  
+  ```r
+  a <- 4 + 2
+  ```
+  </div>
+  
+  <div class="fragment fade-in">
+Nothing appears in the console, but look at the variable block:
+
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/VariableBlock_WithVariable.png)
+
+You have stored the calculation inside a variable called `a`. You can call it anytime simply by typing `a` in the console, or even add to it by typing `a + 2`!
+  </div>
+
+
+</div>
+
+
+---
+
+### ⚙️ The console block (Bottom-Left)
+<br>
+You just had a glimpse of it.
+
+<br><br>
+
+**The console block is the engine room where the code is actually run.**
+
+<br><br>
+
+When you type commands here and press Enter, R executes them immediately. 
+
+---
+
+### 📝 The script block (Top-Left)
+
+<style>
+  .top-stack > * {
+    margin: 0 !important;
   }
+</style>
+
+<div class="r-stack top-stack">
+<div class="fragment fade-in-then-out">
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/OpenNewScript.gif)
+</div>
+<div class="fragment fade-in-then-out">
+
+Type the following lines into your new script block:
+      
+```r
+    4 + 2
+    a <- 4 + 2
+    a
+    a + 2
+```
+
+</div>
+<div class="fragment fade-in-then-out">
+    
+Select all the text with your mouse, and click **'Run'**. 
+    
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Script_Demo.gif)
+</div>
+<div class="fragment fade-in-then-out">
+      
+Now you can go to `File > Save` and save this script to your computer. The next time you open it, all your code will still be there!
+</div>
+
+</div>
+
+---
+      
+### 🎨  Exercise: Make it your own!
+      
+Your four blocks are like construction toys. You can change their size by dragging the borders, or even change the background color to a dark theme!
+      
+**Path:** `Tools > Global Options... > Appearance > Editor theme`
+    
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ChangeColor.gif)
+
+
+# Part 2. Libraries (Packages)
+
+---
+      
+## Terminology
+    
+| Concept | Definition |
+|:---|:---|
+| **Line of code** | A single, simple instruction (e.g., `4 + 2`). |
+| **Function** | A pre-packaged cluster of code that performs a specific task. |
+| **Package / Library** | A downloadable folder containing hundreds of useful functions! |
+      
+
+---
+
+### How to install and use Libraries
+      
+You only need to install a package **once**, but you must load it **every time** you open RStudio. 
+
+::: {.fragment .fade-up}
+    
+In your Console, type this to install `ggplot2` (a famous plotting package):
+
+```r
+install.packages("ggplot2")
+```
+
+:::
+
+::: {.fragment .fade-up}
+    
+Once it finishes installing, you load it into your current session by typing:
+
+```r
+library(ggplot2)
+```
+
+:::
+
+::: {.fragment .fade-up}
+    
+::: {.callout-tip appearance="default"}
+### The 'cookbook metaphor'
+Imagine you want to cook a complex dinner. 
+
+1. `install.packages()` is like going to the bookstore to buy a recipe book. You bring it home and put it on your shelf. 
+
+2. `library()` is like taking the book off the shelf and opening it on your kitchen counter. You have to open it every time you want to use those specific recipes!
+:::
+
+:::
+      
+# Part 3. Essential R syntax & data
+
+---
+      
+## A. The working directory
+
+
+<style>
+  .top-stack > * {
+    margin: 0 !important;
+  }
+</style>
+
+<div class="r-stack top-stack">
+<div class="fragment fade-in-then-out">
+
+Before doing *anything*, you must tell R which folder you are working in. This is your **working directory**. 
+
+::: {.callout-warning appearance="default" icon="false"}
+### Reminder!! **Project set = Working directory set!**
+:::
+
+</div>
+<div class="fragment fade-in">
+    
+**How to change it?** Use the computer block to navigate to your project folder. Click the **Gear Icon**, and select **"Save as Working Directory"**.
+    
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/SetWorkingDirectory.gif)
+
+</div>
+</div>
+
+
+---
+    
+## B. Comments
+      
+Use the `#` symbol to write notes to yourself. R will completely ignore anything written after a hashtag!
+
+
+
+```r
+### This is a comment. R will not run this.
+2 + 4 ### This adds two numbers together.
+```
+
+---
+ 
+## C. Loading Data
+
+
+<style>
+.custom-btn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;      
+  font-size: 1.75rem;          /* Increased font size to match presentation scale */
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #0d6efd;
+  background-color: transparent;
+  border: 2px solid #0d6efd;  
+  border-radius: 0.375rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
+.custom-btn:hover {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+.top-stack > * {
+margin: 0 !important;
+}
+</style>
+
+<div class="r-stack top-stack">
+<div class="fragment fade-in-then-out">
+    
+::: {.callout-tip appearance="simple"}
+### Data to use
+
+You need to download [this file] and place it in the folder for this class in the `Documents` folder of your computer.
+
+<div style="text-align: center; margin: 1.5rem 0;">
+<a href="javascript:void(0)" 
+   onclick="fetch('https://raw.githubusercontent.com/aymeric-collart/CHU0387/main/assets/files/GACTT_RESULTS_ANONYMIZED_v2.csv')
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'GACTT_RESULTS_ANONYMIZED_v2.csv';
+       document.body.appendChild(a);
+       a.click();
+       window.URL.revokeObjectURL(url);
+     })" 
+   class="custom-btn">
+  <i class="bi bi-download"></i> Download the dataset for the script
+</a>
+</div>
+
+:::
+
+</div>
+<div class="fragment fade-in-then-out">
+
+
+Let's import a `.csv` dataset (like an Excel file). We use the `read.csv()` function and assign it to a variable called `data`.
+
+```r
+data <- read.csv("GACTT_RESULTS_ANONYMIZED_v2.csv", header=TRUE)
 ```
 
--   [ ] Third, import the data using this function. The code is as below. We store the data into a new dataset (variable) that we call `data`.
+</div>
+<div class="fragment fade-in">
 
-``` diff
-data <- read.pcibex("results_FAKE_FOR_CHC9012.csv")
-```
+You can also use the RStudio interface. In the variable block: **"Import Dataset" > "From Text (base)"**, select your file, and click Import. 
 
--   [ ] Finally, it is always a good idea to have a look at the data that you just imported. You can do that through these lines of code.
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ImportDataBaseR.gif)
 
-``` diff
-head(data, 20)
+</div>
+</div>
 
+---
+
+## D. Transforming and summarizing sata
+
+<style>
+  .top-stack > * {
+    margin: 0 !important;
+  }
+</style>
+
+<div class="r-stack top-stack">
+<div class="fragment fade-in-then-out">
+
+Once loaded, you can inspect your data using `str(data)` to see its structure, or `summary(data)` to get a quick mathematical overview. 
+
+```r
 str(data)
 
 summary(data)
 ```
-:::
+
+</div>
+<div class="fragment fade-in-then-out">
+
+Often, data comes in as plain text when it should be categorized into groups (Factors). We fix this using `as.factor()`:
+
+```r
+data$What.is.your.age. <- as.factor(data$What.is.your.age.)
+```
+*(The `$` symbol tells R to look **inside** the dataset for a specific column!)*
+
+</div>
+
+<div class="fragment fade-in">
+
+If we want to count how many people fit into different groups, we can use the `dplyr` package:
+
+```r
+install.packages("dplyr")
+library(dplyr)
+
+data3 <- data2 %>% 
+  group_by(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) %>% 
+  summarize(Count = n())
+```
+
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ResultsSummarize.png)
+
+</div>
+</div>
 
 ---
 
-## ???? In-class exercise!
-<br><br>
-<center>**Task list:**
+## E. Plotting the Data
 
--   [ ] Look at the whole table. To do so, click on the variable, or just write `view(data)` in the console
--   [ ] Manually, identify and take notes of (1) what information is missing, (2) which rows should be erased/kept, and (3) which columns should be deleted or added.
+With our data summarized, we can use the built-in `plot()` function to visualize it:
+
+```r
+plot(x = data3$What.is.your.age., y = data3$Count)
+```
+
 
 ---
+
+## Assignments
+
+<style>
+.custom-btn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;      
+  font-size: 1.75rem;          /* Increased font size to match presentation scale */
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #0d6efd;
+  background-color: transparent;
+  border: 2px solid #0d6efd;  
+  border-radius: 0.375rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.custom-btn:hover {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+.top-stack > * {
+margin: 0 !important;
+}
+</style>
 
 ::: {.callout-important icon="true"}
-## ???? Assignment for next week
+## 📝 Assignment for next week
 
-No assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.
+Please complete the following tasks **before next Wednesday (10/14)**:
+
+- Download the script of this week (<a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/Script_Section1.2.R" target="_blank">here</a>)
+
+<div style="text-align: center; margin: 1.5rem 0;">
+<a href="javascript:void(0)" 
+   onclick="fetch('https://raw.githubusercontent.com/aymeric-collart/CHU0387/main/assets/files/Script_Section1.2.R')
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'Script_Section1.2.R';
+       document.body.appendChild(a);
+       a.click();
+       window.URL.revokeObjectURL(url);
+     })" 
+   class="custom-btn">
+  <i class="bi bi-download"></i>Download the script to annotate for your assignment
+</a>
+</div>
+
+- Annotate each line of code (use your own words, these annotations are for your own reference!)
+- Upload the annotated script on Moodle
 :::

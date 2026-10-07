@@ -1,275 +1,180 @@
 [
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
+    "objectID": "week5_slides.html#goals-key-concepts",
+    "href": "week5_slides.html#goals-key-concepts",
+    "title": "Week 5 - Presentation of the R interface and its basic functions",
+    "section": "🎯 Goals & key concepts",
+    "text": "🎯 Goals & key concepts\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nHands-on: What are the most important functions in R?"
+  },
+  {
+    "objectID": "week5_slides.html#terminology",
+    "href": "week5_slides.html#terminology",
+    "title": "Week 5 - Presentation of the R interface and its basic functions",
+    "section": "Terminology",
+    "text": "Terminology\n\n\n\n\n\n\n\nConcept\nDefinition\n\n\n\n\nLine of code\nA single, simple instruction (e.g., 4 + 2).\n\n\nFunction\nA pre-packaged cluster of code that performs a specific task.\n\n\nPackage / Library\nA downloadable folder containing hundreds of useful functions!"
+  },
+  {
+    "objectID": "week5_slides.html#a.-the-working-directory",
+    "href": "week5_slides.html#a.-the-working-directory",
+    "title": "Week 5 - Presentation of the R interface and its basic functions",
+    "section": "A. The working directory",
+    "text": "A. The working directory\n\n\n\nBefore doing anything, you must tell R which folder you are working in. This is your working directory.\n\n\n\nReminder!! Project set = Working directory set!\n\n\n\n\n\n\n\n\nHow to change it? Use the computer block to navigate to your project folder. Click the Gear Icon, and select “Save as Working Directory”."
+  },
+  {
+    "objectID": "week5_slides.html#b.-comments",
+    "href": "week5_slides.html#b.-comments",
+    "title": "Week 5 - Presentation of the R interface and its basic functions",
+    "section": "B. Comments",
+    "text": "B. Comments\nUse the # symbol to write notes to yourself. R will completely ignore anything written after a hashtag!\n### This is a comment. R will not run this.\n2 + 4 ### This adds two numbers together."
+  },
+  {
+    "objectID": "week5_slides.html#c.-loading-data",
+    "href": "week5_slides.html#c.-loading-data",
+    "title": "Week 5 - Presentation of the R interface and its basic functions",
+    "section": "C. Loading Data",
+    "text": "C. Loading Data\n\n\n\n\n\n\n\n\n\nData to use\n\n\nYou need to download [this file] and place it in the folder for this class in the Documents folder of your computer.\n\n  Download the dataset for the script \n\n\n\n\n\n\nLet’s import a .csv dataset (like an Excel file). We use the read.csv() function and assign it to a variable called data.\ndata &lt;- read.csv(\"GACTT_RESULTS_ANONYMIZED_v2.csv\", header=TRUE)\n\n\nYou can also use the RStudio interface. In the variable block: “Import Dataset” &gt; “From Text (base)”, select your file, and click Import."
+  },
+  {
+    "objectID": "week5_slides.html#d.-transforming-and-summarizing-sata",
+    "href": "week5_slides.html#d.-transforming-and-summarizing-sata",
+    "title": "Week 5 - Presentation of the R interface and its basic functions",
+    "section": "D. Transforming and summarizing sata",
+    "text": "D. Transforming and summarizing sata\n\n\n\nOnce loaded, you can inspect your data using str(data) to see its structure, or summary(data) to get a quick mathematical overview.\nstr(data)\n\nsummary(data)\n\n\nOften, data comes in as plain text when it should be categorized into groups (Factors). We fix this using as.factor():\ndata$What.is.your.age. &lt;- as.factor(data$What.is.your.age.)\n(The $ symbol tells R to look inside the dataset for a specific column!)\n\n\nIf we want to count how many people fit into different groups, we can use the dplyr package:\ninstall.packages(\"dplyr\")\nlibrary(dplyr)\n\ndata3 &lt;- data2 %&gt;% \n  group_by(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) %&gt;% \n  summarize(Count = n())"
+  },
+  {
+    "objectID": "week5_slides.html#e.-plotting-the-data",
+    "href": "week5_slides.html#e.-plotting-the-data",
+    "title": "Week 5 - Presentation of the R interface and its basic functions",
+    "section": "E. Plotting the Data",
+    "text": "E. Plotting the Data\nWith our data summarized, we can use the built-in plot() function to visualize it:\nplot(x = data3$What.is.your.age., y = data3$Count)"
+  },
+  {
+    "objectID": "week5_slides.html#assignments",
+    "href": "week5_slides.html#assignments",
+    "title": "Week 5 - Presentation of the R interface and its basic functions",
+    "section": "Assignments",
+    "text": "Assignments\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\nPlease complete the following tasks before next Wednesday (10/14):\n\nDownload the script of this week (here)\n\n\n Download the script to annotate for your assignment \n\n\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
     "section": "",
-    "text": "Part 1: Principles of corpus studiesPart 2: Building a corpus from the InternetPart 3: Analyzes\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n1\nIntroductory week\n\nRead material for Week 2\n\n\n2\nWhat is a corpus, and their role to understand language and literature\nRHCL For language: Chapter 15, Chapter 40For literature: Chapter 17, Chapter 37\nRead material for Week 3\n\n\n3\nTypes of corpora: Selecting or building a corpus?\nRHCL, Chapter 2, Chapter 8PHCL, Chapter 15\nRead material for Week 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n4\nInstallation of R and computer set-up\nSlidesR for data science, Introduction, Chapter 2, Chapter 6, Chapter 28\nMake sure the computer is prepared for the next weeks\n\n\n5\nPresentation of R and its basic functions\nSlidesR for data science, Introduction, Chapter 2, Chapter 6, Chapter 28\nExercises for next week\n\n\n6\nHow to create better scripts\nSlides\nExercises for next week\n\n\n7\nBuilding a corpus from media platforms (1/2)\nSlidesR for data science, Chapter 24\nExercises for next week\n\n\n8\nBuilding a corpus from media platforms (2/2)\nSlidesR for data science, Chapter 24\nExercises for next week\n\n\n9\nGroup and individual meetings in the classroom\n\n\n\n\n10\nMidterm presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n11\nData preprocessing: Tidying data\nR for data science, Chapter 3, Chapter 5\nExercises for next week\n\n\n12\nData analysis\nR for data science, Chapter 9, Chapter 10\nExercises for next week\n\n\n13\nData visualization\nR for data science, Chapter 10, Chapter 11\nPrepare a document of the analyses and visualization of your own data (a preliminary version is enough)\n\n\n14\nPresenting a corpus-based study\nPHCL, Chapter 26\n\n\n\n15\nGroup and individual meetings in the classroom\nAssistance for handling the results of the individual/group projects\n\n\n\n16\nStudent’s presentations of individual/group projects"
+    "text": "References"
   },
   {
-    "objectID": "syllabus.html#course-schedule",
-    "href": "syllabus.html#course-schedule",
-    "title": "Syllabus",
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Week 1: Introduction to the course",
     "section": "",
-    "text": "Part 1: Principles of corpus studiesPart 2: Building a corpus from the InternetPart 3: Analyzes\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n1\nIntroductory week\n\nRead material for Week 2\n\n\n2\nWhat is a corpus, and their role to understand language and literature\nRHCL For language: Chapter 15, Chapter 40For literature: Chapter 17, Chapter 37\nRead material for Week 3\n\n\n3\nTypes of corpora: Selecting or building a corpus?\nRHCL, Chapter 2, Chapter 8PHCL, Chapter 15\nRead material for Week 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n4\nInstallation of R and computer set-up\nSlidesR for data science, Introduction, Chapter 2, Chapter 6, Chapter 28\nMake sure the computer is prepared for the next weeks\n\n\n5\nPresentation of R and its basic functions\nSlidesR for data science, Introduction, Chapter 2, Chapter 6, Chapter 28\nExercises for next week\n\n\n6\nHow to create better scripts\nSlides\nExercises for next week\n\n\n7\nBuilding a corpus from media platforms (1/2)\nSlidesR for data science, Chapter 24\nExercises for next week\n\n\n8\nBuilding a corpus from media platforms (2/2)\nSlidesR for data science, Chapter 24\nExercises for next week\n\n\n9\nGroup and individual meetings in the classroom\n\n\n\n\n10\nMidterm presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n11\nData preprocessing: Tidying data\nR for data science, Chapter 3, Chapter 5\nExercises for next week\n\n\n12\nData analysis\nR for data science, Chapter 9, Chapter 10\nExercises for next week\n\n\n13\nData visualization\nR for data science, Chapter 10, Chapter 11\nPrepare a document of the analyses and visualization of your own data (a preliminary version is enough)\n\n\n14\nPresenting a corpus-based study\nPHCL, Chapter 26\n\n\n\n15\nGroup and individual meetings in the classroom\nAssistance for handling the results of the individual/group projects\n\n\n\n16\nStudent’s presentations of individual/group projects"
+    "text": "The workflow of a typical corpus-based study is generally as in the image below.\n\nThis course follows this workflow. I will show you how to conduct a corpus investigation step-by-step, and you will be able to do so by yourself!\n\n\n\nThe weekly organization of this course can be found in the Table of Contents on the left in addition to the table below.\n\n\n\n\n\n\n\nWeek\nContent\n\n\n\n\nWeek 1\nIntroductory week\n\n\nPart 1\nPrinciples of corpus studies\n\n\nWeek 2\nWhat is a corpus, and their role to understand language and literature\n\n\nWeek 3\nTypes of corpora: Selecting or building a corpus?\n\n\nPart 2\nBuilding a corpus from the Internet with modern tools\n\n\nWeek 4\nIntroduction to R (1/2): Installation and first steps\n\n\nWeek 5\nIntroduction to R (2/2): Basic functions and how to create reproducible data\n\n\nWeek 6\nExample 1: Building a corpus from media platforms (1/2)\n\n\nWeek 7\nExample 1: Building a corpus from media platforms (2/2)\n\n\nWeek 8\nExample 2: Building a corpus from literature sources (1/2)\n\n\nWeek 9\nExample 2: Building a corpus from literature sources (2/2)\n\n\nWeek 10\nMidterm presentations, group and individual meetings in the classroom\n\n\nPart 3\nSimple preprocessing and analyzes of corpus data\n\n\nWeek 11\nData preprocessing: Tidying data\n\n\nWeek 12\nData analysis\n\n\nWeek 13\nData visualization\n\n\nWeek 14\nPresenting a corpus-based study\n\n\nWeek 15\nGroup and individual meetings in the classroom (assistance for final projects)\n\n\nWeek 16\nStudent’s presentations of individual/group projects\n\n\n\n\n\n\n\n\nWe will only use some parts of these two books:\n1- Paquot, M. & Gries, S. T. (2020) A practical handbook of corpus linguistics. Cham: Springer. Normally, you should be able to download this book freely with this link: Link to the book\n2- O’Keeffe, A., & McCarthy, M. J. (2022). The Routledge handbook of corpus linguistics (2nd edition). London/New York: Routledge. Link to the book\n\n\n\n\n\n\n\n\n\n\n\n(a) Paquot & Gries (2020)\n\n\n\n\n\n\n\n\n\n\n\n(b) O’Keeffe & McCarthy (2022)\n\n\n\n\n\n\n\nFigure 1: Required textbooks\n\n\n\nOnline resources:\n1- R website: Link to the R website (freely downloadable)\n2- RStudio interface: Link to the RStudio website (freely downloadable)\n3- R for data science handbook: Link to the handbook (freely downloadable)\n\n\n\nThis course is task-oriented, so there are many aspects of corpus linguistics that will not be covered. If you are interested in knowing more, you can read the book published by Anatol Stefanowitsch in 2020, available for free here.",
+    "crumbs": [
+      "Home",
+      "Introductory week",
+      "Week 1: Introduction to the course"
+    ]
   },
   {
-    "objectID": "syllabus.html#grading-evaluation",
-    "href": "syllabus.html#grading-evaluation",
-    "title": "Syllabus",
-    "section": "⚖️ Grading & evaluation",
-    "text": "⚖️ Grading & evaluation\nThe final grade is distributed as follows:\n\n\n\n\n\n\n\npie title Grade Distribution\n    \"Assignments\" : 40\n    \"Midterm Exam\" : 15\n    \"Final Exam\" : 15\n    \"Class Discussion\" : 15\n    \"Attendance\" : 15\n\n\n\n\n\n\n\n\n???? Assessment details\n\nAssignments (40%): Regular homework\n\nNote: 4% will be deducted for each failure to submit homework on time.\n\nFinal project (30%):\n\nOral presentation: 15%\nWritten report: 15%\n\nClass discussion (15%): Active participation\nAttendance (15%): Regular presence is required"
-  },
-  {
-    "objectID": "syllabus.html#resources-software",
-    "href": "syllabus.html#resources-software",
-    "title": "Syllabus",
-    "section": "📚 Resources & software",
-    "text": "📚 Resources & software\n\n\n\n\n\n\nOnline Resources & Software\n\n\n\n\nCourse Website: https://aymeric-collart.github.io/CHU0387/\nSoftware: R Project (freely downloadable) | RStudio Interface (freely downloadable)\n\n\n\n\n\n\n\n\n\nKey References\n\n\n\n\nO’Keeffe, A., & McCarthy, M. J. (2022). The Routledge handbook of corpus linguistics (2nd edition). London/New York: Routledge. [RHCL]\nPaquot, M., & Gries, S. T. (2020). A practical handbook of corpus linguistics. Cham: Springer. [PHCL]\nR for data science handbook: https://r4ds.hadley.nz/ (freely downloadable)"
-  },
-  {
-    "objectID": "intro_slides.html#structure-and-workflow-of-the-tutorial",
-    "href": "intro_slides.html#structure-and-workflow-of-the-tutorial",
-    "title": "Introduction",
-    "section": "Structure and workflow of the tutorial",
-    "text": "Structure and workflow of the tutorial\n\n\nClick on the image to zoom in and out"
-  },
-  {
-    "objectID": "intro_slides.html#chapters-and-section-of-the-tutorial",
-    "href": "intro_slides.html#chapters-and-section-of-the-tutorial",
-    "title": "Introduction",
-    "section": "Chapters and section of the tutorial",
-    "text": "Chapters and section of the tutorial\n\nChapter 1Chapter 2Chapter 3\n\n\n\n\n\nChapter 1: Getting started\n\n\n\n\n\nDownload and install R/RStudio\nlink\n\n\nPresentation of R/RStudio\nlink\n\n\nWorking with markdown files\nlink\n\n\n\n\n\n\n\n\nChapter 2: Let’s get our data\n\n\n\n\n\nUnderstanding where the data are on the Internet\nlink\n\n\nScraping the data from the web with R\nlink\n\n\n\n\n\n\n\n\nChapter 3: Cleaning and analyzing the data\n\n\n\n\n\nPreprocess the data: Cleaning and transformations\nlink\n\n\nAnalyzing the data\nlink"
-  },
-  {
-    "objectID": "intro_slides.html#what-this-tutorial-does-not-cover",
-    "href": "intro_slides.html#what-this-tutorial-does-not-cover",
-    "title": "Introduction",
-    "section": "What this tutorial does NOT cover",
-    "text": "What this tutorial does NOT cover\n\nFundamental concepts of corpus linguistics\nHow to ask a research question and how to motivate it\nAdvanced statistical methods in corpus linguistics (classification analyses, vector space representations)\n\n\nIf you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free here."
-  },
-  {
-    "objectID": "intro_slides.html#how-to-get-through-the-exercises",
-    "href": "intro_slides.html#how-to-get-through-the-exercises",
-    "title": "Introduction",
-    "section": "How to get through the exercises",
-    "text": "How to get through the exercises"
-  },
-  {
-    "objectID": "instructor.html",
-    "href": "instructor.html",
-    "title": "Instructor",
+    "objectID": "intro.html#what-are-the-steps-of-a-corpus-study",
+    "href": "intro.html#what-are-the-steps-of-a-corpus-study",
+    "title": "Week 1: Introduction to the course",
     "section": "",
-    "text": "Aymeric Collart, Ph.D\nAssistant Professor Department of Chinese  National Taiwan Normal University   Personal website: https://aymeric-collart.github.io/ Contact information: aymeric.collart at ntnu.edu.tw"
-  },
-  {
-    "objectID": "Weeks7_8.html#what-is-the-task",
-    "href": "Weeks7_8.html#what-is-the-task",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "2.1 What is the task",
-    "text": "2.1 What is the task\nFirst, you need to be very clear about what you want to do, otherwise you can literally spend hours doing a lot of things but actually achieving nothing.\nSo here is your first task:\n\nGo to the ETtoday website, and search for one article.\nDescribe each step you take to get to an article, and document the changes that happen regarding the address of the website.",
+    "text": "The workflow of a typical corpus-based study is generally as in the image below.\n\nThis course follows this workflow. I will show you how to conduct a corpus investigation step-by-step, and you will be able to do so by yourself!",
     "crumbs": [
       "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
+      "Introductory week",
+      "Week 1: Introduction to the course"
     ]
   },
   {
-    "objectID": "Weeks7_8.html#documentation-of-the-manual-steps",
-    "href": "Weeks7_8.html#documentation-of-the-manual-steps",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "2.2 Documentation of the manual steps",
-    "text": "2.2 Documentation of the manual steps\nThis task seems quite easy, but it is crucial. First, you went to the website by clicking on the link. Then, you selected the date of the news you were interested in. Third, you selected the type of news (politics, society, etc.). A list of articles was already there on the website, and you were just filtering them. And to get into one article, you just clicked on one of the titles below the search bar.\nThis procedure looks like this:\n\n\n\n\n\n\nNow we will do the same, but pay more attention to the web address, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “https://www.ettoday.net/news/news-list.htm”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?\nHere is what we get:\n\nFirst step: https://www.ettoday.net/news/news-list.htm\nSecond step (filtered articles): https://www.ettoday.net/news/news-list-2024-10-28-1.htm\nThird step: (individual article): https://www.ettoday.net/news/20241028/2843953.htm\n\n\n\n\n\n\n\nThink about it\n\n\n\n\nFirst, we can see that filtering the data changes the address of the website in a very systematic way. Now, try to change the address to access the list of articles published on September 27th, 2024. You will get something like that: https://www.ettoday.net/news/news-list-2024-09-27-1.htm\nSecond, try to change the last number. You will see that it changes the type of articles.\n\nSo this means that you can filter the list of articles as you wish just by changing the web address!\n\nThird, if we look at the web address of the individual article, we can retrieve the date of publication of the article very easily… but it is not quite possible to guess the numbers after that.\n\n\n\nNo need to despair! The fact that this article is found in the list means that the web address of the individual article must be somewhere on the website… but where? This is the moment when it is important to understand the structure of the website.",
-    "crumbs": [
-      "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
-    ]
-  },
-  {
-    "objectID": "Weeks7_8.html#how-to-access-the-structure-of-the-website",
-    "href": "Weeks7_8.html#how-to-access-the-structure-of-the-website",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "3.1 How to access the structure of the website?",
-    "text": "3.1 How to access the structure of the website?\nAccessing the structure of a website is actually very easy. You just need to open the webpage, for example this one: https://www.ettoday.net/news/news-list-2024-10-28-1.htm. Then, you look for a blank space, you right-click, and you select “View Page Source” (it is possible that it will not be in English, or that the wording is different depending on the system of your computer).\nThen, it will open a new page which can be very scary… but this is actually the same, just the structure of the previous page!\nHere is the animated figure of these steps:",
-    "crumbs": [
-      "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
-    ]
-  },
-  {
-    "objectID": "Weeks7_8.html#what-are-all-these-lines-about",
-    "href": "Weeks7_8.html#what-are-all-these-lines-about",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "3.2 What are all these lines about?",
-    "text": "3.2 What are all these lines about?\nThis version of the website is really where you can find all the information that you need. For example, please have a look at lines 514 to 541 (see the image below).\n\nThis must be more familiar to you: these are the web addresses that you obtain when you filter different types of articles!\nNow, please have a look at line 549… you will see that you have the web addresses of each individual article listed on the webpage!\n\n\n\n\n\n\n\nHow did I know what lines to search for?\n\n\n\nThere’s nothing magical, and I am surely not a psychic who can guess the line numbers. So how to find them? I just use the “search” function (for Windows: “ctrl + f”, for Mac: “command + f”). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles.",
-    "crumbs": [
-      "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
-    ]
-  },
-  {
-    "objectID": "Weeks7_8.html#terminology-of-the-structural-lines",
-    "href": "Weeks7_8.html#terminology-of-the-structural-lines",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "3.3 Terminology of the “structural lines”",
-    "text": "3.3 Terminology of the “structural lines”\nLet’s call these lines the “structural lines”. These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in html language.\nLet’s just have a look at line 549 and decompose it.\n\n&lt;div class=\"part_list_2\"&gt;\n  &lt;h3&gt;\n    &lt;span class=\"date\"&gt;2024/10/28 20:45&lt;/span&gt;\n    &lt;em class=\"tag c_news\"&gt;政治&lt;/em&gt;\n    &lt;a target=\"_blank\" href=\"https://www.ettoday.net/news/20241028/2843953.htm\"&gt;陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦&lt;/a&gt;\n  &lt;/h3&gt;\n&lt;/div&gt;\n\nThis line corresponds to this part of the website:\n\nNow we can decompose it:\n\nThe part with “&lt;div&gt;&lt;/div&gt;” means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names to avoid confusing them. Here, the block is called “part_list_2”.\nThe part with “&lt;h3&gt;&lt;/h3&gt;” corresponds to one line in the block. What is between “&lt;h3&gt;” and “&lt;/h3&gt;” is everything we want to put in that line. Here there are three elements:\n\nThe first element is a “&lt;span&gt;&lt;/span&gt;” element, and its name is “date”. What is between “&lt;span&gt;” and “&lt;/span&gt;” is the text to display, here: “2024/10/28 20:45”.\nThe second element is an “&lt;em&gt;&lt;/em&gt;” element (why “em” and not “span”? “em” stands for “emphasis”, so they look different on the website). Its name is “tag c_news”.\nThe third element is an “&lt;a&gt;&lt;/a&gt;” element. This is used to write a text with a link, and the link is specified with “href”. The term “target=”_blank”” means that it opens in a new page when you click on it.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis seems to be a lot and quite complicated.\nSo just remember this:\n\nThere are big blocks with different names (div, h3, span, etc.). Let’s call them nodes.\nInside nodes, you can specify the parameters and names specific to the nodes.\n\nThat’s all!",
-    "crumbs": [
-      "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
-    ]
-  },
-  {
-    "objectID": "Weeks7_8.html#overview-of-the-steps",
-    "href": "Weeks7_8.html#overview-of-the-steps",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "4.1 Overview of the steps",
-    "text": "4.1 Overview of the steps\nIn Section 2.2, we wrote down the several steps we have been going through to copy and paste the content of one article. In the end, we want to repeat this step many times to get the data from more than one article… and now you can imagine why it is a better idea to process through these steps automatically instead of doing it manually for weeks and months.\n\n\n\n\n\n\nThink about it\n\n\n\nIf you followed this rationale, now you can guess what coding means. It is just about translating our behavior to a language that the computer can understand!\nIn other words, we are going to map the steps described in Section 2.2 to R functions to perform the same task. And then we will require R to repeat the same task with different web addresses.\n\n\nAn efficient way to be clear about the steps to proceed with when doing programming language is to translate the steps we went through manually into words that make sense for the computer. For instance, when we select the dates or article types for filtering, we actually store them somewhere as variables. This gives us the annotated figure below.\n\nNow let’s see how to implement these steps with R.",
-    "crumbs": [
-      "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
-    ]
-  },
-  {
-    "objectID": "Weeks7_8.html#preliminary-step-libraries-needed",
-    "href": "Weeks7_8.html#preliminary-step-libraries-needed",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "4.2 Preliminary step: Libraries needed",
-    "text": "4.2 Preliminary step: Libraries needed\nFor this task, we will only need four packages:\n\nlibrary(rvest)\nlibrary(dplyr)\nlibrary(xml2)\nlibrary(openxlsx)",
-    "crumbs": [
-      "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
-    ]
-  },
-  {
-    "objectID": "Weeks7_8.html#step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters",
-    "href": "Weeks7_8.html#step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "4.3 Step 1: Record the web addresses that list the pages of the individual articles based on the filters",
-    "text": "4.3 Step 1: Record the web addresses that list the pages of the individual articles based on the filters\nThe first step in our task is to record the web addresses. Let’s have a first recap:\n\nThe main address is: https://www.ettoday.net/news/news-list.htm\nThe web address with filters for dates and categories looks like this: https://www.ettoday.net/news/news-list-2024-10-28-1.htm\n\nNow it is like playing lego: How to obtain the address with filters based on the first address? The answer is as follows:\n\n\"https://www.ettoday.net/news/news-list\" + \"-\" + date + \"-\" + category + \".htm\"\n\nWhere dates are like “2024-10-28” and categoriesare just numbers. How to do so with R? Nothing easier!\n\nFirst, store the base address as a variable:\n\n\nETTodayPageUrl &lt;- \"https://www.ettoday.net/news/news-list\" \n\n\nThen, store the year, month and day of your interest, and paste them together. To paste, we use the function “paste0()”:\n\n\nYear &lt;- 2024\nMonth &lt;- 10\nDay &lt;- 28\n\ndate &lt;- paste0(Year,\n               \"-\",\n               Month,\n               \"-\",\n               Day)\ndate\n\n[1] \"2024-10-28\"\n\n\n\nNow we select the category. Let’s say we want articles talking about politics, coded as “1” on ETtoday:\n\n\ncategory &lt;- 1\n\n\nFinally, we paste these variables together to obtain the address:\n\n\n## Template: \"https://www.ettoday.net/news/news-list\" + \"-\" + date + \"-\" + category + \".htm\"\nURL &lt;- paste0(ETTodayPageUrl,\n              \"-\",\n              date,\n              \"-\",\n              category,\n              \".htm\")\nURL\n\n[1] \"https://www.ettoday.net/news/news-list-2024-10-28-1.htm\"\n\n\n\n\n\n\n\n\nThink about it\n\n\n\nYou may think that it is a complex way to do… why not writing the web address as a variable instead of pasting the elements? In other words, why not writing this instead:\nURL &lt;- “https://www.ettoday.net/news/news-list-2024-10-28-1.htm”\nThink about it. Doing so, if you want the data for the whole year 2024, and two categories, it means that you will have to do the same more than 700 times… so it seems to be a simpler solution, and it is true if we are working with only one page, but not necessarily with big data!\n\n\nWe have the address corresponding to one page with the code above. If we want the web addresses for the whole year, we will need to repeat the code, and changing the date every time. In programming language, there is a command that tells a computer to repeat the same set of instructions for each item in a list. It is a way to automate a repetitive task. This command is called for loop.\n\n\n\n\n\n\nWhat is the concept of for loop?\n\n\n\nYou have a list (your friends at the table) and an action (giving one card). The for loop is the instruction you give yourself: “For each friend at the table, give them one card.”\nYou go to the first friend and give them a card. Then you automatically move to the second friend and do the same thing. You continue this process until every friend in the group has received a card. The loop then stops on its own.\nEvery for loop has three basic components:\n\nThe List (or Collection): The group of items you want to work through. This could be a list of names, numbers, or any collection of data.\nThe Action (or Task): The specific job you want to do for every single item in the list.\nThe Loop: The process that automatically takes one item, performs the action, and then moves on to the next item until the list is finished.\n\n\n\nLet’s have a look at how to apply this concept to our case.\n\nFirst, we start with the base address, as we have already done above:\n\n\nETTodayPageUrl &lt;- \"https://www.ettoday.net/news/news-list\" \n\n\nThen we create the List. Since we want to go through the articles published in 2024, we want Year 2024, Months from January (1) to December (12), and Days from 1 to 31 (some months do not have 31 days, but it is not crucial for our purpose). This is how we write it:\n\n\nYear &lt;- 2024\nMonth &lt;- 1:12\nDay &lt;- 1:31\n\nYear\n\n[1] 2024\n\nMonth\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\nDay\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25\n[26] 26 27 28 29 30 31\n\n\n\nWe have the List. Now we need the Action. What we want is a list (or table) with all the dates. To do so:\n\nWe create an empty table,\nWe paste Year, Month and Day to obtain the date,\nWe change the class of the variable to match the class of the empty table,\nWe add the individual date into the table\n\n\nThe code looks like that:\n\nDates_total &lt;- data.frame(matrix(ncol = 1, nrow = 0))\n\n# The Action is below\nDates &lt;- paste0(Year, \"-\", Month, \"-\", Day)\nDates &lt;- as.data.frame(Dates)\nDates_total &lt;- rbind(Dates_total, Dates)\n\n# A look at the results\nDates_total\n\n        Dates\n1    2024-1-1\n2    2024-2-2\n3    2024-3-3\n4    2024-4-4\n5    2024-5-5\n6    2024-6-6\n7    2024-7-7\n8    2024-8-8\n9    2024-9-9\n10 2024-10-10\n11 2024-11-11\n12 2024-12-12\n13  2024-1-13\n14  2024-2-14\n15  2024-3-15\n16  2024-4-16\n17  2024-5-17\n18  2024-6-18\n19  2024-7-19\n20  2024-8-20\n21  2024-9-21\n22 2024-10-22\n23 2024-11-23\n24 2024-12-24\n25  2024-1-25\n26  2024-2-26\n27  2024-3-27\n28  2024-4-28\n29  2024-5-29\n30  2024-6-30\n31  2024-7-31\n\n\n\nSo far it gives us an incomplete list of dates. This is because we need to add the third element: The Loop. Here is my way to create the loop:\n\nWe have the Action for one subset of the data only, which means that we need to have a process for each day, and each month. The rationale goes like this:\n\nLoop 1: “For Day number 1, please assign Month number 1, and Year 2024”\nLoop 2: “For Day number 2, please assign Month number 1, and Year 2024”\n… …\nLoop 31: “For Day number 31, please assign Month number 1, and Year 2024”\nLoop 32: “For Day number 1, please assign Month number 2, and Year 2024”\n\nThis means that we have a first round of Loop for Day, followed by a second round of Loop for Month, followed by a third round of Loop for Year.\nThis is why in the code below, there are 3 for loop commands, and different variables are assigned to them:\n\n\n\nDates_total &lt;- data.frame(matrix(ncol = 1, nrow = 0))\n\nfor (a in 1:length(Day)){\n  for (b in 1:length(Month)){\n    for (c in min(Year):max(Year)){\n      Dates &lt;- paste0(c, \"-\", b, \"-\", a)\n      Dates &lt;- as.data.frame(Dates)\n      Dates_total &lt;- rbind(Dates_total, Dates)\n    }\n  }\n}\n\nDates_total &lt;- as.character(Dates_total$Dates)\n\nknitr::kable(head(Dates_total)) # Use of the kable() function from the 'knitr' package to have a prettier output\n\n\n\n\nx\n\n\n\n\n2024-1-1\n\n\n2024-2-1\n\n\n2024-3-1\n\n\n2024-4-1\n\n\n2024-5-1\n\n\n2024-6-1\n\n\n\n\n\n\nNow we apply the same logic to add the Categories. Let’s say we want articles about “Politics” and “Society”.\n\nIn that case, the List is about categories coded as “1” and “6”\nThe Action is to paste the different parts of the web address\nThe Loop is to paste all the dates (372 dates) to the 2 categories.\nThis gives the following code:\n\n\n\n# \"6.htm\" = \"Society\"\n# \"1.htm\" = \"Politics\"\n# \"2.htm\" = \"International\"\n# \"5.htm\" = \"Life\"\nCategory_total &lt;- c(\"6\", \"1\")\n\nURL_total &lt;- data.frame(matrix(ncol = 1, nrow = 0))\n  \nfor (a in 1:length(Category_total)){\n  URL_temp &lt;- paste0(ETTodayPageUrl, \"-\", Dates_total, \"-\", Category_total[a], \".htm\")\n  URL_temp &lt;- as.data.frame(URL_temp)\n  URL_total &lt;- rbind(URL_total, URL_temp)\n}\n\nURL_total &lt;- as.character(URL_total$URL_temp)\nknitr::kable(head(URL_total)) # Use of the kable() function from the 'knitr' package to have a prettier output\n\n\n\n\nx\n\n\n\n\nhttps://www.ettoday.net/news/news-list-2024-1-1-6.htm\n\n\nhttps://www.ettoday.net/news/news-list-2024-2-1-6.htm\n\n\nhttps://www.ettoday.net/news/news-list-2024-3-1-6.htm\n\n\nhttps://www.ettoday.net/news/news-list-2024-4-1-6.htm\n\n\nhttps://www.ettoday.net/news/news-list-2024-5-1-6.htm\n\n\nhttps://www.ettoday.net/news/news-list-2024-6-1-6.htm",
-    "crumbs": [
-      "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
-    ]
-  },
-  {
-    "objectID": "Weeks7_8.html#step-2-retrieve-the-urls-of-the-individual-articles",
-    "href": "Weeks7_8.html#step-2-retrieve-the-urls-of-the-individual-articles",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "4.4 Step 2: Retrieve the URLs of the individual articles",
-    "text": "4.4 Step 2: Retrieve the URLs of the individual articles\nNow we have the web addresses that list the webpages of individual articles, filtered by dates and categories. The next step is to find the web addresses of these individual articles. There are several sub-steps:\n\nFirst, R needs to read the webpage with the list of addresses. Please be aware that when R reads the webpage, we are talking about the structure of the webpage!\n\nThe R function to do so is called “read_html()”.\nWe write the address of the webpage to read between the parentheses. Here, we already have the list from the previous step, and we stored them under the variable “URL_total”.\nWe just test with only one page for the moment. This is why in the code below, we write “URL_total[1]”. It means “the first data in the list called URL_total”.\n\n\n\nIndPage &lt;- read_html(URL_total[1])\nIndPage\n\n{html_document}\n&lt;html lang=\"zh-Hant\" prefix=\"og:http://ogp.me/ns#\" xmlns:wb=\"http://open.weibo.com/wb\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\"&gt;\n[1] &lt;head&gt;\\n&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8 ...\n[2] &lt;body&gt;\\r\\n\\n&lt;!-- FB Quote 選取文字分享 開始--&gt;\\n&lt;div class=\"fb-quote\"&gt;&lt;/div&gt;\\n&lt;!- ...\n\n\n\nThe second step is to retrieve the information that we need. We have already done that in Section 3, and if you remember well, we found the line corresponding to the data we want:\n\n\n&lt;div class=\"part_list_2\"&gt;\n  &lt;h3&gt;\n    &lt;span class=\"date\"&gt;2024/10/28 20:45&lt;/span&gt;\n    &lt;em class=\"tag c_news\"&gt;政治&lt;/em&gt;\n    &lt;a target=\"_blank\" href=\"https://www.ettoday.net/news/20241028/2843953.htm\"&gt;陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦&lt;/a&gt;\n  &lt;/h3&gt;\n&lt;/div&gt;\n\nIf you need to describe, you have to say something like that:\n\"The address of the individual article is listed after the 'href' attribute, which is in the &lt;a&gt; node, which is in the &lt;h3&gt; node, which is in the &lt;div&gt; node whose class is 'part_list_2' \".\nHow to translate into R? We will use two functions:\n\n\n\n\n\n\n\n\nFunction\nUse\nExample in our case\n\n\n\n\nhtml_nodes()\nUsed to identify the elements within a node\nhtml_nodes(“div”) = retrieves all the nodes starting with “div”\nhtml_nodes(“div.something”) = retrieves only the nodes starting with “div”, where ‘class = “something”’ (in other words, it filters specific “div” nodes)\n\n\nhtml_attr()\nUsed to identify the content of the specification of a node\nhtml_attr(“class”) = retrieves the element written after “class”. For example, in the case below, it will return “NameOfTheClass”.\n&lt;div class=“NameOfTheClass”&gt;\n\n\n\nNow that we know how to use the code, we can translate the description we wrote as follows:\n\nnews_url &lt;- IndPage %&gt;% \n  html_nodes(\"div.part_list_2\") %&gt;% \n  html_nodes(\"h3\") %&gt;%\n  html_nodes(\"a\") %&gt;%\n  html_attr(\"href\")\n\nknitr::kable(head(news_url)) # Use of the kable() function from the 'knitr' package to have a prettier output on the website\n\n\n\n\nx\n\n\n\n\nhttps://www.ettoday.net/news/20240101/2655300.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655313.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655305.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655303.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655277.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655264.htm\n\n\n\n\n\n\n\n\n\n\n\nThink about it\n\n\n\nLet’s say that you wanted the date or the category of the articles, how would you change this code?\n\n\n\nCongratulations! You have the list of the addresses from one page! Now we need to repeat the same process to the other 743 lists… and anytime you need to repeat a task over and over, this means for loop command! Here are the elements we need:\n\nFirst, we create an empty data frame in which we will store all the web addresses of the individual articles\nThe List is the addresses of the webpages where we can find the individual articles filtered by date and category, which we stored in the variable called “URL_total”,\nThe Action is to find the web addresses of the individual articles, as we did just before,\nThe Loop is to perform the Action for all the filtered pages, and to paste the individual web addresses in the empty data frame we just created.\nThis gives the following code:\n\n\n\n## This step can last several minutes\nURL_IndArticles &lt;- data.frame(matrix(ncol = 1, nrow = 0))\n\nfor (i in 1:length(URL_total)){\n  IndPage &lt;- read_html(URL_total[i])\n  news_url &lt;- IndPage %&gt;% \n    html_nodes(\"div.part_list_2\") %&gt;% \n    html_nodes(\"h3\") %&gt;%\n    html_nodes(\"a\") %&gt;%\n    html_attr(\"href\")\n  \n  news_url &lt;- as.data.frame(news_url)\n  URL_IndArticles &lt;- rbind(URL_IndArticles, news_url)\n}\n\n\nWe are not completely done. It is possible that for some reasons, some articles are repeated. So the next step is to remove all the repeated web addresses, by keeping only one instance. Here is how we do that: We use the ‘unique()’ function:\n\n\narticle_overview_unique &lt;- unique(URL_IndArticles)\n\nknitr::kable(head(article_overview_unique)) # Use of the kable() function from the 'knitr' package to have a prettier output on the website\n\n\n\n\nnews_url\n\n\n\n\nhttps://www.ettoday.net/news/20240101/2655300.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655313.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655305.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655303.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655277.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655264.htm",
-    "crumbs": [
-      "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
-    ]
-  },
-  {
-    "objectID": "Weeks7_8.html#step-3-retrieve-the-titles-date-types-and-content-of-the-articles",
-    "href": "Weeks7_8.html#step-3-retrieve-the-titles-date-types-and-content-of-the-articles",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "4.5 Step 3: Retrieve the titles, date, types and content of the articles",
-    "text": "4.5 Step 3: Retrieve the titles, date, types and content of the articles\nWe are already half-way to the end! Now that we have the list of the web addresses of the articles published in 2024, we can scrape their content in addition to other information we might need, including the date of publication and the title of the article.\n\nTest with one article\nAs in the previous step, it is safer to test first with one article. The reason is that as some steps require quite a long time to be completed, so it is better to identify potential problems before by testing with only one subset of the data. Again, we have to go through different sub-steps:\n\nFirst, we use the “read_html()” function to read the structure of the web page of one article:\n\n\nOneArticle &lt;- read_html(article_overview_unique$news_url[1])\n\n\nAfter “playing hide and seek” with the structure of the page, we can identify the nodes under which the content we want can be found. Let’s start with the date of publication, which is here:\n\n\n&lt;time class=\"date\" itemprop=\"datePublished\" datetime=\"2024-01-01T22:47:00+08:00\"&gt;                                    2024年01月01日 22:47                                       &lt;/time&gt;\n\nWe can see that it is inside the &lt;time&gt; node (between &lt;time&gt; and &lt;/time&gt;). Therefore, in addition to the “html_nodes()” function, we specify that we want the text within, hence the use of “html_text()” function. The option “trim = TRUE” is just to remove coding format in the text.\nFinally, we store this piece of information in the variable called “news_time”.\n\n# Date of publication\nnews_time &lt;- OneArticle %&gt;% \n  html_nodes(\"time\") %&gt;% \n  html_text(trim = TRUE)\n\n\nAnd now we proceed the same way for the category of the article, and its title:\n\n\n# Category of news\nnews_class &lt;- OneArticle %&gt;% \n  html_nodes(\".part_menu_5\") %&gt;% \n  html_nodes(\"strong\") %&gt;%\n  html_text(trim = TRUE)\n\n# title \nnews_title &lt;- OneArticle %&gt;% \n  html_nodes(\"h1\") %&gt;% \n  html_text(trim = TRUE)\n\n# content \nnews_body &lt;- OneArticle %&gt;% \n  html_nodes('div[itemprop=\"articleBody\"]') %&gt;% \n  html_text(trim = TRUE)\n\n\nOnce it is done, we store these five variables in the same table:\n\n\narticle &lt;- (data.frame(time = news_time,\n                       class = news_class,\n                       title = news_title,\n                       body = news_body,\n                       url = article_overview_unique$news_url[1]))\n\n\nAnd now we can have a look at what we get with one article:\n\n\n# Use of the paged_table() function from the 'rmarkdown' package to have a readable output\nrmarkdown::paged_table(article)\n\n\n  \n\n\n\n\n\nRepeat the same process with all the articles\nAnd if you were following the rationale of these two weeks’ tutorial, you know that when we repeat the same action again and again, it is a better idea to use the for loop command:\n\nFirst, we create an empty data frame in which we will store all the information we want. Let’s call it “Article_total”.\nThe List is the addresses of the individual articles, which we stored in the variable called “article_overview_unique$news_url”,\nThe Action is to find the date of publication, the category of article, the content of the article, its title, and its web address, as we did just before,\nThe Loop is to perform the Action for individual articles, and to include them in the empty data frame we just created.\nYou will remark something new: “tryCatch({”, and at the end “}, error=function(e){cat(”ERROR :“,conditionMessage(e),”“)})”. This is because the for loop command stops anytime an error occurs (which can happen with a broken link, missing information on one article, etc.).\n\nWrapping the Action with the “tryCatch({})” function is just to say that the for loop can ignore the errors and keep proceeding to the next article,\nThe “error=function(e){cat(”ERROR :“,conditionMessage(e),”“)})” part is just to report the error message in the console.\nThis gives the following code:\n\n\n\nArticle_total &lt;- data.frame()\n\nfor (j in 1:length(article_overview_unique$news_url)){\n  tryCatch({\n    temp &lt;- read_html(article_overview_unique$news_url[j])\n    \n    # Date of publication\n    news_time &lt;- temp %&gt;% \n      html_nodes(\"time\") %&gt;% \n      html_text(trim = TRUE)\n    \n    # Category of news\n    news_class &lt;- temp %&gt;% \n      html_nodes(\".part_menu_5\") %&gt;% \n      html_nodes(\"strong\") %&gt;%\n      html_text(trim = TRUE)\n    \n    # title \n    news_title &lt;- temp %&gt;% \n      html_nodes(\"h1\") %&gt;% \n      html_text(trim = TRUE)\n    \n    # content \n    news_body &lt;- temp %&gt;% \n      html_nodes('div[itemprop=\"articleBody\"]') %&gt;% \n      html_text(trim = TRUE)\n    \n    # url\n    news_url &lt;- temp %&gt;% \n      html_nodes(\"div.block div.block_content div.part_list_2 h3\") %&gt;% \n      html_nodes(\"a\") %&gt;%\n      html_attr(\"href\")\n    \n    Article &lt;- (data.frame(time = news_time,\n                           class = news_class,\n                           title = news_title,\n                           body = news_body,\n                           url = article_overview_unique$news_url[j]))\n    Article_total &lt;- rbind(Article_total, Article)\n  }, error=function(e){cat(\"ERROR :\",conditionMessage(e), \"\\n\")})\n}\n\n# Use of the paged_table() function from the 'rmarkdown' package to have a readable output\nrmarkdown::paged_table(head(Article_total))\n\n\n  \n\n\n\n\n\n\n\n\n\nBe careful!!\n\n\n\nThis step can take a very long time! For me, scrapping the articles published in 2024 in these two categories can take 4 hours! You cannot use R when it is working. But you can still use your computer for any other task. So plan accordingly!",
-    "crumbs": [
-      "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
-    ]
-  },
-  {
-    "objectID": "Weeks7_8.html#step-4-save-the-data-into-excel-and-r-files",
-    "href": "Weeks7_8.html#step-4-save-the-data-into-excel-and-r-files",
-    "title": "Weeks 7 & 8: Building a corpus from media platforms",
-    "section": "4.6 Step 4: Save the data into Excel and R files",
-    "text": "4.6 Step 4: Save the data into Excel and R files\nThe last steps are straightforward: We export the dataset into an Excel document in addition to an RData file:\n\nwrite.xlsx(Article_total, \"ArticleETToday_CorpusCourse.xlsx\")\n\n\nsave(Article_total, file = \"ArticleETToday_CorpusCourse.Rdata\")",
-    "crumbs": [
-      "Home",
-      "Part 2: Building a corpus from the internet with modern tools",
-      "Weeks 7 & 8: Building a corpus from media platforms"
-    ]
-  },
-  {
-    "objectID": "Week5_slides.html#goals",
-    "href": "Week5_slides.html#goals",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "???? Goals",
-    "text": "???? Goals\nPrepare your computer:\n\n\nProjects: How to set-up a project in RStudio?\n\n\n\n\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\n\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?"
-  },
-  {
-    "objectID": "Week5_slides.html#section",
-    "href": "Week5_slides.html#section",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "objectID": "intro.html#syllabus-of-the-course",
+    "href": "intro.html#syllabus-of-the-course",
+    "title": "Week 1: Introduction to the course",
     "section": "",
-    "text": "Why?\n\n\nWe want to be organized and not messy!\n\n\n\n\n\n\nSection 1.1: Prepare the folder in your computer.\n\n\n\n\nSection 1.2: Create the related R project."
+    "text": "The weekly organization of this course can be found in the Table of Contents on the left in addition to the table below.\n\n\n\n\n\n\n\nWeek\nContent\n\n\n\n\nWeek 1\nIntroductory week\n\n\nPart 1\nPrinciples of corpus studies\n\n\nWeek 2\nWhat is a corpus, and their role to understand language and literature\n\n\nWeek 3\nTypes of corpora: Selecting or building a corpus?\n\n\nPart 2\nBuilding a corpus from the Internet with modern tools\n\n\nWeek 4\nIntroduction to R (1/2): Installation and first steps\n\n\nWeek 5\nIntroduction to R (2/2): Basic functions and how to create reproducible data\n\n\nWeek 6\nExample 1: Building a corpus from media platforms (1/2)\n\n\nWeek 7\nExample 1: Building a corpus from media platforms (2/2)\n\n\nWeek 8\nExample 2: Building a corpus from literature sources (1/2)\n\n\nWeek 9\nExample 2: Building a corpus from literature sources (2/2)\n\n\nWeek 10\nMidterm presentations, group and individual meetings in the classroom\n\n\nPart 3\nSimple preprocessing and analyzes of corpus data\n\n\nWeek 11\nData preprocessing: Tidying data\n\n\nWeek 12\nData analysis\n\n\nWeek 13\nData visualization\n\n\nWeek 14\nPresenting a corpus-based study\n\n\nWeek 15\nGroup and individual meetings in the classroom (assistance for final projects)\n\n\nWeek 16\nStudent’s presentations of individual/group projects",
+    "crumbs": [
+      "Home",
+      "Introductory week",
+      "Week 1: Introduction to the course"
+    ]
   },
   {
-    "objectID": "Week5_slides.html#setting-up-your-folders",
-    "href": "Week5_slides.html#setting-up-your-folders",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "1.1 Setting up your folders",
-    "text": "1.1 Setting up your folders\n\n\nNavigate to your Documents (or ???件) folder.\n\n\n\n\nCreate your Root Folder: CHC9012_Spring2025\n\n\n\n\nAdd the Project Subfolders:\n\n???? Slides: Presentation files.\n???? PCIbex_design: Scripts & materials.\n???? PreprocessingAnalysesR: Datasets & R code."
+    "objectID": "intro.html#required-textbooks-and-additional-references",
+    "href": "intro.html#required-textbooks-and-additional-references",
+    "title": "Week 1: Introduction to the course",
+    "section": "",
+    "text": "We will only use some parts of these two books:\n1- Paquot, M. & Gries, S. T. (2020) A practical handbook of corpus linguistics. Cham: Springer. Normally, you should be able to download this book freely with this link: Link to the book\n2- O’Keeffe, A., & McCarthy, M. J. (2022). The Routledge handbook of corpus linguistics (2nd edition). London/New York: Routledge. Link to the book\n\n\n\n\n\n\n\n\n\n\n\n(a) Paquot & Gries (2020)\n\n\n\n\n\n\n\n\n\n\n\n(b) O’Keeffe & McCarthy (2022)\n\n\n\n\n\n\n\nFigure 1: Required textbooks\n\n\n\nOnline resources:\n1- R website: Link to the R website (freely downloadable)\n2- RStudio interface: Link to the RStudio website (freely downloadable)\n3- R for data science handbook: Link to the handbook (freely downloadable)\n\n\n\nThis course is task-oriented, so there are many aspects of corpus linguistics that will not be covered. If you are interested in knowing more, you can read the book published by Anatol Stefanowitsch in 2020, available for free here.",
+    "crumbs": [
+      "Home",
+      "Introductory week",
+      "Week 1: Introduction to the course"
+    ]
   },
   {
-    "objectID": "Week5_slides.html#you-should-obtain-something-like-this",
-    "href": "Week5_slides.html#you-should-obtain-something-like-this",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "You should obtain something like this",
-    "text": "You should obtain something like this\n\n\n\n\n\n\n\n\nPay attention to the names\n\n\nGenerally, it is better not to use any space when naming folders and files!"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "",
+    "text": "Welcome to the course website for CHU03887: Language, Society and Literature with Corpus and Modern Technology.\nTime: Wednesday, 13:20 to 15:10 Place: Mandarin Training Center (國語中心), Classroom 608 Instructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU  Credits: 2  Prerequisites: None"
   },
   {
-    "objectID": "Week5_slides.html#initializing-your-r-project",
-    "href": "Week5_slides.html#initializing-your-r-project",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "1.2 Initializing Your R Project",
-    "text": "1.2 Initializing Your R Project\n\n\n\n1. Launch New Project Wizard  Click the blue cube icon in the top-left corner of RStudio.\n\n\n\n2. Select project type  Choose “Existing Directory” to link R to your folder structure.\n\n\n\n3. Finalize Connection  Browse to PreprocessingAnalysesR, check “Open in a new session”, and click Create Project.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBenefit: An .Rproj file sets your “Working Directory” automatically!"
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "",
+    "text": "Welcome to the course website for CHU03887: Language, Society and Literature with Corpus and Modern Technology.\nTime: Wednesday, 13:20 to 15:10 Place: Mandarin Training Center (國語中心), Classroom 608 Instructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU  Credits: 2  Prerequisites: None"
   },
   {
-    "objectID": "Week5_slides.html#other-advantages-of-creating-projects",
-    "href": "Week5_slides.html#other-advantages-of-creating-projects",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "Other advantages of creating projects",
-    "text": "Other advantages of creating projects\n\n\n\nOne RStudio window = One project\nSwitch between them without worrying about the working directory of trying to find the right files!\nList of your projects on the top-right corner of RStudio. Here is mine for example:"
+    "objectID": "index.html#course-description",
+    "href": "index.html#course-description",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "📋 Course Description",
+    "text": "📋 Course Description\nThis course introduces the principles of corpus studies assisted by modern technology with an emphasis on hands-on practice, and how corpus data can be useful in understanding how language is used in the media or in the literature. The course is divided into three parts:\n\nFundamental concepts when working with a corpus.\nBuilding process of a corpus from the web using automatic methods.\nHandling, analysis, and visualization of the corpus (using R).\n\nBy the end of the course, the students are expected to acquire the basic knowledge of working with a corpus and will obtain a first approach to programming languages."
   },
   {
-    "objectID": "Week5_slides.html#in-class-exercise",
-    "href": "Week5_slides.html#in-class-exercise",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "???? In-class exercise!",
-    "text": "???? In-class exercise!\n\n\nTask list:\n\nFind the R script from last week and move it to the PreprocessingAnalysesR folder.\nOpen the script within your newly created project."
+    "objectID": "index.html#news-updates",
+    "href": "index.html#news-updates",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "📢 News & Updates",
+    "text": "📢 News & Updates\n\n\n\n\n\n\n\nContent ready, slides and aesthetics in progress\n\n\n\nWebsite announcment\n\n\n\nThe content of the class has been updated. I am currently working on the slides and updating the aesthetics of the website!\n\n\n\nAug 24, 2026\n\n\n\n\n\n\n\n\n\n\nRedesign of the website\n\n\n\nWebsite announcment\n\n\n\nThe website is currently under revision, but it will be ready before the first week!\n\n\n\nAug 20, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "Week5_slides.html#from-raw-script-to-functional-r-markdown",
-    "href": "Week5_slides.html#from-raw-script-to-functional-r-markdown",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "From raw script to functional: R Markdown",
-    "text": "From raw script to functional: R Markdown\n\n\n\n1. Create the file ???? Go to New File &gt; R Markdown. This moves you from raw code to a “living” document.\n\n\n2. Configure (YAML) ???�? The header between --- controls your title, author, and output format (HTML/PDF).\n\n\n3. Text + Code chunks ???? Write text normally; insert Code Chunks ({r}) for analysis.\n\n\n4. Run your codes ??��?? Use the green Play Button to test individual steps.\n\n\n5. The Final “Knit” ??�� Click Knit to stitch everything into a polished report automatically!"
+    "objectID": "index.html#quick-links",
+    "href": "index.html#quick-links",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "🚀 Quick links",
+    "text": "🚀 Quick links\n\n\n\n\n\n\n\n\n📖 Syllabus\n\n\n\nFull course schedule, reading list, and grading policies.\nGo to Syllabus\n\n\n\n\n\n\n\n\n\n\n📊 R & RStudio\n\n\n\nDownload the software needed for Part 3 of the course.\nGet R Get RStudio"
   },
   {
-    "objectID": "Week5_slides.html#in-class-exercise-1",
-    "href": "Week5_slides.html#in-class-exercise-1",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "???? In-class exercise!",
-    "text": "???? In-class exercise!\n\n\nTask list:\n\nCreate a new Markdown document, and call it ScriptWeek10_Markdown.\nUse the script from last week, but adapt it to the Markdown format. Be creative!"
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "👤 Instructor",
+    "text": "👤 Instructor\nAymeric Collart (理克) Department of Chinese, NTNU\nEmail provided in class"
   },
   {
-    "objectID": "Week5_slides.html#fake-experiment-for-this-class",
-    "href": "Week5_slides.html#fake-experiment-for-this-class",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "Fake experiment for this class",
-    "text": "Fake experiment for this class\n  Try the experiment \n\n\n\n\n\n\n\nThe code of the fake experiment is given on the website\n\n\n\n\n\n\n\n\n\n\n\n\n\nFake results!\n\n\nAn AI robot did the experiment several times. I also pretended that I was a “bad” participant several times. The results are just to show you how to analyze data from PCIbex, they do not have other value!"
+    "objectID": "default.html",
+    "href": "default.html",
+    "title": "Week 6 - How to create better scripts",
+    "section": "",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nCreate beautiful scripts that you can share:\n\nReflections: Why creating scripts that are more suitable to share?\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\nA brief summary of the essential elements:\nNo new codes this week. We will be using the same dataset as last week.\n\n\n  Download the dataset for the script  (the same as last week, no need to download one more time if you already have it) \n\n\n\nPlease complete the following tasks before our next meeting:\n\nTransform your R script from last week into an R Markdown document, and knit it to a PDF file.\nTry to include Chinese characters, and debug such that they appear in the PDF document.\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 6 - How to create better scripts"
+    ]
   },
   {
-    "objectID": "Week5_slides.html#in-class-exercise-2",
-    "href": "Week5_slides.html#in-class-exercise-2",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "???? In-class exercise!",
-    "text": "???? In-class exercise!\n\n\nTask list:\n\nLook at the whole table. To do so, click on the variable, or just write view(data) in the console\nManually, identify and take notes of (1) what information is missing, (2) which rows should be erased/kept, and (3) which columns should be deleted or added."
+    "objectID": "default.html#overview",
+    "href": "default.html#overview",
+    "title": "Week 6 - How to create better scripts",
+    "section": "",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nCreate beautiful scripts that you can share:\n\nReflections: Why creating scripts that are more suitable to share?\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\nA brief summary of the essential elements:\nNo new codes this week. We will be using the same dataset as last week.\n\n\n  Download the dataset for the script  (the same as last week, no need to download one more time if you already have it) \n\n\n\nPlease complete the following tasks before our next meeting:\n\nTransform your R script from last week into an R Markdown document, and knit it to a PDF file.\nTry to include Chinese characters, and debug such that they appear in the PDF document.\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 6 - How to create better scripts"
+    ]
   },
   {
     "objectID": "Week4_slides.html#goals-key-concepts",
@@ -709,7 +614,7 @@
     "href": "Week5.html",
     "title": "Week 5 - Presentation of R and its basic functions",
     "section": "",
-    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nGet to know R and RStudio\n\nBasics: What does RStudio look like?\nHands-on: What are the most important functions in R? Write your very first lines of R code!\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle.\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nGet to know R and RStudio\n\nBasics: What does RStudio look like?\nHands-on: What are the most important functions in R? Write your very first lines of R code!\n\n\n\nA brief summary of the essential elements:\n\ninstall.packages(): Downloads and installs a new package to your computer.\nlibrary(): Loads an installed package into your current R session so you can use its functions.\nread.csv(): Imports a .csv dataset into R.\nstr(): Inspects the internal structure of a dataset.\nsummary(): Provides a quick mathematical and statistical overview of the dataset.\nas.factor(): Converts a column or vector of data into categorical groups (factors).\ngroup_by(): A dplyr function used to group data by one or more specific variables.\nsummarize(): A dplyr function used to compute summary statistics (such as counting observations using n()) for grouped data.\nplot(): A built-in function to visualize your data and draw basic graphs.\nfactor(): Categorizes data, allowing you to manually set or reorder the levels of groups.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle.\n\n\n\n\n\n  View the slides of this week’s tutorial",
     "crumbs": [
       "Home",
       "Part 2: Building a corpus from the internet with modern tools",
@@ -721,7 +626,7 @@
     "href": "Week5.html#overview",
     "title": "Week 5 - Presentation of R and its basic functions",
     "section": "",
-    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nGet to know R and RStudio\n\nBasics: What does RStudio look like?\nHands-on: What are the most important functions in R? Write your very first lines of R code!\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle.\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nGet to know R and RStudio\n\nBasics: What does RStudio look like?\nHands-on: What are the most important functions in R? Write your very first lines of R code!\n\n\n\nA brief summary of the essential elements:\n\ninstall.packages(): Downloads and installs a new package to your computer.\nlibrary(): Loads an installed package into your current R session so you can use its functions.\nread.csv(): Imports a .csv dataset into R.\nstr(): Inspects the internal structure of a dataset.\nsummary(): Provides a quick mathematical and statistical overview of the dataset.\nas.factor(): Converts a column or vector of data into categorical groups (factors).\ngroup_by(): A dplyr function used to group data by one or more specific variables.\nsummarize(): A dplyr function used to compute summary statistics (such as counting observations using n()) for grouped data.\nplot(): A built-in function to visualize your data and draw basic graphs.\nfactor(): Categorizes data, allowing you to manually set or reorder the levels of groups.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle.\n\n\n\n\n\n  View the slides of this week’s tutorial",
     "crumbs": [
       "Home",
       "Part 2: Building a corpus from the internet with modern tools",
@@ -729,124 +634,198 @@
     ]
   },
   {
-    "objectID": "default.html",
-    "href": "default.html",
-    "title": "Week 6 - How to create better scripts",
-    "section": "",
-    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nCreate beautiful scripts that you can share:\n\nReflections: Why creating scripts that are more suitable to share?\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\nA brief summary of the essential elements:\nNo new codes this week. We will be using the same dataset as last week.\n\n\n  Download the dataset for the script  (the same as last week, no need to download one more time if you already have it) \n\n\n\nPlease complete the following tasks before our next meeting:\n\nTransform your R script from last week into an R Markdown document, and knit it to a PDF file.\nTry to include Chinese characters, and debug such that they appear in the PDF document.\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "objectID": "Weeks7_8.html#what-is-the-task",
+    "href": "Weeks7_8.html#what-is-the-task",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "2.1 What is the task",
+    "text": "2.1 What is the task\nFirst, you need to be very clear about what you want to do, otherwise you can literally spend hours doing a lot of things but actually achieving nothing.\nSo here is your first task:\n\nGo to the ETtoday website, and search for one article.\nDescribe each step you take to get to an article, and document the changes that happen regarding the address of the website.",
     "crumbs": [
       "Home",
       "Part 2: Building a corpus from the internet with modern tools",
-      "Week 6 - How to create better scripts"
+      "Weeks 7 & 8: Building a corpus from media platforms"
     ]
   },
   {
-    "objectID": "default.html#overview",
-    "href": "default.html#overview",
-    "title": "Week 6 - How to create better scripts",
-    "section": "",
-    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nCreate beautiful scripts that you can share:\n\nReflections: Why creating scripts that are more suitable to share?\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\nA brief summary of the essential elements:\nNo new codes this week. We will be using the same dataset as last week.\n\n\n  Download the dataset for the script  (the same as last week, no need to download one more time if you already have it) \n\n\n\nPlease complete the following tasks before our next meeting:\n\nTransform your R script from last week into an R Markdown document, and knit it to a PDF file.\nTry to include Chinese characters, and debug such that they appear in the PDF document.\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "objectID": "Weeks7_8.html#documentation-of-the-manual-steps",
+    "href": "Weeks7_8.html#documentation-of-the-manual-steps",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "2.2 Documentation of the manual steps",
+    "text": "2.2 Documentation of the manual steps\nThis task seems quite easy, but it is crucial. First, you went to the website by clicking on the link. Then, you selected the date of the news you were interested in. Third, you selected the type of news (politics, society, etc.). A list of articles was already there on the website, and you were just filtering them. And to get into one article, you just clicked on one of the titles below the search bar.\nThis procedure looks like this:\n\n\n\n\n\n\nNow we will do the same, but pay more attention to the web address, and track the changes that occur. For instance, the first step is just accessing the website. The web address is “https://www.ettoday.net/news/news-list.htm”. What is the web address when you select a particular date, let’s say October 28th, 2024? And when you select a particular type of article, “politics” for example? And finally, when you choose an individual article?\nHere is what we get:\n\nFirst step: https://www.ettoday.net/news/news-list.htm\nSecond step (filtered articles): https://www.ettoday.net/news/news-list-2024-10-28-1.htm\nThird step: (individual article): https://www.ettoday.net/news/20241028/2843953.htm\n\n\n\n\n\n\n\nThink about it\n\n\n\n\nFirst, we can see that filtering the data changes the address of the website in a very systematic way. Now, try to change the address to access the list of articles published on September 27th, 2024. You will get something like that: https://www.ettoday.net/news/news-list-2024-09-27-1.htm\nSecond, try to change the last number. You will see that it changes the type of articles.\n\nSo this means that you can filter the list of articles as you wish just by changing the web address!\n\nThird, if we look at the web address of the individual article, we can retrieve the date of publication of the article very easily… but it is not quite possible to guess the numbers after that.\n\n\n\nNo need to despair! The fact that this article is found in the list means that the web address of the individual article must be somewhere on the website… but where? This is the moment when it is important to understand the structure of the website.",
     "crumbs": [
       "Home",
       "Part 2: Building a corpus from the internet with modern tools",
-      "Week 6 - How to create better scripts"
+      "Weeks 7 & 8: Building a corpus from media platforms"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Language, Society and Literature with Corpus and Modern Technology",
-    "section": "",
-    "text": "Welcome to the course website for CHU03887: Language, Society and Literature with Corpus and Modern Technology.\nTime: Wednesday, 13:20 to 15:10 Place: Mandarin Training Center (國語中心), Classroom 608 Instructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU  Credits: 2  Prerequisites: None"
-  },
-  {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "Language, Society and Literature with Corpus and Modern Technology",
-    "section": "",
-    "text": "Welcome to the course website for CHU03887: Language, Society and Literature with Corpus and Modern Technology.\nTime: Wednesday, 13:20 to 15:10 Place: Mandarin Training Center (國語中心), Classroom 608 Instructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU  Credits: 2  Prerequisites: None"
-  },
-  {
-    "objectID": "index.html#course-description",
-    "href": "index.html#course-description",
-    "title": "Language, Society and Literature with Corpus and Modern Technology",
-    "section": "📋 Course Description",
-    "text": "📋 Course Description\nThis course introduces the principles of corpus studies assisted by modern technology with an emphasis on hands-on practice, and how corpus data can be useful in understanding how language is used in the media or in the literature. The course is divided into three parts:\n\nFundamental concepts when working with a corpus.\nBuilding process of a corpus from the web using automatic methods.\nHandling, analysis, and visualization of the corpus (using R).\n\nBy the end of the course, the students are expected to acquire the basic knowledge of working with a corpus and will obtain a first approach to programming languages."
-  },
-  {
-    "objectID": "index.html#news-updates",
-    "href": "index.html#news-updates",
-    "title": "Language, Society and Literature with Corpus and Modern Technology",
-    "section": "📢 News & Updates",
-    "text": "📢 News & Updates\n\n\n\n\n\n\n\nContent ready, slides and aesthetics in progress\n\n\n\nWebsite announcment\n\n\n\nThe content of the class has been updated. I am currently working on the slides and updating the aesthetics of the website!\n\n\n\nAug 24, 2026\n\n\n\n\n\n\n\n\n\n\nRedesign of the website\n\n\n\nWebsite announcment\n\n\n\nThe website is currently under revision, but it will be ready before the first week!\n\n\n\nAug 20, 2026\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#quick-links",
-    "href": "index.html#quick-links",
-    "title": "Language, Society and Literature with Corpus and Modern Technology",
-    "section": "🚀 Quick links",
-    "text": "🚀 Quick links\n\n\n\n\n\n\n\n\n📖 Syllabus\n\n\n\nFull course schedule, reading list, and grading policies.\nGo to Syllabus\n\n\n\n\n\n\n\n\n\n\n📊 R & RStudio\n\n\n\nDownload the software needed for Part 3 of the course.\nGet R Get RStudio"
-  },
-  {
-    "objectID": "index.html#instructor",
-    "href": "index.html#instructor",
-    "title": "Language, Society and Literature with Corpus and Modern Technology",
-    "section": "👤 Instructor",
-    "text": "👤 Instructor\nAymeric Collart (理克) Department of Chinese, NTNU\nEmail provided in class"
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "Week 1: Introduction to the course",
-    "section": "",
-    "text": "The workflow of a typical corpus-based study is generally as in the image below.\n\nThis course follows this workflow. I will show you how to conduct a corpus investigation step-by-step, and you will be able to do so by yourself!\n\n\n\nThe weekly organization of this course can be found in the Table of Contents on the left in addition to the table below.\n\n\n\n\n\n\n\nWeek\nContent\n\n\n\n\nWeek 1\nIntroductory week\n\n\nPart 1\nPrinciples of corpus studies\n\n\nWeek 2\nWhat is a corpus, and their role to understand language and literature\n\n\nWeek 3\nTypes of corpora: Selecting or building a corpus?\n\n\nPart 2\nBuilding a corpus from the Internet with modern tools\n\n\nWeek 4\nIntroduction to R (1/2): Installation and first steps\n\n\nWeek 5\nIntroduction to R (2/2): Basic functions and how to create reproducible data\n\n\nWeek 6\nExample 1: Building a corpus from media platforms (1/2)\n\n\nWeek 7\nExample 1: Building a corpus from media platforms (2/2)\n\n\nWeek 8\nExample 2: Building a corpus from literature sources (1/2)\n\n\nWeek 9\nExample 2: Building a corpus from literature sources (2/2)\n\n\nWeek 10\nMidterm presentations, group and individual meetings in the classroom\n\n\nPart 3\nSimple preprocessing and analyzes of corpus data\n\n\nWeek 11\nData preprocessing: Tidying data\n\n\nWeek 12\nData analysis\n\n\nWeek 13\nData visualization\n\n\nWeek 14\nPresenting a corpus-based study\n\n\nWeek 15\nGroup and individual meetings in the classroom (assistance for final projects)\n\n\nWeek 16\nStudent’s presentations of individual/group projects\n\n\n\n\n\n\n\n\nWe will only use some parts of these two books:\n1- Paquot, M. & Gries, S. T. (2020) A practical handbook of corpus linguistics. Cham: Springer. Normally, you should be able to download this book freely with this link: Link to the book\n2- O’Keeffe, A., & McCarthy, M. J. (2022). The Routledge handbook of corpus linguistics (2nd edition). London/New York: Routledge. Link to the book\n\n\n\n\n\n\n\n\n\n\n\n(a) Paquot & Gries (2020)\n\n\n\n\n\n\n\n\n\n\n\n(b) O’Keeffe & McCarthy (2022)\n\n\n\n\n\n\n\nFigure 1: Required textbooks\n\n\n\nOnline resources:\n1- R website: Link to the R website (freely downloadable)\n2- RStudio interface: Link to the RStudio website (freely downloadable)\n3- R for data science handbook: Link to the handbook (freely downloadable)\n\n\n\nThis course is task-oriented, so there are many aspects of corpus linguistics that will not be covered. If you are interested in knowing more, you can read the book published by Anatol Stefanowitsch in 2020, available for free here.",
+    "objectID": "Weeks7_8.html#how-to-access-the-structure-of-the-website",
+    "href": "Weeks7_8.html#how-to-access-the-structure-of-the-website",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "3.1 How to access the structure of the website?",
+    "text": "3.1 How to access the structure of the website?\nAccessing the structure of a website is actually very easy. You just need to open the webpage, for example this one: https://www.ettoday.net/news/news-list-2024-10-28-1.htm. Then, you look for a blank space, you right-click, and you select “View Page Source” (it is possible that it will not be in English, or that the wording is different depending on the system of your computer).\nThen, it will open a new page which can be very scary… but this is actually the same, just the structure of the previous page!\nHere is the animated figure of these steps:",
     "crumbs": [
       "Home",
-      "Introductory week",
-      "Week 1: Introduction to the course"
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 7 & 8: Building a corpus from media platforms"
     ]
   },
   {
-    "objectID": "intro.html#what-are-the-steps-of-a-corpus-study",
-    "href": "intro.html#what-are-the-steps-of-a-corpus-study",
-    "title": "Week 1: Introduction to the course",
-    "section": "",
-    "text": "The workflow of a typical corpus-based study is generally as in the image below.\n\nThis course follows this workflow. I will show you how to conduct a corpus investigation step-by-step, and you will be able to do so by yourself!",
+    "objectID": "Weeks7_8.html#what-are-all-these-lines-about",
+    "href": "Weeks7_8.html#what-are-all-these-lines-about",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "3.2 What are all these lines about?",
+    "text": "3.2 What are all these lines about?\nThis version of the website is really where you can find all the information that you need. For example, please have a look at lines 514 to 541 (see the image below).\n\nThis must be more familiar to you: these are the web addresses that you obtain when you filter different types of articles!\nNow, please have a look at line 549… you will see that you have the web addresses of each individual article listed on the webpage!\n\n\n\n\n\n\n\nHow did I know what lines to search for?\n\n\n\nThere’s nothing magical, and I am surely not a psychic who can guess the line numbers. So how to find them? I just use the “search” function (for Windows: “ctrl + f”, for Mac: “command + f”). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles.",
     "crumbs": [
       "Home",
-      "Introductory week",
-      "Week 1: Introduction to the course"
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 7 & 8: Building a corpus from media platforms"
     ]
   },
   {
-    "objectID": "intro.html#syllabus-of-the-course",
-    "href": "intro.html#syllabus-of-the-course",
-    "title": "Week 1: Introduction to the course",
-    "section": "",
-    "text": "The weekly organization of this course can be found in the Table of Contents on the left in addition to the table below.\n\n\n\n\n\n\n\nWeek\nContent\n\n\n\n\nWeek 1\nIntroductory week\n\n\nPart 1\nPrinciples of corpus studies\n\n\nWeek 2\nWhat is a corpus, and their role to understand language and literature\n\n\nWeek 3\nTypes of corpora: Selecting or building a corpus?\n\n\nPart 2\nBuilding a corpus from the Internet with modern tools\n\n\nWeek 4\nIntroduction to R (1/2): Installation and first steps\n\n\nWeek 5\nIntroduction to R (2/2): Basic functions and how to create reproducible data\n\n\nWeek 6\nExample 1: Building a corpus from media platforms (1/2)\n\n\nWeek 7\nExample 1: Building a corpus from media platforms (2/2)\n\n\nWeek 8\nExample 2: Building a corpus from literature sources (1/2)\n\n\nWeek 9\nExample 2: Building a corpus from literature sources (2/2)\n\n\nWeek 10\nMidterm presentations, group and individual meetings in the classroom\n\n\nPart 3\nSimple preprocessing and analyzes of corpus data\n\n\nWeek 11\nData preprocessing: Tidying data\n\n\nWeek 12\nData analysis\n\n\nWeek 13\nData visualization\n\n\nWeek 14\nPresenting a corpus-based study\n\n\nWeek 15\nGroup and individual meetings in the classroom (assistance for final projects)\n\n\nWeek 16\nStudent’s presentations of individual/group projects",
+    "objectID": "Weeks7_8.html#terminology-of-the-structural-lines",
+    "href": "Weeks7_8.html#terminology-of-the-structural-lines",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "3.3 Terminology of the “structural lines”",
+    "text": "3.3 Terminology of the “structural lines”\nLet’s call these lines the “structural lines”. These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in html language.\nLet’s just have a look at line 549 and decompose it.\n\n&lt;div class=\"part_list_2\"&gt;\n  &lt;h3&gt;\n    &lt;span class=\"date\"&gt;2024/10/28 20:45&lt;/span&gt;\n    &lt;em class=\"tag c_news\"&gt;政治&lt;/em&gt;\n    &lt;a target=\"_blank\" href=\"https://www.ettoday.net/news/20241028/2843953.htm\"&gt;陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦&lt;/a&gt;\n  &lt;/h3&gt;\n&lt;/div&gt;\n\nThis line corresponds to this part of the website:\n\nNow we can decompose it:\n\nThe part with “&lt;div&gt;&lt;/div&gt;” means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names to avoid confusing them. Here, the block is called “part_list_2”.\nThe part with “&lt;h3&gt;&lt;/h3&gt;” corresponds to one line in the block. What is between “&lt;h3&gt;” and “&lt;/h3&gt;” is everything we want to put in that line. Here there are three elements:\n\nThe first element is a “&lt;span&gt;&lt;/span&gt;” element, and its name is “date”. What is between “&lt;span&gt;” and “&lt;/span&gt;” is the text to display, here: “2024/10/28 20:45”.\nThe second element is an “&lt;em&gt;&lt;/em&gt;” element (why “em” and not “span”? “em” stands for “emphasis”, so they look different on the website). Its name is “tag c_news”.\nThe third element is an “&lt;a&gt;&lt;/a&gt;” element. This is used to write a text with a link, and the link is specified with “href”. The term “target=”_blank”” means that it opens in a new page when you click on it.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis seems to be a lot and quite complicated.\nSo just remember this:\n\nThere are big blocks with different names (div, h3, span, etc.). Let’s call them nodes.\nInside nodes, you can specify the parameters and names specific to the nodes.\n\nThat’s all!",
     "crumbs": [
       "Home",
-      "Introductory week",
-      "Week 1: Introduction to the course"
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 7 & 8: Building a corpus from media platforms"
     ]
   },
   {
-    "objectID": "intro.html#required-textbooks-and-additional-references",
-    "href": "intro.html#required-textbooks-and-additional-references",
-    "title": "Week 1: Introduction to the course",
-    "section": "",
-    "text": "We will only use some parts of these two books:\n1- Paquot, M. & Gries, S. T. (2020) A practical handbook of corpus linguistics. Cham: Springer. Normally, you should be able to download this book freely with this link: Link to the book\n2- O’Keeffe, A., & McCarthy, M. J. (2022). The Routledge handbook of corpus linguistics (2nd edition). London/New York: Routledge. Link to the book\n\n\n\n\n\n\n\n\n\n\n\n(a) Paquot & Gries (2020)\n\n\n\n\n\n\n\n\n\n\n\n(b) O’Keeffe & McCarthy (2022)\n\n\n\n\n\n\n\nFigure 1: Required textbooks\n\n\n\nOnline resources:\n1- R website: Link to the R website (freely downloadable)\n2- RStudio interface: Link to the RStudio website (freely downloadable)\n3- R for data science handbook: Link to the handbook (freely downloadable)\n\n\n\nThis course is task-oriented, so there are many aspects of corpus linguistics that will not be covered. If you are interested in knowing more, you can read the book published by Anatol Stefanowitsch in 2020, available for free here.",
+    "objectID": "Weeks7_8.html#overview-of-the-steps",
+    "href": "Weeks7_8.html#overview-of-the-steps",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "4.1 Overview of the steps",
+    "text": "4.1 Overview of the steps\nIn Section 2.2, we wrote down the several steps we have been going through to copy and paste the content of one article. In the end, we want to repeat this step many times to get the data from more than one article… and now you can imagine why it is a better idea to process through these steps automatically instead of doing it manually for weeks and months.\n\n\n\n\n\n\nThink about it\n\n\n\nIf you followed this rationale, now you can guess what coding means. It is just about translating our behavior to a language that the computer can understand!\nIn other words, we are going to map the steps described in Section 2.2 to R functions to perform the same task. And then we will require R to repeat the same task with different web addresses.\n\n\nAn efficient way to be clear about the steps to proceed with when doing programming language is to translate the steps we went through manually into words that make sense for the computer. For instance, when we select the dates or article types for filtering, we actually store them somewhere as variables. This gives us the annotated figure below.\n\nNow let’s see how to implement these steps with R.",
     "crumbs": [
       "Home",
-      "Introductory week",
-      "Week 1: Introduction to the course"
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 7 & 8: Building a corpus from media platforms"
     ]
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
+    "objectID": "Weeks7_8.html#preliminary-step-libraries-needed",
+    "href": "Weeks7_8.html#preliminary-step-libraries-needed",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "4.2 Preliminary step: Libraries needed",
+    "text": "4.2 Preliminary step: Libraries needed\nFor this task, we will only need four packages:\n\nlibrary(rvest)\nlibrary(dplyr)\nlibrary(xml2)\nlibrary(openxlsx)",
+    "crumbs": [
+      "Home",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 7 & 8: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "Weeks7_8.html#step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters",
+    "href": "Weeks7_8.html#step-1-record-the-web-addresses-that-list-the-pages-of-the-individual-articles-based-on-the-filters",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "4.3 Step 1: Record the web addresses that list the pages of the individual articles based on the filters",
+    "text": "4.3 Step 1: Record the web addresses that list the pages of the individual articles based on the filters\nThe first step in our task is to record the web addresses. Let’s have a first recap:\n\nThe main address is: https://www.ettoday.net/news/news-list.htm\nThe web address with filters for dates and categories looks like this: https://www.ettoday.net/news/news-list-2024-10-28-1.htm\n\nNow it is like playing lego: How to obtain the address with filters based on the first address? The answer is as follows:\n\n\"https://www.ettoday.net/news/news-list\" + \"-\" + date + \"-\" + category + \".htm\"\n\nWhere dates are like “2024-10-28” and categoriesare just numbers. How to do so with R? Nothing easier!\n\nFirst, store the base address as a variable:\n\n\nETTodayPageUrl &lt;- \"https://www.ettoday.net/news/news-list\" \n\n\nThen, store the year, month and day of your interest, and paste them together. To paste, we use the function “paste0()”:\n\n\nYear &lt;- 2024\nMonth &lt;- 10\nDay &lt;- 28\n\ndate &lt;- paste0(Year,\n               \"-\",\n               Month,\n               \"-\",\n               Day)\ndate\n\n[1] \"2024-10-28\"\n\n\n\nNow we select the category. Let’s say we want articles talking about politics, coded as “1” on ETtoday:\n\n\ncategory &lt;- 1\n\n\nFinally, we paste these variables together to obtain the address:\n\n\n## Template: \"https://www.ettoday.net/news/news-list\" + \"-\" + date + \"-\" + category + \".htm\"\nURL &lt;- paste0(ETTodayPageUrl,\n              \"-\",\n              date,\n              \"-\",\n              category,\n              \".htm\")\nURL\n\n[1] \"https://www.ettoday.net/news/news-list-2024-10-28-1.htm\"\n\n\n\n\n\n\n\n\nThink about it\n\n\n\nYou may think that it is a complex way to do… why not writing the web address as a variable instead of pasting the elements? In other words, why not writing this instead:\nURL &lt;- “https://www.ettoday.net/news/news-list-2024-10-28-1.htm”\nThink about it. Doing so, if you want the data for the whole year 2024, and two categories, it means that you will have to do the same more than 700 times… so it seems to be a simpler solution, and it is true if we are working with only one page, but not necessarily with big data!\n\n\nWe have the address corresponding to one page with the code above. If we want the web addresses for the whole year, we will need to repeat the code, and changing the date every time. In programming language, there is a command that tells a computer to repeat the same set of instructions for each item in a list. It is a way to automate a repetitive task. This command is called for loop.\n\n\n\n\n\n\nWhat is the concept of for loop?\n\n\n\nYou have a list (your friends at the table) and an action (giving one card). The for loop is the instruction you give yourself: “For each friend at the table, give them one card.”\nYou go to the first friend and give them a card. Then you automatically move to the second friend and do the same thing. You continue this process until every friend in the group has received a card. The loop then stops on its own.\nEvery for loop has three basic components:\n\nThe List (or Collection): The group of items you want to work through. This could be a list of names, numbers, or any collection of data.\nThe Action (or Task): The specific job you want to do for every single item in the list.\nThe Loop: The process that automatically takes one item, performs the action, and then moves on to the next item until the list is finished.\n\n\n\nLet’s have a look at how to apply this concept to our case.\n\nFirst, we start with the base address, as we have already done above:\n\n\nETTodayPageUrl &lt;- \"https://www.ettoday.net/news/news-list\" \n\n\nThen we create the List. Since we want to go through the articles published in 2024, we want Year 2024, Months from January (1) to December (12), and Days from 1 to 31 (some months do not have 31 days, but it is not crucial for our purpose). This is how we write it:\n\n\nYear &lt;- 2024\nMonth &lt;- 1:12\nDay &lt;- 1:31\n\nYear\n\n[1] 2024\n\nMonth\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\nDay\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25\n[26] 26 27 28 29 30 31\n\n\n\nWe have the List. Now we need the Action. What we want is a list (or table) with all the dates. To do so:\n\nWe create an empty table,\nWe paste Year, Month and Day to obtain the date,\nWe change the class of the variable to match the class of the empty table,\nWe add the individual date into the table\n\n\nThe code looks like that:\n\nDates_total &lt;- data.frame(matrix(ncol = 1, nrow = 0))\n\n# The Action is below\nDates &lt;- paste0(Year, \"-\", Month, \"-\", Day)\nDates &lt;- as.data.frame(Dates)\nDates_total &lt;- rbind(Dates_total, Dates)\n\n# A look at the results\nDates_total\n\n        Dates\n1    2024-1-1\n2    2024-2-2\n3    2024-3-3\n4    2024-4-4\n5    2024-5-5\n6    2024-6-6\n7    2024-7-7\n8    2024-8-8\n9    2024-9-9\n10 2024-10-10\n11 2024-11-11\n12 2024-12-12\n13  2024-1-13\n14  2024-2-14\n15  2024-3-15\n16  2024-4-16\n17  2024-5-17\n18  2024-6-18\n19  2024-7-19\n20  2024-8-20\n21  2024-9-21\n22 2024-10-22\n23 2024-11-23\n24 2024-12-24\n25  2024-1-25\n26  2024-2-26\n27  2024-3-27\n28  2024-4-28\n29  2024-5-29\n30  2024-6-30\n31  2024-7-31\n\n\n\nSo far it gives us an incomplete list of dates. This is because we need to add the third element: The Loop. Here is my way to create the loop:\n\nWe have the Action for one subset of the data only, which means that we need to have a process for each day, and each month. The rationale goes like this:\n\nLoop 1: “For Day number 1, please assign Month number 1, and Year 2024”\nLoop 2: “For Day number 2, please assign Month number 1, and Year 2024”\n… …\nLoop 31: “For Day number 31, please assign Month number 1, and Year 2024”\nLoop 32: “For Day number 1, please assign Month number 2, and Year 2024”\n\nThis means that we have a first round of Loop for Day, followed by a second round of Loop for Month, followed by a third round of Loop for Year.\nThis is why in the code below, there are 3 for loop commands, and different variables are assigned to them:\n\n\n\nDates_total &lt;- data.frame(matrix(ncol = 1, nrow = 0))\n\nfor (a in 1:length(Day)){\n  for (b in 1:length(Month)){\n    for (c in min(Year):max(Year)){\n      Dates &lt;- paste0(c, \"-\", b, \"-\", a)\n      Dates &lt;- as.data.frame(Dates)\n      Dates_total &lt;- rbind(Dates_total, Dates)\n    }\n  }\n}\n\nDates_total &lt;- as.character(Dates_total$Dates)\n\nknitr::kable(head(Dates_total)) # Use of the kable() function from the 'knitr' package to have a prettier output\n\n\n\n\nx\n\n\n\n\n2024-1-1\n\n\n2024-2-1\n\n\n2024-3-1\n\n\n2024-4-1\n\n\n2024-5-1\n\n\n2024-6-1\n\n\n\n\n\n\nNow we apply the same logic to add the Categories. Let’s say we want articles about “Politics” and “Society”.\n\nIn that case, the List is about categories coded as “1” and “6”\nThe Action is to paste the different parts of the web address\nThe Loop is to paste all the dates (372 dates) to the 2 categories.\nThis gives the following code:\n\n\n\n# \"6.htm\" = \"Society\"\n# \"1.htm\" = \"Politics\"\n# \"2.htm\" = \"International\"\n# \"5.htm\" = \"Life\"\nCategory_total &lt;- c(\"6\", \"1\")\n\nURL_total &lt;- data.frame(matrix(ncol = 1, nrow = 0))\n  \nfor (a in 1:length(Category_total)){\n  URL_temp &lt;- paste0(ETTodayPageUrl, \"-\", Dates_total, \"-\", Category_total[a], \".htm\")\n  URL_temp &lt;- as.data.frame(URL_temp)\n  URL_total &lt;- rbind(URL_total, URL_temp)\n}\n\nURL_total &lt;- as.character(URL_total$URL_temp)\nknitr::kable(head(URL_total)) # Use of the kable() function from the 'knitr' package to have a prettier output\n\n\n\n\nx\n\n\n\n\nhttps://www.ettoday.net/news/news-list-2024-1-1-6.htm\n\n\nhttps://www.ettoday.net/news/news-list-2024-2-1-6.htm\n\n\nhttps://www.ettoday.net/news/news-list-2024-3-1-6.htm\n\n\nhttps://www.ettoday.net/news/news-list-2024-4-1-6.htm\n\n\nhttps://www.ettoday.net/news/news-list-2024-5-1-6.htm\n\n\nhttps://www.ettoday.net/news/news-list-2024-6-1-6.htm",
+    "crumbs": [
+      "Home",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 7 & 8: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "Weeks7_8.html#step-2-retrieve-the-urls-of-the-individual-articles",
+    "href": "Weeks7_8.html#step-2-retrieve-the-urls-of-the-individual-articles",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "4.4 Step 2: Retrieve the URLs of the individual articles",
+    "text": "4.4 Step 2: Retrieve the URLs of the individual articles\nNow we have the web addresses that list the webpages of individual articles, filtered by dates and categories. The next step is to find the web addresses of these individual articles. There are several sub-steps:\n\nFirst, R needs to read the webpage with the list of addresses. Please be aware that when R reads the webpage, we are talking about the structure of the webpage!\n\nThe R function to do so is called “read_html()”.\nWe write the address of the webpage to read between the parentheses. Here, we already have the list from the previous step, and we stored them under the variable “URL_total”.\nWe just test with only one page for the moment. This is why in the code below, we write “URL_total[1]”. It means “the first data in the list called URL_total”.\n\n\n\nIndPage &lt;- read_html(URL_total[1])\nIndPage\n\n{html_document}\n&lt;html lang=\"zh-Hant\" prefix=\"og:http://ogp.me/ns#\" xmlns:wb=\"http://open.weibo.com/wb\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\"&gt;\n[1] &lt;head&gt;\\n&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8 ...\n[2] &lt;body&gt;\\r\\n\\n&lt;!-- FB Quote 選取文字分享 開始--&gt;\\n&lt;div class=\"fb-quote\"&gt;&lt;/div&gt;\\n&lt;!- ...\n\n\n\nThe second step is to retrieve the information that we need. We have already done that in Section 3, and if you remember well, we found the line corresponding to the data we want:\n\n\n&lt;div class=\"part_list_2\"&gt;\n  &lt;h3&gt;\n    &lt;span class=\"date\"&gt;2024/10/28 20:45&lt;/span&gt;\n    &lt;em class=\"tag c_news\"&gt;政治&lt;/em&gt;\n    &lt;a target=\"_blank\" href=\"https://www.ettoday.net/news/20241028/2843953.htm\"&gt;陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦&lt;/a&gt;\n  &lt;/h3&gt;\n&lt;/div&gt;\n\nIf you need to describe, you have to say something like that:\n\"The address of the individual article is listed after the 'href' attribute, which is in the &lt;a&gt; node, which is in the &lt;h3&gt; node, which is in the &lt;div&gt; node whose class is 'part_list_2' \".\nHow to translate into R? We will use two functions:\n\n\n\n\n\n\n\n\nFunction\nUse\nExample in our case\n\n\n\n\nhtml_nodes()\nUsed to identify the elements within a node\nhtml_nodes(“div”) = retrieves all the nodes starting with “div”\nhtml_nodes(“div.something”) = retrieves only the nodes starting with “div”, where ‘class = “something”’ (in other words, it filters specific “div” nodes)\n\n\nhtml_attr()\nUsed to identify the content of the specification of a node\nhtml_attr(“class”) = retrieves the element written after “class”. For example, in the case below, it will return “NameOfTheClass”.\n&lt;div class=“NameOfTheClass”&gt;\n\n\n\nNow that we know how to use the code, we can translate the description we wrote as follows:\n\nnews_url &lt;- IndPage %&gt;% \n  html_nodes(\"div.part_list_2\") %&gt;% \n  html_nodes(\"h3\") %&gt;%\n  html_nodes(\"a\") %&gt;%\n  html_attr(\"href\")\n\nknitr::kable(head(news_url)) # Use of the kable() function from the 'knitr' package to have a prettier output on the website\n\n\n\n\nx\n\n\n\n\nhttps://www.ettoday.net/news/20240101/2655300.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655313.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655305.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655303.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655277.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655264.htm\n\n\n\n\n\n\n\n\n\n\n\nThink about it\n\n\n\nLet’s say that you wanted the date or the category of the articles, how would you change this code?\n\n\n\nCongratulations! You have the list of the addresses from one page! Now we need to repeat the same process to the other 743 lists… and anytime you need to repeat a task over and over, this means for loop command! Here are the elements we need:\n\nFirst, we create an empty data frame in which we will store all the web addresses of the individual articles\nThe List is the addresses of the webpages where we can find the individual articles filtered by date and category, which we stored in the variable called “URL_total”,\nThe Action is to find the web addresses of the individual articles, as we did just before,\nThe Loop is to perform the Action for all the filtered pages, and to paste the individual web addresses in the empty data frame we just created.\nThis gives the following code:\n\n\n\n## This step can last several minutes\nURL_IndArticles &lt;- data.frame(matrix(ncol = 1, nrow = 0))\n\nfor (i in 1:length(URL_total)){\n  IndPage &lt;- read_html(URL_total[i])\n  news_url &lt;- IndPage %&gt;% \n    html_nodes(\"div.part_list_2\") %&gt;% \n    html_nodes(\"h3\") %&gt;%\n    html_nodes(\"a\") %&gt;%\n    html_attr(\"href\")\n  \n  news_url &lt;- as.data.frame(news_url)\n  URL_IndArticles &lt;- rbind(URL_IndArticles, news_url)\n}\n\n\nWe are not completely done. It is possible that for some reasons, some articles are repeated. So the next step is to remove all the repeated web addresses, by keeping only one instance. Here is how we do that: We use the ‘unique()’ function:\n\n\narticle_overview_unique &lt;- unique(URL_IndArticles)\n\nknitr::kable(head(article_overview_unique)) # Use of the kable() function from the 'knitr' package to have a prettier output on the website\n\n\n\n\nnews_url\n\n\n\n\nhttps://www.ettoday.net/news/20240101/2655300.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655313.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655305.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655303.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655277.htm\n\n\nhttps://www.ettoday.net/news/20240101/2655264.htm",
+    "crumbs": [
+      "Home",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 7 & 8: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "Weeks7_8.html#step-3-retrieve-the-titles-date-types-and-content-of-the-articles",
+    "href": "Weeks7_8.html#step-3-retrieve-the-titles-date-types-and-content-of-the-articles",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "4.5 Step 3: Retrieve the titles, date, types and content of the articles",
+    "text": "4.5 Step 3: Retrieve the titles, date, types and content of the articles\nWe are already half-way to the end! Now that we have the list of the web addresses of the articles published in 2024, we can scrape their content in addition to other information we might need, including the date of publication and the title of the article.\n\nTest with one article\nAs in the previous step, it is safer to test first with one article. The reason is that as some steps require quite a long time to be completed, so it is better to identify potential problems before by testing with only one subset of the data. Again, we have to go through different sub-steps:\n\nFirst, we use the “read_html()” function to read the structure of the web page of one article:\n\n\nOneArticle &lt;- read_html(article_overview_unique$news_url[1])\n\n\nAfter “playing hide and seek” with the structure of the page, we can identify the nodes under which the content we want can be found. Let’s start with the date of publication, which is here:\n\n\n&lt;time class=\"date\" itemprop=\"datePublished\" datetime=\"2024-01-01T22:47:00+08:00\"&gt;                                    2024年01月01日 22:47                                       &lt;/time&gt;\n\nWe can see that it is inside the &lt;time&gt; node (between &lt;time&gt; and &lt;/time&gt;). Therefore, in addition to the “html_nodes()” function, we specify that we want the text within, hence the use of “html_text()” function. The option “trim = TRUE” is just to remove coding format in the text.\nFinally, we store this piece of information in the variable called “news_time”.\n\n# Date of publication\nnews_time &lt;- OneArticle %&gt;% \n  html_nodes(\"time\") %&gt;% \n  html_text(trim = TRUE)\n\n\nAnd now we proceed the same way for the category of the article, and its title:\n\n\n# Category of news\nnews_class &lt;- OneArticle %&gt;% \n  html_nodes(\".part_menu_5\") %&gt;% \n  html_nodes(\"strong\") %&gt;%\n  html_text(trim = TRUE)\n\n# title \nnews_title &lt;- OneArticle %&gt;% \n  html_nodes(\"h1\") %&gt;% \n  html_text(trim = TRUE)\n\n# content \nnews_body &lt;- OneArticle %&gt;% \n  html_nodes('div[itemprop=\"articleBody\"]') %&gt;% \n  html_text(trim = TRUE)\n\n\nOnce it is done, we store these five variables in the same table:\n\n\narticle &lt;- (data.frame(time = news_time,\n                       class = news_class,\n                       title = news_title,\n                       body = news_body,\n                       url = article_overview_unique$news_url[1]))\n\n\nAnd now we can have a look at what we get with one article:\n\n\n# Use of the paged_table() function from the 'rmarkdown' package to have a readable output\nrmarkdown::paged_table(article)\n\n\n  \n\n\n\n\n\nRepeat the same process with all the articles\nAnd if you were following the rationale of these two weeks’ tutorial, you know that when we repeat the same action again and again, it is a better idea to use the for loop command:\n\nFirst, we create an empty data frame in which we will store all the information we want. Let’s call it “Article_total”.\nThe List is the addresses of the individual articles, which we stored in the variable called “article_overview_unique$news_url”,\nThe Action is to find the date of publication, the category of article, the content of the article, its title, and its web address, as we did just before,\nThe Loop is to perform the Action for individual articles, and to include them in the empty data frame we just created.\nYou will remark something new: “tryCatch({”, and at the end “}, error=function(e){cat(”ERROR :“,conditionMessage(e),”“)})”. This is because the for loop command stops anytime an error occurs (which can happen with a broken link, missing information on one article, etc.).\n\nWrapping the Action with the “tryCatch({})” function is just to say that the for loop can ignore the errors and keep proceeding to the next article,\nThe “error=function(e){cat(”ERROR :“,conditionMessage(e),”“)})” part is just to report the error message in the console.\nThis gives the following code:\n\n\n\nArticle_total &lt;- data.frame()\n\nfor (j in 1:length(article_overview_unique$news_url)){\n  tryCatch({\n    temp &lt;- read_html(article_overview_unique$news_url[j])\n    \n    # Date of publication\n    news_time &lt;- temp %&gt;% \n      html_nodes(\"time\") %&gt;% \n      html_text(trim = TRUE)\n    \n    # Category of news\n    news_class &lt;- temp %&gt;% \n      html_nodes(\".part_menu_5\") %&gt;% \n      html_nodes(\"strong\") %&gt;%\n      html_text(trim = TRUE)\n    \n    # title \n    news_title &lt;- temp %&gt;% \n      html_nodes(\"h1\") %&gt;% \n      html_text(trim = TRUE)\n    \n    # content \n    news_body &lt;- temp %&gt;% \n      html_nodes('div[itemprop=\"articleBody\"]') %&gt;% \n      html_text(trim = TRUE)\n    \n    # url\n    news_url &lt;- temp %&gt;% \n      html_nodes(\"div.block div.block_content div.part_list_2 h3\") %&gt;% \n      html_nodes(\"a\") %&gt;%\n      html_attr(\"href\")\n    \n    Article &lt;- (data.frame(time = news_time,\n                           class = news_class,\n                           title = news_title,\n                           body = news_body,\n                           url = article_overview_unique$news_url[j]))\n    Article_total &lt;- rbind(Article_total, Article)\n  }, error=function(e){cat(\"ERROR :\",conditionMessage(e), \"\\n\")})\n}\n\n# Use of the paged_table() function from the 'rmarkdown' package to have a readable output\nrmarkdown::paged_table(head(Article_total))\n\n\n  \n\n\n\n\n\n\n\n\n\nBe careful!!\n\n\n\nThis step can take a very long time! For me, scrapping the articles published in 2024 in these two categories can take 4 hours! You cannot use R when it is working. But you can still use your computer for any other task. So plan accordingly!",
+    "crumbs": [
+      "Home",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 7 & 8: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "Weeks7_8.html#step-4-save-the-data-into-excel-and-r-files",
+    "href": "Weeks7_8.html#step-4-save-the-data-into-excel-and-r-files",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "4.6 Step 4: Save the data into Excel and R files",
+    "text": "4.6 Step 4: Save the data into Excel and R files\nThe last steps are straightforward: We export the dataset into an Excel document in addition to an RData file:\n\nwrite.xlsx(Article_total, \"ArticleETToday_CorpusCourse.xlsx\")\n\n\nsave(Article_total, file = \"ArticleETToday_CorpusCourse.Rdata\")",
+    "crumbs": [
+      "Home",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Weeks 7 & 8: Building a corpus from media platforms"
+    ]
+  },
+  {
+    "objectID": "instructor.html",
+    "href": "instructor.html",
+    "title": "Instructor",
     "section": "",
-    "text": "References"
+    "text": "Aymeric Collart, Ph.D\nAssistant Professor Department of Chinese  National Taiwan Normal University   Personal website: https://aymeric-collart.github.io/ Contact information: aymeric.collart at ntnu.edu.tw"
+  },
+  {
+    "objectID": "intro_slides.html#structure-and-workflow-of-the-tutorial",
+    "href": "intro_slides.html#structure-and-workflow-of-the-tutorial",
+    "title": "Introduction",
+    "section": "Structure and workflow of the tutorial",
+    "text": "Structure and workflow of the tutorial\n\n\nClick on the image to zoom in and out"
+  },
+  {
+    "objectID": "intro_slides.html#chapters-and-section-of-the-tutorial",
+    "href": "intro_slides.html#chapters-and-section-of-the-tutorial",
+    "title": "Introduction",
+    "section": "Chapters and section of the tutorial",
+    "text": "Chapters and section of the tutorial\n\nChapter 1Chapter 2Chapter 3\n\n\n\n\n\nChapter 1: Getting started\n\n\n\n\n\nDownload and install R/RStudio\nlink\n\n\nPresentation of R/RStudio\nlink\n\n\nWorking with markdown files\nlink\n\n\n\n\n\n\n\n\nChapter 2: Let’s get our data\n\n\n\n\n\nUnderstanding where the data are on the Internet\nlink\n\n\nScraping the data from the web with R\nlink\n\n\n\n\n\n\n\n\nChapter 3: Cleaning and analyzing the data\n\n\n\n\n\nPreprocess the data: Cleaning and transformations\nlink\n\n\nAnalyzing the data\nlink"
+  },
+  {
+    "objectID": "intro_slides.html#what-this-tutorial-does-not-cover",
+    "href": "intro_slides.html#what-this-tutorial-does-not-cover",
+    "title": "Introduction",
+    "section": "What this tutorial does NOT cover",
+    "text": "What this tutorial does NOT cover\n\nFundamental concepts of corpus linguistics\nHow to ask a research question and how to motivate it\nAdvanced statistical methods in corpus linguistics (classification analyses, vector space representations)\n\n\nIf you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free here."
+  },
+  {
+    "objectID": "intro_slides.html#how-to-get-through-the-exercises",
+    "href": "intro_slides.html#how-to-get-through-the-exercises",
+    "title": "Introduction",
+    "section": "How to get through the exercises",
+    "text": "How to get through the exercises"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Part 1: Principles of corpus studiesPart 2: Building a corpus from the InternetPart 3: Analyzes\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n1\nIntroductory week\n\nRead material for Week 2\n\n\n2\nWhat is a corpus, and their role to understand language and literature\nRHCL For language: Chapter 15, Chapter 40For literature: Chapter 17, Chapter 37\nRead material for Week 3\n\n\n3\nTypes of corpora: Selecting or building a corpus?\nRHCL, Chapter 2, Chapter 8PHCL, Chapter 15\nRead material for Week 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n4\nInstallation of R and computer set-up\nSlidesR for data science, Introduction, Chapter 2, Chapter 6, Chapter 28\nMake sure the computer is prepared for the next weeks\n\n\n5\nPresentation of R and its basic functions\nSlidesR for data science, Introduction, Chapter 2, Chapter 6, Chapter 28\nExercises for next week\n\n\n6\nHow to create better scripts\nSlides\nExercises for next week\n\n\n7\nBuilding a corpus from media platforms (1/2)\nSlidesR for data science, Chapter 24\nExercises for next week\n\n\n8\nBuilding a corpus from media platforms (2/2)\nSlidesR for data science, Chapter 24\nExercises for next week\n\n\n9\nGroup and individual meetings in the classroom\n\n\n\n\n10\nMidterm presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n11\nData preprocessing: Tidying data\nR for data science, Chapter 3, Chapter 5\nExercises for next week\n\n\n12\nData analysis\nR for data science, Chapter 9, Chapter 10\nExercises for next week\n\n\n13\nData visualization\nR for data science, Chapter 10, Chapter 11\nPrepare a document of the analyses and visualization of your own data (a preliminary version is enough)\n\n\n14\nPresenting a corpus-based study\nPHCL, Chapter 26\n\n\n\n15\nGroup and individual meetings in the classroom\nAssistance for handling the results of the individual/group projects\n\n\n\n16\nStudent’s presentations of individual/group projects"
+  },
+  {
+    "objectID": "syllabus.html#course-schedule",
+    "href": "syllabus.html#course-schedule",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Part 1: Principles of corpus studiesPart 2: Building a corpus from the InternetPart 3: Analyzes\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n1\nIntroductory week\n\nRead material for Week 2\n\n\n2\nWhat is a corpus, and their role to understand language and literature\nRHCL For language: Chapter 15, Chapter 40For literature: Chapter 17, Chapter 37\nRead material for Week 3\n\n\n3\nTypes of corpora: Selecting or building a corpus?\nRHCL, Chapter 2, Chapter 8PHCL, Chapter 15\nRead material for Week 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n4\nInstallation of R and computer set-up\nSlidesR for data science, Introduction, Chapter 2, Chapter 6, Chapter 28\nMake sure the computer is prepared for the next weeks\n\n\n5\nPresentation of R and its basic functions\nSlidesR for data science, Introduction, Chapter 2, Chapter 6, Chapter 28\nExercises for next week\n\n\n6\nHow to create better scripts\nSlides\nExercises for next week\n\n\n7\nBuilding a corpus from media platforms (1/2)\nSlidesR for data science, Chapter 24\nExercises for next week\n\n\n8\nBuilding a corpus from media platforms (2/2)\nSlidesR for data science, Chapter 24\nExercises for next week\n\n\n9\nGroup and individual meetings in the classroom\n\n\n\n\n10\nMidterm presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n11\nData preprocessing: Tidying data\nR for data science, Chapter 3, Chapter 5\nExercises for next week\n\n\n12\nData analysis\nR for data science, Chapter 9, Chapter 10\nExercises for next week\n\n\n13\nData visualization\nR for data science, Chapter 10, Chapter 11\nPrepare a document of the analyses and visualization of your own data (a preliminary version is enough)\n\n\n14\nPresenting a corpus-based study\nPHCL, Chapter 26\n\n\n\n15\nGroup and individual meetings in the classroom\nAssistance for handling the results of the individual/group projects\n\n\n\n16\nStudent’s presentations of individual/group projects"
+  },
+  {
+    "objectID": "syllabus.html#grading-evaluation",
+    "href": "syllabus.html#grading-evaluation",
+    "title": "Syllabus",
+    "section": "⚖️ Grading & evaluation",
+    "text": "⚖️ Grading & evaluation\nThe final grade is distributed as follows:\n\n\n\n\n\n\n\npie title Grade Distribution\n    \"Assignments\" : 40\n    \"Midterm Exam\" : 15\n    \"Final Exam\" : 15\n    \"Class Discussion\" : 15\n    \"Attendance\" : 15\n\n\n\n\n\n\n\n\n???? Assessment details\n\nAssignments (40%): Regular homework\n\nNote: 4% will be deducted for each failure to submit homework on time.\n\nFinal project (30%):\n\nOral presentation: 15%\nWritten report: 15%\n\nClass discussion (15%): Active participation\nAttendance (15%): Regular presence is required"
+  },
+  {
+    "objectID": "syllabus.html#resources-software",
+    "href": "syllabus.html#resources-software",
+    "title": "Syllabus",
+    "section": "📚 Resources & software",
+    "text": "📚 Resources & software\n\n\n\n\n\n\nOnline Resources & Software\n\n\n\n\nCourse Website: https://aymeric-collart.github.io/CHU0387/\nSoftware: R Project (freely downloadable) | RStudio Interface (freely downloadable)\n\n\n\n\n\n\n\n\n\nKey References\n\n\n\n\nO’Keeffe, A., & McCarthy, M. J. (2022). The Routledge handbook of corpus linguistics (2nd edition). London/New York: Routledge. [RHCL]\nPaquot, M., & Gries, S. T. (2020). A practical handbook of corpus linguistics. Cham: Springer. [PHCL]\nR for data science handbook: https://r4ds.hadley.nz/ (freely downloadable)"
   }
 ]
