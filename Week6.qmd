@@ -162,7 +162,7 @@ No new codes this week. We will be using the same dataset as last week.
 ::::
 
 ::: {.text-center .mb-4}
-<a href="Week5_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial</a>
+<a href="week6_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial</a>
 :::
 
 <br>
