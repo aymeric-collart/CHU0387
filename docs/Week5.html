@@ -683,6 +683,20 @@ td {
        window.URL.revokeObjectURL(url);
      })" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a></p>
 </div>
+<div class="text-center mb-3">
+<p><a href="javascript:void(0)" onclick="fetch('https://raw.githubusercontent.com/aymeric-collart/CHU0387/main/assets/files/Script_Week5.R')
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'Script_Week5.R';
+       document.body.appendChild(a);
+       a.click();
+       window.URL.revokeObjectURL(url);
+     })" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the script here </a></p>
+</div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p><strong>Please complete the following tasks before our next meeting:</strong></p>
