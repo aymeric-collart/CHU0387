@@ -162,6 +162,25 @@ This week, we will have a tutorial on how to prepare your computer for further a
 </a>
 :::
 
+::: {.text-center .mb-3}
+<a href="javascript:void(0)" 
+   onclick="fetch('https://raw.githubusercontent.com/aymeric-collart/CHU0387/main/assets/files/Script_Week5.R')
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'Script_Week5.R';
+       document.body.appendChild(a);
+       a.click();
+       window.URL.revokeObjectURL(url);
+     })" 
+   class="btn btn-outline-primary btn-sm">
+  <i class="bi bi-download"></i> Download the script here
+</a>
+:::
+
 ## 📝 Homework
 
 **Please complete the following tasks before our next meeting:**
