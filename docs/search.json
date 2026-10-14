@@ -11,7 +11,7 @@
     "href": "week6_slides.html#from-raw-script-to-functional-r-markdown",
     "title": "Week 6 - How to create better scripts",
     "section": "From raw script to functional: R Markdown",
-    "text": "From raw script to functional: R Markdown\n\n\n\n1. Create the file 📄 Go to New File &gt; R Markdown. This moves you from raw code to a “living” document.\n\n\n2. Configure (YAML) ⚙️ The header between --- controls your title, author, and output format (HTML/PDF).\n\n\n3. Text + Code chunks 📝 Write text normally; insert Code Chunks ({r}) for analysis.\n\n\n4. Run your codes ▶️ Use the green Play Button to test individual steps.\n\n\n5. The final “Knit” 🧶 Click Knit to stitch everything into a polished report automatically!"
+    "text": "From raw script to functional: R Markdown\n\n\n\n1. Create the file 📄 Go to New File &gt; R Markdown. This moves you from raw code to a “living” document.\n\n\n2. Configure (YAML) ⚙️ The header between --- controls your title, author, and output format (HTML/PDF).\n\n\n3. Text + Code chunks 📝 Write text normally; insert Code Chunks ({r}) for analysis.\n\n\n4. Run your codes ▶️ Use the green Play Button to test individual steps.\n\n\n5. The final “Knit” 🧶 Click Knit to stitch everything into a polished report automatically!\n\n::: {.column width = “45%”} ::: {.r-stack} \n\n:::\n:::"
   },
   {
     "objectID": "week6_slides.html#common-problem",
@@ -24,8 +24,15 @@
     "objectID": "week6_slides.html#the-solution",
     "href": "week6_slides.html#the-solution",
     "title": "Week 6 - How to create better scripts",
-    "section": "😱 The solution",
-    "text": "😱 The solution\nYou need to install a package before creating the PDF document.\nHere are the steps:\n\n1. Run this line of code in the console block:\ntinytex::install_tinytex()\nIt can take some time, up to 5 minutes.\n\n\n2. Click one more time on “Knit to PDF”\nIt’s supposed to work. If it still doesn’t work, please contact me!"
+    "section": "The solution",
+    "text": "The solution\nYou need to install a package before creating the PDF document.\nHere are the steps:\n\n1. Run this line of code in the console block:\ntinytex::install_tinytex()\nIt can take some time, up to 5 minutes.\n\n\n2. Click one more time on “Knit to PDF”\nIt’s supposed to work. If it still doesn’t work, please contact me!"
+  },
+  {
+    "objectID": "week6_slides.html#r-markdown-cheatsheet",
+    "href": "week6_slides.html#r-markdown-cheatsheet",
+    "title": "Week 6 - How to create better scripts",
+    "section": "📊 R Markdown cheatsheet",
+    "text": "📊 R Markdown cheatsheet\nYou can find more about how to write R Markdown documents on this website:\nLink to the cheatsheet"
   },
   {
     "objectID": "week6_slides.html#in-class-exercise",

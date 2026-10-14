@@ -10,70 +10,79 @@ format:
     chalkboard: true
     width: 1280
     height: 720
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ## 🎯 Goals
 
 ::: {.fragment .fade-up}
--   **Advanced scripts:** How to use Markdown documents to share better scripts?
+-   **Advanced scripts:** How to use Markdown documents to share better
+    scripts?
 :::
-
 
 # 📊 Better and reproducible scripts with R Markdown
 
-
 ## From raw script to functional: R Markdown {.center}
 
-::: {.columns}
-
-::: {.column width="55%"}
+::::::::: columns
+:::::::: {.column width="55%"}
 ::: {.fragment data-fragment-index="1"}
-**1. Create the file** 📄
-<br><small>Go to **New File > R Markdown**. This moves you from raw code to a "living" document.</small>
+**1. Create the file** 📄 <br><small>Go to **New File \> R Markdown**.
+This moves you from raw code to a "living" document.</small>
 :::
 
 ::: {.fragment data-fragment-index="2"}
-**2. Configure (YAML)** ⚙️
-<br><small>The header between `---` controls your title, author, and output format (HTML/PDF).</small>
+**2. Configure (YAML)** ⚙️ <br><small>The header between `---` controls
+your title, author, and output format (HTML/PDF).</small>
 :::
 
 ::: {.fragment data-fragment-index="3"}
-**3. Text + Code chunks** 📝
-<br><small>Write text normally; insert **Code Chunks** (`{r}`) for analysis.</small>
+**3. Text + Code chunks** 📝 <br><small>Write text normally; insert
+**Code Chunks** (`{r}`) for analysis.</small>
 :::
 
 ::: {.fragment data-fragment-index="4"}
-**4. Run your codes** ▶️
-<br><small>Use the green **Play Button** to test individual steps.</small>
+**4. Run your codes** ▶️ <br><small>Use the green **Play Button** to
+test individual steps.</small>
 :::
 
 ::: {.fragment data-fragment-index="5"}
-**5. The final "Knit"** 🧶
-<br><small>Click **Knit** to stitch everything into a polished report automatically!</small>
+**5. The final "Knit"** 🧶 <br><small>Click **Knit** to stitch
+everything into a polished report automatically!</small>
 :::
+::::::::
+
+::: {.column width = "45%"} ::: {.r-stack}
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png){.fragment
+.fade-in-then-out data-fragment-index="1"}
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png){.fragment
+.fade-in-then-out data-fragment-index="2"
+style="width: 100%; height: auto; border-radius: 8px;"}
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png){.fragment
+.fade-in-then-out data-fragment-index="3"
+style="width: 100%; height: auto; border-radius: 8px;"}
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png){.fragment
+data-fragment-index="4"
+style="width: 100%; height: auto; border-radius: 8px;"}
+:::::::::
+
 :::
 
-::: {.column width = "45%"}
-::: {.r-stack}
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png){.fragment .fade-in-then-out data-fragment-index="1"}
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png){.fragment .fade-in-then-out data-fragment-index="2" style="width: 100%; height: auto; border-radius: 8px;"}
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png){.fragment .fade-in-then-out data-fragment-index="3" style="width: 100%; height: auto; border-radius: 8px;"}
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png){.fragment data-fragment-index="4" style="width: 100%; height: auto; border-radius: 8px;"}
-:::
 :::
 
-:::
-
----
+------------------------------------------------------------------------
 
 ## 😱 Common problem
 
-When you try to knit your R Markdown document into a PDF file, you may encounter this message:
+When you try to knit your R Markdown document into a PDF file, you may
+encounter this message:
 
-```r
+``` r
 sh: pdflatex: command not found
 
 Error: LaTeX failed to compile Untitled.tex. See The R package tinytex - Helper Functions to Manage TinyTeX, and Compile LaTeX Documents - Yihui Xie | 谢益辉 for debugging tips. See Untitled.log for more info.
@@ -83,53 +92,62 @@ error in running command
 Execution halted
 ```
 
----
+------------------------------------------------------------------------
 
-## 😱 The solution
+## The solution
 
-You need to install a package before creating the PDF document. 
+You need to install a package before creating the PDF document.
 
 Here are the steps:
 
-
-
-
 ::: {.fragment data-fragment-index="1"}
 **1. Run this line of code in the console block:**
- 
-```r
+
+``` r
 tinytex::install_tinytex()
 ```
 
 It can take some time, up to 5 minutes.
-
 :::
 
 ::: {.fragment data-fragment-index="2"}
 **2. Click one more time on "Knit to PDF"**
 
-It's supposed to work.
-If it still doesn't work, please contact me!
+It's supposed to work. If it still doesn't work, please contact me!
 :::
 
+------------------------------------------------------------------------
 
+## 📊 R Markdown cheatsheet
 
----
+You can find more about how to write R Markdown documents on this
+website:
+
+[Link to the cheatsheet](https://rmarkdown.rstudio.com/lesson-15.HTML)
+
+------------------------------------------------------------------------
 
 ## 📝 In-class exercise!
+
 <br><br>
-<center>**Task list:**
 
--   [ ] Create a new Markdown document, and call it `ScriptWeek5_Markdown`.
--   [ ] Use the script from last week, but adapt it to the Markdown format. Be creative!
+<center>
 
+**Task list:**
 
----
+-   [ ] Create a new Markdown document, and call it
+    `ScriptWeek5_Markdown`.
+-   [ ] Use the script from last week, but adapt it to the Markdown
+    format. Be creative!
+
+------------------------------------------------------------------------
 
 ::: {.callout-important icon="true"}
 ## 📝 Assignment for next week
 
--   [ ] Please comment each line of code from the script we wrote on Week 5.
--   [ ] Finish transposing the raw script into a Markdown document, and knit to a PDF file.
+-   [ ] Please comment each line of code from the script we wrote on
+    Week 5.
+-   [ ] Finish transposing the raw script into a Markdown document, and
+    knit to a PDF file.
 -   [ ] Upload the two documents on Moodle!
 :::
