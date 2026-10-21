@@ -1,11 +1,9 @@
 ---
 title: "Weeks 7 & 8: Building a corpus from media platforms"
+subtitle: "CHU0387 | National Taiwan Normal University"
 format: 
   html:
-    output-file: Weeks7_8.html
-    number-sections: true
-    number-depth: 2
-    toc: true
+    output-file: default
 ---
 
 ```{=html}
@@ -14,26 +12,221 @@ hr.rounded {
   border-top: 1px solid #E5E4E2;
   border-radius: 5px;
 }
+
+  
+  /* Tabset Styling */
+  .nav-tabs {
+    border-bottom: 2px solid #ecf0f1;
+    margin-top: 1em;
+    margin-bottom: 30px;
+  }
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #95a5a6;
+    border: none;
+  padding: 15px 25px;
+  transition: all 0.3s ease;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+    border: none;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+    background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Stunning Headers */
+  
+h2 {
+    margin-top: 1.8em;
+    color: #2980b9;
+      font-weight: 600;
+  }
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Floating Images with Animations */
+  img {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    margin: 2rem auto;
+    display: block;
+  }
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+  hr.rounded {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+    margin: 4rem 0;
+  }
+
+/* Pro Code Styling */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+      background-color: #fdf2f0;
+      padding: 3px 6px;
+    border-radius: 5px;
+  }
+pre code {
+  color: #333;
+    background-color: transparent;
+}
+
+/* Clean Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin: 2rem 0;
+  }
+th {
+  background-color: #3498db;
+    color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+  b, strong {
+    color: #2c3e50;
+      font-weight: 700;
+  }
+
+
+.concept-card {
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 0.75rem 1.25rem 1.25rem 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.concept-card > :first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.concept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2563eb;
+  background-color: #eff6ff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+}
 </style>
+
 ```
+
+## Overview
+
+These two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.
+
+:::: panel-tabset
+## 🎯 Goals
+
+**Scraping a web page:**
+
+-   **Week 7: Understanding a web page:** What is the structure of a web page? How to find the data we want?
+-   **Week 8: Writing the script:** How to translate human behavior into R?
+
+## 💻 Necessary codes and full script
+
+**A brief summary of the essential elements:**
+
+(to be given later)
+
+
+**Scripts and datasets**
+
+You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Scrape.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Scrape.pdf" target="_blank">Here</a> is the PDF output of the same document.
+
+Please note that **it takes several hours to run the Markdown document**. In the end it will download data from more than 20000 pages. In case, the RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse.xlsx" target="_blank">here</a>.
+
+
+## 📝 Homework
+
+**Please complete the following tasks before Week 9:**
+
+-  Transform your R script from last week into an R Markdown document, and knit it to a PDF file.
+-  Try to include Chinese characters, and debug such that they appear in the PDF document.
+::::
+
+::: {.text-center .mb-4}
+<a href="week7_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of Week 7</a>
+:::
 
 <br>
 
-::: {.callout-warning icon="false"}
-## Objectives
+<br>
 
-These two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.
+
+# 1. Building your own corpus: Conceptual and technical considerations
+
+There are many tools that we can use now to build a corpus based on data coming from the Internet, and this includes R packages. But many concepts need to be clarified before getting into the coding part:
+
+::: {layout-ncol=3}
+
+::: {.concept-card}
+### Step 1
+Being aware of the *steps* you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible.
 :::
 
-# Building your own corpus: Conceptual and technical considerations
+::: {.concept-card}
+### Step 2
+Understanding the *structure* of a website, how to *access* the structure of the website, and *where* the information you want are.
+:::
 
-There are many tools that we can use now to build a corpus based on data coming from the Internet, and this includes R packages. But many concepts need to be clarified before getting into the coding part, such as:
+::: {.concept-card}
+### Step 3
+Finally, *mapping* the R functions to the information you want.
+:::
 
--   Being aware of the *steps* you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible,
-
--   Understanding the *structure* of a website, how to *access* the structure of the website, and *where* the information you want are,
-
--   Finally, *mapping* the R functions to the information you want.
+:::
 
 These are the steps we will be going through these two weeks. We will work with one Taiwanese newspaper called "ETtoday" (<https://www.ettoday.net/>). We will be working with this link, which references all articles since 2011: <https://www.ettoday.net/news/news-list.htm>.
 
@@ -45,7 +238,9 @@ These are the steps we will be going through these two weeks. We will work with 
 ETtoday is one of the main newspapers in Taiwan. It has been officially founded in 2011, and it publishes numerous articles on many topics online every day. Some may say that it is not politically neutral, so it is something to keep in mind as this may affect the results depending on your research question.
 :::
 
-# Document your own manual steps
+# 2. Document your own manual steps
+
+::::: {.panel-tabset}   
 
 ## What is the task
 
@@ -53,7 +248,7 @@ First, you need to be very clear about what you want to do, otherwise you can li
 
 So here is your first task:
 
-1.  Go to the ETtoday website, and search for one article.
+1.  Go to the ETToday website, and search for one article.
 
 2.  Describe each step you take to get to an article, and document the changes that happen regarding **the address of the website**.
 
@@ -67,16 +262,65 @@ This procedure looks like this:
 library(DiagrammeR)
 ```
 
-```{r mermaid-example, echo=FALSE, fig.align='center'}
-    mermaid("
-    graph TD
-        A[ETtoday website with list of articles] -- Select date --> B{Filtered articles};
-        A -- Select type --> B{Filtered articles};
-        B --> C[Click on the title of one article];
-        C --> D[New webpage: Individual article];
-        D --> E[Copy and paste the title, date and content of the article into Excel, Word, etc.]
-    ")
+```{r, echo=FALSE, fig.align='center'}
+library(DiagrammeR)
+
+grViz("
+digraph manual_steps {
+  graph [
+    rankdir = TB, 
+    bgcolor = transparent,
+    nodesep = 0.6,
+    ranksep = 0.7
+  ]
+
+  node [
+    shape = box,
+    style = 'rounded,filled',
+    fillcolor = '#F8FAFC',
+    color = '#64748B',
+    penwidth = 1.5,
+    fontname = 'Helvetica, Arial, sans-serif',
+    fontsize = 15,
+    fontcolor = '#1E293B',
+    margin = '0.4,0.25'
+  ]
+
+  edge [
+    fontname = 'Helvetica, Arial, sans-serif',
+    fontsize = 13,
+    fontcolor = '#2563EB',
+    color = '#94A3B8',
+    arrowsize = 1.1,
+    penwidth = 1.6
+  ]
+
+  A [label = 'ETtoday website\\n(list of articles)']
+  B [
+    label = 'Filtered articles', 
+    fillcolor = '#EFF6FF', 
+    color = '#3B82F6',
+    penwidth = 1.8
+  ]
+  C [label = 'Click on title of target article']
+  D [label = 'Target article webpage']
+  E [
+    label = 'Copy title, date, and content\\ninto Excel / Word',
+    fillcolor = '#F0FDF4',
+    color = '#22C55E',
+    penwidth = 1.8
+  ]
+
+  A -> B [label = '  Select date & type  ']
+  B -> C
+  C -> D
+  D -> E
+}
+", width = "100%", height = "600px")
 ```
+
+
+## Pay attention to the web address
 
 Now we will do the same, but pay more attention to **the web address**, and track the changes that occur. For instance, the first step is just accessing the website. The web address is "<https://www.ettoday.net/news/news-list.htm>". What is the web address when you select a particular date, let's say October 28th, 2024? And when you select a particular type of article, "politics" for example? And finally, when you choose an individual article?
 
@@ -101,7 +345,12 @@ Here is what we get:
 
 No need to despair! The fact that this article is found in the list means that ***the web address of the individual article*** must be somewhere on the website... but where? This is the moment when it is important to **understand the structure of the website**.
 
-# Understanding the structure of the website
+
+:::::
+
+# 3. Understanding the structure of the website
+
+::::: {.panel-tabset}  
 
 ## How to access the structure of the website?
 
@@ -175,9 +424,9 @@ So just remember this:
 That's all!
 :::
 
-# Let's get R do the job for us!
+:::::
 
-## Overview of the steps
+# 4. Let's get R do the job for us!
 
 In Section 2.2, we wrote down the several steps we have been going through to copy and paste the content of one article. In the end, we want to repeat this step many times to get the data from more than one article... and now you can imagine why it is a better idea to process through these steps automatically instead of doing it manually for weeks and months.
 
@@ -194,6 +443,8 @@ An efficient way to be clear about the steps to proceed with when doing programm
 ![](assets/images/ProcessWebScraping_ArticlesNewspaper.png)
 
 Now let's see how to implement these steps with R.
+
+::::: {.panel-tabset}  
 
 ## Preliminary step: Libraries needed
 
@@ -589,13 +840,13 @@ And if you were following the rationale of these two weeks' tutorial, you know t
 
 -   You will remark something new: "tryCatch({", and at the end "}, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})". This is because the for loop command stops anytime an error occurs (which can happen with a broken link, missing information on one article, etc.).
 
-    -   Wrapping the Action with the "tryCatch({})" function is just to say that the for loop can ignore the errors and keep proceeding to the next article,
+-   Wrapping the Action with the "tryCatch({})" function is just to say that the for loop can ignore the errors and keep proceeding to the next article,
 
-    -   The "error=function(e){cat("ERROR :",conditionMessage(e), "\n")})" part is just to report the error message in the console.
+-   The "error=function(e){cat("ERROR :",conditionMessage(e), "\n")})" part is just to report the error message in the console.
 
-        This gives the following code:
+This gives the following code:
 
-```{r, eval=TRUE}
+```{r, eval=FALSE}
 Article_total <- data.frame()
 
 for (j in 1:length(article_overview_unique$news_url)){
@@ -660,8 +911,4 @@ write.xlsx(Article_total, "ArticleETToday_CorpusCourse.xlsx")
 save(Article_total, file = "ArticleETToday_CorpusCourse.Rdata")
 ```
 
-# Markdown document, PDF output file, RData and Excel files of the scraped data
-
-You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Scrape.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Scrape.pdf" target="_blank">Here</a> is the PDF output of the same document.
-
-Please note that **it takes several hours to run the Markdown document**. In the end it will download data from more than 20000 pages. In case, the RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse.xlsx" target="_blank">here</a>.
+:::::

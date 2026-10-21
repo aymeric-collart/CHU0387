@@ -20,6 +20,7 @@ library(rvest)
 library(dplyr)
 library(xml2)
 library(openxlsx)
+library(progress)
 ```
 
 # 2. Scraping
@@ -51,7 +52,7 @@ Dates_total <- as.character(Dates_total$Dates)
 # "1.htm" = "Politics"
 # "2.htm" = "International"
 # "5.htm" = "Life"
-Category_total <- c("6", "1")
+Category_total <- c("1", "6")
 
 URL_total <- data.frame(matrix(ncol = 1, nrow = 0))
   
@@ -156,7 +157,21 @@ head(article)
 ```{r}
 Article_total <- data.frame()
 
+## Set the progress bar
+
+total_urls <- length(article_overview_unique$news_url)
+pb <- progress_bar$new(
+  format = "  Scraping [:bar] :current/:total (:percent) | ETA: :eta",
+  total = total_urls, 
+  clear = FALSE, 
+  width = 60
+)
+
+
 for (j in 1:length(article_overview_unique$news_url)){
+  
+  pb$tick()
+  
   tryCatch({
     temp <- read_html(article_overview_unique$news_url[j])
     
@@ -193,7 +208,19 @@ for (j in 1:length(article_overview_unique$news_url)){
                            body = news_body,
                            url = article_overview_unique$news_url[j]))
     Article_total <- rbind(Article_total, Article)
-  }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
+  }, error=function(e){pb$message("ERROR :",conditionMessage(e), "\n")})
+  
+  #setTxtProgressBar(pb, j)
+  
+}
+
+
+testit <- function(x = sort(runif(20)), ...)
+{
+    pb <- txtProgressBar(...)
+    for(i in c(0, x, 1)) {Sys.sleep(0.5); setTxtProgressBar(pb, i)}
+    Sys.sleep(1)
+    close(pb)
 }
 
 head(Article_total)
