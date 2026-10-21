@@ -1,0 +1,264 @@
+[
+  {
+    "objectID": "week7_slides.html#goals",
+    "href": "week7_slides.html#goals",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "🎯 Goals",
+    "text": "🎯 Goals\n\n\nWeek 7: Understanding a web page: What is the structure of a web page? How to find the data we want?"
+  },
+  {
+    "objectID": "week7_slides.html#clarifying-concepts-before-coding",
+    "href": "week7_slides.html#clarifying-concepts-before-coding",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Clarifying concepts before coding",
+    "text": "Clarifying concepts before coding\n\n\n\n\nStep 1\nBeing aware of the steps you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible.\n\n\n\n\n\nStep 2\nUnderstanding the structure of a website, how to access the structure of the website, and where the information you want are.\n\n\n\n\n\nStep 3\nFinally, mapping the R functions to the information you want."
+  },
+  {
+    "objectID": "week7_slides.html#our-case-study-ettoday",
+    "href": "week7_slides.html#our-case-study-ettoday",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Our case study: ETtoday",
+    "text": "Our case study: ETtoday\nTaiwanese newspaper called “ETtoday” (https://www.ettoday.net/).\nWe will be working with the following link:\n\n 🔗 Open ETtoday article list (2011–Present)"
+  },
+  {
+    "objectID": "week7_slides.html#activity-1-write-down-the-recipe",
+    "href": "week7_slides.html#activity-1-write-down-the-recipe",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Activity #1: Write down the recipe",
+    "text": "Activity #1: Write down the recipe\n\n\n\n🌐 Step 1: Browse\nGo to the ETtoday website and navigate to find a single article of interest.\n\n\n\n🤖 Step 2: Code-like precision\nDescribe every single action as if you were explaining it to a robot. Leave zero ambiguity!"
+  },
+  {
+    "objectID": "week7_slides.html#documentation-of-the-manual-steps",
+    "href": "week7_slides.html#documentation-of-the-manual-steps",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Documentation of the manual steps",
+    "text": "Documentation of the manual steps\n\n\n\nClick on the link.\nSelect the date of the news you are interested in.\nSelect the type of news (politics, society, etc.).\nClick on one of the titles below the search bar."
+  },
+  {
+    "objectID": "week7_slides.html#activity-2-web-address",
+    "href": "week7_slides.html#activity-2-web-address",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Activity #2: Web address",
+    "text": "Activity #2: Web address\n\n\n\n\nBrowse and observe\n\nWhat is the web address when you select a particular date, let’s say October 28th, 2024?\nAnd when you select a particular type of article, “politics” for example?\nAnd finally, when you choose an individual article?\n\n\n\n\n\n\nAnswer\n\nFirst step: https://www.ettoday.net/news/news-list.htm\nSecond step (filtered articles): https://www.ettoday.net/news/news-list-2024-10-28-1.htm\nThird step (individual article): https://www.ettoday.net/news/20241028/2843953.htm"
+  },
+  {
+    "objectID": "week7_slides.html#pay-attention-to-the-web-address-22",
+    "href": "week7_slides.html#pay-attention-to-the-web-address-22",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Pay attention to the web address (2/2)",
+    "text": "Pay attention to the web address (2/2)\n\n\n\n\n\n\nThink about it\n\n\n\nSystematic change of the address of the website.\n\n\n\nNow, try to change the address to access the list of articles published on September 27th, 2024.\n\n\n\n\nSecond, try to change the last number. You will see that it changes the type of articles.\n\n\n\nSo this means that you can filter the list of articles as you wish just by changing the web address!\n\n\n\nThird, if we look at the web address of the individual article, we can retrieve the date of publication of the article very easily… but it is not quite possible to guess the numbers after that."
+  },
+  {
+    "objectID": "week7_slides.html#how-to-access-the-structure-of-the-website",
+    "href": "week7_slides.html#how-to-access-the-structure-of-the-website",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "How to access the structure of the website?",
+    "text": "How to access the structure of the website?\n\nAccess this page:\n\nhttps://www.ettoday.net/news/news-list-2024-10-28-1.htm.\n\nLook for a blank space, right-click, and you select “View Page Source”.\nThen, it will open a new page which can be very scary… but this is actually the same, just the structure of the previous page!"
+  },
+  {
+    "objectID": "week7_slides.html#what-are-all-these-lines-about-12",
+    "href": "week7_slides.html#what-are-all-these-lines-about-12",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "What are all these lines about? (1/2)",
+    "text": "What are all these lines about? (1/2)\nThis version of the website is really where you can find all the information that you need. For example, please have a look at lines 514 to 541 (see the image below).\n\nThis must be more familiar to you: these are the web addresses that you obtain when you filter different types of articles!"
+  },
+  {
+    "objectID": "week7_slides.html#what-are-all-these-lines-about-22",
+    "href": "week7_slides.html#what-are-all-these-lines-about-22",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "What are all these lines about? (2/2)",
+    "text": "What are all these lines about? (2/2)\nNow, please have a look at line 549… you will see that you have the web addresses of each individual article listed on the webpage!\n\n\n\n\n\n\n\nHow did I know what lines to search for?\n\n\nThere’s nothing magical, and I am surely not a psychic who can guess the line numbers. So how to find them? I just use the “search” function (for Windows: “ctrl + f”, for Mac: “command + f”). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles."
+  },
+  {
+    "objectID": "week7_slides.html#terminology-of-the-structural-lines",
+    "href": "week7_slides.html#terminology-of-the-structural-lines",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Terminology of the “structural lines”",
+    "text": "Terminology of the “structural lines”\nLet’s call these lines the “structural lines”. These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in html language.\nLet’s just have a look at line 549 and decompose it.\n&lt;div class=\"part_list_2\"&gt;\n  &lt;h3&gt;\n    &lt;span class=\"date\"&gt;2024/10/28 20:45&lt;/span&gt;\n    &lt;em class=\"tag c_news\"&gt;政治&lt;/em&gt;\n    &lt;a target=\"_blank\" href=\"[https://www.ettoday.net/news/20241028/2843953.htm](https://www.ettoday.net/news/20241028/2843953.htm)\"&gt;陳吉仲列超思案被告！黃國昌「哇一聲」：北檢終於醒來啦&lt;/a&gt;\n  &lt;/h3&gt;\n&lt;/div&gt;\nThis line corresponds to this part of the website:"
+  },
+  {
+    "objectID": "week7_slides.html#decomposing-line-549",
+    "href": "week7_slides.html#decomposing-line-549",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Decomposing line 549",
+    "text": "Decomposing line 549\nNow we can decompose it:\n\nThe part with “&lt;div&gt;&lt;/div&gt;” means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names to avoid confusing them. Here, the block is called “part_list_2”.\nThe part with “&lt;h3&gt;&lt;/h3&gt;” corresponds to one line in the block. What is between “&lt;h3&gt;” and “&lt;/h3&gt;” is everything we want to put in that line. Here there are three elements:\n\nThe first element is a “&lt;span&gt;&lt;/span&gt;” element, and its name is “date”. What is between “&lt;span&gt;” and “&lt;/span&gt;” is the text to display, here: “2024/10/28 20:45”.\nThe second element is an “&lt;em&gt;&lt;/em&gt;” element (why “em” and not “span”? “em” stands for “emphasis”, so they look different on the website). Its name is “tag c_news”.\nThe third element is an “&lt;a&gt;&lt;/a&gt;” element. This is used to write a text with a link, and the link is specified with “href”. The term target=\"_blank\" means that it opens in a new page when you click on it."
+  },
+  {
+    "objectID": "week7_slides.html#summary-what-to-remember",
+    "href": "week7_slides.html#summary-what-to-remember",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Summary: What to remember",
+    "text": "Summary: What to remember\n\n\n\n\n\n\nImportant\n\n\nThis seems to be a lot and quite complicated.\nSo just remember this:\n\nThere are big blocks with different names (div, h3, span, etc.). Let’s call them nodes.\nInside nodes, you can specify the parameters and names specific to the nodes.\n\nThat’s all!"
+  },
+  {
+    "objectID": "default.html",
+    "href": "default.html",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "",
+    "text": "These two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.\n\n🎯 Goals💻 Necessary codes and full script📝 Homework\n\n\nScraping a web page:\n\nWeek 7: Understanding a web page: What is the structure of a web page? How to find the data we want?\nWeek 8: Writing the script: How to translate human behavior into R?\n\n\n\nA brief summary of the essential elements:\n(to be given later)\nScripts and datasets\nYou can find the pre-filled Markdown document of this section here. Here is the PDF output of the same document.\nPlease note that it takes several hours to run the Markdown document. In the end it will download data from more than 20000 pages. In case, the RData output file can be downloaded here. The Excel file corresponding to this dataset is here.\n\n\nPlease complete the following tasks before Week 9:\n\nTransform your R script from last week into an R Markdown document, and knit it to a PDF file.\nTry to include Chinese characters, and debug such that they appear in the PDF document.\n\n\n\n\n\n  View the slides of Week 7",
+    "crumbs": [
+      "Home",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 6 - How to create better scripts"
+    ]
+  },
+  {
+    "objectID": "default.html#overview",
+    "href": "default.html#overview",
+    "title": "Weeks 7 & 8: Building a corpus from media platforms",
+    "section": "",
+    "text": "These two weeks, you will learn how to use R to build a corpus from online Taiwanese newspapers.\n\n🎯 Goals💻 Necessary codes and full script📝 Homework\n\n\nScraping a web page:\n\nWeek 7: Understanding a web page: What is the structure of a web page? How to find the data we want?\nWeek 8: Writing the script: How to translate human behavior into R?\n\n\n\nA brief summary of the essential elements:\n(to be given later)\nScripts and datasets\nYou can find the pre-filled Markdown document of this section here. Here is the PDF output of the same document.\nPlease note that it takes several hours to run the Markdown document. In the end it will download data from more than 20000 pages. In case, the RData output file can be downloaded here. The Excel file corresponding to this dataset is here.\n\n\nPlease complete the following tasks before Week 9:\n\nTransform your R script from last week into an R Markdown document, and knit it to a PDF file.\nTry to include Chinese characters, and debug such that they appear in the PDF document.\n\n\n\n\n\n  View the slides of Week 7",
+    "crumbs": [
+      "Home",
+      "Part 2: Building a corpus from the internet with modern tools",
+      "Week 6 - How to create better scripts"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "",
+    "text": "Welcome to the course website for CHU03887: Language, Society and Literature with Corpus and Modern Technology.\nTime: Wednesday, 13:20 to 15:10 Place: Mandarin Training Center (國語中心), Classroom 608 Instructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU  Credits: 2  Prerequisites: None"
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "",
+    "text": "Welcome to the course website for CHU03887: Language, Society and Literature with Corpus and Modern Technology.\nTime: Wednesday, 13:20 to 15:10 Place: Mandarin Training Center (國語中心), Classroom 608 Instructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU  Credits: 2  Prerequisites: None"
+  },
+  {
+    "objectID": "index.html#course-description",
+    "href": "index.html#course-description",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "📋 Course Description",
+    "text": "📋 Course Description\nThis course introduces the principles of corpus studies assisted by modern technology with an emphasis on hands-on practice, and how corpus data can be useful in understanding how language is used in the media or in the literature. The course is divided into three parts:\n\nFundamental concepts when working with a corpus.\nBuilding process of a corpus from the web using automatic methods.\nHandling, analysis, and visualization of the corpus (using R).\n\nBy the end of the course, the students are expected to acquire the basic knowledge of working with a corpus and will obtain a first approach to programming languages."
+  },
+  {
+    "objectID": "index.html#news-updates",
+    "href": "index.html#news-updates",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "📢 News & Updates",
+    "text": "📢 News & Updates\n\n\n\n\n\n\n\nContent ready, slides and aesthetics in progress\n\n\n\nWebsite announcment\n\n\n\nThe content of the class has been updated. I am currently working on the slides and updating the aesthetics of the website!\n\n\n\nAug 24, 2026\n\n\n\n\n\n\n\n\n\n\nRedesign of the website\n\n\n\nWebsite announcment\n\n\n\nThe website is currently under revision, but it will be ready before the first week!\n\n\n\nAug 20, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#quick-links",
+    "href": "index.html#quick-links",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "🚀 Quick links",
+    "text": "🚀 Quick links\n\n\n\n\n\n\n\n\n📖 Syllabus\n\n\n\nFull course schedule, reading list, and grading policies.\nGo to Syllabus\n\n\n\n\n\n\n\n\n\n\n📊 R & RStudio\n\n\n\nDownload the software needed for Part 3 of the course.\nGet R Get RStudio"
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "Language, Society and Literature with Corpus and Modern Technology",
+    "section": "👤 Instructor",
+    "text": "👤 Instructor\nAymeric Collart (理克) Department of Chinese, NTNU\nEmail provided in class"
+  },
+  {
+    "objectID": "instructor.html",
+    "href": "instructor.html",
+    "title": "Instructor",
+    "section": "",
+    "text": "Aymeric Collart, Ph.D\nAssistant Professor Department of Chinese  National Taiwan Normal University   Personal website: https://aymeric-collart.github.io/ Contact information: aymeric.collart at ntnu.edu.tw"
+  },
+  {
+    "objectID": "intro_slides.html",
+    "href": "intro_slides.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Click on the image to zoom in and out"
+  },
+  {
+    "objectID": "intro_slides.html#structure-and-workflow-of-the-tutorial",
+    "href": "intro_slides.html#structure-and-workflow-of-the-tutorial",
+    "title": "Introduction",
+    "section": "",
+    "text": "Click on the image to zoom in and out"
+  },
+  {
+    "objectID": "intro_slides.html#chapters-and-section-of-the-tutorial",
+    "href": "intro_slides.html#chapters-and-section-of-the-tutorial",
+    "title": "Introduction",
+    "section": "Chapters and section of the tutorial",
+    "text": "Chapters and section of the tutorial\n\nChapter 1Chapter 2Chapter 3\n\n\n\n\n\nChapter 1: Getting started\n\n\n\n\n\nDownload and install R/RStudio\nlink\n\n\nPresentation of R/RStudio\nlink\n\n\nWorking with markdown files\nlink\n\n\n\n\n\n\n\n\nChapter 2: Let’s get our data\n\n\n\n\n\nUnderstanding where the data are on the Internet\nlink\n\n\nScraping the data from the web with R\nlink\n\n\n\n\n\n\n\n\nChapter 3: Cleaning and analyzing the data\n\n\n\n\n\nPreprocess the data: Cleaning and transformations\nlink\n\n\nAnalyzing the data\nlink"
+  },
+  {
+    "objectID": "intro_slides.html#what-this-tutorial-does-not-cover",
+    "href": "intro_slides.html#what-this-tutorial-does-not-cover",
+    "title": "Introduction",
+    "section": "What this tutorial does NOT cover",
+    "text": "What this tutorial does NOT cover\n\n\nFundamental concepts of corpus linguistics\nHow to ask a research question and how to motivate it\nAdvanced statistical methods in corpus linguistics (classification analyses, vector space representations)\n\n\n. . .\nIf you are interested in it, you can read the book published by Anatol Stefanowitsch in 2020, available for free here."
+  },
+  {
+    "objectID": "intro_slides.html#how-to-get-through-the-exercises",
+    "href": "intro_slides.html#how-to-get-through-the-exercises",
+    "title": "Introduction",
+    "section": "How to get through the exercises",
+    "text": "How to get through the exercises\n\nThe best (if not only) way to learn how to use programming language is just with practice. There are two ways to do so throughout the tutorial. In either case, I highly recommend to use markdown scripts.\n\n\n\n\nI will provide at the beginning of each section a markdown file prefilled with the structure of the section. You can download this file and open it with R, and just paste the codes at the relevant sections of the script.\n\n\n\nAlternatively, you may wish to write the script yourself, and to work based on the codes in each section. This is a great way to learn how to structure a markdown file alone!"
+  },
+  {
+    "objectID": "week6_slides.html",
+    "href": "week6_slides.html",
+    "title": "Week 6 - How to create better scripts",
+    "section": "",
+    "text": "Advanced scripts: How to use Markdown documents to share better scripts?"
+  },
+  {
+    "objectID": "week6_slides.html#goals",
+    "href": "week6_slides.html#goals",
+    "title": "Week 6 - How to create better scripts",
+    "section": "",
+    "text": "Advanced scripts: How to use Markdown documents to share better scripts?"
+  },
+  {
+    "objectID": "week6_slides.html#from-raw-script-to-functional-r-markdown",
+    "href": "week6_slides.html#from-raw-script-to-functional-r-markdown",
+    "title": "Week 6 - How to create better scripts",
+    "section": "From raw script to functional: R Markdown",
+    "text": "From raw script to functional: R Markdown\n\n\n\n1. Create the file 📄 Go to New File &gt; R Markdown. This moves you from raw code to a “living” document.\n\n\n2. Configure (YAML) ⚙️ The header between --- controls your title, author, and output format (HTML/PDF).\n\n\n3. Text + Code chunks 📝 Write text normally; insert Code Chunks ({r}) for analysis.\n\n\n4. Run your codes ▶️ Use the green Play Button to test individual steps.\n\n\n5. The final “Knit” 🧶 Click Knit to stitch everything into a polished report automatically!\n\n::: {.column width = “45%”} ::: {.r-stack} \n\n:::\n:::"
+  },
+  {
+    "objectID": "week6_slides.html#common-problem",
+    "href": "week6_slides.html#common-problem",
+    "title": "Week 6 - How to create better scripts",
+    "section": "😱 Common problem",
+    "text": "😱 Common problem\nWhen you try to knit your R Markdown document into a PDF file, you may encounter this message:\nsh: pdflatex: command not found\n\nError: LaTeX failed to compile Untitled.tex. See The R package tinytex - Helper Functions to Manage TinyTeX, and Compile LaTeX Documents - Yihui Xie | 谢益辉 for debugging tips. See Untitled.log for more info.\nIn addition: Warning message:\nIn system2(..., stdout = if (use_file_stdout()) f1 else FALSE, stderr = f2) :\nerror in running command\nExecution halted"
+  },
+  {
+    "objectID": "week6_slides.html#the-solution",
+    "href": "week6_slides.html#the-solution",
+    "title": "Week 6 - How to create better scripts",
+    "section": "The solution",
+    "text": "The solution\nYou need to install a package before creating the PDF document.\nHere are the steps:\n\n1. Run this line of code in the console block:\ntinytex::install_tinytex()\nIt can take some time, up to 5 minutes.\n\n\n2. Click one more time on “Knit to PDF”\nIt’s supposed to work. If it still doesn’t work, please contact me!"
+  },
+  {
+    "objectID": "week6_slides.html#r-markdown-cheatsheet",
+    "href": "week6_slides.html#r-markdown-cheatsheet",
+    "title": "Week 6 - How to create better scripts",
+    "section": "📊 R Markdown cheatsheet",
+    "text": "📊 R Markdown cheatsheet\nYou can find more about how to write R Markdown documents on this website:\nLink to the cheatsheet"
+  },
+  {
+    "objectID": "week6_slides.html#in-class-exercise",
+    "href": "week6_slides.html#in-class-exercise",
+    "title": "Week 6 - How to create better scripts",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nCreate a new Markdown document, and call it ScriptWeek5_Markdown.\nUse the script from last week, but adapt it to the Markdown format. Be creative!\n\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\n\nPlease comment each line of code from the script we wrote on Week 5.\nFinish transposing the raw script into a Markdown document, and knit to a PDF file.\nUpload the two documents on Moodle!"
+  },
+  {
+    "objectID": "week7_slides.html#activity-3-find-the-addresses-on-this-page",
+    "href": "week7_slides.html#activity-3-find-the-addresses-on-this-page",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Activity #3: Find the addresses on this page",
+    "text": "Activity #3: Find the addresses on this page\n\n\n\n\nBrowse and observe - Part 1\n\nTry to find the place where you have the list of the web addresses by category\n\n\n\n\n\n\nBrowse and observe - Part 2\n\nTry to find where the individual articles are listed"
+  },
+  {
+    "objectID": "week7_slides.html#activity-4-identify-where-the-information-you-want-can-be-found",
+    "href": "week7_slides.html#activity-4-identify-where-the-information-you-want-can-be-found",
+    "title": "Weeks 7: Building a corpus from media platforms - PART 1",
+    "section": "Activity #4: Identify where the information you want can be found",
+    "text": "Activity #4: Identify where the information you want can be found\n\n\n\n🌐 Step 1: Browse\nLook for the dates of the article, the content, the name of the author, the category, etc.\n\n\n\n🤖 Step 2: Code-like precision\nDescribe where it is found using elements like “&lt;div&gt;&lt;/div&gt;” or “&lt;h3&gt;&lt;/h3&gt;”, etc."
+  }
+]

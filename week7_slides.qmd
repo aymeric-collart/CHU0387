@@ -213,6 +213,7 @@ digraph manual_steps {
 :::: {.columns}
 
 ::: {.column width="40%"}
+::: {.fragment .fade-up}
 ::: {.concept-card style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
 
 **Browse and observe**
@@ -224,8 +225,10 @@ digraph manual_steps {
 - And finally, when you choose an individual article?
 :::
 :::
+:::
 
 ::: {.column width="58%"}
+::: {.fragment .fade-up}
 ::: {.concept-card style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
 
 **Answer**
@@ -238,6 +241,7 @@ digraph manual_steps {
 
 :::
 :::
+:::
 
 ::::
 
@@ -247,35 +251,83 @@ digraph manual_steps {
 ::: callout-tip
 ## Think about it
 
-- First, we can see that filtering the data changes the address of the website in a very systematic way. Now, try to change the address to access the list of articles published on September 27th, 2024. You will get something like that: <https://www.ettoday.net/news/news-list-2024-09-27-1.htm>
+- Systematic change of the address of the website.
+
+::: {.fragment .fade-up}
+
+- Now, try to change the address to access the list of articles published on September 27th, 2024.
+
+:::
+
+::: {.fragment .fade-up}
+
 - Second, try to change the last number. You will see that it changes the type of articles.
+
+:::
+::: {.fragment .fade-up}
 
 **So this means that you can filter the list of articles as you wish just by changing the web address!**
 
+:::
+::: {.fragment .fade-up}
 - Third, if we look at the web address of the individual article, we can retrieve the date of publication of the article very easily... but it is not quite possible to guess the numbers after that.
 :::
+:::
 
-No need to despair! The fact that this article is found in the list means that ***the web address of the individual article*** must be somewhere on the website... but where? This is the moment when it is important to **understand the structure of the website**.
+---
+
+No need to despair! 
+
+The fact that this article is found in the list means that ***the web address of the individual article*** must be somewhere on the website... but where? 
+
+This is the moment when it is important to **understand the structure of the website**.
 
 # 3. Understanding the structure of the website
 
 ## How to access the structure of the website?
 
-:::: {.columns}
+- Access this page: 
 
-::: {.column width="45%"}
-Accessing the structure of a website is actually very easy. You just need to open the webpage, for example this one: <https://www.ettoday.net/news/news-list-2024-10-28-1.htm>. Then, you look for a blank space, you right-click, and you select "View Page Source" (it is possible that it will not be in English, or that the wording is different depending on the system of your computer).
+<https://www.ettoday.net/news/news-list-2024-10-28-1.htm>.
 
-Then, it will open a new page which can be very scary... but this is actually the same, just the structure of the previous page!
-:::
+- Look for a blank space,  right-click, and you select "View Page Source".
 
-::: {.column width="55%"}
-Here is the animated figure of these steps:
+- Then, it will open a new page which can be very scary... but this is actually the same, just the structure of the previous page!
 
 ![](assets/images/ETtoday_ListArticles_Structure.gif){fig-align="center"}
+
+
+## Activity #3: Find the addresses on this page
+
+:::: {.columns}
+
+::: {.column width="40%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
+
+**Browse and observe - Part 1**
+
+- Try to find the place where you have the list of the web addresses by category
+
+:::
+:::
+:::
+
+::: {.column width="58%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
+
+**Browse and observe - Part 2**
+
+- Try to find where the individual articles are listed
+
+:::
+:::
 :::
 
 ::::
+
+
 
 ## What are all these lines about? (1/2)
 
@@ -284,6 +336,10 @@ This version of the website is really where you can find all the information tha
 ![](assets/images/ETtoday_ListArticleTypes.png){fig-align="center"}
 
 This must be more familiar to you: these are the web addresses that you obtain when you filter different types of articles!
+
+
+
+
 
 ## What are all these lines about? (2/2)
 
@@ -330,6 +386,32 @@ Now we can decompose it:
   - The second element is an "`<em></em>`" element (why "em" and not "span"? "em" stands for "emphasis", so they look different on the website). Its name is "tag c_news".
 
   - The third element is an "`<a></a>`" element. This is used to write a text with a link, and the link is specified with "href". The term `target="_blank"` means that it opens in a new page when you click on it.
+
+
+## Activity #4: Identify where the information you want can be found
+
+:::: {.columns}
+
+::: {.column width="48%"}
+::: {.concept-card style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
+
+🌐 **Step 1: Browse**
+
+Look for the dates of the article, the content, the name of the author, the category, etc.
+
+:::
+:::
+
+::: {.column width="48%"}
+::: {.concept-card style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
+
+🤖 **Step 2: Code-like precision**
+
+Describe where it is found using elements like "`<div></div>`" or "`<h3></h3>`", etc.
+:::
+:::
+
+::::
 
 ## Summary: What to remember
 

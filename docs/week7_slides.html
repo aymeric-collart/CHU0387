@@ -318,8 +318,8 @@
 </div><div class="column" style="width:65%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-31bf5212dd27526e6eb6" style="width:100%;height:520px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-31bf5212dd27526e6eb6">{"x":{"diagram":"\ndigraph manual_steps {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.6,\n    ranksep = 0.65\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 16,\n    fontcolor = \"#1E293B\",\n    margin = \"0.4,0.25\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.1,\n    penwidth = 1.6\n  ]\n\n  A [label = \"ETtoday website\\n(list of articles)\"]\n  B [\n    label = \"Filtered articles\", \n    fillcolor = \"#EFF6FF\", \n    color = \"#3B82F6\",\n    penwidth = 1.8\n  ]\n  C [label = \"Click on title of target article\"]\n  D [label = \"Target article webpage\"]\n  E [\n    label = \"Copy title, date, and content\\ninto Excel / Word\",\n    fillcolor = \"#F0FDF4\",\n    color = \"#22C55E\",\n    penwidth = 1.8\n  ]\n\n  A -> B [label = \"  Select date & type  \"]\n  B -> C\n  C -> D\n  D -> E\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4571b3b9167f3b848c6f" style="width:100%;height:520px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4571b3b9167f3b848c6f">{"x":{"diagram":"\ndigraph manual_steps {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.6,\n    ranksep = 0.65\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 16,\n    fontcolor = \"#1E293B\",\n    margin = \"0.4,0.25\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.1,\n    penwidth = 1.6\n  ]\n\n  A [label = \"ETtoday website\\n(list of articles)\"]\n  B [\n    label = \"Filtered articles\", \n    fillcolor = \"#EFF6FF\", \n    color = \"#3B82F6\",\n    penwidth = 1.8\n  ]\n  C [label = \"Click on title of target article\"]\n  D [label = \"Target article webpage\"]\n  E [\n    label = \"Copy title, date, and content\\ninto Excel / Word\",\n    fillcolor = \"#F0FDF4\",\n    color = \"#22C55E\",\n    penwidth = 1.8\n  ]\n\n  A -> B [label = \"  Select date & type  \"]\n  B -> C\n  C -> D\n  D -> E\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div></div>
@@ -328,6 +328,7 @@
 <h2>Activity #2: Web address</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
+<div class="fragment fade-up">
 <div class="concept-card" style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;">
 <p><strong>Browse and observe</strong></p>
 <ul>
@@ -336,7 +337,9 @@
 <li><p>And finally, when you choose an individual article?</p></li>
 </ul>
 </div>
+</div>
 </div><div class="column" style="width:58%;">
+<div class="fragment fade-up">
 <div class="concept-card" style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;">
 <p><strong>Answer</strong></p>
 <ul>
@@ -344,6 +347,7 @@
 <li><p>Second step (filtered articles): <a href="https://www.ettoday.net/news/news-list-2024-10-28-1.htm" class="uri">https://www.ettoday.net/news/news-list-2024-10-28-1.htm</a></p></li>
 <li><p>Third step (individual article): <a href="https://www.ettoday.net/news/20241028/2843953.htm" class="uri">https://www.ettoday.net/news/20241028/2843953.htm</a></p></li>
 </ul>
+</div>
 </div>
 </div></div>
 </section>
@@ -359,17 +363,35 @@
 </div>
 <div class="callout-content">
 <ul>
-<li>First, we can see that filtering the data changes the address of the website in a very systematic way. Now, try to change the address to access the list of articles published on September 27th, 2024. You will get something like that: <a href="https://www.ettoday.net/news/news-list-2024-09-27-1.htm" class="uri">https://www.ettoday.net/news/news-list-2024-09-27-1.htm</a></li>
+<li>Systematic change of the address of the website.</li>
+</ul>
+<div class="fragment fade-up">
+<ul>
+<li>Now, try to change the address to access the list of articles published on September 27th, 2024.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
 <li>Second, try to change the last number. You will see that it changes the type of articles.</li>
 </ul>
+</div>
+<div class="fragment fade-up">
 <p><strong>So this means that you can filter the list of articles as you wish just by changing the web address!</strong></p>
+</div>
+<div class="fragment fade-up">
 <ul>
 <li>Third, if we look at the web address of the individual article, we can retrieve the date of publication of the article very easily… but it is not quite possible to guess the numbers after that.</li>
 </ul>
 </div>
 </div>
 </div>
-<p>No need to despair! The fact that this article is found in the list means that <strong><em>the web address of the individual article</em></strong> must be somewhere on the website… but where? This is the moment when it is important to <strong>understand the structure of the website</strong>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>No need to despair!</p>
+<p>The fact that this article is found in the list means that <strong><em>the web address of the individual article</em></strong> must be somewhere on the website… but where?</p>
+<p>This is the moment when it is important to <strong>understand the structure of the website</strong>.</p>
 </section></section>
 <section>
 <section id="understanding-the-structure-of-the-website" class="title-slide slide level1 center">
@@ -378,16 +400,36 @@
 </section>
 <section id="how-to-access-the-structure-of-the-website" class="slide level2">
 <h2>How to access the structure of the website?</h2>
+<ul>
+<li>Access this page:</li>
+</ul>
+<p><a href="https://www.ettoday.net/news/news-list-2024-10-28-1.htm" class="uri">https://www.ettoday.net/news/news-list-2024-10-28-1.htm</a>.</p>
+<ul>
+<li><p>Look for a blank space, right-click, and you select “View Page Source”.</p></li>
+<li><p>Then, it will open a new page which can be very scary… but this is actually the same, just the structure of the previous page!</p></li>
+</ul>
+
+<img data-src="assets/images/ETtoday_ListArticles_Structure.gif" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="activity-3-find-the-addresses-on-this-page" class="slide level2">
+<h2>Activity #3: Find the addresses on this page</h2>
 <div class="columns">
-<div class="column" style="width:45%;">
-<p>Accessing the structure of a website is actually very easy. You just need to open the webpage, for example this one: <a href="https://www.ettoday.net/news/news-list-2024-10-28-1.htm" class="uri">https://www.ettoday.net/news/news-list-2024-10-28-1.htm</a>. Then, you look for a blank space, you right-click, and you select “View Page Source” (it is possible that it will not be in English, or that the wording is different depending on the system of your computer).</p>
-<p>Then, it will open a new page which can be very scary… but this is actually the same, just the structure of the previous page!</p>
-</div><div class="column" style="width:55%;">
-<p>Here is the animated figure of these steps:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/images/ETtoday_ListArticles_Structure.gif" class="quarto-figure quarto-figure-center"></p>
-</figure>
+<div class="column" style="width:40%;">
+<div class="fragment fade-up">
+<div class="concept-card" style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;">
+<p><strong>Browse and observe - Part 1</strong></p>
+<ul>
+<li>Try to find the place where you have the list of the web addresses by category</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width:58%;">
+<div class="fragment fade-up">
+<div class="concept-card" style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;">
+<p><strong>Browse and observe - Part 2</strong></p>
+<ul>
+<li>Try to find where the individual articles are listed</li>
+</ul>
+</div>
 </div>
 </div></div>
 </section>
@@ -441,6 +483,21 @@
 <li><p>The third element is an “<code>&lt;a&gt;&lt;/a&gt;</code>” element. This is used to write a text with a link, and the link is specified with “href”. The term <code>target="_blank"</code> means that it opens in a new page when you click on it.</p></li>
 </ul></li>
 </ul>
+</section>
+<section id="activity-4-identify-where-the-information-you-want-can-be-found" class="slide level2">
+<h2>Activity #4: Identify where the information you want can be found</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="concept-card" style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;">
+<p>🌐 <strong>Step 1: Browse</strong></p>
+<p>Look for the dates of the article, the content, the name of the author, the category, etc.</p>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="concept-card" style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;">
+<p>🤖 <strong>Step 2: Code-like precision</strong></p>
+<p>Describe where it is found using elements like “<code>&lt;div&gt;&lt;/div&gt;</code>” or “<code>&lt;h3&gt;&lt;/h3&gt;</code>”, etc.</p>
+</div>
+</div></div>
 </section>
 <section id="summary-what-to-remember" class="slide level2">
 <h2>Summary: What to remember</h2>
