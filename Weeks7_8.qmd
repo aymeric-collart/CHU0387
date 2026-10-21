@@ -3,8 +3,10 @@ title: "Weeks 7 & 8: Building a corpus from media platforms"
 subtitle: "CHU0387 | National Taiwan Normal University"
 format: 
   html:
-    output-file: default
+    output-file: Weeks7_8.html
 ---
+
+
 
 ```{=html}
 <style>
@@ -198,6 +200,10 @@ Please note that **it takes several hours to run the Markdown document**. In the
 
 ::: {.text-center .mb-4}
 <a href="week7_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of Week 7</a>
+:::
+
+::: {.text-center .mb-4}
+<a href="week8_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of Week 8 (under construction)</a>
 :::
 
 <br>
