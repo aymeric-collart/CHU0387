@@ -48,7 +48,7 @@ editor:
 library(DiagrammeR)
 ```
 
-## ???? Goals
+## ðŸŽ¯ Goals
 
 ::: {.fragment .fade-up}
 - **Week 7: Understanding a web page:** What is the structure of a web page? How to find the data we want?
@@ -66,8 +66,8 @@ library(DiagrammeR)
 ::::: {.columns}
 
 :::: {.column width="33%"}
-::: {.fragment .fade-up}
-::: {.concept-card}
+::: {.fragment .highlight-current-border data-fragment-index="1"}
+::: {.concept-card style="border: 2px solid #3b82f6; box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);" }
 **Step 1**
 
 Being aware of the *steps* you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible.
@@ -76,8 +76,186 @@ Being aware of the *steps* you are going through if you had to manually copy and
 ::::
 
 :::: {.column width="33%"}
+::: {.fragment .highlight-current-border data-fragment-index="1"}
+::: {.concept-card style="border: 2px solid #3b82f6; box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);" }
+**Step 2**
+
+Understanding the *structure* of a website, how to *access* the structure of the website, and *where* the information you want are.
+:::
+:::
+::::
+
+:::::
+
+::: {.fragment data-fragment-index="1" style="margin-top: 1rem; text-align: center;"}
+<span style="border: 2px solid #3b82f6; padding: 4px 14px; border-radius: 6px; background: #eff6ff; font-size: 0.75em; font-weight: bold; color: #2563eb; display: inline-block;">Covered in Week 7 (Steps 1 & 2)</span>
+:::
+
+::: {.fragment data-fragment-index="2" style="margin-top: 0.4rem; text-align: center;"}
+<span style="border: 2px solid #22c55e; padding: 4px 14px; border-radius: 6px; background: #f0fdf4; font-size: 0.75em; font-weight: bold; color: #16a34a; display: inline-block;">Recall from last week</span>
+:::
+
+---
+
+## Recall from last week
+
+
+```{=html}
+<style>
+  .reveal .r-stack > .fragment,
+  .reveal .r-stack > div { width: 100%; }
+
+  .reveal .r-stack > .fragment {
+    transition: opacity 0.5s ease !important;
+  }
+</style>
+```
+
+```{r, include=FALSE}
+library(DiagrammeR)
+
+# layer = "base" : main flow only (always visible)
+# layer = "note" : just note n + its arrow
+# layer = "hl"   : just the step(s) being explained, highlighted
+manual_diagram <- function(layer = "base", n = 0) {
+
+  # Which nodes / edges are highlighted for each note
+  hl_nodes <- list(`1` = "A", `2` = "B", `3` = "C", `4` = "E")
+  hl_edges <- list(`2` = "AB", `3` = "CE")   # note 2 also lights up "Select date & type",
+                                             # note 3 also lights up "Target article webpage"
+  is_hl_node <- function(id) layer == "hl" && id %in% hl_nodes[[as.character(n)]]
+  is_hl_edge <- function(id) layer == "hl" && id %in% hl_edges[[as.character(n)]]
+
+  # Node attributes: normal in base, highlighted when active, invisible otherwise
+  node_attrs <- function(id, label, fill, col, pw) {
+    if (layer == "base") {
+      sprintf("label = '%s', fillcolor = '%s', color = '%s', penwidth = %s", label, fill, col, pw)
+    } else if (is_hl_node(id)) {
+      sprintf("label = '%s', fillcolor = '#FEF9C3', color = '#000000', penwidth = 5", label)
+    } else {
+      sprintf("label = '%s', style = 'invis'", label)
+    }
+  }
+
+  # Edge attributes: normal in base, highlighted when active, invisible otherwise
+  edge_attrs <- function(id, label = NULL) {
+    lab <- if (is.null(label)) "" else sprintf("label = '%s', ", label)
+    if (layer == "base") {
+      sub(", $", "", lab)
+    } else if (is_hl_edge(id)) {
+      paste0(lab, "color = '#000000', fontcolor = '#000000', penwidth = 3.5")
+    } else {
+      paste0(lab, "style = 'invis'")
+    }
+  }
+
+  # Notes and their arrows: only visible in their own "note" layer
+  note  <- function(k) if (layer == "note" && n == k) "style = '', fontcolor = '#000000'" else "style = 'invis'"
+  arrow <- function(k) if (layer == "note" && n == k) "color = '#000000', penwidth = 2.5, arrowhead = vee" else "style = 'invis'"
+
+  dot <- paste0("
+digraph manual_steps {
+  graph [
+    rankdir = TB,
+    bgcolor = transparent,
+    nodesep = 0.5,
+    ranksep = 0.4,
+    pad = 0.1
+  ]
+
+  node [
+    shape = box,
+    style = 'rounded,filled',
+    fillcolor = '#F8FAFC',
+    color = '#64748B',
+    penwidth = 2.5,
+    fontname = 'Helvetica, Arial, sans-serif',
+    fontsize = 30,
+    fontcolor = '#1E293B',
+    margin = '0.35,0.2'
+  ]
+
+  edge [
+    fontname = 'Helvetica, Arial, sans-serif',
+    fontsize = 26,
+    fontcolor = '#2563EB',
+    color = '#94A3B8',
+    arrowsize = 1.2,
+    penwidth = 2.5
+  ]
+
+  A [", node_attrs('A', 'ETtoday website\\n(list of articles)', '#F8FAFC', '#64748B', 2.5), "]
+  B [", node_attrs('B', 'Filtered articles', '#EFF6FF', '#3B82F6', 3), "]
+  C [", node_attrs('C', 'Click on title of target article', '#F8FAFC', '#64748B', 2.5), "]
+  E [", node_attrs('E', 'Copy title, date, and content\\ninto Excel / Word', '#F0FDF4', '#22C55E', 3), "]
+
+  Note1 [
+    label = 'Store the web address as a variable\\l',
+    shape = plaintext, fontsize = 26, margin = '0.35,0.05', ", note(1), "
+  ]
+  Note2 [
+    label = 'â€¢ Store dates and types as variables\\lâ€¢ Paste variables to create web addresses\\lâ€¢ Let R read web pages that list the addresses of\\l   individual articles, and store these addresses\\l',
+    shape = plaintext, fontsize = 26, margin = '0.35,0.05', ", note(2), "
+  ]
+  Note3 [
+    label = 'â€¢ Identify the links to the individual articles\\lâ€¢ Read the structure of the webpages of\\l   individual articles\\l',
+    shape = plaintext, fontsize = 26, margin = '0.35,0.05', ", note(3), "
+  ]
+  Note4 [
+    label = 'â€¢ Identify the nodes corresponding to the title,\\l   date and content of the article\\lâ€¢ Store them as variables\\lâ€¢ Combine variables of the same article\\l   into a data frame\\lâ€¢ Save the data frame and export to an Excel file\\l',
+    shape = plaintext, fontsize = 26, margin = '0.35,0.05', ", note(4), "
+  ]
+
+  { rank = same; Note1; A }
+  { rank = same; B; Note2 }
+  { rank = same; Note3; C }
+  { rank = same; E; Note4 }
+
+  A -> B [", edge_attrs('AB', ' Select date & type '), "]
+  B -> C [", edge_attrs('BC'), "]
+  C -> E [", edge_attrs('CE', ' Target article webpage '), "]
+
+  Note1 -> A [dir = back, ", arrow(1), "]
+  B -> Note2 [", arrow(2), "]
+  Note3 -> C [dir = back, ", arrow(3), "]
+  E -> Note4 [", arrow(4), "]
+}
+")
+
+  grViz(dot, width = "100%", height = "650px")
+}
+```
+
 ::: {.fragment .fade-up}
-::: {.concept-card}
+Please take 5 minutes to recall the different ***manual steps*** we went through last week.
+:::
+
+::: {.fragment .fade-up}
+
+```{r, echo=FALSE}
+manual_diagram("base")
+```
+
+:::
+
+## New step: Coding part
+
+
+::::: {.columns}
+
+:::: {.column width="33%"}
+::: {.fragment .highlight-current-border data-fragment-index="1"}
+::: {.concept-card style="border: 2px solid #3b82f6; box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);" }
+**Step 1**
+
+Being aware of the *steps* you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible.
+:::
+:::
+::::
+
+:::: {.column width="33%"}
+::: {.fragment .highlight-current-border data-fragment-index="1"}
+::: {.concept-card style="border: 2px solid #3b82f6; box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);" }
 **Step 2**
 
 Understanding the *structure* of a website, how to *access* the structure of the website, and *where* the information you want are.
@@ -86,8 +264,8 @@ Understanding the *structure* of a website, how to *access* the structure of the
 ::::
 
 :::: {.column width="33%"}
-::: {.fragment .fade-up}
-::: {.concept-card}
+::: {.fragment data-fragment-index="2"}
+::: {.concept-card style="border: 2px solid #22c55e; box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);" }
 **Step 3**
 
 Finally, *mapping* the R functions to the information you want.
@@ -97,336 +275,501 @@ Finally, *mapping* the R functions to the information you want.
 
 :::::
 
-## Our case study: ETtoday
-
-Taiwanese newspaper called "ETtoday" (<https://www.ettoday.net/>). 
-
-We will be working with the following link:
-
-<div style="text-align: center; margin-top: 1.2em;">
-  <a href="https://www.ettoday.net/news/news-list.htm" target="_blank" style="background-color: #2563eb; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-block; font-size: 0.9em;">
-    ???? Open ETtoday article list (2011???Present)
-  </a>
-</div>
-
-![](assets/images/ETtoday_logo.png){fig-align="center" height="180px"}
-
-
-# 2. Document your own manual steps
-
-## Activity #1: Write down the recipe
-
-:::: {.columns}
-
-::: {.column width="48%"}
-::: {.concept-card style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
-
-???? **Step 1: Browse**
-
-Go to the ETtoday website and navigate to find a single article of interest.
-:::
+::: {.fragment data-fragment-index="1" style="margin-top: 1rem; text-align: center;"}
+<span style="border: 2px solid #3b82f6; padding: 4px 14px; border-radius: 6px; background: #eff6ff; font-size: 0.75em; font-weight: bold; color: #2563eb; display: inline-block;">Covered in Week 7 (Steps 1 & 2)</span>
 :::
 
-::: {.column width="48%"}
-::: {.concept-card style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
-
-???? **Step 2: Code-like precision**
-
-Describe every single action as if you were explaining it to a robot. Leave zero ambiguity!
+::: {.fragment data-fragment-index="2" style="margin-top: 0.4rem; text-align: center;"}
+<span style="border: 2px solid #22c55e; padding: 4px 14px; border-radius: 6px; background: #f0fdf4; font-size: 0.75em; font-weight: bold; color: #16a34a; display: inline-block;">Content of this week (Step 3)</span>
 :::
+
+## Overview: Translating manual steps to R
+
+:::: {.r-stack}
+
+::: {}
+```{r, echo=FALSE}
+manual_diagram("base")
+```
+:::
+
+<!-- Click 1: highlight A + note 1 -->
+::: {.fragment .fade-in-then-out data-fragment-index="1"}
+```{r, echo=FALSE}
+manual_diagram("hl", 1)
+```
+:::
+::: {.fragment .fade-in data-fragment-index="1"}
+```{r, echo=FALSE}
+manual_diagram("note", 1)
+```
+:::
+
+<!-- Click 2: highlight B + "Select date & type" + note 2 -->
+::: {.fragment .fade-in-then-out data-fragment-index="2"}
+```{r, echo=FALSE}
+manual_diagram("hl", 2)
+```
+:::
+::: {.fragment .fade-in data-fragment-index="2"}
+```{r, echo=FALSE}
+manual_diagram("note", 2)
+```
+:::
+
+<!-- Click 3: highlight C + "Target article webpage" + note 3 -->
+::: {.fragment .fade-in-then-out data-fragment-index="3"}
+```{r, echo=FALSE}
+manual_diagram("hl", 3)
+```
+:::
+::: {.fragment .fade-in data-fragment-index="3"}
+```{r, echo=FALSE}
+manual_diagram("note", 3)
+```
+:::
+
+<!-- Click 4: highlight E + note 4 -->
+::: {.fragment .fade-in-then-out data-fragment-index="4"}
+```{r, echo=FALSE}
+manual_diagram("hl", 4)
+```
+:::
+::: {.fragment .fade-in data-fragment-index="4"}
+```{r, echo=FALSE}
+manual_diagram("note", 4)
+```
 :::
 
 ::::
 
-## Documentation of the manual steps
 
-:::: {.columns}
 
-::: {.column width="35%"}
-1. Click on the link. 
+## How are we going to work in this class?
 
-2. Select the date of the news you are interested in.
+::: {.fragment .fade-up}
 
-3. Select the type of news (politics, society, etc.). 
+Please download the script for this week, and place it in your `PreprocessingAnalysesR` folder.
 
-4. Click on one of the titles below the search bar.
+::: {style="text-align: center; margin-top: 2em;"}
+
+<a href="assets/files/_Internal/ETToday_Scrape.Rmd" 
+   download="ETToday_Scrape.Rmd" 
+   style="display: inline-block; padding: 15px 30px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;">
+   ðŸ“¥ Download the R Markdown script
+</a>
 
 :::
 
-::: {.column width="65%"}
-```{r, echo=FALSE, fig.align='center'}
-grViz("
-digraph manual_steps {
-  graph [
-    rankdir = TB, 
-    bgcolor = transparent,
-    nodesep = 0.6,
-    ranksep = 0.65
-  ]
+:::
 
-  node [
-    shape = box,
-    style = 'rounded,filled',
-    fillcolor = '#F8FAFC',
-    color = '#64748B',
-    penwidth = 1.5,
-    fontname = 'Helvetica, Arial, sans-serif',
-    fontsize = 16,
-    fontcolor = '#1E293B',
-    margin = '0.4,0.25'
-  ]
+::: {.fragment .fade-up}
+<br>
+ðŸ’» Please start `RStudio` and select the project called `PreprocessingAnalysesR`.
+:::
 
-  edge [
-    fontname = 'Helvetica, Arial, sans-serif',
-    fontsize = 14,
-    fontcolor = '#2563EB',
-    color = '#94A3B8',
-    arrowsize = 1.1,
-    penwidth = 1.6
-  ]
+## 4. Let's get R to do the job for us!
 
-  A [label = 'ETtoday website\\n(list of articles)']
-  B [
-    label = 'Filtered articles', 
-    fillcolor = '#EFF6FF', 
-    color = '#3B82F6',
-    penwidth = 1.8
-  ]
-  C [label = 'Click on title of target article']
-  D [label = 'Target article webpage']
-  E [
-    label = 'Copy title, date, and content\\ninto Excel / Word',
-    fillcolor = '#F0FDF4',
-    color = '#22C55E',
-    penwidth = 1.8
-  ]
+## Preliminary step: Libraries needed
 
-  A -> B [label = '  Select date & type  ']
-  B -> C
-  C -> D
-  D -> E
+For this task, we will only need four packages:
+
+```{r, echo = TRUE}
+library(rvest)    
+library(dplyr)     
+library(xml2)      
+library(openxlsx)
+library(progress)
+```
+
+## Step 1: Record the web addresses
+
+Generate web addresses that list individual articles based on filters:
+
+- **Base address:** `https://www.ettoday.net/news/news-list`
+- **Filtered pattern:** `[Base] - [Date] - [Category] .htm`
+
+First, let's paste a single date and category together:
+
+```{r, echo=TRUE, eval=TRUE}
+ETTodayPageUrl <- "https://www.ettoday.net/news/news-list" 
+
+Year <- 2024
+Month <- 10
+Day <- 28
+
+date <- paste0(Year, "-", Month, "-", Day)
+category <- 1 # 1 = Politics
+```
+
+## Pasting the full URL
+
+We use `paste0()` to stitch the URL together:
+
+```{r, echo=TRUE, eval=TRUE}
+URL <- paste0(ETTodayPageUrl,
+              "-",
+              date,
+              "-",
+              category,
+              ".htm")
+URL
+```
+
+
+## Automating with "for loops"
+
+To generate links for the whole year, we use a **for loop**. Every loop has three basic components:
+
+1. **The List:** The group of items you want to work through.
+
+2. **The Action:** The specific job you want to do for a single item.
+
+3. **The Loop:** The process that automatically repeats the action for the next item.
+
+
+## Creating the Dates Loop
+
+We nest loops for Days, Months, and Years to generate all dates:
+
+```{r, echo=TRUE, eval=TRUE}
+Dates_total <- data.frame(matrix(ncol = 1, nrow = 0))
+Year <- 2024
+Month <- 1:12
+Day <- 1:31
+
+for (a in 1:length(Day)){
+  for (b in 1:length(Month)){
+    for (c in min(Year):max(Year)){
+      Dates <- paste0(c, "-", b, "-", a)
+      Dates <- as.data.frame(Dates)
+      Dates_total <- rbind(Dates_total, Dates)
+    }
+  }
 }
-", width = "100%", height = "520px")
-```
-:::
 
-::::
+Dates_total <- as.character(Dates_total$Dates)
 
-## Activity #2: Web address
-
-:::: {.columns}
-
-::: {.column width="40%"}
-::: {.fragment .fade-up}
-::: {.concept-card style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
-
-**Browse and observe**
-
-- What is the web address when you select a particular date, let's say October 28th, 2024?
-
-- And when you select a particular type of article, "politics" for example?
-
-- And finally, when you choose an individual article?
-:::
-:::
-:::
-
-::: {.column width="58%"}
-::: {.fragment .fade-up}
-::: {.concept-card style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
-
-**Answer**
-
-- First step: <https://www.ettoday.net/news/news-list.htm>
-
-- Second step (filtered articles): <https://www.ettoday.net/news/news-list-2024-10-28-1.htm>
-
-- Third step (individual article): <https://www.ettoday.net/news/20241028/2843953.htm>
-
-:::
-:::
-:::
-
-::::
-
-
-## Pay attention to the web address (2/2)
-
-::: callout-tip
-## Think about it
-
-- Systematic change of the address of the website.
-
-::: {.fragment .fade-up}
-
-- Now, try to change the address to access the list of articles published on September 27th, 2024.
-
-:::
-
-::: {.fragment .fade-up}
-
-- Second, try to change the last number. You will see that it changes the type of articles.
-
-:::
-::: {.fragment .fade-up}
-
-**So this means that you can filter the list of articles as you wish just by changing the web address!**
-
-:::
-::: {.fragment .fade-up}
-- Third, if we look at the web address of the individual article, we can retrieve the date of publication of the article very easily... but it is not quite possible to guess the numbers after that.
-:::
-:::
-
----
-
-No need to despair! 
-
-The fact that this article is found in the list means that ***the web address of the individual article*** must be somewhere on the website... but where? 
-
-This is the moment when it is important to **understand the structure of the website**.
-
-# 3. Understanding the structure of the website
-
-## How to access the structure of the website?
-
-- Access this page: 
-
-<https://www.ettoday.net/news/news-list-2024-10-28-1.htm>.
-
-- Look for a blank space,  right-click, and you select "View Page Source".
-
-- Then, it will open a new page which can be very scary... but this is actually the same, just the structure of the previous page!
-
-![](assets/images/ETtoday_ListArticles_Structure.gif){fig-align="center"}
-
-
-## Activity #3: Find the addresses on this page
-
-:::: {.columns}
-
-::: {.column width="40%"}
-::: {.fragment .fade-up}
-::: {.concept-card style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
-
-**Browse and observe - Part 1**
-
-- Try to find the place where you have the list of the web addresses by category
-
-:::
-:::
-:::
-
-::: {.column width="58%"}
-::: {.fragment .fade-up}
-::: {.concept-card style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
-
-**Browse and observe - Part 2**
-
-- Try to find where the individual articles are listed
-
-:::
-:::
-:::
-
-::::
-
-
-
-## What are all these lines about? (1/2)
-
-This version of the website is really where you can find all the information that you need. For example, please have a look at lines 514 to 541 (see the image below).
-
-![](assets/images/ETtoday_ListArticleTypes.png){fig-align="center"}
-
-This must be more familiar to you: these are the web addresses that you obtain when you filter different types of articles!
-
-
-
-
-
-## What are all these lines about? (2/2)
-
-Now, please have a look at line 549... you will see that you have the web addresses of each individual article listed on the webpage!
-
-![](assets/images/ETtoday_ListAddressIndividualArticles.png){fig-align="center"}
-
-::: callout-tip
-## How did I know what lines to search for?
-
-There's nothing magical, and I am surely not a psychic who can guess the line numbers. So how to find them? I just use the "search" function (for Windows: "ctrl + f", for Mac: "command + f"). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles.
-:::
-
-## Terminology of the "structural lines"
-
-Let's call these lines the "structural lines". These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in **html language**.
-
-Let's just have a look at line 549 and decompose it.
-
-```html
-<div class="part_list_2">
-  <h3>
-    <span class="date">2024/10/28 20:45</span>
-    <em class="tag c_news">??¿æ²»</em>
-    <a target="_blank" href="[https://www.ettoday.net/news/20241028/2843953.htm](https://www.ettoday.net/news/20241028/2843953.htm)">??³å??ä»²å??è¶????æ¡?è¢«å??ï¼?é»?????????????ä¸???²ã??ï¼????æª¢ç????¼é??ä¾????</a>
-  </h3>
-</div>
+head(Dates_total, 5)
 ```
 
-This line corresponds to this part of the website:
+## Adding the Categories
 
-![](assets/images/ETtoday_LineExample.png){fig-align="center"}
+Next, we attach our categories (e.g., Society & Politics) to our list of dates:
 
-## Decomposing line 549
+```{r, echo=TRUE, eval=TRUE}
+Category_total <- c("6", "1") # 6 = Society, 1 = Politics
+URL_total <- data.frame(matrix(ncol = 1, nrow = 0))
+  
+for (a in 1:length(Category_total)){
+  URL_temp <- paste0(ETTodayPageUrl, "-", Dates_total, "-", Category_total[a], ".htm")
+  URL_temp <- as.data.frame(URL_temp)
+  URL_total <- rbind(URL_total, URL_temp)
+}
 
-Now we can decompose it:
+URL_total <- as.character(URL_total$URL_temp)
+head(URL_total, 5)
+```
 
-- The part with "`<div></div>`" means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names to avoid confusing them. Here, the block is called "part_list_2".
+## Time to think!
 
-- The part with "`<h3></h3>`" corresponds to one line in the block. What is between "`<h3>`" and "`</h3>`" is everything we want to put in that line. Here there are three elements:
+In the script, what would you change if:
 
-  - The first element is a "`<span></span>`" element, and its name is "date". What is between "`<span>`" and "`</span>`" is the text to display, here: "2024/10/28 20:45".
+::: {.columns style="margin-top: 1.5em; margin-bottom: 1.5em;"}
 
-  - The second element is an "`<em></em>`" element (why "em" and not "span"? "em" stands for "emphasis", so they look different on the website). Its name is "tag c_news".
-
-  - The third element is an "`<a></a>`" element. This is used to write a text with a link, and the link is specified with "href". The term `target="_blank"` means that it opens in a new page when you click on it.
-
-
-## Activity #4: Identify where the information you want can be found
-
-:::: {.columns}
-
-::: {.column width="48%"}
-::: {.concept-card style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
-
-???? **Step 1: Browse**
-
-Look for the dates of the article, the content, the name of the author, the category, etc.
-
+::: {.column .fragment width="48%"}
+::: {.callout-note appearance="minimal"}
+You want the articles from May 2022 only?
 :::
 :::
 
-::: {.column width="48%"}
-::: {.concept-card style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc; border-radius: 8px; height: 100%;"}
-
-???? **Step 2: Code-like precision**
-
-Describe where it is found using elements like "`<div></div>`" or "`<h3></h3>`", etc.
+::: {.column .fragment width="48%"}
+::: {.callout-important appearance="minimal"}
+You don't want the 'Politics' category?
 :::
 :::
 
-::::
-
-## Summary: What to remember
-
-::: callout-important
-This seems to be a lot and quite complicated.
-
-So just remember this:
-
-- There are **big blocks** with different names (*div*, *h3*, *span*, etc.). Let's call them ***nodes***.
-
-- Inside nodes, you can specify the **parameters** and **names** specific to the **nodes**.
-
-That's all!
 :::
+
+::: {.fragment style="text-align: center; margin-top: 1.5em; font-weight: bold; color: #447099;"}
+Take 5 minutes to reflect!
+:::
+
+## Step 2: Retrieve individual article URLs
+
+
+::: {style="display: flex; justify-content: center; margin-top: 2.5em;"}
+::: {.fragment style="max-width: 820px; padding: 36px 44px; background-color: #eef5fb; border-left: 6px solid #447099; border-radius: 8px; box-shadow: 0 6px 16px rgba(0,0,0,0.06); font-size: 1.15em; line-height: 1.6; text-align: left;"}
+Take 5 minutes to recall ***where and how*** you found the links in ***the structure of the website***.
+:::
+:::
+
+## Step 2: Let's do it automatically
+
+::: {.callout-important}
+Always try with one page first!
+:::
+
+Now that we have the list of pages, we extract the links to the *individual* articles using `rvest`:
+
+```{r, echo=TRUE, eval=TRUE}
+# Read the first page
+IndPage <- read_html(URL_total[1])
+
+# Extract specific href links
+news_url <- IndPage %>% 
+  html_nodes("div.part_list_2") %>% 
+  html_nodes("h3") %>%
+  html_nodes("a") %>%
+  html_attr("href")
+
+news_url
+```
+
+## Looping through all pages
+
+We repeat this extraction across our entire `URL_total` list:
+
+```{r, echo=TRUE, eval=FALSE}
+URL_IndArticles <- data.frame(matrix(ncol = 1, nrow = 0))
+
+for (i in 1:length(URL_total)){
+  IndPage <- read_html(URL_total[i])
+  news_url <- IndPage %>% 
+    html_nodes("div.part_list_2") %>% 
+    html_nodes("h3") %>%
+    html_nodes("a") %>%
+    html_attr("href")
+  
+  news_url <- as.data.frame(news_url)
+  URL_IndArticles <- rbind(URL_IndArticles, news_url)
+}
+
+# Remove any duplicated addresses
+article_overview_unique <- unique(URL_IndArticles)
+```
+
+## Step 3: Retrieve article content
+
+
+::: {style="display: flex; justify-content: center; margin-top: 2.5em;"}
+::: {.fragment style="max-width: 820px; padding: 36px 44px; background-color: #eef5fb; border-left: 6px solid #447099; border-radius: 8px; box-shadow: 0 6px 16px rgba(0,0,0,0.06); font-size: 1.15em; line-height: 1.6; text-align: left;"}
+Take 5 minutes to recall ***where and how*** you found the content of the article in ***the structure of the website***.
+:::
+:::
+
+## Step 3: Let's do it automatically
+
+We map nodes to extract the specific text (date, title, body) from an individual article:
+
+```{r, echo=TRUE, eval=FALSE}
+OneArticle <- read_html(article_overview_unique$news_url[1])
+
+# time of news
+news_time <- OneArticle %>% 
+  html_nodes("time") %>% 
+  html_text(trim = TRUE)
+
+# class of news
+news_class <- OneArticle %>% 
+  html_nodes(".part_menu_5") %>% 
+  html_nodes("strong") %>%
+  html_text(trim = TRUE)
+
+# title 
+news_title <- OneArticle %>% 
+  html_nodes("h1") %>% 
+  html_text(trim = TRUE)
+
+# content 
+news_body <- OneArticle %>% 
+  html_nodes('div[itemprop="articleBody"]') %>% 
+  html_text(trim = TRUE)
+
+article <- (data.frame(time = news_time,
+                       class = news_class,
+                       title = news_title,
+                       body = news_body,
+                       url = article_overview_unique$news_url[1]))
+
+head(article)
+```
+
+## Scrape through all the pages with For Loop
+
+When scraping thousands of pages, broken links happen. We wrap our loop in `tryCatch()` so R skips errors instead of crashing completely:
+
+```{r, echo=TRUE, eval=FALSE}
+Article_total <- data.frame()
+
+for (j in 1:length(article_overview_unique$news_url)){
+
+    temp <- read_html(article_overview_unique$news_url[j])
+    
+    # time of news
+    news_time <- temp %>% 
+      html_nodes("time") %>% 
+      html_text(trim = TRUE)
+    
+    # class of news
+    news_class <- temp %>% 
+      html_nodes(".part_menu_5") %>% 
+      html_nodes("strong") %>%
+      html_text(trim = TRUE)
+    
+    # title 
+    news_title <- temp %>% 
+      html_nodes("h1") %>% 
+      html_text(trim = TRUE)
+    
+    # content 
+    news_body <- temp %>% 
+      html_nodes('div[itemprop="articleBody"]') %>% 
+      html_text(trim = TRUE)
+    
+    # url
+    news_url <- temp %>% 
+      html_nodes("div.block div.block_content div.part_list_2 h3") %>% 
+      html_nodes("a") %>%
+      html_attr("href")
+    
+    Article <- (data.frame(time = news_time,
+                           class = news_class,
+                           title = news_title,
+                           body = news_body,
+                           url = article_overview_unique$news_url[j]))
+    Article_total <- rbind(Article_total, Article))
+  
+}
+```
+
+## How to prevent crashes?
+
+```{r, echo=TRUE, eval=FALSE}
+Article_total <- data.frame()
+
+
+for (j in 1:length(article_overview_unique$news_url)){
+  
+  tryCatch({
+    temp <- read_html(article_overview_unique$news_url[j])
+    
+    # time of news
+    news_time <- temp %>% 
+      html_nodes("time") %>% 
+      html_text(trim = TRUE)
+    
+    # class of news
+    news_class <- temp %>% 
+      html_nodes(".part_menu_5") %>% 
+      html_nodes("strong") %>%
+      html_text(trim = TRUE)
+    
+    # title 
+    news_title <- temp %>% 
+      html_nodes("h1") %>% 
+      html_text(trim = TRUE)
+    
+    # content 
+    news_body <- temp %>% 
+      html_nodes('div[itemprop="articleBody"]') %>% 
+      html_text(trim = TRUE)
+    
+    # url
+    news_url <- temp %>% 
+      html_nodes("div.block div.block_content div.part_list_2 h3") %>% 
+      html_nodes("a") %>%
+      html_attr("href")
+    
+    Article <- (data.frame(time = news_time,
+                           class = news_class,
+                           title = news_title,
+                           body = news_body,
+                           url = article_overview_unique$news_url[j]))
+    Article_total <- rbind(Article_total, Article)
+  }, error=function(e){message("ERROR :",conditionMessage(e), "\n")})
+  
+}
+```
+
+## Progress bar and "sleep" time
+
+```{r, echo=TRUE, eval=FALSE}
+Article_total <- data.frame()
+
+## Set the progress bar
+
+total_urls <- length(article_overview_unique$news_url)
+pb <- progress_bar$new(
+  format = "  Scraping [:bar] :current/:total (:percent) | ETA: :eta",
+  total = total_urls, 
+  clear = FALSE, 
+  width = 60
+)
+
+
+for (j in 1:length(article_overview_unique$news_url)){
+  
+  pb$tick()
+  
+  tryCatch({
+    temp <- read_html(article_overview_unique$news_url[j])
+    
+    # time of news
+    news_time <- temp %>% 
+      html_nodes("time") %>% 
+      html_text(trim = TRUE)
+    
+    # class of news
+    news_class <- temp %>% 
+      html_nodes(".part_menu_5") %>% 
+      html_nodes("strong") %>%
+      html_text(trim = TRUE)
+    
+    # title 
+    news_title <- temp %>% 
+      html_nodes("h1") %>% 
+      html_text(trim = TRUE)
+    
+    # content 
+    news_body <- temp %>% 
+      html_nodes('div[itemprop="articleBody"]') %>% 
+      html_text(trim = TRUE)
+    
+    # url
+    news_url <- temp %>% 
+      html_nodes("div.block div.block_content div.part_list_2 h3") %>% 
+      html_nodes("a") %>%
+      html_attr("href")
+    
+    Article <- (data.frame(time = news_time,
+                           class = news_class,
+                           title = news_title,
+                           body = news_body,
+                           url = article_overview_unique$news_url[j]))
+    Article_total <- rbind(Article_total, Article)
+  }, error=function(e){pb$message("ERROR :",conditionMessage(e), "\n")})
+  
+}
+
+
+testit <- function(x = sort(runif(20)), ...)
+{
+    pb <- txtProgressBar(...)
+    for(i in c(0, x, 1)) {Sys.sleep(0.5); setTxtProgressBar(pb, i)}
+    Sys.sleep(1)
+    close(pb)
+}
+```
+
+## Step 4: Save the Data
+
+Finally, we export the scraped dataset to both an Excel document and a native RData workspace file:
+
+```r
+# Export to Excel for human readability
+write.xlsx(Article_total, "ArticleETToday_CorpusCourse.xlsx")
+
+# Save as RData object
+save(Article_total, file = "ArticleETToday_CorpusCourse.Rdata")
+```

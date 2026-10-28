@@ -3,106 +3,162 @@
     "objectID": "week8_slides.html#goals",
     "href": "week8_slides.html#goals",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "???? Goals",
-    "text": "???? Goals\n\n\nWeek 7: Understanding a web page: What is the structure of a web page? How to find the data we want?\n\n\n\n\nWeek 8: Automize the process: How to translate human behavior into R code ?"
+    "section": "🎯 Goals",
+    "text": "🎯 Goals\n\n\nWeek 7: Understanding a web page: What is the structure of a web page? How to find the data we want?\n\n\n\n\nWeek 8: Automize the process: How to translate human behavior into R code ?"
   },
   {
     "objectID": "week8_slides.html#clarifying-concepts-before-coding",
     "href": "week8_slides.html#clarifying-concepts-before-coding",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
     "section": "Clarifying concepts before coding",
-    "text": "Clarifying concepts before coding\n\n\n\n\nStep 1\nBeing aware of the steps you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible.\n\n\n\n\n\nStep 2\nUnderstanding the structure of a website, how to access the structure of the website, and where the information you want are.\n\n\n\n\n\nStep 3\nFinally, mapping the R functions to the information you want."
+    "text": "Clarifying concepts before coding\n\n\n\n\nStep 1\nBeing aware of the steps you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible.\n\n\n\n\n\nStep 2\nUnderstanding the structure of a website, how to access the structure of the website, and where the information you want are.\n\n\n\n\nCovered in Week 7 (Steps 1 & 2)\n\n\nRecall from last week"
   },
   {
-    "objectID": "week8_slides.html#our-case-study-ettoday",
-    "href": "week8_slides.html#our-case-study-ettoday",
+    "objectID": "week8_slides.html#recall-from-last-week",
+    "href": "week8_slides.html#recall-from-last-week",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "Our case study: ETtoday",
-    "text": "Our case study: ETtoday\nTaiwanese newspaper called “ETtoday” (https://www.ettoday.net/).\nWe will be working with the following link:\n\n ???? Open ETtoday article list (2011???Present)"
+    "section": "Recall from last week",
+    "text": "Recall from last week\n\n\nPlease take 5 minutes to recall the different manual steps we went through last week."
   },
   {
-    "objectID": "week8_slides.html#activity-1-write-down-the-recipe",
-    "href": "week8_slides.html#activity-1-write-down-the-recipe",
+    "objectID": "week8_slides.html#new-step-coding-part",
+    "href": "week8_slides.html#new-step-coding-part",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "Activity #1: Write down the recipe",
-    "text": "Activity #1: Write down the recipe\n\n\n\n???? Step 1: Browse\nGo to the ETtoday website and navigate to find a single article of interest.\n\n\n\n???? Step 2: Code-like precision\nDescribe every single action as if you were explaining it to a robot. Leave zero ambiguity!"
+    "section": "New step: Coding part",
+    "text": "New step: Coding part\n\n\n\n\nStep 1\nBeing aware of the steps you are going through if you had to manually copy and paste the data you want into an Excel file, and document each step with as many details as possible.\n\n\n\n\n\nStep 2\nUnderstanding the structure of a website, how to access the structure of the website, and where the information you want are.\n\n\n\n\n\nStep 3\nFinally, mapping the R functions to the information you want.\n\n\n\n\nCovered in Week 7 (Steps 1 & 2)\n\n\nContent of this week (Step 3)"
   },
   {
-    "objectID": "week8_slides.html#documentation-of-the-manual-steps",
-    "href": "week8_slides.html#documentation-of-the-manual-steps",
+    "objectID": "week8_slides.html#overview-translating-manual-steps-to-r",
+    "href": "week8_slides.html#overview-translating-manual-steps-to-r",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "Documentation of the manual steps",
-    "text": "Documentation of the manual steps\n\n\n\nClick on the link.\nSelect the date of the news you are interested in.\nSelect the type of news (politics, society, etc.).\nClick on one of the titles below the search bar."
+    "section": "Overview: Translating manual steps to R",
+    "text": "Overview: Translating manual steps to R"
   },
   {
-    "objectID": "week8_slides.html#activity-2-web-address",
-    "href": "week8_slides.html#activity-2-web-address",
+    "objectID": "week8_slides.html#how-are-we-going-to-work-in-this-class",
+    "href": "week8_slides.html#how-are-we-going-to-work-in-this-class",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "Activity #2: Web address",
-    "text": "Activity #2: Web address\n\n\n\n\nBrowse and observe\n\nWhat is the web address when you select a particular date, let’s say October 28th, 2024?\nAnd when you select a particular type of article, “politics” for example?\nAnd finally, when you choose an individual article?\n\n\n\n\n\n\nAnswer\n\nFirst step: https://www.ettoday.net/news/news-list.htm\nSecond step (filtered articles): https://www.ettoday.net/news/news-list-2024-10-28-1.htm\nThird step (individual article): https://www.ettoday.net/news/20241028/2843953.htm"
+    "section": "How are we going to work in this class?",
+    "text": "How are we going to work in this class?\n\nPlease download the script for this week, and place it in your PreprocessingAnalysesR folder.\n\n 📥 Download the R Markdown script \n\n\n\n 💻 Please start RStudio and select the project called PreprocessingAnalysesR."
   },
   {
-    "objectID": "week8_slides.html#pay-attention-to-the-web-address-22",
-    "href": "week8_slides.html#pay-attention-to-the-web-address-22",
+    "objectID": "week8_slides.html#lets-get-r-to-do-the-job-for-us",
+    "href": "week8_slides.html#lets-get-r-to-do-the-job-for-us",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "Pay attention to the web address (2/2)",
-    "text": "Pay attention to the web address (2/2)\n\n\n\n\n\n\nThink about it\n\n\n\nSystematic change of the address of the website.\n\n\n\nNow, try to change the address to access the list of articles published on September 27th, 2024.\n\n\n\n\nSecond, try to change the last number. You will see that it changes the type of articles.\n\n\n\nSo this means that you can filter the list of articles as you wish just by changing the web address!\n\n\n\nThird, if we look at the web address of the individual article, we can retrieve the date of publication of the article very easily… but it is not quite possible to guess the numbers after that."
+    "section": "4. Let’s get R to do the job for us!",
+    "text": "4. Let’s get R to do the job for us!"
   },
   {
-    "objectID": "week8_slides.html#how-to-access-the-structure-of-the-website",
-    "href": "week8_slides.html#how-to-access-the-structure-of-the-website",
+    "objectID": "week8_slides.html#preliminary-step-libraries-needed",
+    "href": "week8_slides.html#preliminary-step-libraries-needed",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "How to access the structure of the website?",
-    "text": "How to access the structure of the website?\n\nAccess this page:\n\nhttps://www.ettoday.net/news/news-list-2024-10-28-1.htm.\n\nLook for a blank space, right-click, and you select “View Page Source”.\nThen, it will open a new page which can be very scary… but this is actually the same, just the structure of the previous page!"
+    "section": "Preliminary step: Libraries needed",
+    "text": "Preliminary step: Libraries needed\nFor this task, we will only need four packages:\n\nlibrary(rvest)    \nlibrary(dplyr)     \nlibrary(xml2)      \nlibrary(openxlsx)\nlibrary(progress)"
   },
   {
-    "objectID": "week8_slides.html#activity-3-find-the-addresses-on-this-page",
-    "href": "week8_slides.html#activity-3-find-the-addresses-on-this-page",
+    "objectID": "week8_slides.html#step-1-record-the-web-addresses",
+    "href": "week8_slides.html#step-1-record-the-web-addresses",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "Activity #3: Find the addresses on this page",
-    "text": "Activity #3: Find the addresses on this page\n\n\n\n\nBrowse and observe - Part 1\n\nTry to find the place where you have the list of the web addresses by category\n\n\n\n\n\n\nBrowse and observe - Part 2\n\nTry to find where the individual articles are listed"
+    "section": "Step 1: Record the web addresses",
+    "text": "Step 1: Record the web addresses\nGenerate web addresses that list individual articles based on filters:\n\nBase address: https://www.ettoday.net/news/news-list\nFiltered pattern: [Base] - [Date] - [Category] .htm\n\nFirst, let’s paste a single date and category together:\n\nETTodayPageUrl &lt;- \"https://www.ettoday.net/news/news-list\" \n\nYear &lt;- 2024\nMonth &lt;- 10\nDay &lt;- 28\n\ndate &lt;- paste0(Year, \"-\", Month, \"-\", Day)\ncategory &lt;- 1 # 1 = Politics"
   },
   {
-    "objectID": "week8_slides.html#what-are-all-these-lines-about-12",
-    "href": "week8_slides.html#what-are-all-these-lines-about-12",
+    "objectID": "week8_slides.html#pasting-the-full-url",
+    "href": "week8_slides.html#pasting-the-full-url",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "What are all these lines about? (1/2)",
-    "text": "What are all these lines about? (1/2)\nThis version of the website is really where you can find all the information that you need. For example, please have a look at lines 514 to 541 (see the image below).\n\nThis must be more familiar to you: these are the web addresses that you obtain when you filter different types of articles!"
+    "section": "Pasting the full URL",
+    "text": "Pasting the full URL\nWe use paste0() to stitch the URL together:\n\nURL &lt;- paste0(ETTodayPageUrl,\n              \"-\",\n              date,\n              \"-\",\n              category,\n              \".htm\")\nURL\n\n[1] \"https://www.ettoday.net/news/news-list-2024-10-28-1.htm\""
   },
   {
-    "objectID": "week8_slides.html#what-are-all-these-lines-about-22",
-    "href": "week8_slides.html#what-are-all-these-lines-about-22",
+    "objectID": "week8_slides.html#automating-with-for-loops",
+    "href": "week8_slides.html#automating-with-for-loops",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "What are all these lines about? (2/2)",
-    "text": "What are all these lines about? (2/2)\nNow, please have a look at line 549… you will see that you have the web addresses of each individual article listed on the webpage!\n\n\n\n\n\n\n\nHow did I know what lines to search for?\n\n\nThere’s nothing magical, and I am surely not a psychic who can guess the line numbers. So how to find them? I just use the “search” function (for Windows: “ctrl + f”, for Mac: “command + f”). And then I look for some keywords, such as the names of the types of articles, or the web address of the individual articles."
+    "section": "Automating with “for loops”",
+    "text": "Automating with “for loops”\nTo generate links for the whole year, we use a for loop. Every loop has three basic components:\n\nThe List: The group of items you want to work through.\nThe Action: The specific job you want to do for a single item.\nThe Loop: The process that automatically repeats the action for the next item."
   },
   {
-    "objectID": "week8_slides.html#terminology-of-the-structural-lines",
-    "href": "week8_slides.html#terminology-of-the-structural-lines",
+    "objectID": "week8_slides.html#creating-the-dates-loop",
+    "href": "week8_slides.html#creating-the-dates-loop",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "Terminology of the “structural lines”",
-    "text": "Terminology of the “structural lines”\nLet’s call these lines the “structural lines”. These are just lines of code used to create the webpage. There are different programming languages, but for our purpose, we will only need to look at the lines written in html language.\nLet’s just have a look at line 549 and decompose it.\n&lt;div class=\"part_list_2\"&gt;\n  &lt;h3&gt;\n    &lt;span class=\"date\"&gt;2024/10/28 20:45&lt;/span&gt;\n    &lt;em class=\"tag c_news\"&gt;??�治&lt;/em&gt;\n    &lt;a target=\"_blank\" href=\"[https://www.ettoday.net/news/20241028/2843953.htm](https://www.ettoday.net/news/20241028/2843953.htm)\"&gt;??��??仲�??�????�?被�??�?�?????????????�???��??�????檢�????��??�????&lt;/a&gt;\n  &lt;/h3&gt;\n&lt;/div&gt;\nThis line corresponds to this part of the website:"
+    "section": "Creating the Dates Loop",
+    "text": "Creating the Dates Loop\nWe nest loops for Days, Months, and Years to generate all dates:\n\nDates_total &lt;- data.frame(matrix(ncol = 1, nrow = 0))\nYear &lt;- 2024\nMonth &lt;- 1:12\nDay &lt;- 1:31\n\nfor (a in 1:length(Day)){\n  for (b in 1:length(Month)){\n    for (c in min(Year):max(Year)){\n      Dates &lt;- paste0(c, \"-\", b, \"-\", a)\n      Dates &lt;- as.data.frame(Dates)\n      Dates_total &lt;- rbind(Dates_total, Dates)\n    }\n  }\n}\n\nDates_total &lt;- as.character(Dates_total$Dates)\n\nhead(Dates_total, 5)\n\n[1] \"2024-1-1\" \"2024-2-1\" \"2024-3-1\" \"2024-4-1\" \"2024-5-1\""
   },
   {
-    "objectID": "week8_slides.html#decomposing-line-549",
-    "href": "week8_slides.html#decomposing-line-549",
+    "objectID": "week8_slides.html#adding-the-categories",
+    "href": "week8_slides.html#adding-the-categories",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "Decomposing line 549",
-    "text": "Decomposing line 549\nNow we can decompose it:\n\nThe part with “&lt;div&gt;&lt;/div&gt;” means that there is a block on the webpage. This block corresponds to the one where all the individual articles are listed. There are many blocks on a webpage, so we can give them different names to avoid confusing them. Here, the block is called “part_list_2”.\nThe part with “&lt;h3&gt;&lt;/h3&gt;” corresponds to one line in the block. What is between “&lt;h3&gt;” and “&lt;/h3&gt;” is everything we want to put in that line. Here there are three elements:\n\nThe first element is a “&lt;span&gt;&lt;/span&gt;” element, and its name is “date”. What is between “&lt;span&gt;” and “&lt;/span&gt;” is the text to display, here: “2024/10/28 20:45”.\nThe second element is an “&lt;em&gt;&lt;/em&gt;” element (why “em” and not “span”? “em” stands for “emphasis”, so they look different on the website). Its name is “tag c_news”.\nThe third element is an “&lt;a&gt;&lt;/a&gt;” element. This is used to write a text with a link, and the link is specified with “href”. The term target=\"_blank\" means that it opens in a new page when you click on it."
+    "section": "Adding the Categories",
+    "text": "Adding the Categories\nNext, we attach our categories (e.g., Society & Politics) to our list of dates:\n\nCategory_total &lt;- c(\"6\", \"1\") # 6 = Society, 1 = Politics\nURL_total &lt;- data.frame(matrix(ncol = 1, nrow = 0))\n  \nfor (a in 1:length(Category_total)){\n  URL_temp &lt;- paste0(ETTodayPageUrl, \"-\", Dates_total, \"-\", Category_total[a], \".htm\")\n  URL_temp &lt;- as.data.frame(URL_temp)\n  URL_total &lt;- rbind(URL_total, URL_temp)\n}\n\nURL_total &lt;- as.character(URL_total$URL_temp)\nhead(URL_total, 5)\n\n[1] \"https://www.ettoday.net/news/news-list-2024-1-1-6.htm\"\n[2] \"https://www.ettoday.net/news/news-list-2024-2-1-6.htm\"\n[3] \"https://www.ettoday.net/news/news-list-2024-3-1-6.htm\"\n[4] \"https://www.ettoday.net/news/news-list-2024-4-1-6.htm\"\n[5] \"https://www.ettoday.net/news/news-list-2024-5-1-6.htm\""
   },
   {
-    "objectID": "week8_slides.html#activity-4-identify-where-the-information-you-want-can-be-found",
-    "href": "week8_slides.html#activity-4-identify-where-the-information-you-want-can-be-found",
+    "objectID": "week8_slides.html#time-to-think",
+    "href": "week8_slides.html#time-to-think",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "Activity #4: Identify where the information you want can be found",
-    "text": "Activity #4: Identify where the information you want can be found\n\n\n\n???? Step 1: Browse\nLook for the dates of the article, the content, the name of the author, the category, etc.\n\n\n\n???? Step 2: Code-like precision\nDescribe where it is found using elements like “&lt;div&gt;&lt;/div&gt;” or “&lt;h3&gt;&lt;/h3&gt;”, etc."
+    "section": "Time to think!",
+    "text": "Time to think!\nIn the script, what would you change if:\n\n\n\n\n\nYou want the articles from May 2022 only?\n\n\n\n\n\n\n\nYou don’t want the ‘Politics’ category?\n\n\n\n\n\nTake 5 minutes to reflect!"
   },
   {
-    "objectID": "week8_slides.html#summary-what-to-remember",
-    "href": "week8_slides.html#summary-what-to-remember",
+    "objectID": "week8_slides.html#step-2-retrieve-individual-article-urls",
+    "href": "week8_slides.html#step-2-retrieve-individual-article-urls",
     "title": "Weeks 8: Building a corpus from media platforms - PART 2",
-    "section": "Summary: What to remember",
-    "text": "Summary: What to remember\n\n\n\n\n\n\nImportant\n\n\nThis seems to be a lot and quite complicated.\nSo just remember this:\n\nThere are big blocks with different names (div, h3, span, etc.). Let’s call them nodes.\nInside nodes, you can specify the parameters and names specific to the nodes.\n\nThat’s all!"
+    "section": "Step 2: Retrieve individual article URLs",
+    "text": "Step 2: Retrieve individual article URLs\n\n\nTake 5 minutes to recall where and how you found the links in the structure of the website."
+  },
+  {
+    "objectID": "week8_slides.html#step-2-lets-do-it-automatically",
+    "href": "week8_slides.html#step-2-lets-do-it-automatically",
+    "title": "Weeks 8: Building a corpus from media platforms - PART 2",
+    "section": "Step 2: Let’s do it automatically",
+    "text": "Step 2: Let’s do it automatically\n\n\n\n\n\n\nImportant\n\n\nAlways try with one page first!\n\n\n\nNow that we have the list of pages, we extract the links to the individual articles using rvest:\n\n# Read the first page\nIndPage &lt;- read_html(URL_total[1])\n\n# Extract specific href links\nnews_url &lt;- IndPage %&gt;% \n  html_nodes(\"div.part_list_2\") %&gt;% \n  html_nodes(\"h3\") %&gt;%\n  html_nodes(\"a\") %&gt;%\n  html_attr(\"href\")\n\nnews_url\n\n  [1] \"https://www.ettoday.net/news/20240101/2655300.htm\"\n  [2] \"https://www.ettoday.net/news/20240101/2655313.htm\"\n  [3] \"https://www.ettoday.net/news/20240101/2655305.htm\"\n  [4] \"https://www.ettoday.net/news/20240101/2655303.htm\"\n  [5] \"https://www.ettoday.net/news/20240101/2655277.htm\"\n  [6] \"https://www.ettoday.net/news/20240101/2655264.htm\"\n  [7] \"https://www.ettoday.net/news/20240101/2655256.htm\"\n  [8] \"https://www.ettoday.net/news/20240101/2655215.htm\"\n  [9] \"https://www.ettoday.net/news/20240101/2655126.htm\"\n [10] \"https://www.ettoday.net/news/20240101/2655200.htm\"\n [11] \"https://www.ettoday.net/news/20240101/2655185.htm\"\n [12] \"https://www.ettoday.net/news/20240101/2655161.htm\"\n [13] \"https://www.ettoday.net/news/20240101/2655150.htm\"\n [14] \"https://www.ettoday.net/news/20240101/2655127.htm\"\n [15] \"https://www.ettoday.net/news/20240101/2655143.htm\"\n [16] \"https://www.ettoday.net/news/20240101/2655124.htm\"\n [17] \"https://www.ettoday.net/news/20240101/2655134.htm\"\n [18] \"https://www.ettoday.net/news/20240101/2655055.htm\"\n [19] \"https://www.ettoday.net/news/20240101/2655104.htm\"\n [20] \"https://www.ettoday.net/news/20240101/2655079.htm\"\n [21] \"https://www.ettoday.net/news/20240101/2655082.htm\"\n [22] \"https://www.ettoday.net/news/20240101/2655069.htm\"\n [23] \"https://www.ettoday.net/news/20240101/2655067.htm\"\n [24] \"https://www.ettoday.net/news/20240101/2655059.htm\"\n [25] \"https://www.ettoday.net/news/20240101/2655060.htm\"\n [26] \"https://www.ettoday.net/news/20240101/2655058.htm\"\n [27] \"https://www.ettoday.net/news/20240101/2655056.htm\"\n [28] \"https://www.ettoday.net/news/20240101/2655035.htm\"\n [29] \"https://www.ettoday.net/news/20240101/2655002.htm\"\n [30] \"https://www.ettoday.net/news/20240101/2653821.htm\"\n [31] \"https://www.ettoday.net/news/20240101/2653800.htm\"\n [32] \"https://www.ettoday.net/news/20240101/2654985.htm\"\n [33] \"https://www.ettoday.net/news/20240101/2654981.htm\"\n [34] \"https://www.ettoday.net/news/20240101/2654968.htm\"\n [35] \"https://www.ettoday.net/news/20240101/2654942.htm\"\n [36] \"https://www.ettoday.net/news/20240101/2654951.htm\"\n [37] \"https://www.ettoday.net/news/20240101/2654940.htm\"\n [38] \"https://www.ettoday.net/news/20240101/2654962.htm\"\n [39] \"https://www.ettoday.net/news/20240101/2654966.htm\"\n [40] \"https://www.ettoday.net/news/20240101/2654939.htm\"\n [41] \"https://www.ettoday.net/news/20240101/2654933.htm\"\n [42] \"https://www.ettoday.net/news/20240101/2654925.htm\"\n [43] \"https://www.ettoday.net/news/20240101/2654910.htm\"\n [44] \"https://www.ettoday.net/news/20240101/2653751.htm\"\n [45] \"https://www.ettoday.net/news/20240101/2654866.htm\"\n [46] \"https://www.ettoday.net/news/20240101/2654858.htm\"\n [47] \"https://www.ettoday.net/news/20240101/2653513.htm\"\n [48] \"https://www.ettoday.net/news/20240101/2653353.htm\"\n [49] \"https://www.ettoday.net/news/20240101/2654835.htm\"\n [50] \"https://www.ettoday.net/news/20240101/2654811.htm\"\n [51] \"https://www.ettoday.net/news/20240101/2654807.htm\"\n [52] \"https://www.ettoday.net/news/20240101/2654796.htm\"\n [53] \"https://www.ettoday.net/news/20240101/2654789.htm\"\n [54] \"https://www.ettoday.net/news/20231231/2654760.htm\"\n [55] \"https://www.ettoday.net/news/20231231/2654767.htm\"\n [56] \"https://www.ettoday.net/news/20231231/2654758.htm\"\n [57] \"https://www.ettoday.net/news/20231231/2654749.htm\"\n [58] \"https://www.ettoday.net/news/20231231/2654734.htm\"\n [59] \"https://www.ettoday.net/news/20231231/2654732.htm\"\n [60] \"https://www.ettoday.net/news/20231231/2654722.htm\"\n [61] \"https://www.ettoday.net/news/20231231/2654727.htm\"\n [62] \"https://www.ettoday.net/news/20231231/2654723.htm\"\n [63] \"https://www.ettoday.net/news/20231231/2654718.htm\"\n [64] \"https://www.ettoday.net/news/20231231/2654687.htm\"\n [65] \"https://www.ettoday.net/news/20231231/2654695.htm\"\n [66] \"https://www.ettoday.net/news/20231231/2654692.htm\"\n [67] \"https://www.ettoday.net/news/20231231/2654693.htm\"\n [68] \"https://www.ettoday.net/news/20231231/2654688.htm\"\n [69] \"https://www.ettoday.net/news/20231231/2654686.htm\"\n [70] \"https://www.ettoday.net/news/20231231/2654659.htm\"\n [71] \"https://www.ettoday.net/news/20231231/2654655.htm\"\n [72] \"https://www.ettoday.net/news/20231231/2654650.htm\"\n [73] \"https://www.ettoday.net/news/20231231/2654632.htm\"\n [74] \"https://www.ettoday.net/news/20231231/2654629.htm\"\n [75] \"https://www.ettoday.net/news/20231231/2654614.htm\"\n [76] \"https://www.ettoday.net/news/20231231/2653538.htm\"\n [77] \"https://www.ettoday.net/news/20231231/2654592.htm\"\n [78] \"https://www.ettoday.net/news/20231231/2654557.htm\"\n [79] \"https://www.ettoday.net/news/20231231/2654572.htm\"\n [80] \"https://www.ettoday.net/news/20231231/2654575.htm\"\n [81] \"https://www.ettoday.net/news/20231231/2654564.htm\"\n [82] \"https://www.ettoday.net/news/20231231/2653406.htm\"\n [83] \"https://www.ettoday.net/news/20231231/2654554.htm\"\n [84] \"https://www.ettoday.net/news/20231231/2654550.htm\"\n [85] \"https://www.ettoday.net/news/20231231/2654519.htm\"\n [86] \"https://www.ettoday.net/news/20231231/2654544.htm\"\n [87] \"https://www.ettoday.net/news/20231231/2654511.htm\"\n [88] \"https://www.ettoday.net/news/20231231/2654537.htm\"\n [89] \"https://www.ettoday.net/news/20231231/2654510.htm\"\n [90] \"https://www.ettoday.net/news/20231231/2652951.htm\"\n [91] \"https://www.ettoday.net/news/20231231/2654489.htm\"\n [92] \"https://www.ettoday.net/news/20231231/2654459.htm\"\n [93] \"https://www.ettoday.net/news/20231231/2654486.htm\"\n [94] \"https://www.ettoday.net/news/20231231/2654474.htm\"\n [95] \"https://www.ettoday.net/news/20231231/2654488.htm\"\n [96] \"https://www.ettoday.net/news/20231231/2654471.htm\"\n [97] \"https://www.ettoday.net/news/20231231/2653322.htm\"\n [98] \"https://www.ettoday.net/news/20231231/2654400.htm\"\n [99] \"https://www.ettoday.net/news/20231231/2654433.htm\"\n[100] \"https://www.ettoday.net/news/20231231/2654435.htm\""
+  },
+  {
+    "objectID": "week8_slides.html#looping-through-all-pages",
+    "href": "week8_slides.html#looping-through-all-pages",
+    "title": "Weeks 8: Building a corpus from media platforms - PART 2",
+    "section": "Looping through all pages",
+    "text": "Looping through all pages\nWe repeat this extraction across our entire URL_total list:\n\nURL_IndArticles &lt;- data.frame(matrix(ncol = 1, nrow = 0))\n\nfor (i in 1:length(URL_total)){\n  IndPage &lt;- read_html(URL_total[i])\n  news_url &lt;- IndPage %&gt;% \n    html_nodes(\"div.part_list_2\") %&gt;% \n    html_nodes(\"h3\") %&gt;%\n    html_nodes(\"a\") %&gt;%\n    html_attr(\"href\")\n  \n  news_url &lt;- as.data.frame(news_url)\n  URL_IndArticles &lt;- rbind(URL_IndArticles, news_url)\n}\n\n# Remove any duplicated addresses\narticle_overview_unique &lt;- unique(URL_IndArticles)"
+  },
+  {
+    "objectID": "week8_slides.html#step-3-retrieve-article-content",
+    "href": "week8_slides.html#step-3-retrieve-article-content",
+    "title": "Weeks 8: Building a corpus from media platforms - PART 2",
+    "section": "Step 3: Retrieve article content",
+    "text": "Step 3: Retrieve article content\n\n\nTake 5 minutes to recall where and how you found the content of the article in the structure of the website."
+  },
+  {
+    "objectID": "week8_slides.html#step-3-lets-do-it-automatically",
+    "href": "week8_slides.html#step-3-lets-do-it-automatically",
+    "title": "Weeks 8: Building a corpus from media platforms - PART 2",
+    "section": "Step 3: Let’s do it automatically",
+    "text": "Step 3: Let’s do it automatically\nWe map nodes to extract the specific text (date, title, body) from an individual article:\n\nOneArticle &lt;- read_html(article_overview_unique$news_url[1])\n\n# time of news\nnews_time &lt;- OneArticle %&gt;% \n  html_nodes(\"time\") %&gt;% \n  html_text(trim = TRUE)\n\n# class of news\nnews_class &lt;- OneArticle %&gt;% \n  html_nodes(\".part_menu_5\") %&gt;% \n  html_nodes(\"strong\") %&gt;%\n  html_text(trim = TRUE)\n\n# title \nnews_title &lt;- OneArticle %&gt;% \n  html_nodes(\"h1\") %&gt;% \n  html_text(trim = TRUE)\n\n# content \nnews_body &lt;- OneArticle %&gt;% \n  html_nodes('div[itemprop=\"articleBody\"]') %&gt;% \n  html_text(trim = TRUE)\n\narticle &lt;- (data.frame(time = news_time,\n                       class = news_class,\n                       title = news_title,\n                       body = news_body,\n                       url = article_overview_unique$news_url[1]))\n\nhead(article)"
+  },
+  {
+    "objectID": "week8_slides.html#scrape-through-all-the-pages-with-for-loop",
+    "href": "week8_slides.html#scrape-through-all-the-pages-with-for-loop",
+    "title": "Weeks 8: Building a corpus from media platforms - PART 2",
+    "section": "Scrape through all the pages with For Loop",
+    "text": "Scrape through all the pages with For Loop\nWhen scraping thousands of pages, broken links happen. We wrap our loop in tryCatch() so R skips errors instead of crashing completely:\n\nArticle_total &lt;- data.frame()\n\nfor (j in 1:length(article_overview_unique$news_url)){\n\n    temp &lt;- read_html(article_overview_unique$news_url[j])\n    \n    # time of news\n    news_time &lt;- temp %&gt;% \n      html_nodes(\"time\") %&gt;% \n      html_text(trim = TRUE)\n    \n    # class of news\n    news_class &lt;- temp %&gt;% \n      html_nodes(\".part_menu_5\") %&gt;% \n      html_nodes(\"strong\") %&gt;%\n      html_text(trim = TRUE)\n    \n    # title \n    news_title &lt;- temp %&gt;% \n      html_nodes(\"h1\") %&gt;% \n      html_text(trim = TRUE)\n    \n    # content \n    news_body &lt;- temp %&gt;% \n      html_nodes('div[itemprop=\"articleBody\"]') %&gt;% \n      html_text(trim = TRUE)\n    \n    # url\n    news_url &lt;- temp %&gt;% \n      html_nodes(\"div.block div.block_content div.part_list_2 h3\") %&gt;% \n      html_nodes(\"a\") %&gt;%\n      html_attr(\"href\")\n    \n    Article &lt;- (data.frame(time = news_time,\n                           class = news_class,\n                           title = news_title,\n                           body = news_body,\n                           url = article_overview_unique$news_url[j]))\n    Article_total &lt;- rbind(Article_total, Article))\n  \n}"
+  },
+  {
+    "objectID": "week8_slides.html#how-to-prevent-crashes",
+    "href": "week8_slides.html#how-to-prevent-crashes",
+    "title": "Weeks 8: Building a corpus from media platforms - PART 2",
+    "section": "How to prevent crashes?",
+    "text": "How to prevent crashes?\n\nArticle_total &lt;- data.frame()\n\n\nfor (j in 1:length(article_overview_unique$news_url)){\n  \n  tryCatch({\n    temp &lt;- read_html(article_overview_unique$news_url[j])\n    \n    # time of news\n    news_time &lt;- temp %&gt;% \n      html_nodes(\"time\") %&gt;% \n      html_text(trim = TRUE)\n    \n    # class of news\n    news_class &lt;- temp %&gt;% \n      html_nodes(\".part_menu_5\") %&gt;% \n      html_nodes(\"strong\") %&gt;%\n      html_text(trim = TRUE)\n    \n    # title \n    news_title &lt;- temp %&gt;% \n      html_nodes(\"h1\") %&gt;% \n      html_text(trim = TRUE)\n    \n    # content \n    news_body &lt;- temp %&gt;% \n      html_nodes('div[itemprop=\"articleBody\"]') %&gt;% \n      html_text(trim = TRUE)\n    \n    # url\n    news_url &lt;- temp %&gt;% \n      html_nodes(\"div.block div.block_content div.part_list_2 h3\") %&gt;% \n      html_nodes(\"a\") %&gt;%\n      html_attr(\"href\")\n    \n    Article &lt;- (data.frame(time = news_time,\n                           class = news_class,\n                           title = news_title,\n                           body = news_body,\n                           url = article_overview_unique$news_url[j]))\n    Article_total &lt;- rbind(Article_total, Article)\n  }, error=function(e){message(\"ERROR :\",conditionMessage(e), \"\\n\")})\n  \n}"
+  },
+  {
+    "objectID": "week8_slides.html#progress-bar-and-sleep-time",
+    "href": "week8_slides.html#progress-bar-and-sleep-time",
+    "title": "Weeks 8: Building a corpus from media platforms - PART 2",
+    "section": "Progress bar and “sleep” time",
+    "text": "Progress bar and “sleep” time\n\nArticle_total &lt;- data.frame()\n\n## Set the progress bar\n\ntotal_urls &lt;- length(article_overview_unique$news_url)\npb &lt;- progress_bar$new(\n  format = \"  Scraping [:bar] :current/:total (:percent) | ETA: :eta\",\n  total = total_urls, \n  clear = FALSE, \n  width = 60\n)\n\n\nfor (j in 1:length(article_overview_unique$news_url)){\n  \n  pb$tick()\n  \n  tryCatch({\n    temp &lt;- read_html(article_overview_unique$news_url[j])\n    \n    # time of news\n    news_time &lt;- temp %&gt;% \n      html_nodes(\"time\") %&gt;% \n      html_text(trim = TRUE)\n    \n    # class of news\n    news_class &lt;- temp %&gt;% \n      html_nodes(\".part_menu_5\") %&gt;% \n      html_nodes(\"strong\") %&gt;%\n      html_text(trim = TRUE)\n    \n    # title \n    news_title &lt;- temp %&gt;% \n      html_nodes(\"h1\") %&gt;% \n      html_text(trim = TRUE)\n    \n    # content \n    news_body &lt;- temp %&gt;% \n      html_nodes('div[itemprop=\"articleBody\"]') %&gt;% \n      html_text(trim = TRUE)\n    \n    # url\n    news_url &lt;- temp %&gt;% \n      html_nodes(\"div.block div.block_content div.part_list_2 h3\") %&gt;% \n      html_nodes(\"a\") %&gt;%\n      html_attr(\"href\")\n    \n    Article &lt;- (data.frame(time = news_time,\n                           class = news_class,\n                           title = news_title,\n                           body = news_body,\n                           url = article_overview_unique$news_url[j]))\n    Article_total &lt;- rbind(Article_total, Article)\n  }, error=function(e){pb$message(\"ERROR :\",conditionMessage(e), \"\\n\")})\n  \n}\n\n\ntestit &lt;- function(x = sort(runif(20)), ...)\n{\n    pb &lt;- txtProgressBar(...)\n    for(i in c(0, x, 1)) {Sys.sleep(0.5); setTxtProgressBar(pb, i)}\n    Sys.sleep(1)\n    close(pb)\n}"
+  },
+  {
+    "objectID": "week8_slides.html#step-4-save-the-data",
+    "href": "week8_slides.html#step-4-save-the-data",
+    "title": "Weeks 8: Building a corpus from media platforms - PART 2",
+    "section": "Step 4: Save the Data",
+    "text": "Step 4: Save the Data\nFinally, we export the scraped dataset to both an Excel document and a native RData workspace file:\n# Export to Excel for human readability\nwrite.xlsx(Article_total, \"ArticleETToday_CorpusCourse.xlsx\")\n\n# Save as RData object\nsave(Article_total, file = \"ArticleETToday_CorpusCourse.Rdata\")"
   },
   {
     "objectID": "week6_slides.html#goals",
@@ -691,8 +747,8 @@
     "text": "📝 In-class exercise!\n\n\nTask list:\n\nTry to find the folder we created using the RStudio interface.\nPlay with the RStudio interface! (you can use the ‘demo()’ function, like ‘demo(graphics)’, or ‘demo(image)’)"
   },
   {
-    "objectID": "default.html",
-    "href": "default.html",
+    "objectID": "Week6.html",
+    "href": "Week6.html",
     "title": "Week 6 - How to create better scripts",
     "section": "",
     "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nCreate beautiful scripts that you can share:\n\nReflections: Why creating scripts that are more suitable to share?\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\nA brief summary of the essential elements:\nNo new codes this week. We will be using the same dataset as last week.\n\n\n  Download the dataset for the script  (the same as last week, no need to download one more time if you already have it) \n\n\n\nPlease complete the following tasks before our next meeting:\n\nTransform your R script from last week into an R Markdown document, and knit it to a PDF file.\nTry to include Chinese characters, and debug such that they appear in the PDF document.\n\n\n\n\n\n  View the slides of this week’s tutorial",
@@ -703,8 +759,8 @@
     ]
   },
   {
-    "objectID": "default.html#overview",
-    "href": "default.html#overview",
+    "objectID": "Week6.html#overview",
+    "href": "Week6.html#overview",
     "title": "Week 6 - How to create better scripts",
     "section": "",
     "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nCreate beautiful scripts that you can share:\n\nReflections: Why creating scripts that are more suitable to share?\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\nA brief summary of the essential elements:\nNo new codes this week. We will be using the same dataset as last week.\n\n\n  Download the dataset for the script  (the same as last week, no need to download one more time if you already have it) \n\n\n\nPlease complete the following tasks before our next meeting:\n\nTransform your R script from last week into an R Markdown document, and knit it to a PDF file.\nTry to include Chinese characters, and debug such that they appear in the PDF document.\n\n\n\n\n\n  View the slides of this week’s tutorial",

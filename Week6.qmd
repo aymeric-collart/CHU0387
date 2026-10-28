@@ -3,7 +3,7 @@ title: "Week 6 - How to create better scripts"
 subtitle: "CHU0387 | National Taiwan Normal University"
 format: 
   html:
-    output-file: default
+    output-file: Week6.html
 ---
 
 ```{=html}
