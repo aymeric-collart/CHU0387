@@ -107,15 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="site_libs/d3-3.3.8/d3.min.js"></script>
-<script src="site_libs/dagre-0.4.0/dagre-d3.min.js"></script>
-<link href="site_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
-<script src="site_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<script src="site_libs/viz-1.8.2/viz.js"></script>
 <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="site_libs/chromatography-0.1/chromatography.js"></script>
-<script src="site_libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script>
+<script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -507,31 +502,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#creating-figures-of-the-results-why" id="toc-creating-figures-of-the-results-why" class="nav-link active" data-scroll-target="#creating-figures-of-the-results-why"><span class="header-section-number">1</span> Creating figures of the results, why?</a>
-  <ul class="collapse">
-  <li><a href="#some-reflexions-on-the-visual-presentation-of-the-results" id="toc-some-reflexions-on-the-visual-presentation-of-the-results" class="nav-link" data-scroll-target="#some-reflexions-on-the-visual-presentation-of-the-results"><span class="header-section-number">1.1</span> Some reflexions on the visual presentation of the results</a></li>
-  <li><a href="#examples-of-some-types-of-figures" id="toc-examples-of-some-types-of-figures" class="nav-link" data-scroll-target="#examples-of-some-types-of-figures"><span class="header-section-number">1.2</span> Examples of some types of figures</a>
-  <ul class="collapse">
-  <li><a href="#introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots" id="toc-introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots" class="nav-link" data-scroll-target="#introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots"><span class="header-section-number">1.2.1</span> Introduction to the figures we will learn in the tutorial: word clouds, and frequency dot plots</a></li>
-  <li><a href="#lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time" id="toc-lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time" class="nav-link" data-scroll-target="#lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time"><span class="header-section-number">1.2.2</span> Lexical dispersion plot: Compare the use of keywords across texts and/or time</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#lets-do-the-work-with-r" id="toc-lets-do-the-work-with-r" class="nav-link" data-scroll-target="#lets-do-the-work-with-r"><span class="header-section-number">2</span> Let’s do the work with R</a>
-  <ul class="collapse">
-  <li><a href="#two-packages-quanteda-and-ggplot2" id="toc-two-packages-quanteda-and-ggplot2" class="nav-link" data-scroll-target="#two-packages-quanteda-and-ggplot2"><span class="header-section-number">2.1</span> Two packages: ‘quanteda’ and ‘ggplot2’</a>
-  <ul class="collapse">
-  <li><a href="#quanteda-or-more-precisely-quanteda.textplots" id="toc-quanteda-or-more-precisely-quanteda.textplots" class="nav-link" data-scroll-target="#quanteda-or-more-precisely-quanteda.textplots"><span class="header-section-number">2.1.1</span> ‘quanteda’, or more precisely, ‘quanteda.textplots’</a></li>
-  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="header-section-number">2.1.2</span> ‘ggplot2’</a></li>
-  </ul></li>
-  <li><a href="#workflow-for-word-clouds-and-frequency-dot-plots" id="toc-workflow-for-word-clouds-and-frequency-dot-plots" class="nav-link" data-scroll-target="#workflow-for-word-clouds-and-frequency-dot-plots"><span class="header-section-number">2.2</span> Workflow for word clouds and frequency dot plots</a></li>
-  <li><a href="#explanation-of-the-r-code" id="toc-explanation-of-the-r-code" class="nav-link" data-scroll-target="#explanation-of-the-r-code"><span class="header-section-number">2.3</span> Explanation of the R code</a>
-  <ul class="collapse">
-  <li><a href="#prepare-the-environment" id="toc-prepare-the-environment" class="nav-link" data-scroll-target="#prepare-the-environment"><span class="header-section-number">2.3.1</span> Prepare the environment</a></li>
-  <li><a href="#visualizing-kwic" id="toc-visualizing-kwic" class="nav-link" data-scroll-target="#visualizing-kwic"><span class="header-section-number">2.3.2</span> Visualizing KWIC</a></li>
-  <li><a href="#frequency-tables" id="toc-frequency-tables" class="nav-link" data-scroll-target="#frequency-tables"><span class="header-section-number">2.3.3</span> Frequency tables</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#markdown-document-and-pdf-output-file" id="toc-markdown-document-and-pdf-output-file" class="nav-link" data-scroll-target="#markdown-document-and-pdf-output-file"><span class="header-section-number">3</span> Markdown document and PDF output file</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#creating-figures-of-the-results-why" id="toc-creating-figures-of-the-results-why" class="nav-link" data-scroll-target="#creating-figures-of-the-results-why">1. Creating figures of the results, why?</a></li>
+  <li><a href="#lets-do-the-work-with-r" id="toc-lets-do-the-work-with-r" class="nav-link" data-scroll-target="#lets-do-the-work-with-r">2. Let’s do the work with R</a></li>
+  <li><a href="#explanation-of-the-r-code" id="toc-explanation-of-the-r-code" class="nav-link" data-scroll-target="#explanation-of-the-r-code">3. Explanation of the R code</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHU0387/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -542,6 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Weeks11.html">Part 3: Simple preprocessing and analyses of corpus data</a></li><li class="breadcrumb-item"><a href="./Week13.html">Week 13: Data visualization</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 13: Data visualization</h1>
+<p class="subtitle lead">CHU0387 | National Taiwan Normal University</p>
 </div>
 
 
@@ -563,21 +538,248 @@ hr.rounded {
   border-top: 1px solid #E5E4E2;
   border-radius: 5px;
 }
+
+/* Tabset Styling - Single Row & Equal Alignment */
+.nav-tabs {
+  border-bottom: 2px solid #ecf0f1;
+  margin-top: 1em;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+.nav-tabs .nav-item {
+  flex: 1 1 0;
+  display: flex;
+}
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.02em;
+  line-height: 1.35;
+  color: #95a5a6;
+  border: none;
+  border-bottom: 4px solid transparent;
+  padding: 12px 14px;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+  border: none;
+  border-bottom: 4px solid #cbd5e1;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+  background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Nested Sub-Tabset Styling */
+.tab-content .nav-tabs {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 6px;
+  border-bottom: none;
+  gap: 6px;
+}
+.tab-content .nav-tabs .nav-link {
+  font-size: 0.92em;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-bottom: none;
+}
+.tab-content .nav-tabs .nav-link:hover {
+  background-color: #e2e8f0;
+  border-bottom: none;
+}
+.tab-content .nav-tabs .nav-link.active {
+  background-color: #ffffff;
+  color: #2563eb !important;
+  border-bottom: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Stunning Headers */
+h2 {
+  margin-top: 1.8em;
+  color: #2980b9;
+  font-weight: 600;
+}
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Floating Images with Animations */
+img {
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  margin: 2rem auto;
+  display: block;
+}
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+hr.rounded {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+  margin: 4rem 0;
+}
+
+/* Pro Code Styling */
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: #e74c3c;
+  background-color: #fdf2f0;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+pre code {
+  color: #333;
+  background-color: transparent;
+}
+
+/* Clean Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin: 2rem 0;
+}
+th {
+  background-color: #3498db;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+b, strong {
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+/* Responsive Concept Card Grids */
+.concept-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.concept-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.concept-card-full {
+  grid-column: 1 / -1;
+}
+
+.concept-card {
+  box-sizing: border-box;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.concept-card > :first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.concept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2563eb;
+  background-color: #eff6ff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.concept-card ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.concept-card li {
+  margin-bottom: 0.35rem;
+}
+
+.concept-card li:last-child {
+  margin-bottom: 0;
+}
 </style>
-<p><br></p>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Objectives
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>This week, you will learn how to create figures of the data that we analyzed.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes and full script</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Data visualization:</strong></p>
+<ul>
+<li><strong>Creating figures of the results, why?:</strong> Reflections on visual presentation, word clouds, frequency dot plots, and lexical dispersion plots.</li>
+<li><strong>Let’s do the work with R:</strong> Using the <code>quanteda.textplots</code> and <code>ggplot2</code> packages and following the visualization workflow.</li>
+<li><strong>Explanation of the R code:</strong> Preparing the environment, visualizing KWIC results, and plotting overall frequency tables.</li>
+</ul>
 </div>
-</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>A brief summary of the essential elements:</strong></p>
+<p>(to be given later)</p>
+<p><strong>Scripts and datasets</strong></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -604,10 +806,27 @@ Objectives
 </tr>
 </tbody>
 </table>
-<section id="creating-figures-of-the-results-why" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Creating figures of the results, why?</h1>
-<section id="some-reflexions-on-the-visual-presentation-of-the-results" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="some-reflexions-on-the-visual-presentation-of-the-results"><span class="header-section-number">1.1</span> Some reflexions on the visual presentation of the results</h2>
+<p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week13_DataVisualization.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week13_DataVisualization.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>(to be given later)</p>
+</div>
+</div>
+</div>
+<div class="text-center mb-4">
+<p><a href="week13_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of Week 13</a></p>
+</div>
+<p><br></p>
+<p><br></p>
+</section>
+<section id="creating-figures-of-the-results-why" class="level1">
+<h1>1. Creating figures of the results, why?</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Visual presentation of the results</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Word clouds &amp; Frequency dot plots</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Lexical dispersion plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<section id="some-reflexions-on-the-visual-presentation-of-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="some-reflexions-on-the-visual-presentation-of-the-results">Some reflexions on the visual presentation of the results</h3>
 <p>A great question to ask is: Why adding figures after all? We scraped the data from the Internet, we cleaned them and we analyzed them based on our research question. We even have tables to present as well, and all we need to do now is to interpret the results to deliver a great story. So, what is the place for figures?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -625,10 +844,10 @@ Think about it
 <p>If you are aware of this natural human behavior, then you have surely already understood why adding figures to text and table results is helpful. It is because the human visual system is so important that stimulating it will be a plus when communicating the results.</p>
 <p>Knowing how to present the results in a figure is very important as well. Having a great figure able to summarize the results such that we can grasp the intended message of the study at one glance will determine the success of the whole presentation. Conversely, a messy figure, containing too much information or just presented in an inappropriate way will blur the message, affecting the success of the presentation. Adding a figure is not enough, it requires some strategic thinking as well! You can have a look at the figures plotted with R on this webpage. Some are quite straightforward, while some are clearly just messy.</p>
 </section>
-<section id="examples-of-some-types-of-figures" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="examples-of-some-types-of-figures"><span class="header-section-number">1.2</span> Examples of some types of figures</h2>
-<section id="introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots"><span class="header-section-number">1.2.1</span> Introduction to the figures we will learn in the tutorial: word clouds, and frequency dot plots</h3>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<section id="introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-to-the-figures-we-will-learn-in-the-tutorial-word-clouds-and-frequency-dot-plots">Introduction to the figures we will learn in the tutorial: word clouds, and frequency dot plots</h3>
 <p>For this class, we will present two types of figures which are commonly used to present results from corpus exploration. The first one is called “word cloud”. It is named this way, because it looks like a cloud which is made out of words. The size of these words reflect their relative frequency in the corpus analyzed. In other words, the bigger the word, the higher its frequency in the corpus. It is a way to present frequency results in a very intuitive way!</p>
 <p>A quick search on Google shows that you can create them easily with dedicated websites. I personally used them before, and it can be quite fun to play with them. I invite you to do so, you will have a better grasp of what a word cloud is!</p>
 <p><img src="assets/images/Wordcloud_Google.png" class="img-fluid"></p>
@@ -636,55 +855,73 @@ Think about it
 <p>I invite you to watch this YouTube video if you want to know more about frequency dot plots (please click on the image below).</p>
 <p><a href="https://www.youtube.com/watch?v=7AjSUj-OVuE"><img src="https://img.youtube.com/vi/7AjSUj-OVuE/0.jpg" class="img-fluid"></a></p>
 </section>
-<section id="lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time"><span class="header-section-number">1.2.2</span> Lexical dispersion plot: Compare the use of keywords across texts and/or time</h3>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<section id="lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time" class="level3">
+<h3 class="anchored" data-anchor-id="lexical-dispersion-plot-compare-the-use-of-keywords-across-texts-andor-time">Lexical dispersion plot: Compare the use of keywords across texts and/or time</h3>
 <p>So far, we looked at the frequency of words within single documents and within the same time frame. Maybe you will be interested in other types of analyses:</p>
-<ul>
-<li><p>Comparing the frequency of use of two keywords within one document;</p></li>
-<li><p>Comparing the frequency of use of the same keyword or different keywords across time and/or between documents.</p></li>
-</ul>
+<div class="concept-grid-2">
+<div class="concept-card">
+<p><span class="step-badge">Analysis 1</span></p>
+<p>Comparing the frequency of use of two keywords within one document;</p>
+</div>
+<div class="concept-card">
+<p><span class="step-badge">Analysis 2</span></p>
+<p>Comparing the frequency of use of the same keyword or different keywords across time and/or between documents.</p>
+</div>
+</div>
 <p>One way to visualize the results of such an analysis is to use a “lexical dispersion plot”. There is a full tutorial on the <em>quanteda</em> website, including the R codes and the example below. Here is the link to the website: <a href="https://quanteda.io/articles/pkgdown/examples/plotting.html">Quanteda tutorial for figures</a>.</p>
 <p>Let’s look at an example. Let’s say that you are interested in two words, “American” and “people”, and how they are used in inaugural speeches of US presidents, especially (a) their frequency, and (b) the moments when they are used in the speech. You will obtain a figure like this:</p>
 <p><img src="assets/images/LexicalDispersionPlot_ExampleQuanteda.png" class="img-fluid"></p>
 <p>Again, this is only a figure. Once we have it, you may have this question in mind: and so what? And this is the perfect question to ask. Our role, once we have the results and plotted the data, is to make them meaningful. Generally, we interpret the results according to the research question, such that we can answer the “and so what?” question.</p>
 </section>
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="lets-do-the-work-with-r" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Let’s do the work with R</h1>
-<section id="two-packages-quanteda-and-ggplot2" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="two-packages-quanteda-and-ggplot2"><span class="header-section-number">2.1</span> Two packages: ‘quanteda’ and ‘ggplot2’</h2>
+<section id="lets-do-the-work-with-r" class="level1">
+<h1>2. Let’s do the work with R</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Two packages: ‘quanteda’ and ‘ggplot2’</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Workflow for word clouds and frequency dot plots</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>In this tutorial, I will only explain how to plot two types of figures: Word clouds and frequency dot plots. There are two reasons for that. The way we analyzed the data from ETtoday last week may not be ideal for a lexical dispersion plot. Of course, we could use the data from ETtoday, and reanalyze then to include, for example, different types of texts (‘politics’ vs.&nbsp;‘society’ articles), or focusing on differences over time. The second reason is that the tutorial on the quanteda website is very clear, so you can really just look at it to understand how it works. In this tutorial for this week, we will mainly use two packages to plot the data.</p>
-<section id="quanteda-or-more-precisely-quanteda.textplots" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="quanteda-or-more-precisely-quanteda.textplots"><span class="header-section-number">2.1.1</span> ‘quanteda’, or more precisely, ‘quanteda.textplots’</h3>
+<div class="concept-grid-2">
+<section id="quanteda-or-more-precisely-quanteda.textplots" class="level3 concept-card">
+<h3 class="anchored" data-anchor-id="quanteda-or-more-precisely-quanteda.textplots">‘quanteda’, or more precisely, ‘quanteda.textplots’</h3>
 <p>Again, such as last week, we will use the ‘quanteda’ library, and its sub-library, ‘quanteda.textplots’. If not already done, you will need to install them (if you forgot how to do so, you can go back to Week 5). And then you will just need to load them.</p>
 </section>
-<section id="ggplot2" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">2.1.2</span> ‘ggplot2’</h3>
+<section id="ggplot2" class="level3 concept-card">
+<h3 class="anchored" data-anchor-id="ggplot2">‘ggplot2’</h3>
 <p>Another package we are going to use is called ‘ggplot2’.</p>
-<p><img src="assets/images/ggplot2_logo.png" class="img-fluid"></p>
 <p>The ggplot2 package is very powerful and useful to create figures. You can go to their website and scroll through examples of what is possible to do. Once you are very familiar with ggplot figures, you will be amazed when you are reading the news online by the fact that many figures look so familiar. This package is therefore one of the best ways to obtain very professional, good-looking figures that will help you not only for this tutorial, but also for any kind of study (Master thesis/PhD dissertation, case studies to conduct in your job, etc.).</p>
+</section>
+</div>
+<p><img src="assets/images/ggplot2_logo.png" class="img-fluid"></p>
 <p>You can refer to the <a href="https://ggplot2.tidyverse.org/">ggplot2 website here</a>. There are cheatsheets as well, to have an idea of all the functions at a glance:</p>
 <p><img src="assets/images/data-visualization-ggplot_1.png" class="img-fluid"></p>
 <p><img src="assets/images/data-visualization-ggplot_2.png" class="img-fluid"></p>
-</section>
-</section>
-<section id="workflow-for-word-clouds-and-frequency-dot-plots" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="workflow-for-word-clouds-and-frequency-dot-plots"><span class="header-section-number">2.2</span> Workflow for word clouds and frequency dot plots</h2>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p>Like always, here is the workflow for the R tutorial this week:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-0b4babe46f3114551a08" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-0b4babe46f3114551a08">{"x":{"diagram":"\n    graph TD\n        A[Analyzed dataset] --> B[Select appropriate figure];\n        B -- Word cloud --> C['quanteda' library];\n        B -- Frequency dot plots --> D['ggplot2' library];\n        C --> E[Tokenize the data, confert to 'dfm' object];\n        E --> F[Trim the data];\n        F --> G[Create the word cloud];\n        D -- For 'combined' analyses --> H[Tokenize the data, confert to 'dfm' object];\n        H -- Compute the frequency --> I[Create the dot plot];\n        D -- If only frequency analysis --> I\n    "},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-740f9780eba977e14747" style="width:100%;height:600px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-740f9780eba977e14747">{"x":{"diagram":"\ndigraph viz_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.5,\n    ranksep = 0.6\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#1E293B\",\n    margin = \"0.35,0.2\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 12,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.0,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Analyzed dataset\"]\n  B [label = \"Select appropriate figure\", fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  C [label = \"&#39;quanteda&#39; library\", fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  D [label = \"&#39;ggplot2&#39; library\", fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  E [label = \"Tokenize the data, confert to &#39;dfm&#39; object\"]\n  F [label = \"Trim the data\"]\n  G [label = \"Create the word cloud\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n  H [label = \"Tokenize the data, confert to &#39;dfm&#39; object\"]\n  I [label = \"Create the dot plot\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B\n  B -> C [label = \"  Word cloud  \"]\n  B -> D [label = \"  Frequency dot plots  \"]\n  C -> E\n  E -> F\n  F -> G\n  D -> H [label = \"  For &#39;combined&#39; analyses  \"]\n  H -> I [label = \"  Compute the frequency  \"]\n  D -> I [label = \"  If only frequency analysis  \"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
-<section id="explanation-of-the-r-code" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="explanation-of-the-r-code"><span class="header-section-number">2.3</span> Explanation of the R code</h2>
-<section id="prepare-the-environment" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="prepare-the-environment"><span class="header-section-number">2.3.1</span> Prepare the environment</h3>
-<section id="load-the-libraries" class="level4" data-number="2.3.1.1">
-<h4 data-number="2.3.1.1" class="anchored" data-anchor-id="load-the-libraries"><span class="header-section-number">2.3.1.1</span> Load the libraries</h4>
+<section id="explanation-of-the-r-code" class="level1">
+<h1>3. Explanation of the R code</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Prepare the environment</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Visualizing KWIC</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-3" role="tab" aria-controls="tabset-6-3" aria-selected="false">Frequency tables</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<section id="load-the-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-libraries">Load the libraries</h3>
 <p>We load the necessary tools. This week, we introduce quanteda.textplots for word clouds and ggplot2 for professional charts.</p>
 <p><u><strong>Crucial for Chinese Text:</strong></u> Note the <code>showtext</code> library. By default, R plots often fail to render Chinese characters (showing empty boxes instead). <code>showtext_auto()</code> tells R to automatically detect and use a font that supports Chinese characters.</p>
 <div class="cell">
@@ -701,8 +938,8 @@ Think about it
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">showtext_auto</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="load-the-files-used-for-the-analyses" class="level4" data-number="2.3.1.2">
-<h4 data-number="2.3.1.2" class="anchored" data-anchor-id="load-the-files-used-for-the-analyses"><span class="header-section-number">2.3.1.2</span> Load the files used for the analyses</h4>
+<section id="load-the-files-used-for-the-analyses" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-files-used-for-the-analyses">Load the files used for the analyses</h3>
 <p>We load the data processed in previous weeks (the cleaned corpus and the KWIC analysis of “有”).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"ArticleETToday_CorpusCourse_CLEAN.Rdata"</span>)</span>
@@ -710,14 +947,13 @@ Think about it
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"ArticleETToday_Top100words.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="visualizing-kwic" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="visualizing-kwic"><span class="header-section-number">2.3.2</span> Visualizing KWIC</h3>
-<section id="visualizing-overall-frequency-in-the-post-context" class="level4" data-number="2.3.2.1">
-<h4 data-number="2.3.2.1" class="anchored" data-anchor-id="visualizing-overall-frequency-in-the-post-context"><span class="header-section-number">2.3.2.1</span> Visualizing overall frequency in the “post” context</h4>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Post context: Word cloud</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Post context: Frequency plots</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">First word: Word clouds</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">First word: Frequency plots</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p>We want to visualize the words that appear after our keyword (“有”).</p>
-<section id="word-cloud" class="level5" data-number="2.3.2.1.1">
-<h5 data-number="2.3.2.1.1" class="anchored" data-anchor-id="word-cloud"><span class="header-section-number">2.3.2.1.1</span> Word cloud</h5>
 <p>To create a word cloud, we first convert the text tokens into a Document-Feature Matrix (DFM) using dfm(). This counts every word.</p>
 <p>However, raw text data is noisy. We use dfm_trim() to filter the words. This function works by setting “thresholds” for which words to keep:</p>
 <ul>
@@ -759,7 +995,7 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -773,14 +1009,13 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="frequency-plots" class="level5" data-number="2.3.2.1.2">
-<h5 data-number="2.3.2.1.2" class="anchored" data-anchor-id="frequency-plots"><span class="header-section-number">2.3.2.1.2</span> Frequency plots</h5>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <p>Word clouds are pretty, but Dot Plots (created with ggplot2) are more accurate for analysis.</p>
 <ul>
 <li><p><code>reorder(feature, frequency)</code>: This is the most important part of this code. Without it, the graph would list words alphabetically (Apple, Banana, Carrot). This function forces the graph to list words by size (Carrot, Apple, Banana), making it a readable ranking.</p></li>
@@ -808,7 +1043,7 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -822,18 +1057,14 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="visualizing-frequency-of-the-first-word-following-the-keyword" class="level4" data-number="2.3.2.2">
-<h4 data-number="2.3.2.2" class="anchored" data-anchor-id="visualizing-frequency-of-the-first-word-following-the-keyword"><span class="header-section-number">2.3.2.2</span> Visualizing frequency of the first word following the keyword</h4>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
 <p>Sometimes the context (window) is large. Here, we zoom in on only the very first word after “有”.</p>
-<section id="word-clouds" class="level5" data-number="2.3.2.2.1">
-<h5 data-number="2.3.2.2.1" class="anchored" data-anchor-id="word-clouds"><span class="header-section-number">2.3.2.2.1</span> Word clouds</h5>
 <p>We use <code>word(kwic_data$post, 1)</code> from the <em>stringr</em> package. This function grabs the 1st word from the text string. We then repeat the DFM and Word Cloud process.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the first word</span></span>
@@ -861,14 +1092,13 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="frequency-plots-1" class="level5" data-number="2.3.2.2.2">
-<h5 data-number="2.3.2.2.2" class="anchored" data-anchor-id="frequency-plots-1"><span class="header-section-number">2.3.2.2.2</span> Frequency plots</h5>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
 <p>We repeat the ggplot dot plot for the “First Word” dataset. This allows us to see the most common direct objects or verbs following “有”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the first word</span></span>
@@ -895,7 +1125,7 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -909,18 +1139,20 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
-<section id="frequency-tables" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="frequency-tables"><span class="header-section-number">2.3.3</span> Frequency tables</h3>
-<section id="use-word-clouds" class="level4" data-number="2.3.3.1">
-<h4 data-number="2.3.3.1" class="anchored" data-anchor-id="use-word-clouds"><span class="header-section-number">2.3.3.1</span> Use word clouds</h4>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Use word clouds</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Frequency plots with ggplot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>Finally, we apply these techniques to the entire corpus (<em>Article_total2$body</em>), not just the search results.</p>
 <p>Because the whole corpus is huge, the frequency numbers are much higher. Notice how we adjusted the dfm_trim settings:</p>
 <ul>
@@ -958,7 +1190,7 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -972,14 +1204,13 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="frequency-plots-with-ggplot" class="level4" data-number="2.3.3.2">
-<h4 data-number="2.3.3.2" class="anchored" data-anchor-id="frequency-plots-with-ggplot"><span class="header-section-number">2.3.3.2</span> Frequency plots with ggplot</h4>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <p>We use ggplot one last time on the table_FreqWord_Top100 dataset created in Week 12.</p>
 <p>Plot 1 shows all top 100 words. This can look crowded.</p>
 <p>Plot 2 uses <code>head(..., 30)</code> to show only the top 30. This is a standard practice in data visualization: reducing the amount of data shown to make the chart more readable for an audience.</p>
@@ -995,7 +1226,7 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1009,18 +1240,17 @@ Think about it
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week13_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week13_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
-</section>
-<section id="markdown-document-and-pdf-output-file" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Markdown document and PDF output file</h1>
-<p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week13_DataVisualization.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week13_DataVisualization.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>

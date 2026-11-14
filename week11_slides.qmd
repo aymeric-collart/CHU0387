@@ -1,0 +1,697 @@
+---
+title: "Week 11: Data preprocessing - Tidying/Cleaning data"
+subtitle: "CHU0387 | National Taiwan Normal University"
+format:
+  revealjs:
+    theme: serif
+    transition: slide
+    scrollable: true
+    slide-number: true
+    chalkboard: true
+    width: 1280
+    height: 720
+    include-in-header:
+      text: |
+        <style>
+        .concept-card {
+          box-sizing: border-box;
+          border: 1px solid #e2e8f0;
+          border-top: 6px solid #3b82f6;
+          border-radius: 10px;
+          background-color: #ffffff;
+          padding: 0.8em 1em;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+          margin-top: 0.4em;
+          height: 100%;
+        }
+        .concept-card > :first-child {
+          margin-top: 0 !important;
+          padding-top: 0 !important;
+        }
+        .concept-card strong {
+          display: block;
+          font-size: 1.02em;
+          color: #1e293b;
+          margin-bottom: 0.35em;
+        }
+        .concept-card p, .concept-card ul {
+          color: #334155;
+          font-size: 0.76em;
+          line-height: 1.45;
+          margin-bottom: 0;
+        }
+        .concept-card ul {
+          padding-left: 1.2em;
+          margin-top: 0.3em;
+        }
+        .concept-card li {
+          margin-bottom: 0.25em;
+        }
+        .badge-pill {
+          display: inline-block;
+          font-size: 0.65em;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          padding: 0.2em 0.65em;
+          border-radius: 999px;
+          background: #eff6ff;
+          color: #2563eb;
+          margin-bottom: 0.4em;
+        }
+        .reveal table {
+          font-size: 0.72em;
+          border-collapse: collapse;
+          width: 100%;
+          margin-top: 0.5em;
+        }
+        .reveal th {
+          background-color: #3498db;
+          color: white;
+          padding: 8px 12px;
+        }
+        .reveal td {
+          padding: 8px 12px;
+          border-bottom: 1px solid #e2e8f0;
+        }
+        </style>
+editor:
+  markdown:
+    wrap: 72
+---
+
+```{r setup, include = FALSE}
+library(DiagrammeR)
+```
+
+## 🎯 Goals
+
+::: {.fragment .fade-up}
+- **Weeks 7 & 8:** Scraped raw newspaper data from the Internet (*ETtoday*).
+:::
+
+::: {.fragment .fade-up}
+- **Week 11:** Clean and tidy the scraped data so they are ready for analysis!
+:::
+
+# 1. What does "cleaning" mean?
+
+## Why the need to clean the data?
+
+Even with careful scraping code, raw data contain noise and format issues. **Why?**
+
+::::: {.columns}
+
+:::: {.column width="33%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top-color: #3b82f6;"}
+<span class="badge-pill">Reason (a)</span>
+**Inconsistent structure**
+
+Most webpages share a consistent structure, but a few pages may be slightly different.
+:::
+:::
+::::
+
+:::: {.column width="33%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top-color: #8b5cf6;"}
+<span class="badge-pill" style="background:#f5f3ff; color:#7c3aed;">Reason (b)</span>
+**Shared HTML nodes**
+
+Unnecessary parts were coded under the same HTML nodes as our target text.
+:::
+:::
+::::
+
+:::: {.column width="33%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top-color: #10b981;"}
+<span class="badge-pill" style="background:#ecfdf5; color:#059669;">Reason (c)</span>
+**Simpler scraping**
+
+It is often much easier to scrape broadly first and clean the data afterward.
+:::
+:::
+::::
+
+:::::
+
+## 3 Main Tasks Before Analysis
+
+::::: {.columns}
+
+:::: {.column width="33%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top-color: #f59e0b;"}
+📐 **1. Arrange Format**
+
+The raw table structure is not suited for analysis and needs reshaping.
+:::
+:::
+::::
+
+:::: {.column width="33%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top-color: #ef4444;"}
+🧹 **2. Remove Noise**
+
+Unnecessary data must be filtered out so they do not skew the results.
+:::
+:::
+::::
+
+:::: {.column width="33%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top-color: #3b82f6;"}
+🏷️ **3. Add Annotations**
+
+Simple metadata columns help both the cleaning and analysis processes.
+:::
+:::
+::::
+
+:::::
+
+## Principle 1: We clean, we don't fish!
+
+:::: {.columns}
+
+::: {.column width="48%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top: 5px solid #3b82f6; padding: 1.1em; background: #f8fafc;"}
+🔍 **Don't over-clean**
+
+When removing unnecessary data, we might accidentally delete much more than we thought.
+
+👉 **Check each time that you are not removing too much!**
+:::
+:::
+:::
+
+::: {.column width="48%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top: 5px solid #ef4444; padding: 1.1em; background: #fef2f2;"}
+🙈 **Watch out for bias**
+
+When we already have an idea of the results, we might treat counterexamples as "errors" to delete.
+
+👉 **This is completely wrong: the cleaning process must be blind!!**
+:::
+:::
+:::
+
+::::
+
+## Principle 2: Be aware of the final format
+
+:::: {.columns}
+
+::: {.column width="42%"}
+::: {.concept-card style="border-top: 5px solid #10b981; background: #f8fafc;"}
+**In R: `1 row = 1 data point`**
+
+- A data point can be a whole text, a paragraph, or a sentence.
+- Every column on that row describes that same data point.
+- **Never split the same data point across two rows!**
+:::
+:::
+
+::: {.column width="58%"}
+::: {.fragment .fade-up}
+**Suitable format (fake data):**
+
+| Date | Article | Sentence | ... | Link |
+|---|---|---|---|---|
+| 2024-01-01 | Article 1 | Sentence 1 | ... | Link 1 |
+| 2024-01-01 | Article 1 | Sentence 2 | ... | Link 1 |
+| 2024-01-01 | Article 1 | Sentence 3 | ... | Link 1 |
+| 2024-01-03 | Article 2 | Sentence 1 | ... | Link 2 |
+:::
+:::
+
+::::
+
+## Principle 3: Stay close to your data
+
+:::: {.columns}
+
+::: {.column width="48%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top: 5px solid #3b82f6; padding: 1.2em; background: #f8fafc;"}
+👀 **Know what to clean**
+
+The closer you are to your data, the better you know what needs to be cleaned.
+:::
+:::
+:::
+
+::: {.column width="48%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top: 5px solid #10b981; padding: 1.2em; background: #f8fafc;"}
+⚙️ **Tailor to your dataset**
+
+Not all cleaning steps are necessary—it really depends on your data set!
+:::
+:::
+:::
+
+::::
+
+## A proposed workflow
+
+```{r, echo=FALSE, fig.align='center'}
+grViz("
+digraph cleaning_workflow {
+  graph [
+    rankdir = TB, 
+    bgcolor = transparent,
+    nodesep = 0.45,
+    ranksep = 0.48
+  ]
+
+  node [
+    shape = box,
+    style = 'rounded,filled',
+    fillcolor = '#F8FAFC',
+    color = '#64748B',
+    penwidth = 1.5,
+    fontname = 'Helvetica, Arial, sans-serif',
+    fontsize = 15,
+    fontcolor = '#1E293B',
+    margin = '0.3,0.18'
+  ]
+
+  edge [
+    fontname = 'Helvetica, Arial, sans-serif',
+    fontsize = 13,
+    fontcolor = '#2563EB',
+    color = '#94A3B8',
+    arrowsize = 0.95,
+    penwidth = 1.5
+  ]
+
+  A [label = 'Look at your data set']
+  B [label = 'Yes', shape = diamond, fillcolor = '#EFF6FF', color = '#3B82F6']
+  C [label = 'No', shape = diamond, fillcolor = '#EFF6FF', color = '#3B82F6']
+  D [label = 'Are there necessary annotations to do?']
+  E [label = 'Proceed to the annotation process']
+  F [label = 'Are there unnecessary data to remove?']
+  G [label = 'Identify what to remove']
+  H [label = 'Test the removal process', shape = diamond, fillcolor = '#EFF6FF', color = '#3B82F6']
+  I [label = 'Remove the data']
+  J [label = 'Are there more unnecessary data to remove?']
+  K [label = 'Data cleaning finished', fillcolor = '#F0FDF4', color = '#22C55E', penwidth = 1.8]
+
+  A -> B [label = '  Is it the right format?  ']
+  A -> C [label = '  Is it the right format?  ']
+  C -> D [label = '  Transform the format  ']
+  B -> D
+  D -> E [label = '  Yes  ']
+  D -> F [label = '  No  ']
+  E -> F
+  F -> G [label = '  Yes  ']
+  G -> H
+  H -> I [label = '  Acceptable removal  ']
+  H -> G [label = '  Unacceptable removal  ']
+  I -> J
+  J -> G [label = '  Yes  ']
+  J -> K [label = '  No  ']
+  F -> K [label = '  No  ']
+}
+", width = "100%", height = "540px")
+```
+
+# 2. Preparation: Example with the ETtoday corpus
+
+## Playing hide-and-seek with the data
+
+- Cleaning data is like playing **hide-and-seek**: randomly scroll through the dataset to spot what needs cleaning.
+
+::: {.fragment .fade-up style="margin-top: 1em;"}
+::: callout-tip
+## How to know what to clean?
+
+- We will almost always miss something on the first pass!
+- Most of the time, we realize we need another cleaning step *during* the analysis.
+- **Having R scripts ready is essential**: adding a new step takes seconds instead of redoing everything by hand!
+:::
+:::
+
+## Roadmap for the ETtoday corpus
+
+::::: {.columns}
+
+:::: {.column width="32%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top-color: #f59e0b;"}
+🔄 **Transformations**
+
+- Whole article is in 1 cell $\rightarrow$ split so **1 cell = 1 paragraph**.
+:::
+:::
+::::
+
+:::: {.column width="32%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top-color: #3b82f6;"}
+🏷️ **Annotations**
+
+- Extract **year**, **month**, and **day** into separate columns.
+:::
+:::
+::::
+
+:::: {.column width="36%"}
+::: {.fragment .fade-up}
+::: {.concept-card style="border-top-color: #ef4444;"}
+🗑️ **Data removal**
+
+- Image legends (`▲`, `▼`, `圖／`, `文／`)
+- Unrelated ETtoday messages & links
+- Journalist bylines (`記者`, `實習記者`)
+- Data from `2023`
+- Empty / whitespace rows
+- Residual HTML tags (`<...>`)
+:::
+:::
+::::
+
+:::::
+
+# 3. Now let's turn into R coding
+
+## How are we going to work in this class?
+
+::: {.fragment .fade-up}
+Please download the script for this week:
+
+::: {style="text-align: center; margin-top: 1.5em; margin-bottom: 1.5em;"}
+<a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" 
+   target="_blank" 
+   style="display: inline-block; padding: 14px 28px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;">
+   📥 Download the R Markdown script (ETToday_Cleaning.Rmd)
+</a>
+:::
+:::
+
+## Step 0: Prepare the environment
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**1. Load required packages:**
+
+```{r, echo=TRUE, eval=FALSE}
+library(dplyr)
+library(tidyr)
+library(openxlsx)
+```
+
+- `dplyr`: Filter and mutate data.
+- `tidyr`: Reshape data (`unnest()` paragraphs).
+- `openxlsx`: Export clean data to Excel.
+:::
+
+::: {.column width="50%"}
+::: {.fragment .fade-up}
+**2. Load raw scraped data:**
+
+```{r, echo=TRUE, eval=FALSE}
+load(file = "ArticleETToday_CorpusCourse.Rdata")
+```
+
+- Imports the R workspace containing `Article_total` from Week 8.
+:::
+:::
+
+::::
+
+## Step 1: Further annotations (Date metadata)
+
+Extract `year`, `month`, and `day` from the `time` string using `substr()`:
+
+```{r, echo=TRUE, eval=FALSE}
+Article_total$year  <- substr(Article_total$time, start = 1, stop = 4)
+Article_total$month <- substr(Article_total$time, start = 6, stop = 7)
+Article_total$day   <- substr(Article_total$time, start = 9, stop = 10)
+```
+
+::: {.fragment .fade-up style="margin-top: 1.2em;"}
+::: {.concept-card style="border-top-color: #3b82f6; background: #f8fafc; text-align: center;"}
+**How `substr()` cuts `"2024年01月28日 22:47"`:**
+
+`start = 1, stop = 4` $\rightarrow$ **`2024`** &nbsp;|&nbsp; `start = 6, stop = 7` $\rightarrow$ **`01`** &nbsp;|&nbsp; `start = 9, stop = 10` $\rightarrow$ **`28`**
+:::
+:::
+
+## Step 2: Split articles into paragraphs
+
+Change the unit of analysis from **1 row = 1 article** to **1 row = 1 paragraph**:
+
+```{r, echo=TRUE, eval=FALSE}
+Article_total$original_article <- Article_total$body
+
+Article_total2 <- Article_total %>% 
+  mutate(body = strsplit(as.character(body), "\r\n")) %>% 
+  unnest(body)
+```
+
+:::: {.columns style="margin-top: 0.8em;"}
+
+::: {.column width="48%"}
+::: {.concept-card style="border-top-color: #64748b;"}
+**1. `strsplit(..., "\r\n")`**
+
+Splits the article text at every carriage return (`\r\n`).
+:::
+:::
+
+::: {.column width="48%"}
+::: {.concept-card style="border-top-color: #10b981;"}
+**2. `unnest(body)`**
+
+Expands an article with 5 paragraphs into **5 individual rows** in `Article_total2`.
+:::
+:::
+
+::::
+
+## Step 3: Remove unwanted paragraphs
+
+::: callout-important
+## The Golden Rule: Test before you delete!
+
+Every removal step follows the same two-step pattern:
+
+1. **Inspect (`+grep`)**: Store matching rows in `test` to verify we only catch noise.
+2. **Remove (`-grep`)**: Drop those rows from `Article_total2` once verified.
+:::
+
+```{r, echo=TRUE, eval=FALSE}
+# 1. Test first!
+test <- Article_total2[+grep("PATTERN", Article_total2$body), ]
+
+# 2. If acceptable, remove!
+Article_total2 <- Article_total2[-grep("PATTERN", Article_total2$body), ]
+```
+
+## Example 1: Image Legends
+
+Remove captions and credits containing `▲`, `▼`, `圖／` (Image), or `文／` (Text):
+
+```{r, echo=TRUE, eval=FALSE}
+Article_total2 <- Article_total2[-grep("▲", Article_total2$body),]
+Article_total2 <- Article_total2[-grep("▼", Article_total2$body),]
+
+### Check "圖／" (image) and "文／" (text) first
+test <- Article_total2[+grep("圖／", Article_total2$body),]
+test <- Article_total2[+grep("文／", Article_total2$body),]
+
+### Indeed the case: Can be removed
+Article_total2 <- Article_total2[-grep("圖／", Article_total2$body),]
+Article_total2 <- Article_total2[-grep("文／", Article_total2$body),]
+```
+
+## Example 2: Boilerplate & System Messages
+
+Remove ETtoday interface symbols and cross-article navigation links:
+
+:::: {.columns}
+
+::: {.column width="38%"}
+::: {.concept-card style="border-top-color: #ef4444;"}
+**Targeted noise:**
+
+- Symbols: `●`, `►`, `▸`, `★`
+- Phrases:
+  - `【其他新聞】` *(Other news)*
+  - `更多新聞` *(More news)*
+  - `延伸閱讀` *(Read more)*
+:::
+:::
+
+::: {.column width="62%"}
+```{r, echo=TRUE, eval=FALSE}
+# Symbols (after testing each with +grep)
+Article_total2 <- Article_total2[-grep("●", Article_total2$body),]
+Article_total2 <- Article_total2[-grep("►", Article_total2$body),]
+Article_total2 <- Article_total2[-grep("▸", Article_total2$body),]
+Article_total2 <- Article_total2[-grep("★", Article_total2$body),]
+
+# Navigational phrases (after testing each with +grep)
+Article_total2 <- Article_total2[-grep("【其他新聞】", Article_total2$body),]
+Article_total2 <- Article_total2[-grep("更多新聞", Article_total2$body),]
+Article_total2 <- Article_total2[-grep("延伸閱讀", Article_total2$body),]
+```
+:::
+
+::::
+
+## Example 3: Journalist Identity
+
+Check the first 2 or 4 characters of a paragraph to strip out reporter bylines (`記者`, `實習記者`):
+
+```{r, echo=TRUE, eval=FALSE}
+### Check first two characters for "記者" (journalist)
+test <- Article_total2
+test$FirstTwoCharacters <- substr(Article_total2$body, start = 1, stop = 2)
+## Only 178 sentences out of 361,154 wrongly removed -> quite acceptable!
+
+Article_total2$FirstTwoCharacters <- substr(Article_total2$body, start = 1, stop = 2)
+Article_total2 <- Article_total2[-grep("記者", Article_total2$FirstTwoCharacters),]
+Article_total2$FirstTwoCharacters <- NULL
+
+### Check first four characters for "實習記者" (intern journalist)
+Article_total2$FirstFourCharacters <- substr(Article_total2$body, start = 1, stop = 4)
+Article_total2 <- Article_total2[-grep("實習記者", Article_total2$FirstFourCharacters),]
+Article_total2$FirstFourCharacters <- NULL
+```
+
+## Example 4: Date Filtering
+
+Remove rows from `2023` so the corpus only keeps the target year (`2024`):
+
+```{r, echo=TRUE, eval=FALSE}
+Article_total2 <- Article_total2[!(Article_total2$year == "2023"), ]
+```
+
+::: {.fragment .fade-up style="margin-top: 1.5em;"}
+::: {.columns}
+::: {.column width="48%"}
+::: {.callout-note appearance="minimal"}
+💡 **Why check `FirstTwoCharacters` for `記者`?**
+What would happen if we ran `-grep("記者", Article_total2$body)` on the *entire* paragraph instead of the first two characters?
+:::
+:::
+::: {.column width="48%"}
+::: {.callout-important appearance="minimal"}
+⚖️ **Acceptable trade-off:**
+178 sentences out of 361,154 (~0.05%) are lost. Always weigh precision vs. data loss!
+:::
+:::
+:::
+:::
+
+## Step 4: Remove empty rows (Part 1: Spaces)
+
+Filter out empty strings (`""`) and paragraphs made only of spaces (`" "` up to 5 spaces):
+
+```{r, echo=TRUE, eval=FALSE}
+## 1. Empty strings
+test <- Article_total2[(Article_total2$body == ""), ]
+Article_total2 <- Article_total2[!(Article_total2$body == ""), ]
+
+## 2. Single space (spotted on line 29)
+Article_total2$body[29] 
+test <- Article_total2[(Article_total2$body == " "), ]
+Article_total2 <- Article_total2[!(Article_total2$body == " "), ]
+
+## 3. Multiple spaces (tested 2 to 7 spaces; matches found for 2 to 5 spaces)
+Article_total2 <- Article_total2[!(Article_total2$body == "  "), ]
+Article_total2 <- Article_total2[!(Article_total2$body == "   "), ]
+Article_total2 <- Article_total2[!(Article_total2$body == "    "), ]
+Article_total2 <- Article_total2[!(Article_total2$body == "     "), ]
+```
+
+## Step 4: Remove empty rows (Part 2: Weird whitespace)
+
+What if a row looks empty during visual inspection, but `" "` doesn't catch it?
+
+👉 **Extract the unknown character directly by its row number, test it, and remove all matches!**
+
+```{r, echo=TRUE, eval=FALSE}
+## Visual inspection: Line 29 is still empty! Extract the exact symbol:
+ToRemove <- Article_total2$body[29] 
+test <- Article_total2[(Article_total2$body == ToRemove), ]
+Article_total2 <- Article_total2[!(Article_total2$body == ToRemove), ]
+
+## Repeat the exact same trick for other stubborn empty rows spotted visually:
+# Row 13974
+ToRemove <- Article_total2$body[13974] 
+Article_total2 <- Article_total2[!(Article_total2$body == ToRemove), ]
+
+# Row 8368, Row 67, and Row 15279
+ToRemove <- Article_total2$body[8368] 
+Article_total2 <- Article_total2[!(Article_total2$body == ToRemove), ]
+
+ToRemove <- Article_total2$body[67] 
+Article_total2 <- Article_total2[!(Article_total2$body == ToRemove), ]
+
+ToRemove <- Article_total2$body[15279] 
+Article_total2 <- Article_total2[!(Article_total2$body == ToRemove), ]
+```
+
+## Step 5: Remove weird scraping instances (HTML)
+
+Use regular expressions (`grepl("<[^>]+>", ...)`) to catch rows that still contain residual HTML tags (`<...>`):
+
+```{r, echo=TRUE, eval=FALSE}
+## Identify rows containing "<" followed by any characters and ">"
+test <- Article_total2
+test_HTML <- grepl("<[^>]+>", Article_total2$body)
+test$HTML <- test_HTML
+test <- test[(test$HTML == "TRUE"), ]
+
+## Indeed corresponds to rows to remove
+Article_total2$HTML <- test_HTML
+Article_total2 <- Article_total2[!(Article_total2$HTML == "TRUE"), ]
+
+Article_total2$HTML <- NULL
+```
+
+## Step 6: Save the clean data
+
+Export `Article_total2` in two formats for future analysis:
+
+:::: {.columns}
+
+::: {.column width="48%"}
+::: {.concept-card style="border-top-color: #10b981;"}
+📊 **1. Excel spreadsheet (`.xlsx`)**
+
+Easy to open and inspect visually outside R.
+```r
+write.xlsx(
+  Article_total2, 
+  "ArticleETToday_CorpusCourse_CLEAN.xlsx"
+)
+```
+:::
+:::
+
+::: {.column width="48%"}
+::: {.concept-card style="border-top-color: #3b82f6;"}
+💾 **2. RData file (`.Rdata`)**
+
+Preserves data types (factors vs. strings) and loads fast in R.
+```r
+save(
+  Article_total2, 
+  file = "ArticleETToday_CorpusCourse_CLEAN.Rdata"
+)
+```
+:::
+:::
+
+::::

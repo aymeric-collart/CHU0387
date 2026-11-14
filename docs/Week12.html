@@ -107,15 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="site_libs/d3-3.3.8/d3.min.js"></script>
-<script src="site_libs/dagre-0.4.0/dagre-d3.min.js"></script>
-<link href="site_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
-<script src="site_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<script src="site_libs/viz-1.8.2/viz.js"></script>
 <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="site_libs/chromatography-0.1/chromatography.js"></script>
-<script src="site_libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script>
+<script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -507,24 +502,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-to-analyze-corpus-data" id="toc-how-to-analyze-corpus-data" class="nav-link active" data-scroll-target="#how-to-analyze-corpus-data"><span class="header-section-number">1</span> How to analyze corpus data?</a>
-  <ul class="collapse">
-  <li><a href="#kwic-key-word-in-context" id="toc-kwic-key-word-in-context" class="nav-link" data-scroll-target="#kwic-key-word-in-context"><span class="header-section-number">1.1</span> KWIC (Key Word In Context)</a></li>
-  <li><a href="#word-lists-based-on-frequency" id="toc-word-lists-based-on-frequency" class="nav-link" data-scroll-target="#word-lists-based-on-frequency"><span class="header-section-number">1.2</span> Word lists based on frequency</a></li>
-  <li><a href="#combining-kwic-and-frequency-based-word-lists" id="toc-combining-kwic-and-frequency-based-word-lists" class="nav-link" data-scroll-target="#combining-kwic-and-frequency-based-word-lists"><span class="header-section-number">1.3</span> Combining KWIC and frequency-based word lists</a></li>
-  </ul></li>
-  <li><a href="#lets-do-the-job-with-r" id="toc-lets-do-the-job-with-r" class="nav-link" data-scroll-target="#lets-do-the-job-with-r"><span class="header-section-number">2</span> Let’s do the job with R</a>
-  <ul class="collapse">
-  <li><a href="#the-quanteda-package-to-conduct-corpus-analyses" id="toc-the-quanteda-package-to-conduct-corpus-analyses" class="nav-link" data-scroll-target="#the-quanteda-package-to-conduct-corpus-analyses"><span class="header-section-number">2.1</span> The <em>quanteda</em> package to conduct corpus analyses</a></li>
-  <li><a href="#workflow-for-the-analysis-of-corpus-data-in-r" id="toc-workflow-for-the-analysis-of-corpus-data-in-r" class="nav-link" data-scroll-target="#workflow-for-the-analysis-of-corpus-data-in-r"><span class="header-section-number">2.2</span> Workflow for the analysis of corpus data in R</a></li>
-  <li><a href="#explanation-of-the-r-script" id="toc-explanation-of-the-r-script" class="nav-link" data-scroll-target="#explanation-of-the-r-script"><span class="header-section-number">2.3</span> Explanation of the R script</a>
-  <ul class="collapse">
-  <li><a href="#prepare-the-environment" id="toc-prepare-the-environment" class="nav-link" data-scroll-target="#prepare-the-environment"><span class="header-section-number">2.3.1</span> Prepare the environment</a></li>
-  <li><a href="#key-word-in-context-kwic" id="toc-key-word-in-context-kwic" class="nav-link" data-scroll-target="#key-word-in-context-kwic"><span class="header-section-number">2.3.2</span> Key Word In Context (KWIC)</a></li>
-  <li><a href="#frequency-tables" id="toc-frequency-tables" class="nav-link" data-scroll-target="#frequency-tables"><span class="header-section-number">2.3.3</span> Frequency tables</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">3</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#how-to-analyze-corpus-data" id="toc-how-to-analyze-corpus-data" class="nav-link" data-scroll-target="#how-to-analyze-corpus-data">1. How to analyze corpus data?</a></li>
+  <li><a href="#lets-do-the-job-with-r" id="toc-lets-do-the-job-with-r" class="nav-link" data-scroll-target="#lets-do-the-job-with-r">2. Let’s do the job with R</a></li>
+  <li><a href="#explanation-of-the-r-script" id="toc-explanation-of-the-r-script" class="nav-link" data-scroll-target="#explanation-of-the-r-script">3. Explanation of the R script</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHU0387/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -535,6 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Weeks11.html">Part 3: Simple preprocessing and analyses of corpus data</a></li><li class="breadcrumb-item"><a href="./Week12.html">Week 12: Data analysis</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 12: Data analysis</h1>
+<p class="subtitle lead">CHU0387 | National Taiwan Normal University</p>
 </div>
 
 
@@ -556,49 +538,289 @@ hr.rounded {
   border-top: 1px solid #E5E4E2;
   border-radius: 5px;
 }
+
+/* Tabset Styling - Single Row & Equal Alignment */
+.nav-tabs {
+  border-bottom: 2px solid #ecf0f1;
+  margin-top: 1em;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+.nav-tabs .nav-item {
+  flex: 1 1 0;
+  display: flex;
+}
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.02em;
+  line-height: 1.35;
+  color: #95a5a6;
+  border: none;
+  border-bottom: 4px solid transparent;
+  padding: 12px 14px;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+  border: none;
+  border-bottom: 4px solid #cbd5e1;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+  background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Nested Sub-Tabset Styling */
+.tab-content .nav-tabs {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 6px;
+  border-bottom: none;
+  gap: 6px;
+}
+.tab-content .nav-tabs .nav-link {
+  font-size: 0.92em;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-bottom: none;
+}
+.tab-content .nav-tabs .nav-link:hover {
+  background-color: #e2e8f0;
+  border-bottom: none;
+}
+.tab-content .nav-tabs .nav-link.active {
+  background-color: #ffffff;
+  color: #2563eb !important;
+  border-bottom: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Stunning Headers */
+h2 {
+  margin-top: 1.8em;
+  color: #2980b9;
+  font-weight: 600;
+}
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Floating Images with Animations */
+img {
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  margin: 2rem auto;
+  display: block;
+}
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+hr.rounded {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+  margin: 4rem 0;
+}
+
+/* Pro Code Styling */
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: #e74c3c;
+  background-color: #fdf2f0;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+pre code {
+  color: #333;
+  background-color: transparent;
+}
+
+/* Clean Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin: 2rem 0;
+}
+th {
+  background-color: #3498db;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+b, strong {
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+/* Responsive Concept Card Grids */
+.concept-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.concept-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.concept-card-full {
+  grid-column: 1 / -1;
+}
+
+.concept-card {
+  box-sizing: border-box;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.concept-card > :first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.concept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2563eb;
+  background-color: #eff6ff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.concept-card ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.concept-card li {
+  margin-bottom: 0.35rem;
+}
+
+.concept-card li:last-child {
+  margin-bottom: 0;
+}
 </style>
-<p><br></p>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Objectives
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>This week, you will learn how to analyze your data quickly and automatically with R.</p>
-<p>!! This is an overview of how the analysis process, without reference to statistical modeling!</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The data analysis is exemplified with the ETtoday dataset that we cleaned last week. In case, you can download the R data using this link: <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a></p>
-</div>
-</div>
-<section id="how-to-analyze-corpus-data" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> How to analyze corpus data?</h1>
-<p>Let’s recap first what we learned and did in the past weeks:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes and full script</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Data analysis:</strong></p>
 <ul>
-<li><p>We learned what a corpus linguistics study is, the questions we can ask, and the types of corpora we can/should select to conduct the study;</p></li>
-<li><p>We learned how to automatically scrape data from the Internet, with examples from different sources;</p></li>
-<li><p>Last week, we learned how to “clean” the raw data, how to prepare the data for further analyses.</p></li>
+<li><strong>How to analyze corpus data?:</strong> Overall workflow, KWIC (Key Word In Context), word lists based on frequency, and combining methods.</li>
+<li><strong>Let’s do the job with R:</strong> Using the <em>quanteda</em> package and understanding the R workflow.</li>
+<li><strong>Explanation of the R script:</strong> Preparing the environment, running KWIC and combined analyses, and generating frequency tables.</li>
 </ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>A brief summary of the essential elements:</strong></p>
+<p>(to be given later)</p>
+<p><strong>Scripts and datasets</strong></p>
+<p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data_QuantedaOnly.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data_QuantedaOnly.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
+<p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">here for the KWIC analysis</a>, and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100words.Rdata" target="_blank">here for the frequency analysis</a>. The corresponding Excel files are <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.xlsx" target="_blank">here (KWIC analysis)</a> and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100words.xlsx" target="_blank">here (frequency analysis)</a>.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>(to be given later)</p>
+</div>
+</div>
+</div>
+<div class="text-center mb-4">
+<p><a href="week12_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of Week 12</a></p>
+</div>
+<p><br></p>
+<p><br></p>
+</section>
+<section id="how-to-analyze-corpus-data" class="level1">
+<h1>1. How to analyze corpus data?</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Recap &amp; Overall workflow</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">KWIC (Key Word In Context)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Word lists based on frequency</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Combining KWIC and frequency-based word lists</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Let’s recap first what we learned and did in the past weeks:</p>
+<div class="concept-grid-3">
+<div class="concept-card">
+<p><span class="step-badge">Step 1</span></p>
+<p>We learned what a corpus linguistics study is, the questions we can ask, and the types of corpora we can/should select to conduct the study;</p>
+</div>
+<div class="concept-card">
+<p><span class="step-badge">Step 2</span></p>
+<p>We learned how to automatically scrape data from the Internet, with examples from different sources;</p>
+</div>
+<div class="concept-card">
+<p><span class="step-badge">Step 3</span></p>
+<p>Last week, we learned how to “clean” the raw data, how to prepare the data for further analyses.</p>
+</div>
+</div>
 <p>And this is the main objective for this week: <strong>How to analyze the data that we prepared?</strong></p>
 <p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-5e58fe0434ea29dd53d6" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-5e58fe0434ea29dd53d6">{"x":{"diagram":"\n    graph TD\n        A[Research question] --> B{Do I need corpus data};\n        B -- No --> C[Corpus study maybe not appropriate];\n        B -- Yes --> D[Proceed to the corpus study!];\n        D --> E[Select the right corpus];\n        E --> F[Select the analysis method];\n        F -- Word lists, KWIC, collocates, clusters, random forests, etc. --> G[Proceed to the automatic analysis];\n        G --> H[Interpret the results according to the research question];\n    "},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-947bf111ccdd85555874" style="width:100%;height:650px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-947bf111ccdd85555874">{"x":{"diagram":"\ndigraph corpus_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.5,\n    ranksep = 0.6\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#1E293B\",\n    margin = \"0.35,0.2\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 12,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.0,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Research question\"]\n  B [label = \"Do I need corpus data\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  C [label = \"Corpus study maybe not appropriate\"]\n  D [label = \"Proceed to the corpus study!\"]\n  E [label = \"Select the right corpus\"]\n  F [label = \"Select the analysis method\"]\n  G [label = \"Proceed to the automatic analysis\"]\n  H [label = \"Interpret the results according to the research question\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B\n  B -> C [label = \"  No  \"]\n  B -> D [label = \"  Yes  \"]\n  D -> E\n  E -> F\n  F -> G [label = \"  Word lists, KWIC, collocates, clusters, random forests, etc.  \"]\n  G -> H\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -615,14 +837,20 @@ Note
 </div>
 </div>
 <p>For this class, two methods will be presented: Word lists and KWIC (Key Word In Context). These are classic yet very useful methods, and easy to understand and implement for any kind of research.</p>
-<section id="kwic-key-word-in-context" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="kwic-key-word-in-context"><span class="header-section-number">1.1</span> KWIC (Key Word In Context)</h2>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>The first type of analysis to introduce is called <strong>Key Word In Context</strong>, more often found under the acronym <strong><em>kwic</em></strong>. The idea is that we can better understand the meaning of a word based on how it is used in a sentence. KWIC analyses are therefore very suitable <strong>when we target a specific word or syntactic construction</strong>.</p>
 <p>KWIC analyses can be used for:</p>
-<ul>
-<li><p><em>Semantic analyses</em>: Idea that the meaning of a specific word can be retrieved from its use in a sentences, based on the meaning of its <em>neighbors</em>.</p></li>
-<li><p><em>Morphosyntactic analyses</em>: Idea that the morphosyntactic context where a word or a construction is used is helpful in understanding its specific morphological and syntactic features, as well as the meaning it conveys.</p></li>
-</ul>
+<div class="concept-grid-2">
+<section id="semantic-analyses" class="level3 concept-card">
+<h3 class="anchored" data-anchor-id="semantic-analyses">Semantic analyses</h3>
+<p>Idea that the meaning of a specific word can be retrieved from its use in a sentences, based on the meaning of its <em>neighbors</em>.</p>
+</section>
+<section id="morphosyntactic-analyses" class="level3 concept-card">
+<h3 class="anchored" data-anchor-id="morphosyntactic-analyses">Morphosyntactic analyses</h3>
+<p>Idea that the morphosyntactic context where a word or a construction is used is helpful in understanding its specific morphological and syntactic features, as well as the meaning it conveys.</p>
+</section>
+</div>
 <p>Here is an example below, with the Mandarin word <em>keai</em> ‘cute’ (notice that these are fake data just for an illustration):</p>
 <table class="caption-top table">
 <colgroup>
@@ -665,9 +893,8 @@ Note
 <li><p><em>Semantically</em>, the word <em>keai</em> is most often used to describe <em>animals</em> or <em>pets</em>, based on the following segment;</p></li>
 <li><p><em>Morphosyntactically</em>, the word <em>keai</em> behaves as an adjective (or stative verb, depending on the analysis), based on the preceding segment.</p></li>
 </ul>
-</section>
-<section id="word-lists-based-on-frequency" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="word-lists-based-on-frequency"><span class="header-section-number">1.2</span> Word lists based on frequency</h2>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>Another extremely common way to analyse corpus data is to count the frequency of each word, in order to have an idea of the most frequently used ones. It is easy to understand: we just need to count how many times a word occurred in the dataset we have. Hopefully, we obtain a list like the one below (again, these are fake data):</p>
 <table class="caption-top table">
 <colgroup>
@@ -692,25 +919,37 @@ Note
 </tbody>
 </table>
 <p>The reality is that it is a little bit more complex that it seems to be, and we need to keep several remarks in mind:</p>
-<ul>
-<li><p>Without any further data handling, it is more than likely that the most frequent words are (a) punctuation marks, and (b) grammatical markers (the so-called ‘closed-class’ words), since they are limited and appear obligatory in each sentence. The bad news is that you need further steps to obtain the table you wish for. The good news is that you can use this piece of information as a sanitary check. If you compute the frequency tables and it is not the case that grammatical words are most frequent, then something bad happened!</p></li>
-<li><p>Defining what a “word” is is not easy. In English, the simplest way is to say that words can be separated with a space (even if this too simple definition is misleading). In Mandarin, there are no spaces between words… People created packages with dictionaries where words are listed such that we can still cut the sentences into words, but be aware that less common or newly created ones will not be detected! If your research question is really about new words, then you may consider adding them in the computer’s dictionary beforehand.</p></li>
-<li><p>Frequency tables can be further annotated, as you can add the rank of the word, the frequency in terms of percentage in addition to raw count numbers, etc.</p></li>
-</ul>
-</section>
-<section id="combining-kwic-and-frequency-based-word-lists" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="combining-kwic-and-frequency-based-word-lists"><span class="header-section-number">1.3</span> Combining KWIC and frequency-based word lists</h2>
+<div class="concept-grid-3">
+<div class="concept-card">
+<p><span class="step-badge">Remark 1</span></p>
+<p>Without any further data handling, it is more than likely that the most frequent words are (a) punctuation marks, and (b) grammatical markers (the so-called ‘closed-class’ words), since they are limited and appear obligatory in each sentence. The bad news is that you need further steps to obtain the table you wish for. The good news is that you can use this piece of information as a sanitary check. If you compute the frequency tables and it is not the case that grammatical words are most frequent, then something bad happened!</p>
+</div>
+<div class="concept-card">
+<p><span class="step-badge">Remark 2</span></p>
+<p>Defining what a “word” is is not easy. In English, the simplest way is to say that words can be separated with a space (even if this too simple definition is misleading). In Mandarin, there are no spaces between words… People created packages with dictionaries where words are listed such that we can still cut the sentences into words, but be aware that less common or newly created ones will not be detected! If your research question is really about new words, then you may consider adding them in the computer’s dictionary beforehand.</p>
+</div>
+<div class="concept-card">
+<p><span class="step-badge">Remark 3</span></p>
+<p>Frequency tables can be further annotated, as you can add the rank of the word, the frequency in terms of percentage in addition to raw count numbers, etc.</p>
+</div>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
 <p>Every kind of analysis has pros and cons, and we cannot say that one is better than another. Again, there are just better suited ways to analyze your data according to your research question. This even means that you can combine two types of analyses to obtain more insights!</p>
 <p>For example, you can first proceed with a KWIC analysis, and you obtain the table as above. Then, in a second step, you can create the frequency table of the first word following or preceding the keyword. So it is a “KWIC + word list” analysis!</p>
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="lets-do-the-job-with-r" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Let’s do the job with R</h1>
+<section id="lets-do-the-job-with-r" class="level1">
+<h1>2. Let’s do the job with R</h1>
 <p>Now we have a better ideas of how to analyze the data <em>conceptually</em>. But how to do it <em>technically</em>? This is what this section is about.</p>
 <p>First, you can download the script <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data.Rmd" target="_blank">here</a>, as well as the dataset we will work with <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a>.</p>
 <p>You can follow the steps below to understand how it works. But before explaining this script, more remarks are needed.</p>
-<section id="the-quanteda-package-to-conduct-corpus-analyses" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="the-quanteda-package-to-conduct-corpus-analyses"><span class="header-section-number">2.1</span> The <em>quanteda</em> package to conduct corpus analyses</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">The <em>quanteda</em> package to conduct corpus analyses</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Workflow for the analysis of corpus data in R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>We are very lucky that many smart and generous people around the world created R packages especially to deal with corpus data, and such packages are still being updated at the moment I am writing this section.</p>
 <p>We are going to use the package called “quanteda”. You can find more information by clicking on this <a href="https://quanteda.io/">link</a>.</p>
 <p><img src="assets/images/Quanteda.png" class="img-fluid"></p>
@@ -732,23 +971,27 @@ Note
 <p>There exist several packages used to segment Mandarin sentences into words. Here, we will use the built-in functions of the “quanteda” package. If you browse the Internet, you will notice that some people prefer using the “jiebaR” package. The problem is that this package is not available on the CRAN anymore, and it can be quite tricky to install it on your computer. So for this week, we keep it simple!</p>
 </div>
 </div>
-</section>
-<section id="workflow-for-the-analysis-of-corpus-data-in-r" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="workflow-for-the-analysis-of-corpus-data-in-r"><span class="header-section-number">2.2</span> Workflow for the analysis of corpus data in R</h2>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p>Here is an overview of the workflow. First, we start with the clean corpus, and then we create a new dataset where the sentences are cut into words. Based on this new dataset, we can perform a KWIC analysis, create a word list, or combine the two types of analyses. Finally, we clean a little bit (as in the example below; punctuation marks, digits, selecting only the sentence/phrase, etc.), we add back the information from the original corpus, and we are done!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-8e10d73b9014fc3eb94f" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-8e10d73b9014fc3eb94f">{"x":{"diagram":"\n    graph TD\n        A[Corpus data] -- Identify the column with the text --> B[Segment into words];\n        B --> C[KWIC analysis];\n        B --> D[Word list];\n        C -- If combined analysis --> D;\n        D --> E[Clean a little bit];\n        C --> E;\n        E --> F[Add information from the original corpus];\n        F --> G[Done!];\n    "},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-aee7cff7716b84cea3de" style="width:100%;height:600px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-aee7cff7716b84cea3de">{"x":{"diagram":"\ndigraph r_analysis_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.5,\n    ranksep = 0.6\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#1E293B\",\n    margin = \"0.35,0.2\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 12,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.0,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Corpus data\"]\n  B [label = \"Segment into words\"]\n  C [label = \"KWIC analysis\", fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  D [label = \"Word list\", fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  E [label = \"Clean a little bit\"]\n  F [label = \"Add information from the original corpus\"]\n  G [label = \"Done!\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B [label = \"  Identify the column with the text  \"]\n  B -> C\n  B -> D\n  C -> D [label = \"  If combined analysis  \"]\n  D -> E\n  C -> E\n  E -> F\n  F -> G\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
-<section id="explanation-of-the-r-script" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="explanation-of-the-r-script"><span class="header-section-number">2.3</span> Explanation of the R script</h2>
-<section id="prepare-the-environment" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="prepare-the-environment"><span class="header-section-number">2.3.1</span> Prepare the environment</h3>
-<section id="load-the-libraries" class="level4" data-number="2.3.1.1">
-<h4 data-number="2.3.1.1" class="anchored" data-anchor-id="load-the-libraries"><span class="header-section-number">2.3.1.1</span> Load the libraries</h4>
+<section id="explanation-of-the-r-script" class="level1">
+<h1>3. Explanation of the R script</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Prepare the environment</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Key Word In Context (KWIC)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-3" role="tab" aria-controls="tabset-6-3" aria-selected="false">Frequency tables</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<section id="load-the-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-libraries">Load the libraries</h3>
 <p>First, we need to load the necessary packages for our analysis.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -794,18 +1037,21 @@ Attaching package: 'dplyr'</code></pre>
 <li><p><strong>Sys.setlocale(…):</strong> This line is commented out (#), but it is there in case you run into encoding issues on Windows. It sets the system locale to Traditional Chinese.</p></li>
 </ul>
 </section>
-<section id="load-the-originally-scraped-data-r" class="level4" data-number="2.3.1.2">
-<h4 data-number="2.3.1.2" class="anchored" data-anchor-id="load-the-originally-scraped-data-r"><span class="header-section-number">2.3.1.2</span> Load the originally scraped data R</h4>
+<section id="load-the-originally-scraped-data-r" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-originally-scraped-data-r">Load the originally scraped data R</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"ArticleETToday_CorpusCourse_CLEAN.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>load(…):</strong> We load the .Rdata file containing the cleaned ETToday corpus we prepared in previous weeks. This brings the Article_total2 object into our environment.</p>
 </section>
-</section>
-<section id="key-word-in-context-kwic" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="key-word-in-context-kwic"><span class="header-section-number">2.3.2</span> Key Word In Context (KWIC)</h3>
-<section id="prepare-the-dataset-for-the-analyses" class="level4" data-number="2.3.2.1">
-<h4 data-number="2.3.2.1" class="anchored" data-anchor-id="prepare-the-dataset-for-the-analyses"><span class="header-section-number">2.3.2.1</span> Prepare the dataset for the analyses</h4>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Prepare the dataset</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">KWIC segmentation &amp; Annotation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">(Optional) Clean the context</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Combined analysis</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-5" role="tab" aria-controls="tabset-4-5" aria-selected="false">Save the data</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<section id="prepare-the-dataset-for-the-analyses" class="level4">
+<h4 class="anchored" data-anchor-id="prepare-the-dataset-for-the-analyses">Prepare the dataset for the analyses</h4>
 <p>Before we can analyze the text, we need to ensure our documents have IDs and are properly tokenized.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>docname <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"text"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(Article_total2))</span>
@@ -817,10 +1063,10 @@ Attaching package: 'dplyr'</code></pre>
 <li><p><strong>Article_tokens &lt;- tokens(…)</strong>: We use the quanteda function tokens() to break the text in the body column into individual words (tokens). This creates a specialized tokens object required for the next steps.</p></li>
 </ul>
 </section>
-<section id="perform-the-kwic-segmentation" class="level4" data-number="2.3.2.2">
-<h4 data-number="2.3.2.2" class="anchored" data-anchor-id="perform-the-kwic-segmentation"><span class="header-section-number">2.3.2.2</span> Perform the KWIC segmentation</h4>
-<section id="kwic-segmentation" class="level5" data-number="2.3.2.2.1">
-<h5 data-number="2.3.2.2.1" class="anchored" data-anchor-id="kwic-segmentation"><span class="header-section-number">2.3.2.2.1</span> KWIC segmentation</h5>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<section id="kwic-segmentation" class="level4">
+<h4 class="anchored" data-anchor-id="kwic-segmentation">KWIC segmentation</h4>
 <p>Now we search for a specific keyword to see how it is used in context.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">kwic</span>(Article_tokens, <span class="at">pattern =</span> <span class="st">"有"</span>, <span class="at">window =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -833,8 +1079,8 @@ Attaching package: 'dplyr'</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="annotate-the-kwic-dataset" class="level5" data-number="2.3.2.2.2">
-<h5 data-number="2.3.2.2.2" class="anchored" data-anchor-id="annotate-the-kwic-dataset"><span class="header-section-number">2.3.2.2.2</span> Annotate the KWIC dataset</h5>
+<section id="annotate-the-kwic-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="annotate-the-kwic-dataset">Annotate the KWIC dataset</h4>
 <p>The kwic function gives us the context, but we lose the original metadata (like the article date or category). We need to put it back.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(kwic_data)</span>
@@ -845,11 +1091,13 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 <ul>
 <li><p><strong>as.data.frame(kwic_data)</strong>: The output of kwic is a special object; we convert it into a standard data frame so we can manipulate it easily.</p></li>
-<li><p>r<strong>ight_join(…)</strong>: We merge our KWIC results with the original Article_total2 dataframe. We match them using the docname column we created earlier.</p></li>
+<li><p><strong>right_join(…)</strong>: We merge our KWIC results with the original Article_total2 dataframe. We match them using the docname column we created earlier.</p></li>
 <li><p><strong>na.omit(kwic_data)</strong>: We remove any rows that have missing values (NAs) to ensure our dataset is clean for analysis.</p></li>
 </ul>
-<p>2.2.3 (Optional) Clean the context to keep only the phrase where the keyword is found</p>
-<p>he window of 30 words might include parts of previous or subsequent sentences. We want to “trim” the context to only the sentence containing the keyword.</p>
+</section>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<p>The window of 30 words might include parts of previous or subsequent sentences. We want to “trim” the context to only the sentence containing the keyword.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Keep original information just in case</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre_original <span class="ot">&lt;-</span> kwic_data<span class="sc">$</span>pre</span>
@@ -1026,9 +1274,8 @@ Attaching package: 'dplyr'</code></pre>
 </table>
 </div>
 </div>
-</section>
-<section id="combined-analysis-frequency-table-of-the-first-word-following-you-to-have" class="level5" data-number="2.3.2.2.3">
-<h5 data-number="2.3.2.2.3" class="anchored" data-anchor-id="combined-analysis-frequency-table-of-the-first-word-following-you-to-have"><span class="header-section-number">2.3.2.2.3</span> Combined analysis: Frequency table of the first word following you ‘to have’</h5>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
 <p>We can now analyze what words typically follow “有”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the first word</span></span>
@@ -1871,10 +2118,8 @@ Attaching package: 'dplyr'</code></pre>
 <li><p><strong>grep(“[[:digit:]]”, …)</strong>: We use <em>grep</em> to find any words that contain numbers (digits) and remove them (using the minus sign -) to clean up our results.</p></li>
 <li><p><strong>1:length(…)</strong>: Since we removed some rows, we reset the rank column so it goes from 1 to N sequentially.</p></li>
 </ul>
-</section>
-</section>
-<section id="save-the-data" class="level4" data-number="2.3.2.3">
-<h4 data-number="2.3.2.3" class="anchored" data-anchor-id="save-the-data"><span class="header-section-number">2.3.2.3</span> Save the data</h4>
+</div>
+<div id="tabset-4-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-5-tab">
 <p>Finally, we save our hard work.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(kwic_data, <span class="st">"ArticleETToday_KWIC_You.xlsx"</span>)</span>
@@ -1884,14 +2129,15 @@ Attaching package: 'dplyr'</code></pre>
 <li><p><strong>write.xlsx</strong>: Exports the dataframe to an Excel file for manual inspection.</p></li>
 <li><p><strong>save</strong>: Saves the R object to an .Rdata file so we can load it quickly in future R sessions.</p></li>
 </ul>
-</section>
-</section>
-<section id="frequency-tables" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="frequency-tables"><span class="header-section-number">2.3.3</span> Frequency tables</h3>
-<section id="create-the-overall-frequency-table" class="level4" data-number="2.3.3.1">
-<h4 data-number="2.3.3.1" class="anchored" data-anchor-id="create-the-overall-frequency-table"><span class="header-section-number">2.3.3.1</span> Create the overall frequency table</h4>
-<section id="creation-of-the-first-table" class="level5" data-number="2.3.3.1.1">
-<h5 data-number="2.3.3.1.1" class="anchored" data-anchor-id="creation-of-the-first-table"><span class="header-section-number">2.3.3.1.1</span> Creation of the first table</h5>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Creation of the first table</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Clean it up a little bit</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Final table &amp; percentage</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-4" role="tab" aria-controls="tabset-5-4" aria-selected="false">Save the data R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>Now, let’s look at the frequency of words across the entire corpus, not just around a keyword.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Article_tokens_frequency <span class="ot">&lt;-</span> <span class="fu">dfm</span>(</span>
@@ -2624,9 +2870,8 @@ Attaching package: 'dplyr'</code></pre>
 <li><p><strong>textstat_frequency(…)</strong>: We calculate the frequency of every unique word in the corpus.</p></li>
 <li><p><strong>head(…, 100)</strong>: We create a smaller table containing only the top 100 most frequent words.</p></li>
 </ul>
-</section>
-<section id="clean-it-up-a-little-bit" class="level5" data-number="2.3.3.1.2">
-<h5 data-number="2.3.3.1.2" class="anchored" data-anchor-id="clean-it-up-a-little-bit"><span class="header-section-number">2.3.3.1.2</span> Clean it up a little bit</h5>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <p>We often find “noise” in the data, like numbers, which we want to filter out.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example with numbers</span></span>
@@ -2639,9 +2884,8 @@ Attaching package: 'dplyr'</code></pre>
 <li><p><strong>grep(“[[:digit:]]”, …)</strong>: Similar to before, we search for any features (words) containing numbers and remove them from the list.</p></li>
 <li><p><strong>1:length(…)</strong>: We re-calculate the rank column to fill in the gaps left by the removed words.</p></li>
 </ul>
-</section>
-<section id="final-table-addition-of-the-percentage" class="level5" data-number="2.3.3.1.3">
-<h5 data-number="2.3.3.1.3" class="anchored" data-anchor-id="final-table-addition-of-the-percentage"><span class="header-section-number">2.3.3.1.3</span> Final table, addition of the percentage</h5>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
 <p>Frequencies are good, but percentages help us understand the relative importance of a word.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>table_FreqWord_Top100 <span class="ot">&lt;-</span> <span class="fu">head</span>(table_FreqWord, <span class="dv">100</span>)</span>
@@ -3572,25 +3816,25 @@ Attaching package: 'dplyr'</code></pre>
 <li><strong>*100</strong>: Convert the decimal to a percentage.</li>
 <li><strong>round(…, 5)</strong>: Round the result to 5 decimal places for readability.</li>
 </ul>
-</section>
-</section>
-<section id="save-the-data-r" class="level4" data-number="2.3.3.2">
-<h4 data-number="2.3.3.2" class="anchored" data-anchor-id="save-the-data-r"><span class="header-section-number">2.3.3.2</span> Save the data R</h4>
+</div>
+<div id="tabset-5-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-4-tab">
+<section id="save-the-data-r-1" class="level4">
+<h4 class="anchored" data-anchor-id="save-the-data-r-1">Save the data R</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(table_FreqWord_Top100, <span class="st">"ArticleETToday_Top100nouns.xlsx"</span>) <span class="fu">save</span>(table_FreqWord_Top100, <span class="at">file =</span> <span class="st">"ArticleETToday_Top100nouns.Rdata"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(table_FreqWord_Top100, <span class="st">"ArticleETToday_Top100nouns.xlsx"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(table_FreqWord_Top100, <span class="at">file =</span> <span class="st">"ArticleETToday_Top100nouns.Rdata"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p><strong>write.xlsx</strong>: Saves the top 100 words table to Excel.</p></li>
 <li><p><strong>save</strong>: Saves the R object for later use.</p></li>
 </ul>
 </section>
-</section>
-</section>
-</section>
-<section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>
-<p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data_QuantedaOnly.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week12_Analyzing_data_QuantedaOnly.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
-<p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">here for the KWIC analysis</a>, and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100words.Rdata" target="_blank">here for the frequency analysis</a>. The corresponding Excel files are <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.xlsx" target="_blank">here (KWIC analysis)</a> and <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100words.xlsx" target="_blank">here (frequency analysis)</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>

@@ -107,15 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="site_libs/d3-3.3.8/d3.min.js"></script>
-<script src="site_libs/dagre-0.4.0/dagre-d3.min.js"></script>
-<link href="site_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
-<script src="site_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<script src="site_libs/viz-1.8.2/viz.js"></script>
 <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="site_libs/chromatography-0.1/chromatography.js"></script>
-<script src="site_libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script>
+<script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -507,41 +502,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-does-cleaning-mean" id="toc-what-does-cleaning-mean" class="nav-link active" data-scroll-target="#what-does-cleaning-mean"><span class="header-section-number">1</span> What does “cleaning” mean?</a>
-  <ul class="collapse">
-  <li><a href="#why-the-need-to-clean-the-data" id="toc-why-the-need-to-clean-the-data" class="nav-link" data-scroll-target="#why-the-need-to-clean-the-data"><span class="header-section-number">1.1</span> Why the need to clean the data?</a></li>
-  <li><a href="#some-cleaning-principles" id="toc-some-cleaning-principles" class="nav-link" data-scroll-target="#some-cleaning-principles"><span class="header-section-number">1.2</span> Some cleaning principles</a>
-  <ul class="collapse">
-  <li><a href="#we-clean-we-dont-fish" id="toc-we-clean-we-dont-fish" class="nav-link" data-scroll-target="#we-clean-we-dont-fish">We clean, we don’t fish</a></li>
-  <li><a href="#we-must-be-aware-of-the-final-format-of-the-data-set" id="toc-we-must-be-aware-of-the-final-format-of-the-data-set" class="nav-link" data-scroll-target="#we-must-be-aware-of-the-final-format-of-the-data-set">We must be aware of the final format of the data set</a></li>
-  <li><a href="#we-must-be-close-to-our-data" id="toc-we-must-be-close-to-our-data" class="nav-link" data-scroll-target="#we-must-be-close-to-our-data">We must be close to our data</a></li>
-  </ul></li>
-  <li><a href="#a-proposed-workflow" id="toc-a-proposed-workflow" class="nav-link" data-scroll-target="#a-proposed-workflow"><span class="header-section-number">1.3</span> A proposed workflow</a></li>
-  </ul></li>
-  <li><a href="#preparation-for-the-cleaning-process-example-with-the-ettoday-corpus" id="toc-preparation-for-the-cleaning-process-example-with-the-ettoday-corpus" class="nav-link" data-scroll-target="#preparation-for-the-cleaning-process-example-with-the-ettoday-corpus"><span class="header-section-number">2</span> Preparation for the cleaning process: Example with the ETtoday corpus</a>
-  <ul class="collapse">
-  <li><a href="#playing-hide-and-seek-the-goal-of-the-cleaning-process" id="toc-playing-hide-and-seek-the-goal-of-the-cleaning-process" class="nav-link" data-scroll-target="#playing-hide-and-seek-the-goal-of-the-cleaning-process"><span class="header-section-number">2.1</span> Playing hide-and-seek: The goal of the cleaning process</a></li>
-  <li><a href="#list-of-the-steps-to-clean-the-ettoday-corpus" id="toc-list-of-the-steps-to-clean-the-ettoday-corpus" class="nav-link" data-scroll-target="#list-of-the-steps-to-clean-the-ettoday-corpus"><span class="header-section-number">2.2</span> List of the steps to clean the ETtoday corpus</a></li>
-  </ul></li>
-  <li><a href="#now-lets-turn-into-r-coding" id="toc-now-lets-turn-into-r-coding" class="nav-link" data-scroll-target="#now-lets-turn-into-r-coding"><span class="header-section-number">3</span> Now let’s turn into R coding</a>
-  <ul class="collapse">
-  <li><a href="#prepare-the-environment" id="toc-prepare-the-environment" class="nav-link" data-scroll-target="#prepare-the-environment"><span class="header-section-number">3.1</span> Prepare the environment</a>
-  <ul class="collapse">
-  <li><a href="#load-the-libraries" id="toc-load-the-libraries" class="nav-link" data-scroll-target="#load-the-libraries">Load the libraries:</a></li>
-  <li><a href="#load-the-originally-scraped-data" id="toc-load-the-originally-scraped-data" class="nav-link" data-scroll-target="#load-the-originally-scraped-data">Load the originally scraped data:</a></li>
-  </ul></li>
-  <li><a href="#examples-of-cleaningpreparing-processes" id="toc-examples-of-cleaningpreparing-processes" class="nav-link" data-scroll-target="#examples-of-cleaningpreparing-processes"><span class="header-section-number">3.2</span> Examples of cleaning/preparing processes</a>
-  <ul class="collapse">
-  <li><a href="#further-annotations" id="toc-further-annotations" class="nav-link" data-scroll-target="#further-annotations">Further annotations</a></li>
-  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation">Data transformation</a></li>
-  </ul></li>
-  <li><a href="#save-the-data" id="toc-save-the-data" class="nav-link" data-scroll-target="#save-the-data"><span class="header-section-number">3.3</span> Save the data</a>
-  <ul class="collapse">
-  <li><a href="#save-as-an-excel-file" id="toc-save-as-an-excel-file" class="nav-link" data-scroll-target="#save-as-an-excel-file">Save as an Excel file</a></li>
-  <li><a href="#save-as-an-rdata-file" id="toc-save-as-an-rdata-file" class="nav-link" data-scroll-target="#save-as-an-rdata-file">Save as an RData file</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" id="toc-markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="nav-link" data-scroll-target="#markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data"><span class="header-section-number">4</span> Markdown document, PDF output file, RData and Excel files of the scraped data</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#what-does-cleaning-mean" id="toc-what-does-cleaning-mean" class="nav-link" data-scroll-target="#what-does-cleaning-mean">1. What does “cleaning” mean?</a></li>
+  <li><a href="#preparation-for-the-cleaning-process-example-with-the-ettoday-corpus" id="toc-preparation-for-the-cleaning-process-example-with-the-ettoday-corpus" class="nav-link" data-scroll-target="#preparation-for-the-cleaning-process-example-with-the-ettoday-corpus">2. Preparation for the cleaning process: Example with the ETtoday corpus</a></li>
+  <li><a href="#now-lets-turn-into-r-coding" id="toc-now-lets-turn-into-r-coding" class="nav-link" data-scroll-target="#now-lets-turn-into-r-coding">3. Now let’s turn into R coding</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHU0387/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -552,6 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Weeks11.html">Part 3: Simple preprocessing and analyses of corpus data</a></li><li class="breadcrumb-item"><a href="./Weeks11.html">Week 11: Data preprocessing - Tidying/Cleaning data</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 11: Data preprocessing - Tidying/Cleaning data</h1>
+<p class="subtitle lead">CHU0387 | National Taiwan Normal University</p>
 </div>
 
 
@@ -573,36 +538,287 @@ hr.rounded {
   border-top: 1px solid #E5E4E2;
   border-radius: 5px;
 }
+
+/* Tabset Styling - Single Row & Equal Alignment */
+.nav-tabs {
+  border-bottom: 2px solid #ecf0f1;
+  margin-top: 1em;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+.nav-tabs .nav-item {
+  flex: 1 1 0;
+  display: flex;
+}
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.02em;
+  line-height: 1.35;
+  color: #95a5a6;
+  border: none;
+  border-bottom: 4px solid transparent;
+  padding: 12px 14px;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+  border: none;
+  border-bottom: 4px solid #cbd5e1;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+  background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Nested Sub-Tabset Styling */
+.tab-content .nav-tabs {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 6px;
+  border-bottom: none;
+  gap: 6px;
+}
+.tab-content .nav-tabs .nav-link {
+  font-size: 0.92em;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-bottom: none;
+}
+.tab-content .nav-tabs .nav-link:hover {
+  background-color: #e2e8f0;
+  border-bottom: none;
+}
+.tab-content .nav-tabs .nav-link.active {
+  background-color: #ffffff;
+  color: #2563eb !important;
+  border-bottom: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Stunning Headers */
+h2 {
+  margin-top: 1.8em;
+  color: #2980b9;
+  font-weight: 600;
+}
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Floating Images with Animations */
+img {
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  margin: 2rem auto;
+  display: block;
+}
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+hr.rounded {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+  margin: 4rem 0;
+}
+
+/* Pro Code Styling */
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: #e74c3c;
+  background-color: #fdf2f0;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+pre code {
+  color: #333;
+  background-color: transparent;
+}
+
+/* Clean Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin: 2rem 0;
+}
+th {
+  background-color: #3498db;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+b, strong {
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+/* Responsive Concept Card Grids */
+.concept-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.concept-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.concept-card-full {
+  grid-column: 1 / -1;
+}
+
+.concept-card {
+  box-sizing: border-box;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.concept-card > :first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.concept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2563eb;
+  background-color: #eff6ff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.concept-card ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.concept-card li {
+  margin-bottom: 0.35rem;
+}
+
+.concept-card li:last-child {
+  margin-bottom: 0;
+}
 </style>
-<p><br></p>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Objectives
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>This week, you will learn how to clean the data that you got from the Internet, so that the data are ready for the analyses.</p>
-</div>
-</div>
 <p><big>This tutorial is exemplified with the data from ETToday!</big></p>
-<section id="what-does-cleaning-mean" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> What does “cleaning” mean?</h1>
-<section id="why-the-need-to-clean-the-data" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="why-the-need-to-clean-the-data"><span class="header-section-number">1.1</span> Why the need to clean the data?</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes and full script</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Data preprocessing - Tidying/Cleaning data:</strong></p>
+<ul>
+<li><strong>What does “cleaning” mean?:</strong> Why the need to clean the data, some cleaning principles, and a proposed workflow.</li>
+<li><strong>Preparation for the cleaning process:</strong> Playing hide-and-seek with the ETtoday corpus and listing the steps.</li>
+<li><strong>R coding:</strong> Preparing the environment, annotating, transforming, and saving the clean data.</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>A brief summary of the essential elements:</strong></p>
+<p>(to be given later)</p>
+<p><strong>Scripts and datasets</strong></p>
+<p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
+<p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.xlsx" target="_blank">here</a>.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>(to be given later)</p>
+</div>
+</div>
+</div>
+<div class="text-center mb-4">
+<p><a href="week11_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of Week 11</a></p>
+</div>
+<p><br></p>
+<p><br></p>
+</section>
+<section id="what-does-cleaning-mean" class="level1">
+<h1>1. What does “cleaning” mean?</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Why the need to clean the data?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Some cleaning principles</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">A proposed workflow</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>We just scraped data from the Internet. Even if we have been very careful when writing the scraping code, there are surely unnecessary data we need to remove, format problems, or further annotations to do. The reasons are quite simple: (a) while the majority of the webpages we scraped has a consistent structure, it is possible that some were slightly different, (b) unnecessary parts were coded under the same HTML nodes, such that it was not possible to scrape the data we wanted without scraping them as well, (c) it was easier to write the scraping code that way.</p>
 <p>That’s why we need to go through the cleaning process before rushing into the analyses! The main problems we will encounter are:</p>
-<ul>
-<li><p>The format of the table is not suited for analyses, so we need to arrange it</p></li>
-<li><p>Unnecessary data need to be removed, otherwise it will affect the results</p></li>
-<li><p>Simple annotations can be made, and these will be helpful for both the cleaning and analyses processes</p></li>
-</ul>
-</section>
-<section id="some-cleaning-principles" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="some-cleaning-principles"><span class="header-section-number">1.2</span> Some cleaning principles</h2>
+<div class="concept-grid-3">
+<div class="concept-card">
+<p><span class="step-badge">Problem 1</span></p>
+<p>The format of the table is not suited for analyses, so we need to arrange it</p>
+</div>
+<div class="concept-card">
+<p><span class="step-badge">Problem 2</span></p>
+<p>Unnecessary data need to be removed, otherwise it will affect the results</p>
+</div>
+<div class="concept-card">
+<p><span class="step-badge">Problem 3</span></p>
+<p>Simple annotations can be made, and these will be helpful for both the cleaning and analyses processes</p>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <section id="we-clean-we-dont-fish" class="level3">
 <h3 class="anchored" data-anchor-id="we-clean-we-dont-fish">We clean, we don’t fish</h3>
 <p>The cleaning process is here such that the data set will be ready for further analyses. But there are two important points we need to keep in mind:</p>
@@ -665,22 +881,25 @@ Objectives
 <li><p>Not all the cleaning steps are necessary, it really depends on your data set!</p></li>
 </ul>
 </section>
-</section>
-<section id="a-proposed-workflow" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="a-proposed-workflow"><span class="header-section-number">1.3</span> A proposed workflow</h2>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>Please do not hesitate to zoom in!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-9e1d034bf901fce0557c" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-9e1d034bf901fce0557c">{"x":{"diagram":"\n    graph TD\n        A[Look at your data set] -- Is it the right format? --> B{Yes} ;\n        A -- Is it the right format? --> C{No};\n        C -- Transform the format --> D[Are there necessary annotations to do?];\n        B --> D;\n        D -- Yes --> E[Proceed to the annotation process];\n        D -- No --> F[Are there unnecessary data to remove?];\n        E --> F;\n        F -- Yes --> G[Identify what to remove];\n        G --> H{Test the removal process};\n        H -- Acceptable removal --> I[Remove the data];\n        H -- Unacceptable removal --> G;\n        I --> J[Are there more unnecessary data to remove>];\n        J -- Yes --> G;\n        J -- No --> K[Data cleaning finished];\n        F -- No --> K\n    "},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9a34bbce191d30ea82ea" style="width:100%;height:750px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9a34bbce191d30ea82ea">{"x":{"diagram":"\ndigraph cleaning_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.5,\n    ranksep = 0.6\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#1E293B\",\n    margin = \"0.35,0.2\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 12,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.0,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Look at your data set\"]\n  B [label = \"Yes\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  C [label = \"No\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  D [label = \"Are there necessary annotations to do?\"]\n  E [label = \"Proceed to the annotation process\"]\n  F [label = \"Are there unnecessary data to remove?\"]\n  G [label = \"Identify what to remove\"]\n  H [label = \"Test the removal process\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  I [label = \"Remove the data\"]\n  J [label = \"Are there more unnecessary data to remove?\"]\n  K [label = \"Data cleaning finished\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B [label = \"  Is it the right format?  \"]\n  A -> C [label = \"  Is it the right format?  \"]\n  C -> D [label = \"  Transform the format  \"]\n  B -> D\n  D -> E [label = \"  Yes  \"]\n  D -> F [label = \"  No  \"]\n  E -> F\n  F -> G [label = \"  Yes  \"]\n  G -> H\n  H -> I [label = \"  Acceptable removal  \"]\n  H -> G [label = \"  Unacceptable removal  \"]\n  I -> J\n  J -> G [label = \"  Yes  \"]\n  J -> K [label = \"  No  \"]\n  F -> K [label = \"  No  \"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
-</section>
-<section id="preparation-for-the-cleaning-process-example-with-the-ettoday-corpus" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Preparation for the cleaning process: Example with the ETtoday corpus</h1>
-<section id="playing-hide-and-seek-the-goal-of-the-cleaning-process" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="playing-hide-and-seek-the-goal-of-the-cleaning-process"><span class="header-section-number">2.1</span> Playing hide-and-seek: The goal of the cleaning process</h2>
+<section id="preparation-for-the-cleaning-process-example-with-the-ettoday-corpus" class="level1">
+<h1>2. Preparation for the cleaning process: Example with the ETtoday corpus</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Playing hide-and-seek: The goal of the cleaning process</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">List of the steps to clean the ETtoday corpus</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>As it is made evident from the workflow, the cleaning process is a little bit like playing hide-and-seek. We must find what we need to clean, and one way is to randomly scroll the data.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -695,38 +914,46 @@ How to know what to clean?
 <p>The reality is that we will always miss something at some point. Most of the time, we realize that we need more cleaning during the analysis process. At that moment, we just add another step… and this is why having scripts already prepared is essential, since implementing a new step is easy and not time-consuming!</p>
 </div>
 </div>
-</section>
-<section id="list-of-the-steps-to-clean-the-ettoday-corpus" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="list-of-the-steps-to-clean-the-ettoday-corpus"><span class="header-section-number">2.2</span> List of the steps to clean the ETtoday corpus</h2>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p>Here is the list of the steps to go through to clean the ETtoday corpus based on my observations:</p>
-<ul>
-<li><p><strong>Transformations:</strong></p>
+<div class="concept-grid-2">
+<section id="transformations" class="level3 concept-card">
+<h3 class="anchored" data-anchor-id="transformations">Transformations</h3>
 <ul>
 <li>The whole article appear in one cell. We need to transform such that one cell = one paragraph</li>
-</ul></li>
-<li><p><strong>Annotations:</strong></p>
-<ul>
-<li>Annotate based on year, month and day</li>
-</ul></li>
-<li><p><strong>Data removal:</strong></p>
-<ul>
-<li><p>Remove the legends of the images</p></li>
-<li><p>Remove messages from ETtoday unrelated to the article (for instance: “be caution of your alcohol consumption”, etc.)</p></li>
-<li><p>Remove rows corresponding to the identity of the journalist</p></li>
-<li><p>Remove data from 2023</p></li>
-<li><p>Remove empty rows</p></li>
-<li><p>Remove weird scraped instances (e.g., HTML language, etc.)</p></li>
-</ul></li>
 </ul>
 </section>
+<section id="annotations" class="level3 concept-card">
+<h3 class="anchored" data-anchor-id="annotations">Annotations</h3>
+<ul>
+<li>Annotate based on year, month and day</li>
+</ul>
 </section>
-<section id="now-lets-turn-into-r-coding" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Now let’s turn into R coding</h1>
+<section id="data-removal" class="level3 concept-card concept-card-full">
+<h3 class="anchored" data-anchor-id="data-removal">Data removal</h3>
+<ul>
+<li>Remove the legends of the images</li>
+<li>Remove messages from ETtoday unrelated to the article (for instance: “be caution of your alcohol consumption”, etc.)</li>
+<li>Remove rows corresponding to the identity of the journalist</li>
+<li>Remove data from 2023</li>
+<li>Remove empty rows</li>
+<li>Remove weird scraped instances (e.g., HTML language, etc.)</li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="now-lets-turn-into-r-coding" class="level1">
+<h1>3. Now let’s turn into R coding</h1>
 <p>Now we are clear regarding what we need to clean, so let R do the job for us!</p>
 <p>First, you can download the script <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>, and follow the steps below to understand how it works.</p>
-<p>[Disclaimer: The explanation of the R codes is made by <i>Gemini</i> as an illustration of the use of such tools to decode a script.]</p>
-<section id="prepare-the-environment" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="prepare-the-environment"><span class="header-section-number">3.1</span> Prepare the environment</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Prepare the environment</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Examples of cleaning/preparing processes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Save the data</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>This section sets up the workspace by loading necessary tools and the raw data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -745,12 +972,13 @@ How to know what to clean?
 </div>
 <p>The command <code>load(file = "ArticleETToday_CorpusCourse.Rdata")</code> imports a previously saved R workspace file containing the raw scraped articles.</p>
 </section>
-</section>
-<section id="examples-of-cleaningpreparing-processes" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="examples-of-cleaningpreparing-processes"><span class="header-section-number">3.2</span> Examples of cleaning/preparing processes</h2>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <p>This is the core of the script, where the raw text is processed into a clean format suitable for analysis.</p>
-<section id="further-annotations" class="level3">
-<h3 class="anchored" data-anchor-id="further-annotations">Further annotations</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Further annotations</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Split the articles into paragraphs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Remove unwanted paragraphs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Remove empty rows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-5" role="tab" aria-controls="tabset-4-5" aria-selected="false">Remove weird scraping instances</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p>The code extracts temporal metadata from a single string column.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Article_total<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">substr</span>(Article_total<span class="sc">$</span>time, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">stop =</span> <span class="dv">4</span>)</span>
@@ -758,11 +986,8 @@ How to know what to clean?
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Article_total<span class="sc">$</span>day <span class="ot">&lt;-</span> <span class="fu">substr</span>(Article_total<span class="sc">$</span>time, <span class="at">start =</span> <span class="dv">9</span>, <span class="at">stop =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It creates three new columns (year, month, day) by cutting specific parts of the time column using the substr (substring) function. For example, it assumes the first 4 characters representing the year.</p>
-</section>
-<section id="data-transformation" class="level3">
-<h3 class="anchored" data-anchor-id="data-transformation">Data transformation</h3>
-<section id="split-the-articles-into-paragraphs" class="level4">
-<h4 class="anchored" data-anchor-id="split-the-articles-into-paragraphs">Split the articles into paragraphs</h4>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <p>This is a structural transformation step.</p>
 <p>Logic: The original data has one row per article. This code changes the unit of analysis to one row per paragraph.</p>
 <div class="cell">
@@ -774,9 +999,8 @@ How to know what to clean?
 </div>
 <p>Code: It splits the body text wherever it finds a carriage return code (). It then uses <code>unnest(body)</code> to expand these split pieces into individual rows.</p>
 <p>Result: If an article had 5 paragraphs, it will now occupy 5 rows in the dataframe Article_total2.</p>
-</section>
-<section id="remove-unwanted-paragraphs" class="level4">
-<h4 class="anchored" data-anchor-id="remove-unwanted-paragraphs">Remove unwanted paragraphs</h4>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
 <p>This section acts as a filter to remove “noise”—text that is not part of the actual news report.</p>
 <p><strong>Example 1 (Image Legends):</strong> Removes rows containing specific symbols like “▲” or “▼”, and lines starting with “圖／” (Image) or “文／” (Text/Author), which usually indicate captions or credits.</p>
 <div class="cell">
@@ -865,9 +1089,9 @@ How to know what to clean?
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>year<span class="sc">==</span><span class="st">"2023"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It removes all rows where the year is “2023”. The comment notes this is “controversial,” possibly because it indiscriminately drops data based on date rather than content quality.</p>
-</section>
-<section id="remove-empty-rows-this-section-deals-with-invisible-noise." class="level4">
-<h4 class="anchored" data-anchor-id="remove-empty-rows-this-section-deals-with-invisible-noise.">Remove empty rows This section deals with “invisible” noise.</h4>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+<p>This section deals with “invisible” noise.</p>
 <p>Iterative Cleaning: The user manually identified various forms of empty space (empty strings ““, single spaces” “, multiple spaces” “, and specific whitespace characters found at specific row indices like 29 or 13974).</p>
 <p>Process: The code repeatedly checks for these specific empty patterns and removes them to ensure the final dataset contains only text with content.</p>
 <div class="cell">
@@ -945,9 +1169,8 @@ How to know what to clean?
 <span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
 <span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="remove-weird-scraping-instances" class="level4">
-<h4 class="anchored" data-anchor-id="remove-weird-scraping-instances">Remove weird scraping instances</h4>
+</div>
+<div id="tabset-4-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-5-tab">
 <p>HTML Cleanup: The code uses <code>grepl("&lt;[^&gt;]+&gt;", ...)</code> to identify rows that still contain HTML tags (text starting with &lt; and ending with &gt;).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## This correspond to cases where the signs "&lt;" + other signs appear, these are rows with HTML language</span></span>
@@ -963,11 +1186,11 @@ How to know what to clean?
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>HTML <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Action: It filters out any rows where test_HTML is TRUE, removing residual web code that wasn’t caught by the initial scraper.</p>
-</section>
-</section>
-</section>
-<section id="save-the-data" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="save-the-data"><span class="header-section-number">3.3</span> Save the data</h2>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
 <p>The final section exports the cleaned dataset in two formats for future use.</p>
 <section id="save-as-an-excel-file" class="level3">
 <h3 class="anchored" data-anchor-id="save-as-an-excel-file">Save as an Excel file</h3>
@@ -977,12 +1200,9 @@ How to know what to clean?
 <h3 class="anchored" data-anchor-id="save-as-an-rdata-file">Save as an RData file</h3>
 <p>Uses save to store the dataframe as an R object, which preserves the data types (like factors vs strings) better than Excel for future R sessions.</p>
 </section>
-</section>
-</section>
-<section id="markdown-document-pdf-output-file-rdata-and-excel-files-of-the-scraped-data" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Markdown document, PDF output file, RData and Excel files of the scraped data</h1>
-<p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
-<p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.xlsx" target="_blank">here</a>.</p>
+</div>
+</div>
+</div>
 
 
 </section>

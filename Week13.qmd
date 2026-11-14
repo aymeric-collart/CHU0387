@@ -1,11 +1,9 @@
 ---
 title: "Week 13: Data visualization"
+subtitle: "CHU0387 | National Taiwan Normal University"
 format: 
   html:
     output-file: Week13.html
-    number-sections: true
-    number-depth: 5
-    toc: true
 ---
 
 ```{=html}
@@ -14,16 +12,252 @@ hr.rounded {
   border-top: 1px solid #E5E4E2;
   border-radius: 5px;
 }
+
+/* Tabset Styling - Single Row & Equal Alignment */
+.nav-tabs {
+  border-bottom: 2px solid #ecf0f1;
+  margin-top: 1em;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+.nav-tabs .nav-item {
+  flex: 1 1 0;
+  display: flex;
+}
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.02em;
+  line-height: 1.35;
+  color: #95a5a6;
+  border: none;
+  border-bottom: 4px solid transparent;
+  padding: 12px 14px;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+  border: none;
+  border-bottom: 4px solid #cbd5e1;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+  background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Nested Sub-Tabset Styling */
+.tab-content .nav-tabs {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 6px;
+  border-bottom: none;
+  gap: 6px;
+}
+.tab-content .nav-tabs .nav-link {
+  font-size: 0.92em;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-bottom: none;
+}
+.tab-content .nav-tabs .nav-link:hover {
+  background-color: #e2e8f0;
+  border-bottom: none;
+}
+.tab-content .nav-tabs .nav-link.active {
+  background-color: #ffffff;
+  color: #2563eb !important;
+  border-bottom: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Stunning Headers */
+h2 {
+  margin-top: 1.8em;
+  color: #2980b9;
+  font-weight: 600;
+}
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Floating Images with Animations */
+img {
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  margin: 2rem auto;
+  display: block;
+}
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+hr.rounded {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+  margin: 4rem 0;
+}
+
+/* Pro Code Styling */
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: #e74c3c;
+  background-color: #fdf2f0;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+pre code {
+  color: #333;
+  background-color: transparent;
+}
+
+/* Clean Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin: 2rem 0;
+}
+th {
+  background-color: #3498db;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+b, strong {
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+/* Responsive Concept Card Grids */
+.concept-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.concept-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.concept-card-full {
+  grid-column: 1 / -1;
+}
+
+.concept-card {
+  box-sizing: border-box;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.concept-card > :first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.concept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2563eb;
+  background-color: #eff6ff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.concept-card ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.concept-card li {
+  margin-bottom: 0.35rem;
+}
+
+.concept-card li:last-child {
+  margin-bottom: 0;
+}
 </style>
 ```
 
-<br>
-
-::: {.callout-warning icon="false"}
-## Objectives
+## Overview
 
 This week, you will learn how to create figures of the data that we analyzed.
-:::
+
+:::: panel-tabset
+## 🎯 Goals
+
+**Data visualization:**
+
+-   **Creating figures of the results, why?:** Reflections on visual presentation, word clouds, frequency dot plots, and lexical dispersion plots.
+-   **Let's do the work with R:** Using the `quanteda.textplots` and `ggplot2` packages and following the visualization workflow.
+-   **Explanation of the R code:** Preparing the environment, visualizing KWIC results, and plotting overall frequency tables.
+
+## 💻 Necessary codes and full script
+
+**A brief summary of the essential elements:**
+
+(to be given later)
+
+**Scripts and datasets**
 
 | Markdown script for this week | Datasets to use in the script |
 |----|----|
@@ -31,9 +265,28 @@ This week, you will learn how to create figures of the data that we analyzed.
 |  | <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_KWIC_You.Rdata" target="_blank">KWIC analysis of *you* 'to have'</a> |
 |  | <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_Top100words.Rdata" target="_blank">Most frequently used words</a> |
 
-# Creating figures of the results, why?
+You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week13_DataVisualization.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week13_DataVisualization.pdf" target="_blank">Here</a> is the PDF output of the same document.
 
-## Some reflexions on the visual presentation of the results
+## 📝 Homework
+
+(to be given later)
+::::
+
+::: {.text-center .mb-4}
+<a href="week13_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of Week 13</a>
+:::
+
+<br>
+
+<br>
+
+# 1. Creating figures of the results, why?
+
+::::: {.panel-tabset}
+
+## Visual presentation of the results
+
+### Some reflexions on the visual presentation of the results
 
 A great question to ask is: Why adding figures after all? We scraped the data from the Internet, we cleaned them and we analyzed them based on our research question. We even have tables to present as well, and all we need to do now is to interpret the results to deliver a great story. So, what is the place for figures?
 
@@ -47,7 +300,7 @@ If you are aware of this natural human behavior, then you have surely already un
 
 Knowing how to present the results in a figure is very important as well. Having a great figure able to summarize the results such that we can grasp the intended message of the study at one glance will determine the success of the whole presentation. Conversely, a messy figure, containing too much information or just presented in an inappropriate way will blur the message, affecting the success of the presentation. Adding a figure is not enough, it requires some strategic thinking as well! You can have a look at the figures plotted with R on this webpage. Some are quite straightforward, while some are clearly just messy.
 
-## Examples of some types of figures
+## Word clouds & Frequency dot plots
 
 ### Introduction to the figures we will learn in the tutorial: word clouds, and frequency dot plots
 
@@ -63,13 +316,27 @@ I invite you to watch this YouTube video if you want to know more about frequenc
 
 [![](https://img.youtube.com/vi/7AjSUj-OVuE/0.jpg)](https://www.youtube.com/watch?v=7AjSUj-OVuE)
 
+## Lexical dispersion plot
+
 ### Lexical dispersion plot: Compare the use of keywords across texts and/or time
 
 So far, we looked at the frequency of words within single documents and within the same time frame. Maybe you will be interested in other types of analyses:
 
--   Comparing the frequency of use of two keywords within one document;
+:::: {.concept-grid-2}
 
--   Comparing the frequency of use of the same keyword or different keywords across time and/or between documents.
+::: {.concept-card}
+<span class="step-badge">Analysis 1</span>
+
+Comparing the frequency of use of two keywords within one document;
+:::
+
+::: {.concept-card}
+<span class="step-badge">Analysis 2</span>
+
+Comparing the frequency of use of the same keyword or different keywords across time and/or between documents.
+:::
+
+::::
 
 One way to visualize the results of such an analysis is to use a "lexical dispersion plot". There is a full tutorial on the *quanteda* website, including the R codes and the example below. Here is the link to the website: [Quanteda tutorial for figures](https://quanteda.io/articles/pkgdown/examples/plotting.html).
 
@@ -79,23 +346,35 @@ Let's look at an example. Let's say that you are interested in two words, "Ameri
 
 Again, this is only a figure. Once we have it, you may have this question in mind: and so what? And this is the perfect question to ask. Our role, once we have the results and plotted the data, is to make them meaningful. Generally, we interpret the results according to the research question, such that we can answer the "and so what?" question.
 
-# Let's do the work with R
+:::::
+
+# 2. Let's do the work with R
+
+::::: {.panel-tabset}
 
 ## Two packages: 'quanteda' and 'ggplot2'
 
 In this tutorial, I will only explain how to plot two types of figures: Word clouds and frequency dot plots. There are two reasons for that. The way we analyzed the data from ETtoday last week may not be ideal for a lexical dispersion plot. Of course, we could use the data from ETtoday, and reanalyze then to include, for example, different types of texts ('politics' vs. 'society' articles), or focusing on differences over time. The second reason is that the tutorial on the quanteda website is very clear, so you can really just look at it to understand how it works. In this tutorial for this week, we will mainly use two packages to plot the data.
 
+:::: {.concept-grid-2}
+
+::: {.concept-card}
 ### 'quanteda', or more precisely, 'quanteda.textplots'
 
 Again, such as last week, we will use the 'quanteda' library, and its sub-library, 'quanteda.textplots'. If not already done, you will need to install them (if you forgot how to do so, you can go back to Week 5). And then you will just need to load them.
+:::
 
+::: {.concept-card}
 ### 'ggplot2'
 
 Another package we are going to use is called 'ggplot2'.
 
-![](assets/images/ggplot2_logo.png)
-
 The ggplot2 package is very powerful and useful to create figures. You can go to their website and scroll through examples of what is possible to do. Once you are very familiar with ggplot figures, you will be amazed when you are reading the news online by the fact that many figures look so familiar. This package is therefore one of the best ways to obtain very professional, good-looking figures that will help you not only for this tutorial, but also for any kind of study (Master thesis/PhD dissertation, case studies to conduct in your job, etc.).
+:::
+
+::::
+
+![](assets/images/ggplot2_logo.png)
 
 You can refer to the [ggplot2 website here](https://ggplot2.tidyverse.org/). There are cheatsheets as well, to have an idea of all the functions at a glance:
 
@@ -107,27 +386,77 @@ You can refer to the [ggplot2 website here](https://ggplot2.tidyverse.org/). The
 
 Like always, here is the workflow for the R tutorial this week:
 
-```{r mermaid-example, echo=FALSE, fig.align='center'}
-    DiagrammeR::mermaid(diagram = "
-    graph TD
-        A[Analyzed dataset] --> B[Select appropriate figure];
-        B -- Word cloud --> C['quanteda' library];
-        B -- Frequency dot plots --> D['ggplot2' library];
-        C --> E[Tokenize the data, confert to 'dfm' object];
-        E --> F[Trim the data];
-        F --> G[Create the word cloud];
-        D -- For 'combined' analyses --> H[Tokenize the data, confert to 'dfm' object];
-        H -- Compute the frequency --> I[Create the dot plot];
-        D -- If only frequency analysis --> I
-    ")
-
+```{r setup, include = FALSE}
+library(DiagrammeR)
 ```
 
-## Explanation of the R code
 
-### Prepare the environment
+```{r, echo=FALSE, fig.align='center'}
+library(DiagrammeR)
 
-#### Load the libraries
+grViz("
+digraph viz_workflow {
+  graph [
+    rankdir = TB, 
+    bgcolor = transparent,
+    nodesep = 0.5,
+    ranksep = 0.6
+  ]
+
+  node [
+    shape = box,
+    style = 'rounded,filled',
+    fillcolor = '#F8FAFC',
+    color = '#64748B',
+    penwidth = 1.5,
+    fontname = 'Helvetica, Arial, sans-serif',
+    fontsize = 14,
+    fontcolor = '#1E293B',
+    margin = '0.35,0.2'
+  ]
+
+  edge [
+    fontname = 'Helvetica, Arial, sans-serif',
+    fontsize = 12,
+    fontcolor = '#2563EB',
+    color = '#94A3B8',
+    arrowsize = 1.0,
+    penwidth = 1.5
+  ]
+
+  A [label = 'Analyzed dataset']
+  B [label = 'Select appropriate figure', fillcolor = '#EFF6FF', color = '#3B82F6']
+  C [label = '&#39;quanteda&#39; library', fillcolor = '#EFF6FF', color = '#3B82F6']
+  D [label = '&#39;ggplot2&#39; library', fillcolor = '#EFF6FF', color = '#3B82F6']
+  E [label = 'Tokenize the data, confert to &#39;dfm&#39; object']
+  F [label = 'Trim the data']
+  G [label = 'Create the word cloud', fillcolor = '#F0FDF4', color = '#22C55E', penwidth = 1.8]
+  H [label = 'Tokenize the data, confert to &#39;dfm&#39; object']
+  I [label = 'Create the dot plot', fillcolor = '#F0FDF4', color = '#22C55E', penwidth = 1.8]
+
+  A -> B
+  B -> C [label = '  Word cloud  ']
+  B -> D [label = '  Frequency dot plots  ']
+  C -> E
+  E -> F
+  F -> G
+  D -> H [label = '  For &#39;combined&#39; analyses  ']
+  H -> I [label = '  Compute the frequency  ']
+  D -> I [label = '  If only frequency analysis  ']
+}
+", width = "100%", height = "600px")
+```
+
+
+:::::
+
+# 3. Explanation of the R code
+
+:::::: {.panel-tabset}
+
+## Prepare the environment
+
+### Load the libraries
 
 We load the necessary tools. This week, we introduce quanteda.textplots for word clouds and ggplot2 for professional charts.
 
@@ -147,7 +476,7 @@ library(scales)
 showtext_auto()
 ```
 
-#### Load the files used for the analyses
+### Load the files used for the analyses
 
 We load the data processed in previous weeks (the cleaned corpus and the KWIC analysis of "有").
 
@@ -157,13 +486,13 @@ load(file = "ArticleETToday_KWIC_You.Rdata")
 load(file = "ArticleETToday_Top100words.Rdata")
 ```
 
-### Visualizing KWIC
+## Visualizing KWIC
 
-#### Visualizing overall frequency in the "post" context
+::::: {.panel-tabset}
+
+### Post context: Word cloud
 
 We want to visualize the words that appear after our keyword ("有").
-
-##### Word cloud
 
 To create a word cloud, we first convert the text tokens into a Document-Feature Matrix (DFM) using dfm(). This counts every word.
 
@@ -212,7 +541,7 @@ textplot_wordcloud(kwic_post_freq_trim_WithoutDE,
                    color = c('red', 'green', 'blue', "orange"))
 ```
 
-##### Frequency plots
+### Post context: Frequency plots
 
 Word clouds are pretty, but Dot Plots (created with ggplot2) are more accurate for analysis.
 
@@ -249,11 +578,9 @@ ggplot(head(kwic_data_freq_PostContext, 30),
   scale_x_continuous(labels = label_comma())
 ```
 
-#### Visualizing frequency of the first word following the keyword
+### First word: Word clouds
 
 Sometimes the context (window) is large. Here, we zoom in on only the very first word after "有".
-
-##### Word clouds
 
 We use `word(kwic_data$post, 1)` from the *stringr* package. This function grabs the 1st word from the text string. We then repeat the DFM and Word Cloud process.
 
@@ -280,7 +607,7 @@ textplot_wordcloud(kwic_postFirstWord_freq_trim,
                    color = c('red', 'green', 'blue', "orange", "cyan"))
 ```
 
-##### Frequency plots
+### First word: Frequency plots
 
 We repeat the ggplot dot plot for the "First Word" dataset. This allows us to see the most common direct objects or verbs following "有".
 
@@ -316,9 +643,13 @@ ggplot(head(kwic_data_freq_PostFirstWord, 30),
   scale_x_continuous(labels = label_comma())
 ```
 
-### Frequency tables
+:::::
 
-#### Use word clouds
+## Frequency tables
+
+::::: {.panel-tabset}
+
+### Use word clouds
 
 Finally, we apply these techniques to the entire corpus (*Article_total2\$body*), not just the search results.
 
@@ -362,7 +693,7 @@ textplot_wordcloud(Article_tokens_frequency_trim_WithoutDE,
                    color = c('red', 'green', 'blue', "orange"))
 ```
 
-#### Frequency plots with ggplot
+### Frequency plots with ggplot
 
 We use ggplot one last time on the table_FreqWord_Top100 dataset created in Week 12.
 
@@ -389,6 +720,6 @@ ggplot(head(table_FreqWord_Top100, 30),
   scale_x_continuous(labels = label_comma())
 ```
 
-# Markdown document and PDF output file
+:::::
 
-You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week13_DataVisualization.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/Markdown_Week13_DataVisualization.pdf" target="_blank">Here</a> is the PDF output of the same document.
+::::::

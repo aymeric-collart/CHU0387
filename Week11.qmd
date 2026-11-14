@@ -1,11 +1,9 @@
 ---
 title: "Week 11: Data preprocessing - Tidying/Cleaning data"
+subtitle: "CHU0387 | National Taiwan Normal University"
 format: 
   html:
     output-file: Weeks11.html
-    number-sections: true
-    number-depth: 2
-    toc: true
 ---
 
 ```{=html}
@@ -14,20 +12,275 @@ hr.rounded {
   border-top: 1px solid #E5E4E2;
   border-radius: 5px;
 }
+
+/* Tabset Styling - Single Row & Equal Alignment */
+.nav-tabs {
+  border-bottom: 2px solid #ecf0f1;
+  margin-top: 1em;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+.nav-tabs .nav-item {
+  flex: 1 1 0;
+  display: flex;
+}
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.02em;
+  line-height: 1.35;
+  color: #95a5a6;
+  border: none;
+  border-bottom: 4px solid transparent;
+  padding: 12px 14px;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+  border: none;
+  border-bottom: 4px solid #cbd5e1;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+  background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Nested Sub-Tabset Styling */
+.tab-content .nav-tabs {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 6px;
+  border-bottom: none;
+  gap: 6px;
+}
+.tab-content .nav-tabs .nav-link {
+  font-size: 0.92em;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-bottom: none;
+}
+.tab-content .nav-tabs .nav-link:hover {
+  background-color: #e2e8f0;
+  border-bottom: none;
+}
+.tab-content .nav-tabs .nav-link.active {
+  background-color: #ffffff;
+  color: #2563eb !important;
+  border-bottom: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Stunning Headers */
+h2 {
+  margin-top: 1.8em;
+  color: #2980b9;
+  font-weight: 600;
+}
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Floating Images with Animations */
+img {
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  margin: 2rem auto;
+  display: block;
+}
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+hr.rounded {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+  margin: 4rem 0;
+}
+
+/* Pro Code Styling */
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: #e74c3c;
+  background-color: #fdf2f0;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+pre code {
+  color: #333;
+  background-color: transparent;
+}
+
+/* Clean Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin: 2rem 0;
+}
+th {
+  background-color: #3498db;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+b, strong {
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+/* Responsive Concept Card Grids */
+.concept-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.concept-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.concept-card-full {
+  grid-column: 1 / -1;
+}
+
+.concept-card {
+  box-sizing: border-box;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.concept-card > :first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.concept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2563eb;
+  background-color: #eff6ff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.concept-card ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.concept-card li {
+  margin-bottom: 0.35rem;
+}
+
+.concept-card li:last-child {
+  margin-bottom: 0;
+}
 </style>
 ```
 
-<br>
-
-::: {.callout-warning icon="false"}
-## Objectives
+## Overview
 
 This week, you will learn how to clean the data that you got from the Internet, so that the data are ready for the analyses.
-:::
 
 <big>This tutorial is exemplified with the data from ETToday!</big>
 
-# What does "cleaning" mean?
+:::: panel-tabset
+## 🎯 Goals
+
+**Data preprocessing - Tidying/Cleaning data:**
+
+-   **What does "cleaning" mean?:** Why the need to clean the data, some cleaning principles, and a proposed workflow.
+-   **Preparation for the cleaning process:** Playing hide-and-seek with the ETtoday corpus and listing the steps.
+-   **R coding:** Preparing the environment, annotating, transforming, and saving the clean data.
+
+## 💻 Necessary codes and full script
+
+**A brief summary of the essential elements:**
+
+(to be given later)
+
+**Scripts and datasets**
+
+You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.pdf" target="_blank">Here</a> is the PDF output of the same document.
+
+The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.xlsx" target="_blank">here</a>.
+
+## 📝 Homework
+
+(to be given later)
+::::
+
+::: {.text-center .mb-4}
+<a href="week11_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of Week 11</a>
+:::
+
+<br>
+
+<br>
+
+# 1. What does "cleaning" mean?
+
+::::: {.panel-tabset}
 
 ## Why the need to clean the data?
 
@@ -35,11 +288,27 @@ We just scraped data from the Internet. Even if we have been very careful when w
 
 That's why we need to go through the cleaning process before rushing into the analyses! The main problems we will encounter are:
 
--   The format of the table is not suited for analyses, so we need to arrange it
+:::: {.concept-grid-3}
 
--   Unnecessary data need to be removed, otherwise it will affect the results
+::: {.concept-card}
+<span class="step-badge">Problem 1</span>
 
--   Simple annotations can be made, and these will be helpful for both the cleaning and analyses processes
+The format of the table is not suited for analyses, so we need to arrange it
+:::
+
+::: {.concept-card}
+<span class="step-badge">Problem 2</span>
+
+Unnecessary data need to be removed, otherwise it will affect the results
+:::
+
+::: {.concept-card}
+<span class="step-badge">Problem 3</span>
+
+Simple annotations can be made, and these will be helpful for both the cleaning and analyses processes
+:::
+
+::::
 
 ## Some cleaning principles
 
@@ -76,28 +345,79 @@ There are at least two reasons for that:
 
 Please do not hesitate to zoom in!
 
-```{r mermaid-example, echo=FALSE, fig.align='center'}
-    DiagrammeR::mermaid("
-    graph TD
-        A[Look at your data set] -- Is it the right format? --> B{Yes} ;
-        A -- Is it the right format? --> C{No};
-        C -- Transform the format --> D[Are there necessary annotations to do?];
-        B --> D;
-        D -- Yes --> E[Proceed to the annotation process];
-        D -- No --> F[Are there unnecessary data to remove?];
-        E --> F;
-        F -- Yes --> G[Identify what to remove];
-        G --> H{Test the removal process};
-        H -- Acceptable removal --> I[Remove the data];
-        H -- Unacceptable removal --> G;
-        I --> J[Are there more unnecessary data to remove>];
-        J -- Yes --> G;
-        J -- No --> K[Data cleaning finished];
-        F -- No --> K
-    ")
+```{r setup, include = FALSE}
+library(DiagrammeR)
 ```
 
-# Preparation for the cleaning process: Example with the ETtoday corpus
+```{r, echo=FALSE, fig.align='center'}
+library(DiagrammeR)
+
+grViz("
+digraph cleaning_workflow {
+  graph [
+    rankdir = TB, 
+    bgcolor = transparent,
+    nodesep = 0.5,
+    ranksep = 0.6
+  ]
+
+  node [
+    shape = box,
+    style = 'rounded,filled',
+    fillcolor = '#F8FAFC',
+    color = '#64748B',
+    penwidth = 1.5,
+    fontname = 'Helvetica, Arial, sans-serif',
+    fontsize = 14,
+    fontcolor = '#1E293B',
+    margin = '0.35,0.2'
+  ]
+
+  edge [
+    fontname = 'Helvetica, Arial, sans-serif',
+    fontsize = 12,
+    fontcolor = '#2563EB',
+    color = '#94A3B8',
+    arrowsize = 1.0,
+    penwidth = 1.5
+  ]
+
+  A [label = 'Look at your data set']
+  B [label = 'Yes', shape = diamond, fillcolor = '#EFF6FF', color = '#3B82F6']
+  C [label = 'No', shape = diamond, fillcolor = '#EFF6FF', color = '#3B82F6']
+  D [label = 'Are there necessary annotations to do?']
+  E [label = 'Proceed to the annotation process']
+  F [label = 'Are there unnecessary data to remove?']
+  G [label = 'Identify what to remove']
+  H [label = 'Test the removal process', shape = diamond, fillcolor = '#EFF6FF', color = '#3B82F6']
+  I [label = 'Remove the data']
+  J [label = 'Are there more unnecessary data to remove?']
+  K [label = 'Data cleaning finished', fillcolor = '#F0FDF4', color = '#22C55E', penwidth = 1.8]
+
+  A -> B [label = '  Is it the right format?  ']
+  A -> C [label = '  Is it the right format?  ']
+  C -> D [label = '  Transform the format  ']
+  B -> D
+  D -> E [label = '  Yes  ']
+  D -> F [label = '  No  ']
+  E -> F
+  F -> G [label = '  Yes  ']
+  G -> H
+  H -> I [label = '  Acceptable removal  ']
+  H -> G [label = '  Unacceptable removal  ']
+  I -> J
+  J -> G [label = '  Yes  ']
+  J -> K [label = '  No  ']
+  F -> K [label = '  No  ']
+}
+", width = "100%", height = "750px")
+```
+
+:::::
+
+# 2. Preparation for the cleaning process: Example with the ETtoday corpus
+
+::::: {.panel-tabset}
 
 ## Playing hide-and-seek: The goal of the cleaning process
 
@@ -113,35 +433,42 @@ The reality is that we will always miss something at some point. Most of the tim
 
 Here is the list of the steps to go through to clean the ETtoday corpus based on my observations:
 
--   **Transformations:**
+:::: {.concept-grid-2}
 
-    -   The whole article appear in one cell. We need to transform such that one cell = one paragraph
+::: {.concept-card}
+### Transformations
 
--   **Annotations:**
+-   The whole article appear in one cell. We need to transform such that one cell = one paragraph
+:::
 
-    -   Annotate based on year, month and day
+::: {.concept-card}
+### Annotations
 
--   **Data removal:**
+-   Annotate based on year, month and day
+:::
 
-    -   Remove the legends of the images
+::: {.concept-card .concept-card-full}
+### Data removal
 
-    -   Remove messages from ETtoday unrelated to the article (for instance: "be caution of your alcohol consumption", etc.)
+-   Remove the legends of the images
+-   Remove messages from ETtoday unrelated to the article (for instance: "be caution of your alcohol consumption", etc.)
+-   Remove rows corresponding to the identity of the journalist
+-   Remove data from 2023
+-   Remove empty rows
+-   Remove weird scraped instances (e.g., HTML language, etc.)
+:::
 
-    -   Remove rows corresponding to the identity of the journalist
+::::
 
-    -   Remove data from 2023
+:::::
 
-    -   Remove empty rows
-
-    -   Remove weird scraped instances (e.g., HTML language, etc.)
-
-# Now let's turn into R coding
+# 3. Now let's turn into R coding
 
 Now we are clear regarding what we need to clean, so let R do the job for us!
 
 First, you can download the script <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>, and follow the steps below to understand how it works.
 
-\[Disclaimer: The explanation of the R codes is made by <i>Gemini</i> as an illustration of the use of such tools to decode a script.\]
+:::::: {.panel-tabset}
 
 ## Prepare the environment
 
@@ -171,6 +498,8 @@ The command `load(file = "ArticleETToday_CorpusCourse.Rdata")` imports a previou
 
 This is the core of the script, where the raw text is processed into a clean format suitable for analysis.
 
+::::: {.panel-tabset}
+
 ### Further annotations
 
 The code extracts temporal metadata from a single string column.
@@ -183,9 +512,7 @@ Article_total$day <- substr(Article_total$time, start = 9, stop = 10)
 
 It creates three new columns (year, month, day) by cutting specific parts of the time column using the substr (substring) function. For example, it assumes the first 4 characters representing the year.
 
-### Data transformation
-
-#### Split the articles into paragraphs
+### Split the articles into paragraphs
 
 This is a structural transformation step.
 
@@ -199,12 +526,11 @@ Article_total2 <- Article_total %>%
   unnest(body)
 ```
 
-
 Code: It splits the body text wherever it finds a carriage return code (\r\n). It then uses `unnest(body)` to expand these split pieces into individual rows.
 
 Result: If an article had 5 paragraphs, it will now occupy 5 rows in the dataframe Article_total2.
 
-#### Remove unwanted paragraphs
+### Remove unwanted paragraphs
 
 This section acts as a filter to remove "noise"—text that is not part of the actual news report.
 
@@ -298,7 +624,6 @@ Article_total2 <- Article_total2[-grep("實習記者", Article_total2$FirstFourC
 Article_total2$FirstFourCharacters <- NULL
 ```
 
-
 It removes rows starting with "記者" (Reporter) or "實習記者" (Intern Reporter) to strip out bylines.
 
 **Example 4 (Date Filtering):**
@@ -307,10 +632,11 @@ It removes rows starting with "記者" (Reporter) or "實習記者" (Intern Repo
 Article_total2 <- Article_total2[!(Article_total2$year=="2023"), ]
 ```
 
-
 It removes all rows where the year is "2023". The comment notes this is "controversial," possibly because it indiscriminately drops data based on date rather than content quality.
 
-#### Remove empty rows This section deals with "invisible" noise.
+### Remove empty rows
+
+This section deals with "invisible" noise.
 
 Iterative Cleaning: The user manually identified various forms of empty space (empty strings "", single spaces " ", multiple spaces " ", and specific whitespace characters found at specific row indices like 29 or 13974).
 
@@ -392,8 +718,7 @@ test <- Article_total2[(Article_total2$body==ToRemove), ]
 Article_total2 <- Article_total2[!(Article_total2$body==ToRemove), ]
 ```
 
-
-#### Remove weird scraping instances
+### Remove weird scraping instances
 
 HTML Cleanup: The code uses `grepl("<[^>]+>", ...)` to identify rows that still contain HTML tags (text starting with \< and ending with \>).
 
@@ -413,6 +738,8 @@ Article_total2$HTML <- NULL
 
 Action: It filters out any rows where test_HTML is TRUE, removing residual web code that wasn't caught by the initial scraper.
 
+:::::
+
 ## Save the data
 
 The final section exports the cleaned dataset in two formats for future use.
@@ -425,8 +752,4 @@ Uses `write.xlsx` to save Article_total2 as a standard Excel spreadsheet.
 
 Uses save to store the dataframe as an R object, which preserves the data types (like factors vs strings) better than Excel for future R sessions.
 
-# Markdown document, PDF output file, RData and Excel files of the scraped data
-
-You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.pdf" target="_blank">Here</a> is the PDF output of the same document.
-
-The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.xlsx" target="_blank">here</a>.
+::::::
