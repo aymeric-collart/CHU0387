@@ -68,7 +68,7 @@ head(URL_total)
 
 ## You can run the following line for a much faster process, but you won't have a lot of data.
 ## I recommend running the following line for your homework.
-URL_total <- head(URL_total, 1)
+#URL_total <- head(URL_total, 1)
 ```
 
 ## 2.2. Retrieve the URLs of the individual articles
@@ -208,19 +208,8 @@ for (j in 1:length(article_overview_unique$news_url)){
                            body = news_body,
                            url = article_overview_unique$news_url[j]))
     Article_total <- rbind(Article_total, Article)
-  }, error=function(e){pb$message("ERROR :",conditionMessage(e), "\n")})
+  }, error=function(e){pb$message(paste0("ERROR at URL ", j, ": ", conditionMessage(e)))})
   
-  #setTxtProgressBar(pb, j)
-  
-}
-
-
-testit <- function(x = sort(runif(20)), ...)
-{
-    pb <- txtProgressBar(...)
-    for(i in c(0, x, 1)) {Sys.sleep(0.5); setTxtProgressBar(pb, i)}
-    Sys.sleep(1)
-    close(pb)
 }
 
 head(Article_total)

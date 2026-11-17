@@ -203,6 +203,118 @@
     "text": "📝 In-class exercise!\n\n\nTask list:\n\nCreate a new Markdown document, and call it ScriptWeek5_Markdown.\nUse the script from last week, but adapt it to the Markdown format. Be creative!"
   },
   {
+    "objectID": "week13_slides.html#goals",
+    "href": "week13_slides.html#goals",
+    "title": "Week 13: Data visualization",
+    "section": "🎯 Goals",
+    "text": "🎯 Goals\n\n\nWeek 12: Analyzed the cleaned ETtoday corpus using KWIC and frequency tables.\n\n\n\n\nWeek 13: Learn how to create clear, impactful figures of the data that we analyzed!"
+  },
+  {
+    "objectID": "week13_slides.html#visual-presentation-of-the-results",
+    "href": "week13_slides.html#visual-presentation-of-the-results",
+    "title": "Week 13: Data visualization",
+    "section": "Visual presentation of the results",
+    "text": "Visual presentation of the results\nWe scraped, cleaned, and analyzed our data—and we already have tables. Why add figures?\n\n\n\n\n\n\n\nThink about it\n\n\nWhen you read a website, a journal article, or scroll through social media, do you read long, complete texts first—or are you drawn to headlines and pictures before turning to the text?\n\n\n\n\n\n\n\n\n✅ A great figure\nStimulates the human visual system and summarizes the results so the audience grasps the core message at one glance.\n\n\n\n\n\n❌ A messy figure\nPacks in too much information or uses an inappropriate format, blurring the message and hurting the presentation."
+  },
+  {
+    "objectID": "week13_slides.html#two-main-figures-for-this-tutorial",
+    "href": "week13_slides.html#two-main-figures-for-this-tutorial",
+    "title": "Week 13: Data visualization",
+    "section": "Two main figures for this tutorial",
+    "text": "Two main figures for this tutorial\n\n\n\nFigure Type 1 ☁️ Word Clouds\n\nWords are arranged in a cloud where word size = relative frequency in the corpus.\nPros: Minimalist design, intuitive, and strong immediate visual impact!\n\n\n\n\n\n\n\n\n\n\nFigure Type 2 📊 Frequency Dot Plots\n\nPlots words along a ranked frequency axis.\nPros: Less playful than word clouds, but much more accurate and allows you to display multiple types of information at once!"
+  },
+  {
+    "objectID": "week13_slides.html#going-further-lexical-dispersion-plots",
+    "href": "week13_slides.html#going-further-lexical-dispersion-plots",
+    "title": "Week 13: Data visualization",
+    "section": "Going further: Lexical dispersion plots",
+    "text": "Going further: Lexical dispersion plots\nWhat if you want to compare keywords across texts or time?\n\n\n\nTwo common uses:\n\nCompare the frequency of two keywords within a single document.\nCompare one or more keywords across time and/or between documents.\n\n🔗 Quanteda plotting tutorial\n\n\n\n\n\n\n\n\n\n\n\n\n🤔 “And so what?” A figure is never the final step! Our role is to interpret the visual patterns according to our research question."
+  },
+  {
+    "objectID": "week13_slides.html#how-are-we-going-to-work-in-this-class",
+    "href": "week13_slides.html#how-are-we-going-to-work-in-this-class",
+    "title": "Week 13: Data visualization",
+    "section": "How are we going to work in this class?",
+    "text": "How are we going to work in this class?\nPlease download the R Markdown script and the three datasets from Weeks 11 & 12:\n\n\n\n\n\n\n\nMarkdown script for this week\nDatasets to use in the script\n\n\n\n\n📥 Download Markdown script\n📦 Whole ETtoday corpus (after cleaning)\n\n\n📄 PDF output of the script\n🔍 KWIC analysis of you ‘to have’\n\n\n\n📊 Most frequently used words (Top 100)"
+  },
+  {
+    "objectID": "week13_slides.html#two-key-packages-quanteda.textplots-ggplot2",
+    "href": "week13_slides.html#two-key-packages-quanteda.textplots-ggplot2",
+    "title": "Week 13: Data visualization",
+    "section": "Two key packages: quanteda.textplots & ggplot2",
+    "text": "Two key packages: quanteda.textplots & ggplot2\n\n\n\nPackage 1 quanteda.textplots\n\nSub-library of quanteda dedicated to visualizing text data.\nUsed today to generate word clouds directly from Document-Feature Matrices (dfm).\n\n\n\n\n\nPackage 2 ggplot2 (website)\n\nThe gold standard in R for publication-ready figures (theses, journal articles, industry reports).\nUsed today to build clean, ranked frequency dot plots."
+  },
+  {
+    "objectID": "week13_slides.html#ggplot2-cheatsheets",
+    "href": "week13_slides.html#ggplot2-cheatsheets",
+    "title": "Week 13: Data visualization",
+    "section": "ggplot2 Cheatsheets",
+    "text": "ggplot2 Cheatsheets"
+  },
+  {
+    "objectID": "week13_slides.html#workflow-for-word-clouds-frequency-dot-plots",
+    "href": "week13_slides.html#workflow-for-word-clouds-frequency-dot-plots",
+    "title": "Week 13: Data visualization",
+    "section": "Workflow for word clouds & frequency dot plots",
+    "text": "Workflow for word clouds & frequency dot plots"
+  },
+  {
+    "objectID": "week13_slides.html#step-0-prepare-the-environment",
+    "href": "week13_slides.html#step-0-prepare-the-environment",
+    "title": "Week 13: Data visualization",
+    "section": "Step 0: Prepare the environment",
+    "text": "Step 0: Prepare the environment\n\n\n1. Load required libraries:\n\nlibrary(quanteda)\nlibrary(quanteda.textstats)\nlibrary(quanteda.textplots)\nlibrary(stringr)\nlibrary(ggplot2)\nlibrary(showtext)\nlibrary(scales)\n\n# Automatically detect & render Chinese fonts in R plots!\nshowtext_auto()\n\n\n\n\n🀄 Crucial for Chinese text: Without showtext and showtext_auto(), R plots often display empty boxes (□□) instead of Chinese characters!\n\n\n\n\n\n2. Load the analyzed datasets:\n\nload(file = \"ArticleETToday_CorpusCourse_CLEAN.Rdata\")\nload(file = \"ArticleETToday_KWIC_You.Rdata\")\nload(file = \"ArticleETToday_Top100words.Rdata\")\n\n\nArticle_total2: Full cleaned corpus.\nkwic_data: KWIC concordance of \"有\".\ntable_FreqWord_Top100: Top 100 corpus words."
+  },
+  {
+    "objectID": "week13_slides.html#part-a-visualizing-kwic-有-post-context-word-cloud",
+    "href": "week13_slides.html#part-a-visualizing-kwic-有-post-context-word-cloud",
+    "title": "Week 13: Data visualization",
+    "section": "Part A: Visualizing KWIC (有) — Post-context Word Cloud",
+    "text": "Part A: Visualizing KWIC (有) — Post-context Word Cloud\nWe first convert kwic_data$post into a dfm and filter noise with dfm_trim():\n\n\n\n📉 min_termfreq = 100 (The Floor)\nRemoves rare words (&lt; 100 occurrences) such as typos, rare names, or irrelevant noise.\n\n\n\n📈 max_termfreq = 10000 (The Ceiling)\nRemoves super-frequent function words (&gt; 10,000 occurrences) like \"的\" (de), which otherwise dwarf content words!\n\n\n\nkwic_post_freq &lt;- dfm(tokens(kwic_data$post,\n                             remove_punct = TRUE, remove_numbers = TRUE, remove_separators = TRUE))\n\n# Version 1: Keep high-frequency words (only trims rare words &lt; 100)\nkwic_post_freq_trim_WithDE &lt;- dfm_trim(kwic_post_freq, min_termfreq = 100, verbose = TRUE)\n\n# Version 2: Remove super-frequent words like '的' (trims &gt; 10,000)\nkwic_post_freq_trim_WithoutDE &lt;- dfm_trim(kwic_post_freq, min_termfreq = 100, max_termfreq = 10000, verbose = TRUE)"
+  },
+  {
+    "objectID": "week13_slides.html#plotting-the-two-kwic-word-clouds",
+    "href": "week13_slides.html#plotting-the-two-kwic-word-clouds",
+    "title": "Week 13: Data visualization",
+    "section": "Plotting the two KWIC Word Clouds",
+    "text": "Plotting the two KWIC Word Clouds\nCompare the cloud with \"的\" versus without \"的\":\n\n# Cloud 1: With '的' (raw reality)\ntextplot_wordcloud(kwic_post_freq_trim_WithDE,\n                   max_words = 100, min_size = 1, max_size = 5,\n                   rotation = FALSE, random_order = FALSE,\n                   color = c('red', 'green', 'blue', \"orange\"))\n\n# Cloud 2: Without '的' (meaningful content words)\ntextplot_wordcloud(kwic_post_freq_trim_WithoutDE,\n                   max_words = 100, min_size = 1, max_size = 5,\n                   rotation = FALSE, random_order = FALSE,\n                   color = c('red', 'green', 'blue', \"orange\"))"
+  },
+  {
+    "objectID": "week13_slides.html#kwic-post-context-frequency-dot-plots-ggplot2",
+    "href": "week13_slides.html#kwic-post-context-frequency-dot-plots-ggplot2",
+    "title": "Week 13: Data visualization",
+    "section": "KWIC Post-context: Frequency Dot Plots (ggplot2)",
+    "text": "KWIC Post-context: Frequency Dot Plots (ggplot2)\nDot plots give us an exact ranking of words in the post context:\n\n\n\nTwo key ggplot2 tricks:\n\nreorder(feature, frequency): Orders words on the y-axis by frequency instead of alphabetical order!\nscale_x_continuous(labels = label_comma()): Formats axis numbers as \"1,000\" instead of \"1000\".\n\n\n\n\nkwic_data_freq_PostContext &lt;- dfm(\n  tokens(kwic_data$post,\n         remove_punct = TRUE,\n         remove_numbers = TRUE,\n         remove_symbols = TRUE)\n)\nkwic_data_freq_PostContext &lt;- textstat_frequency(kwic_data_freq_PostContext)\n\n# Top 30 words (much easier to read than Top 100!)\nggplot(head(kwic_data_freq_PostContext, 30),\n       aes(x = frequency,\n           y = reorder(feature, frequency))) +\n  geom_point() + \n  labs(x = \"Frequency\", y = \"Word\") +\n  scale_x_continuous(labels = label_comma())"
+  },
+  {
+    "objectID": "week13_slides.html#zooming-in-first-word-after-有-word-cloud",
+    "href": "week13_slides.html#zooming-in-first-word-after-有-word-cloud",
+    "title": "Week 13: Data visualization",
+    "section": "Zooming in: First Word After \"有\" (Word Cloud)",
+    "text": "Zooming in: First Word After \"有\" (Word Cloud)\nA 30-word window is wide. Let’s zoom in on only the 1st word immediately following \"有\" using word(kwic_data$post, 1):\n\n## 1. Extract the 1st word after \"有\"\nkwic_data$post_first_word &lt;- word(kwic_data$post, 1)\n\n## 2. Convert to DFM and trim\nkwic_post_FirstWord_freq &lt;- dfm(\n  tokens(kwic_data$post_first_word,\n         remove_punct = TRUE,\n         remove_numbers = TRUE,\n         remove_separators = TRUE))\n\nkwic_postFirstWord_freq_trim &lt;- dfm_trim(kwic_post_FirstWord_freq, verbose = TRUE)\n\n## 3. Plot the word cloud\ntextplot_wordcloud(kwic_postFirstWord_freq_trim,\n                   max_words = 100, min_size = 1, max_size = 5,\n                   rotation = FALSE, random_order = FALSE,\n                   color = c('red', 'green', 'blue', \"orange\", \"cyan\"))"
+  },
+  {
+    "objectID": "week13_slides.html#zooming-in-first-word-after-有-dot-plots",
+    "href": "week13_slides.html#zooming-in-first-word-after-有-dot-plots",
+    "title": "Week 13: Data visualization",
+    "section": "Zooming in: First Word After \"有\" (Dot Plots)",
+    "text": "Zooming in: First Word After \"有\" (Dot Plots)\nPlotting the top 30 first words with ggplot2 reveals the most common direct objects or verbs following \"有\":\n\n## Compute frequencies of the 1st word after \"有\"\nkwic_data_freq_PostFirstWord &lt;- dfm(\n  tokens(kwic_data$post_first_word,\n         remove_punct = TRUE,\n         remove_numbers = TRUE,\n         remove_symbols = TRUE)\n)\nkwic_data_freq_PostFirstWord &lt;- textstat_frequency(kwic_data_freq_PostFirstWord)\n\n## Plot Top 30 first words\nggplot(head(kwic_data_freq_PostFirstWord, 30),\n       aes(x = frequency,\n           y = reorder(feature, frequency))) +\n  geom_point() + \n  labs(x = \"Frequency\", y = \"Word\") +\n  scale_x_continuous(labels = label_comma())"
+  },
+  {
+    "objectID": "week13_slides.html#part-b-whole-corpus-frequency-word-clouds",
+    "href": "week13_slides.html#part-b-whole-corpus-frequency-word-clouds",
+    "title": "Week 13: Data visualization",
+    "section": "Part B: Whole Corpus Frequency — Word Clouds",
+    "text": "Part B: Whole Corpus Frequency — Word Clouds\nNow we visualize Article_total2$body across the entire corpus. Because the corpus is huge, we raise the dfm_trim() thresholds:\n\n\n\nAdjusted whole-corpus thresholds:\n\nmin_termfreq = 10000: Keep only words occurring at least 10,000 times.\nmax_termfreq = 300000: Remove \"的\" (&gt; 300,000 occurrences) so actual news topics stand out!\n\n\n\n\nArticle_tokens_frequency &lt;- dfm(\n  tokens(Article_total2$body,\n         remove_punct = TRUE, remove_numbers = TRUE, remove_separators = TRUE))\n\n# With '的'\nArticle_tokens_frequency_trim_WithDE &lt;- dfm_trim(\n  Article_tokens_frequency, min_termfreq = 10000, verbose = TRUE)\n\n# Without '的' (max_termfreq = 300000)\nArticle_tokens_frequency_trim_WithoutDE &lt;- dfm_trim(\n  Article_tokens_frequency, min_termfreq = 10000, max_termfreq = 300000, verbose = TRUE)\n\ntextplot_wordcloud(Article_tokens_frequency_trim_WithoutDE,\n                   max_words = 100, min_size = 1, max_size = 5,\n                   rotation = FALSE, random_order = FALSE,\n                   color = c('red', 'green', 'blue', \"orange\"))"
+  },
+  {
+    "objectID": "week13_slides.html#whole-corpus-frequency-dot-plots-ggplot2",
+    "href": "week13_slides.html#whole-corpus-frequency-dot-plots-ggplot2",
+    "title": "Week 13: Data visualization",
+    "section": "Whole Corpus Frequency — Dot Plots (ggplot2)",
+    "text": "Whole Corpus Frequency — Dot Plots (ggplot2)\nUsing table_FreqWord_Top100 from Week 12, compare Top 100 vs. Top 30:\n\n# Plot 1: All Top 100 words (crowded y-axis!)\nggplot(table_FreqWord_Top100,\n       aes(x = frequency,\n           y = reorder(feature, frequency))) +\n  geom_point() + \n  labs(x = \"Frequency\", y = \"Word\") +\n  scale_x_continuous(labels = label_comma())\n\n# Plot 2: Top 30 words using head(..., 30) -&gt; much cleaner for an audience!\nggplot(head(table_FreqWord_Top100, 30),\n       aes(x = frequency,\n           y = reorder(feature, frequency))) +\n  geom_point() + \n  labs(x = \"Frequency\", y = \"Word\") +\n  scale_x_continuous(labels = label_comma())\n\n\n\n\n\n💡 Takeaway: Showing less data (head(..., 30) instead of 100) often makes your chart much more readable and persuasive for your audience!"
+  },
+  {
     "objectID": "week11_slides.html#goals",
     "href": "week11_slides.html#goals",
     "title": "Week 11: Data preprocessing - Tidying/Cleaning data",
@@ -270,7 +382,7 @@
     "href": "week11_slides.html#how-are-we-going-to-work-in-this-class",
     "title": "Week 11: Data preprocessing - Tidying/Cleaning data",
     "section": "How are we going to work in this class?",
-    "text": "How are we going to work in this class?\n\nPlease download the script for this week:\n\n 📥 Download the R Markdown script (ETToday_Cleaning.Rmd)"
+    "text": "How are we going to work in this class?\n\nPlease download the script and the dataset for this week, and place them in your PreprocessingAnalysesR folder.\n\n 📥 Download the R Markdown script \n\n\n 📥 Download the dataset (ETtoday 2024 politics and society corpus) \n\n\n\n 💻 Please start RStudio and select the project called PreprocessingAnalysesR."
   },
   {
     "objectID": "week11_slides.html#step-0-prepare-the-environment",
@@ -333,14 +445,14 @@
     "href": "week11_slides.html#step-4-remove-empty-rows-part-1-spaces",
     "title": "Week 11: Data preprocessing - Tidying/Cleaning data",
     "section": "Step 4: Remove empty rows (Part 1: Spaces)",
-    "text": "Step 4: Remove empty rows (Part 1: Spaces)\nFilter out empty strings (\"\") and paragraphs made only of spaces (\" \" up to 5 spaces):\n\n## 1. Empty strings\ntest &lt;- Article_total2[(Article_total2$body == \"\"), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \"\"), ]\n\n## 2. Single space (spotted on line 29)\nArticle_total2$body[29] \ntest &lt;- Article_total2[(Article_total2$body == \" \"), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \" \"), ]\n\n## 3. Multiple spaces (tested 2 to 7 spaces; matches found for 2 to 5 spaces)\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \"  \"), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \"   \"), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \"    \"), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \"     \"), ]"
+    "text": "Step 4: Remove empty rows (Part 1: Spaces)\nFilter out empty strings (\"\") and paragraphs made only of spaces (\" \" up to 5 spaces):\n\n## 1. Empty strings\ntest &lt;- Article_total2[(Article_total2$body == \"\"), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \"\"), ]\n\n## 2. Single space (spotted on line 7)\nArticle_total2$body[7] \ntest &lt;- Article_total2[(Article_total2$body == \" \"), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \" \"), ]\n\n## 3. Multiple spaces (tested 2 to 7 spaces; matches found for 2 to 5 spaces)\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \"  \"), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \"   \"), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \"    \"), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == \"     \"), ]"
   },
   {
     "objectID": "week11_slides.html#step-4-remove-empty-rows-part-2-weird-whitespace",
     "href": "week11_slides.html#step-4-remove-empty-rows-part-2-weird-whitespace",
     "title": "Week 11: Data preprocessing - Tidying/Cleaning data",
     "section": "Step 4: Remove empty rows (Part 2: Weird whitespace)",
-    "text": "Step 4: Remove empty rows (Part 2: Weird whitespace)\nWhat if a row looks empty during visual inspection, but \" \" doesn’t catch it?\n👉 Extract the unknown character directly by its row number, test it, and remove all matches!\n\n## Visual inspection: Line 29 is still empty! Extract the exact symbol:\nToRemove &lt;- Article_total2$body[29] \ntest &lt;- Article_total2[(Article_total2$body == ToRemove), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == ToRemove), ]\n\n## Repeat the exact same trick for other stubborn empty rows spotted visually:\n# Row 13974\nToRemove &lt;- Article_total2$body[13974] \nArticle_total2 &lt;- Article_total2[!(Article_total2$body == ToRemove), ]\n\n# Row 8368, Row 67, and Row 15279\nToRemove &lt;- Article_total2$body[8368] \nArticle_total2 &lt;- Article_total2[!(Article_total2$body == ToRemove), ]\n\nToRemove &lt;- Article_total2$body[67] \nArticle_total2 &lt;- Article_total2[!(Article_total2$body == ToRemove), ]\n\nToRemove &lt;- Article_total2$body[15279] \nArticle_total2 &lt;- Article_total2[!(Article_total2$body == ToRemove), ]"
+    "text": "Step 4: Remove empty rows (Part 2: Weird whitespace)\nWhat if a row looks empty during visual inspection, but \" \" doesn’t catch it?\n👉 Extract the unknown character directly by its row number, test it, and remove all matches!\n\n## Visual inspection: Line 7 is still empty! Extract the exact symbol:\nToRemove &lt;- Article_total2$body[7] \ntest &lt;- Article_total2[(Article_total2$body == ToRemove), ]\nArticle_total2 &lt;- Article_total2[!(Article_total2$body == ToRemove), ]\n\n## Repeat the exact same trick for other stubborn empty rows spotted visually:\n# Row 13974\nToRemove &lt;- Article_total2$body[2373] \nArticle_total2 &lt;- Article_total2[!(Article_total2$body == ToRemove), ]\n\n# Row 965, Row 16121, and Row 23912\nToRemove &lt;- Article_total2$body[965] \nArticle_total2 &lt;- Article_total2[!(Article_total2$body == ToRemove), ]\n\nToRemove &lt;- Article_total2$body[16121] \nArticle_total2 &lt;- Article_total2[!(Article_total2$body == ToRemove), ]\n\nToRemove &lt;- Article_total2$body[23912] \nArticle_total2 &lt;- Article_total2[!(Article_total2$body == ToRemove), ]"
   },
   {
     "objectID": "week11_slides.html#step-5-remove-weird-scraping-instances-html",
@@ -663,7 +775,7 @@
     "href": "Weeks11.html",
     "title": "Week 11: Data preprocessing - Tidying/Cleaning data",
     "section": "",
-    "text": "This week, you will learn how to clean the data that you got from the Internet, so that the data are ready for the analyses.\nThis tutorial is exemplified with the data from ETToday!\n\n🎯 Goals💻 Necessary codes and full script📝 Homework\n\n\nData preprocessing - Tidying/Cleaning data:\n\nWhat does “cleaning” mean?: Why the need to clean the data, some cleaning principles, and a proposed workflow.\nPreparation for the cleaning process: Playing hide-and-seek with the ETtoday corpus and listing the steps.\nR coding: Preparing the environment, annotating, transforming, and saving the clean data.\n\n\n\nA brief summary of the essential elements:\n(to be given later)\nScripts and datasets\nYou can find the pre-filled Markdown document of this section here. Here is the PDF output of the same document.\nThe RData output file can be downloaded here. The Excel file corresponding to this dataset is here.\n\n\n(to be given later)\n\n\n\n\n  View the slides of Week 11",
+    "text": "This week, you will learn how to clean the data that you got from the Internet, so that the data are ready for the analyses.\nThis tutorial is exemplified with the data from ETToday!\n\n🎯 Goals💻 Necessary codes and full script📝 Homework\n\n\nData preprocessing - Tidying/Cleaning data:\n\nWhat does “cleaning” mean?: Why the need to clean the data, some cleaning principles, and a proposed workflow.\nPreparation for the cleaning process: Playing hide-and-seek with the ETtoday corpus and listing the steps.\nR coding: Preparing the environment, annotating, transforming, and saving the clean data.\n\n\n\nA brief summary of the essential elements:\n(to be given later)\nScripts and datasets\n\n\n  Download the script for this week \n\n\n  Download the dataset for the script  (the same as last week, no need to download one more time if you already have it) \n\n\n\nPlease complete the following tasks before Week 12:\n\nComment each line from today’s script\nKnit into a PDF file and upload to Moodle\n\n\n\n\n\n  View the slides of Week 11",
     "crumbs": [
       "Home",
       "Part 3: Simple preprocessing and analyses of corpus data",
@@ -675,7 +787,7 @@
     "href": "Weeks11.html#overview",
     "title": "Week 11: Data preprocessing - Tidying/Cleaning data",
     "section": "",
-    "text": "This week, you will learn how to clean the data that you got from the Internet, so that the data are ready for the analyses.\nThis tutorial is exemplified with the data from ETToday!\n\n🎯 Goals💻 Necessary codes and full script📝 Homework\n\n\nData preprocessing - Tidying/Cleaning data:\n\nWhat does “cleaning” mean?: Why the need to clean the data, some cleaning principles, and a proposed workflow.\nPreparation for the cleaning process: Playing hide-and-seek with the ETtoday corpus and listing the steps.\nR coding: Preparing the environment, annotating, transforming, and saving the clean data.\n\n\n\nA brief summary of the essential elements:\n(to be given later)\nScripts and datasets\nYou can find the pre-filled Markdown document of this section here. Here is the PDF output of the same document.\nThe RData output file can be downloaded here. The Excel file corresponding to this dataset is here.\n\n\n(to be given later)\n\n\n\n\n  View the slides of Week 11",
+    "text": "This week, you will learn how to clean the data that you got from the Internet, so that the data are ready for the analyses.\nThis tutorial is exemplified with the data from ETToday!\n\n🎯 Goals💻 Necessary codes and full script📝 Homework\n\n\nData preprocessing - Tidying/Cleaning data:\n\nWhat does “cleaning” mean?: Why the need to clean the data, some cleaning principles, and a proposed workflow.\nPreparation for the cleaning process: Playing hide-and-seek with the ETtoday corpus and listing the steps.\nR coding: Preparing the environment, annotating, transforming, and saving the clean data.\n\n\n\nA brief summary of the essential elements:\n(to be given later)\nScripts and datasets\n\n\n  Download the script for this week \n\n\n  Download the dataset for the script  (the same as last week, no need to download one more time if you already have it) \n\n\n\nPlease complete the following tasks before Week 12:\n\nComment each line from today’s script\nKnit into a PDF file and upload to Moodle\n\n\n\n\n\n  View the slides of Week 11",
     "crumbs": [
       "Home",
       "Part 3: Simple preprocessing and analyses of corpus data",
@@ -854,6 +966,132 @@
     "text": "📚 Resources & software\n\n\n\n\n\n\nOnline Resources & Software\n\n\n\n\nCourse Website: https://aymeric-collart.github.io/CHU0387/\nSoftware: R Project (freely downloadable) | RStudio Interface (freely downloadable)\n\n\n\n\n\n\n\n\n\nKey References\n\n\n\n\nO’Keeffe, A., & McCarthy, M. J. (2022). The Routledge handbook of corpus linguistics (2nd edition). London/New York: Routledge. [RHCL]\nPaquot, M., & Gries, S. T. (2020). A practical handbook of corpus linguistics. Cham: Springer. [PHCL]\nR for data science handbook: https://r4ds.hadley.nz/ (freely downloadable)"
   },
   {
+    "objectID": "week12_slides.html#goals",
+    "href": "week12_slides.html#goals",
+    "title": "Week 12: Data analysis",
+    "section": "🎯 Goals",
+    "text": "🎯 Goals\n\n\nObjective: Learn how to analyze your cleaned corpus data quickly and automatically with R.\n\n\n\n\nImportant note: This is an overview of the analysis process, without reference to statistical modeling!\n\n\n\n\nDataset: Exemplified with the ETtoday dataset that we cleaned in Week 11."
+  },
+  {
+    "objectID": "week12_slides.html#recap-of-the-past-weeks",
+    "href": "week12_slides.html#recap-of-the-past-weeks",
+    "title": "Week 12: Data analysis",
+    "section": "Recap of the past weeks",
+    "text": "Recap of the past weeks\n\n\n\n\nStep 1 Corpus design\nLearned what a corpus linguistics study is, what questions we can ask, and which corpora to select.\n\n\n\n\n\nStep 2 Web scraping\nLearned how to automatically scrape data from the Internet (ETtoday).\n\n\n\n\n\nStep 3 Data cleaning\nLearned how to clean and tidy the raw data to prepare them for further analyses.\n\n\n\n\n👉 Main objective this week: How to analyze the data that we prepared?"
+  },
+  {
+    "objectID": "week12_slides.html#overall-workflow-of-a-corpus-study",
+    "href": "week12_slides.html#overall-workflow-of-a-corpus-study",
+    "title": "Week 12: Data analysis",
+    "section": "Overall workflow of a corpus study",
+    "text": "Overall workflow of a corpus study\n\n\n\n\n\n\n\n\n\n💡 Always select the analysis method that fits your research question! Today we focus on two classic, versatile methods: KWIC (Key Word In Context) and Word lists."
+  },
+  {
+    "objectID": "week12_slides.html#method-1-kwic-key-word-in-context",
+    "href": "week12_slides.html#method-1-kwic-key-word-in-context",
+    "title": "Week 12: Data analysis",
+    "section": "Method 1: KWIC (Key Word In Context)",
+    "text": "Method 1: KWIC (Key Word In Context)\n\nCore idea: We can better understand the meaning and grammar of a word based on how it is used in a sentence.\nWhen to use: Ideal when targeting a specific word or syntactic construction.\n\n\n\n\n\n🔍 Semantic analyses\nRetrieve the meaning of a specific word from its use in a sentence, based on the meaning of its neighbors.\n\n\n\n\n\n🧩 Morphosyntactic analyses\nUse the surrounding context to identify specific morphological and syntactic features and the meaning they convey."
+  },
+  {
+    "objectID": "week12_slides.html#kwic-example-mandarin-keai-cute",
+    "href": "week12_slides.html#kwic-example-mandarin-keai-cute",
+    "title": "Week 12: Data analysis",
+    "section": "KWIC Example: Mandarin keai ‘cute’",
+    "text": "KWIC Example: Mandarin keai ‘cute’\nFake data for illustration:\n\n\n\n\n\n\n\n\n\nSentence index\nBefore keyword\nKeyword\nAfter keyword\n\n\n\n\nSentence 1\nhen (very)\nkeai (cute)\nde mao (DE cat)\n\n\nSentence 2\nfeichang (very, extremely)\nkeai (cute)\nde gou (DE dog)\n\n\n\n\n\n\n\n🐱 Semantic inference\nBased on the following segment (mao ‘cat’, gou ‘dog’), keai is most often used to describe animals or pets.\n\n\n\n\n\n📐 Morphosyntactic inference\nBased on the preceding degree adverbs (hen, feichang), keai behaves as an adjective (or stative verb)."
+  },
+  {
+    "objectID": "week12_slides.html#method-2-word-lists-based-on-frequency",
+    "href": "week12_slides.html#method-2-word-lists-based-on-frequency",
+    "title": "Week 12: Data analysis",
+    "section": "Method 2: Word lists based on frequency",
+    "text": "Method 2: Word lists based on frequency\n\n\n\nCount how many times each word occurs in the dataset to identify the most frequently used words.\nSimple in principle, but requires careful handling in practice!\n\n\nExample frequency list (fake data):\n\n\n\nWord\nFrequency\n\n\n\n\nkeai (cute)\n368\n\n\nkuaile (happy)\n354\n\n\n\n\n\n\n\n\nRemark 1 Punctuation & Grammar\nTop items will be punctuation and closed-class grammatical markers. Good as a sanity check, but requires extra filtering!\n\n\n\n\n\nRemark 2 What is a “word”?\nMandarin has no spaces between words! Segmentation relies on package dictionaries—new or rare words may not be detected unless added beforehand.\n\n\n\n\n\nRemark 3 Further annotations\nFrequency tables can be enriched with word rank, relative percentages, etc."
+  },
+  {
+    "objectID": "week12_slides.html#combining-kwic-and-frequency-word-lists",
+    "href": "week12_slides.html#combining-kwic-and-frequency-word-lists",
+    "title": "Week 12: Data analysis",
+    "section": "Combining KWIC and frequency word lists",
+    "text": "Combining KWIC and frequency word lists\n\nEvery analysis method has pros and cons—none is universally “better” than another.\nYou can combine both methods to gain deeper insights!\n\n\n\n🔗 Example: “KWIC + Word List” Analysis\n\nStep 1 (KWIC): Search for a target keyword (e.g., 有 you ‘to have’) and extract its surrounding context.\nStep 2 (Word List): Compute a frequency table of the first word immediately following (or preceding) the keyword!"
+  },
+  {
+    "objectID": "week12_slides.html#how-are-we-going-to-work-in-this-class",
+    "href": "week12_slides.html#how-are-we-going-to-work-in-this-class",
+    "title": "Week 12: Data analysis",
+    "section": "How are we going to work in this class?",
+    "text": "How are we going to work in this class?\nPlease download the script and the cleaned dataset for this week:\n\n\n\n 📥 Download R Markdown Script \n\n\n\n 📦 Download Clean ETtoday RData"
+  },
+  {
+    "objectID": "week12_slides.html#the-quanteda-package-for-corpus-analysis",
+    "href": "week12_slides.html#the-quanteda-package-for-corpus-analysis",
+    "title": "Week 12: Data analysis",
+    "section": "The quanteda package for corpus analysis",
+    "text": "The quanteda package for corpus analysis\n\n\n\nWe use quanteda and its companion package quanteda.textstats.\n\n\ninstall.packages(\"quanteda\")\ninstall.packages(\"quanteda.textstats\")\n\n\n\n\n📌 Note on Mandarin word segmentation: Some researchers use jiebaR, but it is no longer on CRAN and can be tricky to install. This week, we keep it simple and use quanteda’s built-in segmentation functions!"
+  },
+  {
+    "objectID": "week12_slides.html#workflow-for-corpus-data-analysis-in-r",
+    "href": "week12_slides.html#workflow-for-corpus-data-analysis-in-r",
+    "title": "Week 12: Data analysis",
+    "section": "Workflow for corpus data analysis in R",
+    "text": "Workflow for corpus data analysis in R"
+  },
+  {
+    "objectID": "week12_slides.html#step-0-prepare-the-environment",
+    "href": "week12_slides.html#step-0-prepare-the-environment",
+    "title": "Week 12: Data analysis",
+    "section": "Step 0: Prepare the environment",
+    "text": "Step 0: Prepare the environment\n\n\n1. Load required packages:\n\nlibrary(quanteda)\nlibrary(quanteda.textstats)\nlibrary(tidytext)\nlibrary(dplyr)\nlibrary(stringr)\nlibrary(openxlsx)\n#Sys.setlocale(category = \"LC_ALL\", locale = \"cht\")\n\n\nquanteda & quanteda.textstats: Tokenize text, build DFMs, and compute word frequencies.\ntidytext & dplyr: Manipulate and join tables.\nstringr: String manipulation and Regular Expressions.\nopenxlsx: Export results to Excel.\n\n\n\n2. Load the cleaned ETtoday data:\n\nload(file = \"ArticleETToday_CorpusCourse_CLEAN.Rdata\")\n\n\nImports Article_total2 (cleaned in Week 11) into your R environment.\nNote: Sys.setlocale(...) is kept commented out in case Windows users encounter Traditional Chinese encoding issues."
+  },
+  {
+    "objectID": "week12_slides.html#part-a-key-word-in-context-kwic-step-1",
+    "href": "week12_slides.html#part-a-key-word-in-context-kwic-step-1",
+    "title": "Week 12: Data analysis",
+    "section": "Part A: Key Word In Context (KWIC) — Step 1",
+    "text": "Part A: Key Word In Context (KWIC) — Step 1\nBefore running KWIC, we assign unique document IDs and tokenize the text:\n\nArticle_total2$docname &lt;- paste0(\"text\", 1:nrow(Article_total2))\n\nArticle_tokens &lt;- tokens(Article_total2$body)\n\n\n\n\n1. Article_total2$docname\nCreates a unique ID for each paragraph row (\"text1\", \"text2\", …) using paste0() and nrow() so we can merge metadata back later.\n\n\n\n2. tokens(Article_total2$body)\nBreaks the text in the body column into individual words (tokens), creating a specialized tokens object."
+  },
+  {
+    "objectID": "week12_slides.html#kwic-step-2-segmentation-annotation",
+    "href": "week12_slides.html#kwic-step-2-segmentation-annotation",
+    "title": "Week 12: Data analysis",
+    "section": "KWIC — Step 2: Segmentation & Annotation",
+    "text": "KWIC — Step 2: Segmentation & Annotation\n\n\n1. Perform KWIC segmentation:\n\nkwic_data &lt;- kwic(\n  Article_tokens, \n  pattern = \"有\", \n  window = 30\n)\n\n\npattern = \"有\": Searches for \"有\" (to have / there is).\nwindow = 30: Captures 30 tokens to the left (pre) and 30 tokens to the right (post).\n\n\n\n2. Restore original metadata:\n\nkwic_data &lt;- as.data.frame(kwic_data)\n\nkwic_data &lt;- right_join(\n  kwic_data, \n  Article_total2, \n  by = \"docname\"\n)\n\nkwic_data &lt;- na.omit(kwic_data)\n\n\nConverts kwic_data to a data frame, merges article date/category back via docname, and drops NA rows."
+  },
+  {
+    "objectID": "week12_slides.html#kwic-step-3-optional-trim-context-to-clause",
+    "href": "week12_slides.html#kwic-step-3-optional-trim-context-to-clause",
+    "title": "Week 12: Data analysis",
+    "section": "KWIC — Step 3 (Optional): Trim Context to Clause",
+    "text": "KWIC — Step 3 (Optional): Trim Context to Clause\nA 30-word window often crosses sentence boundaries. We use sub() to trim post and pre at punctuation marks (。, ，, ？, ！):\n\n## Keep original information just in case\nkwic_data$pre_original  &lt;- kwic_data$pre\nkwic_data$post_original &lt;- kwic_data$post\n\n## Post context: cut everything after the FIRST punctuation mark\nsymbol1 &lt;- \"\\\\。\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol1, \").*\"), \"\\\\1\", kwic_data$post)\nsymbol2 &lt;- \"\\\\，\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol2, \").*\"), \"\\\\1\", kwic_data$post)\nsymbol3 &lt;- \"\\\\？\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol3, \").*\"), \"\\\\1\", kwic_data$post)\nsymbol4 &lt;- \"\\\\！\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol4, \").*\"), \"\\\\1\", kwic_data$post)\n\n## Pre context: delete everything before the LAST punctuation mark\nkwic_data$pre &lt;- sub(\".*。([^*。]*)$\", \"。\\\\1\", kwic_data$pre)\nkwic_data$pre &lt;- sub(\".*，([^*，]*)$\", \"，\\\\1\", kwic_data$pre)\nkwic_data$pre &lt;- sub(\".*？([^*？]*)$\", \"？\\\\1\", kwic_data$pre)\nkwic_data$pre &lt;- sub(\".*！([^*！]*)$\", \"！\\\\1\", kwic_data$pre)"
+  },
+  {
+    "objectID": "week12_slides.html#kwic-step-4-combined-analysis-kwic-word-list",
+    "href": "week12_slides.html#kwic-step-4-combined-analysis-kwic-word-list",
+    "title": "Week 12: Data analysis",
+    "section": "KWIC — Step 4: Combined Analysis (KWIC + Word List)",
+    "text": "KWIC — Step 4: Combined Analysis (KWIC + Word List)\nWhat words most frequently follow \"有\"?\n\n## 1. Extract the first word from the post context\nkwic_data$post_first_word &lt;- word(kwic_data$post, 1)\n\n## 2. Transform into a Document-Feature Matrix (dfm) & calculate frequency\nkwic_data_freq &lt;- dfm(tokens(kwic_data$post_first_word, remove_punct = TRUE))\nkwic_data_freq &lt;- textstat_frequency(kwic_data_freq)\n\n## 3. Clean out digits and reset the rank column\nkwic_data_freq &lt;- kwic_data_freq[-grep(\"[[:digit:]]\", kwic_data_freq$feature),]\nkwic_data_freq$rank &lt;- 1:length(kwic_data_freq$rank)\n\nhead(kwic_data_freq, 10)\n\n\n\n\nword(kwic_data$post, 1)\nUses stringr to grab the 1st word immediately after \"有\".\n\n\n\ndfm() + textstat_frequency()\nCounts how often each first word occurs across all matches.\n\n\n\n-grep(\"[[:digit:]]\", ...)\nRemoves tokens containing numbers and resets rank from 1 to N."
+  },
+  {
+    "objectID": "week12_slides.html#part-b-overall-frequency-tables-step-1",
+    "href": "week12_slides.html#part-b-overall-frequency-tables-step-1",
+    "title": "Week 12: Data analysis",
+    "section": "Part B: Overall Frequency Tables — Step 1",
+    "text": "Part B: Overall Frequency Tables — Step 1\nNow let’s compute word frequencies across the entire corpus (Article_total2$body):\n\nArticle_tokens_frequency &lt;- dfm(\n  tokens(Article_total2$body,\n         remove_punct = TRUE)\n)\nArticle_tokens_frequency &lt;- textstat_frequency(Article_tokens_frequency)\n\ntable_AllWordsFreq_Top100 &lt;- head(Article_tokens_frequency, 100)\n\n\n\n\n1. Tokenize & Build DFM\ntokens(..., remove_punct = TRUE) splits all paragraphs into words without punctuation, and dfm() builds the Document-Feature Matrix.\n\n\n\n2. Compute & Slice Top 100\ntextstat_frequency() counts every unique word in the corpus, and head(..., 100) keeps the top 100 most frequent words."
+  },
+  {
+    "objectID": "week12_slides.html#overall-frequency-tables-step-2-clean-add-percentage",
+    "href": "week12_slides.html#overall-frequency-tables-step-2-clean-add-percentage",
+    "title": "Week 12: Data analysis",
+    "section": "Overall Frequency Tables — Step 2: Clean & Add Percentage",
+    "text": "Overall Frequency Tables — Step 2: Clean & Add Percentage\n\n\n1. Filter out numbers & re-rank:\n\n## Remove features containing numbers\ntable_FreqWord &lt;- Article_tokens_frequency[\n  -grep(\"[[:digit:]]\", Article_tokens_frequency$feature),\n]\n\n## Redo the ranking sequentially\ntable_FreqWord$rank &lt;- 1:length(table_FreqWord$rank)\n\n\n\n2. Compute relative percentage:\n\ntable_FreqWord_Top100 &lt;- head(table_FreqWord, 100)\n\ntable_FreqWord_Top100$percentage &lt;- round(\n  table_FreqWord_Top100$frequency / \n    sum(table_FreqWord$frequency) * 100, \n  5\n)\n\n\nDivides each word’s frequency by the total word count (sum(...)), multiplies by 100, and rounds to 5 decimal places."
+  },
+  {
+    "objectID": "week12_slides.html#step-3-save-the-analyzed-datasets",
+    "href": "week12_slides.html#step-3-save-the-analyzed-datasets",
+    "title": "Week 12: Data analysis",
+    "section": "Step 3: Save the analyzed datasets",
+    "text": "Step 3: Save the analyzed datasets\nExport both the KWIC dataset and the Top 100 Frequency table to Excel and .Rdata:\n\n\n\n🔍 1. Save KWIC results (有)\nwrite.xlsx(\n  kwic_data, \n  \"ArticleETToday_KWIC_You.xlsx\"\n)\nsave(\n  kwic_data, \n  file = \"ArticleETToday_KWIC_You.Rdata\"\n)\n\n\n\n📊 2. Save Top 100 frequency table\nwrite.xlsx(\n  table_FreqWord_Top100, \n  \"ArticleETToday_Top100nouns.xlsx\"\n)\nsave(\n  table_FreqWord_Top100, \n  file = \"ArticleETToday_Top100nouns.Rdata\"\n)\n\n\n\n🔗 Downloads: Rmd Script | PDF Output | KWIC RData | Top 100 RData"
+  },
+  {
     "objectID": "week5_slides.html#goals-key-concepts",
     "href": "week5_slides.html#goals-key-concepts",
     "title": "Week 5 - Presentation of the R interface and its basic functions",
@@ -1013,285 +1251,5 @@
     "title": "Weeks 7: Building a corpus from media platforms - PART 1",
     "section": "Summary: What to remember",
     "text": "Summary: What to remember\n\n\n\n\n\n\nImportant\n\n\nThis seems to be a lot and quite complicated.\nSo just remember this:\n\nThere are big blocks with different names (div, h3, span, etc.). Let’s call them nodes.\nInside nodes, you can specify the parameters and names specific to the nodes.\n\nThat’s all!"
-  },
-  {
-    "objectID": "week12_slides.html#goals",
-    "href": "week12_slides.html#goals",
-    "title": "Week 12: Data analysis",
-    "section": "🎯 Goals",
-    "text": "🎯 Goals\n\n\nObjective: Learn how to analyze your cleaned corpus data quickly and automatically with R.\n\n\n\n\nImportant note: This is an overview of the analysis process, without reference to statistical modeling!\n\n\n\n\nDataset: Exemplified with the ETtoday dataset that we cleaned in Week 11."
-  },
-  {
-    "objectID": "week12_slides.html#recap-of-the-past-weeks",
-    "href": "week12_slides.html#recap-of-the-past-weeks",
-    "title": "Week 12: Data analysis",
-    "section": "Recap of the past weeks",
-    "text": "Recap of the past weeks\n\n\n\n\nStep 1 Corpus design\nLearned what a corpus linguistics study is, what questions we can ask, and which corpora to select.\n\n\n\n\n\nStep 2 Web scraping\nLearned how to automatically scrape data from the Internet (ETtoday).\n\n\n\n\n\nStep 3 Data cleaning\nLearned how to clean and tidy the raw data to prepare them for further analyses.\n\n\n\n\n👉 Main objective this week: How to analyze the data that we prepared?"
-  },
-  {
-    "objectID": "week12_slides.html#overall-workflow-of-a-corpus-study",
-    "href": "week12_slides.html#overall-workflow-of-a-corpus-study",
-    "title": "Week 12: Data analysis",
-    "section": "Overall workflow of a corpus study",
-    "text": "Overall workflow of a corpus study\n\n\n\n\n\n\n\n\n\n💡 Always select the analysis method that fits your research question! Today we focus on two classic, versatile methods: KWIC (Key Word In Context) and Word lists."
-  },
-  {
-    "objectID": "week12_slides.html#method-1-kwic-key-word-in-context",
-    "href": "week12_slides.html#method-1-kwic-key-word-in-context",
-    "title": "Week 12: Data analysis",
-    "section": "Method 1: KWIC (Key Word In Context)",
-    "text": "Method 1: KWIC (Key Word In Context)\n\nCore idea: We can better understand the meaning and grammar of a word based on how it is used in a sentence.\nWhen to use: Ideal when targeting a specific word or syntactic construction.\n\n\n\n\n\n🔍 Semantic analyses\nRetrieve the meaning of a specific word from its use in a sentence, based on the meaning of its neighbors.\n\n\n\n\n\n🧩 Morphosyntactic analyses\nUse the surrounding context to identify specific morphological and syntactic features and the meaning they convey."
-  },
-  {
-    "objectID": "week12_slides.html#kwic-example-mandarin-keai-cute",
-    "href": "week12_slides.html#kwic-example-mandarin-keai-cute",
-    "title": "Week 12: Data analysis",
-    "section": "KWIC Example: Mandarin keai ‘cute’",
-    "text": "KWIC Example: Mandarin keai ‘cute’\nFake data for illustration:\n\n\n\n\n\n\n\n\n\nSentence index\nBefore keyword\nKeyword\nAfter keyword\n\n\n\n\nSentence 1\nhen (very)\nkeai (cute)\nde mao (DE cat)\n\n\nSentence 2\nfeichang (very, extremely)\nkeai (cute)\nde gou (DE dog)\n\n\n\n\n\n\n\n🐱 Semantic inference\nBased on the following segment (mao ‘cat’, gou ‘dog’), keai is most often used to describe animals or pets.\n\n\n\n\n\n📐 Morphosyntactic inference\nBased on the preceding degree adverbs (hen, feichang), keai behaves as an adjective (or stative verb)."
-  },
-  {
-    "objectID": "week12_slides.html#method-2-word-lists-based-on-frequency",
-    "href": "week12_slides.html#method-2-word-lists-based-on-frequency",
-    "title": "Week 12: Data analysis",
-    "section": "Method 2: Word lists based on frequency",
-    "text": "Method 2: Word lists based on frequency\n\n\n\nCount how many times each word occurs in the dataset to identify the most frequently used words.\nSimple in principle, but requires careful handling in practice!\n\n\nExample frequency list (fake data):\n\n\n\nWord\nFrequency\n\n\n\n\nkeai (cute)\n368\n\n\nkuaile (happy)\n354\n\n\n\n\n\n\n\n\nRemark 1 Punctuation & Grammar\nTop items will be punctuation and closed-class grammatical markers. Good as a sanity check, but requires extra filtering!\n\n\n\n\n\nRemark 2 What is a “word”?\nMandarin has no spaces between words! Segmentation relies on package dictionaries—new or rare words may not be detected unless added beforehand.\n\n\n\n\n\nRemark 3 Further annotations\nFrequency tables can be enriched with word rank, relative percentages, etc."
-  },
-  {
-    "objectID": "week12_slides.html#combining-kwic-and-frequency-word-lists",
-    "href": "week12_slides.html#combining-kwic-and-frequency-word-lists",
-    "title": "Week 12: Data analysis",
-    "section": "Combining KWIC and frequency word lists",
-    "text": "Combining KWIC and frequency word lists\n\nEvery analysis method has pros and cons—none is universally “better” than another.\nYou can combine both methods to gain deeper insights!\n\n\n\n🔗 Example: “KWIC + Word List” Analysis\n\nStep 1 (KWIC): Search for a target keyword (e.g., 有 you ‘to have’) and extract its surrounding context.\nStep 2 (Word List): Compute a frequency table of the first word immediately following (or preceding) the keyword!"
-  },
-  {
-    "objectID": "week12_slides.html#how-are-we-going-to-work-in-this-class",
-    "href": "week12_slides.html#how-are-we-going-to-work-in-this-class",
-    "title": "Week 12: Data analysis",
-    "section": "How are we going to work in this class?",
-    "text": "How are we going to work in this class?\nPlease download the script and the cleaned dataset for this week:\n\n\n\n 📥 Download R Markdown Script \n\n\n\n 📦 Download Clean ETtoday RData"
-  },
-  {
-    "objectID": "week12_slides.html#the-quanteda-package-for-corpus-analysis",
-    "href": "week12_slides.html#the-quanteda-package-for-corpus-analysis",
-    "title": "Week 12: Data analysis",
-    "section": "The quanteda package for corpus analysis",
-    "text": "The quanteda package for corpus analysis\n\n\n\nWe use quanteda and its companion package quanteda.textstats.\n\n\ninstall.packages(\"quanteda\")\ninstall.packages(\"quanteda.textstats\")\n\n\n\n\n📌 Note on Mandarin word segmentation: Some researchers use jiebaR, but it is no longer on CRAN and can be tricky to install. This week, we keep it simple and use quanteda’s built-in segmentation functions!"
-  },
-  {
-    "objectID": "week12_slides.html#workflow-for-corpus-data-analysis-in-r",
-    "href": "week12_slides.html#workflow-for-corpus-data-analysis-in-r",
-    "title": "Week 12: Data analysis",
-    "section": "Workflow for corpus data analysis in R",
-    "text": "Workflow for corpus data analysis in R"
-  },
-  {
-    "objectID": "week12_slides.html#step-0-prepare-the-environment",
-    "href": "week12_slides.html#step-0-prepare-the-environment",
-    "title": "Week 12: Data analysis",
-    "section": "Step 0: Prepare the environment",
-    "text": "Step 0: Prepare the environment\n\n\n1. Load required packages:\n\nlibrary(quanteda)\nlibrary(quanteda.textstats)\nlibrary(tidytext)\nlibrary(dplyr)\nlibrary(stringr)\nlibrary(openxlsx)\n#Sys.setlocale(category = \"LC_ALL\", locale = \"cht\")\n\n\nquanteda & quanteda.textstats: Tokenize text, build DFMs, and compute word frequencies.\ntidytext & dplyr: Manipulate and join tables.\nstringr: String manipulation and Regular Expressions.\nopenxlsx: Export results to Excel.\n\n\n\n2. Load the cleaned ETtoday data:\n\nload(file = \"ArticleETToday_CorpusCourse_CLEAN.Rdata\")\n\n\nImports Article_total2 (cleaned in Week 11) into your R environment.\nNote: Sys.setlocale(...) is kept commented out in case Windows users encounter Traditional Chinese encoding issues."
-  },
-  {
-    "objectID": "week12_slides.html#part-a-key-word-in-context-kwic-x-step-1",
-    "href": "week12_slides.html#part-a-key-word-in-context-kwic-x-step-1",
-    "title": "Week 12: Data analysis",
-    "section": "Part A: Key Word In Context (KWIC) �X Step 1",
-    "text": "Part A: Key Word In Context (KWIC) �X Step 1\nBefore running KWIC, we assign unique document IDs and tokenize the text:\n\nArticle_total2$docname &lt;- paste0(\"text\", 1:nrow(Article_total2))\n\nArticle_tokens &lt;- tokens(Article_total2$body)\n\n\n\n\n1. Article_total2$docname\nCreates a unique ID for each paragraph row (\"text1\", \"text2\", …) using paste0() and nrow() so we can merge metadata back later.\n\n\n\n2. tokens(Article_total2$body)\nBreaks the text in the body column into individual words (tokens), creating a specialized tokens object."
-  },
-  {
-    "objectID": "week12_slides.html#kwic-x-step-2-segmentation-annotation",
-    "href": "week12_slides.html#kwic-x-step-2-segmentation-annotation",
-    "title": "Week 12: Data analysis",
-    "section": "KWIC �X Step 2: Segmentation & Annotation",
-    "text": "KWIC �X Step 2: Segmentation & Annotation\n\n\n1. Perform KWIC segmentation:\n\nkwic_data &lt;- kwic(\n  Article_tokens, \n  pattern = \"��\", \n  window = 30\n)\n\n\npattern = \"��\": Searches for \"��\" (to have / there is).\nwindow = 30: Captures 30 tokens to the left (pre) and 30 tokens to the right (post).\n\n\n\n2. Restore original metadata:\n\nkwic_data &lt;- as.data.frame(kwic_data)\n\nkwic_data &lt;- right_join(\n  kwic_data, \n  Article_total2, \n  by = \"docname\"\n)\n\nkwic_data &lt;- na.omit(kwic_data)\n\n\nConverts kwic_data to a data frame, merges article date/category back via docname, and drops NA rows."
-  },
-  {
-    "objectID": "week12_slides.html#kwic-x-step-3-optional-trim-context-to-clause",
-    "href": "week12_slides.html#kwic-x-step-3-optional-trim-context-to-clause",
-    "title": "Week 12: Data analysis",
-    "section": "KWIC �X Step 3 (Optional): Trim Context to Clause",
-    "text": "KWIC �X Step 3 (Optional): Trim Context to Clause\nA 30-word window often crosses sentence boundaries. We use sub() to trim post and pre at punctuation marks (�C, �A, �H, �I):\n\n## Keep original information just in case\nkwic_data$pre_original  &lt;- kwic_data$pre\nkwic_data$post_original &lt;- kwic_data$post\n\n## Post context: cut everything after the FIRST punctuation mark\nsymbol1 &lt;- \"\\\\�C\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol1, \").*\"), \"\\\\1\", kwic_data$post)\nsymbol2 &lt;- \"\\\\�A\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol2, \").*\"), \"\\\\1\", kwic_data$post)\nsymbol3 &lt;- \"\\\\�H\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol3, \").*\"), \"\\\\1\", kwic_data$post)\nsymbol4 &lt;- \"\\\\�I\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol4, \").*\"), \"\\\\1\", kwic_data$post)\n\n## Pre context: delete everything before the LAST punctuation mark\nkwic_data$pre &lt;- sub(\".*�C([^*�C]*)$\", \"�C\\\\1\", kwic_data$pre)\nkwic_data$pre &lt;- sub(\".*�A([^*�A]*)$\", \"�A\\\\1\", kwic_data$pre)\nkwic_data$pre &lt;- sub(\".*�H([^*�H]*)$\", \"�H\\\\1\", kwic_data$pre)\nkwic_data$pre &lt;- sub(\".*�I([^*�I]*)$\", \"�I\\\\1\", kwic_data$pre)"
-  },
-  {
-    "objectID": "week12_slides.html#kwic-x-step-4-combined-analysis-kwic-word-list",
-    "href": "week12_slides.html#kwic-x-step-4-combined-analysis-kwic-word-list",
-    "title": "Week 12: Data analysis",
-    "section": "KWIC �X Step 4: Combined Analysis (KWIC + Word List)",
-    "text": "KWIC �X Step 4: Combined Analysis (KWIC + Word List)\nWhat words most frequently follow \"��\"?\n\n## 1. Extract the first word from the post context\nkwic_data$post_first_word &lt;- word(kwic_data$post, 1)\n\n## 2. Transform into a Document-Feature Matrix (dfm) & calculate frequency\nkwic_data_freq &lt;- dfm(tokens(kwic_data$post_first_word, remove_punct = TRUE))\nkwic_data_freq &lt;- textstat_frequency(kwic_data_freq)\n\n## 3. Clean out digits and reset the rank column\nkwic_data_freq &lt;- kwic_data_freq[-grep(\"[[:digit:]]\", kwic_data_freq$feature),]\nkwic_data_freq$rank &lt;- 1:length(kwic_data_freq$rank)\n\nhead(kwic_data_freq, 10)\n\n\n\n\nword(kwic_data$post, 1)\nUses stringr to grab the 1st word immediately after \"��\".\n\n\n\ndfm() + textstat_frequency()\nCounts how often each first word occurs across all matches.\n\n\n\n-grep(\"[[:digit:]]\", ...)\nRemoves tokens containing numbers and resets rank from 1 to N."
-  },
-  {
-    "objectID": "week12_slides.html#part-b-overall-frequency-tables-x-step-1",
-    "href": "week12_slides.html#part-b-overall-frequency-tables-x-step-1",
-    "title": "Week 12: Data analysis",
-    "section": "Part B: Overall Frequency Tables �X Step 1",
-    "text": "Part B: Overall Frequency Tables �X Step 1\nNow let’s compute word frequencies across the entire corpus (Article_total2$body):\n\nArticle_tokens_frequency &lt;- dfm(\n  tokens(Article_total2$body,\n         remove_punct = TRUE)\n)\nArticle_tokens_frequency &lt;- textstat_frequency(Article_tokens_frequency)\n\ntable_AllWordsFreq_Top100 &lt;- head(Article_tokens_frequency, 100)\n\n\n\n\n1. Tokenize & Build DFM\ntokens(..., remove_punct = TRUE) splits all paragraphs into words without punctuation, and dfm() builds the Document-Feature Matrix.\n\n\n\n2. Compute & Slice Top 100\ntextstat_frequency() counts every unique word in the corpus, and head(..., 100) keeps the top 100 most frequent words."
-  },
-  {
-    "objectID": "week12_slides.html#overall-frequency-tables-x-step-2-clean-add-percentage",
-    "href": "week12_slides.html#overall-frequency-tables-x-step-2-clean-add-percentage",
-    "title": "Week 12: Data analysis",
-    "section": "Overall Frequency Tables �X Step 2: Clean & Add Percentage",
-    "text": "Overall Frequency Tables �X Step 2: Clean & Add Percentage\n\n\n1. Filter out numbers & re-rank:\n\n## Remove features containing numbers\ntable_FreqWord &lt;- Article_tokens_frequency[\n  -grep(\"[[:digit:]]\", Article_tokens_frequency$feature),\n]\n\n## Redo the ranking sequentially\ntable_FreqWord$rank &lt;- 1:length(table_FreqWord$rank)\n\n\n\n2. Compute relative percentage:\n\ntable_FreqWord_Top100 &lt;- head(table_FreqWord, 100)\n\ntable_FreqWord_Top100$percentage &lt;- round(\n  table_FreqWord_Top100$frequency / \n    sum(table_FreqWord$frequency) * 100, \n  5\n)\n\n\nDivides each word’s frequency by the total word count (sum(...)), multiplies by 100, and rounds to 5 decimal places."
-  },
-  {
-    "objectID": "week12_slides.html#step-3-save-the-analyzed-datasets",
-    "href": "week12_slides.html#step-3-save-the-analyzed-datasets",
-    "title": "Week 12: Data analysis",
-    "section": "Step 3: Save the analyzed datasets",
-    "text": "Step 3: Save the analyzed datasets\nExport both the KWIC dataset and the Top 100 Frequency table to Excel and .Rdata:\n\n\n\n🔍 1. Save KWIC results (有)\nwrite.xlsx(\n  kwic_data, \n  \"ArticleETToday_KWIC_You.xlsx\"\n)\nsave(\n  kwic_data, \n  file = \"ArticleETToday_KWIC_You.Rdata\"\n)\n\n\n\n📊 2. Save Top 100 frequency table\nwrite.xlsx(\n  table_FreqWord_Top100, \n  \"ArticleETToday_Top100nouns.xlsx\"\n)\nsave(\n  table_FreqWord_Top100, \n  file = \"ArticleETToday_Top100nouns.Rdata\"\n)\n\n\n\n🔗 Downloads: Rmd Script | PDF Output | KWIC RData | Top 100 RData"
-  },
-  {
-    "objectID": "week12_slides.html#part-a-key-word-in-context-kwic-step-1",
-    "href": "week12_slides.html#part-a-key-word-in-context-kwic-step-1",
-    "title": "Week 12: Data analysis",
-    "section": "Part A: Key Word In Context (KWIC) — Step 1",
-    "text": "Part A: Key Word In Context (KWIC) — Step 1\nBefore running KWIC, we assign unique document IDs and tokenize the text:\n\nArticle_total2$docname &lt;- paste0(\"text\", 1:nrow(Article_total2))\n\nArticle_tokens &lt;- tokens(Article_total2$body)\n\n\n\n\n1. Article_total2$docname\nCreates a unique ID for each paragraph row (\"text1\", \"text2\", …) using paste0() and nrow() so we can merge metadata back later.\n\n\n\n2. tokens(Article_total2$body)\nBreaks the text in the body column into individual words (tokens), creating a specialized tokens object."
-  },
-  {
-    "objectID": "week12_slides.html#kwic-step-2-segmentation-annotation",
-    "href": "week12_slides.html#kwic-step-2-segmentation-annotation",
-    "title": "Week 12: Data analysis",
-    "section": "KWIC — Step 2: Segmentation & Annotation",
-    "text": "KWIC — Step 2: Segmentation & Annotation\n\n\n1. Perform KWIC segmentation:\n\nkwic_data &lt;- kwic(\n  Article_tokens, \n  pattern = \"有\", \n  window = 30\n)\n\n\npattern = \"有\": Searches for \"有\" (to have / there is).\nwindow = 30: Captures 30 tokens to the left (pre) and 30 tokens to the right (post).\n\n\n\n2. Restore original metadata:\n\nkwic_data &lt;- as.data.frame(kwic_data)\n\nkwic_data &lt;- right_join(\n  kwic_data, \n  Article_total2, \n  by = \"docname\"\n)\n\nkwic_data &lt;- na.omit(kwic_data)\n\n\nConverts kwic_data to a data frame, merges article date/category back via docname, and drops NA rows."
-  },
-  {
-    "objectID": "week12_slides.html#kwic-step-3-optional-trim-context-to-clause",
-    "href": "week12_slides.html#kwic-step-3-optional-trim-context-to-clause",
-    "title": "Week 12: Data analysis",
-    "section": "KWIC — Step 3 (Optional): Trim Context to Clause",
-    "text": "KWIC — Step 3 (Optional): Trim Context to Clause\nA 30-word window often crosses sentence boundaries. We use sub() to trim post and pre at punctuation marks (。, ，, ？, ！):\n\n## Keep original information just in case\nkwic_data$pre_original  &lt;- kwic_data$pre\nkwic_data$post_original &lt;- kwic_data$post\n\n## Post context: cut everything after the FIRST punctuation mark\nsymbol1 &lt;- \"\\\\。\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol1, \").*\"), \"\\\\1\", kwic_data$post)\nsymbol2 &lt;- \"\\\\，\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol2, \").*\"), \"\\\\1\", kwic_data$post)\nsymbol3 &lt;- \"\\\\？\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol3, \").*\"), \"\\\\1\", kwic_data$post)\nsymbol4 &lt;- \"\\\\！\" \nkwic_data$post &lt;- sub(paste0(\"(\", symbol4, \").*\"), \"\\\\1\", kwic_data$post)\n\n## Pre context: delete everything before the LAST punctuation mark\nkwic_data$pre &lt;- sub(\".*。([^*。]*)$\", \"。\\\\1\", kwic_data$pre)\nkwic_data$pre &lt;- sub(\".*，([^*，]*)$\", \"，\\\\1\", kwic_data$pre)\nkwic_data$pre &lt;- sub(\".*？([^*？]*)$\", \"？\\\\1\", kwic_data$pre)\nkwic_data$pre &lt;- sub(\".*！([^*！]*)$\", \"！\\\\1\", kwic_data$pre)"
-  },
-  {
-    "objectID": "week12_slides.html#kwic-step-4-combined-analysis-kwic-word-list",
-    "href": "week12_slides.html#kwic-step-4-combined-analysis-kwic-word-list",
-    "title": "Week 12: Data analysis",
-    "section": "KWIC — Step 4: Combined Analysis (KWIC + Word List)",
-    "text": "KWIC — Step 4: Combined Analysis (KWIC + Word List)\nWhat words most frequently follow \"有\"?\n\n## 1. Extract the first word from the post context\nkwic_data$post_first_word &lt;- word(kwic_data$post, 1)\n\n## 2. Transform into a Document-Feature Matrix (dfm) & calculate frequency\nkwic_data_freq &lt;- dfm(tokens(kwic_data$post_first_word, remove_punct = TRUE))\nkwic_data_freq &lt;- textstat_frequency(kwic_data_freq)\n\n## 3. Clean out digits and reset the rank column\nkwic_data_freq &lt;- kwic_data_freq[-grep(\"[[:digit:]]\", kwic_data_freq$feature),]\nkwic_data_freq$rank &lt;- 1:length(kwic_data_freq$rank)\n\nhead(kwic_data_freq, 10)\n\n\n\n\nword(kwic_data$post, 1)\nUses stringr to grab the 1st word immediately after \"有\".\n\n\n\ndfm() + textstat_frequency()\nCounts how often each first word occurs across all matches.\n\n\n\n-grep(\"[[:digit:]]\", ...)\nRemoves tokens containing numbers and resets rank from 1 to N."
-  },
-  {
-    "objectID": "week12_slides.html#part-b-overall-frequency-tables-step-1",
-    "href": "week12_slides.html#part-b-overall-frequency-tables-step-1",
-    "title": "Week 12: Data analysis",
-    "section": "Part B: Overall Frequency Tables — Step 1",
-    "text": "Part B: Overall Frequency Tables — Step 1\nNow let’s compute word frequencies across the entire corpus (Article_total2$body):\n\nArticle_tokens_frequency &lt;- dfm(\n  tokens(Article_total2$body,\n         remove_punct = TRUE)\n)\nArticle_tokens_frequency &lt;- textstat_frequency(Article_tokens_frequency)\n\ntable_AllWordsFreq_Top100 &lt;- head(Article_tokens_frequency, 100)\n\n\n\n\n1. Tokenize & Build DFM\ntokens(..., remove_punct = TRUE) splits all paragraphs into words without punctuation, and dfm() builds the Document-Feature Matrix.\n\n\n\n2. Compute & Slice Top 100\ntextstat_frequency() counts every unique word in the corpus, and head(..., 100) keeps the top 100 most frequent words."
-  },
-  {
-    "objectID": "week12_slides.html#overall-frequency-tables-step-2-clean-add-percentage",
-    "href": "week12_slides.html#overall-frequency-tables-step-2-clean-add-percentage",
-    "title": "Week 12: Data analysis",
-    "section": "Overall Frequency Tables — Step 2: Clean & Add Percentage",
-    "text": "Overall Frequency Tables — Step 2: Clean & Add Percentage\n\n\n1. Filter out numbers & re-rank:\n\n## Remove features containing numbers\ntable_FreqWord &lt;- Article_tokens_frequency[\n  -grep(\"[[:digit:]]\", Article_tokens_frequency$feature),\n]\n\n## Redo the ranking sequentially\ntable_FreqWord$rank &lt;- 1:length(table_FreqWord$rank)\n\n\n\n2. Compute relative percentage:\n\ntable_FreqWord_Top100 &lt;- head(table_FreqWord, 100)\n\ntable_FreqWord_Top100$percentage &lt;- round(\n  table_FreqWord_Top100$frequency / \n    sum(table_FreqWord$frequency) * 100, \n  5\n)\n\n\nDivides each word’s frequency by the total word count (sum(...)), multiplies by 100, and rounds to 5 decimal places."
-  },
-  {
-    "objectID": "week13_slides.html#goals",
-    "href": "week13_slides.html#goals",
-    "title": "Week 13: Data visualization",
-    "section": "🎯 Goals",
-    "text": "🎯 Goals\n\n\nWeek 12: Analyzed the cleaned ETtoday corpus using KWIC and frequency tables.\n\n\n\n\nWeek 13: Learn how to create clear, impactful figures of the data that we analyzed!"
-  },
-  {
-    "objectID": "week13_slides.html#visual-presentation-of-the-results",
-    "href": "week13_slides.html#visual-presentation-of-the-results",
-    "title": "Week 13: Data visualization",
-    "section": "Visual presentation of the results",
-    "text": "Visual presentation of the results\nWe scraped, cleaned, and analyzed our data—and we already have tables. Why add figures?\n\n\n\n\n\n\n\nThink about it\n\n\nWhen you read a website, a journal article, or scroll through social media, do you read long, complete texts first—or are you drawn to headlines and pictures before turning to the text?\n\n\n\n\n\n\n\n\n✅ A great figure\nStimulates the human visual system and summarizes the results so the audience grasps the core message at one glance.\n\n\n\n\n\n❌ A messy figure\nPacks in too much information or uses an inappropriate format, blurring the message and hurting the presentation."
-  },
-  {
-    "objectID": "week13_slides.html#two-main-figures-for-this-tutorial",
-    "href": "week13_slides.html#two-main-figures-for-this-tutorial",
-    "title": "Week 13: Data visualization",
-    "section": "Two main figures for this tutorial",
-    "text": "Two main figures for this tutorial\n\n\n\nFigure Type 1 ☁️ Word Clouds\n\nWords are arranged in a cloud where word size = relative frequency in the corpus.\nPros: Minimalist design, intuitive, and strong immediate visual impact!\n\n\n\n\n\n\n\n\n\n\nFigure Type 2 📊 Frequency Dot Plots\n\nPlots words along a ranked frequency axis.\nPros: Less playful than word clouds, but much more accurate and allows you to display multiple types of information at once!"
-  },
-  {
-    "objectID": "week13_slides.html#going-further-lexical-dispersion-plots",
-    "href": "week13_slides.html#going-further-lexical-dispersion-plots",
-    "title": "Week 13: Data visualization",
-    "section": "Going further: Lexical dispersion plots",
-    "text": "Going further: Lexical dispersion plots\nWhat if you want to compare keywords across texts or time?\n\n\n\nTwo common uses:\n\nCompare the frequency of two keywords within a single document.\nCompare one or more keywords across time and/or between documents.\n\n🔗 Quanteda plotting tutorial\n\n\n\n\n\n\n\n\n\n\n\n\n🤔 “And so what?” A figure is never the final step! Our role is to interpret the visual patterns according to our research question."
-  },
-  {
-    "objectID": "week13_slides.html#how-are-we-going-to-work-in-this-class",
-    "href": "week13_slides.html#how-are-we-going-to-work-in-this-class",
-    "title": "Week 13: Data visualization",
-    "section": "How are we going to work in this class?",
-    "text": "How are we going to work in this class?\nPlease download the R Markdown script and the three datasets from Weeks 11 & 12:\n\n\n\n\n\n\n\nMarkdown script for this week\nDatasets to use in the script\n\n\n\n\n📥 Download Markdown script\n📦 Whole ETtoday corpus (after cleaning)\n\n\n📄 PDF output of the script\n🔍 KWIC analysis of you ‘to have’\n\n\n\n📊 Most frequently used words (Top 100)"
-  },
-  {
-    "objectID": "week13_slides.html#two-key-packages-quanteda.textplots-ggplot2",
-    "href": "week13_slides.html#two-key-packages-quanteda.textplots-ggplot2",
-    "title": "Week 13: Data visualization",
-    "section": "Two key packages: quanteda.textplots & ggplot2",
-    "text": "Two key packages: quanteda.textplots & ggplot2\n\n\n\nPackage 1 quanteda.textplots\n\nSub-library of quanteda dedicated to visualizing text data.\nUsed today to generate word clouds directly from Document-Feature Matrices (dfm).\n\n\n\n\n\nPackage 2 ggplot2 (website)\n\nThe gold standard in R for publication-ready figures (theses, journal articles, industry reports).\nUsed today to build clean, ranked frequency dot plots."
-  },
-  {
-    "objectID": "week13_slides.html#ggplot2-cheatsheets",
-    "href": "week13_slides.html#ggplot2-cheatsheets",
-    "title": "Week 13: Data visualization",
-    "section": "ggplot2 Cheatsheets",
-    "text": "ggplot2 Cheatsheets"
-  },
-  {
-    "objectID": "week13_slides.html#workflow-for-word-clouds-frequency-dot-plots",
-    "href": "week13_slides.html#workflow-for-word-clouds-frequency-dot-plots",
-    "title": "Week 13: Data visualization",
-    "section": "Workflow for word clouds & frequency dot plots",
-    "text": "Workflow for word clouds & frequency dot plots"
-  },
-  {
-    "objectID": "week13_slides.html#step-0-prepare-the-environment",
-    "href": "week13_slides.html#step-0-prepare-the-environment",
-    "title": "Week 13: Data visualization",
-    "section": "Step 0: Prepare the environment",
-    "text": "Step 0: Prepare the environment\n\n\n1. Load required libraries:\n\nlibrary(quanteda)\nlibrary(quanteda.textstats)\nlibrary(quanteda.textplots)\nlibrary(stringr)\nlibrary(ggplot2)\nlibrary(showtext)\nlibrary(scales)\n\n# Automatically detect & render Chinese fonts in R plots!\nshowtext_auto()\n\n\n\n\n🀄 Crucial for Chinese text: Without showtext and showtext_auto(), R plots often display empty boxes (□□) instead of Chinese characters!\n\n\n\n\n\n2. Load the analyzed datasets:\n\nload(file = \"ArticleETToday_CorpusCourse_CLEAN.Rdata\")\nload(file = \"ArticleETToday_KWIC_You.Rdata\")\nload(file = \"ArticleETToday_Top100words.Rdata\")\n\n\nArticle_total2: Full cleaned corpus.\nkwic_data: KWIC concordance of \"有\".\ntable_FreqWord_Top100: Top 100 corpus words."
-  },
-  {
-    "objectID": "week13_slides.html#part-a-visualizing-kwic-有-post-context-word-cloud",
-    "href": "week13_slides.html#part-a-visualizing-kwic-有-post-context-word-cloud",
-    "title": "Week 13: Data visualization",
-    "section": "Part A: Visualizing KWIC (有) — Post-context Word Cloud",
-    "text": "Part A: Visualizing KWIC (有) — Post-context Word Cloud\nWe first convert kwic_data$post into a dfm and filter noise with dfm_trim():\n\n\n\n📉 min_termfreq = 100 (The Floor)\nRemoves rare words (&lt; 100 occurrences) such as typos, rare names, or irrelevant noise.\n\n\n\n📈 max_termfreq = 10000 (The Ceiling)\nRemoves super-frequent function words (&gt; 10,000 occurrences) like \"的\" (de), which otherwise dwarf content words!\n\n\n\nkwic_post_freq &lt;- dfm(tokens(kwic_data$post,\n                             remove_punct = TRUE, remove_numbers = TRUE, remove_separators = TRUE))\n\n# Version 1: Keep high-frequency words (only trims rare words &lt; 100)\nkwic_post_freq_trim_WithDE &lt;- dfm_trim(kwic_post_freq, min_termfreq = 100, verbose = TRUE)\n\n# Version 2: Remove super-frequent words like '的' (trims &gt; 10,000)\nkwic_post_freq_trim_WithoutDE &lt;- dfm_trim(kwic_post_freq, min_termfreq = 100, max_termfreq = 10000, verbose = TRUE)"
-  },
-  {
-    "objectID": "week13_slides.html#plotting-the-two-kwic-word-clouds",
-    "href": "week13_slides.html#plotting-the-two-kwic-word-clouds",
-    "title": "Week 13: Data visualization",
-    "section": "Plotting the two KWIC Word Clouds",
-    "text": "Plotting the two KWIC Word Clouds\nCompare the cloud with \"的\" versus without \"的\":\n\n# Cloud 1: With '的' (raw reality)\ntextplot_wordcloud(kwic_post_freq_trim_WithDE,\n                   max_words = 100, min_size = 1, max_size = 5,\n                   rotation = FALSE, random_order = FALSE,\n                   color = c('red', 'green', 'blue', \"orange\"))\n\n# Cloud 2: Without '的' (meaningful content words)\ntextplot_wordcloud(kwic_post_freq_trim_WithoutDE,\n                   max_words = 100, min_size = 1, max_size = 5,\n                   rotation = FALSE, random_order = FALSE,\n                   color = c('red', 'green', 'blue', \"orange\"))"
-  },
-  {
-    "objectID": "week13_slides.html#kwic-post-context-frequency-dot-plots-ggplot2",
-    "href": "week13_slides.html#kwic-post-context-frequency-dot-plots-ggplot2",
-    "title": "Week 13: Data visualization",
-    "section": "KWIC Post-context: Frequency Dot Plots (ggplot2)",
-    "text": "KWIC Post-context: Frequency Dot Plots (ggplot2)\nDot plots give us an exact ranking of words in the post context:\n\n\n\nTwo key ggplot2 tricks:\n\nreorder(feature, frequency): Orders words on the y-axis by frequency instead of alphabetical order!\nscale_x_continuous(labels = label_comma()): Formats axis numbers as \"1,000\" instead of \"1000\".\n\n\n\n\nkwic_data_freq_PostContext &lt;- dfm(\n  tokens(kwic_data$post,\n         remove_punct = TRUE,\n         remove_numbers = TRUE,\n         remove_symbols = TRUE)\n)\nkwic_data_freq_PostContext &lt;- textstat_frequency(kwic_data_freq_PostContext)\n\n# Top 30 words (much easier to read than Top 100!)\nggplot(head(kwic_data_freq_PostContext, 30),\n       aes(x = frequency,\n           y = reorder(feature, frequency))) +\n  geom_point() + \n  labs(x = \"Frequency\", y = \"Word\") +\n  scale_x_continuous(labels = label_comma())"
-  },
-  {
-    "objectID": "week13_slides.html#zooming-in-first-word-after-有-word-cloud",
-    "href": "week13_slides.html#zooming-in-first-word-after-有-word-cloud",
-    "title": "Week 13: Data visualization",
-    "section": "Zooming in: First Word After \"有\" (Word Cloud)",
-    "text": "Zooming in: First Word After \"有\" (Word Cloud)\nA 30-word window is wide. Let’s zoom in on only the 1st word immediately following \"有\" using word(kwic_data$post, 1):\n\n## 1. Extract the 1st word after \"有\"\nkwic_data$post_first_word &lt;- word(kwic_data$post, 1)\n\n## 2. Convert to DFM and trim\nkwic_post_FirstWord_freq &lt;- dfm(\n  tokens(kwic_data$post_first_word,\n         remove_punct = TRUE,\n         remove_numbers = TRUE,\n         remove_separators = TRUE))\n\nkwic_postFirstWord_freq_trim &lt;- dfm_trim(kwic_post_FirstWord_freq, verbose = TRUE)\n\n## 3. Plot the word cloud\ntextplot_wordcloud(kwic_postFirstWord_freq_trim,\n                   max_words = 100, min_size = 1, max_size = 5,\n                   rotation = FALSE, random_order = FALSE,\n                   color = c('red', 'green', 'blue', \"orange\", \"cyan\"))"
-  },
-  {
-    "objectID": "week13_slides.html#zooming-in-first-word-after-有-dot-plots",
-    "href": "week13_slides.html#zooming-in-first-word-after-有-dot-plots",
-    "title": "Week 13: Data visualization",
-    "section": "Zooming in: First Word After \"有\" (Dot Plots)",
-    "text": "Zooming in: First Word After \"有\" (Dot Plots)\nPlotting the top 30 first words with ggplot2 reveals the most common direct objects or verbs following \"有\":\n\n## Compute frequencies of the 1st word after \"有\"\nkwic_data_freq_PostFirstWord &lt;- dfm(\n  tokens(kwic_data$post_first_word,\n         remove_punct = TRUE,\n         remove_numbers = TRUE,\n         remove_symbols = TRUE)\n)\nkwic_data_freq_PostFirstWord &lt;- textstat_frequency(kwic_data_freq_PostFirstWord)\n\n## Plot Top 30 first words\nggplot(head(kwic_data_freq_PostFirstWord, 30),\n       aes(x = frequency,\n           y = reorder(feature, frequency))) +\n  geom_point() + \n  labs(x = \"Frequency\", y = \"Word\") +\n  scale_x_continuous(labels = label_comma())"
-  },
-  {
-    "objectID": "week13_slides.html#part-b-whole-corpus-frequency-word-clouds",
-    "href": "week13_slides.html#part-b-whole-corpus-frequency-word-clouds",
-    "title": "Week 13: Data visualization",
-    "section": "Part B: Whole Corpus Frequency — Word Clouds",
-    "text": "Part B: Whole Corpus Frequency — Word Clouds\nNow we visualize Article_total2$body across the entire corpus. Because the corpus is huge, we raise the dfm_trim() thresholds:\n\n\n\nAdjusted whole-corpus thresholds:\n\nmin_termfreq = 10000: Keep only words occurring at least 10,000 times.\nmax_termfreq = 300000: Remove \"的\" (&gt; 300,000 occurrences) so actual news topics stand out!\n\n\n\n\nArticle_tokens_frequency &lt;- dfm(\n  tokens(Article_total2$body,\n         remove_punct = TRUE, remove_numbers = TRUE, remove_separators = TRUE))\n\n# With '的'\nArticle_tokens_frequency_trim_WithDE &lt;- dfm_trim(\n  Article_tokens_frequency, min_termfreq = 10000, verbose = TRUE)\n\n# Without '的' (max_termfreq = 300000)\nArticle_tokens_frequency_trim_WithoutDE &lt;- dfm_trim(\n  Article_tokens_frequency, min_termfreq = 10000, max_termfreq = 300000, verbose = TRUE)\n\ntextplot_wordcloud(Article_tokens_frequency_trim_WithoutDE,\n                   max_words = 100, min_size = 1, max_size = 5,\n                   rotation = FALSE, random_order = FALSE,\n                   color = c('red', 'green', 'blue', \"orange\"))"
-  },
-  {
-    "objectID": "week13_slides.html#whole-corpus-frequency-dot-plots-ggplot2",
-    "href": "week13_slides.html#whole-corpus-frequency-dot-plots-ggplot2",
-    "title": "Week 13: Data visualization",
-    "section": "Whole Corpus Frequency — Dot Plots (ggplot2)",
-    "text": "Whole Corpus Frequency — Dot Plots (ggplot2)\nUsing table_FreqWord_Top100 from Week 12, compare Top 100 vs. Top 30:\n\n# Plot 1: All Top 100 words (crowded y-axis!)\nggplot(table_FreqWord_Top100,\n       aes(x = frequency,\n           y = reorder(feature, frequency))) +\n  geom_point() + \n  labs(x = \"Frequency\", y = \"Word\") +\n  scale_x_continuous(labels = label_comma())\n\n# Plot 2: Top 30 words using head(..., 30) -&gt; much cleaner for an audience!\nggplot(head(table_FreqWord_Top100, 30),\n       aes(x = frequency,\n           y = reorder(feature, frequency))) +\n  geom_point() + \n  labs(x = \"Frequency\", y = \"Word\") +\n  scale_x_continuous(labels = label_comma())\n\n\n\n\n\n💡 Takeaway: Showing less data (head(..., 30) instead of 100) often makes your chart much more readable and persuasive for your audience!"
   }
 ]

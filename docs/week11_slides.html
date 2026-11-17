@@ -443,8 +443,8 @@
 <h2>A proposed workflow</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-534e235a3e3207142043" style="width:100%;height:540px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-534e235a3e3207142043">{"x":{"diagram":"\ndigraph cleaning_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.45,\n    ranksep = 0.48\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 15,\n    fontcolor = \"#1E293B\",\n    margin = \"0.3,0.18\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 13,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 0.95,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Look at your data set\"]\n  B [label = \"Yes\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  C [label = \"No\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  D [label = \"Are there necessary annotations to do?\"]\n  E [label = \"Proceed to the annotation process\"]\n  F [label = \"Are there unnecessary data to remove?\"]\n  G [label = \"Identify what to remove\"]\n  H [label = \"Test the removal process\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  I [label = \"Remove the data\"]\n  J [label = \"Are there more unnecessary data to remove?\"]\n  K [label = \"Data cleaning finished\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B [label = \"  Is it the right format?  \"]\n  A -> C [label = \"  Is it the right format?  \"]\n  C -> D [label = \"  Transform the format  \"]\n  B -> D\n  D -> E [label = \"  Yes  \"]\n  D -> F [label = \"  No  \"]\n  E -> F\n  F -> G [label = \"  Yes  \"]\n  G -> H\n  H -> I [label = \"  Acceptable removal  \"]\n  H -> G [label = \"  Unacceptable removal  \"]\n  I -> J\n  J -> G [label = \"  Yes  \"]\n  J -> K [label = \"  No  \"]\n  F -> K [label = \"  No  \"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4e1f689d1e1a851ddb4e" style="width:100%;height:540px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4e1f689d1e1a851ddb4e">{"x":{"diagram":"\ndigraph cleaning_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.45,\n    ranksep = 0.48\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 15,\n    fontcolor = \"#1E293B\",\n    margin = \"0.3,0.18\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 13,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 0.95,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Look at your data set\"]\n  B [label = \"Yes\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  C [label = \"No\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  D [label = \"Are there necessary annotations to do?\"]\n  E [label = \"Proceed to the annotation process\"]\n  F [label = \"Are there unnecessary data to remove?\"]\n  G [label = \"Identify what to remove\"]\n  H [label = \"Test the removal process\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  I [label = \"Remove the data\"]\n  J [label = \"Are there more unnecessary data to remove?\"]\n  K [label = \"Data cleaning finished\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B [label = \"  Is it the right format?  \"]\n  A -> C [label = \"  Is it the right format?  \"]\n  C -> D [label = \"  Transform the format  \"]\n  B -> D\n  D -> E [label = \"  Yes  \"]\n  D -> F [label = \"  No  \"]\n  E -> F\n  F -> G [label = \"  Yes  \"]\n  G -> H\n  H -> I [label = \"  Acceptable removal  \"]\n  H -> G [label = \"  Unacceptable removal  \"]\n  I -> J\n  J -> G [label = \"  Yes  \"]\n  J -> K [label = \"  No  \"]\n  F -> K [label = \"  No  \"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section></section>
@@ -523,10 +523,16 @@
 <section id="how-are-we-going-to-work-in-this-class" class="slide level2">
 <h2>How are we going to work in this class?</h2>
 <div class="fragment fade-up">
-<p>Please download the script for this week:</p>
-<div style="text-align: center; margin-top: 1.5em; margin-bottom: 1.5em;">
-<p><a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank" style="display: inline-block; padding: 14px 28px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;"> 📥 Download the R Markdown script (ETToday_Cleaning.Rmd) </a></p>
+<p>Please download the script and the dataset for this week, and place them in your <code>PreprocessingAnalysesR</code> folder.</p>
+<div style="text-align: center; margin-top: 2em;">
+<p><a href="assets/files/_Internal/ETToday_Cleaning.Rmd" download="ETToday_Scrape.Rmd" style="display: inline-block; padding: 15px 30px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;"> 📥 Download the R Markdown script </a></p>
 </div>
+<div style="text-align: center; margin-top: 2em;">
+<p><a href="assets/files/_Internal/ArticleETToday_CorpusCourse.Rdata" download="ETToday_Scrape.Rmd" style="display: inline-block; padding: 15px 30px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;"> 📥 Download the dataset (ETtoday 2024 politics and society corpus) </a></p>
+</div>
+</div>
+<div class="fragment fade-up">
+<p><br> 💻 Please start <code>RStudio</code> and select the project called <code>PreprocessingAnalysesR</code>.</p>
 </div>
 </section>
 <section id="step-0-prepare-the-environment" class="slide level2">
@@ -723,8 +729,8 @@
 <span id="cb10-2"><a></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body <span class="sc">==</span> <span class="st">""</span>), ]</span>
 <span id="cb10-3"><a></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body <span class="sc">==</span> <span class="st">""</span>), ]</span>
 <span id="cb10-4"><a></a></span>
-<span id="cb10-5"><a></a><span class="do">## 2. Single space (spotted on line 29)</span></span>
-<span id="cb10-6"><a></a>Article_total2<span class="sc">$</span>body[<span class="dv">29</span>] </span>
+<span id="cb10-5"><a></a><span class="do">## 2. Single space (spotted on line 7)</span></span>
+<span id="cb10-6"><a></a>Article_total2<span class="sc">$</span>body[<span class="dv">7</span>] </span>
 <span id="cb10-7"><a></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body <span class="sc">==</span> <span class="st">" "</span>), ]</span>
 <span id="cb10-8"><a></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body <span class="sc">==</span> <span class="st">" "</span>), ]</span>
 <span id="cb10-9"><a></a></span>
@@ -740,24 +746,24 @@
 <p>What if a row looks empty during visual inspection, but <code>" "</code> doesn’t catch it?</p>
 <p>👉 <strong>Extract the unknown character directly by its row number, test it, and remove all matches!</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="do">## Visual inspection: Line 29 is still empty! Extract the exact symbol:</span></span>
-<span id="cb11-2"><a></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">29</span>] </span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="do">## Visual inspection: Line 7 is still empty! Extract the exact symbol:</span></span>
+<span id="cb11-2"><a></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">7</span>] </span>
 <span id="cb11-3"><a></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body <span class="sc">==</span> ToRemove), ]</span>
 <span id="cb11-4"><a></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body <span class="sc">==</span> ToRemove), ]</span>
 <span id="cb11-5"><a></a></span>
 <span id="cb11-6"><a></a><span class="do">## Repeat the exact same trick for other stubborn empty rows spotted visually:</span></span>
 <span id="cb11-7"><a></a><span class="co"># Row 13974</span></span>
-<span id="cb11-8"><a></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">13974</span>] </span>
+<span id="cb11-8"><a></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">2373</span>] </span>
 <span id="cb11-9"><a></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body <span class="sc">==</span> ToRemove), ]</span>
 <span id="cb11-10"><a></a></span>
-<span id="cb11-11"><a></a><span class="co"># Row 8368, Row 67, and Row 15279</span></span>
-<span id="cb11-12"><a></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">8368</span>] </span>
+<span id="cb11-11"><a></a><span class="co"># Row 965, Row 16121, and Row 23912</span></span>
+<span id="cb11-12"><a></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">965</span>] </span>
 <span id="cb11-13"><a></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body <span class="sc">==</span> ToRemove), ]</span>
 <span id="cb11-14"><a></a></span>
-<span id="cb11-15"><a></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">67</span>] </span>
+<span id="cb11-15"><a></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">16121</span>] </span>
 <span id="cb11-16"><a></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body <span class="sc">==</span> ToRemove), ]</span>
 <span id="cb11-17"><a></a></span>
-<span id="cb11-18"><a></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">15279</span>] </span>
+<span id="cb11-18"><a></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">23912</span>] </span>
 <span id="cb11-19"><a></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body <span class="sc">==</span> ToRemove), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>

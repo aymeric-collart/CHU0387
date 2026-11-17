@@ -781,11 +781,42 @@ b, strong {
 <p><strong>A brief summary of the essential elements:</strong></p>
 <p>(to be given later)</p>
 <p><strong>Scripts and datasets</strong></p>
-<p>You can find the pre-filled Markdown document of this section <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" target="_blank">here</a>. <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.pdf" target="_blank">Here</a> is the PDF output of the same document.</p>
-<p>The RData output file can be downloaded <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.Rdata" target="_blank">here</a>. The Excel file corresponding to this dataset is <a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ArticleETToday_CorpusCourse_CLEAN.xlsx" target="_blank">here</a>.</p>
+<p><br></p>
+<div class="text-center mb-3">
+<p><a href="javascript:void(0)" onclick="fetch('https://raw.githubusercontent.com/aymeric-collart/CHU0387/main/assets/files/_Internal/ETToday_Cleaning.Rmd')
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'ETToday_Cleaning.Rmd';
+       document.body.appendChild(a);
+       a.click();
+       window.URL.revokeObjectURL(url);
+     })" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the script for this week </a></p>
+</div>
+<div class="text-center mb-3">
+<p><a href="javascript:void(0)" onclick="fetch('https://raw.githubusercontent.com/aymeric-collart/CHU0387/main/assets/files/_Internal/ArticleETToday_CorpusCourse.Rdata')
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'ArticleETToday_CorpusCourse.Rdata';
+       document.body.appendChild(a);
+       a.click();
+       window.URL.revokeObjectURL(url);
+     })" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script <br> (the same as last week, no need to download one more time if you already have it) </a></p>
+</div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>(to be given later)</p>
+<p><strong>Please complete the following tasks before Week 12:</strong></p>
+<ul>
+<li>Comment each line from today’s script</li>
+<li>Knit into a PDF file and upload to Moodle</li>
+</ul>
 </div>
 </div>
 </div>
@@ -886,8 +917,8 @@ b, strong {
 <p>Please do not hesitate to zoom in!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-9a34bbce191d30ea82ea" style="width:100%;height:750px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9a34bbce191d30ea82ea">{"x":{"diagram":"\ndigraph cleaning_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.5,\n    ranksep = 0.6\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#1E293B\",\n    margin = \"0.35,0.2\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 12,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.0,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Look at your data set\"]\n  B [label = \"Yes\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  C [label = \"No\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  D [label = \"Are there necessary annotations to do?\"]\n  E [label = \"Proceed to the annotation process\"]\n  F [label = \"Are there unnecessary data to remove?\"]\n  G [label = \"Identify what to remove\"]\n  H [label = \"Test the removal process\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  I [label = \"Remove the data\"]\n  J [label = \"Are there more unnecessary data to remove?\"]\n  K [label = \"Data cleaning finished\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B [label = \"  Is it the right format?  \"]\n  A -> C [label = \"  Is it the right format?  \"]\n  C -> D [label = \"  Transform the format  \"]\n  B -> D\n  D -> E [label = \"  Yes  \"]\n  D -> F [label = \"  No  \"]\n  E -> F\n  F -> G [label = \"  Yes  \"]\n  G -> H\n  H -> I [label = \"  Acceptable removal  \"]\n  H -> G [label = \"  Unacceptable removal  \"]\n  I -> J\n  J -> G [label = \"  Yes  \"]\n  J -> K [label = \"  No  \"]\n  F -> K [label = \"  No  \"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f42e54f172cc3a3d12b3" style="width:100%;height:750px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f42e54f172cc3a3d12b3">{"x":{"diagram":"\ndigraph cleaning_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.5,\n    ranksep = 0.6\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#1E293B\",\n    margin = \"0.35,0.2\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 12,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.0,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Look at your data set\"]\n  B [label = \"Yes\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  C [label = \"No\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  D [label = \"Are there necessary annotations to do?\"]\n  E [label = \"Proceed to the annotation process\"]\n  F [label = \"Are there unnecessary data to remove?\"]\n  G [label = \"Identify what to remove\"]\n  H [label = \"Test the removal process\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  I [label = \"Remove the data\"]\n  J [label = \"Are there more unnecessary data to remove?\"]\n  K [label = \"Data cleaning finished\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B [label = \"  Is it the right format?  \"]\n  A -> C [label = \"  Is it the right format?  \"]\n  C -> D [label = \"  Transform the format  \"]\n  B -> D\n  D -> E [label = \"  Yes  \"]\n  D -> F [label = \"  No  \"]\n  E -> F\n  F -> G [label = \"  Yes  \"]\n  G -> H\n  H -> I [label = \"  Acceptable removal  \"]\n  H -> G [label = \"  Unacceptable removal  \"]\n  I -> J\n  J -> G [label = \"  Yes  \"]\n  J -> K [label = \"  No  \"]\n  F -> K [label = \"  No  \"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1092,7 +1123,7 @@ How to know what to clean?
 </div>
 <div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
 <p>This section deals with “invisible” noise.</p>
-<p>Iterative Cleaning: The user manually identified various forms of empty space (empty strings ““, single spaces” “, multiple spaces” “, and specific whitespace characters found at specific row indices like 29 or 13974).</p>
+<p>Iterative Cleaning: The user manually identified various forms of empty space (empty strings ““, single spaces” “, multiple spaces” “, and specific whitespace characters found at specific row indices like 7 or 2373).</p>
 <p>Process: The code repeatedly checks for these specific empty patterns and removes them to ensure the final dataset contains only text with content.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Test the code to make sure we are not removing too much</span></span>
@@ -1102,8 +1133,8 @@ How to know what to clean?
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">""</span>), ]</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 29</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">29</span>] <span class="do">## corresponds to a space</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 7</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">7</span>] <span class="do">## corresponds to a space</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Test the code to make sure we are not removing too much</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">" "</span>), ]</span>
@@ -1125,47 +1156,47 @@ How to know what to clean?
 <span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"    "</span>), ]</span>
 <span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span><span class="st">"     "</span>), ]</span>
 <span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 29</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">29</span>] </span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 7</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">7</span>] </span>
 <span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="do">## I don't really know what this is, check using the row number instead of the symbol itself</span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>Article_total2<span class="sc">$</span>body[<span class="dv">29</span>]), ]</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>Article_total2<span class="sc">$</span>body[<span class="dv">7</span>]), ]</span>
 <span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the symbol</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">29</span>] </span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">7</span>] </span>
 <span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="do">## Indeed all the rows correspond to paragraphs with a space --&gt; Removing using the symbol itself</span></span>
 <span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
 <span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 13974</span></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">13974</span>] <span class="do">## corresponds to nothing, but wasn't caught earlier</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 2373</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">2373</span>] <span class="do">## corresponds to nothing, but wasn't caught earlier</span></span>
 <span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the symbol, test and remove</span></span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">13974</span>] </span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">2373</span>] </span>
 <span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
 <span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
 <span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 8368</span></span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">8368</span>] <span class="do">## I don't know what kind of space it is</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 965</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">965</span>] <span class="do">## I don't know what kind of space it is</span></span>
 <span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the symbol, test and remove</span></span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">8368</span>] </span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">965</span>] </span>
 <span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
 <span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
 <span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 67</span></span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">67</span>] <span class="do">## I don't know what kind of space it is</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 16121</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">16121</span>] <span class="do">## I don't know what kind of space it is</span></span>
 <span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the symbol, test and remove</span></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">67</span>] </span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">16121</span>] </span>
 <span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
 <span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
 <span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 15279</span></span>
-<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">15279</span>] <span class="do">## I don't know what kind of space it is</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a><span class="do">## Visual inspection: Still empty rows, such as line number 23912</span></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>body[<span class="dv">23912</span>] <span class="do">## I don't know what kind of space it is</span></span>
 <span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the symbol, test and remove</span></span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">15279</span>] </span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>ToRemove <span class="ot">&lt;-</span> Article_total2<span class="sc">$</span>body[<span class="dv">23912</span>] </span>
 <span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Article_total2[(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span>
 <span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>Article_total2 <span class="ot">&lt;-</span> Article_total2[<span class="sc">!</span>(Article_total2<span class="sc">$</span>body<span class="sc">==</span>ToRemove), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

@@ -819,8 +819,8 @@ b, strong {
 <p>Before getting into the details, we need to keep in mind the overall workflow of a corpus study. (You can zoom in)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-947bf111ccdd85555874" style="width:100%;height:650px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-947bf111ccdd85555874">{"x":{"diagram":"\ndigraph corpus_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.5,\n    ranksep = 0.6\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#1E293B\",\n    margin = \"0.35,0.2\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 12,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.0,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Research question\"]\n  B [label = \"Do I need corpus data\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  C [label = \"Corpus study maybe not appropriate\"]\n  D [label = \"Proceed to the corpus study!\"]\n  E [label = \"Select the right corpus\"]\n  F [label = \"Select the analysis method\"]\n  G [label = \"Proceed to the automatic analysis\"]\n  H [label = \"Interpret the results according to the research question\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B\n  B -> C [label = \"  No  \"]\n  B -> D [label = \"  Yes  \"]\n  D -> E\n  E -> F\n  F -> G [label = \"  Word lists, KWIC, collocates, clusters, random forests, etc.  \"]\n  G -> H\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-843a87bafd8699ee6d71" style="width:100%;height:650px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-843a87bafd8699ee6d71">{"x":{"diagram":"\ndigraph corpus_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.5,\n    ranksep = 0.6\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#1E293B\",\n    margin = \"0.35,0.2\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 12,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.0,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Research question\"]\n  B [label = \"Do I need corpus data\", shape = diamond, fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  C [label = \"Corpus study maybe not appropriate\"]\n  D [label = \"Proceed to the corpus study!\"]\n  E [label = \"Select the right corpus\"]\n  F [label = \"Select the analysis method\"]\n  G [label = \"Proceed to the automatic analysis\"]\n  H [label = \"Interpret the results according to the research question\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B\n  B -> C [label = \"  No  \"]\n  B -> D [label = \"  Yes  \"]\n  D -> E\n  E -> F\n  F -> G [label = \"  Word lists, KWIC, collocates, clusters, random forests, etc.  \"]\n  G -> H\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -976,8 +976,8 @@ Note
 <p>Here is an overview of the workflow. First, we start with the clean corpus, and then we create a new dataset where the sentences are cut into words. Based on this new dataset, we can perform a KWIC analysis, create a word list, or combine the two types of analyses. Finally, we clean a little bit (as in the example below; punctuation marks, digits, selecting only the sentence/phrase, etc.), we add back the information from the original corpus, and we are done!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-aee7cff7716b84cea3de" style="width:100%;height:600px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-aee7cff7716b84cea3de">{"x":{"diagram":"\ndigraph r_analysis_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.5,\n    ranksep = 0.6\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#1E293B\",\n    margin = \"0.35,0.2\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 12,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.0,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Corpus data\"]\n  B [label = \"Segment into words\"]\n  C [label = \"KWIC analysis\", fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  D [label = \"Word list\", fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  E [label = \"Clean a little bit\"]\n  F [label = \"Add information from the original corpus\"]\n  G [label = \"Done!\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B [label = \"  Identify the column with the text  \"]\n  B -> C\n  B -> D\n  C -> D [label = \"  If combined analysis  \"]\n  D -> E\n  C -> E\n  E -> F\n  F -> G\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7ac4f08fbcd4f400aa21" style="width:100%;height:600px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7ac4f08fbcd4f400aa21">{"x":{"diagram":"\ndigraph r_analysis_workflow {\n  graph [\n    rankdir = TB, \n    bgcolor = transparent,\n    nodesep = 0.5,\n    ranksep = 0.6\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fillcolor = \"#F8FAFC\",\n    color = \"#64748B\",\n    penwidth = 1.5,\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 14,\n    fontcolor = \"#1E293B\",\n    margin = \"0.35,0.2\"\n  ]\n\n  edge [\n    fontname = \"Helvetica, Arial, sans-serif\",\n    fontsize = 12,\n    fontcolor = \"#2563EB\",\n    color = \"#94A3B8\",\n    arrowsize = 1.0,\n    penwidth = 1.5\n  ]\n\n  A [label = \"Corpus data\"]\n  B [label = \"Segment into words\"]\n  C [label = \"KWIC analysis\", fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  D [label = \"Word list\", fillcolor = \"#EFF6FF\", color = \"#3B82F6\"]\n  E [label = \"Clean a little bit\"]\n  F [label = \"Add information from the original corpus\"]\n  G [label = \"Done!\", fillcolor = \"#F0FDF4\", color = \"#22C55E\", penwidth = 1.8]\n\n  A -> B [label = \"  Identify the column with the text  \"]\n  B -> C\n  B -> D\n  C -> D [label = \"  If combined analysis  \"]\n  D -> E\n  C -> E\n  E -> F\n  F -> G\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1057,6 +1057,9 @@ Attaching package: 'dplyr'</code></pre>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Article_total2<span class="sc">$</span>docname <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"text"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(Article_total2))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>Article_tokens <span class="ot">&lt;-</span> <span class="fu">tokens</span>(Article_total2<span class="sc">$</span>body)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: NA is replaced by empty string</code></pre>
+</div>
 </div>
 <ul>
 <li><p><strong>Article_total2$docname &lt;- …</strong>: We create a new column called docname. We use paste0 to generate a unique ID for each article (e.g., “text1”, “text2”, etc.) based on the row number (nrow).</p></li>
@@ -1069,7 +1072,7 @@ Attaching package: 'dplyr'</code></pre>
 <h4 class="anchored" data-anchor-id="kwic-segmentation">KWIC segmentation</h4>
 <p>Now we search for a specific keyword to see how it is used in context.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">kwic</span>(Article_tokens, <span class="at">pattern =</span> <span class="st">"有"</span>, <span class="at">window =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">kwic</span>(Article_tokens, <span class="at">pattern =</span> <span class="st">"有"</span>, <span class="at">window =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p><strong>kwic(…)</strong>: This function (“Key Word In Context”) searches our tokenized text.</p>
@@ -1083,11 +1086,11 @@ Attaching package: 'dplyr'</code></pre>
 <h4 class="anchored" data-anchor-id="annotate-the-kwic-dataset">Annotate the KWIC dataset</h4>
 <p>The kwic function gives us the context, but we lose the original metadata (like the article date or category). We need to put it back.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(kwic_data)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">right_join</span>(kwic_data, Article_total2, <span class="at">by =</span> <span class="st">"docname"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(kwic_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(kwic_data)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">right_join</span>(kwic_data, Article_total2, <span class="at">by =</span> <span class="st">"docname"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>kwic_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(kwic_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p><strong>as.data.frame(kwic_data)</strong>: The output of kwic is a special object; we convert it into a standard data frame so we can manipulate it easily.</p></li>
@@ -1099,28 +1102,28 @@ Attaching package: 'dplyr'</code></pre>
 <div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
 <p>The window of 30 words might include parts of previous or subsequent sentences. We want to “trim” the context to only the sentence containing the keyword.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Keep original information just in case</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre_original <span class="ot">&lt;-</span> kwic_data<span class="sc">$</span>pre</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post_original <span class="ot">&lt;-</span> kwic_data<span class="sc">$</span>post</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Post context</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>symbol1 <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">。"</span> </span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="fu">paste0</span>(<span class="st">"("</span>, symbol1, <span class="st">").*"</span>), <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>post)</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>symbol2 <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">，"</span> </span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="fu">paste0</span>(<span class="st">"("</span>, symbol2, <span class="st">").*"</span>), <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>post)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>symbol3 <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">？"</span> </span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="fu">paste0</span>(<span class="st">"("</span>, symbol3, <span class="st">").*"</span>), <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>post)</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>symbol4 <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">！"</span> </span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="fu">paste0</span>(<span class="st">"("</span>, symbol4, <span class="st">").*"</span>), <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>post)</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Pre context</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">".*。([^*。]*)$"</span>, <span class="st">"。</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>pre)</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">".*，([^*，]*)$"</span>, <span class="st">"，</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>pre)</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">".*？([^*？]*)$"</span>, <span class="st">"？</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>pre)</span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">".*！([^*！]*)$"</span>, <span class="st">"！</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>pre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Keep original information just in case</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre_original <span class="ot">&lt;-</span> kwic_data<span class="sc">$</span>pre</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post_original <span class="ot">&lt;-</span> kwic_data<span class="sc">$</span>post</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Post context</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>symbol1 <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">。"</span> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="fu">paste0</span>(<span class="st">"("</span>, symbol1, <span class="st">").*"</span>), <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>post)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>symbol2 <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">，"</span> </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="fu">paste0</span>(<span class="st">"("</span>, symbol2, <span class="st">").*"</span>), <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>post)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>symbol3 <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">？"</span> </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="fu">paste0</span>(<span class="st">"("</span>, symbol3, <span class="st">").*"</span>), <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>post)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>symbol4 <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">！"</span> </span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="fu">paste0</span>(<span class="st">"("</span>, symbol4, <span class="st">").*"</span>), <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>post)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Pre context</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">".*。([^*。]*)$"</span>, <span class="st">"。</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>pre)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">".*，([^*，]*)$"</span>, <span class="st">"，</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>pre)</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">".*？([^*？]*)$"</span>, <span class="st">"？</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>pre)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>pre <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">".*！([^*！]*)$"</span>, <span class="st">"！</span><span class="sc">\\</span><span class="st">1"</span>, kwic_data<span class="sc">$</span>pre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p><strong>kwic_data$pre_original &lt;- …:</strong> We back up the original context columns before modifying them.</p></li>
@@ -1130,27 +1133,27 @@ Attaching package: 'dplyr'</code></pre>
 </ul>
 <p>Note: The code repeats this process for commas (，), question marks (？), and exclamation marks (！) to handle different sentence boundaries.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Have a look at the data (I delete some columns so that it is easier to display on the website)</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>kwic_data_for_website <span class="ot">&lt;-</span> kwic_data</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>kwic_data_for_website<span class="sc">$</span>original_article <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>kwic_data_for_website<span class="sc">$</span>body <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>kwic_data_for_website<span class="sc">$</span>pre_original <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>kwic_data_for_website<span class="sc">$</span>post_original <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(kwic_data_for_website))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Have a look at the data (I delete some columns so that it is easier to display on the website)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>kwic_data_for_website <span class="ot">&lt;-</span> kwic_data</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>kwic_data_for_website<span class="sc">$</span>original_article <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>kwic_data_for_website<span class="sc">$</span>body <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>kwic_data_for_website<span class="sc">$</span>pre_original <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>kwic_data_for_website<span class="sc">$</span>post_original <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(kwic_data_for_website))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 3%">
 <col style="width: 1%">
 <col style="width: 1%">
-<col style="width: 10%">
+<col style="width: 11%">
 <col style="width: 3%">
-<col style="width: 18%">
+<col style="width: 13%">
 <col style="width: 3%">
-<col style="width: 7%">
+<col style="width: 8%">
 <col style="width: 2%">
-<col style="width: 24%">
-<col style="width: 18%">
+<col style="width: 25%">
+<col style="width: 19%">
 <col style="width: 1%">
 <col style="width: 2%">
 <col style="width: 1%">
@@ -1175,97 +1178,97 @@ Attaching package: 'dplyr'</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">text1</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">， 竟然</td>
-<td style="text-align: left;">有</td>
-<td style="text-align: left;">玩家 突發 奇想 將 兩 款 遊戲 尬 在一起 ，</td>
-<td style="text-align: left;">有</td>
-<td style="text-align: left;">2024年01月01日 10:57</td>
-<td style="text-align: left;">政治</td>
-<td style="text-align: left;">神人把《我的世界》改成《血源詛咒》　還原度超高玩家狂敲碗：快點出</td>
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2652951.htm</td>
-<td style="text-align: left;">2024</td>
-<td style="text-align: left;">01</td>
-<td style="text-align: left;">01</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">text6</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: left;">， 但 已經</td>
-<td style="text-align: left;">有</td>
-<td style="text-align: left;">不少 玩家 表示 相當 期待 ，</td>
-<td style="text-align: left;">有</td>
-<td style="text-align: left;">2024年01月01日 10:57</td>
-<td style="text-align: left;">政治</td>
-<td style="text-align: left;">神人把《我的世界》改成《血源詛咒》　還原度超高玩家狂敲碗：快點出</td>
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2652951.htm</td>
-<td style="text-align: left;">2024</td>
-<td style="text-align: left;">01</td>
-<td style="text-align: left;">01</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">text12</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: left;">， 常見 補品</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">， 若 未來</td>
 <td style="text-align: left;">有</td>
-<td style="text-align: left;">燒酒雞 、 薑 母鴨 、 羊肉爐 、 藥 燉 排骨 等 ，</td>
+<td style="text-align: left;">副總統 不需要 使用 ，</td>
 <td style="text-align: left;">有</td>
-<td style="text-align: left;">2024年01月01日 09:07</td>
-<td style="text-align: left;">社會</td>
-<td style="text-align: left;">跨年冬令進補爐火需留意　安裝住宅用火災警報器避免悲劇</td>
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2652951.htm</td>
+<td style="text-align: left;">2024年01月01日 18:47</td>
+<td style="text-align: left;">政治</td>
+<td style="text-align: left;">趙少康拋「當選捐官邸」　黃揚明：國家資產不該循官員個人想法</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655250.htm</td>
 <td style="text-align: left;">2024</td>
 <td style="text-align: left;">01</td>
 <td style="text-align: left;">01</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">text14</td>
-<td style="text-align: right;">57</td>
-<td style="text-align: right;">57</td>
-<td style="text-align: left;">， 選擇</td>
+<td style="text-align: left;">text25</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">， 國際 巨星 的 巡迴演出 行程</td>
 <td style="text-align: left;">有</td>
-<td style="text-align: left;">熄火 安全 裝置 及 溫度 感知 功能 爐 具 ，</td>
+<td style="text-align: left;">很多 考量 變數 ，</td>
 <td style="text-align: left;">有</td>
-<td style="text-align: left;">2024年01月01日 09:07</td>
-<td style="text-align: left;">社會</td>
-<td style="text-align: left;">跨年冬令進補爐火需留意　安裝住宅用火災警報器避免悲劇</td>
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2652951.htm</td>
+<td style="text-align: left;">2024年01月01日 18:27</td>
+<td style="text-align: left;">政治</td>
+<td style="text-align: left;">趙少康稱泰勒絲不敢來台　基進：難道Coldplay、YOASOBI無憂患意識？</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655249.htm</td>
 <td style="text-align: left;">2024</td>
 <td style="text-align: left;">01</td>
 <td style="text-align: left;">01</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">text17</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: left;">， 發現 29 歲 林 姓 男子 涉</td>
+<td style="text-align: left;">text25</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: left;">， 怎麼 不 說是 大 巨蛋</td>
 <td style="text-align: left;">有</td>
-<td style="text-align: left;">重 嫌 ，</td>
+<td style="text-align: left;">工 安 疑慮 ，</td>
 <td style="text-align: left;">有</td>
-<td style="text-align: left;">2024年01月01日 10:29</td>
-<td style="text-align: left;">社會</td>
-<td style="text-align: left;">半工半讀買的機車被偷！23歲女人生第一輛　警埋伏10hrs抓賊</td>
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2652951.htm</td>
+<td style="text-align: left;">2024年01月01日 18:27</td>
+<td style="text-align: left;">政治</td>
+<td style="text-align: left;">趙少康稱泰勒絲不敢來台　基進：難道Coldplay、YOASOBI無憂患意識？</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655249.htm</td>
 <td style="text-align: left;">2024</td>
 <td style="text-align: left;">01</td>
 <td style="text-align: left;">01</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">text19</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: left;">， 網友 始 知 台灣 改 車 界</td>
+<td style="text-align: left;">text28</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">， 怎麼 還會</td>
 <td style="text-align: left;">有</td>
-<td style="text-align: left;">這 號 人物 存在 。</td>
+<td style="text-align: left;">65 % 的 人 要 下 架 民進黨 ？</td>
 <td style="text-align: left;">有</td>
-<td style="text-align: left;">2024年01月01日 13:00</td>
-<td style="text-align: left;">社會</td>
-<td style="text-align: left;">揭密廖老大打龜號進化史！他棄台積電工師　兩岸改裝達人之爭曝</td>
-<td style="text-align: left;">https://www.ettoday.net/news/20231231/2652951.htm</td>
+<td style="text-align: left;">2024年01月01日 17:59</td>
+<td style="text-align: left;">政治</td>
+<td style="text-align: left;">分析／趙少康辭中廣、捐官邸強勢主導辯論　以攻代守狂轟民進黨</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655243.htm</td>
+<td style="text-align: left;">2024</td>
+<td style="text-align: left;">01</td>
+<td style="text-align: left;">01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">text35</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: left;">， 駐日 代表 處 也 聯絡 平時</td>
+<td style="text-align: left;">有</td>
+<td style="text-align: left;">往來 的 地方 首長 ，</td>
+<td style="text-align: left;">有</td>
+<td style="text-align: left;">2024年01月01日 17:51</td>
+<td style="text-align: left;">政治</td>
+<td style="text-align: left;">日僑、留學生平安！　謝長廷提醒旅客：警報解除前先至高處避難</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655237.htm</td>
+<td style="text-align: left;">2024</td>
+<td style="text-align: left;">01</td>
+<td style="text-align: left;">01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">text36</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: left;">，</td>
+<td style="text-align: left;">有</td>
+<td style="text-align: left;">少數 台灣 旅客 求助 交通 問題 ，</td>
+<td style="text-align: left;">有</td>
+<td style="text-align: left;">2024年01月01日 17:51</td>
+<td style="text-align: left;">政治</td>
+<td style="text-align: left;">日僑、留學生平安！　謝長廷提醒旅客：警報解除前先至高處避難</td>
+<td style="text-align: left;">https://www.ettoday.net/news/20240101/2655237.htm</td>
 <td style="text-align: left;">2024</td>
 <td style="text-align: left;">01</td>
 <td style="text-align: left;">01</td>
@@ -1278,21 +1281,21 @@ Attaching package: 'dplyr'</code></pre>
 <div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
 <p>We can now analyze what words typically follow “有”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the first word</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post_first_word <span class="ot">&lt;-</span> <span class="fu">word</span>(kwic_data<span class="sc">$</span>post, <span class="dv">1</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to tranform the tokenized data into a 'dfm' dataset</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>kwic_data_freq <span class="ot">&lt;-</span> <span class="fu">dfm</span>( <span class="fu">tokens</span>(kwic_data<span class="sc">$</span>post_first_word, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>) )</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>kwic_data_freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(kwic_data_freq)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Clean a little bit</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>kwic_data_freq <span class="ot">&lt;-</span> kwic_data_freq[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"[[:digit:]]"</span>, kwic_data_freq<span class="sc">$</span>feature),]</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Recreate the rank</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>kwic_data_freq<span class="sc">$</span>rank <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(kwic_data_freq<span class="sc">$</span>rank)</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(kwic_data_freq, <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the first word</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>kwic_data<span class="sc">$</span>post_first_word <span class="ot">&lt;-</span> <span class="fu">word</span>(kwic_data<span class="sc">$</span>post, <span class="dv">1</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to tranform the tokenized data into a 'dfm' dataset</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>kwic_data_freq <span class="ot">&lt;-</span> <span class="fu">dfm</span>( <span class="fu">tokens</span>(kwic_data<span class="sc">$</span>post_first_word, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>) )</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>kwic_data_freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(kwic_data_freq)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Clean a little bit</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>kwic_data_freq <span class="ot">&lt;-</span> kwic_data_freq[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"[[:digit:]]"</span>, kwic_data_freq<span class="sc">$</span>feature),]</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Recreate the rank</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>kwic_data_freq<span class="sc">$</span>rank <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(kwic_data_freq<span class="sc">$</span>rank)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(kwic_data_freq, <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -1309,801 +1312,801 @@ Attaching package: 'dplyr'</code></pre>
 <tr class="odd">
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">民眾</td>
-<td style="text-align: right;">1291</td>
+<td style="text-align: right;">1185</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1291</td>
+<td style="text-align: right;">1185</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">3</td>
 <td style="text-align: left;">多</td>
-<td style="text-align: right;">694</td>
+<td style="text-align: right;">638</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">694</td>
+<td style="text-align: right;">638</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">4</td>
 <td style="text-align: left;">網友</td>
-<td style="text-align: right;">656</td>
+<td style="text-align: right;">600</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">656</td>
+<td style="text-align: right;">600</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">5</td>
 <td style="text-align: left;">很多</td>
-<td style="text-align: right;">608</td>
+<td style="text-align: right;">571</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">608</td>
+<td style="text-align: right;">571</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">6</td>
 <td style="text-align: left;">異</td>
-<td style="text-align: right;">600</td>
+<td style="text-align: right;">546</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">600</td>
+<td style="text-align: right;">546</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">7</td>
-<td style="text-align: left;">問題</td>
-<td style="text-align: right;">588</td>
+<td style="text-align: left;">什麼</td>
+<td style="text-align: right;">538</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">588</td>
+<td style="text-align: right;">538</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">8</td>
-<td style="text-align: left;">什麼</td>
-<td style="text-align: right;">580</td>
+<td style="text-align: left;">問題</td>
+<td style="text-align: right;">532</td>
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">580</td>
+<td style="text-align: right;">532</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">10</td>
 <td style="text-align: left;">媒體</td>
-<td style="text-align: right;">550</td>
+<td style="text-align: right;">510</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">550</td>
+<td style="text-align: right;">510</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">11</td>
 <td style="text-align: left;">的</td>
-<td style="text-align: right;">533</td>
+<td style="text-align: right;">498</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">533</td>
+<td style="text-align: right;">498</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">12</td>
 <td style="text-align: left;">一名</td>
-<td style="text-align: right;">503</td>
+<td style="text-align: right;">460</td>
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">503</td>
+<td style="text-align: right;">460</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">14</td>
+<td style="text-align: left;">13</td>
 <td style="text-align: left;">任何</td>
-<td style="text-align: right;">476</td>
+<td style="text-align: right;">449</td>
 <td style="text-align: right;">11</td>
-<td style="text-align: right;">476</td>
+<td style="text-align: right;">449</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">15</td>
-<td style="text-align: left;">逃亡</td>
-<td style="text-align: right;">445</td>
+<td style="text-align: left;">可能</td>
+<td style="text-align: right;">416</td>
 <td style="text-align: right;">12</td>
-<td style="text-align: right;">445</td>
+<td style="text-align: right;">416</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">16</td>
-<td style="text-align: left;">可能</td>
-<td style="text-align: right;">437</td>
+<td style="text-align: left;">逃亡</td>
+<td style="text-align: right;">409</td>
 <td style="text-align: right;">13</td>
-<td style="text-align: right;">437</td>
+<td style="text-align: right;">409</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">17</td>
 <td style="text-align: left;">許多</td>
-<td style="text-align: right;">399</td>
+<td style="text-align: right;">372</td>
 <td style="text-align: right;">14</td>
-<td style="text-align: right;">399</td>
+<td style="text-align: right;">372</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">18</td>
 <td style="text-align: left;">機會</td>
-<td style="text-align: right;">395</td>
+<td style="text-align: right;">371</td>
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">395</td>
+<td style="text-align: right;">371</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">19</td>
 <td style="text-align: left;">一個</td>
-<td style="text-align: right;">338</td>
+<td style="text-align: right;">317</td>
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">338</td>
+<td style="text-align: right;">317</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">21</td>
-<td style="text-align: left;">信心</td>
-<td style="text-align: right;">298</td>
+<td style="text-align: left;">其他</td>
+<td style="text-align: right;">282</td>
 <td style="text-align: right;">17</td>
-<td style="text-align: right;">298</td>
+<td style="text-align: right;">282</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">22</td>
-<td style="text-align: left;">其他</td>
-<td style="text-align: right;">298</td>
+<td style="text-align: left;">信心</td>
+<td style="text-align: right;">272</td>
 <td style="text-align: right;">18</td>
-<td style="text-align: right;">298</td>
+<td style="text-align: right;">272</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">23</td>
-<td style="text-align: left;">在</td>
-<td style="text-align: right;">271</td>
+<td style="text-align: left;">一些</td>
+<td style="text-align: right;">248</td>
 <td style="text-align: right;">19</td>
-<td style="text-align: right;">271</td>
+<td style="text-align: right;">248</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">24</td>
-<td style="text-align: left;">更多</td>
-<td style="text-align: right;">264</td>
+<td style="text-align: left;">在</td>
+<td style="text-align: right;">248</td>
 <td style="text-align: right;">20</td>
-<td style="text-align: right;">264</td>
+<td style="text-align: right;">248</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">25</td>
-<td style="text-align: left;">一些</td>
-<td style="text-align: right;">262</td>
+<td style="text-align: left;">勾</td>
+<td style="text-align: right;">244</td>
 <td style="text-align: right;">21</td>
-<td style="text-align: right;">262</td>
+<td style="text-align: right;">244</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">26</td>
-<td style="text-align: left;">勾</td>
-<td style="text-align: right;">256</td>
+<td style="text-align: left;">更多</td>
+<td style="text-align: right;">242</td>
 <td style="text-align: right;">22</td>
-<td style="text-align: right;">256</td>
+<td style="text-align: right;">242</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">27</td>
 <td style="text-align: left;">相當</td>
-<td style="text-align: right;">249</td>
+<td style="text-align: right;">234</td>
 <td style="text-align: right;">23</td>
-<td style="text-align: right;">249</td>
+<td style="text-align: right;">234</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">28</td>
-<td style="text-align: left;">不少</td>
-<td style="text-align: right;">234</td>
+<td style="text-align: left;">需要</td>
+<td style="text-align: right;">216</td>
 <td style="text-align: right;">24</td>
-<td style="text-align: right;">234</td>
+<td style="text-align: right;">216</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">29</td>
-<td style="text-align: left;">需要</td>
-<td style="text-align: right;">228</td>
+<td style="text-align: left;">不少</td>
+<td style="text-align: right;">214</td>
 <td style="text-align: right;">25</td>
-<td style="text-align: right;">228</td>
+<td style="text-align: right;">214</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">30</td>
 <td style="text-align: left;">重</td>
-<td style="text-align: right;">223</td>
+<td style="text-align: right;">211</td>
 <td style="text-align: right;">26</td>
-<td style="text-align: right;">223</td>
+<td style="text-align: right;">211</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">31</td>
-<td style="text-align: left;">這樣</td>
-<td style="text-align: right;">222</td>
+<td style="text-align: left;">跟</td>
+<td style="text-align: right;">208</td>
 <td style="text-align: right;">27</td>
-<td style="text-align: right;">222</td>
+<td style="text-align: right;">208</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32</td>
-<td style="text-align: left;">跟</td>
-<td style="text-align: right;">222</td>
+<td style="text-align: left;">這樣</td>
+<td style="text-align: right;">206</td>
 <td style="text-align: right;">28</td>
-<td style="text-align: right;">222</td>
+<td style="text-align: right;">206</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">33</td>
+<td style="text-align: left;">34</td>
 <td style="text-align: left;">必要</td>
-<td style="text-align: right;">220</td>
+<td style="text-align: right;">199</td>
 <td style="text-align: right;">29</td>
-<td style="text-align: right;">220</td>
+<td style="text-align: right;">199</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">35</td>
 <td style="text-align: left;">時</td>
-<td style="text-align: right;">207</td>
+<td style="text-align: right;">190</td>
 <td style="text-align: right;">30</td>
-<td style="text-align: right;">207</td>
+<td style="text-align: right;">190</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">36</td>
 <td style="text-align: left;">不同</td>
-<td style="text-align: right;">200</td>
+<td style="text-align: right;">188</td>
 <td style="text-align: right;">31</td>
-<td style="text-align: right;">200</td>
+<td style="text-align: right;">188</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">37</td>
-<td style="text-align: left;">毒品</td>
-<td style="text-align: right;">198</td>
+<td style="text-align: left;">多少</td>
+<td style="text-align: right;">186</td>
 <td style="text-align: right;">32</td>
-<td style="text-align: right;">198</td>
+<td style="text-align: right;">186</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">38</td>
-<td style="text-align: left;">能力</td>
-<td style="text-align: right;">196</td>
+<td style="text-align: left;">毒品</td>
+<td style="text-align: right;">184</td>
 <td style="text-align: right;">33</td>
-<td style="text-align: right;">196</td>
+<td style="text-align: right;">184</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">39</td>
-<td style="text-align: left;">多少</td>
-<td style="text-align: right;">194</td>
+<td style="text-align: left;">這麼</td>
+<td style="text-align: right;">179</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">194</td>
+<td style="text-align: right;">179</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">40</td>
+<td style="text-align: left;">41</td>
 <td style="text-align: left;">違</td>
-<td style="text-align: right;">191</td>
+<td style="text-align: right;">176</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">191</td>
+<td style="text-align: right;">176</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">43</td>
-<td style="text-align: left;">這麼</td>
-<td style="text-align: right;">181</td>
+<td style="text-align: left;">能力</td>
+<td style="text-align: right;">170</td>
 <td style="text-align: right;">36</td>
-<td style="text-align: right;">181</td>
+<td style="text-align: right;">170</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">44</td>
 <td style="text-align: left;">非常</td>
-<td style="text-align: right;">181</td>
+<td style="text-align: right;">166</td>
 <td style="text-align: right;">37</td>
-<td style="text-align: right;">181</td>
+<td style="text-align: right;">166</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">45</td>
 <td style="text-align: left;">部分</td>
-<td style="text-align: right;">177</td>
+<td style="text-align: right;">164</td>
 <td style="text-align: right;">38</td>
-<td style="text-align: right;">177</td>
+<td style="text-align: right;">164</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">46</td>
 <td style="text-align: left;">羈押</td>
-<td style="text-align: right;">176</td>
+<td style="text-align: right;">161</td>
 <td style="text-align: right;">39</td>
-<td style="text-align: right;">176</td>
+<td style="text-align: right;">161</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">48</td>
+<td style="text-align: left;">47</td>
 <td style="text-align: left;">相關</td>
-<td style="text-align: right;">172</td>
+<td style="text-align: right;">158</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">172</td>
+<td style="text-align: right;">158</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">49</td>
+<td style="text-align: left;">48</td>
 <td style="text-align: left;">一定</td>
-<td style="text-align: right;">169</td>
+<td style="text-align: right;">157</td>
 <td style="text-align: right;">41</td>
-<td style="text-align: right;">169</td>
+<td style="text-align: right;">157</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">50</td>
 <td style="text-align: left;">明顯</td>
-<td style="text-align: right;">162</td>
+<td style="text-align: right;">154</td>
 <td style="text-align: right;">42</td>
-<td style="text-align: right;">162</td>
+<td style="text-align: right;">154</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">51</td>
 <td style="text-align: left;">共識</td>
-<td style="text-align: right;">156</td>
+<td style="text-align: right;">150</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">156</td>
+<td style="text-align: right;">150</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">53</td>
-<td style="text-align: left;">串</td>
-<td style="text-align: right;">153</td>
+<td style="text-align: left;">責任</td>
+<td style="text-align: right;">143</td>
 <td style="text-align: right;">44</td>
-<td style="text-align: right;">153</td>
+<td style="text-align: right;">143</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">54</td>
 <td style="text-align: left;">超過</td>
-<td style="text-align: right;">152</td>
+<td style="text-align: right;">141</td>
 <td style="text-align: right;">45</td>
-<td style="text-align: right;">152</td>
+<td style="text-align: right;">141</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">55</td>
-<td style="text-align: left;">被</td>
-<td style="text-align: right;">151</td>
+<td style="text-align: left;">重大</td>
+<td style="text-align: right;">137</td>
 <td style="text-align: right;">46</td>
-<td style="text-align: right;">151</td>
+<td style="text-align: right;">137</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">56</td>
-<td style="text-align: left;">責任</td>
-<td style="text-align: right;">149</td>
+<td style="text-align: left;">很大</td>
+<td style="text-align: right;">136</td>
 <td style="text-align: right;">47</td>
-<td style="text-align: right;">149</td>
+<td style="text-align: right;">136</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">57</td>
-<td style="text-align: left;">重大</td>
-<td style="text-align: right;">147</td>
+<td style="text-align: left;">被</td>
+<td style="text-align: right;">135</td>
 <td style="text-align: right;">48</td>
-<td style="text-align: right;">147</td>
+<td style="text-align: right;">135</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">58</td>
-<td style="text-align: left;">很大</td>
-<td style="text-align: right;">147</td>
+<td style="text-align: left;">串</td>
+<td style="text-align: right;">133</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">147</td>
+<td style="text-align: right;">133</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">59</td>
-<td style="text-align: left;">違反</td>
-<td style="text-align: right;">140</td>
+<td style="text-align: left;">更</td>
+<td style="text-align: right;">131</td>
 <td style="text-align: right;">50</td>
-<td style="text-align: right;">140</td>
+<td style="text-align: right;">131</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">60</td>
-<td style="text-align: left;">更</td>
-<td style="text-align: right;">139</td>
+<td style="text-align: left;">酒</td>
+<td style="text-align: right;">128</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">139</td>
+<td style="text-align: right;">128</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">61</td>
-<td style="text-align: left;">酒</td>
-<td style="text-align: right;">135</td>
+<td style="text-align: left;">意見</td>
+<td style="text-align: right;">126</td>
 <td style="text-align: right;">52</td>
-<td style="text-align: right;">135</td>
+<td style="text-align: right;">126</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">62</td>
-<td style="text-align: left;">看到</td>
-<td style="text-align: right;">135</td>
+<td style="text-align: left;">違反</td>
+<td style="text-align: right;">126</td>
 <td style="text-align: right;">53</td>
-<td style="text-align: right;">135</td>
+<td style="text-align: right;">126</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">63</td>
 <td style="text-align: left;">疑慮</td>
-<td style="text-align: right;">134</td>
+<td style="text-align: right;">122</td>
 <td style="text-align: right;">54</td>
-<td style="text-align: right;">134</td>
+<td style="text-align: right;">122</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">64</td>
-<td style="text-align: left;">意願</td>
-<td style="text-align: right;">132</td>
+<td style="text-align: left;">看到</td>
+<td style="text-align: right;">121</td>
 <td style="text-align: right;">55</td>
-<td style="text-align: right;">132</td>
+<td style="text-align: right;">121</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">65</td>
-<td style="text-align: left;">意見</td>
-<td style="text-align: right;">130</td>
+<td style="text-align: left;">自己</td>
+<td style="text-align: right;">119</td>
 <td style="text-align: right;">56</td>
-<td style="text-align: right;">130</td>
+<td style="text-align: right;">119</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">66</td>
-<td style="text-align: left;">對</td>
-<td style="text-align: right;">128</td>
+<td style="text-align: left;">意願</td>
+<td style="text-align: right;">119</td>
 <td style="text-align: right;">57</td>
-<td style="text-align: right;">128</td>
+<td style="text-align: right;">119</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">67</td>
-<td style="text-align: left;">興趣</td>
-<td style="text-align: right;">126</td>
+<td style="text-align: left;">爭議</td>
+<td style="text-align: right;">116</td>
 <td style="text-align: right;">58</td>
-<td style="text-align: right;">126</td>
+<td style="text-align: right;">116</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">68</td>
-<td style="text-align: left;">爭議</td>
-<td style="text-align: right;">124</td>
+<td style="text-align: left;">興趣</td>
+<td style="text-align: right;">115</td>
 <td style="text-align: right;">59</td>
-<td style="text-align: right;">124</td>
+<td style="text-align: right;">115</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">69</td>
-<td style="text-align: left;">自己</td>
-<td style="text-align: right;">124</td>
+<td style="text-align: left;">對</td>
+<td style="text-align: right;">115</td>
 <td style="text-align: right;">60</td>
-<td style="text-align: right;">124</td>
+<td style="text-align: right;">115</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">70</td>
 <td style="text-align: left;">發生</td>
-<td style="text-align: right;">122</td>
+<td style="text-align: right;">114</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">122</td>
+<td style="text-align: right;">114</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">71</td>
 <td style="text-align: left;">擦</td>
-<td style="text-align: right;">120</td>
+<td style="text-align: right;">110</td>
 <td style="text-align: right;">62</td>
-<td style="text-align: right;">120</td>
+<td style="text-align: right;">110</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">72</td>
-<td style="text-align: left;">大量</td>
-<td style="text-align: right;">115</td>
+<td style="text-align: left;">幫助</td>
+<td style="text-align: right;">108</td>
 <td style="text-align: right;">63</td>
-<td style="text-align: right;">115</td>
+<td style="text-align: right;">108</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">73</td>
-<td style="text-align: left;">糾紛</td>
-<td style="text-align: right;">111</td>
+<td style="text-align: left;">大量</td>
+<td style="text-align: right;">108</td>
 <td style="text-align: right;">64</td>
-<td style="text-align: right;">111</td>
+<td style="text-align: right;">108</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">74</td>
-<td style="text-align: left;">幫助</td>
-<td style="text-align: right;">111</td>
+<td style="text-align: left;">過</td>
+<td style="text-align: right;">100</td>
 <td style="text-align: right;">65</td>
-<td style="text-align: right;">111</td>
+<td style="text-align: right;">100</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">75</td>
-<td style="text-align: left;">一位</td>
-<td style="text-align: right;">111</td>
+<td style="text-align: left;">疏失</td>
+<td style="text-align: right;">100</td>
 <td style="text-align: right;">66</td>
-<td style="text-align: right;">111</td>
+<td style="text-align: right;">100</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">76</td>
-<td style="text-align: left;">過</td>
-<td style="text-align: right;">110</td>
+<td style="text-align: left;">一位</td>
+<td style="text-align: right;">100</td>
 <td style="text-align: right;">67</td>
-<td style="text-align: right;">110</td>
+<td style="text-align: right;">100</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">77</td>
-<td style="text-align: left;">向</td>
-<td style="text-align: right;">108</td>
+<td style="text-align: left;">糾紛</td>
+<td style="text-align: right;">99</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">108</td>
+<td style="text-align: right;">99</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">78</td>
-<td style="text-align: left;">疏失</td>
-<td style="text-align: right;">106</td>
+<td style="text-align: left;">向</td>
+<td style="text-align: right;">96</td>
 <td style="text-align: right;">69</td>
-<td style="text-align: right;">106</td>
+<td style="text-align: right;">96</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">79</td>
-<td style="text-align: left;">條件</td>
-<td style="text-align: right;">106</td>
+<td style="text-align: left;">異狀</td>
+<td style="text-align: right;">96</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">106</td>
+<td style="text-align: right;">96</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">80</td>
-<td style="text-align: left;">債務</td>
-<td style="text-align: right;">106</td>
+<td style="text-align: left;">高度</td>
+<td style="text-align: right;">94</td>
 <td style="text-align: right;">71</td>
-<td style="text-align: right;">106</td>
+<td style="text-align: right;">94</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">81</td>
 <td style="text-align: left;">事實</td>
-<td style="text-align: right;">104</td>
+<td style="text-align: right;">94</td>
 <td style="text-align: right;">72</td>
-<td style="text-align: right;">104</td>
+<td style="text-align: right;">94</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">82</td>
 <td style="text-align: left;">不</td>
-<td style="text-align: right;">103</td>
+<td style="text-align: right;">93</td>
 <td style="text-align: right;">73</td>
-<td style="text-align: right;">103</td>
+<td style="text-align: right;">93</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">83</td>
-<td style="text-align: left;">兩個</td>
-<td style="text-align: right;">102</td>
+<td style="text-align: left;">債務</td>
+<td style="text-align: right;">93</td>
 <td style="text-align: right;">74</td>
-<td style="text-align: right;">102</td>
+<td style="text-align: right;">93</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">84</td>
-<td style="text-align: left;">高度</td>
-<td style="text-align: right;">101</td>
+<td style="text-align: left;">違法</td>
+<td style="text-align: right;">92</td>
 <td style="text-align: right;">75</td>
-<td style="text-align: right;">101</td>
+<td style="text-align: right;">92</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">85</td>
-<td style="text-align: left;">異狀</td>
-<td style="text-align: right;">100</td>
+<td style="text-align: left;">條件</td>
+<td style="text-align: right;">91</td>
 <td style="text-align: right;">76</td>
-<td style="text-align: right;">100</td>
+<td style="text-align: right;">91</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">86</td>
-<td style="text-align: left;">違法</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: left;">兩個</td>
+<td style="text-align: right;">88</td>
 <td style="text-align: right;">77</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: right;">88</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">87</td>
 <td style="text-align: left;">據</td>
-<td style="text-align: right;">96</td>
+<td style="text-align: right;">88</td>
 <td style="text-align: right;">78</td>
-<td style="text-align: right;">96</td>
+<td style="text-align: right;">88</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">88</td>
 <td style="text-align: left;">多次</td>
-<td style="text-align: right;">94</td>
+<td style="text-align: right;">87</td>
 <td style="text-align: right;">79</td>
-<td style="text-align: right;">94</td>
+<td style="text-align: right;">87</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">89</td>
 <td style="text-align: left;">政治</td>
-<td style="text-align: right;">93</td>
+<td style="text-align: right;">86</td>
 <td style="text-align: right;">80</td>
-<td style="text-align: right;">93</td>
+<td style="text-align: right;">86</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">90</td>
 <td style="text-align: left;">性</td>
-<td style="text-align: right;">93</td>
+<td style="text-align: right;">86</td>
 <td style="text-align: right;">81</td>
-<td style="text-align: right;">93</td>
+<td style="text-align: right;">86</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">92</td>
+<td style="text-align: left;">93</td>
 <td style="text-align: left;">兩</td>
-<td style="text-align: right;">91</td>
+<td style="text-align: right;">83</td>
 <td style="text-align: right;">82</td>
-<td style="text-align: right;">91</td>
+<td style="text-align: right;">83</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">94</td>
-<td style="text-align: left;">做</td>
-<td style="text-align: right;">90</td>
+<td style="text-align: left;">高達</td>
+<td style="text-align: right;">81</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">90</td>
+<td style="text-align: right;">81</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">95</td>
-<td style="text-align: left;">高達</td>
-<td style="text-align: right;">89</td>
+<td style="text-align: left;">諸多</td>
+<td style="text-align: right;">81</td>
 <td style="text-align: right;">84</td>
-<td style="text-align: right;">89</td>
+<td style="text-align: right;">81</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">96</td>
-<td style="text-align: left;">男子</td>
-<td style="text-align: right;">89</td>
+<td style="text-align: left;">異常</td>
+<td style="text-align: right;">81</td>
 <td style="text-align: right;">85</td>
-<td style="text-align: right;">89</td>
+<td style="text-align: right;">81</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">97</td>
-<td style="text-align: left;">諸多</td>
-<td style="text-align: right;">88</td>
+<td style="text-align: left;">瑕疵</td>
+<td style="text-align: right;">80</td>
 <td style="text-align: right;">86</td>
-<td style="text-align: right;">88</td>
+<td style="text-align: right;">80</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">98</td>
-<td style="text-align: left;">異常</td>
-<td style="text-align: right;">86</td>
+<td style="text-align: left;">大</td>
+<td style="text-align: right;">80</td>
 <td style="text-align: right;">87</td>
-<td style="text-align: right;">86</td>
+<td style="text-align: right;">80</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">99</td>
-<td style="text-align: left;">瑕疵</td>
-<td style="text-align: right;">86</td>
+<td style="text-align: left;">男子</td>
+<td style="text-align: right;">80</td>
 <td style="text-align: right;">88</td>
-<td style="text-align: right;">86</td>
+<td style="text-align: right;">80</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">100</td>
-<td style="text-align: left;">大</td>
-<td style="text-align: right;">86</td>
+<td style="text-align: left;">哪些</td>
+<td style="text-align: right;">79</td>
 <td style="text-align: right;">89</td>
-<td style="text-align: right;">86</td>
+<td style="text-align: right;">79</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">101</td>
-<td style="text-align: left;">過失</td>
-<td style="text-align: right;">86</td>
+<td style="text-align: left;">幾個</td>
+<td style="text-align: right;">79</td>
 <td style="text-align: right;">90</td>
-<td style="text-align: right;">86</td>
+<td style="text-align: right;">79</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">102</td>
-<td style="text-align: left;">哪些</td>
-<td style="text-align: right;">85</td>
+<td style="text-align: left;">做</td>
+<td style="text-align: right;">78</td>
 <td style="text-align: right;">91</td>
-<td style="text-align: right;">85</td>
+<td style="text-align: right;">78</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">103</td>
 <td style="text-align: left;">別</td>
-<td style="text-align: right;">85</td>
+<td style="text-align: right;">78</td>
 <td style="text-align: right;">92</td>
-<td style="text-align: right;">85</td>
+<td style="text-align: right;">78</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">104</td>
-<td style="text-align: left;">幾個</td>
-<td style="text-align: right;">84</td>
+<td style="text-align: left;">一輛</td>
+<td style="text-align: right;">78</td>
 <td style="text-align: right;">93</td>
-<td style="text-align: right;">84</td>
+<td style="text-align: right;">78</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">105</td>
-<td style="text-align: left;">可能是</td>
-<td style="text-align: right;">84</td>
+<td style="text-align: left;">這種</td>
+<td style="text-align: right;">76</td>
 <td style="text-align: right;">94</td>
-<td style="text-align: right;">84</td>
+<td style="text-align: right;">76</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">106</td>
-<td style="text-align: left;">與</td>
-<td style="text-align: right;">83</td>
+<td style="text-align: left;">好感</td>
+<td style="text-align: right;">76</td>
 <td style="text-align: right;">95</td>
-<td style="text-align: right;">83</td>
+<td style="text-align: right;">76</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">107</td>
 <td style="text-align: left;">車輛</td>
-<td style="text-align: right;">82</td>
+<td style="text-align: right;">74</td>
 <td style="text-align: right;">96</td>
-<td style="text-align: right;">82</td>
+<td style="text-align: right;">74</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">109</td>
-<td style="text-align: left;">去</td>
-<td style="text-align: right;">81</td>
+<td style="text-align: left;">可能是</td>
+<td style="text-align: right;">73</td>
 <td style="text-align: right;">97</td>
-<td style="text-align: right;">81</td>
+<td style="text-align: right;">73</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">110</td>
-<td style="text-align: left;">一輛</td>
-<td style="text-align: right;">81</td>
+<td style="text-align: left;">與</td>
+<td style="text-align: right;">73</td>
 <td style="text-align: right;">98</td>
-<td style="text-align: right;">81</td>
+<td style="text-align: right;">73</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">111</td>
-<td style="text-align: left;">這種</td>
-<td style="text-align: right;">80</td>
+<td style="text-align: left;">去</td>
+<td style="text-align: right;">72</td>
 <td style="text-align: right;">99</td>
-<td style="text-align: right;">80</td>
+<td style="text-align: right;">72</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">112</td>
-<td style="text-align: left;">藍</td>
-<td style="text-align: right;">78</td>
+<td style="text-align: left;">關於</td>
+<td style="text-align: right;">71</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">78</td>
+<td style="text-align: right;">71</td>
 <td style="text-align: left;">all</td>
 </tr>
 </tbody>
@@ -2122,8 +2125,8 @@ Attaching package: 'dplyr'</code></pre>
 <div id="tabset-4-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-5-tab">
 <p>Finally, we save our hard work.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(kwic_data, <span class="st">"ArticleETToday_KWIC_You.xlsx"</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(kwic_data, <span class="at">file =</span> <span class="st">"ArticleETToday_KWIC_You.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(kwic_data, <span class="st">"ArticleETToday_KWIC_You.xlsx"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(kwic_data, <span class="at">file =</span> <span class="st">"ArticleETToday_KWIC_You.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p><strong>write.xlsx</strong>: Exports the dataframe to an Excel file for manual inspection.</p></li>
@@ -2140,14 +2143,17 @@ Attaching package: 'dplyr'</code></pre>
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>Now, let’s look at the frequency of words across the entire corpus, not just around a keyword.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Article_tokens_frequency <span class="ot">&lt;-</span> <span class="fu">dfm</span>(</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tokens</span>(Article_total2<span class="sc">$</span>body,</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>Article_tokens_frequency <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(Article_tokens_frequency)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>table_AllWordsFreq_Top100 <span class="ot">&lt;-</span> <span class="fu">head</span>(Article_tokens_frequency, <span class="dv">100</span>) </span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_AllWordsFreq_Top100)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Article_tokens_frequency <span class="ot">&lt;-</span> <span class="fu">dfm</span>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tokens</span>(Article_total2<span class="sc">$</span>body,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: NA is replaced by empty string</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>Article_tokens_frequency <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(Article_tokens_frequency)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>table_AllWordsFreq_Top100 <span class="ot">&lt;-</span> <span class="fu">head</span>(Article_tokens_frequency, <span class="dv">100</span>) </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_AllWordsFreq_Top100)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -2162,702 +2168,702 @@ Attaching package: 'dplyr'</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">的</td>
-<td style="text-align: right;">357709</td>
+<td style="text-align: right;">331207</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">159298</td>
+<td style="text-align: right;">147617</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">在</td>
-<td style="text-align: right;">116544</td>
+<td style="text-align: right;">107577</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">88581</td>
+<td style="text-align: right;">81744</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">日</td>
-<td style="text-align: right;">84106</td>
+<td style="text-align: right;">77555</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">66187</td>
+<td style="text-align: right;">61006</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">後</td>
-<td style="text-align: right;">71392</td>
+<td style="text-align: right;">65680</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">57501</td>
+<td style="text-align: right;">52896</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">人</td>
-<td style="text-align: right;">69084</td>
+<td style="text-align: right;">63907</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">49761</td>
+<td style="text-align: right;">46046</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">時</td>
-<td style="text-align: right;">67573</td>
+<td style="text-align: right;">62236</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">53558</td>
+<td style="text-align: right;">49322</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">有</td>
-<td style="text-align: right;">65657</td>
+<td style="text-align: right;">60632</td>
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">53298</td>
+<td style="text-align: right;">49210</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">男</td>
-<td style="text-align: right;">63140</td>
+<td style="text-align: right;">57920</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">32390</td>
+<td style="text-align: right;">29735</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">與</td>
-<td style="text-align: right;">61733</td>
+<td style="text-align: right;">56807</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">49197</td>
+<td style="text-align: right;">45256</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">是</td>
-<td style="text-align: right;">59999</td>
+<td style="text-align: right;">55608</td>
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">48402</td>
+<td style="text-align: right;">44784</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">也</td>
-<td style="text-align: right;">59965</td>
+<td style="text-align: right;">55313</td>
 <td style="text-align: right;">11</td>
-<td style="text-align: right;">51054</td>
+<td style="text-align: right;">47102</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">及</td>
-<td style="text-align: right;">49873</td>
+<td style="text-align: left;">表示</td>
+<td style="text-align: right;">46033</td>
 <td style="text-align: right;">12</td>
-<td style="text-align: right;">38094</td>
+<td style="text-align: right;">43763</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">表示</td>
-<td style="text-align: right;">49840</td>
+<td style="text-align: left;">及</td>
+<td style="text-align: right;">45859</td>
 <td style="text-align: right;">13</td>
-<td style="text-align: right;">47384</td>
+<td style="text-align: right;">35042</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">年</td>
-<td style="text-align: right;">48807</td>
+<td style="text-align: right;">44938</td>
 <td style="text-align: right;">14</td>
-<td style="text-align: right;">33965</td>
+<td style="text-align: right;">31286</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">但</td>
-<td style="text-align: right;">47947</td>
+<td style="text-align: right;">44295</td>
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">43097</td>
+<td style="text-align: right;">39790</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">他</td>
-<td style="text-align: right;">47910</td>
+<td style="text-align: right;">44267</td>
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">34208</td>
+<td style="text-align: right;">31584</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">將</td>
-<td style="text-align: right;">45675</td>
+<td style="text-align: right;">42053</td>
 <td style="text-align: right;">17</td>
-<td style="text-align: right;">39070</td>
+<td style="text-align: right;">35976</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">等</td>
-<td style="text-align: right;">44905</td>
+<td style="text-align: right;">41220</td>
 <td style="text-align: right;">18</td>
-<td style="text-align: right;">36914</td>
+<td style="text-align: right;">33891</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">被</td>
-<td style="text-align: right;">44599</td>
+<td style="text-align: right;">41107</td>
 <td style="text-align: right;">19</td>
-<td style="text-align: right;">36588</td>
+<td style="text-align: right;">33712</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">到</td>
-<td style="text-align: right;">44505</td>
+<td style="text-align: right;">41064</td>
 <td style="text-align: right;">20</td>
-<td style="text-align: right;">38318</td>
+<td style="text-align: right;">35349</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2</td>
-<td style="text-align: right;">43707</td>
+<td style="text-align: right;">40207</td>
 <td style="text-align: right;">21</td>
-<td style="text-align: right;">34342</td>
+<td style="text-align: right;">31637</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">月</td>
-<td style="text-align: right;">43394</td>
+<td style="text-align: right;">39960</td>
 <td style="text-align: right;">22</td>
-<td style="text-align: right;">32669</td>
+<td style="text-align: right;">30045</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">姓</td>
-<td style="text-align: right;">42361</td>
+<td style="text-align: right;">38630</td>
 <td style="text-align: right;">23</td>
-<td style="text-align: right;">28582</td>
+<td style="text-align: right;">26134</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">對</td>
-<td style="text-align: right;">41664</td>
+<td style="text-align: right;">38600</td>
 <td style="text-align: right;">24</td>
-<td style="text-align: right;">35874</td>
+<td style="text-align: right;">33196</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">陳</td>
-<td style="text-align: right;">41052</td>
+<td style="text-align: right;">38121</td>
 <td style="text-align: right;">25</td>
-<td style="text-align: right;">26393</td>
+<td style="text-align: right;">24578</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">民眾</td>
-<td style="text-align: right;">40981</td>
+<td style="text-align: right;">37834</td>
 <td style="text-align: right;">26</td>
-<td style="text-align: right;">29991</td>
+<td style="text-align: right;">27678</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">要</td>
-<td style="text-align: right;">39541</td>
+<td style="text-align: right;">36505</td>
 <td style="text-align: right;">27</td>
-<td style="text-align: right;">31461</td>
+<td style="text-align: right;">29027</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">並</td>
-<td style="text-align: right;">38658</td>
+<td style="text-align: right;">35416</td>
 <td style="text-align: right;">28</td>
-<td style="text-align: right;">34703</td>
+<td style="text-align: right;">31817</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">台灣</td>
-<td style="text-align: right;">38028</td>
+<td style="text-align: right;">34984</td>
 <td style="text-align: right;">29</td>
-<td style="text-align: right;">24641</td>
+<td style="text-align: right;">22696</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">案</td>
-<td style="text-align: right;">36770</td>
+<td style="text-align: right;">33819</td>
 <td style="text-align: right;">30</td>
-<td style="text-align: right;">29132</td>
+<td style="text-align: right;">26786</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: right;">36107</td>
+<td style="text-align: right;">33345</td>
 <td style="text-align: right;">31</td>
-<td style="text-align: right;">28584</td>
+<td style="text-align: right;">26410</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">為</td>
-<td style="text-align: right;">35360</td>
+<td style="text-align: right;">32587</td>
 <td style="text-align: right;">32</td>
-<td style="text-align: right;">30056</td>
+<td style="text-align: right;">27701</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">警方</td>
-<td style="text-align: right;">35205</td>
+<td style="text-align: right;">32243</td>
 <td style="text-align: right;">33</td>
-<td style="text-align: right;">26808</td>
+<td style="text-align: right;">24591</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">中</td>
-<td style="text-align: right;">34824</td>
+<td style="text-align: right;">32154</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">30380</td>
+<td style="text-align: right;">28069</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: right;">34319</td>
+<td style="text-align: right;">31936</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">28447</td>
+<td style="text-align: right;">26490</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">說</td>
-<td style="text-align: right;">33596</td>
+<td style="text-align: right;">31131</td>
 <td style="text-align: right;">36</td>
-<td style="text-align: right;">29140</td>
+<td style="text-align: right;">26991</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">柯</td>
-<td style="text-align: right;">33164</td>
+<td style="text-align: right;">30622</td>
 <td style="text-align: right;">37</td>
-<td style="text-align: right;">18553</td>
+<td style="text-align: right;">17147</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">文</td>
-<td style="text-align: right;">32255</td>
+<td style="text-align: right;">29759</td>
 <td style="text-align: right;">38</td>
-<td style="text-align: right;">21397</td>
+<td style="text-align: right;">19721</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">以</td>
-<td style="text-align: right;">32162</td>
+<td style="text-align: right;">29672</td>
 <td style="text-align: right;">39</td>
-<td style="text-align: right;">28049</td>
+<td style="text-align: right;">25857</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">黃</td>
-<td style="text-align: right;">31311</td>
+<td style="text-align: right;">29062</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">20937</td>
+<td style="text-align: right;">19425</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">上</td>
-<td style="text-align: right;">31281</td>
+<td style="text-align: right;">28925</td>
 <td style="text-align: right;">41</td>
-<td style="text-align: right;">27774</td>
+<td style="text-align: right;">25678</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">不</td>
-<td style="text-align: right;">30456</td>
+<td style="text-align: right;">28092</td>
 <td style="text-align: right;">42</td>
-<td style="text-align: right;">26271</td>
+<td style="text-align: right;">24251</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">民進黨</td>
-<td style="text-align: right;">29648</td>
+<td style="text-align: left;">就</td>
+<td style="text-align: right;">27433</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">20912</td>
+<td style="text-align: right;">23915</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">就</td>
-<td style="text-align: right;">29633</td>
+<td style="text-align: left;">民進黨</td>
+<td style="text-align: right;">27398</td>
 <td style="text-align: right;">44</td>
-<td style="text-align: right;">25843</td>
+<td style="text-align: right;">19359</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">林</td>
-<td style="text-align: right;">29426</td>
+<td style="text-align: right;">27130</td>
 <td style="text-align: right;">45</td>
-<td style="text-align: right;">19296</td>
+<td style="text-align: right;">17841</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">之</td>
-<td style="text-align: right;">29209</td>
+<td style="text-align: right;">27009</td>
 <td style="text-align: right;">46</td>
-<td style="text-align: right;">18968</td>
+<td style="text-align: right;">17496</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">女</td>
-<td style="text-align: right;">29041</td>
+<td style="text-align: right;">26495</td>
 <td style="text-align: right;">47</td>
-<td style="text-align: right;">16593</td>
+<td style="text-align: right;">15206</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">車</td>
-<td style="text-align: right;">28849</td>
+<td style="text-align: right;">26464</td>
 <td style="text-align: right;">48</td>
-<td style="text-align: right;">18869</td>
+<td style="text-align: right;">17320</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">歲</td>
-<td style="text-align: right;">27927</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">19862</td>
-<td style="text-align: left;">all</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">讓</td>
-<td style="text-align: right;">27838</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">24172</td>
-<td style="text-align: left;">all</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">名</td>
-<td style="text-align: right;">27598</td>
-<td style="text-align: right;">51</td>
+<td style="text-align: right;">25693</td>
+<td style="text-align: right;">49</td>
 <td style="text-align: right;">22325</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">歲</td>
+<td style="text-align: right;">25626</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">18233</td>
+<td style="text-align: left;">all</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">名</td>
+<td style="text-align: right;">25496</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">20612</td>
+<td style="text-align: left;">all</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">於</td>
-<td style="text-align: right;">27440</td>
+<td style="text-align: right;">25193</td>
 <td style="text-align: right;">52</td>
-<td style="text-align: right;">23486</td>
+<td style="text-align: right;">21519</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">而</td>
-<td style="text-align: right;">27073</td>
+<td style="text-align: right;">24978</td>
 <td style="text-align: right;">53</td>
-<td style="text-align: right;">25039</td>
+<td style="text-align: right;">23099</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">她</td>
-<td style="text-align: right;">26964</td>
+<td style="text-align: right;">24891</td>
 <td style="text-align: right;">54</td>
-<td style="text-align: right;">17524</td>
+<td style="text-align: right;">16176</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">會</td>
-<td style="text-align: right;">26866</td>
+<td style="text-align: right;">24823</td>
 <td style="text-align: right;">55</td>
-<td style="text-align: right;">22316</td>
+<td style="text-align: right;">20633</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">發生</td>
-<td style="text-align: right;">26700</td>
+<td style="text-align: right;">24533</td>
 <td style="text-align: right;">56</td>
-<td style="text-align: right;">23129</td>
+<td style="text-align: right;">21245</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">了</td>
-<td style="text-align: right;">25947</td>
+<td style="text-align: right;">24033</td>
 <td style="text-align: right;">57</td>
-<td style="text-align: right;">21844</td>
+<td style="text-align: right;">20208</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">前</td>
-<td style="text-align: right;">25547</td>
+<td style="text-align: right;">23544</td>
 <td style="text-align: right;">58</td>
-<td style="text-align: right;">22155</td>
+<td style="text-align: right;">20388</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">大</td>
-<td style="text-align: right;">25397</td>
+<td style="text-align: right;">23471</td>
 <td style="text-align: right;">59</td>
-<td style="text-align: right;">21497</td>
+<td style="text-align: right;">19862</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">國民黨</td>
-<td style="text-align: right;">25126</td>
+<td style="text-align: right;">23212</td>
 <td style="text-align: right;">60</td>
-<td style="text-align: right;">17804</td>
+<td style="text-align: right;">16452</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">檢</td>
-<td style="text-align: right;">24367</td>
+<td style="text-align: right;">22411</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">18605</td>
+<td style="text-align: right;">17125</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">發現</td>
-<td style="text-align: right;">23872</td>
+<td style="text-align: left;">賴</td>
+<td style="text-align: right;">21995</td>
 <td style="text-align: right;">62</td>
-<td style="text-align: right;">20970</td>
+<td style="text-align: right;">14910</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">賴</td>
-<td style="text-align: right;">23781</td>
+<td style="text-align: left;">發現</td>
+<td style="text-align: right;">21899</td>
 <td style="text-align: right;">63</td>
-<td style="text-align: right;">16125</td>
+<td style="text-align: right;">19233</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">立委</td>
-<td style="text-align: right;">23697</td>
+<td style="text-align: right;">21804</td>
 <td style="text-align: right;">64</td>
-<td style="text-align: right;">17483</td>
+<td style="text-align: right;">16124</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">因</td>
-<td style="text-align: right;">23330</td>
+<td style="text-align: right;">21403</td>
 <td style="text-align: right;">65</td>
-<td style="text-align: right;">21330</td>
+<td style="text-align: right;">19582</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">已</td>
-<td style="text-align: right;">23243</td>
+<td style="text-align: right;">21402</td>
 <td style="text-align: right;">66</td>
-<td style="text-align: right;">21044</td>
+<td style="text-align: right;">19403</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">調查</td>
-<td style="text-align: right;">23167</td>
+<td style="text-align: left;">都</td>
+<td style="text-align: right;">21343</td>
 <td style="text-align: right;">67</td>
-<td style="text-align: right;">19220</td>
+<td style="text-align: right;">18829</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">都</td>
-<td style="text-align: right;">23092</td>
+<td style="text-align: left;">調查</td>
+<td style="text-align: right;">21342</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">20346</td>
+<td style="text-align: right;">17664</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">指出</td>
-<td style="text-align: right;">23045</td>
+<td style="text-align: right;">21292</td>
 <td style="text-align: right;">69</td>
-<td style="text-align: right;">22728</td>
+<td style="text-align: right;">21002</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
-<td style="text-align: right;">22781</td>
+<td style="text-align: right;">21039</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">19855</td>
+<td style="text-align: right;">18355</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">哲</td>
-<td style="text-align: right;">22453</td>
+<td style="text-align: left;">自己</td>
+<td style="text-align: right;">20806</td>
 <td style="text-align: right;">71</td>
-<td style="text-align: right;">14297</td>
+<td style="text-align: right;">17641</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">自己</td>
-<td style="text-align: right;">22438</td>
+<td style="text-align: left;">哲</td>
+<td style="text-align: right;">20775</td>
 <td style="text-align: right;">72</td>
-<td style="text-align: right;">19022</td>
+<td style="text-align: right;">13218</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">沒有</td>
-<td style="text-align: right;">21977</td>
+<td style="text-align: right;">20256</td>
 <td style="text-align: right;">73</td>
-<td style="text-align: right;">19189</td>
+<td style="text-align: right;">17697</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">和</td>
-<td style="text-align: right;">21507</td>
+<td style="text-align: right;">19800</td>
 <td style="text-align: right;">74</td>
-<td style="text-align: right;">17793</td>
+<td style="text-align: right;">16407</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5</td>
-<td style="text-align: right;">21402</td>
+<td style="text-align: right;">19785</td>
 <td style="text-align: right;">75</td>
-<td style="text-align: right;">18870</td>
+<td style="text-align: right;">17428</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">跟</td>
-<td style="text-align: right;">21213</td>
+<td style="text-align: right;">19685</td>
 <td style="text-align: right;">76</td>
-<td style="text-align: right;">17565</td>
+<td style="text-align: right;">16293</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">男子</td>
-<td style="text-align: right;">20713</td>
-<td style="text-align: right;">77</td>
-<td style="text-align: right;">15449</td>
-<td style="text-align: left;">all</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">我</td>
-<td style="text-align: right;">20494</td>
-<td style="text-align: right;">78</td>
-<td style="text-align: right;">13075</td>
-<td style="text-align: left;">all</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">依</td>
-<td style="text-align: right;">20250</td>
-<td style="text-align: right;">79</td>
-<td style="text-align: right;">18416</td>
+<td style="text-align: right;">19030</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">12093</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">多</td>
-<td style="text-align: right;">20149</td>
-<td style="text-align: right;">80</td>
-<td style="text-align: right;">17965</td>
+<td style="text-align: left;">男子</td>
+<td style="text-align: right;">19029</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">14195</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">這</td>
-<td style="text-align: right;">20140</td>
+<td style="text-align: right;">18672</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">16858</td>
+<td style="text-align: left;">all</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">依</td>
+<td style="text-align: right;">18611</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">16924</td>
+<td style="text-align: left;">all</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">多</td>
+<td style="text-align: right;">18585</td>
 <td style="text-align: right;">81</td>
-<td style="text-align: right;">18193</td>
+<td style="text-align: right;">16557</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">黨</td>
-<td style="text-align: right;">19999</td>
+<td style="text-align: right;">18566</td>
 <td style="text-align: right;">82</td>
-<td style="text-align: right;">13527</td>
+<td style="text-align: right;">12522</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">萬元</td>
-<td style="text-align: right;">19934</td>
+<td style="text-align: left;">遭</td>
+<td style="text-align: right;">18256</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">14724</td>
+<td style="text-align: right;">16074</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">遭</td>
-<td style="text-align: right;">19778</td>
+<td style="text-align: left;">萬元</td>
+<td style="text-align: right;">18251</td>
 <td style="text-align: right;">84</td>
-<td style="text-align: right;">17403</td>
+<td style="text-align: right;">13513</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">分</td>
-<td style="text-align: right;">19477</td>
+<td style="text-align: right;">17904</td>
 <td style="text-align: right;">85</td>
-<td style="text-align: right;">16186</td>
+<td style="text-align: right;">14853</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">小</td>
-<td style="text-align: right;">19266</td>
-<td style="text-align: right;">86</td>
-<td style="text-align: right;">12596</td>
-<td style="text-align: left;">all</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">今</td>
-<td style="text-align: right;">19204</td>
-<td style="text-align: right;">87</td>
-<td style="text-align: right;">18762</td>
-<td style="text-align: left;">all</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">德</td>
-<td style="text-align: right;">19140</td>
-<td style="text-align: right;">88</td>
-<td style="text-align: right;">14233</td>
+<td style="text-align: right;">17778</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">17363</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">德</td>
+<td style="text-align: right;">17623</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">13095</td>
+<td style="text-align: left;">all</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">該</td>
-<td style="text-align: right;">19098</td>
+<td style="text-align: right;">17585</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">14905</td>
+<td style="text-align: left;">all</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">小</td>
+<td style="text-align: right;">17578</td>
 <td style="text-align: right;">89</td>
-<td style="text-align: right;">16180</td>
+<td style="text-align: right;">11525</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">李</td>
-<td style="text-align: right;">18916</td>
+<td style="text-align: right;">17439</td>
 <td style="text-align: right;">90</td>
-<td style="text-align: right;">12213</td>
-<td style="text-align: left;">all</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">人員</td>
-<td style="text-align: right;">18698</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: right;">14908</td>
-<td style="text-align: left;">all</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">向</td>
-<td style="text-align: right;">18625</td>
-<td style="text-align: right;">92</td>
-<td style="text-align: right;">17039</td>
-<td style="text-align: left;">all</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">許</td>
-<td style="text-align: right;">18586</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">15277</td>
-<td style="text-align: left;">all</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">10</td>
-<td style="text-align: right;">18579</td>
-<td style="text-align: right;">94</td>
-<td style="text-align: right;">16677</td>
+<td style="text-align: right;">11278</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">長</td>
-<td style="text-align: right;">18579</td>
-<td style="text-align: right;">94</td>
-<td style="text-align: right;">15239</td>
+<td style="text-align: right;">17228</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">14130</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">或</td>
-<td style="text-align: right;">18303</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: right;">14481</td>
+<td style="text-align: left;">人員</td>
+<td style="text-align: right;">17152</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">13694</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">6</td>
-<td style="text-align: right;">18281</td>
-<td style="text-align: right;">97</td>
-<td style="text-align: right;">15998</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">17129</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">15361</td>
+<td style="text-align: left;">all</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">向</td>
+<td style="text-align: right;">17119</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">15676</td>
+<td style="text-align: left;">all</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">許</td>
+<td style="text-align: right;">17038</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">14050</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">政府</td>
-<td style="text-align: right;">18281</td>
-<td style="text-align: right;">97</td>
-<td style="text-align: right;">14640</td>
+<td style="text-align: right;">16919</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">13538</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">清</td>
-<td style="text-align: right;">17969</td>
+<td style="text-align: left;">或</td>
+<td style="text-align: right;">16901</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">13360</td>
+<td style="text-align: left;">all</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">16831</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">14695</td>
+<td style="text-align: left;">all</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">國</td>
+<td style="text-align: right;">16618</td>
 <td style="text-align: right;">99</td>
-<td style="text-align: right;">13651</td>
+<td style="text-align: right;">12638</td>
 <td style="text-align: left;">all</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">相關</td>
-<td style="text-align: right;">17961</td>
+<td style="text-align: right;">16546</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">16032</td>
+<td style="text-align: right;">14753</td>
 <td style="text-align: left;">all</td>
 </tr>
 </tbody>
@@ -2874,11 +2880,11 @@ Attaching package: 'dplyr'</code></pre>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <p>We often find “noise” in the data, like numbers, which we want to filter out.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example with numbers</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> Article_tokens_frequency[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"[[:digit:]]"</span>, Article_tokens_frequency<span class="sc">$</span>feature),]</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Redo the ranking</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>table_FreqWord<span class="sc">$</span>rank <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(table_FreqWord<span class="sc">$</span>rank)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example with numbers</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>table_FreqWord <span class="ot">&lt;-</span> Article_tokens_frequency[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">"[[:digit:]]"</span>, Article_tokens_frequency<span class="sc">$</span>feature),]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Redo the ranking</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>table_FreqWord<span class="sc">$</span>rank <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(table_FreqWord<span class="sc">$</span>rank)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p><strong>grep(“[[:digit:]]”, …)</strong>: Similar to before, we search for any features (words) containing numbers and remove them from the list.</p></li>
@@ -2888,10 +2894,10 @@ Attaching package: 'dplyr'</code></pre>
 <div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
 <p>Frequencies are good, but percentages help us understand the relative importance of a word.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>table_FreqWord_Top100 <span class="ot">&lt;-</span> <span class="fu">head</span>(table_FreqWord, <span class="dv">100</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>table_FreqWord_Top100<span class="sc">$</span>percentage <span class="ot">&lt;-</span> <span class="fu">round</span>(table_FreqWord_Top100<span class="sc">$</span>frequency<span class="sc">/</span><span class="fu">sum</span>(table_FreqWord<span class="sc">$</span>frequency)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">5</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_FreqWord_Top100)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>table_FreqWord_Top100 <span class="ot">&lt;-</span> <span class="fu">head</span>(table_FreqWord, <span class="dv">100</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>table_FreqWord_Top100<span class="sc">$</span>percentage <span class="ot">&lt;-</span> <span class="fu">round</span>(table_FreqWord_Top100<span class="sc">$</span>frequency<span class="sc">/</span><span class="fu">sum</span>(table_FreqWord<span class="sc">$</span>frequency)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">5</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_FreqWord_Top100)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -2909,902 +2915,902 @@ Attaching package: 'dplyr'</code></pre>
 <tr class="odd">
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">的</td>
-<td style="text-align: right;">357709</td>
+<td style="text-align: right;">331207</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">159298</td>
+<td style="text-align: right;">147617</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">2.37874</td>
+<td style="text-align: right;">2.38602</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">在</td>
-<td style="text-align: right;">116544</td>
+<td style="text-align: right;">107577</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">88581</td>
+<td style="text-align: right;">81744</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.77501</td>
+<td style="text-align: right;">0.77499</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
 <td style="text-align: left;">日</td>
-<td style="text-align: right;">84106</td>
+<td style="text-align: right;">77555</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">66187</td>
+<td style="text-align: right;">61006</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.55930</td>
+<td style="text-align: right;">0.55871</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
 <td style="text-align: left;">後</td>
-<td style="text-align: right;">71392</td>
+<td style="text-align: right;">65680</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">57501</td>
+<td style="text-align: right;">52896</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.47475</td>
+<td style="text-align: right;">0.47316</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5</td>
 <td style="text-align: left;">人</td>
-<td style="text-align: right;">69084</td>
+<td style="text-align: right;">63907</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">49761</td>
+<td style="text-align: right;">46046</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.45940</td>
+<td style="text-align: right;">0.46039</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">6</td>
 <td style="text-align: left;">時</td>
-<td style="text-align: right;">67573</td>
+<td style="text-align: right;">62236</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">53558</td>
+<td style="text-align: right;">49322</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.44936</td>
+<td style="text-align: right;">0.44835</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">7</td>
 <td style="text-align: left;">有</td>
-<td style="text-align: right;">65657</td>
+<td style="text-align: right;">60632</td>
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">53298</td>
+<td style="text-align: right;">49210</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.43661</td>
+<td style="text-align: right;">0.43679</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">8</td>
 <td style="text-align: left;">男</td>
-<td style="text-align: right;">63140</td>
+<td style="text-align: right;">57920</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">32390</td>
+<td style="text-align: right;">29735</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.41988</td>
+<td style="text-align: right;">0.41726</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">9</td>
 <td style="text-align: left;">與</td>
-<td style="text-align: right;">61733</td>
+<td style="text-align: right;">56807</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">49197</td>
+<td style="text-align: right;">45256</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.41052</td>
+<td style="text-align: right;">0.40924</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">10</td>
 <td style="text-align: left;">是</td>
-<td style="text-align: right;">59999</td>
+<td style="text-align: right;">55608</td>
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">48402</td>
+<td style="text-align: right;">44784</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.39899</td>
+<td style="text-align: right;">0.40060</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">11</td>
 <td style="text-align: left;">也</td>
-<td style="text-align: right;">59965</td>
+<td style="text-align: right;">55313</td>
 <td style="text-align: right;">11</td>
-<td style="text-align: right;">51054</td>
+<td style="text-align: right;">47102</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.39876</td>
+<td style="text-align: right;">0.39848</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">12</td>
-<td style="text-align: left;">及</td>
-<td style="text-align: right;">49873</td>
+<td style="text-align: left;">表示</td>
+<td style="text-align: right;">46033</td>
 <td style="text-align: right;">12</td>
-<td style="text-align: right;">38094</td>
+<td style="text-align: right;">43763</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.33165</td>
+<td style="text-align: right;">0.33162</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">13</td>
-<td style="text-align: left;">表示</td>
-<td style="text-align: right;">49840</td>
+<td style="text-align: left;">及</td>
+<td style="text-align: right;">45859</td>
 <td style="text-align: right;">13</td>
-<td style="text-align: right;">47384</td>
+<td style="text-align: right;">35042</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.33143</td>
+<td style="text-align: right;">0.33037</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">14</td>
 <td style="text-align: left;">年</td>
-<td style="text-align: right;">48807</td>
+<td style="text-align: right;">44938</td>
 <td style="text-align: right;">14</td>
-<td style="text-align: right;">33965</td>
+<td style="text-align: right;">31286</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.32456</td>
+<td style="text-align: right;">0.32373</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">15</td>
 <td style="text-align: left;">但</td>
-<td style="text-align: right;">47947</td>
+<td style="text-align: right;">44295</td>
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">43097</td>
+<td style="text-align: right;">39790</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.31884</td>
+<td style="text-align: right;">0.31910</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">16</td>
 <td style="text-align: left;">他</td>
-<td style="text-align: right;">47910</td>
+<td style="text-align: right;">44267</td>
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">34208</td>
+<td style="text-align: right;">31584</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.31860</td>
+<td style="text-align: right;">0.31890</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">17</td>
 <td style="text-align: left;">將</td>
-<td style="text-align: right;">45675</td>
+<td style="text-align: right;">42053</td>
 <td style="text-align: right;">17</td>
-<td style="text-align: right;">39070</td>
+<td style="text-align: right;">35976</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.30374</td>
+<td style="text-align: right;">0.30295</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">18</td>
 <td style="text-align: left;">等</td>
-<td style="text-align: right;">44905</td>
+<td style="text-align: right;">41220</td>
 <td style="text-align: right;">18</td>
-<td style="text-align: right;">36914</td>
+<td style="text-align: right;">33891</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.29862</td>
+<td style="text-align: right;">0.29695</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">19</td>
 <td style="text-align: left;">被</td>
-<td style="text-align: right;">44599</td>
+<td style="text-align: right;">41107</td>
 <td style="text-align: right;">19</td>
-<td style="text-align: right;">36588</td>
+<td style="text-align: right;">33712</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.29658</td>
+<td style="text-align: right;">0.29614</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">20</td>
 <td style="text-align: left;">到</td>
-<td style="text-align: right;">44505</td>
+<td style="text-align: right;">41064</td>
 <td style="text-align: right;">20</td>
-<td style="text-align: right;">38318</td>
+<td style="text-align: right;">35349</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.29596</td>
+<td style="text-align: right;">0.29583</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">22</td>
 <td style="text-align: left;">月</td>
-<td style="text-align: right;">43394</td>
+<td style="text-align: right;">39960</td>
 <td style="text-align: right;">21</td>
-<td style="text-align: right;">32669</td>
+<td style="text-align: right;">30045</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.28857</td>
+<td style="text-align: right;">0.28787</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">23</td>
 <td style="text-align: left;">姓</td>
-<td style="text-align: right;">42361</td>
+<td style="text-align: right;">38630</td>
 <td style="text-align: right;">22</td>
-<td style="text-align: right;">28582</td>
+<td style="text-align: right;">26134</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.28170</td>
+<td style="text-align: right;">0.27829</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">24</td>
 <td style="text-align: left;">對</td>
-<td style="text-align: right;">41664</td>
+<td style="text-align: right;">38600</td>
 <td style="text-align: right;">23</td>
-<td style="text-align: right;">35874</td>
+<td style="text-align: right;">33196</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.27706</td>
+<td style="text-align: right;">0.27807</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">25</td>
 <td style="text-align: left;">陳</td>
-<td style="text-align: right;">41052</td>
+<td style="text-align: right;">38121</td>
 <td style="text-align: right;">24</td>
-<td style="text-align: right;">26393</td>
+<td style="text-align: right;">24578</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.27299</td>
+<td style="text-align: right;">0.27462</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">26</td>
 <td style="text-align: left;">民眾</td>
-<td style="text-align: right;">40981</td>
+<td style="text-align: right;">37834</td>
 <td style="text-align: right;">25</td>
-<td style="text-align: right;">29991</td>
+<td style="text-align: right;">27678</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.27252</td>
+<td style="text-align: right;">0.27256</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">27</td>
 <td style="text-align: left;">要</td>
-<td style="text-align: right;">39541</td>
+<td style="text-align: right;">36505</td>
 <td style="text-align: right;">26</td>
-<td style="text-align: right;">31461</td>
+<td style="text-align: right;">29027</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.26295</td>
+<td style="text-align: right;">0.26298</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">28</td>
 <td style="text-align: left;">並</td>
-<td style="text-align: right;">38658</td>
+<td style="text-align: right;">35416</td>
 <td style="text-align: right;">27</td>
-<td style="text-align: right;">34703</td>
+<td style="text-align: right;">31817</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.25707</td>
+<td style="text-align: right;">0.25514</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">29</td>
 <td style="text-align: left;">台灣</td>
-<td style="text-align: right;">38028</td>
+<td style="text-align: right;">34984</td>
 <td style="text-align: right;">28</td>
-<td style="text-align: right;">24641</td>
+<td style="text-align: right;">22696</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.25288</td>
+<td style="text-align: right;">0.25203</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">30</td>
 <td style="text-align: left;">案</td>
-<td style="text-align: right;">36770</td>
+<td style="text-align: right;">33819</td>
 <td style="text-align: right;">29</td>
-<td style="text-align: right;">29132</td>
+<td style="text-align: right;">26786</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.24452</td>
+<td style="text-align: right;">0.24363</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32</td>
 <td style="text-align: left;">為</td>
-<td style="text-align: right;">35360</td>
+<td style="text-align: right;">32587</td>
 <td style="text-align: right;">30</td>
-<td style="text-align: right;">30056</td>
+<td style="text-align: right;">27701</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.23514</td>
+<td style="text-align: right;">0.23476</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">33</td>
 <td style="text-align: left;">警方</td>
-<td style="text-align: right;">35205</td>
+<td style="text-align: right;">32243</td>
 <td style="text-align: right;">31</td>
-<td style="text-align: right;">26808</td>
+<td style="text-align: right;">24591</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.23411</td>
+<td style="text-align: right;">0.23228</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">34</td>
 <td style="text-align: left;">中</td>
-<td style="text-align: right;">34824</td>
+<td style="text-align: right;">32154</td>
 <td style="text-align: right;">32</td>
-<td style="text-align: right;">30380</td>
+<td style="text-align: right;">28069</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.23158</td>
+<td style="text-align: right;">0.23164</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">36</td>
 <td style="text-align: left;">說</td>
-<td style="text-align: right;">33596</td>
+<td style="text-align: right;">31131</td>
 <td style="text-align: right;">33</td>
-<td style="text-align: right;">29140</td>
+<td style="text-align: right;">26991</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.22341</td>
+<td style="text-align: right;">0.22427</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">37</td>
 <td style="text-align: left;">柯</td>
-<td style="text-align: right;">33164</td>
+<td style="text-align: right;">30622</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">18553</td>
+<td style="text-align: right;">17147</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.22054</td>
+<td style="text-align: right;">0.22060</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">38</td>
 <td style="text-align: left;">文</td>
-<td style="text-align: right;">32255</td>
+<td style="text-align: right;">29759</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">21397</td>
+<td style="text-align: right;">19721</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.21449</td>
+<td style="text-align: right;">0.21438</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">39</td>
 <td style="text-align: left;">以</td>
-<td style="text-align: right;">32162</td>
+<td style="text-align: right;">29672</td>
 <td style="text-align: right;">36</td>
-<td style="text-align: right;">28049</td>
+<td style="text-align: right;">25857</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.21388</td>
+<td style="text-align: right;">0.21376</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">40</td>
 <td style="text-align: left;">黃</td>
-<td style="text-align: right;">31311</td>
+<td style="text-align: right;">29062</td>
 <td style="text-align: right;">37</td>
-<td style="text-align: right;">20937</td>
+<td style="text-align: right;">19425</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.20822</td>
+<td style="text-align: right;">0.20936</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">41</td>
 <td style="text-align: left;">上</td>
-<td style="text-align: right;">31281</td>
+<td style="text-align: right;">28925</td>
 <td style="text-align: right;">38</td>
-<td style="text-align: right;">27774</td>
+<td style="text-align: right;">25678</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.20802</td>
+<td style="text-align: right;">0.20838</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">42</td>
 <td style="text-align: left;">不</td>
-<td style="text-align: right;">30456</td>
+<td style="text-align: right;">28092</td>
 <td style="text-align: right;">39</td>
-<td style="text-align: right;">26271</td>
+<td style="text-align: right;">24251</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.20253</td>
+<td style="text-align: right;">0.20238</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">43</td>
-<td style="text-align: left;">民進黨</td>
-<td style="text-align: right;">29648</td>
+<td style="text-align: left;">就</td>
+<td style="text-align: right;">27433</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">20912</td>
+<td style="text-align: right;">23915</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.19716</td>
+<td style="text-align: right;">0.19763</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">44</td>
-<td style="text-align: left;">就</td>
-<td style="text-align: right;">29633</td>
+<td style="text-align: left;">民進黨</td>
+<td style="text-align: right;">27398</td>
 <td style="text-align: right;">41</td>
-<td style="text-align: right;">25843</td>
+<td style="text-align: right;">19359</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.19706</td>
+<td style="text-align: right;">0.19738</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">45</td>
 <td style="text-align: left;">林</td>
-<td style="text-align: right;">29426</td>
+<td style="text-align: right;">27130</td>
 <td style="text-align: right;">42</td>
-<td style="text-align: right;">19296</td>
+<td style="text-align: right;">17841</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.19568</td>
+<td style="text-align: right;">0.19544</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">46</td>
 <td style="text-align: left;">之</td>
-<td style="text-align: right;">29209</td>
+<td style="text-align: right;">27009</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">18968</td>
+<td style="text-align: right;">17496</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.19424</td>
+<td style="text-align: right;">0.19457</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">47</td>
 <td style="text-align: left;">女</td>
-<td style="text-align: right;">29041</td>
+<td style="text-align: right;">26495</td>
 <td style="text-align: right;">44</td>
-<td style="text-align: right;">16593</td>
+<td style="text-align: right;">15206</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.19312</td>
+<td style="text-align: right;">0.19087</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">48</td>
 <td style="text-align: left;">車</td>
-<td style="text-align: right;">28849</td>
+<td style="text-align: right;">26464</td>
 <td style="text-align: right;">45</td>
-<td style="text-align: right;">18869</td>
+<td style="text-align: right;">17320</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.19184</td>
+<td style="text-align: right;">0.19065</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">49</td>
-<td style="text-align: left;">歲</td>
-<td style="text-align: right;">27927</td>
+<td style="text-align: left;">讓</td>
+<td style="text-align: right;">25693</td>
 <td style="text-align: right;">46</td>
-<td style="text-align: right;">19862</td>
+<td style="text-align: right;">22325</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.18571</td>
+<td style="text-align: right;">0.18509</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">50</td>
-<td style="text-align: left;">讓</td>
-<td style="text-align: right;">27838</td>
+<td style="text-align: left;">歲</td>
+<td style="text-align: right;">25626</td>
 <td style="text-align: right;">47</td>
-<td style="text-align: right;">24172</td>
+<td style="text-align: right;">18233</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.18512</td>
+<td style="text-align: right;">0.18461</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">51</td>
 <td style="text-align: left;">名</td>
-<td style="text-align: right;">27598</td>
+<td style="text-align: right;">25496</td>
 <td style="text-align: right;">48</td>
-<td style="text-align: right;">22325</td>
+<td style="text-align: right;">20612</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.18352</td>
+<td style="text-align: right;">0.18367</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">52</td>
 <td style="text-align: left;">於</td>
-<td style="text-align: right;">27440</td>
+<td style="text-align: right;">25193</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">23486</td>
+<td style="text-align: right;">21519</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.18247</td>
+<td style="text-align: right;">0.18149</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">53</td>
 <td style="text-align: left;">而</td>
-<td style="text-align: right;">27073</td>
+<td style="text-align: right;">24978</td>
 <td style="text-align: right;">50</td>
-<td style="text-align: right;">25039</td>
+<td style="text-align: right;">23099</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.18003</td>
+<td style="text-align: right;">0.17994</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">54</td>
 <td style="text-align: left;">她</td>
-<td style="text-align: right;">26964</td>
+<td style="text-align: right;">24891</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">17524</td>
+<td style="text-align: right;">16176</td>
 <td style="text-align: left;">all</td>
 <td style="text-align: right;">0.17931</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">55</td>
 <td style="text-align: left;">會</td>
-<td style="text-align: right;">26866</td>
+<td style="text-align: right;">24823</td>
 <td style="text-align: right;">52</td>
-<td style="text-align: right;">22316</td>
+<td style="text-align: right;">20633</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.17866</td>
+<td style="text-align: right;">0.17883</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">56</td>
 <td style="text-align: left;">發生</td>
-<td style="text-align: right;">26700</td>
+<td style="text-align: right;">24533</td>
 <td style="text-align: right;">53</td>
-<td style="text-align: right;">23129</td>
+<td style="text-align: right;">21245</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.17755</td>
+<td style="text-align: right;">0.17674</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">57</td>
 <td style="text-align: left;">了</td>
-<td style="text-align: right;">25947</td>
+<td style="text-align: right;">24033</td>
 <td style="text-align: right;">54</td>
-<td style="text-align: right;">21844</td>
+<td style="text-align: right;">20208</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.17255</td>
+<td style="text-align: right;">0.17313</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">58</td>
 <td style="text-align: left;">前</td>
-<td style="text-align: right;">25547</td>
+<td style="text-align: right;">23544</td>
 <td style="text-align: right;">55</td>
-<td style="text-align: right;">22155</td>
+<td style="text-align: right;">20388</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.16989</td>
+<td style="text-align: right;">0.16961</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">59</td>
 <td style="text-align: left;">大</td>
-<td style="text-align: right;">25397</td>
+<td style="text-align: right;">23471</td>
 <td style="text-align: right;">56</td>
-<td style="text-align: right;">21497</td>
+<td style="text-align: right;">19862</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.16889</td>
+<td style="text-align: right;">0.16909</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">60</td>
 <td style="text-align: left;">國民黨</td>
-<td style="text-align: right;">25126</td>
+<td style="text-align: right;">23212</td>
 <td style="text-align: right;">57</td>
-<td style="text-align: right;">17804</td>
+<td style="text-align: right;">16452</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.16709</td>
+<td style="text-align: right;">0.16722</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">61</td>
 <td style="text-align: left;">檢</td>
-<td style="text-align: right;">24367</td>
+<td style="text-align: right;">22411</td>
 <td style="text-align: right;">58</td>
-<td style="text-align: right;">18605</td>
+<td style="text-align: right;">17125</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.16204</td>
+<td style="text-align: right;">0.16145</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">62</td>
-<td style="text-align: left;">發現</td>
-<td style="text-align: right;">23872</td>
+<td style="text-align: left;">賴</td>
+<td style="text-align: right;">21995</td>
 <td style="text-align: right;">59</td>
-<td style="text-align: right;">20970</td>
+<td style="text-align: right;">14910</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.15875</td>
+<td style="text-align: right;">0.15845</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">63</td>
-<td style="text-align: left;">賴</td>
-<td style="text-align: right;">23781</td>
+<td style="text-align: left;">發現</td>
+<td style="text-align: right;">21899</td>
 <td style="text-align: right;">60</td>
-<td style="text-align: right;">16125</td>
+<td style="text-align: right;">19233</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.15814</td>
+<td style="text-align: right;">0.15776</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">64</td>
 <td style="text-align: left;">立委</td>
-<td style="text-align: right;">23697</td>
+<td style="text-align: right;">21804</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">17483</td>
+<td style="text-align: right;">16124</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.15758</td>
+<td style="text-align: right;">0.15708</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">65</td>
 <td style="text-align: left;">因</td>
-<td style="text-align: right;">23330</td>
+<td style="text-align: right;">21403</td>
 <td style="text-align: right;">62</td>
-<td style="text-align: right;">21330</td>
+<td style="text-align: right;">19582</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.15514</td>
+<td style="text-align: right;">0.15419</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">66</td>
 <td style="text-align: left;">已</td>
-<td style="text-align: right;">23243</td>
+<td style="text-align: right;">21402</td>
 <td style="text-align: right;">63</td>
-<td style="text-align: right;">21044</td>
+<td style="text-align: right;">19403</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.15456</td>
+<td style="text-align: right;">0.15418</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">67</td>
-<td style="text-align: left;">調查</td>
-<td style="text-align: right;">23167</td>
+<td style="text-align: left;">都</td>
+<td style="text-align: right;">21343</td>
 <td style="text-align: right;">64</td>
-<td style="text-align: right;">19220</td>
+<td style="text-align: right;">18829</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.15406</td>
+<td style="text-align: right;">0.15376</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">68</td>
-<td style="text-align: left;">都</td>
-<td style="text-align: right;">23092</td>
+<td style="text-align: left;">調查</td>
+<td style="text-align: right;">21342</td>
 <td style="text-align: right;">65</td>
-<td style="text-align: right;">20346</td>
+<td style="text-align: right;">17664</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.15356</td>
+<td style="text-align: right;">0.15375</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">69</td>
 <td style="text-align: left;">指出</td>
-<td style="text-align: right;">23045</td>
+<td style="text-align: right;">21292</td>
 <td style="text-align: right;">66</td>
-<td style="text-align: right;">22728</td>
+<td style="text-align: right;">21002</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.15325</td>
+<td style="text-align: right;">0.15339</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">71</td>
-<td style="text-align: left;">哲</td>
-<td style="text-align: right;">22453</td>
+<td style="text-align: left;">自己</td>
+<td style="text-align: right;">20806</td>
 <td style="text-align: right;">67</td>
-<td style="text-align: right;">14297</td>
+<td style="text-align: right;">17641</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.14931</td>
+<td style="text-align: right;">0.14989</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">72</td>
-<td style="text-align: left;">自己</td>
-<td style="text-align: right;">22438</td>
+<td style="text-align: left;">哲</td>
+<td style="text-align: right;">20775</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">19022</td>
+<td style="text-align: right;">13218</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.14921</td>
+<td style="text-align: right;">0.14966</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">73</td>
 <td style="text-align: left;">沒有</td>
-<td style="text-align: right;">21977</td>
+<td style="text-align: right;">20256</td>
 <td style="text-align: right;">69</td>
-<td style="text-align: right;">19189</td>
+<td style="text-align: right;">17697</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.14615</td>
+<td style="text-align: right;">0.14592</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">74</td>
 <td style="text-align: left;">和</td>
-<td style="text-align: right;">21507</td>
+<td style="text-align: right;">19800</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">17793</td>
+<td style="text-align: right;">16407</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.14302</td>
+<td style="text-align: right;">0.14264</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">76</td>
 <td style="text-align: left;">跟</td>
-<td style="text-align: right;">21213</td>
+<td style="text-align: right;">19685</td>
 <td style="text-align: right;">71</td>
-<td style="text-align: right;">17565</td>
+<td style="text-align: right;">16293</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.14107</td>
+<td style="text-align: right;">0.14181</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">77</td>
-<td style="text-align: left;">男子</td>
-<td style="text-align: right;">20713</td>
+<td style="text-align: left;">我</td>
+<td style="text-align: right;">19030</td>
 <td style="text-align: right;">72</td>
-<td style="text-align: right;">15449</td>
+<td style="text-align: right;">12093</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.13774</td>
+<td style="text-align: right;">0.13709</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">78</td>
-<td style="text-align: left;">我</td>
-<td style="text-align: right;">20494</td>
+<td style="text-align: left;">男子</td>
+<td style="text-align: right;">19029</td>
 <td style="text-align: right;">73</td>
-<td style="text-align: right;">13075</td>
+<td style="text-align: right;">14195</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.13628</td>
+<td style="text-align: right;">0.13709</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">79</td>
-<td style="text-align: left;">依</td>
-<td style="text-align: right;">20250</td>
+<td style="text-align: left;">這</td>
+<td style="text-align: right;">18672</td>
 <td style="text-align: right;">74</td>
-<td style="text-align: right;">18416</td>
+<td style="text-align: right;">16858</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.13466</td>
+<td style="text-align: right;">0.13451</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">80</td>
-<td style="text-align: left;">多</td>
-<td style="text-align: right;">20149</td>
+<td style="text-align: left;">依</td>
+<td style="text-align: right;">18611</td>
 <td style="text-align: right;">75</td>
-<td style="text-align: right;">17965</td>
+<td style="text-align: right;">16924</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.13399</td>
+<td style="text-align: right;">0.13407</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">81</td>
-<td style="text-align: left;">這</td>
-<td style="text-align: right;">20140</td>
+<td style="text-align: left;">多</td>
+<td style="text-align: right;">18585</td>
 <td style="text-align: right;">76</td>
-<td style="text-align: right;">18193</td>
+<td style="text-align: right;">16557</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.13393</td>
+<td style="text-align: right;">0.13389</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">82</td>
 <td style="text-align: left;">黨</td>
-<td style="text-align: right;">19999</td>
+<td style="text-align: right;">18566</td>
 <td style="text-align: right;">77</td>
-<td style="text-align: right;">13527</td>
+<td style="text-align: right;">12522</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.13299</td>
+<td style="text-align: right;">0.13375</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">83</td>
-<td style="text-align: left;">萬元</td>
-<td style="text-align: right;">19934</td>
+<td style="text-align: left;">遭</td>
+<td style="text-align: right;">18256</td>
 <td style="text-align: right;">78</td>
-<td style="text-align: right;">14724</td>
+<td style="text-align: right;">16074</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.13256</td>
+<td style="text-align: right;">0.13152</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">84</td>
-<td style="text-align: left;">遭</td>
-<td style="text-align: right;">19778</td>
+<td style="text-align: left;">萬元</td>
+<td style="text-align: right;">18251</td>
 <td style="text-align: right;">79</td>
-<td style="text-align: right;">17403</td>
+<td style="text-align: right;">13513</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.13152</td>
+<td style="text-align: right;">0.13148</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">85</td>
 <td style="text-align: left;">分</td>
-<td style="text-align: right;">19477</td>
+<td style="text-align: right;">17904</td>
 <td style="text-align: right;">80</td>
-<td style="text-align: right;">16186</td>
+<td style="text-align: right;">14853</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12952</td>
+<td style="text-align: right;">0.12898</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">86</td>
-<td style="text-align: left;">小</td>
-<td style="text-align: right;">19266</td>
+<td style="text-align: left;">今</td>
+<td style="text-align: right;">17778</td>
 <td style="text-align: right;">81</td>
-<td style="text-align: right;">12596</td>
+<td style="text-align: right;">17363</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12812</td>
+<td style="text-align: right;">0.12807</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">87</td>
-<td style="text-align: left;">今</td>
-<td style="text-align: right;">19204</td>
+<td style="text-align: left;">德</td>
+<td style="text-align: right;">17623</td>
 <td style="text-align: right;">82</td>
-<td style="text-align: right;">18762</td>
+<td style="text-align: right;">13095</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12771</td>
+<td style="text-align: right;">0.12696</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">88</td>
-<td style="text-align: left;">德</td>
-<td style="text-align: right;">19140</td>
+<td style="text-align: left;">該</td>
+<td style="text-align: right;">17585</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">14233</td>
+<td style="text-align: right;">14905</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12728</td>
+<td style="text-align: right;">0.12668</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">89</td>
-<td style="text-align: left;">該</td>
-<td style="text-align: right;">19098</td>
+<td style="text-align: left;">小</td>
+<td style="text-align: right;">17578</td>
 <td style="text-align: right;">84</td>
-<td style="text-align: right;">16180</td>
+<td style="text-align: right;">11525</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12700</td>
+<td style="text-align: right;">0.12663</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">90</td>
 <td style="text-align: left;">李</td>
-<td style="text-align: right;">18916</td>
+<td style="text-align: right;">17439</td>
 <td style="text-align: right;">85</td>
-<td style="text-align: right;">12213</td>
+<td style="text-align: right;">11278</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12579</td>
+<td style="text-align: right;">0.12563</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">91</td>
-<td style="text-align: left;">人員</td>
-<td style="text-align: right;">18698</td>
+<td style="text-align: left;">長</td>
+<td style="text-align: right;">17228</td>
 <td style="text-align: right;">86</td>
-<td style="text-align: right;">14908</td>
+<td style="text-align: right;">14130</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12434</td>
+<td style="text-align: right;">0.12411</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">92</td>
-<td style="text-align: left;">向</td>
-<td style="text-align: right;">18625</td>
+<td style="text-align: left;">人員</td>
+<td style="text-align: right;">17152</td>
 <td style="text-align: right;">87</td>
-<td style="text-align: right;">17039</td>
+<td style="text-align: right;">13694</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12386</td>
+<td style="text-align: right;">0.12356</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">93</td>
-<td style="text-align: left;">許</td>
-<td style="text-align: right;">18586</td>
+<td style="text-align: left;">94</td>
+<td style="text-align: left;">向</td>
+<td style="text-align: right;">17119</td>
 <td style="text-align: right;">88</td>
-<td style="text-align: right;">15277</td>
+<td style="text-align: right;">15676</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12360</td>
+<td style="text-align: right;">0.12333</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">95</td>
-<td style="text-align: left;">長</td>
-<td style="text-align: right;">18579</td>
+<td style="text-align: left;">許</td>
+<td style="text-align: right;">17038</td>
 <td style="text-align: right;">89</td>
-<td style="text-align: right;">15239</td>
+<td style="text-align: right;">14050</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12355</td>
+<td style="text-align: right;">0.12274</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">96</td>
-<td style="text-align: left;">或</td>
-<td style="text-align: right;">18303</td>
+<td style="text-align: left;">政府</td>
+<td style="text-align: right;">16919</td>
 <td style="text-align: right;">90</td>
-<td style="text-align: right;">14481</td>
+<td style="text-align: right;">13538</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12171</td>
+<td style="text-align: right;">0.12188</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">98</td>
-<td style="text-align: left;">政府</td>
-<td style="text-align: right;">18281</td>
+<td style="text-align: left;">97</td>
+<td style="text-align: left;">或</td>
+<td style="text-align: right;">16901</td>
 <td style="text-align: right;">91</td>
-<td style="text-align: right;">14640</td>
+<td style="text-align: right;">13360</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.12157</td>
+<td style="text-align: right;">0.12175</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">99</td>
-<td style="text-align: left;">清</td>
-<td style="text-align: right;">17969</td>
+<td style="text-align: left;">國</td>
+<td style="text-align: right;">16618</td>
 <td style="text-align: right;">92</td>
-<td style="text-align: right;">13651</td>
+<td style="text-align: right;">12638</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.11949</td>
+<td style="text-align: right;">0.11972</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">100</td>
 <td style="text-align: left;">相關</td>
-<td style="text-align: right;">17961</td>
+<td style="text-align: right;">16546</td>
 <td style="text-align: right;">93</td>
-<td style="text-align: right;">16032</td>
+<td style="text-align: right;">14753</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.11944</td>
+<td style="text-align: right;">0.11920</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">101</td>
-<td style="text-align: left;">國</td>
-<td style="text-align: right;">17914</td>
+<td style="text-align: left;">清</td>
+<td style="text-align: right;">16542</td>
 <td style="text-align: right;">94</td>
-<td style="text-align: right;">13623</td>
+<td style="text-align: right;">12559</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.11913</td>
+<td style="text-align: right;">0.11917</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">102</td>
 <td style="text-align: left;">處</td>
-<td style="text-align: right;">17898</td>
+<td style="text-align: right;">16483</td>
 <td style="text-align: right;">95</td>
-<td style="text-align: right;">15036</td>
+<td style="text-align: right;">13851</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.11902</td>
+<td style="text-align: right;">0.11874</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">103</td>
 <td style="text-align: left;">警</td>
-<td style="text-align: right;">17804</td>
+<td style="text-align: right;">16421</td>
 <td style="text-align: right;">96</td>
-<td style="text-align: right;">15484</td>
+<td style="text-align: right;">14289</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.11840</td>
+<td style="text-align: right;">0.11830</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">104</td>
 <td style="text-align: left;">總統</td>
-<td style="text-align: right;">17774</td>
+<td style="text-align: right;">16407</td>
 <td style="text-align: right;">97</td>
-<td style="text-align: right;">13169</td>
+<td style="text-align: right;">12165</td>
 <td style="text-align: left;">all</td>
 <td style="text-align: right;">0.11820</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">105</td>
 <td style="text-align: left;">吳</td>
-<td style="text-align: right;">17680</td>
+<td style="text-align: right;">16320</td>
 <td style="text-align: right;">98</td>
-<td style="text-align: right;">12860</td>
+<td style="text-align: right;">11886</td>
 <td style="text-align: left;">all</td>
 <td style="text-align: right;">0.11757</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">107</td>
 <td style="text-align: left;">張</td>
-<td style="text-align: right;">17594</td>
+<td style="text-align: right;">16154</td>
 <td style="text-align: right;">99</td>
-<td style="text-align: right;">11644</td>
+<td style="text-align: right;">10703</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.11700</td>
+<td style="text-align: right;">0.11637</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">108</td>
 <td style="text-align: left;">進行</td>
-<td style="text-align: right;">17570</td>
+<td style="text-align: right;">16143</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">15739</td>
+<td style="text-align: right;">14466</td>
 <td style="text-align: left;">all</td>
-<td style="text-align: right;">0.11684</td>
+<td style="text-align: right;">0.11629</td>
 </tr>
 </tbody>
 </table>
@@ -3821,8 +3827,8 @@ Attaching package: 'dplyr'</code></pre>
 <section id="save-the-data-r-1" class="level4">
 <h4 class="anchored" data-anchor-id="save-the-data-r-1">Save the data R</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(table_FreqWord_Top100, <span class="st">"ArticleETToday_Top100nouns.xlsx"</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(table_FreqWord_Top100, <span class="at">file =</span> <span class="st">"ArticleETToday_Top100nouns.Rdata"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(table_FreqWord_Top100, <span class="st">"ArticleETToday_Top100nouns.xlsx"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(table_FreqWord_Top100, <span class="at">file =</span> <span class="st">"ArticleETToday_Top100nouns.Rdata"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p><strong>write.xlsx</strong>: Saves the top 100 words table to Excel.</p></li>
