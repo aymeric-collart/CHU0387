@@ -384,16 +384,37 @@ digraph cleaning_workflow {
 ## How are we going to work in this class?
 
 ::: {.fragment .fade-up}
-Please download the script for this week:
 
-::: {style="text-align: center; margin-top: 1.5em; margin-bottom: 1.5em;"}
-<a href="https://github.com/aymeric-collart/CHU0387/blob/main/assets/files/_Internal/ETToday_Cleaning.Rmd" 
-   target="_blank" 
-   style="display: inline-block; padding: 14px 28px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;">
-   📥 Download the R Markdown script (ETToday_Cleaning.Rmd)
+Please download the script and the dataset for this week, and place them in your `PreprocessingAnalysesR` folder.
+
+::: {style="text-align: center; margin-top: 2em;"}
+
+<a href="assets/files/_Internal/ETToday_Cleaning.Rmd" 
+   download="ETToday_Scrape.Rmd" 
+   style="display: inline-block; padding: 15px 30px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;">
+   📥 Download the R Markdown script
 </a>
+
 :::
+
+::: {style="text-align: center; margin-top: 2em;"}
+
+<a href="assets/files/_Internal/ArticleETToday_CorpusCourse.Rdata" 
+   download="ETToday_Scrape.Rmd" 
+   style="display: inline-block; padding: 15px 30px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;">
+   📥 Download the dataset (ETtoday 2024 politics and society corpus)
+</a>
+
 :::
+
+:::
+
+::: {.fragment .fade-up}
+<br>
+💻 Please start `RStudio` and select the project called `PreprocessingAnalysesR`.
+:::
+
+
 
 ## Step 0: Prepare the environment
 
@@ -602,8 +623,8 @@ Filter out empty strings (`""`) and paragraphs made only of spaces (`" "` up to 
 test <- Article_total2[(Article_total2$body == ""), ]
 Article_total2 <- Article_total2[!(Article_total2$body == ""), ]
 
-## 2. Single space (spotted on line 29)
-Article_total2$body[29] 
+## 2. Single space (spotted on line 7)
+Article_total2$body[7] 
 test <- Article_total2[(Article_total2$body == " "), ]
 Article_total2 <- Article_total2[!(Article_total2$body == " "), ]
 
@@ -621,24 +642,24 @@ What if a row looks empty during visual inspection, but `" "` doesn't catch it?
 👉 **Extract the unknown character directly by its row number, test it, and remove all matches!**
 
 ```{r, echo=TRUE, eval=FALSE}
-## Visual inspection: Line 29 is still empty! Extract the exact symbol:
-ToRemove <- Article_total2$body[29] 
+## Visual inspection: Line 7 is still empty! Extract the exact symbol:
+ToRemove <- Article_total2$body[7] 
 test <- Article_total2[(Article_total2$body == ToRemove), ]
 Article_total2 <- Article_total2[!(Article_total2$body == ToRemove), ]
 
 ## Repeat the exact same trick for other stubborn empty rows spotted visually:
 # Row 13974
-ToRemove <- Article_total2$body[13974] 
+ToRemove <- Article_total2$body[2373] 
 Article_total2 <- Article_total2[!(Article_total2$body == ToRemove), ]
 
-# Row 8368, Row 67, and Row 15279
-ToRemove <- Article_total2$body[8368] 
+# Row 965, Row 16121, and Row 23912
+ToRemove <- Article_total2$body[965] 
 Article_total2 <- Article_total2[!(Article_total2$body == ToRemove), ]
 
-ToRemove <- Article_total2$body[67] 
+ToRemove <- Article_total2$body[16121] 
 Article_total2 <- Article_total2[!(Article_total2$body == ToRemove), ]
 
-ToRemove <- Article_total2$body[15279] 
+ToRemove <- Article_total2$body[23912] 
 Article_total2 <- Article_total2[!(Article_total2$body == ToRemove), ]
 ```
 
